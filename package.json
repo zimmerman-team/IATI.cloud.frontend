@@ -2,6 +2,12 @@
   "name": "oipa-query-builder",
   "version": "0.1.0",
   "private": true,
+  "description": "OIPA query builder, developed by Zimmerman & Zimmerman",
+  "homepage": "https://www.zimmermanzimmerman.nl/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zimmerman-zimmerman/oipa-query-builder/oipa-query-builder.git"
+  },
   "dependencies": {
     "@devhammed/use-cookie": "^1.0.3",
     "@material-ui/core": "^4.0.0-beta.2",
@@ -46,12 +52,24 @@
       "last 1 safari version"
     ]
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "echo pre && echo commit && echo police",
+      "pre-push": "echo pre push police"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-proposal-throw-expressions": "^7.2.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@commitlint/cli": "^7.6.1",
+    "@commitlint/config-angular": "^7.6.0",
+    "@commitlint/config-conventional": "^7.6.0",
     "@dump247/storybook-state": "^1.5.2",
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/release-notes-generator": "^7.1.4",
     "@storybook/addon-a11y": "^5.0.11",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-backgrounds": "5.0.11",
@@ -95,6 +113,7 @@
     "brotli-gzip-webpack-plugin": "^0.5.0",
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "commitlint-circle": "^1.0.0",
     "css-loader": "2.1.1",
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
@@ -144,6 +163,7 @@
     "react-snap": "^1.23.0",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
+    "semantic-release": "^15.13.12",
     "semver": "6.0.0",
     "storybook-addon-material-ui": "^0.9.0-alpha.19",
     "storybook-addon-react-docgen": "^1.2.2",
