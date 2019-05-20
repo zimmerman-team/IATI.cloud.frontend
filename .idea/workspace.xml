@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85511987-878c-43f3-8db9-e2550a582da0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,7 +20,11 @@
     <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.circleci/config.yml">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1142">
+              <caret line="158" column="20" lean-forward="true" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -61,6 +63,7 @@
       <find>typescri</find>
       <find>styled</find>
       <find>husky</find>
+      <find>zoom</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/config</dir>
@@ -76,7 +79,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/iets.js" />
         <option value="$PROJECT_DIR$/src/app/Routes.js" />
         <option value="$PROJECT_DIR$/src/app/modules/common/pageloader/PageLoader.js" />
         <option value="$PROJECT_DIR$/src/app/modules/common/404/NotFoundModule.jsx" />
@@ -127,6 +129,7 @@
         <option value="$PROJECT_DIR$/src/app/components/TestComp/index.tsx" />
         <option value="$PROJECT_DIR$/commitlint.config.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.circleci/config.yml" />
       </list>
     </option>
   </component>
@@ -255,7 +258,21 @@
       <option name="project" value="LOCAL" />
       <updated>1558358440658</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="chore: added a copy of the circleci config used in zoom">
+      <created>1558360833722</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1558360833722</updated>
+    </task>
+    <task id="LOCAL-00004" summary="chore: updated circleco config">
+      <created>1558361125044</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1558361125044</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -283,8 +300,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297491" />
       <window_info anchor="bottom" id="GraphQL" order="7" weight="0.3297491" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49956933" visible="true" weight="0.3297491" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3297491" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49956933" weight="0.3292615" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3292615" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50043064" side_tool="true" weight="0.3297491" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.26642773" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.49956933" weight="0.3297491" />
@@ -359,7 +376,10 @@
     <MESSAGE value="chore: added the convetional ruleset" />
     <MESSAGE value="chore: updated the commitlint config" />
     <MESSAGE value="chore: updated the gitignore file" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: updated the gitignore file" />
+    <MESSAGE value="Bla commit" />
+    <MESSAGE value="chore: added a copy of the circleci config used in zoom" />
+    <MESSAGE value="chore: updated circleco config" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: updated circleco config" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -663,7 +683,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.circleci/config.yml">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1142">
+          <caret line="158" column="20" lean-forward="true" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
