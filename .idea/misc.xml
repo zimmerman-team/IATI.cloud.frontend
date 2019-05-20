@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="JSX" />
+  </component>
+  <component name="StyledComponentsInjections">
+    <option name="prefixes">
+      <array>
+        <option value="" />
+      </array>
+    </option>
+  </component>
+  <component name="WebPackConfiguration">
+    <option name="path" value="$PROJECT_DIR$/config/webpack.config.js" />
+  </component>
+</project>

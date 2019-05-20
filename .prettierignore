@@ -1,0 +1,8 @@
+.sonarlint/**/*
+.scannerwork/**/*
+.idea/**/*
+.circleci/**/*
+build/**/*
+config/**/*
+scripts/**/*
+storybook-static/**/*

@@ -1,0 +1,15 @@
+{
+  "presets": [
+    "react-app",
+    "@babel/env",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-throw-expressions",
+    "babel-plugin-styled-components",
+    "react-docgen"
+  ]
+}
