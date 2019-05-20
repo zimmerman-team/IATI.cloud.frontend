@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85511987-878c-43f3-8db9-e2550a582da0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/commitlint.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commitlint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/commitlint.config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,16 +19,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commitlint.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="48">
+              <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="635">
@@ -139,8 +137,8 @@
         <option value="$PROJECT_DIR$/src/app/components/CookieNotice/style.ts" />
         <option value="$PROJECT_DIR$/src/app/components/TestComp/style.ts" />
         <option value="$PROJECT_DIR$/src/app/components/TestComp/index.tsx" />
-        <option value="$PROJECT_DIR$/commitlint.config.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/commitlint.config.js" />
       </list>
     </option>
   </component>
@@ -267,9 +265,9 @@
       <window_info anchor="bottom" id="GraphQL" order="7" weight="0.3297491" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3297491" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3297491" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="10" side_tool="true" visible="true" weight="0.3297491" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50043064" side_tool="true" visible="true" weight="0.3297491" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.26642773" />
-      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.3297491" />
+      <window_info active="true" anchor="bottom" id="Inspection Results" order="12" sideWeight="0.49956933" visible="true" weight="0.3297491" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -337,7 +335,8 @@
     <MESSAGE value="chore: added semantic-release and commitlint&#10;&#10;&#10;&#10;Closes DS-48" />
     <MESSAGE value="chore: added semantic-release and commitlint" />
     <MESSAGE value="chore: added commitlint to project" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: added commitlint to project" />
+    <MESSAGE value="fix: added commitlint" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: added commitlint" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -633,17 +632,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commitlint.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="635">
           <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commitlint.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
         </state>
       </provider>
     </entry>
