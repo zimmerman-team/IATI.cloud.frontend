@@ -80,6 +80,7 @@ module.exports = {
     'brace-style': 'error',
     'import/order': 0,
     'import/first': 0,
+    'import/no-unresolved': 0,
     // todo: enable on production
     'no-unused-vars': 0,
     'no-use-before-define': 0,

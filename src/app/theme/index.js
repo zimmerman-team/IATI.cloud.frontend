@@ -1,21 +1,119 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import indigo from '@material-ui/core/colors/indigo';
 
+const Palette = {
+  primary: {
+    light: '#66a1ff',
+    main: '#3074f1',
+    dark: '#1e60d9',
+    contrastText: '#fff'
+  },
+  secondary: {
+    light: '#2bd3d9',
+    main: '#17b8be',
+    dark: '#0f9ea3',
+    contrastText: '#000'
+  },
+  error: {
+    light: '#f27e6d',
+    main: '#f25139',
+    dark: '#d94d38',
+    contrastText: '#fff'
+  },
+  grey: {
+    50: '#fafafa',
+    100: '#f5f5f5',
+    200: '#eeeeee',
+    300: '#e0e0e0',
+    400: '#bdbdbd',
+    500: '#9e9e9e',
+    600: '#757575',
+    700: '#616161',
+    800: '#424242',
+    900: '#212121',
+    A100: '#d5d5d5',
+    A200: '#aaaaaa',
+    A400: '#303030',
+    A700: '#616161'
+  }
+};
+
+const Weight = {
+  light: 200,
+  regular: 300,
+  medium: 500,
+  bold: 600
+};
+
+const Typography = {
+  fontFamily: 'Inter',
+  fontSize: 14,
+  fontWeightLight: 200,
+  fontWeightRegular: 300,
+  fontWeightMedium: 500,
+  fontWeightBold: 600,
+  useNextVariants: true,
+  h1: {
+    fontSize: `${4}rem`,
+    fontWeight: Weight.regular
+  },
+  h2: {
+    fontSize: `${3.5}rem`,
+    fontWeight: Weight.light
+  },
+  h3: {
+    fontSize: `${3}rem`,
+    fontWeight: Weight.medium
+  },
+  h4: {
+    fontSize: `${2.125}rem`,
+    fontWeight: Weight.bold
+  },
+  h5: {
+    fontSize: `${1.5}rem`,
+    fontWeight: Weight.light
+  },
+  h6: {
+    fontSize: `${1.25}rem`,
+    fontWeight: Weight.medium
+  },
+  body1: {
+    fontSize: `${1}rem`,
+    fontWeight: Weight.regular
+  },
+  body2: {
+    fontSize: `${0.875}rem`,
+    fontWeight: Weight.regular
+  },
+  subtitle1: {
+    fontSize: `${1}rem`,
+    fontWeight: Weight.medium
+  },
+  subtitle2: {
+    fontSize: `${0.875}rem`,
+    fontWeight: Weight.medium
+  },
+  button: {
+    fontSize: `${0.875}rem`,
+    fontWeight: Weight.bold
+  },
+  caption: {
+    fontSize: `${0.75}rem`,
+    fontWeight: Weight.regular
+  },
+  overline: {
+    fontSize: `${0.75}rem`,
+    fontWeight: Weight.regular
+  },
+  code: {
+    fontSize: `${0.875}rem`,
+    fontWeight: Weight.regular
+  }
+};
+
 export default createMuiTheme({
-  palette: {
-    primary: indigo
-  },
-  overrides: {
-    MuiButton: {
-      raisedPrimary: {
-        color: 'white'
-      }
-    }
-  },
-  typography: {
-    monoFamily: '"Roboto Mono", "Helvetica", "Arial", sans-serif',
-    useNextVariants: true
-  },
+  palette: Palette,
+  typography: Typography,
   mixins: {
     content: {
       paddingTop: '1.5rem',
