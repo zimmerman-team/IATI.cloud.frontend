@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from '@material-ui/styles';
+import ThemeProvider from '@material-ui/styles/ThemeProvider';
 import theme from 'app/theme';
 
 const Providers: React.FunctionComponent = props => {
