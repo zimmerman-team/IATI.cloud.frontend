@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.27ff3c09.chunk.css",
-    "main.js": "/static/js/main.40040b34.chunk.js",
-    "main.js.map": "/static/js/main.40040b34.chunk.js.map",
+    "main.css": "/static/css/main.5a07e661.chunk.css",
+    "main.js": "/static/js/main.e1259628.chunk.js",
+    "main.js.map": "/static/js/main.e1259628.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
     "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.e40ccbc6.chunk.js": "/static/js/2.e40ccbc6.chunk.js",
-    "static/js/2.e40ccbc6.chunk.js.map": "/static/js/2.e40ccbc6.chunk.js.map",
+    "static/js/2.d18805e2.chunk.js": "/static/js/2.d18805e2.chunk.js",
+    "static/js/2.d18805e2.chunk.js.map": "/static/js/2.d18805e2.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.5af1da8460787766d4b63d8ecaef4ddd.js": "/precache-manifest.5af1da8460787766d4b63d8ecaef4ddd.js",
+    "precache-manifest.90c67491107da11fdd111674a85bfbd1.js": "/precache-manifest.90c67491107da11fdd111674a85bfbd1.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.27ff3c09.chunk.css.map": "/static/css/main.27ff3c09.chunk.css.map"
+    "static/css/main.5a07e661.chunk.css.map": "/static/css/main.5a07e661.chunk.css.map",
+    "static/media/index.css": "/static/media/subset-Inter-SemiBold.d8580d5c.svg"
   }
 }
