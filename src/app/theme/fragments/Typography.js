@@ -1,5 +1,3 @@
-const Typography = {
-  name: 'Landing'
-};
+// textStyles
 
-export default Typography;
+export default {};
