@@ -6,3 +6,7 @@ config/
 .storybook/
 stories/
 build/
+/src/serviceWorker.ts
+.circleci/
+scripts/
+

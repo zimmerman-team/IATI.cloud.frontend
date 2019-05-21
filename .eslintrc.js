@@ -87,6 +87,7 @@ module.exports = {
     'react/forbid-prop-types': 0,
     'react/no-unused-prop-types': 0,
     'no-console': 0,
-    'object-shorthand': 0
+    'object-shorthand': 0,
+    'import/no-extraneous-dependencies': 0
   }
 };
