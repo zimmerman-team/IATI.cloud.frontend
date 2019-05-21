@@ -1,17 +1,17 @@
 import React, { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PageLoader from 'app/modules/common/pageloader/PageLoader';
+import PageLoader from 'app/modules/common/PageLoader';
 import Landing from 'app/modules/Landing';
+import CookieModule from 'app/modules/common/CookieModule';
 
 const Routes: React.FunctionComponent = () => {
   return (
-    <React.Fragment>
-      <Suspense fallback={<PageLoader />}>
-        <Switch>
-          <Route exact path="/" render={() => <Landing />} />
-        </Switch>
-      </Suspense>
-    </React.Fragment>
+    <Suspense fallback={<PageLoader />}>
+      <Switch>
+        <Route exact path="/" render={() => <Landing />} />
+        <Route exact path="/cookies" render={() => <CookieModule />} />
+      </Switch>
+    </Suspense>
   );
 };
 

@@ -9,7 +9,7 @@ type TestCompProps = {
   error?: string;
 };
 
-const TestComp: React.FC<TestCompProps> = props => {
+const TestComp: React.FC<TestCompProps> = () => {
   console.log('sss');
   return <ComponentBase>jawel</ComponentBase>;
 };

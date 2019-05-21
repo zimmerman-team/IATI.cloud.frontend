@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from 'app/theme';
 import { NavLink } from 'react-router-dom';
 
 /* general */
@@ -14,7 +13,6 @@ const CookieButtonBorderColor = 'red';
 const CookieButtonFontSize = '12px';
 /* hovers */
 const HoverOpacity = 0.5;
-
 
 const TestComp = styled.div`
   display: flex;

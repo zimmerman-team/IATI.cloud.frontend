@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { createMuiTheme } from '@material-ui/core';
 
-const BaseComp = styled.div`
+export const BaseComp = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,13 +12,3 @@ const BaseComp = styled.div`
   bottom: 0;
   z-index: 10;
 `;
-
-class CompStyle {
-  greeting: object;
-  constructor() {
-    this.greeting = BaseComp;
-  }
-  greet() {
-    return this.greeting;
-  }
-}
