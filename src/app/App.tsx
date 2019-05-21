@@ -1,15 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Providers from './Providers';
 
 import Routes from './Routes';
 
 const App: React.FunctionComponent = () => {
   return (
-    <div>
+    <Providers>
       <Router>
         <Routes />
       </Router>
-    </div>
+    </Providers>
   );
 };
 
