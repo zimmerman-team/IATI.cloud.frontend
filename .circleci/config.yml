@@ -63,6 +63,7 @@ jobs:
       - attach_workspace:
           at: ~/oipa-query-builder
       # setting this env var to only test on dev server when deployed.
+      - run: yarn add cypress --ignore-engines
       - run:
           name: Set CYPRESS_BASEURL
           command: |
