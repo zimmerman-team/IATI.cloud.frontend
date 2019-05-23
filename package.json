@@ -35,7 +35,9 @@
     "test": "node scripts/test.js",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "check-types": "tsc"
+    "check-types": "tsc",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -67,10 +69,12 @@
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+    "@babel/preset-env": "^7.4.5",
     "@babel/preset-typescript": "^7.3.3",
     "@commitlint/cli": "^7.6.1",
     "@commitlint/config-angular": "^7.6.0",
     "@commitlint/config-conventional": "^7.6.0",
+    "@cypress/webpack-preprocessor": "^4.0.3",
     "@dump247/storybook-state": "^1.5.2",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/release-notes-generator": "^7.1.4",
@@ -120,6 +124,7 @@
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "commitlint-circle": "^1.0.0",
     "css-loader": "2.1.1",
+    "cypress": "^3.3.1",
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
     "eslint": "^5.16.0",
@@ -208,7 +213,9 @@
         "statements": 90
       }
     },
-    "coverageReporters": ["text"],
+    "coverageReporters": [
+      "text"
+    ],
     "setupFiles": [
       "react-app-polyfill/jsdom"
     ],

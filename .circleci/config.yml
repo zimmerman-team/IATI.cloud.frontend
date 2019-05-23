@@ -35,140 +35,56 @@ jobs:
       - run:
           name: Set REACT_APP_PROJECT_URL env var
           command: |
-               echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV\
-              fi
-              source $BASH_ENV
-#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_STAGING"' >> $BASH_ENV
-#            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-#              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_TEST"' >> $BASH_ENV
-#            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-#              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
-#            else
-#              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
-#            fi
-#            source $BASH_ENV
-#      - run:
-#          name: Set REACT_APP_GRAPHQL_HOST and REACT_APP_BACKEND_HOST env var
-#          command: |
-#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#              echo 'export REACT_APP_GRAPHQL_HOST="$DUCT_STAGING"' >> $BASH_ENV
-#              echo 'export REACT_APP_BACKEND_HOST="$DUCT_STAGING"' >> $BASH_ENV
-#            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-#              echo 'export REACT_APP_GRAPHQL_HOST="$DUCT_TEST"' >> $BASH_ENV
-#              echo 'export REACT_APP_BACKEND_HOST="$DUCT_TEST"' >> $BASH_ENV
-#            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-#              echo 'export REACT_APP_GRAPHQL_HOST="$DUCT_DEV"' >> $BASH_ENV
-#              echo 'export REACT_APP_BACKEND_HOST="$DUCT_DEV"' >> $BASH_ENV
-#            else
-#              echo 'export REACT_APP_GRAPHQL_HOST="$DUCT_DEV"' >> $BASH_ENV
-#              echo 'export REACT_APP_BACKEND_HOST="$DUCT_DEV"' >> $BASH_ENV
-#            fi
-#            source $BASH_ENV
-#      - run:
-#          name: Set REACT_APP_EXPRESS_BACKEND_BASE_URL env var
-#          command: |
-#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#              echo 'export REACT_APP_EXPRESS_BACKEND_BASE_URL="$REACT_APP_EXPRESS_BACKEND_BASE_URL"' >> $BASH_ENV
-#            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-#              echo 'export REACT_APP_EXPRESS_BACKEND_BASE_URL="$REACT_APP_EXPRESS_BACKEND_BASE_URL"' >> $BASH_ENV
-#            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-#              echo 'export REACT_APP_EXPRESS_BACKEND_BASE_URL="$REACT_APP_EXPRESS_BACKEND_BASE_URL"' >> $BASH_ENV
-#            else
-#              echo 'export REACT_APP_EXPRESS_BACKEND_BASE_URL="$REACT_APP_EXPRESS_BACKEND_BASE_URL"' >> $BASH_ENV
-#            fi
-#            source $BASH_ENV
-#      - run:
-#          name: Set REACT_APP_POSTMARK_CLIENT_ID env var
-#          command: |
-#            echo 'export REACT_APP_POSTMARK_CLIENT_ID="$REACT_APP_POSTMARK_CLIENT_ID"' >> $BASH_ENV
-#            source $BASH_ENV
-      - run: yarn build
+            echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            source $BASH_ENV
       - run:
           name: Add target host to known_hosts files
           command: |
-          ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
-          fi
-#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#              ssh-keyscan "$SSH_HOST_STAGING" >> ~/.ssh/known_hosts
-#            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-#              ssh-keyscan "$SSH_HOST_TEST" >> ~/.ssh/known_hosts
-#            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-#              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
-#            else
-#              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
-#            fi
+            ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
       - add_ssh_keys:
           name: Add SSH KEY
           fingerprints:
-            - "1e:0f:17:a0:fa:e5:60:73:a9:87:bf:67:a0:44:13:be"
+            - "6c:2e:69:0b:b6:6c:33:a8:6f:29:f3:ab:f7:d2:9c:26"
       - run: eval ssh-agent -s
       - run: sudo apt install rsync
       - run:
           name: Upload build folder to target host
           command: |
-            rsync -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
-            fi
-#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#              rsync -ave  ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_STAGING":~/oipa-query-builder
-#            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-#              rsync -ave  ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder
-#            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-#              rsync -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
-#            else
-#              rsync -ave  ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
-#            fi
-      - run:
-          name: Update OIPA query builder frontend and backend
-          command: |
-              ssh "$SSH_USER"@"$SSH_HOST_TEST" "cd ~/oipa-query-builder/; git pull; yarn install; echo '"$SSH_TEST_PASS"' | sudo -S service supervisor restart"
-              fi
-#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#              ssh "$SSH_USER"@"$SSH_HOST_STAGING" "cd ~/oipa-query-builder/; git pull; yarn install; echo '"$SSH_STAGING_PASS"' | sudo -S service supervisor restart"
-#            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-#              ssh "$SSH_USER"@"$SSH_HOST_TEST" "cd ~/oipa-query-builder/; git pull; yarn install; echo '"$SSH_TEST_PASS"' | sudo -S service supervisor restart"
-#            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-#              ssh "$SSH_USER"@"$SSH_HOST_DEV" "cd ~/oipa-query-builder/; git pull; yarn install; echo '"$SSH_DEV_PASS"' | sudo -S service supervisor restart"
-#            else
-#              ssh "$SSH_USER"@"$SSH_HOST_DEV" "cd ~/oipa-query-builder/; git pull; yarn install; echo '"$SSH_DEV_PASS"' | sudo -S service supervisor restart"
-#            fi
+            rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
 
-#  test_e2e:
-#    docker:
-#      - image: cypress/browsers:chrome69
-#    parallelism: 2
-#    working_directory: ~/oipa-query-builder
-#    steps:
-#      - attach_workspace:
-#          at: ~/oipa-query-builder
-#      # --ignore-engines is a temporarily fix for the module codacy-coverage not having updated their node version....
-#      - run: yarn add cypress --ignore-engines
-#      # setting this env var to only test on dev server when deployed.
-#      - run:
-#          name: Set CYPRESS_baseUrl
-#          command: |
-#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#              echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_STAGING"' >> $BASH_ENV
-#            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-#              echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_TEST"' >> $BASH_ENV
-#            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-#              echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
-#            else
-#              echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
-#            fi
-#            source $BASH_ENV
-#      - run:
-#          name: "What is my CIRCLE_PULL_REQUEST string"
-#          command: echo $CIRCLE_PULL_REQUEST
-#      - run:
-#          name: Run E2E test
-#          # Here we check if the bash variable is unset, or set to a empty string
-#          command: |
-#            if [ -z "${CIRCLE_PULL_REQUEST}" ]; then
-#              yarn e2e:record:parallel:chrome
-#            else
-#              yarn e2e:percy:record:parallel:chrome
-#            fi
+test_e2e:
+  docker:
+    - image: circleci/node:10.13.0-browsers
+  parallelism: 2
+  working_directory: ~/oipa-query-builder
+  steps:
+    - attach_workspace:
+        at: ~/oipa-query-builder
+    # setting this env var to only test on dev server when deployed.
+    - run:
+        name: Set CYPRESS_BASEURL
+        command: |
+          echo 'export CYPRESS_BASEURL="app.datastore.dev.nyuki.io"'
+            fi
+            source $BASH_ENV
+#          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+#            echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_STAGING"' >> $BASH_ENV
+#          elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+#            echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_TEST"' >> $BASH_ENV
+#          elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+#            echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+#          else
+#            echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+
+    - run:
+        name: Run E2E test
+        # Here we check if the bash variable is unset, or set to a empty string
+        command: |
+          if [ -z "${CIRCLE_PULL_REQUEST}" ] && [ "${CIRCLE_BRANCH}" != "develop" ]; then
+            yarn cypress run
+          else
+            yarn cypress run
+          fi
 
 # WORKFLOWS
 workflows:
