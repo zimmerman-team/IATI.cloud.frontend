@@ -16,14 +16,13 @@ jobs:
       - save_cache:
           key: cachedependency-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
-            - ~/.cache/yarn
+            - .cache/yarn
             - node_modules
       - persist_to_workspace:
-          root: ~
+          root: /home/circleci/oipa-query-builder
           paths:
-            - ~
-            - .
-            - ~/.cache/Cypress
+            - .cache
+            - .cache/Cypress
 
   #  BUILD SOURCE AND DEPLOY TO SERVER
   build_deploy:
