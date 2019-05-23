@@ -11,18 +11,18 @@ jobs:
           at: ~/oipa-query-builder
       - restore_cache:
           keys:
-            - cachedependency-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-cached-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run: yarn install --fronzen-lockfile
       - save_cache:
-          key: cachedependency-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: yarn-cached-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
-            - .cache/yarn
+            - ./.cache
             - node_modules
       - persist_to_workspace:
-          root: /home/circleci/oipa-query-builder
+          root: .
           paths:
-            - .cache
-            - .cache/Cypress
+            - .
+            - ./.cache/Cypress
 
   #  BUILD SOURCE AND DEPLOY TO SERVER
   build_deploy:
