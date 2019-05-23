@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 
 const Palette = {
   primary: {
@@ -44,6 +44,30 @@ const Weight = {
   bold: 600
 };
 
+const Breakpoints = {
+  xs: 0,
+  sm: 600,
+  md: 960,
+  lg: 1280,
+  xl: 1920
+};
+
+const Gutters = {};
+
+const Magins = {};
+
+const Shape = {
+  borderRadius: 4
+};
+
+const zIndex = {
+  mobileStepper: 1000,
+  appBar: 1100,
+  drawer: 1200,
+  modal: 1300,
+  snackbar: 1400,
+  tooltip: 1500
+};
 const Typography = {
   fontFamily: 'Inter',
   fontSize: 14,
@@ -110,27 +134,36 @@ const Typography = {
   }
 };
 
+const Mixins = {
+  content: {
+    paddingTop: '1.5rem',
+    paddingRight: '1rem',
+    paddingBottom: '1.5rem',
+    paddingLeft: '1rem',
+    '@media (min-width: 600px)': {
+      paddingTop: '2rem',
+      paddingRight: '1.5rem',
+      paddingBottom: '2rem',
+      paddingLeft: '1.5rem'
+    },
+    '@media (min-width: 828px)': {
+      paddingLeft: 0,
+      paddingRight: 0,
+      maxWidth: 780,
+      margin: '0 auto'
+    }
+  }
+};
+
 export default createMuiTheme({
   palette: Palette,
   typography: Typography,
-  mixins: {
-    content: {
-      paddingTop: '1.5rem',
-      paddingRight: '1rem',
-      paddingBottom: '1.5rem',
-      paddingLeft: '1rem',
-      '@media (min-width: 600px)': {
-        paddingTop: '2rem',
-        paddingRight: '1.5rem',
-        paddingBottom: '2rem',
-        paddingLeft: '1.5rem'
-      },
-      '@media (min-width: 828px)': {
-        paddingLeft: 0,
-        paddingRight: 0,
-        maxWidth: 780,
-        margin: '0 auto'
-      }
+  props: {
+    // Name of the component ⚛️
+    MuiButtonBase: {
+      disableRipple: true
     }
-  }
+  },
+  mixins: Mixins,
+  zIndex: zIndex
 });
