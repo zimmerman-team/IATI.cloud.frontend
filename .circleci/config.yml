@@ -11,16 +11,18 @@ jobs:
           at: ~/oipa-query-builder
       - restore_cache:
           keys:
-            - yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - yarn-cache-{{ .Branch }}
-            - yarn-cache-
+            - cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run: yarn install
       - save_cache:
-          key: yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
-          paths: node_modules
+          key: cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ./.cache
+            - node_modules
       - persist_to_workspace:
           root: .
-          paths: .
+          paths:
+            - .
+            - ./.cache/Cypress
 
   #  BUILD SOURCE AND DEPLOY TO SERVER
   build_deploy:
