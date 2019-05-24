@@ -37,7 +37,7 @@
     "build-storybook": "build-storybook -s public",
     "check-types": "tsc",
     "cy:run": "cypress run",
-    "cy:run:record:percy": "percy exec -- cypress run --record --key 86800b76-116b-47f9-bc1b-cd8ec67f7212",
+    "cy:run:record:percy": "percy exec -- cypress run --record --key 86800b76-116b-47f9-bc1b-cd8ec67f7212 --parallel",
     "cy:open": "cypress open"
   },
   "eslintConfig": {

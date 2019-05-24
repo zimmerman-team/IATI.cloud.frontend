@@ -1,5 +1,6 @@
 describe('Testing environment is setup well for Javascript', () => {
   it('Simple assertion works', () => {
+    cy.visit('/');
     cy.get('body').should('be.visible');
   });
 
