@@ -69,7 +69,7 @@ jobs:
       - run:
           name: Set CYPRESS_BASEURL
           command: |
-            echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
             source $BASH_ENV
       - run:
           name: Run E2E test
