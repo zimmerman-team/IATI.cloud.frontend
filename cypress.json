@@ -3,9 +3,8 @@
   "chromeWebSecurity": false,
   "viewportWidth": 1680,
   "viewportHeight": 954,
-  "env": {
-  },
-  "projectId": "pz1mie",
+  "env": {},
+  "projectId": "joyvah",
   "pageLoadTimeout": 60000,
   "supportFile": "cypress/support/index.ts"
 }
