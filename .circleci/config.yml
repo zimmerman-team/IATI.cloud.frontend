@@ -75,7 +75,7 @@ jobs:
           name: Run E2E test
           # Here we check if the bash variable is unset, or set to a empty string
           command: |
-            yarn cy:run:record:percy
+            yarn cy:run:record:percy:parallel
 #            if [ -z "${CIRCLE_PULL_REQUEST}" ] && [ "${CIRCLE_BRANCH}" != "develop" ]; then
 #              yarn cypress run
 #            else
