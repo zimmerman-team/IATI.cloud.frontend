@@ -67,7 +67,7 @@ jobs:
       - run:
           name: Set CYPRESS_BASEURL
           command: |
-            echo 'export CYPRESS_BASEURL="app.datastore.dev.nyuki.io"'
+            echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"'
       - run:
           name: Run E2E test
           # Here we check if the bash variable is unset, or set to a empty string
