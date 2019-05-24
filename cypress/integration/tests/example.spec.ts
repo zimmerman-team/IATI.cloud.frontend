@@ -1,7 +1,7 @@
-import { add } from '../support/add';
+import { add } from '../../support/add';
 
-describe('TypeScript', () => {
-  it('works', () => {
+describe('Testing environment is setup well for TypeScript', () => {
+  it('TypeScript compiling works', () => {
     // note TypeScript definition
     const x: number = 42
   });
@@ -14,16 +14,8 @@ describe('TypeScript', () => {
     expect(object).to.have.all.keys('name', 'age')
   });
 
-  it('uses cy commands', () => {
+  it('uses cy. commands', () => {
     cy.wrap({}).should('deep.eq', {})
-  });
-
-  it('tests our example site', () => {
-    cy.visit('https://example.cypress.io/');
-    cy.get('.home-list')
-      .contains('Querying')
-      .click();
-    cy.get('#query-btn').should('contain', 'Button')
   });
 
   // enable once we release updated TypeScript definitions
@@ -31,16 +23,15 @@ describe('TypeScript', () => {
     expect(Cypress.version).to.be.a('string')
   });
 
-  // wrong code on purpose to type check our definitions
-  // it('can visit website', () => {
-  //   cy.boo()
-  // })
-
-  it('adds numbers', () => {
+  it('imported functions work', () => {
     expect(add(2, 3)).to.equal(5)
   });
 
   it('uses custom command cy.foo()', () => {
     cy.foo().should('be.equal', 'foo')
+  });
+
+  it('is able to make a percy snapshot', () => {
+    cy.percySnapshot('Example test');
   });
 });

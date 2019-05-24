@@ -37,6 +37,7 @@
     "build-storybook": "build-storybook -s public",
     "check-types": "tsc",
     "cy:run": "cypress run",
+    "cy:run:percy": "percy exec -- cypress run",
     "cy:open": "cypress open"
   },
   "eslintConfig": {
@@ -76,6 +77,7 @@
     "@commitlint/config-conventional": "^7.6.0",
     "@cypress/webpack-preprocessor": "^4.0.3",
     "@dump247/storybook-state": "^1.5.2",
+    "@percy/cypress": "^1.0.9",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/release-notes-generator": "^7.1.4",
     "@storybook/addon-a11y": "^5.0.11",
