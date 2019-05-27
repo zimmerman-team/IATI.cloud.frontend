@@ -20,10 +20,12 @@
     "noEmit": true,
     "jsx": "react",
     "baseUrl": "src",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "types": ["cypress", "@percy/cypress"]
   },
   "include": [
-    "src"
+    "src",
+    "**/*.ts"
   ],
   "exclude": ["build","scripts","config",".storybook","node_modules"]
 }
