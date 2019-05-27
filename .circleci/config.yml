@@ -72,11 +72,11 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_STAGING":~/oipa-query-builder
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder; echo '"$SSH_TEST_PASS"'
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder; echo '"$SSH_DEV_PASS"'
             else
-              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder; echo '"$SSH_DEV_PASS"'
             fi
 
   test_e2e:
