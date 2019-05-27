@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import CookieNotice from 'app/components/CookieNotice';
+import CookieNotice from 'app/components/utils/CookieNotice';
 const ComponentBase = styled.div``;
 
 const useStyles = makeStyles(theme => ({
