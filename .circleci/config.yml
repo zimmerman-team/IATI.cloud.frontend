@@ -37,12 +37,29 @@ jobs:
       - run:
           name: Set REACT_APP_PROJECT_URL env var
           command: |
-            echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_STAGING"' >> $BASH_ENV
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_TEST"' >> $BASH_ENV
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            else
+              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            fi
             source $BASH_ENV
       - run:
           name: Add target host to known_hosts files
           command: |
-            ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ssh-keyscan "$SSH_HOST_STAGING" >> ~/.ssh/known_hosts
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              ssh-keyscan "$SSH_HOST_TEST" >> ~/.ssh/known_hosts
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            else
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            fi
+
       - add_ssh_keys:
           name: Add SSH KEY
           fingerprints:
@@ -52,7 +69,15 @@ jobs:
       - run:
           name: Upload build folder to target host
           command: |
-            rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_STAGING":~/oipa-query-builder
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
+            else
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
+            fi
 
   test_e2e:
     docker:
@@ -69,7 +94,15 @@ jobs:
       - run:
           name: Set CYPRESS_BASEURL
           command: |
-            echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_STAGING"' >> $BASH_ENV
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_TEST"' >> $BASH_ENV
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            else
+               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            fi
             source $BASH_ENV
       - run:
           name: Run E2E test
