@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="1.696" tests="2" failures="1">
+  <testsuite name="Root Suite" timestamp="2019-05-27T12:54:09" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Testing environment is setup well for Javascript" timestamp="2019-05-27T12:54:09" tests="2" failures="1" time="1.696">
+    <testcase name="Testing environment is setup well for Javascript Simple assertion works" time="0" classname="Simple assertion works">
+      <failure message="Cannot find module &apos;app/modules/common/PageLoader&apos;
+
+This error originated from your application code, not from Cypress.
+
+When Cypress detects uncaught errors originating from your application it will automatically fail the current test.
+
+This behavior is configurable, and you can choose to turn this off by listening to the &apos;uncaught:exception&apos; event.
+
+https://on.cypress.io/uncaught-exception-from-application" type="Uncaught Error"><![CDATA[Uncaught Error: Cannot find module 'app/modules/common/PageLoader'
+
+This error originated from your application code, not from Cypress.
+
+When Cypress detects uncaught errors originating from your application it will automatically fail the current test.
+
+This behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.
+
+https://on.cypress.io/uncaught-exception-from-application
+    at webpackMissingModule (http://localhost:3000/static/js/main.chunk.js:131:45)
+    at Module../src/app/Routes.tsx (http://localhost:3000/static/js/main.chunk.js:131:149)
+    at __webpack_require__ (http://localhost:3000/static/js/bundle.js:782:30)
+    at fn (http://localhost:3000/static/js/bundle.js:150:20)
+    at Module../src/app/index.tsx (http://localhost:3000/static/js/main.chunk.js:614:65)
+    at __webpack_require__ (http://localhost:3000/static/js/bundle.js:782:30)
+    at fn (http://localhost:3000/static/js/bundle.js:150:20)
+    at Module../src/index.tsx (http://localhost:3000/static/js/main.chunk.js:1267:61)
+    at __webpack_require__ (http://localhost:3000/static/js/bundle.js:782:30)
+    at fn (http://localhost:3000/static/js/bundle.js:150:20)
+    at Object.1 (http://localhost:3000/static/js/main.chunk.js:1396:18)
+    at __webpack_require__ (http://localhost:3000/static/js/bundle.js:782:30)
+    at checkDeferredModules (http://localhost:3000/static/js/bundle.js:46:23)
+    at Array.webpackJsonpCallback [as push] (http://localhost:3000/static/js/bundle.js:33:19)
+    at http://localhost:3000/static/js/main.chunk.js:1:57]]></failure>
+    </testcase>
+    <testcase name="Testing environment is setup well for Javascript Is able to make a percy snapshot" time="1.696" classname="Is able to make a percy snapshot">
+    </testcase>
+  </testsuite>
+</testsuites>
