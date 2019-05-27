@@ -42,9 +42,9 @@ jobs:
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_TEST"' >> $BASH_ENV
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_TEST"' >> $BASH_ENV
             else
-              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_TEST"' >> $BASH_ENV
             fi
             source $BASH_ENV
       - run:
@@ -55,9 +55,9 @@ jobs:
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               ssh-keyscan "$SSH_HOST_TEST" >> ~/.ssh/known_hosts
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+              ssh-keyscan "$SSH_HOST_TEST" >> ~/.ssh/known_hosts
             else
-              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+              ssh-keyscan "$SSH_HOST_TEST" >> ~/.ssh/known_hosts
             fi
 
       - add_ssh_keys:
@@ -74,9 +74,9 @@ jobs:
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder
             else
-              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder
             fi
 
   test_e2e:
@@ -99,9 +99,9 @@ jobs:
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
                echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_TEST"' >> $BASH_ENV
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_TEST"' >> $BASH_ENV
             else
-               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_TEST"' >> $BASH_ENV
             fi
             source $BASH_ENV
       - run:
