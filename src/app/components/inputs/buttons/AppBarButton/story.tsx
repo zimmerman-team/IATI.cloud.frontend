@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import IconButton from './index';
+import AppBarButton from './index';
 import Providers from 'app/Providers';
 
-storiesOf('Inputs|Buttons/', module).add('IconButton', () => (
+storiesOf('Inputs|Buttons/', module).add('AppBarButton', () => (
   <Providers>
-    <IconButton label="XML Workbook" />
+    <AppBarButton label="XML Workbook" />
   </Providers>
 ));
