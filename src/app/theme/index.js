@@ -1,6 +1,22 @@
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 
-const Palette = {
+import InterExtraLightWoff2 from 'app/assets/fonts/subset-Inter-ExtraLightBETA.woff2';
+
+const raleway = {
+  fontFamily: 'Inter',
+  fontStyle: 'normal',
+  fontDisplay: 'swap',
+  fontWeight: 200,
+  src: `
+    local('Raleway'),
+    local('Raleway-Regular'),
+    url(${InterExtraLightWoff2}) format('woff2')
+  `,
+  unicodeRange:
+    'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF'
+};
+
+export const Palette = {
   primary: {
     light: '#66a1ff',
     main: '#3074f1',
@@ -57,7 +73,7 @@ const Gutters = {};
 const Magins = {};
 
 const Shape = {
-  borderRadius: 4
+  borderRadius: 2
 };
 
 const zIndex = {
@@ -161,9 +177,13 @@ export default createMuiTheme({
   props: {
     // Name of the component ⚛️
     MuiButtonBase: {
-      disableRipple: true
-    }
+      disableRipple: true,
+      disableTouchRipple: true,
+      focusRipple: false
+    },
+    MuiButton: {}
   },
   mixins: Mixins,
+  shape: Shape,
   zIndex: zIndex
 });
