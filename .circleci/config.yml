@@ -118,15 +118,13 @@ jobs:
 #            fi
 
   performance_test:
-    parellelism: 2
     docker:
       - image: kporras07/lighthouse-ci
+    parallelism: 2
     steps:
       - checkout
       - run:
           name: Run lighthouse against dev deployment
-# default         environment:
-# default           TEST_URL: https://staging.kubernetesfordogs.com
           command: |
             lighthouse $REACT_APP_PROJECT_URL_DEV \
               --port=9222 \
@@ -141,16 +139,14 @@ jobs:
             - reports
 
   process_results:
-    parellelism: 2
     docker:
-# default      - image: circleci/node:10.15.0
       - image: kporras07/lighthouse-ci
+    parallelism: 2
     steps:
       - checkout
       - restore_cache:
           keys:
-# default           - node-v1-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
-      - yarn-cached-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-cached-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - attach_workspace:
           at: "."
       - store_artifacts:
