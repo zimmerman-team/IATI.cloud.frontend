@@ -117,6 +117,49 @@ jobs:
 #              yarn cypress run
 #            fi
 
+  perfTests:
+    parellelism: 2
+    docker:
+      - image: kporras07/lighthouse-ci
+    steps:
+      - checkout
+      - run:
+          name: Run lighthouse against dev deployment
+# default         environment:
+# default           TEST_URL: https://staging.kubernetesfordogs.com
+          command: |
+            lighthouse $REACT_APP_PROJECT_URL_DEV \
+              --port=9222 \
+              --chrome-flags=\"--headless\" \
+              --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+              --output=json \
+              --output=html
+
+      - persist_to_workspace:
+          root: /home/chrome
+          paths:
+            - reports
+
+  processResults:
+    parellelism: 2
+    docker:
+# default      - image: circleci/node:10.15.0
+      - image: kporras07/lighthouse-ci
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+# default           - node-v1-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+      - yarn-cached-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - attach_workspace:
+          at: "."
+      - store_artifacts:
+          path: reports
+          destination: reports
+      - run:
+          name: Analyze and report desired vs actual lighthouse scores
+          command: ./.circleci/scripts/analyze_scores.js package.json test_results/lighthouse
+
 # WORKFLOWS
 workflows:
   version: 2
@@ -129,3 +172,9 @@ workflows:
 #      - test_e2e:
 #          requires:
 #            - build_deploy
+      - performance_test:
+          requires:
+            - build_deploy
+      - process_results:
+          requires:
+            - performance_test
