@@ -6,5 +6,11 @@
   "env": {},
   "projectId": "joyvah",
   "pageLoadTimeout": 60000,
-  "supportFile": "cypress/support/index.ts"
+  "supportFile": "cypress/support/index.ts",
+
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "test_results/cypress/cypress.xml",
+    "toConsole": true
+  }
 }

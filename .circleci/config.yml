@@ -63,7 +63,7 @@ jobs:
       - add_ssh_keys:
           name: Add SSH KEY
           fingerprints:
-            - "6c:2e:69:0b:b6:6c:33:a8:6f:29:f3:ab:f7:d2:9c:26"
+            - "f1:74:45:11:83:cd:a5:ca:53:b4:b8:5d:31:6b:57:86"
       - run: eval ssh-agent -s
       - run: sudo apt install rsync
       - run:
@@ -108,13 +108,14 @@ jobs:
           name: Run E2E test
           # Here we check if the bash variable is unset, or set to a empty string
           command: |
-            yarn cy:run:record:percy:parallel
+            yarn cy:run:record:percy:parallel:reporter
+      - store_test_results:
+          path: test_results
 #            if [ -z "${CIRCLE_PULL_REQUEST}" ] && [ "${CIRCLE_BRANCH}" != "develop" ]; then
 #              yarn cypress run
 #            else
 #              yarn cypress run
 #            fi
-
 
 # WORKFLOWS
 workflows:
@@ -125,6 +126,6 @@ workflows:
       - build_deploy:
           requires:
             - checkout_repo
-      - test_e2e:
-          requires:
-            - build_deploy
+#      - test_e2e:
+#          requires:
+#            - build_deploy
