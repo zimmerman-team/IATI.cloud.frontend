@@ -154,7 +154,7 @@ jobs:
           destination: reports
       - run:
           name: Analyze and report desired vs actual lighthouse scores
-          command: ./.circleci/scripts/analyze_scores.js package.json test_results/lighthouse
+          command: sudo ./.circleci/scripts/analyze_scores.js package.json test_results/lighthouse
 
 # WORKFLOWS
 workflows:
