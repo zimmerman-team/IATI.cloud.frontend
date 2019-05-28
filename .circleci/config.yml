@@ -63,7 +63,7 @@ jobs:
       - add_ssh_keys:
           name: Add SSH KEY
           fingerprints:
-            - "6c:2e:69:0b:b6:6c:33:a8:6f:29:f3:ab:f7:d2:9c:26"
+            - "f1:74:45:11:83:cd:a5:ca:53:b4:b8:5d:31:6b:57:86"
       - run: eval ssh-agent -s
       - run: sudo apt install rsync
       - run:
@@ -72,11 +72,11 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_STAGING":~/oipa-query-builder
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder; echo '"$SSH_TEST_PASS"'
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder;
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder; echo '"$SSH_DEV_PASS"'
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder;
             else
-              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder; echo '"$SSH_DEV_PASS"'
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder;
             fi
 
   test_e2e:
