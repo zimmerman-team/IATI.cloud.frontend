@@ -12,7 +12,7 @@ type Props = {
 
 const Unnchecked = (
   <SvgIcon>
-    <IconUnchecked color={theme.palette.primary.dark} />
+    <IconUnchecked color={theme.palette.grey.greyBase} />
   </SvgIcon>
 );
 
