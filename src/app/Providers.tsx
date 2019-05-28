@@ -6,7 +6,9 @@ import 'index.css';
 const Providers: React.FunctionComponent = props => {
   return (
     <ThemeProvider theme={theme}>
+      {/*<React.StrictMode>*/}
       <NoSsr>{props.children}</NoSsr>
+      {/*</React.StrictMode>*/}
     </ThemeProvider>
   );
 };
