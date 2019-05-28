@@ -117,7 +117,7 @@ jobs:
 #              yarn cypress run
 #            fi
 
-  perfTests:
+  performance_test:
     parellelism: 2
     docker:
       - image: kporras07/lighthouse-ci
@@ -140,7 +140,7 @@ jobs:
           paths:
             - reports
 
-  processResults:
+  process_results:
     parellelism: 2
     docker:
 # default      - image: circleci/node:10.15.0
