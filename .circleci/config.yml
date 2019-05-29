@@ -157,7 +157,7 @@ jobs:
             fi
       - run:
           name: Install rsync
-          command: yum -y rsync
+          command: apt-get install rsync
       - run:
           name: Send report files to droplet
           command: |
