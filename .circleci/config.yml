@@ -156,6 +156,9 @@ jobs:
                    --output=html
             fi
       - run:
+          name: Install rsync
+          command: yum -y rsync
+      - run:
           name: Send report files to droplet
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
