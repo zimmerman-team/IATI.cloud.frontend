@@ -99,7 +99,6 @@ console.log(ciStdout.join("\n"));
 // We shouldn't fail if the PR comment doesn't work, that is a "nice to have"
 try {
   bot.comment(process.env.GH_AUTH_TOKEN, prComment.join("\n"));
-  console.log(prComment.join("\n"));
 } catch (e) {
   console.log(e);
 }
