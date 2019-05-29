@@ -140,8 +140,7 @@ jobs:
 
   process_results:
     docker:
-      - image: circleci/node:10.13.0
-    parallelism: 2
+      - image: circleci/node:10.15.0
     steps:
       - checkout
       - restore_cache:
@@ -152,11 +151,9 @@ jobs:
       - store_artifacts:
           path: reports
           destination: reports
-      - run: chmod 755 ./ci-scripts/analyze_scores.js
-      - run: sudo chown -R $USER ./ci-scripts
       - run:
           name: Analyze and report desired vs actual lighthouse scores
-          command: ./ci-scripts/analyze_scores.js package.json test_results/lighthouse
+          command: ./ci-scripts/analyze_scores.js package.json reports
 
 # WORKFLOWS
 workflows:
