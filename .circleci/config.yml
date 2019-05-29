@@ -155,7 +155,6 @@ jobs:
                    --output=json \
                    --output=html
             fi
-            source $BASH_ENV
       - run:
           name: Send report files to droplet
           command: |
@@ -188,7 +187,6 @@ jobs:
       - run:
           name: Analyze and report desired vs actual lighthouse scores
           command: ./scripts/analyze_scores.js package.json reports
-
 
 # WORKFLOWS
 workflows:
