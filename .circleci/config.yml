@@ -155,22 +155,6 @@ jobs:
                    --output=json \
                    --output=html
             fi
-      - run:
-          name: Install rsync
-          command: sudo apt-get install rsync
-#      - run: if [-z "${CIRCLE_PULL_REQUEST}"] then; exit 0 ; fi
-      - run:
-          name: Send report files to droplet
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_STAGING":/home/chrome/reports/
-            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_TEST":/home/chrome/reports/
-            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_DEV":/home/chrome/reports/
-            else
-                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_DEV":/home/chrome/reports/
-            fi
       - persist_to_workspace:
           root: /home/chrome
           paths:
@@ -189,6 +173,19 @@ jobs:
       - store_artifacts:
           path: reports
           destination: reports
+#      - run: if [-z "${CIRCLE_PULL_REQUEST}"] then; exit 0 ; fi
+      - run:
+          name: Send report files to droplet
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_STAGING":reports
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_TEST":reports
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_DEV":reports
+            else
+                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_DEV":reports
+            fi
       - run:
           name: Analyze and report desired vs actual lighthouse scores
           command: ./scripts/analyze_scores.js package.json reports
