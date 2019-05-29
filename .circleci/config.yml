@@ -152,10 +152,11 @@ jobs:
       - store_artifacts:
           path: reports
           destination: reports
-      - run: chmod 755 ./scripts
+      - run: chmod 755 ./ci-scripts/analyze_scores.js
+      - run: sudo chown -R $USER ./ci-scripts
       - run:
           name: Analyze and report desired vs actual lighthouse scores
-          command: ./scripts/analyze_scores.js package.json test_results/lighthouse
+          command: ./ci-scripts/analyze_scores.js package.json test_results/lighthouse
 
 # WORKFLOWS
 workflows:
