@@ -208,6 +208,7 @@ jobs:
           name: Analyze and report desired vs actual lighthouse scores
           command: ./scripts/analyze_scores.js package.json reports
 
+
 # WORKFLOWS
 workflows:
   version: 2
