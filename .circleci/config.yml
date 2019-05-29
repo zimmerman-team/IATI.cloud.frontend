@@ -115,14 +115,19 @@ jobs:
 #              yarn cypress run
 #            else
 #              yarn cypress run
-#  --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
 #            fi
 
   performance_test:
     docker:
       - image: kporras07/lighthouse-ci
-    parallelism: 2
+
     steps:
+      - run:
+          name: Check if PR
+          command: |
+            if [ -z "${CIRCLE_PULL_REQUEST}"]; then
+              circle stop halt
+            fi
       - checkout
       - run:
           name: Run lighthouse against deployment
@@ -161,6 +166,12 @@ jobs:
     docker:
       - image: circleci/node:10.13.0
     steps:
+      - run:
+          name: Check if PR
+          command: |
+            if [ -z "${CIRCLE_PULL_REQUEST}"]; then
+              circle stop halt
+            fi
       - checkout
       - restore_cache:
           keys:
@@ -170,7 +181,6 @@ jobs:
       - store_artifacts:
           path: reports
           destination: reports
-#     - run: if [-z "${CIRCLE_PULL_REQUEST}"] then; exit 0 ; fi
       - run:
           name: Add target host to known_hosts files
           command: |
