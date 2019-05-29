@@ -153,7 +153,7 @@ jobs:
           destination: reports
       - run:
           name: Analyze and report desired vs actual lighthouse scores
-          command: ./ci-scripts/analyze_scores.js package.json reports
+          command: ./scripts/analyze_scores.js package.json test_results/lighthouse
 
 # WORKFLOWS
 workflows:
