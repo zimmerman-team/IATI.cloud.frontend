@@ -132,7 +132,6 @@ jobs:
               --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
               --output=json \
               --output=html
-
       - persist_to_workspace:
           root: /home/chrome
           paths:
@@ -154,6 +153,7 @@ jobs:
       - run:
           name: Analyze and report desired vs actual lighthouse scores
           command: ./scripts/analyze_scores.js package.json reports
+
 
 # WORKFLOWS
 workflows:
