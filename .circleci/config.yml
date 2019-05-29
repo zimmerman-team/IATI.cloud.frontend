@@ -165,6 +165,7 @@ jobs:
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
                 rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_DEV":/home/chrome/reports/
             else
+                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_DEV":/home/chrome/reports/
             fi
       - persist_to_workspace:
           root: /home/chrome
