@@ -14,6 +14,7 @@
     "@material-ui/icons": "4.0.0",
     "@material-ui/styles": "4.0.0",
     "axios": "^0.18.0",
+    "circle-github-bot": "^2.0.1",
     "global": "^4.3.2",
     "material-ui-chip-input": "^0.19.0",
     "mui-datatables": "^2.2.0",
@@ -259,5 +260,13 @@
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
     ]
+  },
+  "lighthouse": {
+    "requiredScores": {
+      "performance": 95,
+      "accessibility": 90,
+      "best-practices": 80,
+      "seo": 90
+    }
   }
 }

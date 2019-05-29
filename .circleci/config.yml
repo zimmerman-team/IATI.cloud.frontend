@@ -117,6 +117,109 @@ jobs:
 #              yarn cypress run
 #            fi
 
+  performance_test:
+    docker:
+      - image: kporras07/lighthouse-ci
+
+    steps:
+      - run:
+          name: Check if PR or develop/master branch
+          command: |
+            if [ "${CIRCLE_BRANCH} != "develop" ] && [ "${CIRCLE_BRANCH} != "master" ]; then
+              if [ -z "${CIRCLE_PULL_REQUEST}" ]; then
+                circleci step halt
+              fi
+            fi
+      - checkout
+      - run:
+          name: Run lighthouse against deployment
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+               lighthouse "https://$REACT_APP_PROJECT_URL_STAGING" \
+                --port=9222 \
+                --chrome-flags=\"--headless\" \
+                --output-path=/home/chrome/reports/$(date +'%Y-%m-%d_%H-%M-%S')-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+                --output=json
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+                lighthouse "https://$REACT_APP_PROJECT_URL_TEST" \
+                 --port=9222 \
+                 --chrome-flags=\"--headless\" \
+                 --output-path=/home/chrome/reports/$(date +'%Y-%m-%d_%H-%M-%S')-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+                 --output=json
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+                 lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
+                  --port=9222 \
+                  --chrome-flags=\"--headless\" \
+                  --output-path=/home/chrome/reports/$(date +'%Y-%m-%d_%H-%M-%S')-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+                  --output=json
+            else
+                  lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
+                   --port=9222 \
+                   --chrome-flags=\"--headless\" \
+                   --output-path=/home/chrome/reports/$(date +'%Y-%m-%d_%H-%M-%S')-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+                   --output=json
+            fi
+      - persist_to_workspace:
+          root: /home/chrome
+          paths:
+            - reports
+
+  process_performance_test_results:
+    docker:
+      - image: circleci/node:10.13.0
+    steps:
+      - run:
+          name: Check if PR or develop/master branch
+          command: |
+            if [ "${CIRCLE_BRANCH} != "develop" ] && [ "${CIRCLE_BRANCH} != "master" ]; then
+              if [ -z "${CIRCLE_PULL_REQUEST}" ]; then
+                circleci step halt
+              fi
+            fi
+      - checkout
+      - restore_cache:
+          keys:
+            - yarn-cached-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - attach_workspace:
+          at: "."
+      - store_artifacts:
+          path: reports
+          destination: reports
+      - run:
+          name: Add target host to known_hosts files
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ssh-keyscan "$SSH_HOST_STAGING" >> ~/.ssh/known_hosts
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              ssh-keyscan "$SSH_HOST_TEST" >> ~/.ssh/known_hosts
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            else
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            fi
+      - add_ssh_keys:
+          name: Add SSH KEY
+          fingerprints:
+          - "f1:74:45:11:83:cd:a5:ca:53:b4:b8:5d:31:6b:57:86"
+      - run: eval ssh-agent -s
+      - run: sudo apt install rsync
+      - run:
+          name: Send report files to droplet
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_STAGING":~/oipa-query-builder/
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder/
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder/
+            else
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder/
+            fi
+      - run:
+          name: Analyze and report desired vs actual lighthouse scores
+          command: ./scripts/analyze_scores.js package.json reports
+
+
 # WORKFLOWS
 workflows:
   version: 2
@@ -129,3 +232,9 @@ workflows:
 #      - test_e2e:
 #          requires:
 #            - build_deploy
+      - performance_test:
+          requires:
+            - build_deploy
+      - process_performance_test_results:
+          requires:
+            - performance_test
