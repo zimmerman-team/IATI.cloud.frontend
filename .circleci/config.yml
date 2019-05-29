@@ -132,29 +132,25 @@ jobs:
                 --port=9222 \
                 --chrome-flags=\"--headless\" \
                 --output-path=/home/chrome/reports/$(date +'%Y-%m-%d_%H-%M-%S')-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
-                --output=json \
-                --output=html
+                --output=json
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
                 lighthouse "https://$REACT_APP_PROJECT_URL_TEST" \
                  --port=9222 \
                  --chrome-flags=\"--headless\" \
                  --output-path=/home/chrome/reports/$(date +'%Y-%m-%d_%H-%M-%S')-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
-                 --output=json \
-                 --output=html
+                 --output=json
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
                  lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
                   --port=9222 \
                   --chrome-flags=\"--headless\" \
                   --output-path=/home/chrome/reports/$(date +'%Y-%m-%d_%H-%M-%S')-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
-                  --output=json \
-                  --output=html
+                  --output=json
             else
                   lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
                    --port=9222 \
                    --chrome-flags=\"--headless\" \
                    --output-path=/home/chrome/reports/$(date +'%Y-%m-%d_%H-%M-%S')-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
-                   --output=json \
-                   --output=html
+                   --output=json
             fi
       - persist_to_workspace:
           root: /home/chrome
@@ -197,13 +193,13 @@ jobs:
           name: Send report files to droplet
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                rsync -O -ave ssh ./reports/*.json "$SSH_USER"@"$SSH_HOST_STAGING":~/oipa-query-builder/
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_STAGING":~/oipa-query-builder/
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-                rsync -O -ave ssh ./reports/*.json "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder/
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder/
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-                rsync -O -ave ssh ./reports/*.json "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder/
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder/
             else
-                rsync -O -ave ssh ./reports/*.json "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder/
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder/
             fi
       - run:
           name: Analyze and report desired vs actual lighthouse scores
