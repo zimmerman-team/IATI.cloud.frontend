@@ -152,6 +152,7 @@ jobs:
       - store_artifacts:
           path: reports
           destination: reports
+      - run: chmod 755 ./scripts
       - run:
           name: Analyze and report desired vs actual lighthouse scores
           command: ./scripts/analyze_scores.js package.json test_results/lighthouse
