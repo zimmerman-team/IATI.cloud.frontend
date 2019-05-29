@@ -123,10 +123,12 @@ jobs:
 
     steps:
       - run:
-          name: Check if PR
+          name: Check if PR or develop/master branch
           command: |
-            if [ -z "${CIRCLE_PULL_REQUEST}"]; then
-              circleci step halt
+            if [ "${CIRCLE_BRANCH} != "develop" ] && [ "${CIRCLE_BRANCH} != "master" ]; then
+              if [ -z "${CIRCLE_PULL_REQUEST}" ]; then
+                circleci step halt
+              fi
             fi
       - checkout
       - run:
@@ -167,10 +169,12 @@ jobs:
       - image: circleci/node:10.13.0
     steps:
       - run:
-          name: Check if PR
+          name: Check if PR or develop/master branch
           command: |
-            if [ -z "${CIRCLE_PULL_REQUEST}"]; then
-              circleci step halt
+            if [ "${CIRCLE_BRANCH} != "develop" ] && [ "${CIRCLE_BRANCH} != "master" ]; then
+              if [ -z "${CIRCLE_PULL_REQUEST}" ]; then
+                circleci step halt
+              fi
             fi
       - checkout
       - restore_cache:
@@ -185,7 +189,7 @@ jobs:
           name: Add target host to known_hosts files
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                ssh-keyscan "$SSH_HOST_STAGING" >> ~/.ssh/known_hosts
+              ssh-keyscan "$SSH_HOST_STAGING" >> ~/.ssh/known_hosts
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               ssh-keyscan "$SSH_HOST_TEST" >> ~/.ssh/known_hosts
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
