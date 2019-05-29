@@ -14,10 +14,10 @@ const reports = {
     json: [],
     htmlFilenames: [],
   },
-  authenticated: {
-    json: [],
-    htmlFilenames: [],
-  }
+  // authenticated: {
+  //   json: [],
+  //   htmlFilenames: [],
+  // }
 };
 
 fs.readdirSync(reportsDir).forEach(file => {
@@ -36,8 +36,8 @@ let success = true;
 
 const ciStdout = [];
 const prComment = [];
-
-['anonymous', 'authenticated'].forEach(userType => {
+// ['anonymous', 'authenticated'].forEach(userType => {
+['anonymous'].forEach(userType => {
 
   const scoresAcrossRunsByCategory = reports[userType].json.reduce((acc, run) => {
     Object.keys(requiredScores).forEach(category => {

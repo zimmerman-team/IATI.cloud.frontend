@@ -132,7 +132,7 @@ jobs:
                 --chrome-flags=\"--headless\" \
                 --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
                 --output=json \
-                --output=html
+                --output=html \
                 rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_STAGING":/home/chrome/reports/
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
                 lighthouse "https://$REACT_APP_PROJECT_URL_TEST" \
@@ -140,7 +140,7 @@ jobs:
                  --chrome-flags=\"--headless\" \
                  --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
                  --output=json \
-                 --output=html
+                 --output=html \
                 rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_TEST":/home/chrome/reports/
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
                  lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
@@ -148,7 +148,7 @@ jobs:
                   --chrome-flags=\"--headless\" \
                   --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
                   --output=json \
-                  --output=html
+                  --output=html \
                   rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_DEV":/home/chrome/reports/
             else
                   lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
@@ -156,7 +156,7 @@ jobs:
                    --chrome-flags=\"--headless\" \
                    --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
                    --output=json \
-                   --output=html
+                   --output=html \
                    rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_DEV":/home/chrome/reports/
             fi
             source $BASH_ENV
