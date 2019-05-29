@@ -126,7 +126,7 @@ jobs:
           name: Check if PR
           command: |
             if [ -z "${CIRCLE_PULL_REQUEST}"]; then
-              circle stop halt
+              circleci step halt
             fi
       - checkout
       - run:
@@ -170,7 +170,7 @@ jobs:
           name: Check if PR
           command: |
             if [ -z "${CIRCLE_PULL_REQUEST}"]; then
-              circle stop halt
+              circleci step halt
             fi
       - checkout
       - restore_cache:
