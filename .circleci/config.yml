@@ -196,13 +196,13 @@ jobs:
           name: Send report files to droplet
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_STAGING":reports
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_STAGING":~/oipa-query-builder/
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_TEST":reports
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder/
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_DEV":reports
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder/
             else
-                rsync -O -ave ssh ~/oipa-query-builder/performance-results "$SSH_USER"@"$SSH_HOST_DEV":reports
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder/
             fi
       - run:
           name: Analyze and report desired vs actual lighthouse scores
