@@ -98,11 +98,14 @@ console.log(ciStdout.join("\n"));
 
 // We shouldn't fail if the PR comment doesn't work, that is a "nice to have"
 try {
-  bot.comment(process.env.GITHUB_OAUTH_TOKEN, prComment.join("\n"));
+  bot.comment(process.env.GH_AUTH_TOKEN, prComment.join("\n"));
+  console.log(prComment.join("\n"));
 } catch (e) {
   console.log(e);
 }
 
-if (!success) {
-  process.exit(1);
-}
+//Uncomment this to let the job fail if the performance budget has not been met.
+
+// if (!success) {
+//   process.exit(1);
+// }
