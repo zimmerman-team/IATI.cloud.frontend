@@ -138,7 +138,7 @@ jobs:
           paths:
             - reports
 
-  process_results:
+  process_performance_results:
     docker:
       - image: circleci/node:10.15.0
     steps:
@@ -170,6 +170,6 @@ workflows:
       - performance_test:
           requires:
             - build_deploy
-      - process_results:
+      - process_performance_test_results:
           requires:
             - performance_test
