@@ -131,28 +131,28 @@ jobs:
                lighthouse "https://$REACT_APP_PROJECT_URL_STAGING" \
                 --port=9222 \
                 --chrome-flags=\"--headless\" \
-                --output-path=/home/chrome/reports/"$(echo date "+%F-%T")"-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+                --output-path=/home/chrome/reports/"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1} | date "+%F-%T" ')" \
                 --output=json \
                 --output=html
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
                 lighthouse "https://$REACT_APP_PROJECT_URL_TEST" \
                  --port=9222 \
                  --chrome-flags=\"--headless\" \
-                 --output-path=/home/chrome/reports/"$(echo date "+%F-%T")"-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+                 --output-path=/home/chrome/reports/"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1} | date "+%F-%T" ')" \
                  --output=json \
                  --output=html
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
                  lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
                   --port=9222 \
                   --chrome-flags=\"--headless\" \
-                  --output-path=/home/chrome/reports/"$(echo date "+%F-%T")"-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+                  --output-path=/home/chrome/reports/"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1} | date "+%F-%T" ')" \
                   --output=json \
                   --output=html
             else
                   lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
                    --port=9222 \
                    --chrome-flags=\"--headless\" \
-                   --output-path=/home/chrome/reports/"$(echo date "+%F-%T")"-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+                   --output-path=/home/chrome/reports/"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1} | date "+%F-%T" ')" \
                    --output=json \
                    --output=html
             fi
@@ -174,7 +174,7 @@ jobs:
       - store_artifacts:
           path: reports
           destination: reports
-#      - run: if [-z "${CIRCLE_PULL_REQUEST}"] then; exit 0 ; fi
+#     - run: if [-z "${CIRCLE_PULL_REQUEST}"] then; exit 0 ; fi
       - run:
           name: Add target host to known_hosts files
           command: |
