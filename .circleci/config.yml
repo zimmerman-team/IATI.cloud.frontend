@@ -157,7 +157,8 @@ jobs:
             fi
       - run:
           name: Install rsync
-          command: apt-get install rsync
+          command: sudo apt-get install rsync
+#      - run: if [-z "${CIRCLE_PULL_REQUEST}"] then; exit 0 ; fi
       - run:
           name: Send report files to droplet
           command: |
