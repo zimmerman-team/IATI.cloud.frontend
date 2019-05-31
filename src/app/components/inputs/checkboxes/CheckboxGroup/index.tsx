@@ -18,9 +18,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 function CheckboxesGroup() {
   const classes = useStyles();
   const [state, setState] = React.useState({
-    gilad: true,
-    jason: false,
-    antoine: false
+    option1: true,
+    option2: false,
+    option3: false
   });
 
   const handleChange = (name: string) => (
@@ -28,9 +28,6 @@ function CheckboxesGroup() {
   ) => {
     setState({ ...state, [name]: event.target.checked });
   };
-
-  const { gilad, jason, antoine } = state;
-  const error = [gilad, jason, antoine].filter(v => v).length !== 2;
 
   return (
     <div className={classes.root}>
@@ -40,33 +37,33 @@ function CheckboxesGroup() {
           <FormItemLabel
             control={
               <Checkbox
-                checked={gilad}
-                onChange={handleChange('gilad')}
-                value="gilad"
+                checked={state.option1}
+                onChange={handleChange('option1')}
+                value="option1"
                 color="primary"
               />
             }
-            label="Gilad Gray"
+            label="Option 1"
           />
           <FormItemLabel
             control={
               <Checkbox
-                checked={jason}
-                onChange={handleChange('jason')}
-                value="jason"
+                checked={state.option2}
+                onChange={handleChange('option2')}
+                value="option2"
               />
             }
-            label="Jason Killian"
+            label="Option 2"
           />
           <FormItemLabel
             control={
               <Checkbox
-                checked={antoine}
-                onChange={handleChange('antoine')}
-                value="antoine"
+                checked={state.option3}
+                onChange={handleChange('option3')}
+                value="option3"
               />
             }
-            label="Antoine Llorca"
+            label="Option 3"
           />
         </FormGroup>
       </FormControl>
