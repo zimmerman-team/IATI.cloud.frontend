@@ -1,5 +1,5 @@
 /* external */
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 import BaseCheckbox from '@material-ui/core/Checkbox';
 import SvgIcon from '@material-ui/core/SvgIcon';
@@ -11,6 +11,10 @@ import theme from 'app/theme';
 type Props = {
   size?: string;
   label?: string;
+  color?: string;
+  value?: any;
+  checked: boolean;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 // If you want to customize the icons used for the checked/unchecked state
