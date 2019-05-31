@@ -13,7 +13,7 @@ function RadioButtonsGroup() {
   }
 
   return (
-<div>
+    <div>
       <FormControl component="fieldset">
         <FormLabel component="legend">Row format</FormLabel>
         <RadioGroup
@@ -39,7 +39,7 @@ function RadioButtonsGroup() {
           />
         </RadioGroup>
       </FormControl>
-</div>
+    </div>
   );
 }
 
