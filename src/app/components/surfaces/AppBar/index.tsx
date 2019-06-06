@@ -7,15 +7,20 @@ import theme from 'app/theme';
 import AppBarButton from 'app/components/inputs/buttons/AppBarButton';
 import Grid from '@material-ui/core/Grid';
 
+type Props = {
+  label?: string;
+  size?: string;
+};
+
 const BaseComponent = styled(props => <BaseAppBar {...props} />)`
   && {
     background-color: ${theme.palette.grey.greyBase};
   }
 `;
 
-const AppBar: React.FC = () => {
+const AppBar: React.FC<Props> = props => {
   return (
-    <BaseComponent position="static" elevation={0}>
+    <BaseComponent position="static" elevation={0} {...props}>
       <Toolbar>
         <Grid
           container
