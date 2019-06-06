@@ -138,12 +138,12 @@ export default class Demo extends React.PureComponent {
           <FilteringState />
           <SortingState />
           <SearchState defaultValue="" />
-          {/*<PagingState defaultCurrentPage={0} defaultPageSize={pageSizes[1]} />*/}
+          <PagingState defaultCurrentPage={0} defaultPageSize={pageSizes[1]} />
 
           <CustomTreeData getChildRows={getChildRows} />
           <IntegratedFiltering />
           <IntegratedSorting />
-          {/*<IntegratedPaging />*/}
+          <IntegratedPaging />
 
           <Table
             columnExtensions={tableColumnExtensions}
@@ -161,7 +161,7 @@ export default class Demo extends React.PureComponent {
           <SearchPanel />
           <ColumnChooser />
 
-          {/*<PagingPanel pageSizes={pageSizes} />*/}
+          <PagingPanel pageSizes={pageSizes} />
         </Grid>
       </Paper>
     );
