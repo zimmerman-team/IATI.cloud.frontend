@@ -7,8 +7,8 @@ import { Switch, Checkbox } from '@material-ui/core';
 
 storiesOf('Sort|Components', module).add('Form item label', () => (
   <Providers>
-    <Component control={<RadioButton />} />
-    <Component control={<Switch />} />
-    <Component control={<Checkbox />} />
+    <Component control={<RadioButton />} label="Each unique activity" />
+    <Component control={<Switch />} label="Each unique activity" />
+    <Component control={<Checkbox />} label="Each unique activity" />
   </Providers>
 ));
