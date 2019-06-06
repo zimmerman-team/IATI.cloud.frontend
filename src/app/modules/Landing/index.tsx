@@ -3,9 +3,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '../../components/surfaces/AppBar';
+
 // import Typography from '@material-ui/core/Typography';
-import Typography from 'app/theme/index';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -16,19 +16,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Header = styled.h1`
-`;
-
 const ComponentBase = styled.div``;
 
 const Landing: React.FunctionComponent = () => {
   const classes = useStyles();
   return (
     <ComponentBase>
-      <AppBar/>
-
       {/*<Section>*/}
-      <Header>IATI Query builder</Header>
+      <Typography variant="h1">IATI Query builder</Typography>
       {/*<Typography variant="h1">IATI </Typography>*/}
       {/*<Subheader>This tool allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format. </Subheader>*/}
       {/*<IconButton>Query Builder</IconButton>*/}
