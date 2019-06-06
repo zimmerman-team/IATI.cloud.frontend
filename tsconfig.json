@@ -1,16 +1,12 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": false,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
@@ -23,9 +19,13 @@
     "experimentalDecorators": true,
     "types": ["cypress", "@percy/cypress"]
   },
-  "include": [
-    "src",
-    "**/*.ts"
-  ],
-  "exclude": ["build","scripts","config",".storybook","node_modules"]
+  "include": ["src", "**/*.ts"],
+  "exclude": [
+    "build",
+    "scripts",
+    "config",
+    ".storybook",
+    "node_modules",
+    "**/*/story.tsx"
+  ]
 }
