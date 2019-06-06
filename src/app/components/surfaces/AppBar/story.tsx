@@ -5,6 +5,6 @@ import Providers from 'app/Providers';
 
 storiesOf('Surfaces', module).add('AppBar', () => (
   <Providers>
-    <AppBar label="Large" size="large" />
+    <AppBar />
   </Providers>
 ));
