@@ -85,7 +85,7 @@ const zIndex = {
   snackbar: 1400,
   tooltip: 1500
 };
-const Typography = {
+export const Typography = {
   fontFamily: 'Inter',
   fontSize: 14,
   fontWeightLight: 200,
