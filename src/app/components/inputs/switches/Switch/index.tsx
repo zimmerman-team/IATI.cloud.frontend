@@ -4,8 +4,8 @@ import Base from '@material-ui/core/Switch';
 
 type Props = {
   value?: any;
-  checked: boolean;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  checked?: boolean;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 /* todo: refactor to styled component */
