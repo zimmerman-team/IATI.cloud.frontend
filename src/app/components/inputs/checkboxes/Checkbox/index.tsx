@@ -13,8 +13,8 @@ type Props = {
   label?: string;
   color?: string;
   value?: any;
-  checked: boolean;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  checked?: boolean;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 // If you want to customize the icons used for the checked/unchecked state
