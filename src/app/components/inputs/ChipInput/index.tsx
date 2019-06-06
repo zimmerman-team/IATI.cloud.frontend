@@ -4,7 +4,11 @@ import NoSsr from '@material-ui/core/NoSsr';
 import styled from 'styled-components';
 import Chip from 'app/components/datadisplay/Chip';
 
-const Component = styled(ChipInput)`
+type Props = {
+  value?: any;
+};
+
+const Component = styled(props => <ChipInput {...props} />)`
   && {
     display: flex;
     flex-direction: column;
@@ -21,7 +25,7 @@ const Component = styled(ChipInput)`
     }
   }
 `;
-const Container = props => {
+const Container: React.FC<Props> = props => {
   return (
     <NoSsr>
       <Component
