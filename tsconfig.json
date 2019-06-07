@@ -27,5 +27,5 @@
     "src",
     "**/*.ts"
   ],
-  "exclude": ["build","scripts","config",".storybook","node_modules"]
+  "exclude": ["build","scripts","config",".storybook","node_modules", "**/*/story.tsx"]
 }
