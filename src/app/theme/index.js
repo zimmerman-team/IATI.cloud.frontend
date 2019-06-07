@@ -51,7 +51,10 @@ export const Palette = {
     A400: '#303030',
     A700: '#616161',
     greyBase: '#a1aebd'
-  }
+  },
+  text: {
+    primary: '#fff',
+  },
 };
 
 const Weight = {
@@ -85,7 +88,7 @@ const zIndex = {
   snackbar: 1400,
   tooltip: 1500
 };
-const Typography = {
+export const Typography = {
   fontFamily: 'Inter',
   fontSize: 14,
   fontWeightLight: 200,
@@ -95,11 +98,14 @@ const Typography = {
   useNextVariants: true,
   h1: {
     fontSize: `${4}rem`,
-    fontWeight: Weight.regular
+    fontWeight: Weight.medium,
+    letterSpacing: '-0.5px',
   },
   h2: {
+    fontFamily: 'Inter-BETA',
     fontSize: `${3.5}rem`,
-    fontWeight: Weight.light
+    fontWeight: Weight.regular,
+    lineHeight: '64px',
   },
   h3: {
     fontSize: `${3}rem`,
@@ -107,15 +113,20 @@ const Typography = {
   },
   h4: {
     fontSize: `${2.125}rem`,
-    fontWeight: Weight.bold
+    fontWeight: Weight.bold,
+    letterSpacing: '0.3px',
   },
   h5: {
     fontSize: `${1.5}rem`,
-    fontWeight: Weight.light
+    fontWeight: Weight.bold,
+    lineHeight: '1.5',
   },
   h6: {
+    // fontFamily: 'Inter-BETA',
+    fontFamily: 'Inter',
     fontSize: `${1.25}rem`,
-    fontWeight: Weight.medium
+    fontWeight: Weight.light,
+    lineHeight: '1.5',
   },
   body1: {
     fontSize: `${1}rem`,
@@ -123,7 +134,9 @@ const Typography = {
   },
   body2: {
     fontSize: `${0.875}rem`,
-    fontWeight: Weight.regular
+    fontWeight: Weight.regular,
+    lineHeight: '1.71',
+    letterSpacing: '0.3px'
   },
   subtitle1: {
     fontSize: `${1}rem`,
@@ -139,11 +152,13 @@ const Typography = {
   },
   caption: {
     fontSize: `${0.75}rem`,
-    fontWeight: Weight.regular
+    fontWeight: Weight.regular,
+    lineHeight: '1.33',
+    letterSpacing: '0.4px'
   },
   overline: {
     fontSize: `${0.75}rem`,
-    fontWeight: Weight.regular
+    fontWeight: Weight.regular,
   },
   code: {
     fontSize: `${0.875}rem`,

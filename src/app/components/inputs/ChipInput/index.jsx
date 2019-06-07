@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import ChipInput from 'material-ui-chip-input';
 import NoSsr from '@material-ui/core/NoSsr';
 import styled from 'styled-components';
@@ -21,6 +21,7 @@ const Component = styled(ChipInput)`
     }
   }
 `;
+
 const Container = props => {
   return (
     <NoSsr>
