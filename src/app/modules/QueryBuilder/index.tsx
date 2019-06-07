@@ -5,11 +5,19 @@ import Typography from '@material-ui/core/Typography';
 import { Grid, Container } from '@material-ui/core';
 import ModuleFragment from 'app/modules/QueryBuilder/common/ModuleFragment';
 import Divider from '@material-ui/core/Divider';
-import Box from '@material-ui/core/Box';
+
 import SimpleSelect from 'app/components/inputs/selects/SimpleSelect';
+import IconButton from 'app/components/inputs/buttons/IconButton';
+import ChipInput from 'app/components/inputs/ChipInput';
+import RadioButtonsGroup from 'app/components/inputs/radiobuttons/RadioButtonGroup';
+import DataTable from 'app/components/datadisplay/tables/DataTable';
+import Add from '@material-ui/icons/Add';
+import Download from '@material-ui/icons/GetApp';
 
 const ModuleContainer = styled.div`
   padding: 60px;
+  border-right: 1px solid rgba(30, 144, 255, 0.2);
+  border-left: 1px solid rgba(30, 144, 255, 0.2);
 `;
 
 const FragmentDivider = styled(Divider)`
@@ -48,48 +56,75 @@ const QueryBuilder: React.FC = () => {
     <Container component={ModuleContainer} maxWidth="lg">
       {/* ////////////////////////////////////////////////////////////////// */}
       {/* INTRO FRAGMENT */}
-      <Grid xs={6}>
-        <Box marginBottom={3}>
+      <Grid container direction="column" spacing={4}>
+        <Grid item xs={6}>
           <Typography variant="h3">{MockData.moduleName}</Typography>
-        </Box>
-        <Typography>{MockData.moduleInfo}</Typography>
+        </Grid>
+        <Grid item xs={6}>
+          <Typography variant="body1">{MockData.moduleInfo}</Typography>
+        </Grid>
       </Grid>
       <FragmentDivider />
       {/* ////////////////////////////////////////////////////////////////// */}
-      {/* FILYERS FRAGMENT */}
+      {/* WHO FRAGMENT */}
       <ModuleFragment
         title={MockData.fragments[0].title}
         info={MockData.fragments[0].info}
       >
-        <Grid container>
+        <Grid container spacing={4}>
           <Grid item xs={12}>
-            <Box marginBottom={3}>
-              <SimpleSelect label="Organisation type" />
-            </Box>
+            <SimpleSelect label="Organisation type" helperText="Code list" />
           </Grid>
           <Grid item xs={8}>
-            <Box paddingRight={4}>
-              <Box marginBottom={3}>
-                <SimpleSelect label="Organistion sector" />
-              </Box>
-            </Box>
+            <SimpleSelect
+              label="Organistion sector"
+              helperText="DAC 3 & 5 codelist"
+            />
           </Grid>
           <Grid item xs={3}>
             <SimpleSelect label="Include secondary reporters Y/N" />
           </Grid>
           <Grid item xs={12}>
-            <SimpleSelect label="Organisation name" />
+            <SimpleSelect
+              label="Organisation name"
+              helperText="E.g. AT-12 = Ministry of Interior. See list"
+            />
           </Grid>
         </Grid>
       </ModuleFragment>
       <FragmentDivider />
       {/* ////////////////////////////////////////////////////////////////// */}
-      {/* INTRO FRAGMENT */}
+      {/* FILTERS FRAGMENT */}
       <ModuleFragment
         title={MockData.fragments[1].title}
         info={MockData.fragments[1].info}
       >
-        jejoeoeoeoe
+        <Grid container spacing={4}>
+          <Grid item xs={12}>
+            <SimpleSelect
+              label="Data title, activity, or descriptions"
+              helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
+            />{' '}
+          </Grid>
+          <Grid item xs={12}>
+            <Divider />
+          </Grid>
+          <Grid item xs={4}>
+            <SimpleSelect label="Must have activity periode" />
+          </Grid>
+          <Grid item xs={4}>
+            <SimpleSelect label="Activity period start date" />
+          </Grid>
+          <Grid item xs={4}>
+            <SimpleSelect label="Activity period start date " />
+          </Grid>
+          <Grid item xs={12}>
+            <Divider />
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton label="Add Filter" icon={<Add />} />
+          </Grid>
+        </Grid>
       </ModuleFragment>
       <FragmentDivider />
       {/* ////////////////////////////////////////////////////////////////// */}
@@ -97,24 +132,54 @@ const QueryBuilder: React.FC = () => {
       <ModuleFragment
         title={MockData.fragments[2].title}
         info={MockData.fragments[2].info}
-      />
+      >
+        <Grid container spacing={4}>
+          <Grid item xs={12}>
+            <ChipInput />
+          </Grid>
+          <Grid item xs={4}>
+            <RadioButtonsGroup />
+          </Grid>
+          <Grid item xs={4}>
+            <RadioButtonsGroup />
+          </Grid>
+        </Grid>
+      </ModuleFragment>
       <FragmentDivider />
       {/* ////////////////////////////////////////////////////////////////// */}
       {/* RESULT FRAGMENT */}
-      <Grid container>
-        <Box marginBottom={5}>
-          <Grid xs={6}>
-            <Box marginBottom={2}>
-              <Typography variant="h4">Result</Typography>
-            </Box>
-            <Typography variant="body1">
-              2 activities, 24 financial transactions, 4 budget entries Last
-              data refreshed at DD/MM/YYYY
-            </Typography>
-          </Grid>
-        </Box>
-        <Grid xs={12}>
-          <Box bgcolor="#f0f3f7" height={200} borderRadius={2} />
+      <Grid container spacing={4} direction="column">
+        <Grid item xs={6}>
+          <Typography variant="h4">Result</Typography>
+        </Grid>
+
+        <Grid item xs={6}>
+          <Typography variant="body1">
+            2 activities, 24 financial transactions, 4 budget entries Last data
+            refreshed at DD/MM/YYYY
+          </Typography>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Typography variant="h6">Output sample</Typography>
+        </Grid>
+
+        <Grid item xs={12}>
+          <DataTable />
+        </Grid>
+      </Grid>
+      <FragmentDivider />
+      {/* ////////////////////////////////////////////////////////////////// */}
+      {/* DOWNLOAD FRAGMENT */}
+      <Grid container spacing={4}>
+        <Grid item xs={12}>
+          <Typography variant="h6">Files</Typography>
+        </Grid>
+        <Grid item xs={9}>
+          <SimpleSelect />
+        </Grid>
+        <Grid item xs={3}>
+          <IconButton label="Add Filter" icon={<Download />} />
         </Grid>
       </Grid>
     </Container>
