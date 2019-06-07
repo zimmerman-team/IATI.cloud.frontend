@@ -57,9 +57,9 @@ jobs:
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               ssh-keyscan "$SSH_HOST_TEST" >> ~/.ssh/known_hosts
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-              ssh-keyscan "$SSH_HOST_TEST" >> ~/.ssh/known_hosts
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
             else
-              ssh-keyscan "$SSH_HOST_TEST" >> ~/.ssh/known_hosts
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
             fi
 
       - add_ssh_keys:
@@ -76,9 +76,9 @@ jobs:
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
             else
-              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
             fi
       - run:
           name: Upload storybook build folder to target host
@@ -88,9 +88,9 @@ jobs:
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_TEST":~/storybook
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_TEST":~/storybook
+              rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_DEV":~/storybook
             else
-              rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_TEST":~/storybook
+              rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_DEV":~/storybook
             fi
 
   test_e2e:
