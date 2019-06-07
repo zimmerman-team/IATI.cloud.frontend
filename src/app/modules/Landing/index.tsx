@@ -30,13 +30,13 @@ const ComponentBase = styled.main`
 
   margin-left: 48px;
   margin-right: 48px;
-
   height: 100%;
 `;
 
 const Box = styled.div`
   width: 485px;
 `;
+
 const Section = styled.section`
   margin-bottom: 32px;
 `;
@@ -69,9 +69,9 @@ const Landing: React.FunctionComponent = () => {
                 className={classes.body2}
               >
                 The query builder uses <b>OIPA</b> to query the IATI database.
-                An open-source libary by <b>Zimmerman & Zimmerman</b> which
+                An open-source library by <b>Zimmerman & Zimmerman</b> which
                 extracts and stores raw IATI XML files from the IATI Registry
-                and makes it avalible as API endpoints to build data driven
+                and makes it available as API endpoints to build data driven
                 information solutions.
               </Typography>
               <IconButtonOutlined label="Query Builder" />
