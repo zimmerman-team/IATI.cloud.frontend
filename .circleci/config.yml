@@ -48,6 +48,7 @@ jobs:
             fi
             source $BASH_ENV
       - run: yarn build
+      - run: yarn build-storybook
       - run:
           name: Add target host to known_hosts files
           command: |
@@ -79,6 +80,10 @@ jobs:
             else
               rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
             fi
+      - run:
+          name: Upload storybook build folder to target host
+          command: |
+            rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_DEV":~/storybook
 
   test_e2e:
     docker:

@@ -37,7 +37,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook -c .storybook -o .out",
     "check-types": "tsc",
     "cy:run": "cypress run",
     "cy:run:record:percy:parallel:reporter": "percy exec -- cypress run --record --key 86800b76-116b-47f9-bc1b-cd8ec67f7212 --parallel --reporter junit",

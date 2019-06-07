@@ -67,3 +67,5 @@ typings/
 
 build/
 
+#storybook build
+.out/
