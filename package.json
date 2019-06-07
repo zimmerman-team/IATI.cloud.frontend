@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "description": "OIPA query builder, developed by Zimmerman & Zimmerman",
-  "homepage": "https://www.zimmermanzimmerman.nl/",
   "repository": {
     "type": "git",
     "url": "git://github.com/zimmerman-zimmerman/oipa-query-builder/oipa-query-builder.git"
