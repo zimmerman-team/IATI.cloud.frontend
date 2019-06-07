@@ -45,7 +45,7 @@ const ModuleFragment: React.FC<FragmentProps> = props => {
           {props.info}
         </Typography>
       </FragmentHeader>
-      <FragmentContent item xs={8}>
+      <FragmentContent item xs={9}>
         {props.children}
       </FragmentContent>
     </Fragment>
