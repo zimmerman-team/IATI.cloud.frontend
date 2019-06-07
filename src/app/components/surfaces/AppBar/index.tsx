@@ -31,10 +31,10 @@ const AppBar: React.FC<Props> = props => {
           {/* todo: define the client name in the env file */}
           <Typography variant="h6">OIPA</Typography>
           <Grid>
-            <AppBarButton label="Welcome" />
-            <AppBarButton label="Query builder" />
-            <AppBarButton label="API documentation" />
-            <AppBarButton label="Github" />
+            <AppBarButton label="Welcome" url="/" />
+            <AppBarButton label="Query builder" url="/querybuilder" />
+            {/*<AppBarButton label="API documentation" link="" />*/}
+            {/*<AppBarButton label="Github" />*/}
           </Grid>
         </Grid>
       </Toolbar>
