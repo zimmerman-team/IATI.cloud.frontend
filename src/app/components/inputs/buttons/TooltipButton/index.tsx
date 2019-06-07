@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef, forwardRef } from 'react';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 
@@ -18,6 +18,7 @@ const ZimmerButton = styled(props => <Button {...props} />)`
     padding: 0;
     min-width: initial;
     min-height: initial;
+    box-shadow: initial;
     & [class*='MuiButton-label'] {
       font-size: 9px;
       text-transform: initial;
@@ -26,12 +27,12 @@ const ZimmerButton = styled(props => <Button {...props} />)`
   }
 `;
 
-const BaseButton: React.FC<Props> = props => {
+const TooltipButton: React.FC<Props> = props => {
   return (
     <ZimmerButton size={props.size} variant="contained" color="primary">
-      i
+      {props.children}
     </ZimmerButton>
   );
 };
 
-export default BaseButton;
+export default TooltipButton;

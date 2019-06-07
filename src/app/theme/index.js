@@ -53,8 +53,8 @@ export const Palette = {
     greyBase: '#a1aebd'
   },
   text: {
-    primary: '#fff',
-  },
+    primary: '#fff'
+  }
 };
 
 const Weight = {
@@ -99,13 +99,13 @@ export const Typography = {
   h1: {
     fontSize: `${4}rem`,
     fontWeight: Weight.medium,
-    letterSpacing: '-0.5px',
+    letterSpacing: '-0.5px'
   },
   h2: {
     fontFamily: 'Inter-BETA',
     fontSize: `${3.5}rem`,
     fontWeight: Weight.regular,
-    lineHeight: '64px',
+    lineHeight: '64px'
   },
   h3: {
     fontSize: `${3}rem`,
@@ -114,19 +114,19 @@ export const Typography = {
   h4: {
     fontSize: `${2.125}rem`,
     fontWeight: Weight.bold,
-    letterSpacing: '0.3px',
+    letterSpacing: '0.3px'
   },
   h5: {
     fontSize: `${1.5}rem`,
     fontWeight: Weight.bold,
-    lineHeight: '1.5',
+    lineHeight: '1.5'
   },
   h6: {
     // fontFamily: 'Inter-BETA',
     fontFamily: 'Inter',
     fontSize: `${1.25}rem`,
     fontWeight: Weight.light,
-    lineHeight: '1.5',
+    lineHeight: '1.5'
   },
   body1: {
     fontSize: `${1}rem`,
@@ -158,7 +158,7 @@ export const Typography = {
   },
   overline: {
     fontSize: `${0.75}rem`,
-    fontWeight: Weight.regular,
+    fontWeight: Weight.regular
   },
   code: {
     fontSize: `${0.875}rem`,

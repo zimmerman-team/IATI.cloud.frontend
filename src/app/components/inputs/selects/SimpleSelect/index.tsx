@@ -4,21 +4,22 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import styled from 'styled-components';
-import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 import InputBase from '@material-ui/core/InputBase';
 import MenuList from '@material-ui/core/MenuList';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
-const TestGrid = styled.div`
-  position: relative;
-  display: flex;
-`;
+type SimpleSelectProps = {
+  label?: string;
+  helperText?: string;
+};
 
+/* todo: make actual components out of these styled constants */
 const BaseInputLabel = styled(props => <InputLabel {...props} />)`
   && {
     font-size: 12px;
     color: black;
     margin-bottom: 8px;
-    //outline: 1px solid blue;
     & [class*='MuiIconButton-label'] {
     }
   }
@@ -41,10 +42,15 @@ const BaseSelect = styled(props => (
     background-color: #f0f3f7;
     margin: 0;
     min-width: 270px;
+    width: 100%;
     & [class*='MuiSelect-select'] {
       &:focus {
         background-color: #f0f3f7 !important;
       }
+    }
+
+    & [class*='MuiSelect-icon'] {
+      margin-right: 8px;
     }
   }
 `;
@@ -90,7 +96,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-function SimpleSelect() {
+const SimpleSelect: React.FC<SimpleSelectProps> = props => {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     age: '',
@@ -107,9 +113,9 @@ function SimpleSelect() {
   }
 
   return (
-    <form className={classes.root} autoComplete="off">
-      <Grid>
-        <BaseInputLabel>Empty label</BaseInputLabel>
+    <div>
+      <Box width="100%">
+        {props.label && <BaseInputLabel>{props.label}</BaseInputLabel>}
 
         <BaseSelect
           value={values.age}
@@ -128,9 +134,12 @@ function SimpleSelect() {
           <BaseMenuItem value={20}>Twenty</BaseMenuItem>
           <BaseMenuItem value={30}>Thirty</BaseMenuItem>
         </BaseSelect>
-      </Grid>
-    </form>
+        {props.helperText && (
+          <FormHelperText>{props.helperText}</FormHelperText>
+        )}
+      </Box>
+    </div>
   );
-}
+};
 
 export default SimpleSelect;

@@ -14,15 +14,15 @@ const ZimmerButton = styled(props => <Button {...props} />)`
 
     width: 284px;
     height: ${props => {
-  switch (props.size) {
-    case 'small':
-      return '30px';
-    case 'large':
-      return '56px';
-    default:
-      return '48px';
-  }
-}};
+      switch (props.size) {
+        case 'small':
+          return '30px';
+        case 'large':
+          return '56px';
+        default:
+          return '48px';
+      }
+    }};
     border: 1px solid #ffffff;
     & [class*='MuiButton-label'] {
       font-size: 14px;
@@ -33,9 +33,9 @@ const ZimmerButton = styled(props => <Button {...props} />)`
 
 const IconButtonOutlined: React.FC<Props> = props => {
   return (
-    <ZimmerButton size={props.size} variant="outlined" color="contrastText"  >
+    <ZimmerButton size={props.size} variant="outlined" color="contrastText">
       {props.label}
-      <ArrowForward fontSize='small'/>
+      <ArrowForward fontSize="small" />
     </ZimmerButton>
   );
 };

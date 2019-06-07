@@ -3,8 +3,12 @@ import ChipInput from 'material-ui-chip-input';
 import NoSsr from '@material-ui/core/NoSsr';
 import styled from 'styled-components';
 import Chip from 'app/components/datadisplay/Chip';
+import FormHelperText from '@material-ui/core/FormHelperText';
+type Props = {
+  value?: any;
+};
 
-const Component = styled(ChipInput)`
+const Component = styled(props => <ChipInput {...props} />)`
   && {
     display: flex;
     flex-direction: column;
@@ -21,8 +25,12 @@ const Component = styled(ChipInput)`
     }
   }
 `;
+<<<<<<< HEAD:src/app/components/inputs/ChipInput/index.jsx
 
 const Container = props => {
+=======
+const Container: React.FC<Props> = props => {
+>>>>>>> 09ec75b47a7b8c73a25e71086e855d26bbdc515a:src/app/components/inputs/ChipInput/index.tsx
   return (
     <NoSsr>
       <Component
@@ -51,6 +59,9 @@ const Container = props => {
         }}
         {...props}
       />
+      <FormHelperText>
+        See OIPA documentation for full list of possible elements
+      </FormHelperText>
     </NoSsr>
   );
 };

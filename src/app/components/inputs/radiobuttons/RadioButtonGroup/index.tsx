@@ -4,8 +4,23 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import RadioButton from 'app/components/inputs/radiobuttons/RadioButton';
 import FormItemLabel from 'app/components/sort/FormItemLabel';
+import styled from 'styled-components';
+import TooltipButton from 'app/components/inputs/buttons/TooltipButton';
+import { Grid, Tooltip } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import TooltipContent from 'app/components/datadisplay/TooltipContent';
 
-function RadioButtonsGroup() {
+/* todo: make re-usable component of this */
+const GroupTitle = styled(props => <FormLabel {...props} />)`
+  && {
+    font-size: 12px;
+    color: black;
+
+    //margin-bottom: 8px;
+  }
+`;
+
+const RadioButtonsGroup: React.FC = () => {
   const [value, setValue] = React.useState('female');
 
   function handleChange(event: React.ChangeEvent<unknown>) {
@@ -15,7 +30,20 @@ function RadioButtonsGroup() {
   return (
     <div>
       <FormControl component="fieldset">
-        <FormLabel component="legend">Row format</FormLabel>
+        <Grid container alignItems="center" spacing={2}>
+          <Grid item>
+            <GroupTitle component="legend">Row format</GroupTitle>
+          </Grid>
+          <Grid item>
+            <Tooltip
+              title="lorem ipsum dolor simet"
+              // component={TooltipContent}
+              placement="right"
+            >
+              <TooltipButton>i</TooltipButton>
+            </Tooltip>
+          </Grid>
+        </Grid>
         <RadioGroup
           aria-label="gender"
           name="rowFormat"
@@ -41,6 +69,6 @@ function RadioButtonsGroup() {
       </FormControl>
     </div>
   );
-}
+};
 
 export default RadioButtonsGroup;
