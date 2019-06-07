@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Button from '@material-ui/core/Button';
 import GetApp from '@material-ui/icons/GetApp';
 import styled from 'styled-components';
@@ -6,13 +6,15 @@ import styled from 'styled-components';
 type Props = {
   size?: string;
   label?: string;
+  icon?: ReactNode;
 };
 
 const ZimmerButton = styled(props => <Button {...props} />)`
   && {
     justify-content: space-between;
-
-    width: 250px;
+    box-shadow: initial !important;
+    min-width: 250px;
+    width: 100%;
     height: ${props => {
       switch (props.size) {
         case 'small':
@@ -35,7 +37,7 @@ const IconButton: React.FC<Props> = props => {
   return (
     <ZimmerButton size={props.size} variant="contained" color="primary">
       {props.label}
-      <GetApp />
+      {props.icon}
     </ZimmerButton>
   );
 };
