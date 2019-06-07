@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButtonOutlined from '../../components/inputs/buttons/IconButtonOutlined';
 import Background from '../../components/surfaces/Background';
 import Container from '@material-ui/core/Container';
+import { Link } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   h3: {
@@ -20,6 +21,16 @@ const useStyles = makeStyles(theme => ({
     opacity: 0.6,
     position: 'absolute',
     bottom: '32px'
+  },
+  link: {
+    textDecoration: 'none',
+    fontWeight: 600,
+    '&:visited ': {
+      color: '#000'
+    },
+    '&:hover': {
+      color: '#FFF'
+    }
   }
 }));
 
@@ -68,11 +79,25 @@ const Landing: React.FunctionComponent = () => {
                 color="textPrimary"
                 className={classes.body2}
               >
-                The query builder uses <b>OIPA</b> to query the IATI database.
-                An open-source library by <b>Zimmerman & Zimmerman</b> which
-                extracts and stores raw IATI XML files from the IATI Registry
-                and makes it available as API endpoints to build data driven
-                information solutions.
+                The query builder uses{' '}
+                <Link
+                  href="https://www.oipa.nl"
+                  color="textPrimary"
+                  className={classes.link}
+                >
+                  OIPA
+                </Link>{' '}
+                to query the IATI database. An open-source library by{' '}
+                <Link
+                  href="https://www.zimmermanzimmerman.nl"
+                  color="textPrimary"
+                  className={classes.link}
+                >
+                  Zimmerman & Zimmerman
+                </Link>{' '}
+                which extracts and stores raw IATI XML files from the IATI
+                Registry and makes it available as API endpoints to build data
+                driven information solutions.
               </Typography>
               <IconButtonOutlined label="Query Builder" />
             </Box>
