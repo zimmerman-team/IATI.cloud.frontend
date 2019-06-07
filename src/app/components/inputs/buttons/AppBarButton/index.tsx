@@ -1,10 +1,13 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { History, LocationDescriptor } from 'history';
 
 type Props = {
   size?: string;
   label?: string;
+  url?: LocationDescriptor<any>;
 };
 
 const BaseComponent = styled(props => <Button {...props} />)`
@@ -22,10 +25,15 @@ const BaseComponent = styled(props => <Button {...props} />)`
   }
 `;
 
+const CustomLink = styled(props => <NavLink {...props} />)`
+  text-decoration: none;
+  color: white;
+`;
+
 const AppBarButton: React.FC<Props> = props => {
   return (
-    <BaseComponent size={props.size} color="inherit">
-      {props.label}
+    <BaseComponent size={props.size} color="inherit" {...props}>
+      <CustomLink to={props.url ? props.url : '/'}>{props.label}</CustomLink>
     </BaseComponent>
   );
 };
