@@ -3,7 +3,7 @@ import ChipInput from 'material-ui-chip-input';
 import NoSsr from '@material-ui/core/NoSsr';
 import styled from 'styled-components';
 import Chip from 'app/components/datadisplay/Chip';
-
+import FormHelperText from '@material-ui/core/FormHelperText';
 type Props = {
   value?: any;
 };
@@ -54,6 +54,9 @@ const Container: React.FC<Props> = props => {
         }}
         {...props}
       />
+      <FormHelperText>
+        See OIPA documentation for full list of possible elements
+      </FormHelperText>
     </NoSsr>
   );
 };
