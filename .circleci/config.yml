@@ -83,7 +83,15 @@ jobs:
       - run:
           name: Upload storybook build folder to target host
           command: |
-            rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_DEV":~/storybook
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_STAGING":~/storybook
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_TEST":~/storybook
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+              rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_DEV":~/storybook
+            else
+              rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_DEV":~/storybook
+            fi
 
   test_e2e:
     docker:
