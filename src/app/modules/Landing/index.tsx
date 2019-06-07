@@ -8,9 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import IconButtonOutlined from '../../components/inputs/buttons/IconButtonOutlined';
 import Background from '../../components/surfaces/Background'
 import Container  from '@material-ui/core/Container';
-import Grid  from '@material-ui/core/Grid';
-
-/* images */
 
 const useStyles = makeStyles(theme => ({
   h3: {
@@ -22,9 +19,7 @@ const useStyles = makeStyles(theme => ({
   caption: {
     opacity: 0.6,
     position: 'absolute',
-    // right: 0,
     bottom: '48px',
-    // left: '48px',
   },
 }));
 
@@ -37,8 +32,6 @@ const ComponentBase = styled.main`
   margin-right: 48px;
 
   height: 100%;
-  //height: calc(100vh - 195px);
-  //height: calc(100vh - 195px - 40px);
 `;
 
 const Box = styled.div`
