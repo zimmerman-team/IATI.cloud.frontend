@@ -47,6 +47,7 @@ jobs:
               echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
             fi
             source $BASH_ENV
+      - run: yarn build 
       - run:
           name: Add target host to known_hosts files
           command: |
