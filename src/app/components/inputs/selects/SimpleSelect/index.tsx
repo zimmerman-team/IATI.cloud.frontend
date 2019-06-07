@@ -4,26 +4,22 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import styled from 'styled-components';
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import InputBase from '@material-ui/core/InputBase';
 import MenuList from '@material-ui/core/MenuList';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 type SimpleSelectProps = {
   label?: string;
+  helperText?: string;
 };
 
-const TestGrid = styled.div`
-  position: relative;
-  display: flex;
-`;
-
+/* todo: make actual components out of these styled constants */
 const BaseInputLabel = styled(props => <InputLabel {...props} />)`
   && {
     font-size: 12px;
     color: black;
     margin-bottom: 8px;
-    //outline: 1px solid blue;
     & [class*='MuiIconButton-label'] {
     }
   }
@@ -51,6 +47,10 @@ const BaseSelect = styled(props => (
       &:focus {
         background-color: #f0f3f7 !important;
       }
+    }
+
+    & [class*='MuiSelect-icon'] {
+      margin-right: 8px;
     }
   }
 `;
@@ -115,7 +115,7 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
   return (
     <div>
       <Box width="100%">
-        <BaseInputLabel>{props.label}</BaseInputLabel>
+        {props.label && <BaseInputLabel>{props.label}</BaseInputLabel>}
 
         <BaseSelect
           value={values.age}
@@ -134,6 +134,9 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
           <BaseMenuItem value={20}>Twenty</BaseMenuItem>
           <BaseMenuItem value={30}>Thirty</BaseMenuItem>
         </BaseSelect>
+        {props.helperText && (
+          <FormHelperText>{props.helperText}</FormHelperText>
+        )}
       </Box>
     </div>
   );
