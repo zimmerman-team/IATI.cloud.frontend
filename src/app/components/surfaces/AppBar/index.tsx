@@ -6,6 +6,13 @@ import styled from 'styled-components';
 import theme from 'app/theme';
 import AppBarButton from 'app/components/inputs/buttons/AppBarButton';
 import Grid from '@material-ui/core/Grid';
+import { useLocation } from 'react-use';
+import { Link } from 'react-router-dom';
+
+const LinkMod = styled(Link)`
+  text-decoration: none;
+  color: white;
+`;
 
 type Props = {
   label?: string;
@@ -14,13 +21,29 @@ type Props = {
 
 const BaseComponent = styled(props => <BaseAppBar {...props} />)`
   && {
-    background-color: ${theme.palette.grey.greyBase};
+    background-color: ${props => {
+      switch (props.location) {
+        case '/':
+          return 'initial';
+        default:
+          return theme.palette.grey.greyBase;
+      }
+    }};
+    position: fixed;
+    top: 0;
   }
 `;
 
 const AppBar: React.FC<Props> = props => {
+  const state = useLocation();
+
   return (
-    <BaseComponent position="static" elevation={0} {...props}>
+    <BaseComponent
+      position="static"
+      elevation={0}
+      location={state.pathname}
+      {...props}
+    >
       <Toolbar>
         <Grid
           container
@@ -29,7 +52,9 @@ const AppBar: React.FC<Props> = props => {
           alignItems="center"
         >
           {/* todo: define the client name in the env file */}
-          <Typography variant="h6">OIPA</Typography>
+          <Typography variant="h6">
+            <LinkMod to="/">OIPA</LinkMod>
+          </Typography>
           <Grid>
             <AppBarButton label="Welcome" url="/" />
             <AppBarButton label="Query builder" url="/querybuilder" />
