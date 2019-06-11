@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
     bottom: '32px'
   },
   link: {
+    color: '#fff',
     textDecoration: 'none',
     fontWeight: 600,
     '&:visited ': {
@@ -38,7 +39,6 @@ const ComponentBase = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   margin-left: 48px;
   margin-right: 48px;
   height: 100%;
@@ -52,6 +52,14 @@ const Section = styled.section`
   margin-bottom: 32px;
 `;
 
+const TypoMod = styled(props => <Typography {...props} />)`
+  color: white;
+`;
+
+const MockData = {
+  moduleName: 'Landing'
+};
+
 const Landing: React.FunctionComponent = () => {
   const classes = useStyles();
   return (
@@ -61,28 +69,20 @@ const Landing: React.FunctionComponent = () => {
           <Container maxWidth="lg">
             <Box>
               <Section>
-                <Typography
-                  variant="h3"
-                  color="textPrimary"
-                  className={classes.h3}
-                >
+                <TypoMod variant="h3" className={classes.h3}>
                   IATI Datastore
-                </Typography>
-                <Typography variant="h6" color="textPrimary">
+                </TypoMod>
+                <TypoMod variant="h6">
                   The query builder tool makes it easy build queries to obtain
                   data from the IATI Datastore in CSV, XML and JSON format.{' '}
-                </Typography>
+                </TypoMod>
               </Section>
 
-              <Typography
-                variant="body2"
-                color="textPrimary"
-                className={classes.body2}
-              >
+              <TypoMod variant="body2" className={classes.body2}>
                 The query builder uses{' '}
                 <Link
                   href="https://www.oipa.nl"
-                  color="textPrimary"
+                  color="textSecondary"
                   className={classes.link}
                 >
                   OIPA
@@ -90,26 +90,22 @@ const Landing: React.FunctionComponent = () => {
                 to query the IATI database. An open-source library by{' '}
                 <Link
                   href="https://www.zimmermanzimmerman.nl"
-                  color="textPrimary"
+                  color="textSecondary"
                   className={classes.link}
                 >
                   Zimmerman & Zimmerman
-                </Link>{' '}
+                </Link>
                 which extracts and stores raw IATI XML files from the IATI
                 Registry and makes it available as API endpoints to build data
                 driven information solutions.
-              </Typography>
+              </TypoMod>
               <IconButtonOutlined label="Query Builder" />
             </Box>
 
-            <Typography
-              variant="caption"
-              color="textPrimary"
-              className={classes.caption}
-            >
+            <TypoMod variant="caption" className={classes.caption}>
               Code licensed under the GNU AGPL. Documentation licensed under CC
               BY 3.0.
-            </Typography>
+            </TypoMod>
           </Container>
         </ComponentBase>
       </Background>
