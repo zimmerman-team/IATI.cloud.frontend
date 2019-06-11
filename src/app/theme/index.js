@@ -51,9 +51,6 @@ export const Palette = {
     A400: '#303030',
     A700: '#616161',
     greyBase: '#a1aebd'
-  },
-  text: {
-    primary: '#fff'
   }
 };
 
