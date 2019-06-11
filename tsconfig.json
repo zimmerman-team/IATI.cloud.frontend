@@ -19,21 +19,10 @@
     "experimentalDecorators": true,
     "types": ["cypress", "@percy/cypress"]
   },
-<<<<<<< HEAD
   "include": [
     "src",
-    "**/*.ts"
+    "**/*.ts",
+    "**/*.tsx"
   ],
   "exclude": ["build","scripts","config",".storybook","node_modules", "**/*/story.tsx"]
-=======
-  "include": ["src", "**/*.ts"],
-  "exclude": [
-    "build",
-    "scripts",
-    "config",
-    ".storybook",
-    "node_modules",
-    "**/*/story.tsx"
-  ]
->>>>>>> 09ec75b47a7b8c73a25e71086e855d26bbdc515a
 }
