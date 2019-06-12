@@ -26,9 +26,9 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const BrotliGzipPlugin = require('brotli-gzip-webpack-plugin');
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const postcssNormalize = require('postcss-normalize');
-
+const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
@@ -43,6 +43,7 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -609,7 +610,7 @@ module.exports = function(webpackEnv) {
           // The formatter is invoked directly in WebpackDevServerUtils during development
           formatter: isEnvProduction ? typescriptFormatter : undefined,
         }),
-      isEnvProduction &&
+      /*isEnvProduction &&
         new BrotliGzipPlugin({
           asset: '[path].br[query]',
           algorithm: 'brotli',
@@ -617,7 +618,11 @@ module.exports = function(webpackEnv) {
           threshold: 10240,
           minRatio: 0.8,
           quality: 11,
-        }),
+        }),*/
+      /*isEnvProduction &&
+        new DuplicatePackageCheckerPlugin(),
+      isEnvProduction &&
+        new BundleAnalyzerPlugin({analyzerMode:'static', reportFilename:paths.appStats+'/'+Date.now()+'.html', generateStatsFile:true})*/
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.
     // Tell Webpack to provide empty mocks for them so importing them works.
