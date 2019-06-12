@@ -18,13 +18,10 @@
     "circle-github-bot": "^2.0.1",
     "global": "^4.3.2",
     "keyboardjs": "^2.5.1",
-    "material-table": "^1.39.0",
     "material-ui-chip-input": "1.0.0-beta.17",
-    "mui-datatables": "2.3.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-error-boundary": "^1.2.5",
-    "react-helmet": "6.0.0-beta",
     "react-redux": "^7.0.3",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
@@ -32,8 +29,7 @@
     "rebound": "^0.1.0",
     "redux": "^4.0.1",
     "shortid": "^2.2.14",
-    "styled-components": "^4.3.0",
-    "universal-router": "^8.2.0"
+    "styled-components": "^4.3.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
