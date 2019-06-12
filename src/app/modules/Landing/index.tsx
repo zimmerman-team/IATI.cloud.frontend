@@ -81,7 +81,7 @@ const Landing: React.FunctionComponent = () => {
               </Section>
 
               <TypoMod variant="body2" className={classes.body2}>
-                This is a test, The query builder uses{' '}
+                The query builder uses{' '}
                 <Link
                   href="https://www.oipa.nl"
                   color="textSecondary"
