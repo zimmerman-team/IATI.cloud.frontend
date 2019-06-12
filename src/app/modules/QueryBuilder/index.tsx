@@ -20,8 +20,9 @@ import URLField from 'app/components/datadisplay/URLField';
 /* todo: move to separate component */
 const ModuleContainer = styled.div`
   padding: 60px;
-  border-right: 1px solid rgba(30, 144, 255, 0.2);
-  border-left: 1px solid rgba(30, 144, 255, 0.2);
+
+  //border-right: 1px solid rgba(30, 144, 255, 0.2);
+  //border-left: 1px solid rgba(30, 144, 255, 0.2);
   padding-top: 100px;
 `;
 
