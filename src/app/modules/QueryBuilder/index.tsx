@@ -2,10 +2,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
-import { Grid, Container } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
 import ModuleFragment from 'app/modules/QueryBuilder/common/ModuleFragment';
 import Divider from '@material-ui/core/Divider';
-
 import SimpleSelect from 'app/components/inputs/selects/SimpleSelect';
 import IconButton from 'app/components/inputs/buttons/IconButton';
 import ChipInput from 'app/components/inputs/ChipInput';
@@ -13,6 +13,7 @@ import RadioButtonsGroup from 'app/components/inputs/radiobuttons/RadioButtonGro
 import DataTable from 'app/components/datadisplay/tables/DataTable';
 import Add from '@material-ui/icons/Add';
 import Download from '@material-ui/icons/GetApp';
+import useTitle from 'react-use/lib/useTitle';
 
 const ModuleContainer = styled.div`
   padding: 60px;
@@ -53,6 +54,7 @@ const MockData = {
 };
 
 const QueryBuilder: React.FC = () => {
+  useTitle('OIPA - Query Builder');
   return (
     <Container component={ModuleContainer} maxWidth="lg">
       {/* ////////////////////////////////////////////////////////////////// */}

@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import Button from '@material-ui/core/Button';
-import GetApp from '@material-ui/icons/GetApp';
 import styled from 'styled-components';
 
 type Props = {

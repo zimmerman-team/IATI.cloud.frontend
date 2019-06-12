@@ -1,5 +1,4 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Component from '@material-ui/core/Chip';
 import IconChipDelete from 'app/assets/icons/IconChipDelete';
 import styled from 'styled-components';

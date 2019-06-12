@@ -1,14 +1,15 @@
 /* base */
 import React from 'react';
 import styled from 'styled-components';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@material-ui/core/styles/makeStyles';
+import useTitle from 'react-use/lib/useTitle';
 
 /* icons */
 import Typography from '@material-ui/core/Typography';
 import IconButtonOutlined from '../../components/inputs/buttons/IconButtonOutlined';
 import Background from '../../components/surfaces/Background';
 import Container from '@material-ui/core/Container';
-import { Link } from '@material-ui/core';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles(theme => ({
   h3: {
@@ -61,6 +62,7 @@ const MockData = {
 };
 
 const Landing: React.FunctionComponent = () => {
+  useTitle('OIPA');
   const classes = useStyles();
   return (
     <React.Fragment>

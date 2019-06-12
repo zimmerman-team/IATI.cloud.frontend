@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import ChipInput from 'material-ui-chip-input';
 import NoSsr from '@material-ui/core/NoSsr';
 import styled from 'styled-components';

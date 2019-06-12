@@ -24,13 +24,9 @@ import {
   SearchPanel,
   ColumnChooser
 } from 'app/utils/dx-react-grid-material-ui/dx-react-grid-material-ui.es';
-import ViewColumn from '@material-ui/icons/ViewColumn';
 import TableRow from 'app/components/datadisplay/tables/common/TableRow';
 import TableCell from 'app/components/datadisplay/tables/common/TableCell';
-import TableTreeCell from 'app/components/datadisplay/tables/common/TableTreeCell';
 import { tasks, employees, priorities } from './data.json';
-import styled from 'styled-components';
-import Component from '@material-ui/core/TableRow/TableRow';
 
 const EmployeeFormatter = ({ row }) => (
   <div

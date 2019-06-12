@@ -6,9 +6,8 @@ import RadioButton from 'app/components/inputs/radiobuttons/RadioButton';
 import FormItemLabel from 'app/components/sort/FormItemLabel';
 import styled from 'styled-components';
 import TooltipButton from 'app/components/inputs/buttons/TooltipButton';
-import { Grid, Tooltip } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import TooltipContent from 'app/components/datadisplay/TooltipContent';
+import Grid from '@material-ui/core/Grid';
+import Tooltip from '@material-ui/core/Tooltip';
 
 /* todo: make re-usable component of this */
 const GroupTitle = styled(props => <FormLabel {...props} />)`

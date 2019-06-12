@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import theme from 'app/theme';
 import AppBarButton from 'app/components/inputs/buttons/AppBarButton';
 import Grid from '@material-ui/core/Grid';
-import { useLocation } from 'react-use';
-import { Link } from 'react-router-dom';
+import useLocation from 'react-use/lib/useLocation';
+import Link from 'react-router-dom/Link';
 
 const LinkMod = styled(Link)`
   text-decoration: none;

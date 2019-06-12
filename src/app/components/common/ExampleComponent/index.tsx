@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Radio from '@material-ui/core/Radio';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import IconChecked from 'app/assets/icons/IconChecked';
-import IconUnchecked from 'app/assets/icons/IconUnchecked';
-import theme from 'app/theme/index';
+
 type Props = {
   label?: string;
 };
