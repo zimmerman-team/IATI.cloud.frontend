@@ -9,6 +9,7 @@ type Props = {
 
 const ZimmerButton = styled(props => <Button {...props} />)`
   && {
+    box-shadow: initial !important;
     padding-left: 42px;
     padding-right: 42px;
     height: ${props => {
