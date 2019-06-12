@@ -1,3 +1,7 @@
+import SnackBar from 'app/components/feedback/Snackbar';
+import { render } from 'react-dom';
+import React from 'react';
+
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
@@ -83,6 +87,14 @@ function registerValidSW(swUrl: string, config?: Config) {
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
 
+              render(
+                <SnackBar
+                  message={
+                    'New content is available when all the tabs for this page are closed'
+                  }
+                />,
+                document.getElementById('root')
+              );
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
@@ -150,7 +162,7 @@ const urlsToCache = ['/static/', '/assets/'];
 
 //Her we perform the install steps
 self.addEventListener('install', function(event) {
-  (<any>event).waitUntil(
+  (event as any).waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
       return cache.addAll(urlsToCache);
     })
