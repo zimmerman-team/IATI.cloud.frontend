@@ -38,7 +38,7 @@ const ModuleFragment: React.FC<FragmentProps> = props => {
     <Fragment container>
       <FragmentHeader item xs={6}>
         <Box marginBottom={1}>
-          <Typography variant="h6" color="textPrimary">
+          <Typography variant="h4" color="textPrimary">
             {props.title}
           </Typography>
         </Box>
