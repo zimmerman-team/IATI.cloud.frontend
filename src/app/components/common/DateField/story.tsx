@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Component from '.';
 import Providers from 'app/Providers';
 
-storiesOf('Example', module).add('Example', () => (
+storiesOf('Inputs|DateFields', module).add('Date input field', () => (
   <Providers>
     <Component />
   </Providers>

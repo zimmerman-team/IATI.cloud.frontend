@@ -1,20 +1,71 @@
 import React from 'react';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components';
-import Radio from '@material-ui/core/Radio';
+import FieldInputLabel from 'app/components/common/FieldInputLabel';
 
-type Props = {
-  label?: string;
-};
-
-const BaseComponent = styled(props => <Radio {...props} />)`
-  && {
-    & [class*='MuiIconButton-label'] {
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap'
+    },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      width: 200
     }
+  })
+);
+
+const BaseComponent = styled(props => <TextField {...props} />)`
+  display: flex !important;
+  //align-items: center;
+
+  justify-content: center;
+  height: 48px;
+  width: 275px;
+  background-color: #f0f3f7;
+  border-radius: 2px;
+
+  & [class*='MuiInput-underline']:before,
+  & [class*='MuiInput-underline']:after {
+    display: none;
+  }
+
+  & [class*='MuiInputBase-input'] {
+    padding: 0;
+  }
+  & [class*='MuiInputBase-root'] {
+    margin: 0;
+    border: initial;
+    padding: 0;
+
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(1, 1, 10, 0.38);
+    margin-left: 15px;
+  }
+  & [class*='MuiFormLabel-root'] {
+    display: none;
   }
 `;
 
-const RadioButton: React.FC<Props> = props => {
-  return <BaseComponent {...props} />;
-};
+export default function DateField() {
+  const classes = useStyles();
 
-export default RadioButton;
+  return (
+    <div>
+      <FieldInputLabel label="Activity period" />
+      <BaseComponent
+        id="date"
+        label="Birthday"
+        type="date"
+        defaultValue="2017-05-24"
+        InputLabelProps={{
+          shrink: true
+        }}
+      />
+    </div>
+  );
+}

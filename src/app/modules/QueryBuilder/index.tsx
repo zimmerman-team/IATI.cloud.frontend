@@ -16,6 +16,7 @@ import Download from '@material-ui/icons/GetApp';
 import useTitle from 'react-use/lib/useTitle';
 import IconTextInput from 'app/components/inputs/textfields/IconTextInput';
 import URLField from 'app/components/datadisplay/URLField';
+import DateField from 'app/components/common/DateField';
 
 /* todo: move to separate component */
 const ModuleContainer = styled.div`
@@ -123,10 +124,10 @@ const QueryBuilder: React.FC = () => {
             <SimpleSelect label="Must have activity periode" />
           </Grid>
           <Grid item xs={4}>
-            <SimpleSelect label="Activity period start date" />
+            <DateField />
           </Grid>
           <Grid item xs={4}>
-            <SimpleSelect label="Activity period start date " />
+            <DateField />
           </Grid>
           <Grid item xs={12}>
             <Divider />
