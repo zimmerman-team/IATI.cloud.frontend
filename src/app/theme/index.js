@@ -51,6 +51,25 @@ export const Palette = {
     A400: '#303030',
     A700: '#616161',
     greyBase: '#a1aebd'
+  },
+  text: {
+    primary: 'rgba(0, 0, 0, 0.87)',
+    secondary: 'rgba(0, 0, 0, 0.54)',
+    disabled: 'rgba(0, 0, 0, 0.38)',
+    hint: 'rgba(0, 0, 0, 0.38)'
+  },
+  // divider: '#d94d38',
+  background: {
+    paper: '#fff',
+    default: '#fafafa'
+  },
+  action: {
+    active: 'rgba(0, 0, 0, 0.54)',
+    hover: 'rgba(0, 0, 0, 0.08)',
+    hoverOpacity: 0.08,
+    selected: 'rgba(0, 0, 0, 0.14)',
+    disabled: '#a1aebd',
+    disabledBackground: '#f0f3f7'
   }
 };
 
@@ -119,8 +138,6 @@ export const Typography = {
     lineHeight: '1.5'
   },
   h6: {
-    // fontFamily: 'Inter-BETA',
-    fontFamily: 'Inter',
     fontSize: `${1.25}rem`,
     fontWeight: Weight.light,
     lineHeight: '1.5'
