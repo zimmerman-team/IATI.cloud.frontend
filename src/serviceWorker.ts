@@ -10,6 +10,7 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
+//BOILERPLATE CODE
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
@@ -141,3 +142,21 @@ export function unregister() {
     });
   }
 }
+
+//CUSTOM CODE
+//Here we specify which files we want to cache
+const CACHE_NAME = 'my-site-cache-v1';
+const urlsToCache = ['/static/', '/assets/'];
+
+//Her we perform the install steps
+self.addEventListener('install', function(event) {
+  (<any>event).waitUntil(
+    caches.open(CACHE_NAME).then(function(cache) {
+      return cache.addAll(urlsToCache);
+    })
+  );
+});
+
+self.addEventListener('activate', function(event) {
+  console.log('Finally active. Ready to start serving content!');
+});
