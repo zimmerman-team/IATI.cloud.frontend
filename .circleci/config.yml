@@ -151,27 +151,31 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
                lighthouse "https://$REACT_APP_PROJECT_URL_STAGING" \
                 --port=9222 \
-                --chrome-flags=\"--headless\" \
-                --output-path=/home/chrome/reports/$(date +'%Y-%m-%d_%H-%M-%S')-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
-                --output=json
+                              --chrome-flags=\"--headless\" \
+                              --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+                              --output=json \
+                              --output=html
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
                 lighthouse "https://$REACT_APP_PROJECT_URL_TEST" \
                  --port=9222 \
-                 --chrome-flags=\"--headless\" \
-                 --output-path=/home/chrome/reports/$(date +'%Y-%m-%d_%H-%M-%S')-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
-                 --output=json
+                               --chrome-flags=\"--headless\" \
+                               --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+                               --output=json \
+                               --output=html
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
                  lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
                   --port=9222 \
-                  --chrome-flags=\"--headless\" \
-                  --output-path=/home/chrome/reports/$(date +'%Y-%m-%d_%H-%M-%S')-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
-                  --output=json
+                                --chrome-flags=\"--headless\" \
+                                --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+                                --output=json \
+                                --output=html
             else
                   lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
                    --port=9222 \
-                   --chrome-flags=\"--headless\" \
-                   --output-path=/home/chrome/reports/$(date +'%Y-%m-%d_%H-%M-%S')-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
-                   --output=json
+                                 --chrome-flags=\"--headless\" \
+                                 --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')" \
+                                 --output=json \
+                                 --output=html
             fi
       - persist_to_workspace:
           root: /home/chrome
