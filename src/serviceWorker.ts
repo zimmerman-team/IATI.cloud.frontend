@@ -26,10 +26,9 @@ type Config = {
   onUpdate?: (registration: ServiceWorkerRegistration) => void;
 };
 
-export function register(config?: Config) {
-  console.log('yo');
-  window['IsUpdateAvailable'] = false;
+export let isUpdateAvailable = true;
 
+export function register(config?: Config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(
@@ -82,11 +81,12 @@ function registerValidSW(swUrl: string, config?: Config) {
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
 
-              window['isUpdateAvailable'] = true;
               console.log(
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
+
+              isUpdateAvailable = true;
 
               // Execute callback
               if (config && config.onUpdate) {
