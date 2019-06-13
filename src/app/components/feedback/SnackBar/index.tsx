@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 type Props = {
   open?: boolean;
-  message: string;
+  message?: string;
 };
 
 const ZimmerSnackbar = styled(props => <Snackbar {...props} />)``;
@@ -32,7 +32,13 @@ const SnackBar: React.FC<Props> = props => {
       }}
       open={open}
       onClose={handleClose}
-      message={<span id="message-id">{props.message}</span>}
+      message={
+        <span id="message-id">
+          {props.message
+            ? props.message
+            : 'New content is available and will be used when all tabs of this page are closed'}
+        </span>
+      }
       action={[
         <IconButton onClick={handleClose} color="inherit">
           <CloseIcon />
