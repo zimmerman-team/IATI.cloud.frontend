@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Providers from './Providers';
-import Routes from './Routes';
+import Providers from 'app/Providers';
+import Routes from 'app/Routes';
 import AppBar from 'app/components/surfaces/AppBar';
-import SnackBar from './components/feedback/SnackBar';
+import SnackBar from 'app/components/feedback/SnackBar';
 
 type AppProps = {
   openSnackbar?: boolean;
