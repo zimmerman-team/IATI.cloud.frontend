@@ -5,6 +5,9 @@ import Providers from 'app/Providers';
 
 storiesOf('Feedback|Snackbar/', module).add('Snackbar', () => (
   <Providers>
-    <Component />
+    <Component
+      message="Snackbar: a dutch eatery where mainly snacks are sold."
+      open
+    />
   </Providers>
 ));

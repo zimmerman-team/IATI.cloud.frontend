@@ -5,14 +5,14 @@ import CloseIcon from '@material-ui/icons/Close';
 import styled from 'styled-components';
 
 type Props = {
-  triggerEvent?: CustomEvent<any>;
+  open?: boolean;
   message: string;
 };
 
 const ZimmerSnackbar = styled(props => <Snackbar {...props} />)``;
 
 const SnackBar: React.FC<Props> = props => {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(props.open);
 
   function handleClose(
     event: React.SyntheticEvent | React.MouseEvent,
@@ -31,14 +31,10 @@ const SnackBar: React.FC<Props> = props => {
         horizontal: 'left'
       }}
       open={open}
-      autoHideDuration={1000000}
       onClose={handleClose}
-      ContentProps={{
-        'aria-describedby': 'message-id'
-      }}
       message={<span id="message-id">{props.message}</span>}
       action={[
-        <IconButton aria-label="Close" onClick={handleClose} color="inherit">
+        <IconButton onClick={handleClose} color="inherit">
           <CloseIcon />
         </IconButton>
       ]}
