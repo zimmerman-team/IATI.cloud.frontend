@@ -26,7 +26,7 @@ type Config = {
   onUpdate?: (registration: ServiceWorkerRegistration) => void;
 };
 
-export let isUpdateAvailable = true;
+export let isUpdateAvailable = false;
 
 export function register(config?: Config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
@@ -85,7 +85,6 @@ function registerValidSW(swUrl: string, config?: Config) {
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
-
               isUpdateAvailable = true;
 
               // Execute callback
@@ -97,7 +96,7 @@ function registerValidSW(swUrl: string, config?: Config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
-
+              isUpdateAvailable = false;
               // Execute callback
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
