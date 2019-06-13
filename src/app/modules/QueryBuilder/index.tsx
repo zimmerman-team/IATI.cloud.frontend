@@ -15,8 +15,8 @@ import Add from '@material-ui/icons/Add';
 import Download from '@material-ui/icons/GetApp';
 import useTitle from 'react-use/lib/useTitle';
 import IconTextInput from 'app/components/inputs/textfields/IconTextInput';
-import URLField from 'app/components/datadisplay/URLField';
-import DateField from 'app/components/common/DateField';
+import URLField from 'app/components/inputs/URLField';
+import DateField from 'app/components/inputs/DateField';
 
 /* todo: move to separate component */
 const ModuleContainer = styled.div`
