@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Component from '.';
-import Providers from 'app/Providers';
+import Component from 'src/app/components/inputs/DateField/index';
+import Providers from 'src/app/Providers';
 
 storiesOf('Inputs|DateFields', module).add('Date input field', () => (
   <Providers>
