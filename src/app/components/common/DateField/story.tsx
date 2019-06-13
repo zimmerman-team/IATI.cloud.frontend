@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Landing from 'app/modules/Landing';
+import Component from '.';
 import Providers from 'app/Providers';
 
-storiesOf('Modules|Landing', module).add('Landing', () => (
+storiesOf('Inputs|DateFields', module).add('Date input field', () => (
   <Providers>
-    <Landing />
+    <Component />
   </Providers>
 ));

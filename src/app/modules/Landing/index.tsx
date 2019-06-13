@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'none',
     fontWeight: 600,
     '&:visited ': {
-      color: '#000'
+      color: '#FFF'
     },
     '&:hover': {
       color: '#FFF'
@@ -96,7 +96,7 @@ const Landing: React.FunctionComponent = () => {
                   className={classes.link}
                 >
                   Zimmerman & Zimmerman
-                </Link>
+                </Link>{' '}
                 which extracts and stores raw IATI XML files from the IATI
                 Registry and makes it available as API endpoints to build data
                 driven information solutions.

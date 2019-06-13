@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Providers from './Providers';
-
 import Routes from './Routes';
 import AppBar from 'app/components/surfaces/AppBar';
 import SnackBar from './components/feedback/SnackBar';

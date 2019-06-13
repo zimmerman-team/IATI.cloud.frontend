@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Landing from 'app/modules/Landing';
+import Component from '.';
 import Providers from 'app/Providers';
 
-storiesOf('Modules|Landing', module).add('Landing', () => (
+storiesOf('Common|Sort', module).add('Field Input Label', () => (
   <Providers>
-    <Landing />
+    <Component label="field input label" />
   </Providers>
 ));

@@ -14,14 +14,20 @@ import DataTable from 'app/components/datadisplay/tables/DataTable';
 import Add from '@material-ui/icons/Add';
 import Download from '@material-ui/icons/GetApp';
 import useTitle from 'react-use/lib/useTitle';
+import IconTextInput from 'app/components/inputs/textfields/IconTextInput';
+import URLField from 'app/components/datadisplay/URLField';
+import DateField from 'app/components/common/DateField';
 
+/* todo: move to separate component */
 const ModuleContainer = styled.div`
   padding: 60px;
-  border-right: 1px solid rgba(30, 144, 255, 0.2);
-  border-left: 1px solid rgba(30, 144, 255, 0.2);
+
+  //border-right: 1px solid rgba(30, 144, 255, 0.2);
+  //border-left: 1px solid rgba(30, 144, 255, 0.2);
   padding-top: 100px;
 `;
 
+/* todo: move to separate component */
 const FragmentDivider = styled(Divider)`
   && {
     margin-top: 60px;
@@ -30,6 +36,7 @@ const FragmentDivider = styled(Divider)`
   }
 `;
 
+/* todo: move to mock file */
 const MockData = {
   moduleName: 'Query Builder',
   moduleInfo:
@@ -104,10 +111,11 @@ const QueryBuilder: React.FC = () => {
       >
         <Grid container spacing={4}>
           <Grid item xs={12}>
-            <SimpleSelect
+            <IconTextInput
+              placeholder="Text search"
               label="Data title, activity, or descriptions"
               helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
-            />{' '}
+            />
           </Grid>
           <Grid item xs={12}>
             <Divider />
@@ -116,10 +124,10 @@ const QueryBuilder: React.FC = () => {
             <SimpleSelect label="Must have activity periode" />
           </Grid>
           <Grid item xs={4}>
-            <SimpleSelect label="Activity period start date" />
+            <DateField />
           </Grid>
           <Grid item xs={4}>
-            <SimpleSelect label="Activity period start date " />
+            <DateField />
           </Grid>
           <Grid item xs={12}>
             <Divider />
@@ -174,15 +182,22 @@ const QueryBuilder: React.FC = () => {
       <FragmentDivider />
       {/* ////////////////////////////////////////////////////////////////// */}
       {/* DOWNLOAD FRAGMENT */}
-      <Grid container spacing={4}>
+      <Grid container spacing={2} justify="space-between">
         <Grid item xs={12}>
-          <Typography variant="h6">Files</Typography>
+          <Typography variant="h4">Files</Typography>
         </Grid>
-        <Grid item xs={9}>
-          <SimpleSelect />
+        {/* todo: make re-usable component */}
+        <Grid item xs={8}>
+          <URLField />
         </Grid>
         <Grid item xs={3}>
-          <IconButton label="Add Filter" icon={<Download />} />
+          <IconButton label="Download CSV" icon={<Download />} disabled />
+        </Grid>
+        <Grid item xs={8}>
+          <URLField />
+        </Grid>
+        <Grid item xs={3}>
+          <IconButton label="Download CSV" icon={<Download />} disabled />
         </Grid>
       </Grid>
     </Container>

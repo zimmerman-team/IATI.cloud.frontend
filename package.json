@@ -11,9 +11,9 @@
     "@devexpress/dx-react-core": "^1.11.0",
     "@devexpress/dx-react-grid": "^1.11.0",
     "@devhammed/use-cookie": "^1.0.3",
-    "@material-ui/core": "4.0.2",
-    "@material-ui/icons": "4.0.1",
-    "@material-ui/styles": "4.0.2",
+    "@material-ui/core": "4.1.0",
+    "@material-ui/icons": "4.1.0",
+    "@material-ui/styles": "4.1.0",
     "axios": "^0.19.0",
     "circle-github-bot": "^2.0.1",
     "global": "^4.3.2",
@@ -40,10 +40,10 @@
     "check-types": "tsc",
     "cy:run": "cypress run",
     "cy:run:record:percy:parallel:reporter": "percy exec -- cypress run --record --key 86800b76-116b-47f9-bc1b-cd8ec67f7212 --parallel --reporter junit",
-    "cy:open": "cypress open"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "cy:open": "cypress open",
+    "analyse": "madge src/index.tsx",
+    "depcheck": "depcheck",
+    "why": "whybundled build/stats.json --duplicatesOnly "
   },
   "browserslist": {
     "production": [
@@ -132,6 +132,7 @@
     "cypress": "^3.3.1",
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
+    "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-jest-enzyme": "^7.0.2",
@@ -185,7 +186,7 @@
     "storybook-react-router": "^1.0.5",
     "storybook-router": "^0.3.4",
     "style-loader": "0.23.1",
-    "stylelint": "^10.0.1",
+    "stylelint": "^10.1.0",
     "stylelint-a11y": "^1.2.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-recommended": "^2.2.0",
@@ -200,7 +201,8 @@
     "typescript": "^3.5.1",
     "url-loader": "1.1.2",
     "webpack": "4.33.0",
-    "webpack-dev-server": "3.6.0",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-dev-server": "3.7.1",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "4.3.1"
   },

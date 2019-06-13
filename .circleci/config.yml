@@ -140,9 +140,7 @@ jobs:
           name: Check if PR or develop/master branch
           command: |
             if [ "${CIRCLE_BRANCH} != "develop" ] && [ "${CIRCLE_BRANCH} != "master" ]; then
-              if [ -z "${CIRCLE_PULL_REQUEST}" ]; then
-                circleci step halt
-              fi
+              circleci step halt
             fi
       - checkout
       - run:
@@ -186,9 +184,7 @@ jobs:
           name: Check if PR or develop/master branch
           command: |
             if [ "${CIRCLE_BRANCH} != "develop" ] && [ "${CIRCLE_BRANCH} != "master" ]; then
-              if [ -z "${CIRCLE_PULL_REQUEST}" ]; then
-                circleci step halt
-              fi
+              circleci step halt
             fi
       - checkout
       - restore_cache:

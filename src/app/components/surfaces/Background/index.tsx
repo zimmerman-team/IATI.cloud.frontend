@@ -15,10 +15,8 @@ const ComponentBase = styled.div`
   z-index: -1;
 `;
 
-const Background: React.FC<Background> = props => {
+const Background: React.FC = props => {
   return <ComponentBase>{props.children}</ComponentBase>;
 };
-
-Background.defaultProps = {};
 
 export default Background;

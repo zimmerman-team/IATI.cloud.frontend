@@ -10,6 +10,7 @@ import Box from '@material-ui/core/Box';
 import InputBase from '@material-ui/core/InputBase';
 import MenuList from '@material-ui/core/MenuList';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import FieldInputLabel from 'app/components/common/FieldInputLabel';
 
 type SimpleSelectProps = {
   label?: string;
@@ -17,15 +18,6 @@ type SimpleSelectProps = {
 };
 
 /* todo: make actual components out of these styled constants */
-const BaseInputLabel = styled(props => <InputLabel {...props} />)`
-  && {
-    font-size: 12px;
-    color: black;
-    margin-bottom: 8px;
-    & [class*='MuiIconButton-label'] {
-    }
-  }
-`;
 
 const BaseInput = styled(props => <InputBase {...props} />)`
   && {
@@ -117,7 +109,7 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
   return (
     <div>
       <Box width="100%">
-        {props.label && <BaseInputLabel>{props.label}</BaseInputLabel>}
+        {props.label && <FieldInputLabel label={props.label} />}
 
         <BaseSelect
           value={values.age}
