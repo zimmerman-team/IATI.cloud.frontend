@@ -10,8 +10,26 @@ type Props = {
 const ZimmerButton = styled(props => <Button {...props} />)`
   && {
     box-shadow: initial !important;
-    padding-left: 42px;
-    padding-right: 42px;
+    //padding-left: 42px;
+    //padding-right: 42px;
+    width: 100px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+/*    background-color: ${props => {
+  switch (props.copied) {
+    case true:
+      return 'red';
+    case false:
+      return 'blue';
+    default:
+      return 'yellow';
+  }
+}};*/
+
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     height: ${props => {
       switch (props.size) {
         case 'small':
