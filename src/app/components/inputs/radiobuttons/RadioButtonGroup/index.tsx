@@ -34,13 +34,7 @@ const RadioButtonsGroup: React.FC = () => {
             <GroupTitle component="legend">Row format</GroupTitle>
           </Grid>
           <Grid item>
-            <Tooltip
-              title="lorem ipsum dolor simet"
-              // component={TooltipContent}
-              placement="right"
-            >
-              <TooltipButton>i</TooltipButton>
-            </Tooltip>
+            <TooltipButton>i</TooltipButton>
           </Grid>
         </Grid>
         <RadioGroup
