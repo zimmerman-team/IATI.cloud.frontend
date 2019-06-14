@@ -43,8 +43,7 @@
     "cy:open": "cypress open",
     "analyse": "madge src/index.tsx",
     "depcheck": "depcheck",
-    "why": "whybundled build/stats.json --duplicatesOnly ",
-    "postbuild": "react-snap"
+    "why": "whybundled build/stats.json --duplicatesOnly "
   },
   "reactSnap": {
     "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
