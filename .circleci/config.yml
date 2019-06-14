@@ -132,18 +132,11 @@ jobs:
 #            fi
 
   performance_test:
+    parallelism: 2
     docker:
-      - image: kporras07/lighthouse-ci
+      - image: femtopixel/google-lighthouse
 
     steps:
-#      Unnecessary since we now only do this workflow on merging with dev/master
-#      or when there is a PR => see CircleCi in-app settings
-#      - run:
-#          name: Check if PR or develop/master branch
-#          command: |
-#            if [ "${CIRCLE_BRANCH} != "develop" ] && [ "${CIRCLE_BRANCH} != "master" ]; then
-#              circleci step halt
-#            fi
       - checkout
       - run:
           name: Run lighthouse against deployment
