@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Component from 'src/app/components/inputs/URLField/index';
-import Providers from 'src/app/Providers';
+import Component from 'app/components/inputs/textdisplay/URLField';
+import Providers from 'app/Providers';
 import { Grid } from '@material-ui/core';
 
 storiesOf('Data display|URL Field', module).add('Example', () => (

@@ -38,6 +38,8 @@ const BaseSelect = styled(props => (
     min-width: 270px;
     width: 100%;
     & [class*='MuiSelect-select'] {
+      padding-left: 16px;
+
       &:focus {
         background-color: #f0f3f7 !important;
       }

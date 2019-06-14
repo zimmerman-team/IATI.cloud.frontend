@@ -8,15 +8,15 @@ import ModuleFragment from 'app/modules/QueryBuilder/common/ModuleFragment';
 import Divider from '@material-ui/core/Divider';
 import SimpleSelect from 'app/components/inputs/selects/SimpleSelect';
 import IconButton from 'app/components/inputs/buttons/IconButton';
-import ChipInput from 'app/components/inputs/ChipInput';
+import ChipInput from 'app/components/inputs/textinputs/ChipInputField';
 import RadioButtonsGroup from 'app/components/inputs/radiobuttons/RadioButtonGroup';
 import DataTable from 'app/components/datadisplay/tables/DataTable';
 import Add from '@material-ui/icons/Add';
 import Download from '@material-ui/icons/GetApp';
 import useTitle from 'react-use/lib/useTitle';
-import IconTextInput from 'app/components/inputs/textfields/IconTextInput';
-import URLField from 'app/components/inputs/URLField';
-import DateField from 'app/components/inputs/DateField';
+import IconTextInput from 'app/components/inputs/textinputs/IconTextInputFIeld';
+import URLField from 'app/components/inputs/textdisplay/URLField';
+import DateField from 'app/components/inputs/textinputs/DateInputField';
 
 /* todo: move to separate component */
 const ModuleContainer = styled.div`
