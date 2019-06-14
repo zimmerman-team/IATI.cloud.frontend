@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
 import Container from '@material-ui/core/Container';
 import ModuleFragment from 'app/modules/QueryBuilder/common/ModuleFragment';
 import Divider from '@material-ui/core/Divider';
@@ -20,12 +21,14 @@ import DateField from 'app/components/inputs/textinputs/DateInputField';
 
 /* todo: move to separate component */
 const ModuleContainer = styled.div`
-  padding: 60px;
+  //padding: 60px;
 
-  //border-right: 1px solid rgba(30, 144, 255, 0.2);
-  //border-left: 1px solid rgba(30, 144, 255, 0.2);
+  border-right: 1px solid rgba(30, 144, 255, 0.2);
+  border-left: 1px solid rgba(30, 144, 255, 0.2);
   padding-top: 100px;
 `;
+
+const spacing = 4;
 
 /* todo: move to separate component */
 const FragmentDivider = styled(Divider)`
@@ -66,11 +69,11 @@ const QueryBuilder: React.FC = () => {
     <Container component={ModuleContainer} maxWidth="lg">
       {/* ////////////////////////////////////////////////////////////////// */}
       {/* INTRO FRAGMENT */}
-      <Grid container direction="column" spacing={4}>
-        <Grid item xs={6}>
+      <Grid container direction="column" spacing={spacing}>
+        <Grid item xs={12} sm={12} md={6}>
           <Typography variant="h3">{MockData.moduleName}</Typography>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={12} md={6} >
           <Typography variant="body1">{MockData.moduleInfo}</Typography>
         </Grid>
       </Grid>
@@ -81,20 +84,20 @@ const QueryBuilder: React.FC = () => {
         title={MockData.fragments[0].title}
         info={MockData.fragments[0].info}
       >
-        <Grid container spacing={4}>
-          <Grid item xs={12}>
+        <Grid container spacing={spacing}>
+          <Grid item xs={12} sm={6} md={12}>
             <SimpleSelect label="Organisation type" helperText="Code list" />
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={12} sm={6} md={8}>
             <SimpleSelect
               label="Organistion sector"
               helperText="DAC 3 & 5 codelist"
             />
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={12} sm={6} md={4}>
             <SimpleSelect label="Include secondary reporters Y/N" />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6} md={12}>
             <SimpleSelect
               label="Organisation name"
               helperText="E.g. AT-12 = Ministry of Interior. See list"
@@ -109,30 +112,32 @@ const QueryBuilder: React.FC = () => {
         title={MockData.fragments[1].title}
         info={MockData.fragments[1].info}
       >
-        <Grid container spacing={4}>
-          <Grid item xs={12}>
+        <Grid container spacing={spacing}>
+          <Grid item xs={12} sm={12} md={12}>
             <IconTextInput
               placeholder="Text search"
               label="Data title, activity, or descriptions"
               helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
             />
           </Grid>
-          <Grid item xs={12}>
+
+          <Grid item xs={12} sm={12} md={12}>
             <Divider />
           </Grid>
-          <Grid item xs={4}>
+
+          <Grid item xs={12} sm={12} md={4}>
             <SimpleSelect label="Must have activity periode" />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <DateField />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <DateField />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={12}>
             <Divider />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={12} md={4}>
             <IconButton label="Add Filter" icon={<Add />} />
           </Grid>
         </Grid>
@@ -144,14 +149,14 @@ const QueryBuilder: React.FC = () => {
         title={MockData.fragments[2].title}
         info={MockData.fragments[2].info}
       >
-        <Grid container spacing={4}>
-          <Grid item xs={12}>
+        <Grid container spacing={spacing}>
+          <Grid item xs={12} sm={12} md={7}>
             <ChipInput />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={6} md={6}>
             <RadioButtonsGroup />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={6} md={6}>
             <RadioButtonsGroup />
           </Grid>
         </Grid>
@@ -159,44 +164,46 @@ const QueryBuilder: React.FC = () => {
       <FragmentDivider />
       {/* ////////////////////////////////////////////////////////////////// */}
       {/* RESULT FRAGMENT */}
-      <Grid container spacing={4} direction="column">
-        <Grid item xs={6}>
+      <Hidden only={['xs','sm']}>
+      <Grid container spacing={spacing} direction="column" >
+        <Grid item xs={12} sm={12} md={6}>
           <Typography variant="h4">Result</Typography>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={12} md={6}>
           <Typography variant="body1">
             2 activities, 24 financial transactions, 4 budget entries Last data
             refreshed at DD/MM/YYYY
           </Typography>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={12}>
           <Typography variant="h6">Output sample</Typography>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={12}>
           <DataTable />
         </Grid>
       </Grid>
       <FragmentDivider />
+      </Hidden>
       {/* ////////////////////////////////////////////////////////////////// */}
       {/* DOWNLOAD FRAGMENT */}
       <Grid container spacing={2} justify="space-between">
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={12}>
           <Typography variant="h4">Files</Typography>
         </Grid>
         {/* todo: make re-usable component */}
-        <Grid item xs={8}>
+        <Grid item xs={12} sm={9} md={9}>
           <URLField />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={3} md={3}>
           <IconButton label="Download CSV" icon={<Download />} disabled />
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={12} sm={9} md={9}>
           <URLField />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={3} md={3}>
           <IconButton label="Download CSV" icon={<Download />} disabled />
         </Grid>
       </Grid>

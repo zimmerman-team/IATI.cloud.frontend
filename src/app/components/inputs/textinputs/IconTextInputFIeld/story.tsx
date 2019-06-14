@@ -6,14 +6,14 @@ import { Grid } from '@material-ui/core';
 
 storiesOf('Inputs|Textfields', module).add('Icon Text Input', () => (
   <Providers>
-    {/*<Grid container spacing={3}>*/}
-    {/*  <Grid item xs={6}>*/}
-    <Component
-      label="Storybook preview of component"
-      placeholder="Storybook"
-      helperText="storybook helper text"
-    />
-    {/*</Grid>*/}
-    {/*</Grid>*/}
+    <Grid container spacing={3}>
+      <Grid item xs={6}>
+        <Component
+          label="Storybook preview of component"
+          placeholder="Storybook"
+          helperText="storybook helper text"
+        />
+      </Grid>
+    </Grid>
   </Providers>
 ));

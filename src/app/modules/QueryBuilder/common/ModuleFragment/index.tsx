@@ -36,7 +36,7 @@ const FragmentContent = styled(props => <Grid {...props} />)`
 const ModuleFragment: React.FC<FragmentProps> = props => {
   return (
     <Fragment container>
-      <FragmentHeader item xs={6}>
+      <FragmentHeader item xs={12} sm={12} md={6}>
         <Box marginBottom={1}>
           <Typography variant="h4" color="textPrimary">
             {props.title}
@@ -46,7 +46,7 @@ const ModuleFragment: React.FC<FragmentProps> = props => {
           {props.info}
         </Typography>
       </FragmentHeader>
-      <FragmentContent item xs={9}>
+      <FragmentContent item sm={12} md={9}>
         {props.children}
       </FragmentContent>
     </Fragment>

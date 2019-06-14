@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Spacing } from 'app/theme/index';
 
 type Props = {
   label?: string;
@@ -14,7 +15,8 @@ const BaseComponent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 15px;
+  //padding-left: ${Spacing.inputSideSpacing};
+  //padding-right: ${Spacing.inputSideSpacing};
 `;
 
 const FieldBackdrop: React.FC<Props> = props => {
