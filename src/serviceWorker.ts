@@ -26,6 +26,8 @@ type Config = {
   onUpdate?: (registration: ServiceWorkerRegistration) => void;
 };
 
+export let isUpdateAvailable = false;
+
 export function register(config?: Config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
@@ -78,10 +80,12 @@ function registerValidSW(swUrl: string, config?: Config) {
               // At this point, the updated precached content has been fetched,
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
+
               console.log(
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
+              isUpdateAvailable = true;
 
               // Execute callback
               if (config && config.onUpdate) {
@@ -92,7 +96,7 @@ function registerValidSW(swUrl: string, config?: Config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
-
+              isUpdateAvailable = false;
               // Execute callback
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
@@ -150,7 +154,7 @@ const urlsToCache = ['/static/', '/assets/'];
 
 //Her we perform the install steps
 self.addEventListener('install', function(event) {
-  (<any>event).waitUntil(
+  (event as any).waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
       return cache.addAll(urlsToCache);
     })

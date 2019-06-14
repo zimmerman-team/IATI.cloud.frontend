@@ -11,6 +11,7 @@ import InputBase from '@material-ui/core/InputBase';
 import MenuList from '@material-ui/core/MenuList';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FieldInputLabel from 'app/components/common/FieldInputLabel';
+import { Spacing } from 'app/theme/index';
 
 type SimpleSelectProps = {
   label?: string;
@@ -35,9 +36,10 @@ const BaseSelect = styled(props => (
   && {
     background-color: #f0f3f7;
     margin: 0;
-    min-width: 270px;
+    //min-width: 270px;
     width: 100%;
     & [class*='MuiSelect-select'] {
+      padding-left: ${Spacing.inputSideSpacing};
       &:focus {
         background-color: #f0f3f7 !important;
       }
@@ -107,32 +109,28 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
   }
 
   return (
-    <div>
-      <Box width="100%">
-        {props.label && <FieldInputLabel label={props.label} />}
+    <React.Fragment>
+      {props.label && <FieldInputLabel label={props.label} />}
 
-        <BaseSelect
-          value={values.age}
-          onChange={handleChange}
-          MenuProps={{
-            classes: {
-              paper: classes.menProps,
-              list: classes.listProps
-            }
-          }}
-        >
-          <BaseMenuItem value="">
-            <em>None</em>
-          </BaseMenuItem>
-          <BaseMenuItem value={10}>Ten</BaseMenuItem>
-          <BaseMenuItem value={20}>Twenty</BaseMenuItem>
-          <BaseMenuItem value={30}>Thirty</BaseMenuItem>
-        </BaseSelect>
-        {props.helperText && (
-          <FormHelperText>{props.helperText}</FormHelperText>
-        )}
-      </Box>
-    </div>
+      <BaseSelect
+        value={values.age}
+        onChange={handleChange}
+        MenuProps={{
+          classes: {
+            paper: classes.menProps,
+            list: classes.listProps
+          }
+        }}
+      >
+        <BaseMenuItem value="">
+          <em>None</em>
+        </BaseMenuItem>
+        <BaseMenuItem value={10}>Ten</BaseMenuItem>
+        <BaseMenuItem value={20}>Twenty</BaseMenuItem>
+        <BaseMenuItem value={30}>Thirty</BaseMenuItem>
+      </BaseSelect>
+      {props.helperText && <FormHelperText>{props.helperText}</FormHelperText>}
+    </React.Fragment>
   );
 };
 

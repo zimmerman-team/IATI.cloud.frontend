@@ -14,10 +14,10 @@ const Component = styled(props => <ChipInput {...props} />)`
     display: flex;
     flex-direction: column;
     background: #f0f3f7;
-    padding-left: 12px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    width: 600px;
+    //padding-left: 12px;
+    //padding-top: 4px;
+    //padding-bottom: 4px;
+    width: 100%;
 
     & [class*='WAMuiChipInput-inputRoot'] {
       display: flex;
@@ -29,7 +29,7 @@ const Component = styled(props => <ChipInput {...props} />)`
 
 const Container: React.FC<ChippieProps> = props => {
   return (
-    <NoSsr>
+    <React.Fragment>
       <Component
         clickable="false"
         disableUnderline
@@ -59,7 +59,7 @@ const Container: React.FC<ChippieProps> = props => {
       <FormHelperText>
         See OIPA documentation for full list of possible elements
       </FormHelperText>
-    </NoSsr>
+    </React.Fragment>
   );
 };
 

@@ -27,7 +27,7 @@ const RadioButtonsGroup: React.FC = () => {
   }
 
   return (
-    <div>
+    <React.Fragment>
       <FormControl component="fieldset">
         <Grid container alignItems="center" spacing={2}>
           <Grid item>
@@ -66,7 +66,7 @@ const RadioButtonsGroup: React.FC = () => {
           />
         </RadioGroup>
       </FormControl>
-    </div>
+    </React.Fragment>
   );
 };
 
