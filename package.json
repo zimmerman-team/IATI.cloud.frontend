@@ -46,6 +46,13 @@
     "why": "whybundled build/stats.json --duplicatesOnly ",
     "postbuild": "react-snap"
   },
+  "reactSnap": {
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "minifyHtml": {
+      "collapseWhitespace": false,
+      "removeComments": false
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
