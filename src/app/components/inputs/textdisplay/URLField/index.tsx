@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import BaseButton from 'app/components/inputs/buttons/BaseButton';
-import { Box } from '@material-ui/core';
-import { useCopyToClipboard, useLogger } from 'react-use';
+import Box from '@material-ui/core/Box';
+import { useCopyToClipboard } from 'react-use';
 import FieldBackdrop from 'app/components/common/FieldBackdrop';
 type Props = {
   label?: string;
@@ -35,10 +34,10 @@ const TextFieldMod = styled(props => <TextField {...props} />)`
   }
 `;
 
-const URLField: React.FC<Props> = props => {
+const URLField: React.FC<Props> = () => {
   const [text, setText] = React.useState('');
   const [state, copyToClipboard] = useCopyToClipboard();
-  useLogger('URLField', props);
+
   return (
     <FieldBackdrop>
       <TextFieldMod

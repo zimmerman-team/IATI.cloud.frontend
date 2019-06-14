@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Component from 'app/components/inputs/URLField/index';
+import Component from '.';
 import Providers from 'app/Providers';
 import { Grid } from '@material-ui/core';
 
