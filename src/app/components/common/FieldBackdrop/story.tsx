@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Component from '.';
 import Providers from 'app/Providers';
 
-storiesOf('Example', module).add('Example', () => (
+storiesOf('Backdrop', module).add('Drop', () => (
   <Providers>
     <Component />
   </Providers>
