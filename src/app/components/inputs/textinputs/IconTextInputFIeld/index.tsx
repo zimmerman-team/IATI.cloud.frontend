@@ -28,7 +28,7 @@ const IconTextInput: React.FC<Props> = props => {
         </Box>
 
         <Box marginRight={Spacing.inputSideSpacing}>
-          <SearchIcon color="action"/>
+          <SearchIcon color="action" />
         </Box>
       </FieldBackdrop>
       {props.helperText && <FormHelperText>{props.helperText}</FormHelperText>}

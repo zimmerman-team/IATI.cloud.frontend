@@ -73,7 +73,7 @@ const QueryBuilder: React.FC = () => {
         <Grid item xs={12} sm={12} md={6}>
           <Typography variant="h3">{MockData.moduleName}</Typography>
         </Grid>
-        <Grid item xs={12} sm={12} md={6} >
+        <Grid item xs={12} sm={12} md={6}>
           <Typography variant="body1">{MockData.moduleInfo}</Typography>
         </Grid>
       </Grid>
@@ -164,28 +164,28 @@ const QueryBuilder: React.FC = () => {
       <FragmentDivider />
       {/* ////////////////////////////////////////////////////////////////// */}
       {/* RESULT FRAGMENT */}
-      <Hidden only={['xs','sm']}>
-      <Grid container spacing={spacing} direction="column" >
-        <Grid item xs={12} sm={12} md={6}>
-          <Typography variant="h4">Result</Typography>
-        </Grid>
+      <Hidden only={['xs', 'sm']}>
+        <Grid container spacing={spacing} direction="column">
+          <Grid item xs={12} sm={12} md={6}>
+            <Typography variant="h4">Result</Typography>
+          </Grid>
 
-        <Grid item xs={12} sm={12} md={6}>
-          <Typography variant="body1">
-            2 activities, 24 financial transactions, 4 budget entries Last data
-            refreshed at DD/MM/YYYY
-          </Typography>
-        </Grid>
+          <Grid item xs={12} sm={12} md={6}>
+            <Typography variant="body1">
+              2 activities, 24 financial transactions, 4 budget entries Last
+              data refreshed at DD/MM/YYYY
+            </Typography>
+          </Grid>
 
-        <Grid item xs={12} sm={12}>
-          <Typography variant="h6">Output sample</Typography>
-        </Grid>
+          <Grid item xs={12} sm={12}>
+            <Typography variant="h6">Output sample</Typography>
+          </Grid>
 
-        <Grid item xs={12} sm={12}>
-          <DataTable />
+          <Grid item xs={12} sm={12}>
+            <DataTable />
+          </Grid>
         </Grid>
-      </Grid>
-      <FragmentDivider />
+        <FragmentDivider />
       </Hidden>
       {/* ////////////////////////////////////////////////////////////////// */}
       {/* DOWNLOAD FRAGMENT */}

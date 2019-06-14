@@ -29,7 +29,7 @@ const Component = styled(props => <ChipInput {...props} />)`
 
 const Container: React.FC<ChippieProps> = props => {
   return (
-<React.Fragment>
+    <React.Fragment>
       <Component
         clickable="false"
         disableUnderline
@@ -59,7 +59,7 @@ const Container: React.FC<ChippieProps> = props => {
       <FormHelperText>
         See OIPA documentation for full list of possible elements
       </FormHelperText>
-</React.Fragment>
+    </React.Fragment>
   );
 };
 
