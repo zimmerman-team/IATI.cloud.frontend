@@ -69,3 +69,9 @@ code{
   font-family : source-code-pro, Menlo, Monaco, Consolas, "Courier New",
   monospace;
   }
+
+/* todo: should be solved in a cleaner way */
+a{
+  text-decoration: initial;
+  color:#3074f1;
+  }
