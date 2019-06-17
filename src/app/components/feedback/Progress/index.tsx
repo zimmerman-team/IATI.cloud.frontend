@@ -1,8 +1,9 @@
 import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import styled from 'styled-components';
+import { Box as Base } from '@material-ui/core';
 
-const Base = styled.div`
+const Box = styled(Base)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,9 +12,9 @@ const Base = styled.div`
 
 const Progress: React.FC = props => {
   return (
-    <Base>
+    <Box>
       <CircularProgress {...props} size={70} thickness={3.6} color="primary" />
-    </Base>
+    </Box>
   );
 };
 
