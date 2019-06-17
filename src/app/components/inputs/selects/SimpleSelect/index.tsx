@@ -7,15 +7,18 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import styled from 'styled-components';
 import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 import InputBase from '@material-ui/core/InputBase';
 import MenuList from '@material-ui/core/MenuList';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FieldInputLabel from 'app/components/common/FieldInputLabel';
 import { Spacing } from 'app/theme/index';
+import TooltipButton from 'app/components/inputs/buttons/TooltipButton/index';
 
 type SimpleSelectProps = {
   label?: string;
   helperText?: string;
+  tip?:string;
 };
 
 /* todo: make actual components out of these styled constants */
@@ -110,7 +113,7 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
 
   return (
     <React.Fragment>
-      {props.label && <FieldInputLabel label={props.label} />}
+      {props.label && (<><Grid container spacing={2}><Grid item><FieldInputLabel label={props.label} /></Grid>{props.tip && <Grid item><TooltipButton tip={props.tip}/></Grid>}</Grid></>)}
 
       <BaseSelect
         value={values.age}
