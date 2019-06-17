@@ -95,7 +95,7 @@ const QueryBuilder: React.FC = () => {
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <SimpleSelect label="Include secondary reporters Y/N" />
+            <SimpleSelect label="Include secondary reporters Y/N" tip='empty tooltip'/>
           </Grid>
           <Grid item xs={12} sm={6} md={12}>
             <SimpleSelect
@@ -154,10 +154,12 @@ const QueryBuilder: React.FC = () => {
             <ChipInput />
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
-            <RadioButtonsGroup />
+            {/* todo: refactor, move buttongroup title here */}
+            <RadioButtonsGroup tip='Each row contains a unique activity. Financial information is aggregated. Budget information is excluded. Other potentially repeating fields (such as sectors) are reported in a single cell, delimited by semi-colons.'/>
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
-            <RadioButtonsGroup />
+            {/* todo: refactor, move buttongroup title here */}
+            <RadioButtonsGroup tip='Each Activity, Transaction or Budget row is repeated for each separate Sector reported. The corresponding percentage for the sector split is reported in a separate column. This allows you to easily add arithmetic to your spreadsheet to calculate values proportionately'/>
           </Grid>
         </Grid>
       </ModuleFragment>

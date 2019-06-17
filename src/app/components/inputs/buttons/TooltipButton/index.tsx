@@ -33,7 +33,7 @@ const TooltipButton: React.FC<Props> = props => {
   return (
     <Tooltip
       title={props.tip ? props.tip : 'empty tooltip'}
-
+      placement='top-end'
     >
       <ZimmerButton
         {...props}
