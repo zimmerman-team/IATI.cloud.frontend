@@ -86,12 +86,12 @@ const QueryBuilder: React.FC = () => {
       >
         <Grid container spacing={spacing}>
           <Grid item xs={12} sm={6} md={12}>
-            <SimpleSelect label="Organisation type" helperText="Code list" />
+            <SimpleSelect label="Organisation type" helperText="<a href='www.zimmermanzimmerman.nl' target='_blank'>Code list</a>" />
           </Grid>
           <Grid item xs={12} sm={6} md={8}>
             <SimpleSelect
               label="Organistion sector"
-              helperText="DAC 3 & 5 codelist"
+              helperText="DAC 3 & 5 <a href='www.zimmermanzimmerman.nl' target='_blank'>codelist</a>"
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
@@ -100,7 +100,7 @@ const QueryBuilder: React.FC = () => {
           <Grid item xs={12} sm={6} md={12}>
             <SimpleSelect
               label="Organisation name"
-              helperText="E.g. AT-12 = Ministry of Interior. See list"
+              helperText="E.g. AT-12 = Ministry of Interior. <a href='www.zimmermanzimmerman.nl' target='_blank'>See list</a>"
             />
           </Grid>
         </Grid>
