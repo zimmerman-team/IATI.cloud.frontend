@@ -1,0 +1,20 @@
+{
+  "copy":{
+    "header":  "IATI Datastore",
+    "subtitle": "The query builder tool makes it easy to build queries to obtain data from the IATI Datastore in CSV, XML and JSON format.",
+    "body": "The query builder uses OIPA to query the IATI database. An open-source library by Zimmerman & Zimmerman which extracts and stores raw IATI XML files from the IATI Registry and makes it available as API endpoints to build data driven information solutions.",
+    "copyright": "Code licensed under the GNU AGPL. Documentation licensed under CC BY 3.0.",
+    "appbar": {
+      "title": "OIPA",
+      "button1": "Welcome",
+      "button2": "Query builder",
+      "button3": "API documentation",
+      "button4": "Github"
+    }
+  },
+  "link": {
+    "oipa": "https://www.oipa.nl",
+    "zimmerman": "https://www.zimmermanzimmerman.nl",
+    "querybuilder": "/querybuilder"
+  }
+}
