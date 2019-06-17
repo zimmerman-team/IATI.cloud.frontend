@@ -71,21 +71,31 @@ const Landing: React.FunctionComponent = () => {
           <Container maxWidth="lg">
             <Box>
               <Section>
-                <TypoMod variant="h3" className={classes.h3}>
+                <TypoMod
+                  variant="h3"
+                  className={classes.h3}
+                  data-cy="copy-header"
+                >
                   IATI Datastore
                 </TypoMod>
-                <TypoMod variant="h6">
-                  The query builder tool makes it easy build queries to obtain
-                  data from the IATI Datastore in CSV, XML and JSON format.{' '}
+                <TypoMod variant="h6" data-cy="copy-subtitle">
+                  The query builder tool makes it easy to build queries to
+                  obtain data from the IATI Datastore in CSV, XML and JSON
+                  format.
                 </TypoMod>
               </Section>
 
-              <TypoMod variant="body2" className={classes.body2}>
+              <TypoMod
+                variant="body2"
+                className={classes.body2}
+                data-cy="copy-body"
+              >
                 The query builder uses{' '}
                 <Link
                   href="https://www.oipa.nl"
                   color="textSecondary"
                   className={classes.link}
+                  data-cy="link-oipa"
                 >
                   OIPA
                 </Link>{' '}
@@ -94,6 +104,7 @@ const Landing: React.FunctionComponent = () => {
                   href="https://www.zimmermanzimmerman.nl"
                   color="textSecondary"
                   className={classes.link}
+                  data-cy="link-zimmerman"
                 >
                   Zimmerman & Zimmerman
                 </Link>{' '}
@@ -101,10 +112,16 @@ const Landing: React.FunctionComponent = () => {
                 Registry and makes it available as API endpoints to build data
                 driven information solutions.
               </TypoMod>
-              <IconButtonOutlined label="Query Builder" />
+              <IconButtonOutlined
+                label="Query Builder"
+                data-cy="link-querybuilder"
+              />
             </Box>
-
-            <TypoMod variant="caption" className={classes.caption}>
+            <TypoMod
+              variant="caption"
+              className={classes.caption}
+              data-cy="copy-copyright"
+            >
               Code licensed under the GNU AGPL. Documentation licensed under CC
               BY 3.0.
             </TypoMod>

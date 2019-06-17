@@ -13,7 +13,7 @@ const App: React.FunctionComponent<AppProps> = props => {
   return (
     <Providers>
       <Router>
-        <AppBar />
+        <AppBar data-cy="appbar" />
         <Routes />
         <SnackBar
           message="New content is available and will be used when all tabs of this page are closed "
