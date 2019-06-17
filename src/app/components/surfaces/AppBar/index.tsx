@@ -53,13 +53,19 @@ const AppBar: React.FC<Props> = props => {
         >
           {/* todo: define the client name in the env file */}
           <Typography variant="h6">
-            <LinkMod to="/">OIPA</LinkMod>
+            <LinkMod to="/" data-cy="appbar-title">
+              OIPA
+            </LinkMod>
           </Typography>
           <Grid>
-            <AppBarButton label="Welcome" url="/" />
-            <AppBarButton label="Query builder" url="/querybuilder" />
-            {/*<AppBarButton label="API documentation" link="" />*/}
-            {/*<AppBarButton label="Github" />*/}
+            <AppBarButton label="Welcome" url="/" data-cy="appbar-button1" />
+            <AppBarButton
+              label="Query builder"
+              url="/querybuilder"
+              data-cy="appbar-button2"
+            />
+            {/*<AppBarButton label="API documentation" link="" data-cy="appbar-button3"/>*/}
+            {/*<AppBarButton label="Github" data-cy="appbar-button4"/>*/}
           </Grid>
         </Grid>
       </Toolbar>

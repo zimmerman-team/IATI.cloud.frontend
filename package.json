@@ -46,7 +46,10 @@
     "why": "whybundled build/stats.json --duplicatesOnly "
   },
   "reactSnap": {
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
     "minifyHtml": {
       "collapseWhitespace": false,
       "removeComments": false

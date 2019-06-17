@@ -1,16 +1,6 @@
 {
+  "projectId": "gxcw1z",
   "baseUrl": "http://localhost:3000",
   "chromeWebSecurity": false,
-  "viewportWidth": 1680,
-  "viewportHeight": 954,
-  "env": {},
-  "projectId": "joyvah",
-  "pageLoadTimeout": 60000,
-  "supportFile": "cypress/support/index.ts",
-
-  "reporter": "junit",
-  "reporterOptions": {
-    "mochaFile": "test_results/cypress/cypress.xml",
-    "toConsole": true
-  }
+  "pageLoadTimeout": 10000
 }

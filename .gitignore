@@ -67,5 +67,11 @@ typings/
 
 build/
 
+# cypress recordings
+cypress/screenshots/
+cypress/videos/
+
 #storybook build
 .out/
+
+
