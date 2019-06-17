@@ -112,11 +112,11 @@ const Landing: React.FunctionComponent = () => {
                 Registry and makes it available as API endpoints to build data
                 driven information solutions.
               </TypoMod>
+              <IconButtonOutlined
+                label="Query Builder"
+                data-cy="link-querybuilder"
+              />
             </Box>
-            <IconButtonOutlined
-              label="Query Builder"
-              data-cy="link-querybuilder"
-            />
             <TypoMod
               variant="caption"
               className={classes.caption}
