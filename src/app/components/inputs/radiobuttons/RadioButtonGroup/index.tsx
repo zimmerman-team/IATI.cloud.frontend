@@ -9,6 +9,10 @@ import TooltipButton from 'app/components/inputs/buttons/TooltipButton';
 import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
 
+type Props = {
+  tip?: string;
+};
+
 /* todo: make re-usable component of this */
 const GroupTitle = styled(props => <FormLabel {...props} />)`
   && {
@@ -19,7 +23,7 @@ const GroupTitle = styled(props => <FormLabel {...props} />)`
   }
 `;
 
-const RadioButtonsGroup: React.FC = () => {
+const RadioButtonsGroup: React.FC<Props> = props => {
   const [value, setValue] = React.useState('female');
 
   function handleChange(event: React.ChangeEvent<unknown>) {
@@ -34,13 +38,7 @@ const RadioButtonsGroup: React.FC = () => {
             <GroupTitle component="legend">Row format</GroupTitle>
           </Grid>
           <Grid item>
-            <Tooltip
-              title="lorem ipsum dolor simet"
-              // component={TooltipContent}
-              placement="right"
-            >
-              <TooltipButton>i</TooltipButton>
-            </Tooltip>
+            <TooltipButton tip={props.tip}>i</TooltipButton>
           </Grid>
         </Grid>
         <RadioGroup

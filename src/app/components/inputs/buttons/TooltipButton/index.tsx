@@ -1,10 +1,12 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
+import { Tooltip } from '@material-ui/core';
 
 type Props = {
   size?: string;
   label?: string;
+  tip?: string;
 };
 
 const ZimmerButton = styled(props => <Button {...props} />)`
@@ -29,9 +31,19 @@ const ZimmerButton = styled(props => <Button {...props} />)`
 
 const TooltipButton: React.FC<Props> = props => {
   return (
-    <ZimmerButton size={props.size} variant="contained" color="primary">
-      {props.children}
-    </ZimmerButton>
+    <Tooltip
+      title={props.tip ? props.tip : 'empty tooltip'}
+      placement="top-end"
+    >
+      <ZimmerButton
+        {...props}
+        size={props.size}
+        variant="contained"
+        color="primary"
+      >
+        i
+      </ZimmerButton>
+    </Tooltip>
   );
 };
 
