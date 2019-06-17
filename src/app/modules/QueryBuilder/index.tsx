@@ -1,23 +1,43 @@
 /* base */
-import React from 'react';
+import React, { Suspense } from 'react';
 import styled from 'styled-components';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Hidden from '@material-ui/core/Hidden';
-import Container from '@material-ui/core/Container';
-import ModuleFragment from 'app/modules/QueryBuilder/common/ModuleFragment';
-import Divider from '@material-ui/core/Divider';
-import SimpleSelect from 'app/components/inputs/selects/SimpleSelect';
-import IconButton from 'app/components/inputs/buttons/IconButton';
-import ChipInput from 'app/components/inputs/textinputs/ChipInputField';
-import RadioButtonsGroup from 'app/components/inputs/radiobuttons/RadioButtonGroup';
-import DataTable from 'app/components/datadisplay/tables/DataTable';
-import Add from '@material-ui/icons/Add';
-import Download from '@material-ui/icons/GetApp';
+/* components */
 import useTitle from 'react-use/lib/useTitle';
-import IconTextInput from 'app/components/inputs/textinputs/IconTextInputFIeld';
-import URLField from 'app/components/inputs/textdisplay/URLField';
-import DateField from 'app/components/inputs/textinputs/DateInputField';
+const ModuleFragment = React.lazy(() =>
+  import('app/modules/QueryBuilder/common/ModuleFragment')
+);
+const SimpleSelect = React.lazy(() =>
+  import('app/components/inputs/selects/SimpleSelect')
+);
+const IconButton = React.lazy(() =>
+  import('app/components/inputs/buttons/IconButton')
+);
+const ChipInput = React.lazy(() =>
+  import('app/components/inputs/textinputs/ChipInputField')
+);
+const RadioButtonsGroup = React.lazy(() =>
+  import('app/components/inputs/radiobuttons/RadioButtonGroup')
+);
+const DataTable = React.lazy(() =>
+  import('app/components/datadisplay/tables/DataTable')
+);
+const IconTextInput = React.lazy(() =>
+  import('app/components/inputs/textinputs/IconTextInputFIeld')
+);
+const URLField = React.lazy(() =>
+  import('app/components/inputs/textdisplay/URLField')
+);
+const DateField = React.lazy(() =>
+  import('app/components/inputs/textinputs/DateInputField')
+);
+const Typography = React.lazy(() => import('@material-ui/core/Typography'));
+const Grid = React.lazy(() => import('@material-ui/core/Grid'));
+const Hidden = React.lazy(() => import('@material-ui/core/Hidden'));
+const Container = React.lazy(() => import('@material-ui/core/Container'));
+const Add = React.lazy(() => import('@material-ui/icons/Add'));
+const Download = React.lazy(() => import('@material-ui/icons/GetApp'));
+const Divider = React.lazy(() => import('@material-ui/core/Divider'));
+const Progress = React.lazy(() => import('app/components/feedback/Progress'));
 
 /* todo: move to separate component */
 const ModuleContainer = styled.div`
@@ -66,148 +86,150 @@ const MockData = {
 const QueryBuilder: React.FC = () => {
   useTitle('OIPA - Query Builder');
   return (
-    <Container component={ModuleContainer} maxWidth="lg">
-      {/* ////////////////////////////////////////////////////////////////// */}
-      {/* INTRO FRAGMENT */}
-      <Grid container direction="column" spacing={spacing}>
-        <Grid item xs={12} sm={12} md={6}>
-          <Typography variant="h3">{MockData.moduleName}</Typography>
-        </Grid>
-        <Grid item xs={12} sm={12} md={6}>
-          <Typography variant="body1">{MockData.moduleInfo}</Typography>
-        </Grid>
-      </Grid>
-      <FragmentDivider />
-      {/* ////////////////////////////////////////////////////////////////// */}
-      {/* WHO FRAGMENT */}
-      <ModuleFragment
-        title={MockData.fragments[0].title}
-        info={MockData.fragments[0].info}
-      >
-        <Grid container spacing={spacing}>
-          <Grid item xs={12} sm={6} md={12}>
-            <SimpleSelect label="Organisation type" helperText="Code list" />
-          </Grid>
-          <Grid item xs={12} sm={6} md={8}>
-            <SimpleSelect
-              label="Organistion sector"
-              helperText="DAC 3 & 5 codelist"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <SimpleSelect label="Include secondary reporters Y/N" />
-          </Grid>
-          <Grid item xs={12} sm={6} md={12}>
-            <SimpleSelect
-              label="Organisation name"
-              helperText="E.g. AT-12 = Ministry of Interior. See list"
-            />
-          </Grid>
-        </Grid>
-      </ModuleFragment>
-      <FragmentDivider />
-      {/* ////////////////////////////////////////////////////////////////// */}
-      {/* FILTERS FRAGMENT */}
-      <ModuleFragment
-        title={MockData.fragments[1].title}
-        info={MockData.fragments[1].info}
-      >
-        <Grid container spacing={spacing}>
-          <Grid item xs={12} sm={12} md={12}>
-            <IconTextInput
-              placeholder="Text search"
-              label="Data title, activity, or descriptions"
-              helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
-            />
-          </Grid>
-
-          <Grid item xs={12} sm={12} md={12}>
-            <Divider />
-          </Grid>
-
-          <Grid item xs={12} sm={12} md={4}>
-            <SimpleSelect label="Must have activity periode" />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <DateField />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <DateField />
-          </Grid>
-          <Grid item xs={12} sm={12}>
-            <Divider />
-          </Grid>
-          <Grid item xs={12} sm={12} md={4}>
-            <IconButton label="Add Filter" icon={<Add />} />
-          </Grid>
-        </Grid>
-      </ModuleFragment>
-      <FragmentDivider />
-      {/* ////////////////////////////////////////////////////////////////// */}
-      {/* OUTPUT FORMAT FRAGMENT */}
-      <ModuleFragment
-        title={MockData.fragments[2].title}
-        info={MockData.fragments[2].info}
-      >
-        <Grid container spacing={spacing}>
-          <Grid item xs={12} sm={12} md={7}>
-            <ChipInput />
-          </Grid>
-          <Grid item xs={12} sm={6} md={6}>
-            <RadioButtonsGroup />
-          </Grid>
-          <Grid item xs={12} sm={6} md={6}>
-            <RadioButtonsGroup />
-          </Grid>
-        </Grid>
-      </ModuleFragment>
-      <FragmentDivider />
-      {/* ////////////////////////////////////////////////////////////////// */}
-      {/* RESULT FRAGMENT */}
-      <Hidden only={['xs', 'sm']}>
-        <Grid container spacing={spacing} direction="column">
+    <Suspense fallback={<Progress />}>
+      <Container component={ModuleContainer} maxWidth="lg">
+        {/* ////////////////////////////////////////////////////////////////// */}
+        {/* INTRO FRAGMENT */}
+        <Grid container direction="column" spacing={spacing}>
           <Grid item xs={12} sm={12} md={6}>
-            <Typography variant="h4">Result</Typography>
+            <Typography variant="h3">{MockData.moduleName}</Typography>
           </Grid>
-
           <Grid item xs={12} sm={12} md={6}>
-            <Typography variant="body1">
-              2 activities, 24 financial transactions, 4 budget entries Last
-              data refreshed at DD/MM/YYYY
-            </Typography>
-          </Grid>
-
-          <Grid item xs={12} sm={12}>
-            <Typography variant="h6">Output sample</Typography>
-          </Grid>
-
-          <Grid item xs={12} sm={12}>
-            <DataTable />
+            <Typography variant="body1">{MockData.moduleInfo}</Typography>
           </Grid>
         </Grid>
         <FragmentDivider />
-      </Hidden>
-      {/* ////////////////////////////////////////////////////////////////// */}
-      {/* DOWNLOAD FRAGMENT */}
-      <Grid container spacing={2} justify="space-between">
-        <Grid item xs={12} sm={12}>
-          <Typography variant="h4">Files</Typography>
+        {/* ////////////////////////////////////////////////////////////////// */}
+        {/* WHO FRAGMENT */}
+        <ModuleFragment
+          title={MockData.fragments[0].title}
+          info={MockData.fragments[0].info}
+        >
+          <Grid container spacing={spacing}>
+            <Grid item xs={12} sm={6} md={12}>
+              <SimpleSelect label="Organisation type" helperText="Code list" />
+            </Grid>
+            <Grid item xs={12} sm={6} md={8}>
+              <SimpleSelect
+                label="Organistion sector"
+                helperText="DAC 3 & 5 codelist"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <SimpleSelect label="Include secondary reporters Y/N" />
+            </Grid>
+            <Grid item xs={12} sm={6} md={12}>
+              <SimpleSelect
+                label="Organisation name"
+                helperText="E.g. AT-12 = Ministry of Interior. See list"
+              />
+            </Grid>
+          </Grid>
+        </ModuleFragment>
+        <FragmentDivider />
+        {/* ////////////////////////////////////////////////////////////////// */}
+        {/* FILTERS FRAGMENT */}
+        <ModuleFragment
+          title={MockData.fragments[1].title}
+          info={MockData.fragments[1].info}
+        >
+          <Grid container spacing={spacing}>
+            <Grid item xs={12} sm={12} md={12}>
+              <IconTextInput
+                placeholder="Text search"
+                label="Data title, activity, or descriptions"
+                helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={12} md={12}>
+              <Divider />
+            </Grid>
+
+            <Grid item xs={12} sm={12} md={4}>
+              <SimpleSelect label="Must have activity periode" />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <DateField />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <DateField />
+            </Grid>
+            <Grid item xs={12} sm={12}>
+              <Divider />
+            </Grid>
+            <Grid item xs={12} sm={12} md={4}>
+              <IconButton label="Add Filter" icon={<Add />} />
+            </Grid>
+          </Grid>
+        </ModuleFragment>
+        <FragmentDivider />
+        {/* ////////////////////////////////////////////////////////////////// */}
+        {/* OUTPUT FORMAT FRAGMENT */}
+        <ModuleFragment
+          title={MockData.fragments[2].title}
+          info={MockData.fragments[2].info}
+        >
+          <Grid container spacing={spacing}>
+            <Grid item xs={12} sm={12} md={7}>
+              <ChipInput />
+            </Grid>
+            <Grid item xs={12} sm={6} md={6}>
+              <RadioButtonsGroup />
+            </Grid>
+            <Grid item xs={12} sm={6} md={6}>
+              <RadioButtonsGroup />
+            </Grid>
+          </Grid>
+        </ModuleFragment>
+        <FragmentDivider />
+        {/* ////////////////////////////////////////////////////////////////// */}
+        {/* RESULT FRAGMENT */}
+        <Hidden only={['xs', 'sm']}>
+          <Grid container spacing={spacing} direction="column">
+            <Grid item xs={12} sm={12} md={6}>
+              <Typography variant="h4">Result</Typography>
+            </Grid>
+
+            <Grid item xs={12} sm={12} md={6}>
+              <Typography variant="body1">
+                2 activities, 24 financial transactions, 4 budget entries Last
+                data refreshed at DD/MM/YYYY
+              </Typography>
+            </Grid>
+
+            <Grid item xs={12} sm={12}>
+              <Typography variant="h6">Output sample</Typography>
+            </Grid>
+
+            <Grid item xs={12} sm={12}>
+              <DataTable />
+            </Grid>
+          </Grid>
+          <FragmentDivider />
+        </Hidden>
+        {/* ////////////////////////////////////////////////////////////////// */}
+        {/* DOWNLOAD FRAGMENT */}
+        <Grid container spacing={2} justify="space-between">
+          <Grid item xs={12} sm={12}>
+            <Typography variant="h4">Files</Typography>
+          </Grid>
+          {/* todo: make re-usable component */}
+          <Grid item xs={12} sm={9} md={9}>
+            <URLField />
+          </Grid>
+          <Grid item xs={12} sm={3} md={3}>
+            <IconButton label="Download CSV" icon={<Download />} disabled />
+          </Grid>
+          <Grid item xs={12} sm={9} md={9}>
+            <URLField />
+          </Grid>
+          <Grid item xs={12} sm={3} md={3}>
+            <IconButton label="Download CSV" icon={<Download />} disabled />
+          </Grid>
         </Grid>
-        {/* todo: make re-usable component */}
-        <Grid item xs={12} sm={9} md={9}>
-          <URLField />
-        </Grid>
-        <Grid item xs={12} sm={3} md={3}>
-          <IconButton label="Download CSV" icon={<Download />} disabled />
-        </Grid>
-        <Grid item xs={12} sm={9} md={9}>
-          <URLField />
-        </Grid>
-        <Grid item xs={12} sm={3} md={3}>
-          <IconButton label="Download CSV" icon={<Download />} disabled />
-        </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </Suspense>
   );
 };
 
