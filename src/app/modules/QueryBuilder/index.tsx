@@ -1,113 +1,57 @@
 /* base */
-import React, { Suspense } from 'react';
-import styled from 'styled-components';
-/* components */
+
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import Container from '@material-ui/core/Container';
+import ModuleFragment from 'app/modules/QueryBuilder/common/ModuleFragment';
+import Divider from '@material-ui/core/Divider';
+import SimpleSelect from 'app/components/inputs/selects/SimpleSelect';
+import IconButton from 'app/components/inputs/buttons/IconButton';
+import ChipInput from 'app/components/inputs/textinputs/ChipInputField';
+import RadioButtonsGroup from 'app/components/inputs/radiobuttons/RadioButtonGroup';
+import DataTable from 'app/components/datadisplay/tables/DataTable';
+import Add from '@material-ui/icons/Add';
+import Download from '@material-ui/icons/GetApp';
 import useTitle from 'react-use/lib/useTitle';
-const ModuleFragment = React.lazy(() =>
-  import('app/modules/QueryBuilder/common/ModuleFragment')
-);
-const SimpleSelect = React.lazy(() =>
-  import('app/components/inputs/selects/SimpleSelect')
-);
-const IconButton = React.lazy(() =>
-  import('app/components/inputs/buttons/IconButton')
-);
-const ChipInput = React.lazy(() =>
-  import('app/components/inputs/textinputs/ChipInputField')
-);
-const RadioButtonsGroup = React.lazy(() =>
-  import('app/components/inputs/radiobuttons/RadioButtonGroup')
-);
-const DataTable = React.lazy(() =>
-  import('app/components/datadisplay/tables/DataTable')
-);
-const IconTextInput = React.lazy(() =>
-  import('app/components/inputs/textinputs/IconTextInputFIeld')
-);
-const URLField = React.lazy(() =>
-  import('app/components/inputs/textdisplay/URLField')
-);
-const DateField = React.lazy(() =>
-  import('app/components/inputs/textinputs/DateInputField')
-);
-const Typography = React.lazy(() => import('@material-ui/core/Typography'));
-const Grid = React.lazy(() => import('@material-ui/core/Grid'));
-const Hidden = React.lazy(() => import('@material-ui/core/Hidden'));
-const Container = React.lazy(() => import('@material-ui/core/Container'));
-const Add = React.lazy(() => import('@material-ui/icons/Add'));
-const Download = React.lazy(() => import('@material-ui/icons/GetApp'));
-const Divider = React.lazy(() => import('@material-ui/core/Divider'));
-const Progress = React.lazy(() => import('app/components/feedback/Progress'));
-
-/* todo: move to separate component */
-const ModuleContainer = styled.div`
-  //padding: 60px;
-
-  border-right: 1px solid rgba(30, 144, 255, 0.2);
-  border-left: 1px solid rgba(30, 144, 255, 0.2);
-  padding-top: 100px;
-`;
+import IconTextInput from 'app/components/inputs/textinputs/IconTextInputFIeld';
+import URLField from 'app/components/inputs/textdisplay/URLField';
+import DateField from 'app/components/inputs/textinputs/DateInputField';
+import FragmentDivider from 'app/components/common/FragmentDivider';
+import config from './config';
+import Box from '@material-ui/core/Box';
 
 const spacing = 4;
-
-/* todo: move to separate component */
-const FragmentDivider = styled(Divider)`
-  && {
-    margin-top: 60px;
-    margin-bottom: 60px;
-    background-color: #f0f3f7;
-  }
-`;
-
-/* todo: move to mock file */
-const MockData = {
-  moduleName: 'Query Builder',
-  moduleInfo:
-    'This tool allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format. You create queries based on finding the organisations, and then be configured filter the published data down to what you need and elements you want to include in your export. You find an example data table snippet of your query and your download link  in the bottom section.',
-  fragments: [
-    {
-      title: 'Who',
-      info:
-        'First you need to find the organisation or organisations you want data about. Depending if you want one specific organsation or a wieder net. You can use the filters to narrow the data you want.'
-    },
-    {
-      title: 'Filters',
-      info:
-        'First select the organsation to only show applicable filters for thats organisations published data unless you want data from all IATI organisations. You don’t need to use all filters only the onces needed to get the data you want.'
-    },
-    {
-      title: 'Output format',
-      info:
-        'You can use default, but these options allow you to configure the way in which your data is disaggregated.'
-    }
-  ]
-};
 
 const QueryBuilder: React.FC = () => {
   useTitle('OIPA - Query Builder');
   return (
-    <Suspense fallback={<Progress />}>
-      <Container component={ModuleContainer} maxWidth="lg">
+    <Container maxWidth="lg">
+      <Box paddingTop="100px">
         {/* ////////////////////////////////////////////////////////////////// */}
         {/* INTRO FRAGMENT */}
         <Grid container direction="column" spacing={spacing}>
           <Grid item xs={12} sm={12} md={6}>
-            <Typography variant="h3">{MockData.moduleName}</Typography>
+            <Typography variant="h3">{config.moduleName}</Typography>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <Typography variant="body1">{MockData.moduleInfo}</Typography>
+            <Typography variant="body1">{config.moduleInfo}</Typography>
           </Grid>
         </Grid>
         <FragmentDivider />
         {/* ////////////////////////////////////////////////////////////////// */}
         {/* WHO FRAGMENT */}
         <ModuleFragment
-          title={MockData.fragments[0].title}
-          info={MockData.fragments[0].info}
+          title={config.fragments[0].title}
+          info={config.fragments[0].info}
         >
           <Grid container spacing={spacing}>
             <Grid item xs={12} sm={6} md={12}>
-              <SimpleSelect label="Organisation type" helperText="Code list" />
+              {SimpleSelect({
+                label: 'Organisation type',
+                helperText: 'Code list'
+              })}
             </Grid>
             <Grid item xs={12} sm={6} md={8}>
               <SimpleSelect
@@ -133,8 +77,8 @@ const QueryBuilder: React.FC = () => {
         {/* ////////////////////////////////////////////////////////////////// */}
         {/* FILTERS FRAGMENT */}
         <ModuleFragment
-          title={MockData.fragments[1].title}
-          info={MockData.fragments[1].info}
+          title={config.fragments[1].title}
+          info={config.fragments[1].info}
         >
           <Grid container spacing={spacing}>
             <Grid item xs={12} sm={12} md={12}>
@@ -170,8 +114,8 @@ const QueryBuilder: React.FC = () => {
         {/* ////////////////////////////////////////////////////////////////// */}
         {/* OUTPUT FORMAT FRAGMENT */}
         <ModuleFragment
-          title={MockData.fragments[2].title}
-          info={MockData.fragments[2].info}
+          title={config.fragments[2].title}
+          info={config.fragments[2].info}
         >
           <Grid container spacing={spacing}>
             <Grid item xs={12} sm={12} md={7}>
@@ -233,8 +177,8 @@ const QueryBuilder: React.FC = () => {
             <IconButton label="Download CSV" icon={<Download />} disabled />
           </Grid>
         </Grid>
-      </Container>
-    </Suspense>
+      </Box>
+    </Container>
   );
 };
 
