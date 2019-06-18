@@ -58,7 +58,11 @@ const Container: React.FC<ChippieProps> = props => {
       />
       {/* todo: create re-usable componet */}
       <FormHelperText>
-        See <a href='www.zimmermanzimmerman.nl' target='_blank'>OIPA documentation</a> for full list of possible elements
+        See{' '}
+        <a href="www.zimmermanzimmerman.nl" target="_blank">
+          OIPA documentation
+        </a>{' '}
+        for full list of possible elements
       </FormHelperText>
     </React.Fragment>
   );

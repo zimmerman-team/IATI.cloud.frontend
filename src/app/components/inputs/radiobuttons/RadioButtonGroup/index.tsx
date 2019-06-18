@@ -9,10 +9,9 @@ import TooltipButton from 'app/components/inputs/buttons/TooltipButton';
 import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
 
-
 type Props = {
-  tip?:string;
-}
+  tip?: string;
+};
 
 /* todo: make re-usable component of this */
 const GroupTitle = styled(props => <FormLabel {...props} />)`

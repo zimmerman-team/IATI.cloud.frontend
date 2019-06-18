@@ -20,7 +20,7 @@ import './style.css';
 type SimpleSelectProps = {
   label?: string;
   helperText?: string;
-  tip?:string;
+  tip?: string;
 };
 
 /* todo: make actual components out of these styled constants */
@@ -43,7 +43,7 @@ const BaseSelect = styled(props => (
     margin: 0;
     //min-width: 270px;
     width: 100%;
-   
+
     & [class*='MuiSelect-select'] {
       padding-left: ${Spacing.inputSideSpacing};
       &:focus {
@@ -67,14 +67,10 @@ const BaseMenuList = styled(props => <MenuList {...props} />)`
 const BaseMenuItem = styled(props => <MenuItem {...props} />)`
   && {
     height: 48px;
-  
-  
-  
-&:hover{
-background-color: #e2e6eb;
-}
 
-
+    &:hover {
+      background-color: #e2e6eb;
+    }
   }
 `;
 
@@ -122,7 +118,20 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
 
   return (
     <React.Fragment>
-      {props.label && (<><Grid container spacing={2}><Grid item><FieldInputLabel label={props.label} /></Grid>{props.tip && <Grid item><TooltipButton tip={props.tip}/></Grid>}</Grid></>)}
+      {props.label && (
+        <>
+          <Grid container spacing={2}>
+            <Grid item>
+              <FieldInputLabel label={props.label} />
+            </Grid>
+            {props.tip && (
+              <Grid item>
+                <TooltipButton tip={props.tip} />
+              </Grid>
+            )}
+          </Grid>
+        </>
+      )}
 
       <BaseSelect
         value={values.age}
@@ -142,7 +151,9 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
         <BaseMenuItem value={30}>Thirty</BaseMenuItem>
       </BaseSelect>
 
-      {props.helperText && <FormHelperText>{parse(props.helperText)}</FormHelperText>}
+      {props.helperText && (
+        <FormHelperText>{parse(props.helperText)}</FormHelperText>
+      )}
       {/*{props.helperText && <div>{parse('<a href="www.nu.nl">sibling 1</a>')}</div>}*/}
     </React.Fragment>
   );
