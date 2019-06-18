@@ -90,9 +90,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     menProps: {
       transition: 'initial!important',
-      borderRadius: '2px'
-      // top: '68px!important',
-      // left: '0!important'
+      borderRadius: '2px',
+      marginTop: '40px',
+      boxShadow:
+        '0 4px 14px -2px rgba(130, 136, 148, 0.28), 0 0 2px 0 rgba(130, 136, 148, 0.22)'
     },
     listProps: {
       padding: 0
