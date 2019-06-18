@@ -14,7 +14,9 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FieldInputLabel from 'app/components/common/FieldInputLabel';
 import { Spacing } from 'app/theme/index';
 import TooltipButton from 'app/components/inputs/buttons/TooltipButton/index';
+import parse from 'html-react-parser';
 
+import './style.css';
 type SimpleSelectProps = {
   label?: string;
   helperText?: string;
@@ -41,6 +43,7 @@ const BaseSelect = styled(props => (
     margin: 0;
     //min-width: 270px;
     width: 100%;
+
     & [class*='MuiSelect-select'] {
       padding-left: ${Spacing.inputSideSpacing};
       &:focus {
@@ -64,7 +67,9 @@ const BaseMenuList = styled(props => <MenuList {...props} />)`
 const BaseMenuItem = styled(props => <MenuItem {...props} />)`
   && {
     height: 48px;
-    & [class*='MuiIconButton-label'] {
+
+    &:hover {
+      background-color: #e2e6eb;
     }
   }
 `;
@@ -145,7 +150,11 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
         <BaseMenuItem value={20}>Twenty</BaseMenuItem>
         <BaseMenuItem value={30}>Thirty</BaseMenuItem>
       </BaseSelect>
-      {props.helperText && <FormHelperText>{props.helperText}</FormHelperText>}
+
+      {props.helperText && (
+        <FormHelperText>{parse(props.helperText)}</FormHelperText>
+      )}
+      {/*{props.helperText && <div>{parse('<a href="www.nu.nl">sibling 1</a>')}</div>}*/}
     </React.Fragment>
   );
 };
