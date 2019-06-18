@@ -1,20 +1,16 @@
 /* base */
-import React, { Suspense } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import useTitle from 'react-use/lib/useTitle';
-
-/* componenents */
-const IconButtonOutlined = React.lazy(() =>
-  import('app/components/inputs/buttons/IconButtonOutlined')
-);
-const Background = React.lazy(() =>
-  import('app/components/surfaces/Background')
-);
-import Progress from 'app/components/feedback/Progress';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import Box from '@material-ui/core/Box';
+
+import IconButtonOutlined from 'app/components/inputs/buttons/IconButtonOutlined';
+import Background from 'app/components/surfaces/Background';
 
 const useStyles = makeStyles(theme => ({
   h3: {
@@ -41,83 +37,66 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ComponentBase = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 48px;
-  margin-right: 48px;
-  height: 100%;
-`;
-
-const Box = styled.div`
-  width: 485px;
-`;
-
-const Section = styled.section`
-  margin-bottom: 32px;
-`;
-
 const TypoMod = styled(props => <Typography {...props} />)`
   color: white;
 `;
-const MockData = {
-  moduleName: 'Landing'
-};
 
 const Landing: React.FunctionComponent = () => {
   useTitle('OIPA');
   const classes = useStyles();
   return (
-    <React.Fragment>
-      <Suspense fallback={<Progress />}>
-        <Background>
-          <ComponentBase>
-            <Container maxWidth="lg">
-              <Box>
-                <Section>
-                  <TypoMod variant="h3" className={classes.h3}>
-                    IATI Datastore
-                  </TypoMod>
-                  <TypoMod variant="h6">
-                    The query builder tool makes it easy build queries to obtain
-                    data from the IATI Datastore in CSV, XML and JSON format.{' '}
-                  </TypoMod>
-                </Section>
-
-                <TypoMod variant="body2" className={classes.body2}>
-                  The query builder uses{' '}
-                  <Link
-                    href="https://www.oipa.nl"
-                    color="textSecondary"
-                    className={classes.link}
-                  >
-                    OIPA
-                  </Link>{' '}
-                  to query the IATI database. An open-source library by{' '}
-                  <Link
-                    href="https://www.zimmermanzimmerman.nl"
-                    color="textSecondary"
-                    className={classes.link}
-                  >
-                    Zimmerman & Zimmerman
-                  </Link>{' '}
-                  which extracts and stores raw IATI XML files from the IATI
-                  Registry and makes it available as API endpoints to build data
-                  driven information solutions.
+    <Background>
+      <Container maxWidth="lg">
+        <Box paddingTop="100px">
+          <Grid container spacing={4} direction="column">
+            <Grid item xs={12} sm={12} md={6}>
+              <Box marginBottom="32px">
+                <TypoMod variant="h3" className={classes.h3}>
+                  IATI Datastore
                 </TypoMod>
-                <IconButtonOutlined label="Query Builder" />
+                <TypoMod variant="h6">
+                  The query builder tool makes it easy build queries to obtain
+                  data from the IATI Datastore in CSV, XML and JSON format.
+                </TypoMod>
               </Box>
+            </Grid>
 
-              <TypoMod variant="caption" className={classes.caption}>
-                Code licensed under the GNU AGPL. Documentation licensed under
-                CC BY 3.0.
+            <Grid item xs={12} sm={12} md={6}>
+              <TypoMod variant="body2" className={classes.body2}>
+                The query builder uses{' '}
+                <Link
+                  href="https://www.oipa.nl"
+                  color="textSecondary"
+                  className={classes.link}
+                >
+                  OIPA
+                </Link>{' '}
+                to query the IATI database. An open-source library by{' '}
+                <Link
+                  href="https://www.zimmermanzimmerman.nl"
+                  color="textSecondary"
+                  className={classes.link}
+                >
+                  Zimmerman & Zimmerman
+                </Link>
+                which extracts and stores raw IATI XML files from the IATI
+                Registry and makes it available as API endpoints to build data
+                driven information solutions.
               </TypoMod>
-            </Container>
-          </ComponentBase>
-        </Background>
-      </Suspense>
-    </React.Fragment>
+            </Grid>
+
+            <Grid item xs={12}>
+              <IconButtonOutlined label="Query Builder" />
+            </Grid>
+          </Grid>
+
+          <TypoMod variant="caption" className={classes.caption}>
+            Code licensed under the GNU AGPL. Documentation licensed under CC BY
+            3.0.
+          </TypoMod>
+        </Box>
+      </Container>
+    </Background>
   );
 };
 
