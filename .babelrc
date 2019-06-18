@@ -11,6 +11,8 @@
     "@babel/plugin-proposal-export-namespace-from",
     "@babel/plugin-proposal-throw-expressions",
     "babel-plugin-styled-components",
+    "@babel/plugin-transform-react-inline-elements",
+    "@babel/plugin-transform-runtime",
     "react-docgen"
   ]
 }
