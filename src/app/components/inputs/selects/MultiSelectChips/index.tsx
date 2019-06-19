@@ -9,12 +9,13 @@ import {
 } from '@material-ui/core/styles';
 import TextField, { BaseTextFieldProps } from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
-import MenuItem from '@material-ui/core/MenuItem';
 import PropTypes from 'prop-types';
 import { ControlProps } from 'react-select/src/components/Control';
 import { MenuProps, NoticeProps } from 'react-select/src/components/Menu';
 import { OptionProps } from 'react-select/src/components/Option';
 import { ValueType } from 'react-select/src/types';
+import BaseMenuItem from '../common/BaseMenuItem';
+import styled from 'styled-components';
 
 interface OptionType {
   label: string;
@@ -39,23 +40,7 @@ const suggestions: OptionType[] = [
   { label: 'Austria' },
   { label: 'Azerbaijan' },
   { label: 'Bahamas' },
-  { label: 'Bahrain' },
-  { label: 'Bangladesh' },
-  { label: 'Barbados' },
-  { label: 'Belarus' },
-  { label: 'Belgium' },
-  { label: 'Belize' },
-  { label: 'Benin' },
-  { label: 'Bermuda' },
-  { label: 'Bhutan' },
-  { label: 'Bolivia, Plurinational State of' },
-  { label: 'Bonaire, Sint Eustatius and Saba' },
-  { label: 'Bosnia and Herzegovina' },
-  { label: 'Botswana' },
-  { label: 'Bouvet Island' },
-  { label: 'Brazil' },
-  { label: 'British Indian Ocean Territory' },
-  { label: 'Brunei Darussalam' }
+  { label: 'Bahrain' }
 ].map(suggestion => ({
   value: suggestion.label,
   label: suggestion.label
@@ -70,7 +55,9 @@ const useStyles = makeStyles((theme: Theme) =>
     input: {
       display: 'flex',
       padding: 0,
-      height: 'auto'
+      height: '48px',
+      borderRadius: '2px',
+      backgroundColor: '#f0f3f7'
     },
     chip: {
       margin: theme.spacing(0.5, 0.25)
@@ -118,6 +105,7 @@ function Control(props: ControlProps<OptionType>) {
   return (
     <TextField
       fullWidth
+      disableUnderline
       InputProps={{
         inputComponent,
         inputProps: {
@@ -141,7 +129,7 @@ Control.propTypes = {
 
 function Option(props: OptionProps<OptionType>) {
   return (
-    <MenuItem
+    <BaseMenuItem
       ref={props.innerRef}
       selected={props.isFocused}
       component="div"
@@ -151,7 +139,7 @@ function Option(props: OptionProps<OptionType>) {
       {...props.innerProps}
     >
       {props.children}
-    </MenuItem>
+    </BaseMenuItem>
   );
 }
 
@@ -187,6 +175,13 @@ const components = {
   Option
 };
 
+const BaseSelect = styled(props => <Select {...props} />)`
+  && {
+    border-radius: 2px;
+    margin: 4px;
+  }
+`;
+
 const MultiSelectChips: React.FC = props => {
   const classes = useStyles();
   const theme = useTheme();
@@ -207,7 +202,7 @@ const MultiSelectChips: React.FC = props => {
   };
 
   return (
-    <Select
+    <BaseSelect
       classes={classes}
       styles={selectStyles}
       inputId="react-select-multiple"
