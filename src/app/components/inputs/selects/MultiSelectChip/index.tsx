@@ -18,6 +18,15 @@ import MultiValue from './common/MultiValue';
 import Placeholder from './common/Placeholder';
 import SingleValue from './common/SingleValue';
 import ValueContainer from './common/ValueContainer';
+import DropdownIndicator from './common/DropdownIndicator';
+import ClearIndicator from './common/ClearIndicator';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import parse from 'html-react-parser';
+
+type MultiSelectChipProps = {
+  label?: string;
+  helperText?: string;
+};
 
 interface OptionType {
   label: string;
@@ -28,12 +37,13 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      height: 250
+      height: 'auto'
     },
     input: {
       display: 'flex',
-      padding: 0,
-      height: 'auto'
+      paddingLeft: '16px',
+      height: 'auto',
+      backgroundColor: '#f0f3f7'
     },
     valueContainer: {
       display: 'flex',
@@ -86,10 +96,12 @@ const components = {
   Option,
   Placeholder,
   SingleValue,
-  ValueContainer
+  ValueContainer,
+  DropdownIndicator,
+  ClearIndicator
 };
 
-export default function IntegrationReactSelect() {
+const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -130,7 +142,12 @@ export default function IntegrationReactSelect() {
           onChange={handleChangeMulti}
           isMulti
         />
+        {props.helperText && (
+          <FormHelperText>{parse(props.helperText)}</FormHelperText>
+        )}
       </NoSsr>
     </div>
   );
-}
+};
+
+export default MultiSelectChip;

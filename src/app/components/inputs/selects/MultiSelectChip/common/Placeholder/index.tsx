@@ -15,7 +15,7 @@ function Placeholder(props: PlaceholderProps<OptionType>) {
       className={props.selectProps.classes.placeholder}
       {...props.innerProps}
     >
-      {props.children}
+      {/*{props.children}*/}
     </Typography>
   );
 }

@@ -4,7 +4,7 @@ import IconChipDelete from 'app/assets/icons/IconChipDelete';
 import styled from 'styled-components';
 
 type Props = {
-  label?: string;
+  label?: string | ReactNode;
   tabIndex?: number;
   className?: string;
   onDelete?: any;

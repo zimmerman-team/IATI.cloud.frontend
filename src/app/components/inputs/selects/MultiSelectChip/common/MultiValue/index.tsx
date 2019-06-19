@@ -1,13 +1,12 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { MultiValueProps } from 'react-select/lib/components/MultiValue';
-// import Chip from '@material-ui/core/Chip';
 import Chip from 'app/components/datadisplay/Chip';
 import clsx from 'clsx';
-import CancelIcon from '@material-ui/icons/Cancel';
+import IconChipDelete from 'app/assets/icons/IconChipDelete';
 
 interface OptionType {
-  label: string;
+  label?: string;
   value: string;
 }
 
@@ -15,12 +14,12 @@ function MultiValue(props: MultiValueProps<OptionType>) {
   return (
     <Chip
       tabIndex={-1}
-      label={props.children ? 'ja' : 'joe'}
+      label={props.children}
       className={clsx(props.selectProps.classes.chip, {
         [props.selectProps.classes.chipFocused]: props.isFocused
       })}
       onDelete={props.removeProps.onClick}
-      deleteIcon={<CancelIcon {...props.removeProps} />}
+      deleteIcon={<IconChipDelete {...props.removeProps} />}
       {...props}
     />
   );

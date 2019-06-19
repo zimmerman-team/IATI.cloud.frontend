@@ -24,6 +24,7 @@ export const Palette = {
     contrastText: '#fff'
   },
   grey: {
+    40: '#f0f3f7',
     50: '#fafafa',
     100: '#f5f5f5',
     200: '#eeeeee',

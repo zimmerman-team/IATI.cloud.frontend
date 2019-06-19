@@ -7,7 +7,7 @@ interface OptionType {
   label: string;
   value: string;
 }
-
+//todo: refactor styling
 function Option(props: OptionProps<OptionType>) {
   return (
     <MenuItem
@@ -15,8 +15,12 @@ function Option(props: OptionProps<OptionType>) {
       selected={props.isFocused}
       component="div"
       style={{
-        fontWeight: props.isSelected ? 500 : 400,
-        color: 'red'
+        fontFamily: 'Inter',
+        fontSize: '14px',
+        letterSpacing: '0.3px',
+        lineHeight: '1.71',
+        fontWeight: 400,
+        height: '48px'
       }}
       {...props.innerProps}
     >

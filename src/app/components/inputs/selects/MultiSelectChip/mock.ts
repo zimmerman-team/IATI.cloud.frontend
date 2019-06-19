@@ -1,4 +1,3 @@
-
 interface OptionType {
   label: string;
   value: string;
@@ -43,6 +42,5 @@ const suggestions: OptionType[] = [
   value: suggestion.label,
   label: suggestion.label
 }));
-
 
 export default suggestions;
