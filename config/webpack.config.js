@@ -610,7 +610,7 @@ module.exports = function(webpackEnv) {
           // The formatter is invoked directly in WebpackDevServerUtils during development
           formatter: isEnvProduction ? typescriptFormatter : undefined,
         }),
-      /*isEnvProduction &&
+      isEnvProduction &&
         new BrotliGzipPlugin({
           asset: '[path].br[query]',
           algorithm: 'brotli',
@@ -618,10 +618,10 @@ module.exports = function(webpackEnv) {
           threshold: 10240,
           minRatio: 0.8,
           quality: 11,
-        }),*/
-      /*isEnvProduction &&
-        new DuplicatePackageCheckerPlugin(),
+        }),
       isEnvProduction &&
+        new DuplicatePackageCheckerPlugin(),
+      /*isEnvProduction &&
         new BundleAnalyzerPlugin({analyzerMode:'static', reportFilename:paths.appStats+'/'+Date.now()+'.html', generateStatsFile:true})*/
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.

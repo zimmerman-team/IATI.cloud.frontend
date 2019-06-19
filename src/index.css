@@ -3,13 +3,12 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('app/assets/fonts/subset-Inter-ExtraLightBETA.eot');
-  src:
-  url('app/assets/fonts/subset-Inter-ExtraLightBETA.eot?#iefix') format('embedded-opentype'),
-  url('app/assets/fonts/subset-Inter-ExtraLightBETA.woff2') format('woff2'),
-  url('app/assets/fonts/subset-Inter-ExtraLightBETA.woff') format('woff'),
-  url('app/assets/fonts/subset-Inter-ExtraLightBETA.ttf') format('truetype'),
-  url('app/assets/fonts/subset-Inter-ExtraLightBETA.svg#Inter-ExtraLightBETA') format('svg');
+  src: url('app/assets/fonts/subset-Inter-LightBETA.eot');
+  src: url('app/assets/fonts/subset-Inter-LightBETA.eot?#iefix') format('embedded-opentype'),
+  url('app/assets/fonts/subset-Inter-LightBETA.woff2') format('woff2'),
+  url('app/assets/fonts/subset-Inter-LightBETA.woff') format('woff'),
+  url('app/assets/fonts/subset-Inter-LightBETA.ttf') format('truetype'),
+  url('app/assets/fonts/subset-Inter-LightBETA.svg#Inter-LightBETA') format('svg');
   font-weight: 200;
   font-style: normal;
   }

@@ -51,10 +51,9 @@ const AppBar: React.FC<Props> = props => {
           justify="space-between"
           alignItems="center"
         >
-          {/* todo: define the client name in the env file */}
           <Typography variant="h6">
             <LinkMod to="/" data-cy="appbar-title">
-              OIPA
+              {process.env.REACT_APP_CLIENT_NAME}
             </LinkMod>
           </Typography>
           <Grid>

@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('subset-Inter-LightBETA.eot');
+    src: url('subset-Inter-LightBETA.eot?#iefix') format('embedded-opentype'),
+        url('subset-Inter-LightBETA.woff2') format('woff2'),
+        url('subset-Inter-LightBETA.woff') format('woff'),
+        url('subset-Inter-LightBETA.ttf') format('truetype'),
+        url('subset-Inter-LightBETA.svg#Inter-LightBETA') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+

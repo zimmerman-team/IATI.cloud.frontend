@@ -1,17 +1,16 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PageLoader from 'app/modules/common/PageLoader';
-import Landing from 'app/modules/Landing';
-import CookieModule from 'app/modules/common/CookieModule';
-import QueryBuilder from 'app/modules/QueryBuilder';
 
-const Routes: React.FunctionComponent = () => {
+const Landing = lazy(() => import('app/modules/Landing'));
+const QueryBuilder = lazy(() => import('app/modules/QueryBuilder'));
+
+const Routes: React.FC = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <Switch>
         <Route exact path="/querybuilder" render={() => <QueryBuilder />} />
         <Route exact path="/" render={() => <Landing />} />
-        <Route exact path="/cookies" render={() => <CookieModule />} />
       </Switch>
     </Suspense>
   );
