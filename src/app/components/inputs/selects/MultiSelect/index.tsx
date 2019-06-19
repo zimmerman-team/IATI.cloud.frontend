@@ -2,29 +2,22 @@ import React from 'react';
 import createStyles from '@material-ui/core/styles/createStyles';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import styled from 'styled-components';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import InputBase from '@material-ui/core/InputBase';
-import MenuList from '@material-ui/core/MenuList';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FieldInputLabel from 'app/components/common/FieldInputLabel';
-import { Spacing } from 'app/theme/index';
 import TooltipButton from 'app/components/inputs/buttons/TooltipButton/index';
 import parse from 'html-react-parser';
-
 import BaseMenuItem from 'app/components/inputs/selects/common/BaseMenuItem';
 import BaseSelect from 'app/components/inputs/selects/common/BaseSelect';
 
-import './style.css';
-type SimpleSelectProps = {
+type MultiSelectProps = {
   label?: string;
   helperText?: string;
   tip?: string;
+  data: string[];
 };
+
+/* todo: make actual components out of these styled constants */
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -53,20 +46,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const SimpleSelect: React.FC<SimpleSelectProps> = props => {
+const MultiSelect: React.FC<MultiSelectProps> = props => {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
-    age: '',
-    name: 'hai'
-  });
+  const [data, setData] = React.useState<string[]>([]);
 
-  function handleChange(
-    event: React.ChangeEvent<{ name?: string; value: unknown }>
-  ) {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name as string]: event.target.value
-    }));
+  function handleChange(event: React.ChangeEvent<{ value: unknown }>) {
+    setData(event.target.value as string[]);
   }
 
   return (
@@ -87,7 +72,8 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
       )}
 
       <BaseSelect
-        value={values.age}
+        multiple
+        value={data}
         onChange={handleChange}
         MenuProps={{
           classes: {
@@ -96,20 +82,18 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
           }
         }}
       >
-        <BaseMenuItem value="">
-          <em>None</em>
-        </BaseMenuItem>
-        <BaseMenuItem value={10}>Ten</BaseMenuItem>
-        <BaseMenuItem value={20}>Twenty</BaseMenuItem>
-        <BaseMenuItem value={30}>Thirty</BaseMenuItem>
+        {props.data.map(item => (
+          <BaseMenuItem key={item} value={item}>
+            {item}
+          </BaseMenuItem>
+        ))}
       </BaseSelect>
 
       {props.helperText && (
         <FormHelperText>{parse(props.helperText)}</FormHelperText>
       )}
-      {/*{props.helperText && <div>{parse('<a href="www.nu.nl">sibling 1</a>')}</div>}*/}
     </React.Fragment>
   );
 };
 
-export default SimpleSelect;
+export default MultiSelect;
