@@ -1,151 +1,229 @@
-import React, { createRef } from 'react';
-import styled from 'styled-components';
+import React, { CSSProperties, HTMLAttributes } from 'react';
+import Select from 'react-select';
 import {
   createStyles,
+  emphasize,
   makeStyles,
   useTheme,
   Theme
 } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
+import TextField, { BaseTextFieldProps } from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
-import SelectComponent from '@material-ui/core/Select';
-import Chip from 'app/components/datadisplay/Chip';
-import ClearIcon from '@material-ui/icons/Clear';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import { Typography } from '@material-ui/core';
-import theme from 'app/theme';
-import Component from '@material-ui/core/Chip/Chip';
+import PropTypes from 'prop-types';
+import { ControlProps } from 'react-select/src/components/Control';
+import { MenuProps, NoticeProps } from 'react-select/src/components/Menu';
+import { OptionProps } from 'react-select/src/components/Option';
+import { ValueType } from 'react-select/src/types';
 
-type ComponentProps = {
+interface OptionType {
   label: string;
-  items: string[];
-  helperText?: string;
-  maxWidth?: string;
-};
+  value: string;
+}
+
+const suggestions: OptionType[] = [
+  { label: 'Afghanistan' },
+  { label: 'Aland Islands' },
+  { label: 'Albania' },
+  { label: 'Algeria' },
+  { label: 'American Samoa' },
+  { label: 'Andorra' },
+  { label: 'Angola' },
+  { label: 'Anguilla' },
+  { label: 'Antarctica' },
+  { label: 'Antigua and Barbuda' },
+  { label: 'Argentina' },
+  { label: 'Armenia' },
+  { label: 'Aruba' },
+  { label: 'Australia' },
+  { label: 'Austria' },
+  { label: 'Azerbaijan' },
+  { label: 'Bahamas' },
+  { label: 'Bahrain' },
+  { label: 'Bangladesh' },
+  { label: 'Barbados' },
+  { label: 'Belarus' },
+  { label: 'Belgium' },
+  { label: 'Belize' },
+  { label: 'Benin' },
+  { label: 'Bermuda' },
+  { label: 'Bhutan' },
+  { label: 'Bolivia, Plurinational State of' },
+  { label: 'Bonaire, Sint Eustatius and Saba' },
+  { label: 'Bosnia and Herzegovina' },
+  { label: 'Botswana' },
+  { label: 'Bouvet Island' },
+  { label: 'Brazil' },
+  { label: 'British Indian Ocean Territory' },
+  { label: 'Brunei Darussalam' }
+].map(suggestion => ({
+  value: suggestion.label,
+  label: suggestion.label
+}));
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      display: 'flex',
-      flexWrap: 'wrap'
+      flexGrow: 1,
+      height: 250
     },
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-      maxWidth: 300
-    },
-    chips: {
+    input: {
       display: 'flex',
-      flexWrap: 'wrap'
+      padding: 0,
+      height: 'auto'
     },
     chip: {
-      margin: 2
+      margin: theme.spacing(0.5, 0.25)
     },
-    noLabel: {
-      marginTop: theme.spacing(3)
+    chipFocused: {
+      backgroundColor: emphasize(
+        theme.palette.type === 'light'
+          ? theme.palette.grey[300]
+          : theme.palette.grey[700],
+        0.08
+      )
+    },
+    paper: {
+      position: 'absolute',
+      zIndex: 1,
+      marginTop: theme.spacing(1),
+      left: 0,
+      right: 0
+    },
+    divider: {
+      height: theme.spacing(2)
     }
   })
 );
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250
-    }
-  }
-};
+type InputComponentProps = Pick<BaseTextFieldProps, 'inputRef'> &
+  HTMLAttributes<HTMLDivElement>;
 
-function getStyles(name: string, personName: string[], theme: Theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium
-  };
+function inputComponent({ inputRef, ...props }: InputComponentProps) {
+  return <div ref={inputRef} {...props} />;
 }
 
-const Box = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+inputComponent.propTypes = {
+  inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+} as any;
 
-const Select = styled(props => <SelectComponent {...props} />)`
-  && {
-    & [class*='MuiSelect-selectMenu'] {
-      height: 40px;
-      background-color: #f0f3f7;
-      border-radius: 2px;
-      padding-top: 4px;
-      padding-bottom: 4px;
-      padding-left: 12px;
-      margin-top: 8px;
-      margin-bottom: 4px;
-    }
-    & [class*='MuiSelect-icon'] {
-      padding-right: 16px;
-    }
-    & [class*='MuiMenu-paper'] {
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-  }
-`;
-
-const MultiSelectChips: React.FC<ComponentProps> = props => {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [item, setItem] = React.useState<string[]>([]);
-
-  function handleChange(event: React.ChangeEvent<{ value: unknown }>) {
-    setItem(event.target.value as string[]);
-  }
-
-  function handleDelete(items, value) {
-    items.splice(items.indexOf(value), 1);
-    setItem(items);
-  }
-
-  function handleDeleteAll() {
-    setItem([]);
-  }
+function Control(props: ControlProps<OptionType>) {
+  const {
+    children,
+    innerProps,
+    innerRef,
+    selectProps: { classes, TextFieldProps }
+  } = props;
 
   return (
-    <Box>
-      <Typography variant="caption">{props.label}</Typography>
-      <Select
-        multiple
-        value={item}
-        variant="filled"
-        onChange={handleChange}
-        input={<Input id="select-multiple-chip" disableUnderline />}
-        renderValue={selected => (
-          <div className={classes.chips}>
-            {(selected as string[]).map(value => (
-              <Chip label={value} onDelete={() => handleDelete(item, value)} />
-            ))}
-          </div>
-        )}
-        MenuProps={MenuProps}
-        IconComponent={item.length === 0 ? ArrowDropDownIcon : ClearIcon}
-      >
-        {props.items.map(name => (
-          <MenuItem
-            key={name}
-            value={name}
-            style={getStyles(name, item, theme)}
-          >
-            {name}
-          </MenuItem>
-        ))}
-      </Select>
-      <Typography variant="caption">{props.helperText}</Typography>
-    </Box>
+    <TextField
+      fullWidth
+      InputProps={{
+        inputComponent,
+        inputProps: {
+          className: classes.input,
+          ref: innerRef,
+          children,
+          ...innerProps
+        }
+      }}
+      {...TextFieldProps}
+    />
+  );
+}
+
+Control.propTypes = {
+  children: PropTypes.node,
+  innerProps: PropTypes.object,
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  selectProps: PropTypes.object.isRequired
+} as any;
+
+function Option(props: OptionProps<OptionType>) {
+  return (
+    <MenuItem
+      ref={props.innerRef}
+      selected={props.isFocused}
+      component="div"
+      style={{
+        fontWeight: props.isSelected ? 500 : 400
+      }}
+      {...props.innerProps}
+    >
+      {props.children}
+    </MenuItem>
+  );
+}
+
+Option.propTypes = {
+  children: PropTypes.node,
+  innerProps: PropTypes.object,
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  isFocused: PropTypes.bool,
+  isSelected: PropTypes.bool
+} as any;
+
+function Menu(props: MenuProps<OptionType>) {
+  return (
+    <Paper
+      square
+      className={props.selectProps.classes.paper}
+      {...props.innerProps}
+    >
+      {props.children}
+    </Paper>
+  );
+}
+
+Menu.propTypes = {
+  children: PropTypes.node,
+  innerProps: PropTypes.object,
+  selectProps: PropTypes.object
+} as any;
+
+const components = {
+  Control,
+  Menu,
+  Option
+};
+
+const MultiSelectChips: React.FC = props => {
+  const classes = useStyles();
+  const theme = useTheme();
+  const [multi, setMulti] = React.useState<ValueType<OptionType>>(null);
+
+  function handleChangeMulti(value: ValueType<OptionType>) {
+    setMulti(value);
+  }
+
+  const selectStyles = {
+    input: (base: CSSProperties) => ({
+      ...base,
+      color: theme.palette.text.primary,
+      '& input': {
+        font: 'inherit'
+      }
+    })
+  };
+
+  return (
+    <Select
+      classes={classes}
+      styles={selectStyles}
+      inputId="react-select-multiple"
+      TextFieldProps={{
+        label: props.label,
+        InputLabelProps: {
+          htmlFor: 'react-select-multiple',
+          shrink: true
+        }
+      }}
+      options={suggestions}
+      components={components}
+      value={multi}
+      onChange={handleChangeMulti}
+      isMulti
+    />
   );
 };
 
