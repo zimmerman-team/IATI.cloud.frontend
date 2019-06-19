@@ -619,8 +619,8 @@ module.exports = function(webpackEnv) {
           minRatio: 0.8,
           quality: 11,
         }),
-      isEnvProduction &&
-        new DuplicatePackageCheckerPlugin(),
+      // isEnvProduction &&
+      //   new DuplicatePackageCheckerPlugin(),
       /*isEnvProduction &&
         new BundleAnalyzerPlugin({analyzerMode:'static', reportFilename:paths.appStats+'/'+Date.now()+'.html', generateStatsFile:true})*/
     ].filter(Boolean),
