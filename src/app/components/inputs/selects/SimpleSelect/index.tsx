@@ -16,63 +16,15 @@ import { Spacing } from 'app/theme/index';
 import TooltipButton from 'app/components/inputs/buttons/TooltipButton/index';
 import parse from 'html-react-parser';
 
+import BaseMenuItem from 'app/components/inputs/selects/common/BaseMenuItem';
+import BaseSelect from 'app/components/inputs/selects/common/BaseSelect';
+
 import './style.css';
 type SimpleSelectProps = {
   label?: string;
   helperText?: string;
   tip?: string;
 };
-
-/* todo: make actual components out of these styled constants */
-
-const BaseInput = styled(props => <InputBase {...props} />)`
-  && {
-    border-radius: 2px;
-    height: 48px;
-  }
-`;
-
-const BaseSelect = styled(props => (
-  <Select
-    {...props}
-    input={<BaseInput name="age" id="outlined-age-simple" />}
-  />
-))`
-  && {
-    background-color: #f0f3f7;
-    margin: 0;
-    //min-width: 270px;
-    width: 100%;
-
-    & [class*='MuiSelect-select'] {
-      padding-left: ${Spacing.inputSideSpacing};
-      &:focus {
-        background-color: #f0f3f7 !important;
-      }
-    }
-
-    & [class*='MuiSelect-icon'] {
-      margin-right: 8px;
-    }
-  }
-`;
-
-const BaseMenuList = styled(props => <MenuList {...props} />)`
-  && {
-    margin: 0;
-    outline: 1px solid cyan;
-  }
-`;
-
-const BaseMenuItem = styled(props => <MenuItem {...props} />)`
-  && {
-    height: 48px;
-
-    &:hover {
-      background-color: #e2e6eb;
-    }
-  }
-`;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
