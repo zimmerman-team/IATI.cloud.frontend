@@ -1,12 +1,6 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import Select from 'react-select';
-import {
-  createStyles,
-  emphasize,
-  makeStyles,
-  Theme,
-  useTheme
-} from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import NoSsr from '@material-ui/core/NoSsr';
 import { ValueType } from 'react-select/lib/types';
 import NoOptionsMessage from './common/NoOptionsMessage';
@@ -22,6 +16,7 @@ import DropdownIndicator from './common/DropdownIndicator';
 import ClearIndicator from './common/ClearIndicator';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import parse from 'html-react-parser';
+import styled from 'styled-components';
 
 type MultiSelectChipProps = {
   label?: string;
@@ -41,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     input: {
       display: 'flex',
-      paddingLeft: '16px',
+      paddingLeft: '12px',
       height: 'auto',
       backgroundColor: '#f0f3f7'
     },
@@ -52,27 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       overflow: 'hidden'
     },
-    chip: {
-      margin: theme.spacing(0.5, 0.25)
-    },
-    chipFocused: {
-      backgroundColor: emphasize(
-        theme.palette.type === 'light'
-          ? theme.palette.grey[300]
-          : theme.palette.grey[700],
-        0.08
-      )
-    },
-    noOptionsMessage: {
-      padding: theme.spacing(1, 2)
-    },
     singleValue: {
-      fontSize: 16
-    },
-    placeholder: {
-      position: 'absolute',
-      left: 2,
-      bottom: 6,
       fontSize: 16
     },
     paper: {
@@ -101,9 +76,50 @@ const components = {
   ClearIndicator
 };
 
+const Component = styled(props => <Select {...props} />)`
+  &&& [class*='MuiInputBase-root'] {
+    padding-top: 8px;
+
+    &:after {
+      border: none;
+    }
+    ,
+    &:before {
+      border: none;
+    }
+    ,
+    &:hover {
+      border: none;
+    }
+  }
+  ,
+  &&& [class*='MuiInputBase-input'] {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  ,
+  & [class*='MuiInputLabel-root'] {
+    font-family: Inter;
+    font-size: 17px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.4;
+    letter-spacing: 0.4px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  &&& [class*='Mui-focused'] {
+    color: rgba(0, 0, 0, 0.87);
+  }
+`;
+
+const HelperText = styled(props => <FormHelperText {...props} />)`
+  margin-top: 4px !important;
+`;
+
 const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
   const classes = useStyles();
-  const theme = useTheme();
 
   const [multi, setMulti] = React.useState<ValueType<OptionType>>(null);
 
@@ -111,28 +127,19 @@ const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
     setMulti(value);
   }
 
-  const selectStyles = {
-    input: (base: CSSProperties) => ({
-      ...base,
-      color: theme.palette.text.primary,
-      '& input': {
-        font: 'inherit'
-      }
-    })
-  };
-
   return (
     <div className={classes.root}>
       <NoSsr>
-        <Select
+        <Component
           classes={classes}
-          styles={selectStyles}
           inputId="react-select-multiple"
           TextFieldProps={{
             label: 'Countries',
             InputLabelProps: {
               htmlFor: 'react-select-multiple',
-              shrink: true
+              shrink: true,
+              disableAnimation: true,
+              classes: {}
             },
             placeholder: 'Select multiple countries'
           }}
@@ -142,9 +149,7 @@ const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
           onChange={handleChangeMulti}
           isMulti
         />
-        {props.helperText && (
-          <FormHelperText>{parse(props.helperText)}</FormHelperText>
-        )}
+        {props.helperText && <HelperText>{parse(props.helperText)}</HelperText>}
       </NoSsr>
     </div>
   );
