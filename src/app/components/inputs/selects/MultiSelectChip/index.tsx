@@ -96,6 +96,7 @@ const Component = styled(props => <Select {...props} />)`
   &&& [class*='MuiInputBase-input'] {
     padding-top: 4px;
     padding-bottom: 4px;
+    min-height: 40px;
   }
   ,
   & [class*='MuiInputLabel-root'] {

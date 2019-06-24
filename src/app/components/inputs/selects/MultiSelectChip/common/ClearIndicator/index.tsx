@@ -8,14 +8,12 @@ interface OptionType {
   children?: ReactNode;
 }
 
-function ClearIndicator(props: IndicatorProps<OptionType>) {
-  // todo: get rid of error
-  // @ts-ignore
+const ClearIndicator: React.FC<OptionType> = props => {
   return (
-    <components.ClearIndicator {...props}>
+    <React.Fragment {...props}>
       <Clear />
-    </components.ClearIndicator>
+    </React.Fragment>
   );
-}
+};
 
 export default ClearIndicator;

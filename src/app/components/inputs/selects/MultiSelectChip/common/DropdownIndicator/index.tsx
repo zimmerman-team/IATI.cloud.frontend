@@ -8,14 +8,12 @@ interface OptionType {
   value: string;
 }
 
-function DropdownIndicator(props: IndicatorProps<OptionType>) {
-  // todo: get rid of error
-  // @ts-ignore
+const DropdownIndicator: React.FC<OptionType> = props => {
   return (
-    <components.DropdownIndicator {...props}>
+    <React.Fragment {...props}>
       <ArrowDropDown />
-    </components.DropdownIndicator>
+    </React.Fragment>
   );
-}
+};
 
 export default DropdownIndicator;
