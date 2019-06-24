@@ -2,30 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { OptionProps } from 'react-select/lib/components/Option';
 import MenuItem from '@material-ui/core/MenuItem';
+import styled from 'styled-components';
 
 interface OptionType {
   label: string;
   value: string;
 }
-//todo: refactor styling
+
+//todo: refactor styling => also had to do !important in external .css file
+const Component = styled(props => <MenuItem {...props} />)`
+  font-family: Inter !important;
+  font-size: 14px !important;
+  letterspacing: 0.3px !important;
+  lineheight: 1.71 !important;
+  fontweight: 400 !important;
+  height: 48px !important;
+`;
+
 function Option(props: OptionProps<OptionType>) {
   return (
-    <MenuItem
+    <Component
       ref={props.innerRef}
       selected={props.isFocused}
       component="div"
-      style={{
-        fontFamily: 'Inter',
-        fontSize: '14px',
-        letterSpacing: '0.3px',
-        lineHeight: '1.71',
-        fontWeight: 400,
-        height: '48px'
-      }}
       {...props.innerProps}
     >
       {props.children}
-    </MenuItem>
+    </Component>
   );
 }
 

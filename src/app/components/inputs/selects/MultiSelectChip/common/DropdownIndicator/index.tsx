@@ -9,6 +9,8 @@ interface OptionType {
 }
 
 function DropdownIndicator(props: IndicatorProps<OptionType>) {
+  // todo: get rid of error
+  // @ts-ignore
   return (
     <components.DropdownIndicator {...props}>
       <ArrowDropDown />

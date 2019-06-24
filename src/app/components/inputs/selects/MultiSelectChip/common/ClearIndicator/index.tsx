@@ -9,6 +9,8 @@ interface OptionType {
 }
 
 function ClearIndicator(props: IndicatorProps<OptionType>) {
+  // todo: get rid of error
+  // @ts-ignore
   return (
     <components.ClearIndicator {...props}>
       <Clear />
