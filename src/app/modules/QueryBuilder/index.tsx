@@ -21,6 +21,7 @@ import DateField from 'app/components/inputs/textinputs/DateInputField';
 import FragmentDivider from 'app/components/common/FragmentDivider';
 import config from './config';
 import Box from '@material-ui/core/Box';
+import MultiSelectChip from '../../components/inputs/selects/MultiSelectChip';
 
 const spacing = 4;
 
@@ -48,15 +49,17 @@ const QueryBuilder: React.FC = () => {
         >
           <Grid container spacing={spacing}>
             <Grid item xs={12} sm={6} md={12}>
-              {SimpleSelect({
-                label: 'Organisation type',
-                helperText: 'Code list'
-              })}
+              <MultiSelectChip
+                label="Organisation type"
+                helperText="Code list"
+                placeholder="Selection"
+              />
             </Grid>
             <Grid item xs={12} sm={6} md={8}>
-              <SimpleSelect
+              <MultiSelectChip
                 label="Organistion sector"
                 helperText="DAC 3 & 5 codelist"
+                placeholder="All (234)"
               />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
@@ -66,9 +69,10 @@ const QueryBuilder: React.FC = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6} md={12}>
-              <SimpleSelect
+              <MultiSelectChip
                 label="Organisation name"
                 helperText="E.g. AT-12 = Ministry of Interior. See list"
+                placeholder="All (24)"
               />
             </Grid>
           </Grid>
@@ -82,10 +86,11 @@ const QueryBuilder: React.FC = () => {
         >
           <Grid container spacing={spacing}>
             <Grid item xs={12} sm={12} md={12}>
-              <IconTextInput
-                placeholder="Text search"
+              <MultiSelectChip
                 label="Data title, activity, or descriptions"
                 helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
+                placeholder="Text search"
+                search
               />
             </Grid>
 
