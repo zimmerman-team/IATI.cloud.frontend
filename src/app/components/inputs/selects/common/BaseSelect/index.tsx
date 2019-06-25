@@ -18,7 +18,6 @@ const BaseComponent = styled(props => (
   && {
     background-color: #f0f3f7;
     margin: 0;
-    //min-width: 270px;
     width: 100%;
 
     & [class*='MuiSelect-select'] {
@@ -30,6 +29,7 @@ const BaseComponent = styled(props => (
 
     & [class*='MuiSelect-icon'] {
       margin-right: 8px;
+      fill: #828894;
     }
   }
 `;
