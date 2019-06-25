@@ -3,13 +3,13 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Checkbox from '@material-ui/core/Checkbox';
 import styled from 'styled-components';
 import { Palette } from 'app/theme';
 import Typography from '@material-ui/core/Typography';
+import Checkbox from 'app/components/inputs/checkboxes/Checkbox';
 
 type Props = {
-  data: object;
+  data: any;
 };
 
 const BaseComponent = styled(props => <List {...props} />)`
@@ -53,33 +53,18 @@ const ListControls: React.FC<Props> = props => {
 
   return (
     <BaseComponent>
-      {/*todo: Make own component*/}
-
       {props.data.map(category => {
-        const labelId = `checkbox-list-label-${category[0]}`;
-
         return (
           <React.Fragment key={category}>
             <ListCategory variant="subtitle2">{category[0]}</ListCategory>
             {category[1].map(item => {
               return (
                 <React.Fragment key={item}>
-                  <ListItem
-                    role={undefined}
-                    dense
-                    button
-                    onClick={handleToggle(item)}
-                  >
+                  <ListItem dense button onClick={handleToggle(item)}>
                     <ListItemIcon>
-                      <Checkbox
-                        edge="start"
-                        checked={checked.indexOf(item) !== -1}
-                        tabIndex={-1}
-                        disableRipple
-                        inputProps={{ 'aria-labelledby': labelId }}
-                      />
+                      <Checkbox checked={checked.indexOf(item) !== -1} />
                     </ListItemIcon>
-                    <ListItemText id={labelId} primary={item} />
+                    <ListItemText primary={item} />
                   </ListItem>
                 </React.Fragment>
               );

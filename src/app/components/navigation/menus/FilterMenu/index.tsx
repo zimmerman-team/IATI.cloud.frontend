@@ -1,37 +1,17 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import ListControls from 'app/components/datadisplay/Lists/ListControls';
 import styled from 'styled-components';
-import List from '@material-ui/core/List';
 
 type Props = {
-  data: object;
+  data: any;
+  anchorRef: any;
+  open: boolean;
 };
 
-const FilterMenu: React.FC<Props> = props => {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef<HTMLButtonElement>(null);
-
-  function handleToggle() {
-    setOpen(prevOpen => !prevOpen);
-  }
-
-  function handleClose(event: React.MouseEvent<EventTarget>) {
-    if (
-      anchorRef.current &&
-      anchorRef.current.contains(event.target as HTMLElement)
-    ) {
-      return;
-    }
-
-    setOpen(false);
-  }
-
-  const BaseComponent = styled(props => <Popper {...props} />)`
+const BaseComponent = styled(props => <Popper {...props} />)`
   & [class*='MuiPaper-root'] {
     max-height: 614px;
     overflow: scroll;
@@ -42,42 +22,30 @@ const FilterMenu: React.FC<Props> = props => {
   }
   ,
 `;
+
+const FilterMenu: React.FC<Props> = props => {
   return (
-    <div>
-      <div>
-        <Button
-          ref={anchorRef}
-          aria-controls="menu-list-grow"
-          aria-haspopup="true"
-          onClick={handleToggle}
+    <BaseComponent
+      open={props.open}
+      anchorEl={props.anchorRef.current}
+      keepMounted
+      transition
+      disablePortal
+    >
+      {({ TransitionProps, placement }) => (
+        <Grow
+          {...TransitionProps}
+          style={{
+            transformOrigin:
+              placement === 'bottom' ? 'center top' : 'center bottom'
+          }}
         >
-          Toggle Menu Grow
-        </Button>
-        <BaseComponent
-          open={open}
-          anchorEl={anchorRef.current}
-          keepMounted
-          transition
-          disablePortal
-        >
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{
-                transformOrigin:
-                  placement === 'bottom' ? 'center top' : 'center bottom'
-              }}
-            >
-              <Paper id="menu-list-grow">
-                <ClickAwayListener onClickAway={handleClose}>
-                  <ListControls data={props.data} />
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </BaseComponent>
-      </div>
-    </div>
+          <Paper id="menu-list-grow">
+            <ListControls data={props.data} />
+          </Paper>
+        </Grow>
+      )}
+    </BaseComponent>
   );
 };
 
