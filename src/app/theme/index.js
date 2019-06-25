@@ -143,7 +143,9 @@ export const Typography = {
   },
   subtitle1: {
     fontSize: `${1}rem`,
-    fontWeight: Weight.medium
+    fontWeight: Weight.medium,
+    lineHeight: '1.5',
+    letterSpacing: '0.2px'
   },
   subtitle2: {
     fontSize: `${0.875}rem`,
