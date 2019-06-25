@@ -5,35 +5,10 @@ import Providers from 'app/Providers';
 import Button from '@material-ui/core/Button';
 import { Box } from '@material-ui/core';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grid from '@material-ui/core/Grid';
+import data from './mock';
 
-const data = [
-  [
-    'Activity',
-    [
-      'Activity Status',
-      'Activity periode',
-      'Activity Scope',
-      'Aid type',
-      'Aid Type (category)',
-      'Aid Type Vocabulary'
-    ]
-  ],
-  [
-    'Transaction',
-    [
-      'Budget identifier',
-      'Budget identifier sector',
-      'Budget identifier sector (catagory)',
-      'Budget identifier',
-      'Budget identifier sector',
-      'Budget identifier sector (catagory)',
-      'Budget identifier',
-      'Budget identifier sector',
-      'Budget identifier sector (catagory)'
-    ]
-  ]
-];
-const MyComponent: React.FC = () => {
+const MyStoryComponent: React.FC = () => {
   const anchorRef = React.useRef<HTMLButtonElement>(null);
   const [open, setOpen] = React.useState(false);
 
@@ -60,7 +35,7 @@ const MyComponent: React.FC = () => {
         aria-haspopup="true"
         onClick={() => handleToggle()}
       >
-        Button look into source of this story for implementation example
+        Toggle buttons
       </Button>
       <ClickAwayListener onClickAway={handleClose}>
         <Component data={data} anchorRef={anchorRef} open={open} />
@@ -71,6 +46,13 @@ const MyComponent: React.FC = () => {
 
 storiesOf('Navigation|Menus/', module).add('FilterMenu', () => (
   <Providers>
-    <MyComponent />
+    <Grid container spacing={3}>
+      <Grid item xs={12} sm={6}>
+        <MyStoryComponent />
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <Component data={data} open />
+      </Grid>
+    </Grid>
   </Providers>
 ));
