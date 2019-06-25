@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 type Props = {
   data: any;
-  anchorRef: any;
+  anchorRef?: any;
   open: boolean;
 };
 
@@ -27,7 +27,7 @@ const FilterMenu: React.FC<Props> = props => {
   return (
     <BaseComponent
       open={props.open}
-      anchorEl={props.anchorRef.current}
+      anchorEl={props.anchorRef ? props.anchorRef.current : null}
       keepMounted
       transition
       disablePortal
