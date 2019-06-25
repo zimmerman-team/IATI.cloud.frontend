@@ -7,6 +7,8 @@ type Props = {
   label?: string;
   icon?: ReactNode;
   disabled?: boolean;
+  onClick?: any;
+  ref?: ReactNode;
 };
 
 const ZimmerButton = styled(props => <Button {...props} />)`
@@ -39,6 +41,8 @@ const IconButton: React.FC<Props> = props => {
       variant="contained"
       color="primary"
       disabled={props.disabled}
+      onClick={props.onClick}
+      ref={props.ref}
     >
       {props.label}
       {props.icon}

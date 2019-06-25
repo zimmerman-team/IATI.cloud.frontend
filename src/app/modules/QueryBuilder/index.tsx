@@ -21,11 +21,21 @@ import DateField from 'app/components/inputs/textinputs/DateInputField';
 import FragmentDivider from 'app/components/common/FragmentDivider';
 import config from './config';
 import Box from '@material-ui/core/Box';
+import FilterMenu from 'app/components/navigation/menus/FilterMenu';
+import FilterData from 'app/components/navigation/menus/FilterMenu/mock';
 
 const spacing = 4;
 
 const QueryBuilder: React.FC = () => {
   useTitle('OIPA - Query Builder');
+
+  const anchorRef = React.useRef<HTMLButtonElement>(null);
+  const [openFilter, setOpenFilter] = React.useState(false);
+
+  function handleToggle() {
+    setOpenFilter(prevOpen => !prevOpen);
+  }
+
   return (
     <Container maxWidth="lg">
       <Box paddingTop="100px">
@@ -106,7 +116,17 @@ const QueryBuilder: React.FC = () => {
               <Divider />
             </Grid>
             <Grid item xs={12} sm={12} md={4}>
-              <IconButton label="Add Filter" icon={<Add />} />
+              <IconButton
+                label="Add Filter"
+                icon={<Add />}
+                onClick={() => handleToggle()}
+                ref={anchorRef}
+              />
+              <FilterMenu
+                data={FilterData}
+                anchorRef={anchorRef}
+                open={openFilter}
+              />
             </Grid>
           </Grid>
         </ModuleFragment>
