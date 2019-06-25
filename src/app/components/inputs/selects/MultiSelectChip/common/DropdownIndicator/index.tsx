@@ -1,17 +1,16 @@
 import React from 'react';
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
-import { components } from 'react-select';
-import { IndicatorProps } from 'react-select/lib/components/indicators';
+import Search from '@material-ui/icons/Search';
 
 interface OptionType {
-  label?: string;
-  value: string;
+  selectProps?: any;
 }
 
 const DropdownIndicator: React.FC<OptionType> = props => {
+  console.log(props);
   return (
     <React.Fragment {...props}>
-      <ArrowDropDown />
+      {props.selectProps.search ? <Search /> : <ArrowDropDown />}
     </React.Fragment>
   );
 };

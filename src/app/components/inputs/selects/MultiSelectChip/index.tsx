@@ -17,17 +17,23 @@ import ClearIndicator from './common/ClearIndicator';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import parse from 'html-react-parser';
 import styled from 'styled-components';
+import Grid from '@material-ui/core/Grid';
+import FieldInputLabel from '../../../common/FieldInputLabel';
+import TooltipButton from '../../buttons/TooltipButton';
 
 type MultiSelectChipProps = {
   label?: string;
   helperText?: string;
+  placeholder?: string;
+  tooltip?: string;
+  search?: boolean;
 };
 
 interface OptionType {
   label: string;
   value: string;
 }
-
+//Todo: refactor to only use styled-components
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -37,6 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
     input: {
       display: 'flex',
       paddingLeft: '12px',
+      paddingRight: '8px',
       height: 'auto',
       backgroundColor: '#f0f3f7'
     },
@@ -78,8 +85,7 @@ const components = {
 
 const Component = styled(props => <Select {...props} />)`
   &&& [class*='MuiInputBase-root'] {
-    padding-top: 8px;
-
+    padding: 0;
     &:after {
       border: none;
     }
@@ -94,9 +100,7 @@ const Component = styled(props => <Select {...props} />)`
   }
   ,
   &&& [class*='MuiInputBase-input'] {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    min-height: 40px;
+    min-height: 35px;
   }
   ,
   & [class*='MuiInputLabel-root'] {
@@ -113,6 +117,14 @@ const Component = styled(props => <Select {...props} />)`
   &&& [class*='Mui-focused'] {
     color: rgba(0, 0, 0, 0.87);
   }
+  & [class*='MuiChip-root'] {
+    margin: 0 4px;
+    height: 32px;
+  }
+
+  svg {
+    fill: #828894;
+  }
 `;
 
 const HelperText = styled(props => <FormHelperText {...props} />)`
@@ -127,28 +139,35 @@ const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
   function handleChangeMulti(value: ValueType<OptionType>) {
     setMulti(value);
   }
-
+  console.log(props);
   return (
     <div className={classes.root}>
       <NoSsr>
+        {/*todo: make reusable component, reused in MultiSelect and SimpleSelect*/}
+        {props.label && (
+          <Grid container spacing={2}>
+            <Grid item>
+              <FieldInputLabel label={props.label} />
+            </Grid>
+            {props.tooltip && (
+              <Grid item>
+                <TooltipButton tip={props.tooltip} />
+              </Grid>
+            )}
+          </Grid>
+        )}
+        {/*=======================================================================*/}
+
         <Component
           classes={classes}
           inputId="react-select-multiple"
-          TextFieldProps={{
-            label: 'Countries',
-            InputLabelProps: {
-              htmlFor: 'react-select-multiple',
-              shrink: true,
-              disableAnimation: true,
-              classes: {}
-            },
-            placeholder: 'Select multiple countries'
-          }}
+          placeholder={props.placeholder}
           options={suggestions}
           components={components}
           value={multi}
           onChange={handleChangeMulti}
           isMulti
+          search={props.search}
         />
         {props.helperText && <HelperText>{parse(props.helperText)}</HelperText>}
       </NoSsr>
