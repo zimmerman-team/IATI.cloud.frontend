@@ -12,6 +12,8 @@ type Props = {
 };
 
 const BaseComponent = styled(props => <Popper {...props} />)`
+  z-index: 1;
+
   & [class*='MuiPaper-root'] {
     max-height: 614px;
     overflow: scroll;
