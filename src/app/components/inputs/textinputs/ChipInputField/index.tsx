@@ -1,9 +1,8 @@
 import React from 'react';
 import ChipInput from 'material-ui-chip-input';
-import NoSsr from '@material-ui/core/NoSsr';
 import styled from 'styled-components';
 import Chip from 'app/components/datadisplay/Chip';
-import FormHelperText from '@material-ui/core/FormHelperText';
+import BaseHelperText from 'app/components/inputs/selects/common/BaseHelperText';
 
 interface ChippieProps {
   value?: any;
@@ -56,14 +55,12 @@ const Container: React.FC<ChippieProps> = props => {
         }}
         {...props}
       />
-      {/* todo: create re-usable componet */}
-      <FormHelperText>
-        See{' '}
-        <a href="www.zimmermanzimmerman.nl" target="_blank">
-          OIPA documentation
-        </a>{' '}
-        for full list of possible elements
-      </FormHelperText>
+      <BaseHelperText
+        helperText="See "
+        linkText="OIPA documentation"
+        url="https://www.zimmermanzimmerman.nl"
+        helperTextAfter=" for full list of possible elements"
+      />
     </React.Fragment>
   );
 };

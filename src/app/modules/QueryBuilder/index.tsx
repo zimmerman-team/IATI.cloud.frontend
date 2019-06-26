@@ -23,8 +23,6 @@ import Box from '@material-ui/core/Box';
 import FilterMenu from 'app/components/navigation/menus/FilterMenu';
 import FilterData from 'app/components/navigation/menus/FilterMenu/mock';
 import MultiSelectChip from '../../components/inputs/selects/MultiSelectChip';
-import FilterMenu from 'app/components/navigation/menus/FilterMenu';
-import FilterData from 'app/components/navigation/menus/FilterMenu/mock';
 
 const spacing = 4;
 
@@ -62,14 +60,17 @@ const QueryBuilder: React.FC = () => {
             <Grid item xs={12} sm={6} md={12}>
               <MultiSelectChip
                 label="Organisation type"
-                helperText="Code list"
+                helperTextLink="Code List"
+                helperTextUrl="http://reference.iatistandard.org/203/codelists/OrganisationType/"
                 placeholder="Selection"
               />
             </Grid>
             <Grid item xs={12} sm={6} md={8}>
               <MultiSelectChip
                 label="Organistion sector"
-                helperText="DAC 3 & 5 codelist"
+                helperText="DAC 3 & 5 "
+                helperTextLink="code list"
+                helperTextUrl="http://reference.iatistandard.org/203/codelists/Sector/"
                 placeholder="All (234)"
               />
             </Grid>
@@ -82,7 +83,9 @@ const QueryBuilder: React.FC = () => {
             <Grid item xs={12} sm={6} md={12}>
               <MultiSelectChip
                 label="Organisation name"
-                helperText="E.g. AT-12 = Ministry of Interior. See list"
+                helperText="E.g. AT-12 = Ministry of Interior. "
+                helperTextLink="See list"
+                helperTextUrl="http://reference.iatistandard.org/203/codelists/Sector/"
                 placeholder="All (24)"
               />
             </Grid>
