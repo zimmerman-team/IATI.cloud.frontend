@@ -3,16 +3,13 @@ import createStyles from '@material-ui/core/styles/createStyles';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import Grid from '@material-ui/core/Grid';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FieldInputLabel from 'app/components/common/FieldInputLabel';
 import TooltipButton from 'app/components/inputs/buttons/TooltipButton/index';
-import parse from 'html-react-parser';
-
 import BaseMenuItem from 'app/components/inputs/selects/common/BaseMenuItem';
 import BaseSelect from 'app/components/inputs/selects/common/BaseSelect';
-
 import './style.css';
 import BaseHelperText from '../common/BaseHelperText';
+
 type SimpleSelectProps = {
   label?: string;
   helperText?: string;
@@ -43,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
         '0 4px 14px -2px rgba(130, 136, 148, 0.28), 0 0 2px 0 rgba(130, 136, 148, 0.22)'
     },
     listProps: {
-      padding: 0
+      padding: '4px 0'
     }
   })
 );
@@ -99,17 +96,11 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
         <BaseMenuItem value={30}>Thirty</BaseMenuItem>
       </BaseSelect>
 
-      {props.helperText && (
-        <BaseHelperText
-          helperText={props.helperText}
-          linkText={props.helperTextLink}
-          url={props.helperTextUrl}
-        />
-      )}
-      {/*{props.helperText && (*/}
-      {/*  <FormHelperText>{parse(props.helperText)}</FormHelperText>*/}
-      {/*)}*/}
-      {/*{props.helperText && <div>{parse('<a href="www.nu.nl">sibling 1</a>')}</div>}*/}
+      <BaseHelperText
+        helperText={props.helperText}
+        linkText={props.helperTextLink}
+        url={props.helperTextUrl}
+      />
     </React.Fragment>
   );
 };

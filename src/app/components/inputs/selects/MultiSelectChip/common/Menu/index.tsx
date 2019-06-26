@@ -2,21 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MenuProps } from 'react-select/lib/components/Menu';
 import Paper from '@material-ui/core/Paper';
+import styled from 'styled-components';
 
 interface OptionType {
   label: string;
   value: string;
 }
+const BaseMenu = styled(props => <Paper {...props} />)`
+  & [class*='MuiListItem-root'] {
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.71;
+    letter-spacing: 0.3px;
+  }
+`;
 
 function Menu(props: MenuProps<OptionType>) {
   return (
-    <Paper
-      square
-      className={props.selectProps.classes.paper}
-      {...props.innerProps}
-    >
+    <BaseMenu square {...props.innerProps}>
       {props.children}
-    </Paper>
+    </BaseMenu>
   );
 }
 
