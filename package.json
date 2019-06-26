@@ -20,6 +20,7 @@
     "html-react-parser": "^0.7.1",
     "keyboardjs": "^2.5.1",
     "material-ui-chip-input": "^1.0.0-beta.17",
+    "normalizr": "^3.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-error-boundary": "^1.2.5",
@@ -29,8 +30,10 @@
     "react-use": "^9.4.0",
     "rebound": "^0.1.0",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "shortid": "^2.2.14",
-    "styled-components": "^4.3.0"
+    "styled-components": "^4.3.0",
+    "yup": "^0.27.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
