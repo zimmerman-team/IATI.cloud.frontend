@@ -7,7 +7,6 @@ interface OptionType {
 }
 
 const DropdownIndicator: React.FC<OptionType> = props => {
-  console.log(props);
   return (
     <React.Fragment {...props}>
       {props.selectProps.search ? <Search /> : <ArrowDropDown />}

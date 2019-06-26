@@ -136,7 +136,7 @@ const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
   function handleChangeMulti(value: ValueType<OptionType>) {
     setMulti(value);
   }
-  console.log(props);
+
   return (
     <div className={classes.root}>
       <NoSsr>
