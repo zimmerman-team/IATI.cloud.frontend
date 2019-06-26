@@ -21,4 +21,4 @@ const QueryBuilderConfig = {
   ]
 };
 
-export default QueryBuilderConfig
+export default QueryBuilderConfig;

@@ -2,17 +2,9 @@ import React from 'react';
 import createStyles from '@material-ui/core/styles/createStyles';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import styled from 'styled-components';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import InputBase from '@material-ui/core/InputBase';
-import MenuList from '@material-ui/core/MenuList';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FieldInputLabel from 'app/components/common/FieldInputLabel';
-import { Spacing } from 'app/theme/index';
 import TooltipButton from 'app/components/inputs/buttons/TooltipButton/index';
 import parse from 'html-react-parser';
 

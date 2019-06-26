@@ -1,6 +1,5 @@
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 
-
 export const Spacing = {
   inputSideSpacing: '15px'
 };
@@ -25,6 +24,7 @@ export const Palette = {
     contrastText: '#fff'
   },
   grey: {
+    40: '#f0f3f7',
     50: '#fafafa',
     100: '#f5f5f5',
     200: '#eeeeee',
@@ -143,7 +143,9 @@ export const Typography = {
   },
   subtitle1: {
     fontSize: `${1}rem`,
-    fontWeight: Weight.medium
+    fontWeight: Weight.medium,
+    lineHeight: '1.5',
+    letterSpacing: '0.2px'
   },
   subtitle2: {
     fontSize: `${0.875}rem`,

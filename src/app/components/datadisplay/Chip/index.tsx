@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Component from '@material-ui/core/Chip';
 import IconChipDelete from 'app/assets/icons/IconChipDelete';
 import styled from 'styled-components';
 
 type Props = {
-  label?: string;
+  label?: string | ReactNode;
+  tabIndex?: number;
+  className?: string;
+  onDelete?: any;
+  deleteIcon?: ReactNode;
 };
 
 const BaseComponent = styled(props => <Component {...props} />)`

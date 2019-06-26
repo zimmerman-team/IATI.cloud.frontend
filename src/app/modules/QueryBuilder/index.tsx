@@ -15,17 +15,27 @@ import DataTable from 'app/components/datadisplay/tables/DataTable';
 import Add from '@material-ui/icons/Add';
 import Download from '@material-ui/icons/GetApp';
 import useTitle from 'react-use/lib/useTitle';
-import IconTextInput from 'app/components/inputs/textinputs/IconTextInputFIeld';
 import URLField from 'app/components/inputs/textdisplay/URLField';
 import DateField from 'app/components/inputs/textinputs/DateInputField';
 import FragmentDivider from 'app/components/common/FragmentDivider';
 import config from './config';
 import Box from '@material-ui/core/Box';
+import FilterMenu from 'app/components/navigation/menus/FilterMenu';
+import FilterData from 'app/components/navigation/menus/FilterMenu/mock';
+import MultiSelectChip from '../../components/inputs/selects/MultiSelectChip';
 
 const spacing = 4;
 
 const QueryBuilder: React.FC = () => {
   useTitle('OIPA - Query Builder');
+
+  const anchorRef = React.useRef<HTMLButtonElement>(null);
+  const [openFilter, setOpenFilter] = React.useState(false);
+
+  function handleToggle() {
+    setOpenFilter(prevOpen => !prevOpen);
+  }
+
   return (
     <Container maxWidth="lg">
       <Box paddingTop="100px">
@@ -48,15 +58,17 @@ const QueryBuilder: React.FC = () => {
         >
           <Grid container spacing={spacing}>
             <Grid item xs={12} sm={6} md={12}>
-              {SimpleSelect({
-                label: 'Organisation type',
-                helperText: 'Code list'
-              })}
+              <MultiSelectChip
+                label="Organisation type"
+                helperText="Code list"
+                placeholder="Selection"
+              />
             </Grid>
             <Grid item xs={12} sm={6} md={8}>
-              <SimpleSelect
+              <MultiSelectChip
                 label="Organistion sector"
                 helperText="DAC 3 & 5 codelist"
+                placeholder="All (234)"
               />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
@@ -66,9 +78,10 @@ const QueryBuilder: React.FC = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6} md={12}>
-              <SimpleSelect
+              <MultiSelectChip
                 label="Organisation name"
                 helperText="E.g. AT-12 = Ministry of Interior. See list"
+                placeholder="All (24)"
               />
             </Grid>
           </Grid>
@@ -82,10 +95,11 @@ const QueryBuilder: React.FC = () => {
         >
           <Grid container spacing={spacing}>
             <Grid item xs={12} sm={12} md={12}>
-              <IconTextInput
-                placeholder="Text search"
+              <MultiSelectChip
                 label="Data title, activity, or descriptions"
                 helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
+                placeholder="Text search"
+                search
               />
             </Grid>
 
@@ -106,7 +120,17 @@ const QueryBuilder: React.FC = () => {
               <Divider />
             </Grid>
             <Grid item xs={12} sm={12} md={4}>
-              <IconButton label="Add Filter" icon={<Add />} />
+              <IconButton
+                label="Add Filter"
+                icon={<Add />}
+                onClick={() => handleToggle()}
+                ref={anchorRef}
+              />
+              <FilterMenu
+                data={FilterData}
+                anchorRef={anchorRef}
+                open={openFilter}
+              />
             </Grid>
           </Grid>
         </ModuleFragment>
