@@ -16,7 +16,12 @@ const App: React.FunctionComponent<AppProps> = props => {
         <AppBar data-cy="appbar" />
         <Routes />
         <SnackBar
-          message="New content is available and will be used when all tabs of this page are closed "
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left'
+          }}
+          variant="info"
+          message="New content is available and will be used when all tabs of this page are closed"
           open={props.openSnackbar}
         />
       </Router>

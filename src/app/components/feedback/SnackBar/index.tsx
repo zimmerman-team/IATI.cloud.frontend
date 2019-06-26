@@ -1,51 +1,98 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
+import clsx from 'clsx';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import ErrorIcon from '@material-ui/icons/Error';
+import InfoIcon from '@material-ui/icons/Info';
 import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
+import SnackbarContent from '@material-ui/core/SnackbarContent';
+import WarningIcon from '@material-ui/icons/Warning';
 import styled from 'styled-components';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 
-type Props = {
-  open?: boolean;
-  message?: string;
+const variantIcon = {
+  success: CheckCircleIcon,
+  warning: WarningIcon,
+  error: ErrorIcon,
+  info: InfoIcon
 };
 
-const ZimmerSnackbar = styled(props => <Snackbar {...props} />)``;
+type Props = {
+  message?: string;
+  onClose?: () => void;
+  variant: keyof typeof variantIcon;
+  open?: boolean;
+  anchorOrigin?: object;
+};
+
+const useStyles = makeStyles(() => ({
+  success: {
+    backgroundColor: '#f25139'
+  },
+  error: {
+    backgroundColor: '#46b275'
+  },
+  info: {
+    backgroundColor: '#FFFFFF',
+    color: 'black',
+    '& svg': {
+      color: 'blue'
+    }
+  },
+  warning: {
+    backgroundColor: '#f7ad1b'
+  }
+}));
+
+const BaseSnackbar = styled(props => <Snackbar {...props} />)`
+  & [class*='MuiSnackbarContent-root'] {
+    padding: 8px 24px;
+  }
+
+  & [class*='MuiPaper-elevation6'] {
+    box-shadow: none;
+  }
+
+  & [id*='client-snackbar'] {
+    display: flex;
+  }
+
+  & [class*='MuiSvgIcon-root'] {
+    margin-right: 16px;
+  }
+`;
 
 const SnackBar: React.FC<Props> = props => {
   const [open, setOpen] = React.useState(props.open);
+  const { message, onClose, variant, ...other } = props;
+  const Icon = variantIcon[variant];
+  const classes = useStyles();
 
-  function handleClose(
-    event: React.SyntheticEvent | React.MouseEvent,
-    reason?: string
-  ) {
+  function handleClose(event?: SyntheticEvent, reason?: string) {
     if (reason === 'clickaway') {
       return;
     }
+
     setOpen(false);
   }
-
   return (
-    <ZimmerSnackbar
-      anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'left'
-      }}
+    <BaseSnackbar
+      anchorOrigin={props.anchorOrigin}
       open={open}
+      autoHideDuration={8000}
       onClose={handleClose}
-      message={
-        <span id="message-id">
-          {props.message
-            ? props.message
-            : 'New content is available and will be used when all tabs of this page are closed'}
-        </span>
-      }
-      action={[
-        <IconButton onClick={handleClose} color="inherit">
-          <CloseIcon />
-        </IconButton>
-      ]}
-    />
+    >
+      <SnackbarContent
+        className={clsx(classes[variant])}
+        aria-describedby="client-snackbar"
+        message={
+          <span id="client-snackbar">
+            <Icon />
+            {message}
+          </span>
+        }
+        {...other}
+      />
+    </BaseSnackbar>
   );
 };
-
 export default SnackBar;
