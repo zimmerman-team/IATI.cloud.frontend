@@ -1,56 +1,42 @@
 import React from 'react';
-import styled from 'styled-components';
-import TextField from '@material-ui/core/TextField';
 import BaseButton from 'app/components/inputs/buttons/BaseButton';
 import Box from '@material-ui/core/Box';
 import { useCopyToClipboard } from 'react-use';
 import FieldBackdrop from 'app/components/common/FieldBackdrop';
+import BaseTextField from 'app/components/inputs/common/BaseTextField';
+
 type Props = {
-  label?: string;
+  text?: string;
 };
 
-/* todo: create separate component */
-const TextFieldMod = styled(props => <TextField {...props} />)`
-  width: 100%;
-
-  & [class*='MuiInput-underline']:before,
-  & [class*='MuiInput-underline']:after {
-    display: none;
-  }
-
-  & [class*='MuiInputBase-input'] {
-    padding: 0;
-  }
-  & [class*='MuiInputBase-root'] {
-    margin: 0;
-    border: initial;
-    padding: 0;
-    font-size: 16px;
-    font-weight: 300;
-    margin-left: 15px;
-  }
-  & [class*='MuiFormLabel-root'] {
-    display: none;
-  }
-`;
-
-const URLField: React.FC<Props> = () => {
-  const [text, setText] = React.useState('');
+const URLField: React.FC<Props> = props => {
+  const [text, setText] = React.useState(props.text ? props.text : '');
   const [state, copyToClipboard] = useCopyToClipboard();
+
+  function renderButton() {
+    if (text === '') {
+      return <BaseButton label="Copy" variant="disabled" />;
+    }
+    if (state.value) {
+      return <BaseButton label="Copied!" variant="contained" color="green" />;
+    }
+    return <BaseButton label="Copy" variant="contained" />;
+  }
+
+  function handleChange(e) {
+    copyToClipboard('');
+    setText(e.currentTarget.value);
+  }
+  console.log(state);
 
   return (
     <FieldBackdrop>
-      <TextFieldMod
-        defaultValue="http://datastore.iatistandard.org/api/1/access/activity.csv"
-        onChange={e => setText(e.target.value)}
+      <BaseTextField
+        defaultValue={props.text}
+        onChange={e => handleChange(e)}
       />
       <Box width="100px" onClick={() => copyToClipboard(text)}>
-        {/* todo: refactor this logic, is somewhat convoluted */}
-        {state.value ? (
-          <BaseButton label="Copied!" />
-        ) : (
-          <BaseButton label="Copy" />
-        )}
+        {renderButton()}
       </Box>
     </FieldBackdrop>
   );
