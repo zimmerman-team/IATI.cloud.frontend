@@ -23,8 +23,6 @@ import Box from '@material-ui/core/Box';
 import FilterMenu from 'app/components/navigation/menus/FilterMenu';
 import FilterData from 'app/components/navigation/menus/FilterMenu/mock';
 import MultiSelectChip from '../../components/inputs/selects/MultiSelectChip';
-import FilterMenu from 'app/components/navigation/menus/FilterMenu';
-import FilterData from 'app/components/navigation/menus/FilterMenu/mock';
 
 const spacing = 4;
 
