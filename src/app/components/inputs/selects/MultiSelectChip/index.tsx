@@ -14,8 +14,6 @@ import SingleValue from './common/SingleValue';
 import ValueContainer from './common/ValueContainer';
 import DropdownIndicator from './common/DropdownIndicator';
 import ClearIndicator from './common/ClearIndicator';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import parse from 'html-react-parser';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import FieldInputLabel from '../../../common/FieldInputLabel';
@@ -60,13 +58,13 @@ const useStyles = makeStyles((theme: Theme) =>
     singleValue: {
       fontSize: 16
     },
-    paper: {
-      position: 'absolute',
-      zIndex: 1,
-      marginTop: theme.spacing(1),
-      left: 0,
-      right: 0
-    },
+    // paper: {
+    //   position: 'absolute',
+    //   zIndex: 1,
+    //   marginTop: theme.spacing(1),
+    //   left: 0,
+    //   right: 0
+    // },
     divider: {
       height: theme.spacing(2)
     }
@@ -130,10 +128,6 @@ const Component = styled(props => <Select {...props} />)`
   }
 `;
 
-const HelperText = styled(props => <FormHelperText {...props} />)`
-  margin-top: 4px !important;
-`;
-
 const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
   const classes = useStyles();
 
@@ -142,7 +136,7 @@ const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
   function handleChangeMulti(value: ValueType<OptionType>) {
     setMulti(value);
   }
-  console.log(props);
+
   return (
     <div className={classes.root}>
       <NoSsr>
