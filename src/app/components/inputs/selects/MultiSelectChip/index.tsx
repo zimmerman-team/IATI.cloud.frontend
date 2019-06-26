@@ -20,10 +20,13 @@ import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import FieldInputLabel from '../../../common/FieldInputLabel';
 import TooltipButton from '../../buttons/TooltipButton';
+import BaseHelperText from '../common/BaseHelperText';
 
 type MultiSelectChipProps = {
   label?: string;
   helperText?: string;
+  helperTextLink?: string;
+  helperTextUrl?: string;
   placeholder?: string;
   tooltip?: string;
   search?: boolean;
@@ -169,7 +172,11 @@ const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
           isMulti
           search={props.search}
         />
-        {props.helperText && <HelperText>{parse(props.helperText)}</HelperText>}
+        <BaseHelperText
+          helperText={props.helperText}
+          linkText={props.helperTextLink}
+          url={props.helperTextUrl}
+        />
       </NoSsr>
     </div>
   );
