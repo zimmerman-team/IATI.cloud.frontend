@@ -30,7 +30,6 @@ const FilterMenu: React.FC<Props> = props => {
     <BaseComponent
       open={props.open}
       anchorEl={props.anchorRef ? props.anchorRef.current : null}
-      keepMounted
       transition
       disablePortal
     >
