@@ -12,9 +12,12 @@ import BaseMenuItem from 'app/components/inputs/selects/common/BaseMenuItem';
 import BaseSelect from 'app/components/inputs/selects/common/BaseSelect';
 
 import './style.css';
+import BaseHelperText from '../common/BaseHelperText';
 type SimpleSelectProps = {
   label?: string;
   helperText?: string;
+  helperTextLink?: string;
+  helperTextUrl?: string;
   tip?: string;
 };
 
@@ -97,8 +100,15 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
       </BaseSelect>
 
       {props.helperText && (
-        <FormHelperText>{parse(props.helperText)}</FormHelperText>
+        <BaseHelperText
+          helperText={props.helperText}
+          linkText={props.helperTextLink}
+          url={props.helperTextUrl}
+        />
       )}
+      {/*{props.helperText && (*/}
+      {/*  <FormHelperText>{parse(props.helperText)}</FormHelperText>*/}
+      {/*)}*/}
       {/*{props.helperText && <div>{parse('<a href="www.nu.nl">sibling 1</a>')}</div>}*/}
     </React.Fragment>
   );
