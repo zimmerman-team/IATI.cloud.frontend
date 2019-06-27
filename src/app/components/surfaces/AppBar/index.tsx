@@ -7,7 +7,7 @@ import theme from 'app/theme';
 import AppBarButton from 'app/components/inputs/buttons/AppBarButton';
 import Grid from '@material-ui/core/Grid';
 import useLocation from 'react-use/lib/useLocation';
-import Link from 'react-router-dom/Link';
+import { Link } from 'react-router-dom';
 
 const LinkMod = styled(Link)`
   text-decoration: none;
