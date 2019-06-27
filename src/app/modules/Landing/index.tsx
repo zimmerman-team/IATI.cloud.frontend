@@ -54,7 +54,7 @@ const Landing: React.FunctionComponent = () => {
                 <TypoMod variant="h3" className={classes.h3}>
                   IATI Datastore
                 </TypoMod>
-                <TypoMod variant="h6">
+                <TypoMod variant="h5">
                   The query builder tool makes it easy build queries to obtain
                   data from the IATI Datastore in CSV, XML and JSON format.
                 </TypoMod>
@@ -78,7 +78,7 @@ const Landing: React.FunctionComponent = () => {
                   className={classes.link}
                 >
                   Zimmerman & Zimmerman
-                </Link>
+                </Link>{' '}
                 which extracts and stores raw IATI XML files from the IATI
                 Registry and makes it available as API endpoints to build data
                 driven information solutions.
