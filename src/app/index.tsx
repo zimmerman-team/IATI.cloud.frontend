@@ -10,6 +10,7 @@ type AppProps = {
 };
 
 const App: React.FunctionComponent<AppProps> = props => {
+  console.log(props.openSnackbar);
   return (
     <Providers>
       <Router>
