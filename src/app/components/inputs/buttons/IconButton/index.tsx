@@ -8,7 +8,7 @@ type Props = {
   icon?: ReactNode;
   disabled?: boolean;
   onClick?: any;
-  ref?: ReactNode;
+  anchorref?: ReactNode;
 };
 
 const ZimmerButton = styled(props => <Button {...props} />)`
@@ -42,7 +42,7 @@ const IconButton: React.FC<Props> = props => {
       color="primary"
       disabled={props.disabled}
       onClick={props.onClick}
-      ref={props.ref}
+      anchorref={props.anchorref}
     >
       {props.label}
       {props.icon}

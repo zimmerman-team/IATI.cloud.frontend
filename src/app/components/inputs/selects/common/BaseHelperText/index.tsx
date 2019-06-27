@@ -21,7 +21,11 @@ const BaseHelperText: React.FC<Props> = props => {
   return (
     <BaseComponent>
       {props.helperText}
-      <Link href={props.url}>{props.linkText}</Link>
+      <Link href={props.url}>
+        {/*props.children is a required attribute for the Link component*/}
+        {props.children}
+        {props.linkText}
+      </Link>
       {props.helperTextAfter}
     </BaseComponent>
   );
