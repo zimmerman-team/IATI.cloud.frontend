@@ -9,9 +9,12 @@ const rootElement = document.getElementById('root');
 if (rootElement != null) {
   console.log('so this is slower then the serviceworker ');
   if (rootElement.hasChildNodes()) {
-    hydrate(<App openSnackbar={serviceWorker.update} />, rootElement);
+    hydrate(
+      <App openSnackbar={serviceWorker.isUpdateAvailable} />,
+      rootElement
+    );
   } else {
-    render(<App openSnackbar={serviceWorker.update} />, rootElement);
+    render(<App openSnackbar={serviceWorker.isUpdateAvailable} />, rootElement);
   }
 }
 

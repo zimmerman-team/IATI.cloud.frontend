@@ -27,7 +27,6 @@ type Config = {
   onUpdate?: (registration: ServiceWorkerRegistration) => void;
 };
 
-export const [update, setUpdate] = React.useState(false);
 export let isUpdateAvailable = false;
 
 export function register(config?: Config) {
@@ -88,7 +87,6 @@ function registerValidSW(swUrl: string, config?: Config) {
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
 
-              setUpdate(true);
               isUpdateAvailable = true;
 
               // Execute callback
@@ -100,7 +98,7 @@ function registerValidSW(swUrl: string, config?: Config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
-              setUpdate(false);
+              isUpdateAvailable = false;
               // Execute callback
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
