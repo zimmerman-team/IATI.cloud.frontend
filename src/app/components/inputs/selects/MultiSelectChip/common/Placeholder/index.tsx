@@ -11,13 +11,13 @@ interface OptionType {
 }
 
 const PlaceholderText = styled(props => <Typography {...props} />)`
-  color: ${Palette.text.disabled};
+  color: rgba(1, 1, 10, 0.25);
 `;
 
 function Placeholder(props: PlaceholderProps<OptionType>) {
   return (
     <React.Fragment>
-      <PlaceholderText variant="subtitle1">{props.children}</PlaceholderText>
+      <PlaceholderText variant="body">{props.children}</PlaceholderText>
     </React.Fragment>
   );
 }

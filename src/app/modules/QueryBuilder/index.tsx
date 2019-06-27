@@ -177,7 +177,9 @@ const QueryBuilder: React.FC = () => {
             </Grid>
 
             <Grid item xs={12} sm={12}>
-              <Typography variant="h6">Output sample</Typography>
+              <Typography style={{ marginLeft: '24px' }} variant="h6">
+                Output sample
+              </Typography>
             </Grid>
 
             <Grid item xs={12} sm={12}>
@@ -190,7 +192,7 @@ const QueryBuilder: React.FC = () => {
         {/* DOWNLOAD FRAGMENT */}
         <Grid container spacing={2} justify="space-between">
           <Grid item xs={12} sm={12}>
-            <Typography variant="h4">Files</Typography>
+            <Typography variant="subtitle1">Files</Typography>
           </Grid>
           {/* todo: make re-usable component */}
           <Grid item xs={12} sm={9} md={9}>

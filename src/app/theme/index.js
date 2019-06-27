@@ -121,12 +121,12 @@ export const Typography = {
     fontWeight: Weight.bold,
     letterSpacing: '0.3px'
   },
-  h5: {
+  h6: {
     fontSize: `${1.5}rem`,
     fontWeight: Weight.bold,
     lineHeight: '1.5'
   },
-  h6: {
+  h5: {
     fontSize: `${1.25}rem`,
     fontWeight: Weight.light,
     lineHeight: '1.5'
