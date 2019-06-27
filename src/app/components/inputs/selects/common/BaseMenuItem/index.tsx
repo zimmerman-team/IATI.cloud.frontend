@@ -12,7 +12,7 @@ const BaseComponent = styled(props => <MenuItem {...props} />)``;
 const BaseMenuItem: React.FC<MenuItemProps> = props => {
   return (
     <BaseComponent {...props}>
-      3<Typography variant="body2">{props.children}</Typography>
+      <Typography variant="body2">{props.children}</Typography>
     </BaseComponent>
   );
 };
