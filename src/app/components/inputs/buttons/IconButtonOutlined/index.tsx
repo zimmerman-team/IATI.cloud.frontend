@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import ArrowForward from '@material-ui/icons/ArrowForward';
 import styled from 'styled-components';
-import NavLink from 'react-router-dom/NavLink';
+import { NavLink } from 'react-router-dom';
 
 type Props = {
   size?: string;
