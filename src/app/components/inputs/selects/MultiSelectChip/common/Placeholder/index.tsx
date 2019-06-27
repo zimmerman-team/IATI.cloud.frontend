@@ -17,7 +17,7 @@ const PlaceholderText = styled(props => <Typography {...props} />)`
 function Placeholder(props: PlaceholderProps<OptionType>) {
   return (
     <React.Fragment>
-      <PlaceholderText variant="body">{props.children}</PlaceholderText>
+      <PlaceholderText variant="body1">{props.children}</PlaceholderText>
     </React.Fragment>
   );
 }

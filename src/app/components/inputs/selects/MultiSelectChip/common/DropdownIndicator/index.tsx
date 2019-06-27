@@ -8,7 +8,7 @@ interface OptionType {
 
 const DropdownIndicator: React.FC<OptionType> = props => {
   return (
-    <React.Fragment {...props}>
+    <React.Fragment>
       {props.selectProps.search ? <Search /> : <ArrowDropDown />}
     </React.Fragment>
   );

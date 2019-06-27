@@ -1,12 +1,15 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
+import { Palette } from 'app/theme';
 
 type Props = {
   size?: string;
   label?: string;
   variant?: string;
-  color?: string;
+  //next two variables are lowercase and strings, because warnings...
+  isdisabled?: string;
+  bgcolor?: string;
 };
 //todo: this component needs rethinking in the way it accepts variants and colours
 const ZimmerButton = styled(props => <Button {...props} />)`
@@ -42,20 +45,21 @@ const ZimmerButton = styled(props => <Button {...props} />)`
           return '48px';
       }
     }};
-    background: ${props => (props.color === 'green' ? '#46b275' : '')}}
+    background: ${props =>
+      props.bgcolor === 'green' ? '#46b275' : Palette.primary.main}}
     
     background-color: ${props =>
-      props.variant === 'disabled' ? '#f0f3f7' : ''}}
+      props.isdisabled ? '#f0f3f7' : ''} !important;}
     
     &:hover{
-      cursor: ${props => (props.variant === 'disabled' ? 'default' : '')}}
+      cursor: ${props => (props.isdisabled === 'true' ? 'default' : '')}}
     }
     
     & [class*='MuiButton-label'] {
       font-size: 12px;
       text-transform: capitalize;
       color: ${props =>
-        props.variant === 'disabled' ? 'rgba(6, 7, 10, 0.38)' : '#FFF'}
+        props.isdisabled === 'true' ? 'rgba(6, 7, 10, 0.38)' : '#FFF'}
       }
 `;
 
@@ -64,7 +68,8 @@ const BaseButton: React.FC<Props> = props => {
     <ZimmerButton
       size={props.size}
       variant={props.variant ? props.variant : 'contained'}
-      color={props.color ? props.color : 'primary'}
+      bgcolor={props.bgcolor ? props.bgcolor : 'primary'}
+      isdisabled={props.isdisabled}
     >
       {props.label}
     </ZimmerButton>
