@@ -5,15 +5,9 @@ import App from 'app';
 import * as serviceWorker from 'serviceWorker';
 
 const rootElement = document.getElementById('root');
-console.log('Do we have a rootElement??');
-console.log(rootElement);
 if (rootElement != null) {
-  console.log('so this is slower then the serviceworker ');
   if (rootElement.hasChildNodes()) {
-    hydrate(
-      <App openSnackbar={serviceWorker.isUpdateAvailable} />,
-      rootElement
-    );
+    render(<App openSnackbar={serviceWorker.isUpdateAvailable} />, rootElement);
   } else {
     render(<App openSnackbar={serviceWorker.isUpdateAvailable} />, rootElement);
   }
