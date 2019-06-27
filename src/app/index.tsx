@@ -16,6 +16,7 @@ const App: React.FunctionComponent<AppProps> = props => {
       <Router>
         <AppBar data-cy="appbar" />
         <Routes />
+        <div>new content</div>
         <SnackBar
           anchorOrigin={{
             vertical: 'bottom',
