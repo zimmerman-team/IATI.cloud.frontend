@@ -21,6 +21,10 @@ const BaseComponent = styled(props => (
     width: 100%;
 
     & [class*='MuiSelect-select'] {
+      //body1/subtitle1
+      font-weight: 300;
+      line-height: 1.5;
+      letter-spacing: 0.5px;
       padding-left: ${Spacing.inputSideSpacing};
       &:focus {
         background-color: #f0f3f7 !important;
