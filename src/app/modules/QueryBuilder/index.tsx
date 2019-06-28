@@ -62,7 +62,7 @@ const QueryBuilder: React.FC = () => {
                 label="Organisation type"
                 helperTextLink="Code List"
                 helperTextUrl="http://reference.iatistandard.org/203/codelists/OrganisationType/"
-                placeholder="Selection"
+                placeholder="All (24)"
               />
             </Grid>
             <Grid item xs={12} sm={6} md={8}>

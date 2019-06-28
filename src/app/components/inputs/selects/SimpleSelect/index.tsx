@@ -18,7 +18,7 @@ type SimpleSelectProps = {
   tip?: string;
   data: string[];
 };
-
+//TODO: Refactor to styled components
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -48,18 +48,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const SimpleSelect: React.FC<SimpleSelectProps> = props => {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
-    age: '',
-    name: 'hai'
-  });
+  const [values, setValues] = React.useState<string[]>([]);
 
-  function handleChange(
-    event: React.ChangeEvent<{ name?: string; value: unknown }>
-  ) {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name as string]: event.target.value
-    }));
+  function handleChange(event: React.ChangeEvent<{ value: unknown }>) {
+    setValues(event.target.value as string[]);
   }
 
   return (
@@ -77,7 +69,7 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
         </Grid>
       )}
       <BaseSelect
-        value={values.age}
+        value={values}
         onChange={handleChange}
         MenuProps={{
           classes: {
