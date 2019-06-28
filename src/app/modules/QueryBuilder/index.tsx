@@ -1,6 +1,7 @@
 /* base */
 
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useActions, useStore } from 'app/store';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
@@ -22,31 +23,32 @@ import config from './config';
 import Box from '@material-ui/core/Box';
 import FilterMenu from 'app/components/navigation/menus/FilterMenu';
 import FilterData from 'app/components/navigation/menus/FilterMenu/mock';
-import MultiSelectChip from '../../components/inputs/selects/MultiSelectChip';
-
-import { connect } from 'react-redux';
-import { IAppState } from 'app/store';
-import { IOrganisationType } from 'app/modules/QueryBuilder/state/OrganisationTypes';
-
-// import { getAllOrganisationSectors } from 'app/selectors/OrganisationSectorSelectors';
+import MultiSelectChip from 'app/components/inputs/selects/MultiSelectChip';
+import Button from '@material-ui/core/Button';
 
 const spacing = 4;
 
-interface IProps {
-  organisationTypes?: IOrganisationType[];
-}
-
-const QueryBuilder: React.FC<IProps> = props => {
+const QueryBuilder: React.FC = props => {
   useTitle('OIPA - Query Builder');
 
-  console.log('orga types', props.organisationTypes);
-
   const anchorRef = React.useRef<HTMLButtonElement>(null);
+
+  // hooks
   const [openFilter, setOpenFilter] = React.useState(false);
 
   function handleToggle() {
     setOpenFilter(prevOpen => !prevOpen);
   }
+
+  const loading = useStore(state => state.organisationTypes.loading);
+  const data = useStore(state => state.organisationTypes.data);
+  const testFetch = useActions(actions => actions.organisationTypes.fetch);
+  // eslint-disable-next-line
+  const callGetTest = useCallback(() => testFetch(), []);
+
+  // testFetch();
+
+  // callGetTest();
 
   return (
     <Container maxWidth="lg">
@@ -55,12 +57,15 @@ const QueryBuilder: React.FC<IProps> = props => {
         {/* INTRO FRAGMENT */}
         <Grid container direction="column" spacing={spacing}>
           <Grid item xs={12} sm={12} md={6}>
+            <Button onClick={callGetTest}>lorem ipsum klik mij</Button>
             <Typography variant="h3">{config.moduleName}</Typography>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <Typography variant="body1">{config.moduleInfo}</Typography>
           </Grid>
         </Grid>
+        <FragmentDivider />
+
         <FragmentDivider />
         {/* ////////////////////////////////////////////////////////////////// */}
         {/* WHO FRAGMENT */}
@@ -229,13 +234,7 @@ const QueryBuilder: React.FC<IProps> = props => {
   );
 };
 
-const mapStateToProps = (store: IAppState) => {
-  return {
-    organisationTypes: store.organisationTypeState.organisationTypes
-  };
-};
-
-export default connect(mapStateToProps)(QueryBuilder);
+export default QueryBuilder;
 // export default connect(state => ({
 //   allOrganisationSectorsData: getAllOrganisationSectors(state)
 // }))(QueryBuilder);
