@@ -15,10 +15,10 @@ const URLField: React.FC<Props> = props => {
 
   function renderButton() {
     if (text === '') {
-      return <BaseButton label="Copy" variant="disabled" />;
+      return <BaseButton label="Copy" isdisabled="true" />;
     }
     if (state.value) {
-      return <BaseButton label="Copied!" variant="contained" color="green" />;
+      return <BaseButton label="Copied!" variant="contained" bgcolor="green" />;
     }
     return <BaseButton label="Copy" variant="contained" />;
   }
@@ -27,7 +27,6 @@ const URLField: React.FC<Props> = props => {
     copyToClipboard('');
     setText(e.currentTarget.value);
   }
-  console.log(state);
 
   return (
     <FieldBackdrop>

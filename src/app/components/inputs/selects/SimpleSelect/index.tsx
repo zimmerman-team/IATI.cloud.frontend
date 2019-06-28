@@ -16,6 +16,7 @@ type SimpleSelectProps = {
   helperTextLink?: string;
   helperTextUrl?: string;
   tip?: string;
+  data: string[];
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -64,20 +65,17 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
   return (
     <React.Fragment>
       {props.label && (
-        <>
-          <Grid container spacing={2}>
-            <Grid item>
-              <FieldInputLabel label={props.label} />
-            </Grid>
-            {props.tip && (
-              <Grid item>
-                <TooltipButton tip={props.tip} />
-              </Grid>
-            )}
+        <Grid container spacing={2}>
+          <Grid item>
+            <FieldInputLabel label={props.label} />
           </Grid>
-        </>
+          {props.tip && (
+            <Grid item>
+              <TooltipButton tip={props.tip} />
+            </Grid>
+          )}
+        </Grid>
       )}
-
       <BaseSelect
         value={values.age}
         onChange={handleChange}
@@ -88,12 +86,11 @@ const SimpleSelect: React.FC<SimpleSelectProps> = props => {
           }
         }}
       >
-        <BaseMenuItem value="">
-          <em>None</em>
-        </BaseMenuItem>
-        <BaseMenuItem value={10}>Ten</BaseMenuItem>
-        <BaseMenuItem value={20}>Twenty</BaseMenuItem>
-        <BaseMenuItem value={30}>Thirty</BaseMenuItem>
+        {props.data.map(item => (
+          <BaseMenuItem value={item} key={item}>
+            {item}
+          </BaseMenuItem>
+        ))}
       </BaseSelect>
 
       <BaseHelperText

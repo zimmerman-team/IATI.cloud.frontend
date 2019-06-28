@@ -10,7 +10,7 @@ const BaseComponent = styled(props => <InputBase {...props} />)`
 `;
 
 const BaseInput: React.FC = props => {
-  return <BaseComponent {...props} name="age" id="outlined-age-simple" />;
+  return <BaseComponent {...props} />;
 };
 
 export default BaseInput;

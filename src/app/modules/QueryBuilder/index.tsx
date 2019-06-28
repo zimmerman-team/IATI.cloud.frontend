@@ -76,6 +76,7 @@ const QueryBuilder: React.FC = () => {
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
               <SimpleSelect
+                data={['Yes', 'No']}
                 label="Include secondary reporters Y/N"
                 tip="empty tooltip"
               />
@@ -113,7 +114,10 @@ const QueryBuilder: React.FC = () => {
             </Grid>
 
             <Grid item xs={12} sm={12} md={4}>
-              <SimpleSelect label="Must have activity periode" />
+              <SimpleSelect
+                label="Must have activity periode"
+                data={['Yes', 'No']}
+              />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
               <DateField />
@@ -129,7 +133,7 @@ const QueryBuilder: React.FC = () => {
                 label="Add Filter"
                 icon={<Add />}
                 onClick={() => handleToggle()}
-                ref={anchorRef}
+                anchorref={anchorRef}
               />
               <FilterMenu
                 data={FilterData}
