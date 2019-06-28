@@ -24,10 +24,22 @@ import FilterMenu from 'app/components/navigation/menus/FilterMenu';
 import FilterData from 'app/components/navigation/menus/FilterMenu/mock';
 import MultiSelectChip from '../../components/inputs/selects/MultiSelectChip';
 
+import { connect } from 'react-redux';
+import { IAppState } from 'app/store';
+import { IOrganisationType } from 'app/modules/QueryBuilder/state/OrganisationTypes';
+
+// import { getAllOrganisationSectors } from 'app/selectors/OrganisationSectorSelectors';
+
 const spacing = 4;
 
-const QueryBuilder: React.FC = () => {
+interface IProps {
+  organisationTypes?: IOrganisationType[];
+}
+
+const QueryBuilder: React.FC<IProps> = props => {
   useTitle('OIPA - Query Builder');
+
+  console.log('orga types', props.organisationTypes);
 
   const anchorRef = React.useRef<HTMLButtonElement>(null);
   const [openFilter, setOpenFilter] = React.useState(false);
@@ -217,4 +229,13 @@ const QueryBuilder: React.FC = () => {
   );
 };
 
-export default QueryBuilder;
+const mapStateToProps = (store: IAppState) => {
+  return {
+    organisationTypes: store.organisationTypeState.organisationTypes
+  };
+};
+
+export default connect(mapStateToProps)(QueryBuilder);
+// export default connect(state => ({
+//   allOrganisationSectorsData: getAllOrganisationSectors(state)
+// }))(QueryBuilder);
