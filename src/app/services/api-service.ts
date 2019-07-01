@@ -1,23 +1,28 @@
-import { IEndpoint, HOSTNAME, PATH } from 'app/api';
+import {
+  HOSTNAME,
+  SECTORS,
+  ORGANISATION_TYPES,
+  ORGANISATIONS,
+  IEndpoint
+} from 'app/api';
 
 /* todo: move to models file */
 
 /* todo: make fetch logic re-usable  */
 export const getOrganisationTypes: IEndpoint = (params: RequestInit = {}) =>
-  fetch(HOSTNAME + PATH.ORGANISATION_TYPES, {
+  fetch(HOSTNAME + ORGANISATION_TYPES, {
     method: 'GET',
     ...params
   }).then(res => res.json());
 
 export const getSectors: IEndpoint = (params: RequestInit = {}) =>
-  fetch(HOSTNAME + PATH.SECTOR, {
+  fetch(HOSTNAME + SECTORS, {
     method: 'GET',
     ...params
   }).then(res => res.json());
 
 export const getOrganisations: IEndpoint = (params: RequestInit = {}) =>
-  fetch(HOSTNAME + PATH.ORGANISATIONS, {
+  fetch(HOSTNAME + ORGANISATIONS, {
     method: 'GET',
     ...params
   }).then(res => res.json());
-

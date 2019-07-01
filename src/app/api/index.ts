@@ -1,11 +1,23 @@
-export type IEndpoint = <T>(
-  params?: RequestInit
-) => Promise<T>;
+export type IEndpoint = <T>(params?: RequestInit) => Promise<T>;
 
-export const HOSTNAME = 'https://store.staging.iati.cloud/';
+console.log('joe', process.env.NODE_ENV);
 
-export enum PATH {
-  ORGANISATION_TYPES = 'api/codelists/OrganisationType/?format=json',
-  SECTOR = 'api/codelists/Sector/?format=json',
-  ORGANISATIONS = 'api/organisations/?format=json'
-}
+export const ORGANISATION_TYPES =
+  process.env.NODE_ENV === 'development'
+    ? 'data/organisation_types.json'
+    : 'api/codelists/OrganisationType/?format=json';
+
+export const SECTORS =
+  process.env.NODE_ENV === 'development'
+    ? 'data/sectors.json'
+    : 'api/codelists/Sector/?format=json';
+
+export const ORGANISATIONS =
+  process.env.NODE_ENV === 'development'
+    ? 'data/organisations.json'
+    : 'api/organisations/?format=json';
+
+export const HOSTNAME =
+  process.env.NODE_ENV === 'development'
+    ? '/'
+    : 'https://store.staging.iati.cloud/';
