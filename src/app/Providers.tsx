@@ -11,9 +11,7 @@ const Providers: React.FC = props => {
   return (
     <ThemeProvider theme={theme}>
       <StoreProvider store={store}>
-        <Router>
-          <Router>{props.children}</Router>
-        </Router>
+        <Router>{props.children}</Router>
       </StoreProvider>
     </ThemeProvider>
   );

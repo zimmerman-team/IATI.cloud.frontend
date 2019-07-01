@@ -42,9 +42,9 @@ const QueryBuilder: React.FC = props => {
 
   const loading = useStore(state => state.organisationTypes.loading);
   const data = useStore(state => state.organisationTypes.data);
-  const testFetch = useActions(actions => actions.organisationTypes.fetch);
-  // eslint-disable-next-line
-  const callGetTest = useCallback(() => testFetch(), []);
+
+
+  console.log('dataz', data);
 
   // testFetch();
 
@@ -57,7 +57,6 @@ const QueryBuilder: React.FC = props => {
         {/* INTRO FRAGMENT */}
         <Grid container direction="column" spacing={spacing}>
           <Grid item xs={12} sm={12} md={6}>
-            <Button onClick={callGetTest}>lorem ipsum klik mij</Button>
             <Typography variant="h3">{config.moduleName}</Typography>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
