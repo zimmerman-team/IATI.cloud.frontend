@@ -170,8 +170,6 @@ const QueryBuilder: React.FC = () => {
                 helperTextUrl="https://www.zimmermanzimmerman.nl"
                 options={optionsFilter}
               />
-
-              <ChipInput />
             </Grid>
             <Grid item xs={12} sm={6} md={6}>
               {/* todo: refactor, move buttongroup title here */}

@@ -29,7 +29,7 @@ type MultiSelectChipProps = {
   placeholder?: string;
   tooltip?: string;
   search?: boolean;
-  options: string[];
+  options: OptionType[];
 };
 
 interface OptionType {
@@ -104,6 +104,7 @@ const Component = styled(props => <Select {...props} />)`
   ,
   &&& [class*='MuiInputBase-input'] {
     min-height: 35px;
+    padding-top: 0px;
   }
   ,
   & [class*='MuiInputLabel-root'] {
@@ -122,6 +123,7 @@ const Component = styled(props => <Select {...props} />)`
   }
   & [class*='MuiChip-root'] {
     margin: 0 4px;
+    margin-top: 8px;
     height: 32px;
   }
 

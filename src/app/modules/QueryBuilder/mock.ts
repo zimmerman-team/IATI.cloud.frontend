@@ -29,21 +29,21 @@ export const optionsSector: OptionType[] = [
 }));
 
 export const optionsFilter: OptionType[] = [
-  { label: 'activities' },
-  { label: 'publishers' },
-  { label: 'organisations' },
-  { label: 'publishers' },
-  { label: 'results' },
-  { label: 'locations' },
-  { label: 'cities' },
-  { label: 'datasets' },
-  { label: 'sectors' },
-  { label: 'countries' },
-  { label: 'transactions' },
-  { label: 'regions' },
-  { label: 'budgets' },
-  { label: 'codelists' },
-  { label: 'chains' }
+  { label: 'Activities' },
+  { label: 'Publishers' },
+  { label: 'Organisations' },
+  { label: 'Publishers' },
+  { label: 'Results' },
+  { label: 'Locations' },
+  { label: 'Cities' },
+  { label: 'Datasets' },
+  { label: 'Sectors' },
+  { label: 'Countries' },
+  { label: 'Transactions' },
+  { label: 'Regions' },
+  { label: 'Budgets' },
+  { label: 'Codelists' },
+  { label: 'Chains' }
 ].map(suggestion => ({
   value: suggestion.label,
   label: suggestion.label
