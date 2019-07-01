@@ -24,6 +24,13 @@ import Box from '@material-ui/core/Box';
 import FilterMenu from 'app/components/navigation/menus/FilterMenu';
 import FilterData from 'app/components/navigation/menus/FilterMenu/mock';
 import MultiSelectChip from 'app/components/inputs/selects/MultiSelectChip';
+import {
+  optionsFilter,
+  optionsOrganisationType,
+  optionsSector,
+  optionsOrganisationName
+} from './mock';
+import BaseHelperText from 'app/components/inputs/selects/common/BaseHelperText';
 import Button from '@material-ui/core/Button';
 
 const spacing = 4;
@@ -71,15 +78,17 @@ const QueryBuilder: React.FC = props => {
                 helperTextLink="Code List"
                 helperTextUrl="http://reference.iatistandard.org/203/codelists/OrganisationType/"
                 placeholder="All (24)"
+                options={optionsOrganisationType}
               />
             </Grid>
             <Grid item xs={12} sm={6} md={8}>
               <MultiSelectChip
-                label="Organistion sector"
+                label="Organisation sector"
                 helperText="DAC 3 & 5 "
                 helperTextLink="code list"
                 helperTextUrl="http://reference.iatistandard.org/203/codelists/Sector/"
                 placeholder="All (234)"
+                options={optionsSector}
               />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
@@ -96,6 +105,7 @@ const QueryBuilder: React.FC = props => {
                 helperTextLink="See list"
                 helperTextUrl="http://reference.iatistandard.org/203/codelists/Sector/"
                 placeholder="All (24)"
+                options={optionsOrganisationName}
               />
             </Grid>
           </Grid>
@@ -114,6 +124,7 @@ const QueryBuilder: React.FC = props => {
                 helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
                 placeholder="Text search"
                 search
+                options={optionsFilter}
               />
             </Grid>
 
@@ -160,7 +171,13 @@ const QueryBuilder: React.FC = props => {
         >
           <Grid container spacing={spacing}>
             <Grid item xs={12} sm={12} md={7}>
-              <ChipInput />
+              <MultiSelectChip
+                helperText="See "
+                helperTextLink="OIPA documentation"
+                helperTextAfter=" for full list of possible elements"
+                helperTextUrl="https://www.zimmermanzimmerman.nl"
+                options={optionsFilter}
+              />
             </Grid>
             <Grid item xs={12} sm={6} md={6}>
               {/* todo: refactor, move buttongroup title here */}
