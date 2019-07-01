@@ -1,39 +1,4 @@
 {
-  "scm.alwaysShowProviders": true,
-  "editor.tabSize": 2,
-  "eslint.packageManager": "yarn",
-  "eslint.provideLintTask": true,
-  "eslint.autoFixOnSave": true,
-  "eslint.alwaysShowStatus": true,
-  "flow.enabled": false,
-  "editor.minimap.enabled": false,
-  "workbench.iconTheme": "material-icon-theme",
-  "files.insertFinalNewline": true,
-  "breadcrumbs.enabled": true,
-  "terminal.integrated.cursorBlinking": true,
-  "editor.fontFamily": "Fira Code",
-  "editor.fontLigatures": true,
-  "editor.formatOnSave": true,
-  "editor.fontSize": 13,
-  "files.autoSave": "onFocusChange",
-  "workbench.colorTheme": "Monokai",
-  "editor.renderWhitespace": "none",
-  "editor.renderControlCharacters": false,
-  "path-intellisense.showHiddenFiles": true,
-  "path-intellisense.autoSlashAfterDirectory": true,
-  "path-intellisense.absolutePathToWorkspace": true,
-  "path-intellisense.mappings": {
-    "/src/app/": "${workspaceRoot}",
-    "/node_modules/": "${workspaceRoot}/lib"
-  },
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "git.enabled": false,
-  "git.path": null,
-  "git.autofetch": false,
-  "autoimport.absolute": true,
-  "autoimport.sourceRoot": "./src/app",
-  "editor.accessibilitySupport": "off",
-  "materialTheme.accent": "Blue",
   "workbench.colorCustomizations": {
     "activityBarBadge.background": "#2979FF",
     "list.activeSelectionForeground": "#2979FF",
@@ -54,7 +19,5 @@
     "breadcrumb.activeSelectionForeground": "#2979FF",
     "menu.selectionForeground": "#2979FF",
     "menubar.selectionForeground": "#2979FF"
-  },
-  "git.alwaysSignOff": true,
-  "git.fetchOnPull": true
+  }
 }

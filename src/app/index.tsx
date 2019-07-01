@@ -4,6 +4,7 @@ import Providers from 'app/Providers';
 import Routes from 'app/Routes';
 import AppBar from 'app/components/surfaces/AppBar';
 import SnackBar from 'app/components/feedback/SnackBar';
+import { useActions, useStore } from 'app/store';
 
 type AppProps = {
   openSnackbar?: boolean;

@@ -41,7 +41,7 @@ const TypoMod = styled(props => <Typography {...props} />)`
   color: white;
 `;
 
-const Landing: React.FunctionComponent = () => {
+const Landing: React.FC = () => {
   useTitle('OIPA');
   const classes = useStyles();
   return (

@@ -3,16 +3,16 @@ import ThemeProvider from '@material-ui/styles/ThemeProvider';
 import theme from 'app/theme';
 import NoSsr from '@material-ui/core/NoSsr';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { StoreProvider } from 'easy-peasy';
+import store from './store';
 import 'index.css';
 
-const Providers: React.FunctionComponent = props => {
+const Providers: React.FC = props => {
   return (
     <ThemeProvider theme={theme}>
-      {/*<React.StrictMode>*/}
-      <NoSsr>
+      <StoreProvider store={store}>
         <Router>{props.children}</Router>
-      </NoSsr>
-      {/*</React.StrictMode>*/}
+      </StoreProvider>
     </ThemeProvider>
   );
 };
