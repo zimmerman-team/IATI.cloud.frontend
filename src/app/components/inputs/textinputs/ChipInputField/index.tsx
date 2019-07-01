@@ -13,9 +13,9 @@ const Component = styled(props => <ChipInput {...props} />)`
     display: flex;
     flex-direction: column;
     background: #f0f3f7;
-    //padding-left: 12px;
-    //padding-top: 4px;
-    //padding-bottom: 4px;
+    padding-left: 14px;
+    padding-top: 6px;
+    padding-bottom: 8px;
     width: 100%;
 
     & [class*='WAMuiChipInput-inputRoot'] {
@@ -33,18 +33,11 @@ const Container: React.FC<ChippieProps> = props => {
         clickable="false"
         disableUnderline
         defaultValue={[
-          'foo',
-          'bar',
-          'lorem',
-          'ipsum',
-          'dolor',
-          'simet',
-          'foo',
-          'bar',
-          'lorem',
-          'ipsum',
-          'dolor',
-          'simet'
+          'Activities',
+          'Activity',
+          'Locations',
+          'Transactions',
+          'Organisation'
         ]}
         chipRenderer={(
           { value, isFocused, isDisabled, handleClick, handleDelete },

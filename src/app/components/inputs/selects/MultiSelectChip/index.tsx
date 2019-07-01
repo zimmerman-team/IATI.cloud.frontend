@@ -25,9 +25,11 @@ type MultiSelectChipProps = {
   helperText?: string;
   helperTextLink?: string;
   helperTextUrl?: string;
+  helperTextAfter?: string;
   placeholder?: string;
   tooltip?: string;
   search?: boolean;
+  options: string[];
 };
 
 interface OptionType {
@@ -159,7 +161,7 @@ const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
           classes={classes}
           inputId="react-select-multiple"
           placeholder={props.placeholder}
-          options={suggestions}
+          options={props.options}
           components={components}
           value={multi}
           onChange={handleChangeMulti}
