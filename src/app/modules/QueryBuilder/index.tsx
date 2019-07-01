@@ -1,6 +1,7 @@
 /* base */
 
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useActions, useStore } from 'app/store';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
@@ -30,18 +31,31 @@ import {
   optionsOrganisationName
 } from './mock';
 import BaseHelperText from 'app/components/inputs/selects/common/BaseHelperText';
+import Button from '@material-ui/core/Button';
 
 const spacing = 4;
 
-const QueryBuilder: React.FC = () => {
+const QueryBuilder: React.FC = props => {
   useTitle('OIPA - Query Builder');
 
   const anchorRef = React.useRef<HTMLButtonElement>(null);
+
+  // hooks
   const [openFilter, setOpenFilter] = React.useState(false);
 
   function handleToggle() {
     setOpenFilter(prevOpen => !prevOpen);
   }
+
+  const loading = useStore(state => state.organisationTypes.loading);
+  const data = useStore(state => state.organisationTypes.data);
+
+
+  console.log('dataz', data);
+
+  // testFetch();
+
+  // callGetTest();
 
   return (
     <Container maxWidth="lg">
@@ -56,6 +70,8 @@ const QueryBuilder: React.FC = () => {
             <Typography variant="body1">{config.moduleInfo}</Typography>
           </Grid>
         </Grid>
+        <FragmentDivider />
+
         <FragmentDivider />
         {/* ////////////////////////////////////////////////////////////////// */}
         {/* WHO FRAGMENT */}
@@ -235,3 +251,6 @@ const QueryBuilder: React.FC = () => {
 };
 
 export default QueryBuilder;
+// export default connect(state => ({
+//   allOrganisationSectorsData: getAllOrganisationSectors(state)
+// }))(QueryBuilder);

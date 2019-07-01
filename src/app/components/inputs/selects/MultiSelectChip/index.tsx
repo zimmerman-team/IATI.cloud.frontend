@@ -16,9 +16,9 @@ import DropdownIndicator from './common/DropdownIndicator';
 import ClearIndicator from './common/ClearIndicator';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
-import FieldInputLabel from '../../../common/FieldInputLabel';
-import TooltipButton from '../../buttons/TooltipButton';
-import BaseHelperText from '../common/BaseHelperText';
+import FieldInputLabel from 'app/components/common/FieldInputLabel';
+import TooltipButton from 'app/components/inputs/buttons/TooltipButton';
+import BaseHelperText from 'app/components/inputs/selects/common/BaseHelperText';
 
 type MultiSelectChipProps = {
   label?: string;

@@ -9,6 +9,9 @@ interface OptionType {
   value: string;
 }
 const BaseMenu = styled(props => <Paper {...props} />)`
+  position: absolute;
+  width: 100%;
+  z-index: 1;
   & [class*='MuiListItem-root'] {
     font-size: 0.875rem;
     font-weight: 300;
