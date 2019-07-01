@@ -1,6 +1,6 @@
 /* base */
 
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useActions, useStore } from 'app/store';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -40,15 +40,7 @@ const QueryBuilder: React.FC = props => {
     setOpenFilter(prevOpen => !prevOpen);
   }
 
-  const loading = useStore(state => state.organisationTypes.loading);
   const data = useStore(state => state.organisationTypes.data);
-
-
-  console.log('dataz', data);
-
-  // testFetch();
-
-  // callGetTest();
 
   return (
     <Container maxWidth="lg">
