@@ -25,9 +25,11 @@ type MultiSelectChipProps = {
   helperText?: string;
   helperTextLink?: string;
   helperTextUrl?: string;
+  helperTextAfter?: string;
   placeholder?: string;
   tooltip?: string;
   search?: boolean;
+  options: OptionType[];
 };
 
 interface OptionType {
@@ -102,6 +104,7 @@ const Component = styled(props => <Select {...props} />)`
   ,
   &&& [class*='MuiInputBase-input'] {
     min-height: 35px;
+    padding-top: 0px;
   }
   ,
   & [class*='MuiInputLabel-root'] {
@@ -120,6 +123,7 @@ const Component = styled(props => <Select {...props} />)`
   }
   & [class*='MuiChip-root'] {
     margin: 0 4px;
+    margin-top: 8px;
     height: 32px;
   }
 
@@ -159,7 +163,7 @@ const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
           classes={classes}
           inputId="react-select-multiple"
           placeholder={props.placeholder}
-          options={suggestions}
+          options={props.options}
           components={components}
           value={multi}
           onChange={handleChangeMulti}
