@@ -4,11 +4,11 @@ jobs:
   checkout_repo:
     docker:
       - image: circleci/node:10.13.0
-    working_directory: /home/oipa-query-builder
+    working_directory: ~/oipa-query-builder
     steps:
       - checkout
       - attach_workspace:
-          at: /home/oipa-query-builder
+          at: ~/oipa-query-builder
       - restore_cache:
           keys:
             - yarn-cached-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
@@ -28,11 +28,11 @@ jobs:
   build_deploy:
     docker:
       - image: circleci/node:10.13.0-browsers
-    working_directory: /home/oipa-query-builder
+    working_directory: ~/oipa-query-builder
     steps:
       - checkout
       - attach_workspace:
-          at: /home/oipa-query-builder
+          at: ~/oipa-query-builder
       - run: sudo apt-get install python-dev
       - run:
           name: Set REACT_APP_PROJECT_URL env var
@@ -72,13 +72,13 @@ jobs:
           name: Upload build folder to target host
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              rsync -O -ave ssh /home/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              rsync -O -ave ssh /home/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-              rsync -O -ave ssh /home/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV:/home/oipa-query-builder
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV:/home/oipa-query-builder
             else
-              rsync -O -ave ssh /home/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder
             fi
 #      - run:
 #          name: Upload storybook build folder to target host
