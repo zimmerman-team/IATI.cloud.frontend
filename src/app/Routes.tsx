@@ -15,7 +15,7 @@ const Routes: React.FC = () => {
   fetchOrganisationTypes();
   fetchOrganisations();
   fetchSectors();
-  
+
   return (
     <Suspense fallback={<PageLoader />}>
       <Switch>

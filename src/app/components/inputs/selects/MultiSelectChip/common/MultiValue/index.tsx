@@ -5,12 +5,7 @@ import Chip from 'app/components/datadisplay/Chip';
 import clsx from 'clsx';
 import IconChipDelete from 'app/assets/icons/IconChipDelete';
 
-interface OptionType {
-  label?: string;
-  value: string;
-}
-
-function MultiValue(props: MultiValueProps<OptionType>) {
+function MultiValue(props: MultiValueProps<any>) {
   return (
     <Chip
       tabIndex={-1}

@@ -3,5 +3,5 @@ import * as localStorage from './local-storage-service';
 
 export default {
   logger,
-  localStorage,
+  localStorage
 };

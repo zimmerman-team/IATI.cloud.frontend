@@ -20,4 +20,3 @@ export const getOrganisations: IEndpoint = (params: RequestInit = {}) =>
     method: 'GET',
     ...params
   }).then(res => res.json());
-

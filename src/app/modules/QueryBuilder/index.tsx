@@ -1,7 +1,7 @@
 /* base */
 
-import React, { useCallback } from 'react';
-import { useActions, useStore } from 'app/store';
+import React from 'react';
+import { useStore } from 'app/store';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
@@ -10,7 +10,6 @@ import ModuleFragment from 'app/modules/QueryBuilder/common/ModuleFragment';
 import Divider from '@material-ui/core/Divider';
 import SimpleSelect from 'app/components/inputs/selects/SimpleSelect';
 import IconButton from 'app/components/inputs/buttons/IconButton';
-import ChipInput from 'app/components/inputs/textinputs/ChipInputField';
 import RadioButtonsGroup from 'app/components/inputs/radiobuttons/RadioButtonGroup';
 import DataTable from 'app/components/datadisplay/tables/DataTable';
 import Add from '@material-ui/icons/Add';
@@ -24,14 +23,7 @@ import Box from '@material-ui/core/Box';
 import FilterMenu from 'app/components/navigation/menus/FilterMenu';
 import FilterData from 'app/components/navigation/menus/FilterMenu/mock';
 import MultiSelectChip from 'app/components/inputs/selects/MultiSelectChip';
-import {
-  optionsFilter,
-  optionsOrganisationType,
-  optionsSector,
-  optionsOrganisationName
-} from './mock';
-import BaseHelperText from 'app/components/inputs/selects/common/BaseHelperText';
-import Button from '@material-ui/core/Button';
+import { optionsFilter, optionsOrganisationName, optionsSector } from './mock';
 
 const spacing = 4;
 
@@ -40,22 +32,51 @@ const QueryBuilder: React.FC = props => {
 
   const anchorRef = React.useRef<HTMLButtonElement>(null);
 
+  const organisationsTypeData = useStore(state => state.organisationTypes.data);
+  const sectorsData = useStore(state => state.sectors.data);
+  const organisationsData = useStore(state => state.organisations.data);
+
+  function formData(initialData) {
+    if (initialData === undefined) {
+      return [];
+    }
+    return initialData!.map(data => ({
+      value: data.name,
+      label: data.name
+    }));
+  }
+
+  // function formData2(initialData) {
+  //   if (initialData === undefined) {
+  //     return [];
+  //   }
+  //   return initialData!.results.map(data =>
+  //     data.name.narratives.map(narratives =>(
+  //       console.log(narratives)))
+  //     )
+  //   );
+  // }
+
+  function formOrganisationsData(initialData) {
+    if (initialData === undefined) {
+      return [];
+    }
+    return initialData!.results.map(data =>
+      data.name.narratives.map(narrative => console.log(narrative))
+    );
+  }
+
+  // console.log(organisationsData.results.map(data => data.name.map( narratives => narratives[0].text)));
+  console.log(organisationsData);
+  console.log(formData(organisationsTypeData));
+  console.log(formOrganisationsData(organisationsData));
   // hooks
   const [openFilter, setOpenFilter] = React.useState(false);
+  // const [] = React.useState({ data: [] });
 
   function handleToggle() {
     setOpenFilter(prevOpen => !prevOpen);
   }
-
-  const loading = useStore(state => state.organisationTypes.loading);
-  const data = useStore(state => state.organisationTypes.data);
-
-
-  console.log('dataz', data);
-
-  // testFetch();
-
-  // callGetTest();
 
   return (
     <Container maxWidth="lg">
@@ -85,8 +106,8 @@ const QueryBuilder: React.FC = props => {
                 label="Organisation type"
                 helperTextLink="Code List"
                 helperTextUrl="http://reference.iatistandard.org/203/codelists/OrganisationType/"
-                placeholder="All (24)"
-                options={optionsOrganisationType}
+                placeholder={`All (${formData(organisationsTypeData).length})`}
+                options={formData(organisationsTypeData)}
               />
             </Grid>
             <Grid item xs={12} sm={6} md={8}>
@@ -95,8 +116,8 @@ const QueryBuilder: React.FC = props => {
                 helperText="DAC 3 & 5 "
                 helperTextLink="code list"
                 helperTextUrl="http://reference.iatistandard.org/203/codelists/Sector/"
-                placeholder="All (234)"
-                options={optionsSector}
+                placeholder={`All (${formData(sectorsData).length})`}
+                options={formData(sectorsData)}
               />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
@@ -112,8 +133,10 @@ const QueryBuilder: React.FC = props => {
                 helperText="E.g. AT-12 = Ministry of Interior. "
                 helperTextLink="See list"
                 helperTextUrl="http://reference.iatistandard.org/203/codelists/Sector/"
-                placeholder="All (24)"
-                options={optionsOrganisationName}
+                placeholder={`All (${
+                  formOrganisationsData(organisationsData).length
+                })`}
+                options={formOrganisationsData(organisationsData)}
               />
             </Grid>
           </Grid>
@@ -132,7 +155,7 @@ const QueryBuilder: React.FC = props => {
                 helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
                 placeholder="Text search"
                 search
-                options={optionsFilter}
+                options={sectorsData}
               />
             </Grid>
 

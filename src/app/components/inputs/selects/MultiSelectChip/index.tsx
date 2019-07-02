@@ -29,13 +29,13 @@ type MultiSelectChipProps = {
   placeholder?: string;
   tooltip?: string;
   search?: boolean;
-  options: OptionType[];
+  options: any;
 };
 
-interface OptionType {
-  label: string;
-  value: string;
-}
+// interface OptionType {
+//   label: string;
+//   value: string;
+// }
 //Todo: refactor to only use styled-components
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -135,9 +135,9 @@ const Component = styled(props => <Select {...props} />)`
 const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
   const classes = useStyles();
 
-  const [multi, setMulti] = React.useState<ValueType<OptionType>>(null);
+  const [multi, setMulti] = React.useState<ValueType<any>>(null);
 
-  function handleChangeMulti(value: ValueType<OptionType>) {
+  function handleChangeMulti(value: ValueType<any>) {
     setMulti(value);
   }
 

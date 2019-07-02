@@ -1,6 +1,4 @@
-export type IEndpoint = <T>(
-  params?: RequestInit
-) => Promise<T>;
+export type IEndpoint = <T>(params?: RequestInit) => Promise<T>;
 
 export const HOSTNAME = 'https://store.staging.iati.cloud/';
 

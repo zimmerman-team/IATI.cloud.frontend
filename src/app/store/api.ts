@@ -33,7 +33,7 @@ const api = <T>(endpoint: IEndpoint): IApiModel<T> => ({
     const response = await endpoint<T>();
 
     actions.success({ data: response });
-  }),
+  })
 });
 
 export default api;

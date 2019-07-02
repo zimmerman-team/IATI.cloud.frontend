@@ -1,15 +1,21 @@
+import { useStore } from 'app/store';
+
+// @ts-ignore
+// export const OrganisationType = useStore(
+//   state => state.organisationTypes.data
+// ).map(options => ({ code: options.code, name: options.name }));
+
 interface OptionType {
   label: string;
   value: string;
 }
-
-export const optionsOrganisationType: OptionType[] = [
-  { label: 'Government' },
-  { label: 'NGO' }
-].map(suggestion => ({
-  value: suggestion.label,
-  label: suggestion.label
-}));
+// export const OrganisationType: OptionType[] = [
+//   { label: 'Government' },
+//   { label: 'NGO' }
+// ].map(suggestion => ({
+//   value: suggestion.label,
+//   label: suggestion.label
+// }));
 
 export const optionsOrganisationName: OptionType[] = [
   { label: '3F International' },
