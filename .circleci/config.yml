@@ -49,18 +49,18 @@ jobs:
             source $BASH_ENV
       - run: yarn build
 #      - run: yarn build-storybook
-#      - run:
-#          name: Add target host to known_hosts files
-#          command: |
-#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
-#            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-#              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
-#            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-#              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
-#            else
-#              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
-#            fi
+      - run:
+          name: Add target host to known_hosts files
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            else
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            fi
 
       - add_ssh_keys:
           name: Add SSH KEY
