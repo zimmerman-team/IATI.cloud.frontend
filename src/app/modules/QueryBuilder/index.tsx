@@ -24,6 +24,7 @@ import FilterMenu from 'app/components/navigation/menus/FilterMenu';
 import FilterData from 'app/components/navigation/menus/FilterMenu/mock';
 import MultiSelectChip from 'app/components/inputs/selects/MultiSelectChip';
 import { optionsFilter, optionsOrganisationName, optionsSector } from './mock';
+import MultiSelectChip2 from 'app/components/inputs/selects/MultiSelectChip2';
 
 const spacing = 4;
 
@@ -36,6 +37,7 @@ const QueryBuilder: React.FC = props => {
   const sectorsData = useStore(state => state.sectors.data);
   const organisationsData = useStore(state => state.organisations.data);
 
+  //TODO: refactor these functions to a separate util/controller file
   function formData(initialData) {
     if (initialData === undefined) {
       return [];
@@ -46,33 +48,18 @@ const QueryBuilder: React.FC = props => {
     }));
   }
 
-  // function formData2(initialData) {
-  //   if (initialData === undefined) {
-  //     return [];
-  //   }
-  //   return initialData!.results.map(data =>
-  //     data.name.narratives.map(narratives =>(
-  //       console.log(narratives)))
-  //     )
-  //   );
-  // }
-
   function formOrganisationsData(initialData) {
     if (initialData === undefined) {
       return [];
     }
-    return initialData!.results.map(data =>
-      data.name.narratives.map(narrative => console.log(narrative))
-    );
+    return initialData!.results.map(result => ({
+      value: result.name.narratives[0].text,
+      label: result.name.narratives[0].text
+    }));
   }
 
-  // console.log(organisationsData.results.map(data => data.name.map( narratives => narratives[0].text)));
-  console.log(organisationsData);
-  console.log(formData(organisationsTypeData));
-  console.log(formOrganisationsData(organisationsData));
   // hooks
   const [openFilter, setOpenFilter] = React.useState(false);
-  // const [] = React.useState({ data: [] });
 
   function handleToggle() {
     setOpenFilter(prevOpen => !prevOpen);
@@ -274,6 +261,3 @@ const QueryBuilder: React.FC = props => {
 };
 
 export default QueryBuilder;
-// export default connect(state => ({
-//   allOrganisationSectorsData: getAllOrganisationSectors(state)
-// }))(QueryBuilder);

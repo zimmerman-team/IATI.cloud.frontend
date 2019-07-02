@@ -1,6 +1,6 @@
 export type IEndpoint = <T>(params?: RequestInit) => Promise<T>;
 
-export const HOSTNAME = 'https://store.staging.iati.cloud/';
+export const HOSTNAME = 'https://api.datastore.iati.cloud/';
 
 export enum PATH {
   ORGANISATION_TYPES = 'api/codelists/OrganisationType/?format=json',

@@ -75,9 +75,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const components = {
   Control,
-  Menu,
   MultiValue,
   NoOptionsMessage,
+  Menu,
   Option,
   Placeholder,
   SingleValue,
