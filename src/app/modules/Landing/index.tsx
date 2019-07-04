@@ -55,7 +55,7 @@ const Landing: React.FC = () => {
                   IATI Datastore
                 </TypoMod>
                 <TypoMod variant="h5">
-                  The query builder tool makes it easy build queries to obtain
+                  TThe query builder tool makes it easy build queries to obtain
                   data from the IATI Datastore in CSV, XML and JSON format.
                 </TypoMod>
               </Box>
