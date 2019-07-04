@@ -28,17 +28,17 @@ describe('Landing page end-to-end test', function() {
     // cy.get('[data-cy=appbar-button3]').should('have.text', data.copy.appbar.button3);
     // cy.get('[data-cy=appbar-button4]').should('have.text', data.copy.appbar.button4);
   });
-  it('should contain the correct navigation', function() {
-    cy.get('.MuiContainer-root > .MuiButtonBase-root').click();
-    cy.url().should('contain', data.link.querybuilder);
-    cy.go('back');
-
-    // cy.get('[data-cy=link-oipa]')
-    //   .should('have.attr', 'href')
-    //   .and('equal', data.link.oipa);
-    //
-    // cy.get('[data-cy=link-zimmerman]')
-    //   .should('have.attr', 'href')
-    //   .and('equal', data.link.zimmerman);
-  });
+  // it('should contain the correct navigation', function() {
+  //   cy.get('.MuiContainer-root > .MuiButtonBase-root').click();
+  //   cy.url().should('contain', data.link.querybuilder);
+  //   cy.go('back');
+  //
+  //   // cy.get('[data-cy=link-oipa]')
+  //   //   .should('have.attr', 'href')
+  //   //   .and('equal', data.link.oipa);
+  //   //
+  //   // cy.get('[data-cy=link-zimmerman]')
+  //   //   .should('have.attr', 'href')
+  //   //   .and('equal', data.link.zimmerman);
+  // });
 });
