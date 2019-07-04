@@ -240,12 +240,12 @@ workflows:
       - build_deploy:
           requires:
             - checkout_repo
-#      - test_e2e:
-#          requires:
-#            - build_deploy
-    # - performance_test:
-     #     requires:
-      #      - build_deploy
+      - test_e2e:
+          requires:
+            - build_deploy
+     - performance_test:
+          requires:
+            - build_deploy
       #- process_performance_test_results:
        #   requires:
         #    - performance_test 
