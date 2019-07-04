@@ -51,7 +51,7 @@ const Landing: React.FC = () => {
           <Grid container spacing={4} direction="column">
             <Grid item xs={12} sm={12} md={6}>
               <Box marginBottom="32px">
-                <TypoMod variant="h3" className={classes.h3}>
+                <TypoMod variant="h3" className={classes.h3} data-cy="copy-header">
                   IATI Datastore
                 </TypoMod>
                 <TypoMod variant="h5">
