@@ -186,6 +186,7 @@ jobs:
       #            if [ "${CIRCLE_BRANCH} != "develop" ] && [ "${CIRCLE_BRANCH} != "master" ]; then
       #              circleci step halt
       #            fi
+      # test
       - checkout
       - restore_cache:
           keys:
