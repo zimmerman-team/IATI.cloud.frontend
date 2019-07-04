@@ -135,7 +135,6 @@ jobs:
     parallelism: 2
     docker:
       - image: femtopixel/google-lighthouse
-
     steps:
       - checkout
       - run:
@@ -246,6 +245,6 @@ workflows:
      - performance_test:
           requires:
             - build_deploy
-      #- process_performance_test_results:
+    # - process_performance_test_results:
        #   requires:
         #    - performance_test 
