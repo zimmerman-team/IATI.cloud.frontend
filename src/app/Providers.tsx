@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import ThemeProvider from '@material-ui/styles/ThemeProvider';
 import theme from 'app/theme';
-import NoSsr from '@material-ui/core/NoSsr';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { StoreProvider } from 'easy-peasy';
-import store from './store';
+import store from './state/store';
+/* todo: refactor, rather not load in "oldscool" css */
 import 'index.css';
+import { Client } from './state/api/Client';
+import { ClientContextProvider } from 'react-fetching-library';
 
-const Providers: React.FC = props => {
+type ProviderProps = {
+  children?: ReactNode;
+};
+
+function Providers(props: ProviderProps) {
   return (
+    /* material ui theme proovider*/
     <ThemeProvider theme={theme}>
+      {/* redux store provider*/}
       <StoreProvider store={store}>
-        <Router>{props.children}</Router>
+        <ClientContextProvider client={Client}>
+          {/* react router */}
+          <Router>{props.children}</Router>
+        </ClientContextProvider>
       </StoreProvider>
     </ThemeProvider>
   );
-};
+}
 
 export default Providers;
