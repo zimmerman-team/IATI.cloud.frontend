@@ -1,12 +1,12 @@
+/* core */
 import React from 'react';
+/* third-party */
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const PageLoader: React.FC = () => {
+export const PageLoader = () => {
   return (
     <div>
       <CircularProgress />
     </div>
   );
 };
-
-export default PageLoader;

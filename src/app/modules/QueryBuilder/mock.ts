@@ -1,50 +1,52 @@
+// import { getOptionLabel, getOptionValue } from 'react-select/lib/builtins';
+
 interface OptionType {
-  label: string;
-  value: string;
+  code: string;
+  name: string;
 }
 
 export const optionsOrganisationType: OptionType[] = [
-  { label: 'Government' },
-  { label: 'NGO' }
+  { name: 'Government', code: '11' },
+  { name: 'NGO', code: '33' }
 ].map(suggestion => ({
-  value: suggestion.label,
-  label: suggestion.label
+  code: suggestion.code,
+  name: suggestion.name
 }));
 
 export const optionsOrganisationName: OptionType[] = [
-  { label: '3F International' },
-  { label: '50 Eight Limited' },
-  { label: 'Aasaman Nepal' }
+  { name: '3F International' },
+  { name: '50 Eight Limited' },
+  { name: 'Aasaman Nepal' }
 ].map(suggestion => ({
-  value: suggestion.label,
-  label: suggestion.label
+  code: suggestion.name,
+  name: suggestion.name
 }));
 
 export const optionsSector: OptionType[] = [
-  { label: 'Basic drinking water supply and basic sanitation' },
-  { label: 'Agricultural development' }
+  { name: 'Basic drinking water supply and basic sanitation' },
+  { name: 'Agricultural development' }
 ].map(suggestion => ({
-  value: suggestion.label,
-  label: suggestion.label
+  code: suggestion.name,
+  name: suggestion.name
 }));
 
 export const optionsFilter: OptionType[] = [
-  { label: 'Activities' },
-  { label: 'Publishers' },
-  { label: 'Organisations' },
-  { label: 'Publishers' },
-  { label: 'Results' },
-  { label: 'Locations' },
-  { label: 'Cities' },
-  { label: 'Datasets' },
-  { label: 'Sectors' },
-  { label: 'Countries' },
-  { label: 'Transactions' },
-  { label: 'Regions' },
-  { label: 'Budgets' },
-  { label: 'Codelists' },
-  { label: 'Chains' }
+  { name: 'Activities' },
+  { name: 'Publishers' },
+  { name: 'Organisations' },
+  { name: 'Publishers' },
+  { name: 'Results' },
+  { name: 'Locations' },
+  { name: 'Cities' },
+  { name: 'Datasets' },
+  { name: 'Sectors' },
+  { name: 'Countries' },
+  { name: 'Transactions' },
+  { name: 'Regions' },
+  { name: 'Budgets' },
+  { name: 'Codelists' },
+  { name: 'Chains' }
 ].map(suggestion => ({
-  value: suggestion.label,
-  label: suggestion.label
+  code: suggestion.name,
+  name: suggestion.name
 }));
