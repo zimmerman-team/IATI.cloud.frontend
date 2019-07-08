@@ -3,7 +3,7 @@ import ThemeProvider from '@material-ui/styles/ThemeProvider';
 import theme from 'app/theme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { StoreProvider } from 'easy-peasy';
-import store from './state/store';
+import appStore from './state/store';
 /* todo: refactor, rather not load in "oldscool" css */
 import 'index.css';
 import { Client } from './state/api/Client';
@@ -18,7 +18,7 @@ function Providers(props: ProviderProps) {
     /* material ui theme proovider*/
     <ThemeProvider theme={theme}>
       {/* redux store provider*/}
-      <StoreProvider store={store}>
+      <StoreProvider store={appStore}>
         <ClientContextProvider client={Client}>
           {/* react router */}
           <Router>{props.children}</Router>

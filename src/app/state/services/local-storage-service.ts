@@ -11,7 +11,7 @@ export function saveState<T = object>(storeState: T): boolean {
     localStorage.setItem(STORAGE_KEY, serializedState);
     return true;
   } catch (error) {
-    throw new Error('store serialization failed');
+    throw new Error('appStore serialization failed');
   }
 }
 
@@ -27,6 +27,6 @@ export function loadState<T = object>(): T | undefined {
     }
     return JSON.parse(serializedState);
   } catch (error) {
-    throw new Error('store deserialization failed');
+    throw new Error('appStore deserialization failed');
   }
 }

@@ -1,1 +1,1 @@
-export { fetchBorgList } from './fetchBorgList';
+export { fetchBorgList, fetchOrganisations } from './fetchBorgList';

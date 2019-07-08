@@ -38,7 +38,7 @@ const RadioButtonsGroup = (props: Props) => {
             <GroupTitle component="legend">Row format</GroupTitle>
           </Grid>
           <Grid item>
-            <TooltipButton tip={props.tip}>i</TooltipButton>
+            <TooltipButton tip={props.tip} />
           </Grid>
         </Grid>
         <RadioGroup

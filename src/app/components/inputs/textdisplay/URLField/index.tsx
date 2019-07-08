@@ -9,33 +9,30 @@ type Props = {
   text?: string;
 };
 
-const URLField = (props: Props) => {
-  const [text, setText] = React.useState(props.text ? props.text : '');
+const URLField: React.FC<Props> = props => {
   const [state, copyToClipboard] = useCopyToClipboard();
-
   function renderButton() {
-    if (text === '') {
+    if (props.text === '') {
       return <BaseButton label="Copy" isdisabled="true" />;
     }
+
+    if (props.text != state.value) {
+      return <BaseButton label="Copy" variant="contained" />;
+    }
+
     if (state.value) {
       return <BaseButton label="Copied!" variant="contained" bgcolor="green" />;
     }
-    return <BaseButton label="Copy" variant="contained" />;
-  }
-
-  function handleChange(e) {
-    copyToClipboard('');
-    setText(e.currentTarget.value);
+    // return <BaseButton label="Copy" variant="contained" />;
   }
 
   return (
     <FieldBackdrop>
-      <BaseTextField
-        defaultValue={props.text}
-        onChange={e => handleChange(e)}
-        {...props}
-      />
-      <Box width="100px" onClick={() => copyToClipboard(text)}>
+      <BaseTextField value={props.text} />
+      <Box
+        width="100px"
+        onClick={() => copyToClipboard(props.text ? props.text : '')}
+      >
         {renderButton()}
       </Box>
     </FieldBackdrop>

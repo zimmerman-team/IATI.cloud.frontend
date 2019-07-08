@@ -5,6 +5,7 @@ import { RegionInterface } from 'app/state/interfaces/RegionsInterface';
 import { CountryInterface } from 'app/state/interfaces/CountriesInterface';
 import { SectorCategoryInterface } from 'app/state/interfaces/SectorCategoryInterface';
 import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
+import { QueryModel } from 'app/state/models/QueryModel';
 
 export type ApplicationStoreModel = {
   organisationTypes: OrganisationTypesInterface;
@@ -14,4 +15,5 @@ export type ApplicationStoreModel = {
   countries: CountryInterface;
   sectorCategories: SectorCategoryInterface;
   borgCollective: BorgCollectiveModel;
+  query: QueryModel;
 };

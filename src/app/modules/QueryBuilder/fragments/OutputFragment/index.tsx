@@ -10,7 +10,7 @@ import { ModuleFragment } from 'app/modules/QueryBuilder/fragments/common';
 /* config & mock */
 import { fragmentConfig } from './config';
 import { optionsFilter } from 'app/modules/QueryBuilder/mock';
-// import { QueryBuilderStore } from 'app/modules/QueryBuilder/state/store';
+// import { QueryBuilderStore } from 'app/modules/QueryBuilder/state/appStore';
 import { useEffectOnce } from 'react-use';
 
 export const OutputFragment = () => {

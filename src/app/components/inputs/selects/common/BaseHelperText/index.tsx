@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Link } from '@material-ui/core';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -8,6 +8,7 @@ type Props = {
   helperTextAfter?: string;
   url?: string;
   linkText?: string;
+  children?: ReactNode;
 };
 
 const BaseComponent = styled(props => <FormHelperText {...props} />)`

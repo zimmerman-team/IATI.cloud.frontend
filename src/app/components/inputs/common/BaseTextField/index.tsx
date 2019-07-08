@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 
 type Props = {
-  defaultValue?: string;
-  onChange?: any;
+  value?: string;
 };
 
 const BaseComponent = styled(props => <TextField {...props} />)`
@@ -33,7 +32,7 @@ const BaseComponent = styled(props => <TextField {...props} />)`
 `;
 
 const BaseTextField = (props: Props) => {
-  return <BaseComponent {...props} />;
+  return <BaseComponent value={props.value} {...props} />;
 };
 
 export default BaseTextField;

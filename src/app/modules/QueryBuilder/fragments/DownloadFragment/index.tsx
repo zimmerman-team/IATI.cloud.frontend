@@ -8,12 +8,14 @@ import Download from '@material-ui/core/SvgIcon/SvgIcon';
 import URLField from 'app/components/inputs/textdisplay/URLField';
 import IconButton from 'app/components/inputs/buttons/IconButton';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
+import { useStoreActions, useStoreState } from 'app/state/store';
 
 /* props & base */
 /* config & mock */
 
 export const DownloadFragment = () => {
   const store = ModuleStore.useStore();
+  const queryURL = useStoreState(state => state.query.url);
 
   return (
     <Grid container spacing={2} justify="space-between">
@@ -22,19 +24,19 @@ export const DownloadFragment = () => {
       </Grid>
       {/* todo: make re-usable component */}
       <Grid item xs={12} sm={9} md={9}>
-        <URLField />
+        <URLField text={queryURL} />
       </Grid>
       <Grid item xs={12} sm={3} md={3}>
         <IconButton label="Download CSV" icon={<Download />} disabled />
       </Grid>
-      <Grid item xs={12} sm={9} md={9}>
-        <URLField />
-      </Grid>
-      <Grid item xs={12} sm={3} md={3}>
-        <IconButton label="Download CSV" icon={<Download />} disabled />
-      </Grid>
+
       <Grid item>
         <pre>
+          queryString
+          <br />
+          {JSON.stringify(queryURL, null, 2)}
+          <br />
+          <br />
           <b>Context Store:</b>
           <br />
           <br />
@@ -51,11 +53,6 @@ export const DownloadFragment = () => {
           organisations
           <br />
           {JSON.stringify(store.get('organisations'), null, 2)}
-          <br />
-          <br />
-          queryString
-          <br />
-          {JSON.stringify(store.get('queryString'), null, 2)}
         </pre>
       </Grid>
     </Grid>

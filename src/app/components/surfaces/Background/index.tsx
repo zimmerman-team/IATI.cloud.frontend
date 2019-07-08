@@ -1,7 +1,11 @@
 /* base */
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import BackgroundImage from 'app/assets/images/DottedMap.svg';
+
+type Props = {
+  children?: ReactNode;
+};
 
 const Base = styled.div`
   height: 100vh;
@@ -11,7 +15,7 @@ const Base = styled.div`
   background-position: center right;
 `;
 
-const Background = () => {
+const Background = (props: Props) => {
   return <Base>{props.children}</Base>;
 };
 

@@ -7,20 +7,23 @@ import regions from 'app/state/interfaces/RegionsInterface';
 import countries from 'app/state/interfaces/CountriesInterface';
 import sectorCategories from 'app/state/interfaces/SectorCategoryInterface';
 import { borgCollective } from 'app/state/models/CyborgModel';
+import { queryModel } from 'app/state/models/QueryModel';
 
-const model: ApplicationStoreModel = {
+const applicationStore: ApplicationStoreModel = {
   organisationTypes: organisationTypes,
   organisations: organisations,
   sectors: sectors,
   regions: regions,
   countries: countries,
   sectorCategories: sectorCategories,
-  borgCollective: borgCollective
+  borgCollective: borgCollective,
+  query: queryModel
 };
 
-const store = createStore(model);
+const appStore = createStore(applicationStore);
 
-export const useStoreActions = store.useStoreActions;
-export const useStoreState = store.useStoreState;
+export const useStoreActions = appStore.useStoreActions;
+export const useStoreState = appStore.useStoreState;
+export const useStoreDispatch = appStore.useStoreDispatch;
 
-export default store;
+export default appStore;

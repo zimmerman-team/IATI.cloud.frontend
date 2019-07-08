@@ -7,7 +7,7 @@ import {
 
 import { formatUrl } from 'url-lib';
 import { map } from 'rxjs/operators';
-// import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
+// import { ModuleStore } from 'app/modules/QueryBuilder/state/appStore';
 
 /* todo: https://github.com/golgote/neturl */
 /* todo: https://github.com/worksap-ate/http-querystring/blob/master/Network/HTTP/QueryString/Internal.hs */

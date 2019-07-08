@@ -1,18 +1,37 @@
-import { StoreEffect, ModuleStoreModel } from './store';
-import { combineLatest, from, Observable, of } from 'rxjs';
 import { formatUrl } from 'url-lib';
-import { catchError, map } from 'rxjs/operators';
+
+import { StoreEffect } from './store';
+
 import {
   OrganisationModel,
   OrganisationTypeModel,
   SectorModel
 } from 'app/state/models';
-import { withLogger, withReduxDevtools } from 'undux';
+
+import appStore from 'app/state/store';
 
 const baseURL = 'http://preview.iatistandard.org/index.php?url=';
+/*
 
+fields:
+- reporting-org
+- reporting-org.type
+- sector
+- recipient-country
+- recipient-region
+- start-date__lt
+- start-date__gt
+- end-date__lt
+- end-date__gt
+- transaction_provider-org
+- participating-org
+
+ */
 export const withEffects: StoreEffect = store => {
-  store.onAll().subscribe(() => {
+  store.onAll().subscribe(({ key, value }) => {
+    localStorage.setItem(key, JSON.stringify(value));
+
+    /* todo: too much repetition, refactor to be more efficient */
     const organisationTypes = store.get('organisationTypes')
       ? store.get('organisationTypes').map((item: OrganisationTypeModel) => {
           return item.code;
@@ -34,17 +53,16 @@ export const withEffects: StoreEffect = store => {
     const url = formatUrl(
       [baseURL],
       [
+        // check if the object contain data, else return null
         organisations ? { 'reporting-org': organisations } : null,
         organisationTypes ? { 'reporting-org.type': organisationTypes } : null,
         sectorCategories ? { sector: sectorCategories } : null
       ]
     );
 
-    console.log(url);
+    // updates the app store
+    appStore.getActions().query.updateQuery(url);
   });
-
-  withReduxDevtools(store);
-  withLogger(store);
 
   return store;
 };

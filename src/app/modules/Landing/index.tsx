@@ -6,9 +6,8 @@ import useTitle from 'react-use/lib/useTitle';
 import { LandingLayout } from './layout';
 import { useQuery } from 'react-fetching-library';
 import { BorgModel } from 'app/state/models/CyborgModel';
-import { fetchBorgList } from 'app/state/api/actions';
 import { OrganisationModel } from 'app/state/models';
-import { fetchOrganisations } from 'app/state/api/actions/fetchBorgList';
+import { fetchOrganisations, fetchBorgList } from 'app/state/api/actions';
 
 function LandingModule() {
   /* set the window title */

@@ -7,7 +7,7 @@ import { useEffectOnce } from 'react-use';
 import MultiSelectChip from 'app/components/inputs/selects/MultiSelectChip';
 import SimpleSelect from 'app/components/inputs/selects/SimpleSelect';
 /* common */
-// import { useStoreState } from 'app/state/store';
+// import { useStoreState } from 'app/state/appStore';
 import { useStoreState } from 'app/state/store';
 import { ModuleFragment } from 'app/modules/QueryBuilder/fragments/common';
 /* config & mock */
@@ -28,12 +28,12 @@ export const WhoFragment = () => {
 
   const store = ModuleStore.useStore();
 
-  useEffectOnce(() => {
+  /*useEffectOnce(() => {
     console.log('Running effect once on mount');
     return () => {
       console.log('Running clean-up of effect on unmount');
     };
-  });
+  });*/
 
   /*if (fetchedsectorOrganisations) {
     fetchedsectorOrganisations.map((item: OrganisationModel) => {
