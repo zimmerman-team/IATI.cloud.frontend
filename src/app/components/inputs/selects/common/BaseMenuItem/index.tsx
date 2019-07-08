@@ -9,7 +9,7 @@ type MenuItemProps = {
 };
 const BaseComponent = styled(props => <MenuItem {...props} />)``;
 
-const BaseMenuItem: React.FC<MenuItemProps> = props => {
+const BaseMenuItem = (props: MenuItemProps) => {
   return (
     <BaseComponent {...props}>
       <Typography variant="body2">{props.children}</Typography>

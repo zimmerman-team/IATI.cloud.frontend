@@ -41,7 +41,7 @@ const ZimmerButton = styled(props => <Button {...props} />)`
   }
 `;
 
-const IconButtonOutlined: React.FC<Props> = props => {
+const IconButtonOutlined = (props: Props) => {
   return (
     <ZimmerButton size={props.size} variant="outlined">
       <CustomLink to="/querybuilder">

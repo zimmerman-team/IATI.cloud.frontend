@@ -9,7 +9,7 @@ type Props = {
   text?: string;
 };
 
-const URLField: React.FC<Props> = props => {
+const URLField = (props: Props) => {
   const [text, setText] = React.useState(props.text ? props.text : '');
   const [state, copyToClipboard] = useCopyToClipboard();
 

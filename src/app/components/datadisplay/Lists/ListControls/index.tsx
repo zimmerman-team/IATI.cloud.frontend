@@ -16,15 +16,15 @@ const BaseComponent = styled(props => <List {...props} />)`
   & [class*='MuiTypography-body2'] {
     color: black;
   }
-  ,
+
   & [class*='MuiListItem-button'] {
     padding-top: 3px;
     padding-bottom: 3px;
   }
-  ,
-  & [class*='Mui-checked'] > [class*='MuiSvgIcon-root']{
+
+  & [class*='Mui-checked'] > [class*='MuiSvgIcon-root'] {
     fill: ${Palette.primary.main};
-  },
+  }
 `;
 
 const ListCategory = styled(props => <Typography {...props} />)`
@@ -35,7 +35,7 @@ const ListCategory = styled(props => <Typography {...props} />)`
 `;
 
 //todo: look into virtualized lists https://material-ui.com/components/lists/
-const ListControls: React.FC<Props> = props => {
+const ListControls = (props: Props) => {
   const [checked, setChecked] = React.useState([0]);
 
   const handleToggle = value => () => {

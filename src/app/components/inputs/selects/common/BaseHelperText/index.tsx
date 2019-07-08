@@ -17,7 +17,7 @@ const BaseComponent = styled(props => <FormHelperText {...props} />)`
   }
 `;
 
-const BaseHelperText: React.FC<Props> = props => {
+const BaseHelperText = (props: Props) => {
   return (
     <BaseComponent>
       {props.helperText}

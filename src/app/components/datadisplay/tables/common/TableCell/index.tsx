@@ -16,7 +16,7 @@ const BaseComponent = styled(props => (
   }
 `;
 
-const TableCell: React.FC<Props> = props => {
+const TableCell = (props: Props) => {
   return <BaseComponent {...props} />;
 };
 

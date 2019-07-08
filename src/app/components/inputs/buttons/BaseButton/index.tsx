@@ -22,16 +22,16 @@ const ZimmerButton = styled(props => <Button {...props} />)`
     display: flex;
     align-items: center;
     justify-content: center;
-/*    background-color: ${props => {
-  switch (props.copied) {
-    case true:
-      return 'red';
-    case false:
-      return 'blue';
-    default:
-      return 'yellow';
-  }
-}};*/
+    background-color: ${props => {
+      switch (props.copied) {
+        case true:
+          return 'red';
+        case false:
+          return 'blue';
+        default:
+          return 'yellow';
+      }
+    }}
 
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -45,6 +45,7 @@ const ZimmerButton = styled(props => <Button {...props} />)`
           return '48px';
       }
     }};
+    
     background: ${props =>
       props.bgcolor === 'green' ? '#46b275' : Palette.primary.main}}
     
@@ -52,8 +53,9 @@ const ZimmerButton = styled(props => <Button {...props} />)`
       props.isdisabled ? '#f0f3f7' : ''} !important;}
     
     &:hover{
-      cursor: ${props => (props.isdisabled === 'true' ? 'default' : '')}}
-    }
+      cursor: ${props => (props.isdisabled === 'true' ? 'default' : '')}
+      }
+    
     
     & [class*='MuiButton-label'] {
       font-size: 12px;
@@ -63,7 +65,7 @@ const ZimmerButton = styled(props => <Button {...props} />)`
       }
 `;
 
-const BaseButton: React.FC<Props> = props => {
+const BaseButton = (props: Props) => {
   return (
     <ZimmerButton
       size={props.size}

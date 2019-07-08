@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Spacing } from 'app/theme/index';
 
 type Props = {
   label?: string;
+  children: ReactNode;
 };
 
 const BaseComponent = styled.div`
@@ -19,7 +20,7 @@ const BaseComponent = styled.div`
   //padding-right: ${Spacing.inputSideSpacing};
 `;
 
-const FieldBackdrop: React.FC<Props> = props => {
+const FieldBackdrop = (props: Props) => {
   return <BaseComponent>{props.children}</BaseComponent>;
 };
 

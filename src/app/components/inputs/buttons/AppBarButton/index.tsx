@@ -30,7 +30,7 @@ const CustomLink = styled(props => <NavLink {...props} />)`
   color: white;
 `;
 
-const AppBarButton: React.FC<Props> = props => {
+const AppBarButton = (props: Props) => {
   return (
     <BaseComponent size={props.size} color="inherit" {...props}>
       <CustomLink to={props.url ? props.url : '/'}>{props.label}</CustomLink>

@@ -38,7 +38,7 @@ const BaseComponent = styled(props => (
   }
 `;
 
-const BaseSelect: React.FC<SelectProps> = props => {
+const BaseSelect = (props: SelectProps) => {
   return <BaseComponent {...props} />;
 };
 

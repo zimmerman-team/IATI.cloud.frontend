@@ -46,7 +46,7 @@ const BaseComponent = styled(props => (
   }
 `;
 
-const Checkbox: React.FC<Props> = props => {
+const Checkbox = (props: Props) => {
   return <BaseComponent {...props} />;
 };
 

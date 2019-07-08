@@ -13,7 +13,7 @@ const BaseComponent = styled(props => <Radio {...props} />)`
   }
 `;
 
-const RadioButton: React.FC<Props> = props => {
+const RadioButton = (props: Props) => {
   return <BaseComponent {...props} />;
 };
 

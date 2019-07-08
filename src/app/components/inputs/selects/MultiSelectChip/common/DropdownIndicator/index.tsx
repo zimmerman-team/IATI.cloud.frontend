@@ -6,7 +6,7 @@ interface OptionType {
   selectProps?: any;
 }
 
-const DropdownIndicator: React.FC<OptionType> = props => {
+const DropdownIndicator = (props: OptionType) => {
   return (
     <React.Fragment>
       {props.selectProps.search ? <Search /> : <ArrowDropDown />}

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const ComponentBase = styled.div``;
 
-const NotFoundModule: React.FC = () => {
+const NotFoundModule = () => {
   return <ComponentBase>joe, not found</ComponentBase>;
 };
 

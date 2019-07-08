@@ -26,7 +26,7 @@ const Component = styled(props => <ChipInput {...props} />)`
   }
 `;
 
-const Container: React.FC<ChippieProps> = props => {
+const Container = (props: ChippieProps) => {
   return (
     <React.Fragment>
       <Component

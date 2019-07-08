@@ -14,7 +14,7 @@ const BaseComponent = styled.div`
   padding: 12px;
 `;
 
-const TooltipContent: React.FC<Props> = props => {
+const TooltipContent = (props: Props) => {
   return (
     <BaseComponent {...props}>
       {props.text ? props.text : 'empty'}

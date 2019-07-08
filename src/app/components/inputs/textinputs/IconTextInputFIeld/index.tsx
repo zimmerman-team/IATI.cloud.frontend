@@ -15,7 +15,7 @@ type Props = {
   helperText: string;
 };
 
-const IconTextInput: React.FC<Props> = props => {
+const IconTextInput = (props: Props) => {
   return (
     <React.Fragment>
       {props.label && <FieldInputLabel label={props.label} />}

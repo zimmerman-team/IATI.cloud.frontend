@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const SimpleSelect: React.FC<SimpleSelectProps> = props => {
+const SimpleSelect = (props: SimpleSelectProps) => {
   const classes = useStyles();
   const [values, setValues] = React.useState<string[]>([]);
 

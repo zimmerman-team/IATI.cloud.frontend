@@ -8,7 +8,7 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grid from '@material-ui/core/Grid';
 import data from './mock';
 
-const MyStoryComponent: React.FC = () => {
+const MyStoryComponent = () => {
   const anchorRef = React.useRef<HTMLButtonElement>(null);
   const [open, setOpen] = React.useState(false);
 

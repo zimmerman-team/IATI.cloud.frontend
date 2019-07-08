@@ -14,7 +14,7 @@ const BaseInputLabel = styled(props => <InputLabel {...props} />)`
   }
 `;
 
-const FieldInputLabel: React.FC<Props> = props => {
+const FieldInputLabel = (props: Props) => {
   return <BaseInputLabel {...props}>{props.label}</BaseInputLabel>;
 };
 

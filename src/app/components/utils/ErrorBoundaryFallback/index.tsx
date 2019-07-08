@@ -14,7 +14,7 @@ type CookieNoticeProps = {
   error?: any;
 };
 
-const ErrorBoundaryFallback: React.FC<CookieNoticeProps> = props => {
+const ErrorBoundaryFallback = (props: CookieNoticeProps) => {
   return (
     <ComponentBase>
       <p>

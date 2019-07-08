@@ -5,7 +5,7 @@ interface OptionType {
   children?: ReactNode;
 }
 
-const ClearIndicator: React.FC<OptionType> = props => {
+const ClearIndicator = (props: OptionType) => {
   return (
     <React.Fragment {...props}>
       <Clear />

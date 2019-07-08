@@ -11,7 +11,7 @@ const Base = styled.div`
   background-position: center right;
 `;
 
-const Background: React.FC = props => {
+const Background = () => {
   return <Base>{props.children}</Base>;
 };
 

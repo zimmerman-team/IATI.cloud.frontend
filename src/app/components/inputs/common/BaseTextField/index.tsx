@@ -32,7 +32,7 @@ const BaseComponent = styled(props => <TextField {...props} />)`
   }
 `;
 
-const BaseTextField: React.FC<Props> = props => {
+const BaseTextField = (props: Props) => {
   return <BaseComponent {...props} />;
 };
 

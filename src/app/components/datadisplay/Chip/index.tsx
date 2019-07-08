@@ -28,7 +28,7 @@ const BaseComponent = styled(props => <Component {...props} />)`
   }
 `;
 
-const Chip: React.FC<Props> = props => {
+const Chip = (props: Props) => {
   function handleDelete() {
     console.log('You clicked the delete icon.');
   }

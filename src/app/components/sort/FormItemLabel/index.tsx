@@ -18,7 +18,7 @@ const BaseComponent = styled(props => <FormControlLabel {...props} />)`
   }
 `;
 
-const FormItemLabel: React.FC<Props> = props => {
+const FormItemLabel = (props: Props) => {
   return <BaseComponent {...props} />;
 };
 

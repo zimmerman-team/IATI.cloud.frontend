@@ -42,7 +42,7 @@ const AntSwitch = withStyles(theme => ({
   checked: {}
 }))(Base);
 
-const Switch: React.FC<Props> = props => {
+const Switch = (props: Props) => {
   return <AntSwitch {...props} />;
 };
 

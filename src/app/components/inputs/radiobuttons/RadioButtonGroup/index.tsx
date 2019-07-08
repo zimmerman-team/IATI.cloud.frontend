@@ -23,7 +23,7 @@ const GroupTitle = styled(props => <FormLabel {...props} />)`
   }
 `;
 
-const RadioButtonsGroup: React.FC<Props> = props => {
+const RadioButtonsGroup = (props: Props) => {
   const [value, setValue] = React.useState('female');
 
   function handleChange(event: React.ChangeEvent<unknown>) {

@@ -34,7 +34,7 @@ const ZimmerButton = styled(props => <Button {...props} />)`
   }
 `;
 
-const IconButton: React.FC<Props> = props => {
+const IconButton = (props: Props) => {
   return (
     <ZimmerButton
       size={props.size}

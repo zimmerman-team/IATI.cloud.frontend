@@ -9,7 +9,7 @@ const BaseComponent = styled(props => <InputBase {...props} />)`
   }
 `;
 
-const BaseInput: React.FC = props => {
+const BaseInput = props => {
   return <BaseComponent {...props} />;
 };
 

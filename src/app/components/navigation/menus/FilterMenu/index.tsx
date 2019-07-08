@@ -25,7 +25,7 @@ const BaseComponent = styled(props => <Popper {...props} />)`
   ,
 `;
 
-const FilterMenu: React.FC<Props> = props => {
+const FilterMenu = (props: Props) => {
   return (
     <BaseComponent
       open={props.open}

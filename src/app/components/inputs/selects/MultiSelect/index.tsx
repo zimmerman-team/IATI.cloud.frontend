@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const MultiSelect: React.FC<MultiSelectProps> = props => {
+const MultiSelect = (props: MultiSelectProps) => {
   const classes = useStyles();
   const [data, setData] = React.useState<string[]>([]);
 
