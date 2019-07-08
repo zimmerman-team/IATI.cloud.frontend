@@ -33,6 +33,7 @@ const URLField: React.FC<Props> = props => {
       <BaseTextField
         defaultValue={props.text}
         onChange={e => handleChange(e)}
+        {...props}
       />
       <Box width="100px" onClick={() => copyToClipboard(text)}>
         {renderButton()}

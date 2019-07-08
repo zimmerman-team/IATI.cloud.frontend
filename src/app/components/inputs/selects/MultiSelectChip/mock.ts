@@ -30,7 +30,7 @@ const suggestions: OptionType[] = [
   { label: 'Benin' },
   { label: 'Bermuda' },
   { label: 'Bhutan' },
-  { label: 'Bolivia, Plurinational State of' },
+  { label: 'Bolivia, Plurinational ModuleStoreModel of' },
   { label: 'Bonaire, Sint Eustatius and Saba' },
   { label: 'Bosnia and Herzegovina' },
   { label: 'Botswana' },

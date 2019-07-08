@@ -28,14 +28,19 @@ type MultiSelectChipProps = {
   helperTextAfter?: string;
   placeholder?: string;
   tooltip?: string;
-  search?: boolean;
-  options: OptionType[];
+  className?: string;
+  name?: string;
+  value?: any;
+  options?: any;
+  onChange?: any;
+  getOptionLabel?: any;
+  getOptionValue?: any;
 };
 
-interface OptionType {
+/*interface OptionType {
   label: string;
   value: string;
-}
+}*/
 //Todo: refactor to only use styled-components
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -60,13 +65,6 @@ const useStyles = makeStyles((theme: Theme) =>
     singleValue: {
       fontSize: 16
     },
-    // paper: {
-    //   position: 'absolute',
-    //   zIndex: 1,
-    //   marginTop: theme.spacing(1),
-    //   left: 0,
-    //   right: 0
-    // },
     divider: {
       height: theme.spacing(2)
     }
@@ -92,21 +90,21 @@ const Component = styled(props => <Select {...props} />)`
     &:after {
       border: none;
     }
-    ,
+
     &:before {
       border: none;
     }
-    ,
+
     &:hover {
       border: none;
     }
   }
-  ,
+
   &&& [class*='MuiInputBase-input'] {
     min-height: 35px;
     padding-top: 0px;
   }
-  ,
+
   & [class*='MuiInputLabel-root'] {
     font-family: Inter;
     font-size: 17px;
@@ -132,14 +130,16 @@ const Component = styled(props => <Select {...props} />)`
   }
 `;
 
-const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
+const MultiSelectChip = (props: MultiSelectChipProps) => {
   const classes = useStyles();
 
+  /*
   const [multi, setMulti] = React.useState<ValueType<OptionType>>(null);
 
   function handleChangeMulti(value: ValueType<OptionType>) {
     setMulti(value);
   }
+*/
 
   return (
     <div className={classes.root}>
@@ -157,18 +157,18 @@ const MultiSelectChip: React.FC<MultiSelectChipProps> = props => {
             )}
           </Grid>
         )}
-        {/*=======================================================================*/}
 
         <Component
           classes={classes}
-          inputId="react-select-multiple"
-          placeholder={props.placeholder}
-          options={props.options}
+          // inputId="react-select-multiple"
+          // placeholder={props.placeholder}
+          // options={props.options}
           components={components}
-          value={multi}
-          onChange={handleChangeMulti}
+          // value={multi}
+          // onChange={handleChangeMulti}
           isMulti
-          search={props.search}
+          // search={props.search}
+          {...props}
         />
         <BaseHelperText
           helperText={props.helperText}

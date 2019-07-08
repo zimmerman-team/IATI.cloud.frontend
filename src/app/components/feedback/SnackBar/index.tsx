@@ -16,7 +16,7 @@ const variantIcon = {
   info: InfoIcon
 };
 
-type Props = {
+type SnackBarProps = {
   message?: string;
   onClose?: () => void;
   variant: keyof typeof variantIcon;
@@ -61,7 +61,7 @@ const BaseSnackbar = styled(props => <Snackbar {...props} />)`
   }
 `;
 
-const SnackBar: React.FC<Props> = props => {
+const SnackBar = (props: SnackBarProps) => {
   const [open, setOpen] = React.useState(props.open);
   const { message, onClose, variant, ...other } = props;
   const Icon = variantIcon[variant];
@@ -96,3 +96,13 @@ const SnackBar: React.FC<Props> = props => {
   );
 };
 export default SnackBar;
+
+SnackBar.defaultProps = {
+  message:
+    'New content is available and will be used when all tabs of this page are closed',
+  variant: 'info',
+  anchorOrigin: {
+    vertical: 'bottom',
+    horizontal: 'left'
+  }
+};

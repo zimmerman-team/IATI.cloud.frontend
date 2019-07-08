@@ -14,7 +14,7 @@ const LinkMod = styled(Link)`
   color: white;
 `;
 
-type Props = {
+type AppBarProps = {
   label?: string;
   size?: string;
 };
@@ -34,7 +34,7 @@ const BaseComponent = styled(props => <BaseAppBar {...props} />)`
   }
 `;
 
-const AppBar: React.FC<Props> = props => {
+const AppBar = (props: AppBarProps) => {
   const state = useLocation();
 
   return (
