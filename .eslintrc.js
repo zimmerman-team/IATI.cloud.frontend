@@ -44,7 +44,7 @@ module.exports = {
     'react/jsx-max-depth': [
       'error',
       {
-        max: 4
+        max: 5
       }
     ],
     'react/boolean-prop-naming': [
