@@ -1,0 +1,182 @@
+[
+  {
+    "code": "111",
+    "name": "Education, level unspecified"
+  },
+  {
+    "code": "112",
+    "name": "Basic education"
+  },
+  {
+    "code": "113",
+    "name": "Secondary education"
+  },
+  {
+    "code": "114",
+    "name": "Post-secondary education"
+  },
+  {
+    "code": "121",
+    "name": "Health, general"
+  },
+  {
+    "code": "122",
+    "name": "Basic health"
+  },
+  {
+    "code": "123",
+    "name": "Non-communicable diseases (ncds)"
+  },
+  {
+    "code": "130",
+    "name": "Population policies/programmes & reproductive health"
+  },
+  {
+    "code": "140",
+    "name": "Water supply & sanitation"
+  },
+  {
+    "code": "151",
+    "name": "Government & civil society-general"
+  },
+  {
+    "code": "152",
+    "name": "Conflict, peace & security"
+  },
+  {
+    "code": "160",
+    "name": "Other social infrastructure & services"
+  },
+  {
+    "code": "210",
+    "name": "Transport & storage"
+  },
+  {
+    "code": "220",
+    "name": "Communications"
+  },
+  {
+    "code": "231",
+    "name": "Energy policy"
+  },
+  {
+    "code": "232",
+    "name": "Energy generation, renewable sources"
+  },
+  {
+    "code": "233",
+    "name": "Energy generation, non-renewable sources"
+  },
+  {
+    "code": "234",
+    "name": "Hybrid energy plants"
+  },
+  {
+    "code": "235",
+    "name": "Nuclear energy plants"
+  },
+  {
+    "code": "236",
+    "name": "Energy distribution"
+  },
+  {
+    "code": "240",
+    "name": "Banking & financial services"
+  },
+  {
+    "code": "250",
+    "name": "Business & other services"
+  },
+  {
+    "code": "311",
+    "name": "Agriculture"
+  },
+  {
+    "code": "312",
+    "name": "Forestry"
+  },
+  {
+    "code": "313",
+    "name": "Fishing"
+  },
+  {
+    "code": "321",
+    "name": "Industry"
+  },
+  {
+    "code": "322",
+    "name": "Mineral resources & mining"
+  },
+  {
+    "code": "323",
+    "name": "Construction"
+  },
+  {
+    "code": "331",
+    "name": "Trade policies & regulations"
+  },
+  {
+    "code": "332",
+    "name": "Tourism"
+  },
+  {
+    "code": "410",
+    "name": "General environment protection"
+  },
+  {
+    "code": "430",
+    "name": "Other multisector"
+  },
+  {
+    "code": "510",
+    "name": "General budget support"
+  },
+  {
+    "code": "520",
+    "name": "Developmental food aid/food security assistance"
+  },
+  {
+    "code": "530",
+    "name": "Other commodity assistance"
+  },
+  {
+    "code": "600",
+    "name": "Action relating to debt"
+  },
+  {
+    "code": "720",
+    "name": "Emergency response"
+  },
+  {
+    "code": "730",
+    "name": "Reconstruction relief & rehabilitation"
+  },
+  {
+    "code": "740",
+    "name": "Disaster prevention & preparedness"
+  },
+  {
+    "code": "910",
+    "name": "Administrative costs of donors"
+  },
+  {
+    "code": "930",
+    "name": "Refugees in donor countries"
+  },
+  {
+    "code": "998",
+    "name": "Unallocated / unspecified"
+  },
+  {
+    "code": "230",
+    "name": "Energy generation, distribution and efficiency"
+  },
+  {
+    "code": "150",
+    "name": "Government and civil society"
+  },
+  {
+    "code": "120",
+    "name": "Health"
+  }
+]

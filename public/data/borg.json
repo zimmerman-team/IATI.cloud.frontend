@@ -1,0 +1,65 @@
+[
+  {
+    "id": "unit 1",
+    "assimilationDate": "00-00-00",
+    "modules": [
+      {
+        "id": "54534354",
+        "description": "lorem ipsum dolor simet",
+        "specifications": "98729872987298279"
+      },
+      {
+        "id": "534354453",
+        "description": "lorem ipsum dolor simet",
+        "specifications": "98729872987298279"
+      },
+      {
+        "id": "56757756",
+        "description": "lorem ipsum dolor simet",
+        "specifications": "98729872987298279"
+      }
+    ]
+  },
+  {
+    "id": "unit 2",
+    "assimilationDate": "00-00-00",
+    "modules": [
+      {
+        "id": "978978",
+        "description": "lorem ipsum dolor simet",
+        "specifications": "98729872987298279"
+      },
+      {
+        "id": "234432",
+        "description": "lorem ipsum dolor simet",
+        "specifications": "98729872987298279"
+      },
+      {
+        "id": "567756",
+        "description": "lorem ipsum dolor simet",
+        "specifications": "98729872987298279"
+      }
+    ]
+  },
+  {
+    "id": "unit 3",
+    "assimilationDate": "00-00-00",
+    "modules": [
+      {
+        "id": "876768",
+        "description": "lorem ipsum dolor simet",
+        "specifications": "98729872987298279"
+      },
+      {
+        "id": "234234",
+        "description": "lorem ipsum dolor simet",
+        "specifications": "98729872987298279"
+      },
+      {
+        "id": "765756",
+        "description": "lorem ipsum dolor simet",
+        "specifications": "98729872987298279"
+      }
+    ]
+  }
+]
