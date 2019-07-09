@@ -9,9 +9,16 @@ type Props = {
   disabled?: boolean;
   onClick?: any;
   anchorref?: ReactNode;
+  children?: ReactNode;
 };
 
-const ZimmerButton = styled(props => <Button {...props} />)`
+/*type BaseProps = {
+  children?: ReactNode;
+};*/
+
+const ZimmerButton = styled(props => (
+  <Button {...props}>{props.children}</Button>
+))`
   && {
     justify-content: space-between;
     box-shadow: initial !important;
@@ -44,8 +51,8 @@ const IconButton = (props: Props) => {
       onClick={props.onClick}
       anchorref={props.anchorref}
     >
-      {props.label}
-      {props.icon}
+      {props.label && props.label}
+      {props.icon && props.icon}
     </ZimmerButton>
   );
 };

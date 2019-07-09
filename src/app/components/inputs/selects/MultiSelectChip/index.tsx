@@ -37,10 +37,6 @@ type MultiSelectChipProps = {
   getOptionValue?: any;
 };
 
-/*interface OptionType {
-  label: string;
-  value: string;
-}*/
 //Todo: refactor to only use styled-components
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

@@ -3,7 +3,8 @@ import React from 'react';
 /* third-party */
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Download from '@material-ui/core/SvgIcon/SvgIcon';
+/* todo: juan: you were referencing to a faulty path to get the download icon  */
+import Download from '@material-ui/icons/GetApp';
 /* project component */
 import URLField from 'app/components/inputs/textdisplay/URLField';
 import IconButton from 'app/components/inputs/buttons/IconButton';
