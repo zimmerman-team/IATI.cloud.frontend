@@ -17,7 +17,8 @@
     "jsx": "react",
     "baseUrl": "src",
     "experimentalDecorators": true,
-    "types": ["cypress", "@percy/cypress"]
+    "types": ["cypress", "@percy/cypress"],
+    "incremental": true
   },
   "include": [
     "src",
