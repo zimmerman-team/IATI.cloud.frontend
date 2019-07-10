@@ -8,20 +8,19 @@ import Download from '@material-ui/icons/GetApp';
 /* project component */
 import URLField from 'app/components/inputs/textdisplay/URLField';
 import IconButton from 'app/components/inputs/buttons/IconButton';
-import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
-import { useStoreActions, useStoreState } from 'app/state/store';
-
+import { useStoreState } from 'app/state/store';
 /* props & base */
 /* config & mock */
+import { fragmentConfig } from './model';
 
-export const DownloadFragment = () => {
-  const store = ModuleStore.useStore();
-  const queryURL = useStoreState(state => state.query.url);
+export const DownloadFragment = ({ store }) => {
+  /* get query url from app store */
+  const queryURL = useStoreState(appStore => appStore.query.url);
 
   return (
     <Grid container spacing={2} justify="space-between">
       <Grid item xs={12} sm={12}>
-        <Typography variant="subtitle1">Files</Typography>
+        <Typography variant="subtitle1">{fragmentConfig.name}</Typography>
       </Grid>
       {/* todo: make re-usable component */}
       <Grid item xs={12} sm={9} md={9}>
@@ -30,7 +29,6 @@ export const DownloadFragment = () => {
       <Grid item xs={12} sm={3} md={3}>
         <IconButton label="Download CSV" icon={<Download />} disabled />
       </Grid>
-
       <Grid item>
         <pre>
           queryString
@@ -46,7 +44,7 @@ export const DownloadFragment = () => {
           {JSON.stringify(store.get('organisationTypes'), null, 2)}
           <br />
           <br />
-          sectorCategories
+          ectorCategories
           <br />
           {JSON.stringify(store.get('sectorCategories'), null, 2)}
           <br />
@@ -56,6 +54,7 @@ export const DownloadFragment = () => {
           {JSON.stringify(store.get('organisations'), null, 2)}
         </pre>
       </Grid>
+      *
     </Grid>
   );
 };

@@ -1,8 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import NoSsr from '@material-ui/core/NoSsr';
-import { ValueType } from 'react-select/lib/types';
 import NoOptionsMessage from './common/NoOptionsMessage';
 import suggestions from './mock';
 import Control from './common/Control';
@@ -80,6 +78,7 @@ const components = {
   ClearIndicator
 };
 
+/* todo: move to external component */
 const Component = styled(props => <Select {...props} />)`
   &&& [class*='MuiInputBase-root'] {
     padding: 0;
@@ -129,49 +128,28 @@ const Component = styled(props => <Select {...props} />)`
 const MultiSelectChip = (props: MultiSelectChipProps) => {
   const classes = useStyles();
 
-  /*
-  const [multi, setMulti] = React.useState<ValueType<OptionType>>(null);
-
-  function handleChangeMulti(value: ValueType<OptionType>) {
-    setMulti(value);
-  }
-*/
-
   return (
     <div className={classes.root}>
-      <NoSsr>
-        {/*todo: make reusable component, reused in MultiSelect and SimpleSelect*/}
-        {props.label && (
-          <Grid container spacing={2}>
-            <Grid item>
-              <FieldInputLabel label={props.label} />
-            </Grid>
-            {props.tooltip && (
-              <Grid item>
-                <TooltipButton tip={props.tooltip} />
-              </Grid>
-            )}
+      {/*todo: make reusable component, reused in MultiSelect and SimpleSelect*/}
+      {props.label && (
+        <Grid container spacing={2}>
+          <Grid item>
+            <FieldInputLabel label={props.label} />
           </Grid>
-        )}
+          {props.tooltip && (
+            <Grid item>
+              <TooltipButton tip={props.tooltip} />
+            </Grid>
+          )}
+        </Grid>
+      )}
 
-        <Component
-          classes={classes}
-          // inputId="react-select-multiple"
-          // placeholder={props.placeholder}
-          // options={props.options}
-          components={components}
-          // value={multi}
-          // onChange={handleChangeMulti}
-          isMulti
-          // search={props.search}
-          {...props}
-        />
-        <BaseHelperText
-          helperText={props.helperText}
-          linkText={props.helperTextLink}
-          url={props.helperTextUrl}
-        />
-      </NoSsr>
+      <Component classes={classes} components={components} isMulti {...props} />
+      <BaseHelperText
+        helperText={props.helperText}
+        linkText={props.helperTextLink}
+        url={props.helperTextUrl}
+      />
     </div>
   );
 };

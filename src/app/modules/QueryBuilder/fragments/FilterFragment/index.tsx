@@ -13,9 +13,9 @@ import IconButton from 'app/components/inputs/buttons/IconButton';
 /* common */
 import { ModuleFragment } from 'app/modules/QueryBuilder/fragments/common';
 /* config & mock */
-import { fragmentConfig } from './config';
-import { optionsFilter } from 'app/modules/QueryBuilder/mock';
+import { fragmentConfig } from './model';
 import FilterData from 'app/components/navigation/menus/FilterMenu/mock';
+import { TextField } from '@material-ui/core';
 
 export const FilterFragment = () => {
   const anchorRef = React.useRef<HTMLButtonElement>(null);
@@ -37,6 +37,8 @@ export const FilterFragment = () => {
           search
           options={optionsFilter}
         />*/}
+
+        <TextField />
       </Grid>
 
       <Grid item xs={12} sm={12} md={12}>

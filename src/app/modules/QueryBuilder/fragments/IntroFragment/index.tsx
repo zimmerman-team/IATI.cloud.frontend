@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 /* project component */
 /* common */
 /* config & mock */
-import { fragmentConfig } from './config';
+import { fragmentConfig } from './model';
 
 export const IntroFragment = () => {
   return (

@@ -13,6 +13,7 @@ function QueryBuilderModule() {
 
   /* instantiate the layout*/
   return (
+    /* the layout is wrapped in the the module store provider */
     <ModuleStore.Container>
       <QueryBuilderLayout />
     </ModuleStore.Container>

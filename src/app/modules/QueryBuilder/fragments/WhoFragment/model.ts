@@ -1,5 +1,6 @@
 import { getOptionLabel, getOptionValue } from 'react-select/lib/builtins';
 import { OrganisationModel } from 'app/state/models';
+import { FragmentBaseModel } from 'app/modules/QueryBuilder/fragments/index';
 
 type SelectModel = {
   label?: string;
@@ -16,15 +17,13 @@ type SelectModel = {
   getOptionValue?: getOptionValue;
 };
 
-type FragmentConfigModel = {
-  name: string;
-  description: string;
+interface FragmentModel extends FragmentBaseModel {
   organisationTypes: SelectModel;
   organisationSector: SelectModel;
   organisations: SelectModel;
-};
+}
 
-export const fragmentConfig: FragmentConfigModel = {
+export const fragmentConfig: FragmentModel = {
   name: 'Who',
   description:
     'First you need to find the organisation or organisations you want data about. Depending if you want one specific organsation or a wieder net. You can use the filters to narrow the data you want.',
