@@ -19,5 +19,6 @@
     "breadcrumb.activeSelectionForeground": "#2979FF",
     "menu.selectionForeground": "#2979FF",
     "menubar.selectionForeground": "#2979FF"
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

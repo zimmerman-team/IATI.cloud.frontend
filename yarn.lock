@@ -6504,6 +6504,11 @@ deepmerge@3.3.0, deepmerge@^3.0.0, deepmerge@^3.2.1:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.3.0.tgz#d3c47fd6f3a93d517b14426b0628a17b0125f5f7"
   integrity sha512-GRQOafGHwMHpjPx9iCvTgpu9NojZ49q794EEL94JVEw6VaeA8XTUyBKvAkOOjBX9oJNiV6G3P+T+tihFjo2TqA==
 
+deepmerge@^2.0.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
+  integrity sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
+
 default-gateway@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/default-gateway/-/default-gateway-4.2.0.tgz#167104c7500c2115f6dd69b0a536bb8ed720552b"
@@ -15084,6 +15089,13 @@ react-input-autosize@^2.2.1:
   dependencies:
     prop-types "^15.5.8"
 
+react-inspect-props@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-inspect-props/-/react-inspect-props-0.2.0.tgz#f96ed69cbdbc698475fef2cea3573842e42d961a"
+  integrity sha512-NBvVn7PfxNPEBQx0hsapTdeCOT2kk3JIXyME1vv3hLyc7geCfCFArAB/sjYWGgd8RbKcy8Z3xadLKlJ5/aA1gQ==
+  dependencies:
+    deepmerge "^2.0.1"
+
 react-inspector@^2.2.2, react-inspector@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/react-inspector/-/react-inspector-2.3.1.tgz#f0eb7f520669b545b441af9d38ec6d706e5f649c"
@@ -15101,6 +15113,14 @@ react-inspector@^3.0.2:
     babel-runtime "^6.26.0"
     is-dom "^1.0.9"
     prop-types "^15.6.1"
+
+react-intersection-observer@^8.23.0:
+  version "8.23.0"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.23.0.tgz#1533aaf39cc70300ff8ca37e6551d2d68a589cd0"
+  integrity sha512-kHXfxhGKvVDNkrvmh9CKCnAWvJBigyB7oSDzMXL54weFDwwI4WfTr58YauZ0RRPkGzoD/hYEuzfS1wipXn23fA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    invariant "^2.2.4"
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.8.6"
@@ -15764,6 +15784,13 @@ rehype-parse@^6.0.0:
     hast-util-from-parse5 "^5.0.0"
     parse5 "^5.0.0"
     xtend "^4.0.1"
+
+reinspect@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/reinspect/-/reinspect-1.0.1.tgz#49948455fb1cafdf8878ca552c609e0bff746ff8"
+  integrity sha512-vzg/xHLgeHczBZhJ1K1xXOSD+vtQoJaH1K16sD32+V4hjaBYgQJb5up3oBYUDy+37OXTiyvM8O98PHthmSO1gA==
+  dependencies:
+    redux "^4.0.1"
 
 relateurl@0.2.x:
   version "0.2.7"
@@ -18038,6 +18065,11 @@ ts-toolbelt@3.0.0-9:
   version "3.0.0-9"
   resolved "https://registry.yarnpkg.com/ts-toolbelt/-/ts-toolbelt-3.0.0-9.tgz#02d48d202d7eff6e08e0beab23b57aa2fb64c609"
   integrity sha512-nFEZWDn4TtgSP1J4dufzaNgXtkuVN5tFZiFPy6fD+At3rHsyjYcdbaM+x12n6GR0Pil1JgO6xIpWF4g8CkSlJw==
+
+ts-toolbelt@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/ts-toolbelt/-/ts-toolbelt-2.1.5.tgz#bfb992c91b8bf98bc286d14f482a1007063abdcf"
+  integrity sha512-lkusd8PwfZWvxeRNni7xGfgSlujeO9z1YmOLT1ENMuPinNppk5Yg8ZQzbG5Phb+uqaBMpYSvW4UXDKfrXoL0yA==
 
 tslib@^1, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.10.0"
