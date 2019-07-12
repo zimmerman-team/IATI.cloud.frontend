@@ -8,44 +8,43 @@ import RadioButtonsGroup from 'app/components/inputs/radiobuttons/RadioButtonGro
 /* common */
 import { ModuleFragment } from 'app/modules/QueryBuilder/fragments/common';
 /* config & mock */
-import { fragmentConfig } from './config';
+import { fragmentConfig } from './model';
 import { optionsFilter } from 'app/modules/QueryBuilder/mock';
 // import { QueryBuilderStore } from 'app/modules/QueryBuilder/state/appStore';
 import { useEffectOnce } from 'react-use';
+import { ConnectedSelect } from 'app/components/inputs/selects/ConnectedSelect';
+import TooltipButton from 'app/components/inputs/buttons/TooltipButton';
+import FormLabel from '@material-ui/core/FormLabel';
+import styled from 'styled-components';
+import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
 
 export const OutputFragment = () => {
   // const addTodo = QueryBuilderStore.useStoreActions(actions => actions.addTodo);
 
-  useEffectOnce(() => {
-    console.log('Running effect once on mount');
-
-    return () => {
-      console.log('Running clean-up of effect on unmount');
-    };
-  });
+  const { groups } = fragmentConfig;
 
   return (
     <ModuleFragment
       name={fragmentConfig.name}
       description={fragmentConfig.description}
     >
-      <Grid item xs={12} sm={12} md={7}>
-        {/*<MultiSelectChip
+      {/* <Grid item xs={12} sm={12} md={7}>
+        <ConnectedSelect
           helperText="See "
           helperTextLink="OIPA documentation"
           helperTextAfter=" for full list of possible elements"
           helperTextUrl="https://www.zimmermanzimmerman.nl"
           options={optionsFilter}
-        />*/}
-      </Grid>
-      <Grid item xs={12} sm={6} md={6}>
-        {/* todo: refactor, move buttongroup title here */}
-        <RadioButtonsGroup tip="Each row contains a unique activity. Financial information is aggregated. Budget information is excluded. Other potentially repeating fields (such as sectors) are reported in a single cell, delimited by semi-colons." />
-      </Grid>
-      <Grid item xs={12} sm={6} md={6}>
-        {/* todo: refactor, move buttongroup title here */}
-        <RadioButtonsGroup tip="Each Activity, Transaction or Budget row is repeated for each separate Sector reported. The corresponding percentage for the sector split is reported in a separate column. This allows you to easily add arithmetic to your spreadsheet to calculate values proportionately" />
-      </Grid>
+        />
+      </Grid> */}
+
+      {groups &&
+        groups.map(group => (
+          <Grid item xs={12} sm={4} md={4}>
+            {group.title && <RadioGroupTitle title={group.title} />}
+            {group && <RadioButtonsGroup items={group.items} />}
+          </Grid>
+        ))}
     </ModuleFragment>
   );
 };

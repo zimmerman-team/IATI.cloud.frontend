@@ -8,11 +8,15 @@ type Props = {
   control: JSX.Element;
 };
 
+/* todo: specify the spacing globally */
+
 const BaseComponent = styled(props => <FormControlLabel {...props} />)`
   && {
+    margin-right: 0;
     & [class*='MuiFormControlLabel-label'] {
       font-size: 14px;
       text-transform: capitalize;
+
       padding-left: 8px;
     }
   }

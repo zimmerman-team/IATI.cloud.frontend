@@ -5,7 +5,7 @@ import {
   SectorModel,
   SectorCategoryModel,
   CountryModel,
-  RegionModel
+  RegionModel,
 } from 'app/state/models';
 import { fromLocalStorage } from './utils';
 import { withEffects } from './effects';
@@ -17,6 +17,9 @@ export type ModuleStoreModel = {
   sectorCategories: SectorCategoryModel[];
   countries: CountryModel[];
   regions: RegionModel[];
+  outputFormat?: any;
+  repeatRows?: any;
+  sampleSize?: any;
 };
 
 const initialState = fromLocalStorage<ModuleStoreModel>({
@@ -25,7 +28,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   sectors: [],
   sectorCategories: [],
   countries: [],
-  regions: []
+  regions: [],
 });
 
 export type StoreEffect = Effects<ModuleStoreModel>;

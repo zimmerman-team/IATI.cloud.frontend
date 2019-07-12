@@ -36,7 +36,7 @@ export const fragmentConfig: FragmentModel = {
     className: 'organisationTypeSelect',
     name: 'organisationTypes',
     getOptionLabel: option => `${option.code}: ${option.name}`,
-    getOptionValue: option => option.code
+    getOptionValue: option => option.code,
   },
   organisationSector: {
     label: 'Organisation sector',
@@ -47,7 +47,7 @@ export const fragmentConfig: FragmentModel = {
     className: 'organisationSectorSelect',
     name: 'organisationSector',
     getOptionLabel: option => `${option.code}: ${option.name}`,
-    getOptionValue: option => option.code
+    getOptionValue: option => option.code,
   },
   organisations: {
     label: 'Organisation name',
@@ -60,6 +60,6 @@ export const fragmentConfig: FragmentModel = {
     getOptionLabel: (option: OrganisationModel) =>
       `${option.organisation_identifier}: ${option.name.narratives[0].text}`,
     getOptionValue: (option: OrganisationModel) =>
-      option.organisation_identifier
-  }
+      option.organisation_identifier,
+  },
 };

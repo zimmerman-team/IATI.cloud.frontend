@@ -8,60 +8,41 @@ import styled from 'styled-components';
 import TooltipButton from 'app/components/inputs/buttons/TooltipButton';
 import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
+import { RadioGroupItem } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupItem';
 
-type Props = {
+type ItemModel = {
+  value: string;
+  label: string;
+};
+export type RadioButtonsGroupModel = {
+  title?: string;
   tip?: string;
+  items: ItemModel[];
+  groupID?: string;
 };
 
-/* todo: make re-usable component of this */
-const GroupTitle = styled(props => <FormLabel {...props} />)`
-  && {
-    font-size: 12px;
-    color: black;
-
-    //margin-bottom: 8px;
-  }
-`;
-
-const RadioButtonsGroup = (props: Props) => {
-  const [value, setValue] = React.useState('female');
+const RadioButtonsGroup = (props: RadioButtonsGroupModel) => {
+  const [value, setValue] = React.useState('0');
 
   function handleChange(event: React.ChangeEvent<unknown>) {
+    // todo: implement module store logic
     setValue((event.target as HTMLInputElement).value);
+    console.log('value has been set to', value);
   }
 
   return (
     <React.Fragment>
       <FormControl component="fieldset">
-        <Grid container alignItems="center" spacing={2}>
-          <Grid item>
-            <GroupTitle component="legend">Row format</GroupTitle>
-          </Grid>
-          <Grid item>
-            <TooltipButton tip={props.tip} />
-          </Grid>
-        </Grid>
         <RadioGroup
           aria-label="gender"
           name="rowFormat"
           value={value}
           onChange={handleChange}
         >
-          <FormItemLabel
-            value="female"
-            control={<RadioButton />}
-            label="Each unique activity"
-          />
-          <FormItemLabel
-            value="male"
-            control={<RadioButton />}
-            label="Each financial transaction"
-          />
-          <FormItemLabel
-            value="other"
-            control={<RadioButton />}
-            label="Each budget in the defined period"
-          />
+          {props.items &&
+            props.items.map(item => (
+              <RadioGroupItem value={item.value} label={item.label} />
+            ))}
         </RadioGroup>
       </FormControl>
     </React.Fragment>

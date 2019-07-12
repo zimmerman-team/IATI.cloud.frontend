@@ -12,7 +12,7 @@ import {
   IntroFragment,
   OutputFragment,
   ResultFragment,
-  WhoFragment
+  WhoFragment,
 } from 'app/modules/QueryBuilder/fragments';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 /* config & mock */
@@ -25,7 +25,7 @@ export const QueryBuilderLayout = () => {
       {/* for using the box util component to set top padding because of the fixed positioning of appbar */}
       <Box paddingTop="100px">
         {/* INTRO FRAGMENT */}
-        {/*<IntroFragment />*/}
+        <IntroFragment />
         <FragmentDivider />
 
         {/* WHO FRAGMENT */}
@@ -33,19 +33,19 @@ export const QueryBuilderLayout = () => {
         <FragmentDivider />
 
         {/* FILTERS FRAGMENT */}
-        {/*<FilterFragment />*/}
+        {/* <FilterFragment /> */}
         <FragmentDivider />
 
         {/* OUTPUT FORMAT FRAGMENT */}
-        {/*<OutputFragment />*/}
+        <OutputFragment />
         <FragmentDivider />
 
         {/* RESULT FRAGMENT */}
         {/* the ResultFragment contains FragmentDivider */}
-        {/*<ResultFragment />*/}
+        {/* <ResultFragment /> */}
 
         {/* DOWNLOAD FRAGMENT */}
-        {/*<DownloadFragment store={store} />*/}
+        {/* <DownloadFragment store={store} /> */}
       </Box>
     </Container>
   );
