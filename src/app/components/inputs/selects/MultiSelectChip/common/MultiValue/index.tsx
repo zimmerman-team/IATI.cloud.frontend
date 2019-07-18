@@ -16,7 +16,7 @@ function MultiValue(props: MultiValueProps<OptionType>) {
       tabIndex={-1}
       label={props.children}
       className={clsx(props.selectProps.classes.chip, {
-        [props.selectProps.classes.chipFocused]: props.isFocused
+        [props.selectProps.classes.chipFocused]: props.isFocused,
       })}
       onDelete={props.removeProps.onClick}
       deleteIcon={<IconChipDelete {...props.removeProps} />}
@@ -29,7 +29,7 @@ MultiValue.propTypes = {
   children: PropTypes.node,
   isFocused: PropTypes.bool,
   removeProps: PropTypes.object.isRequired,
-  selectProps: PropTypes.object.isRequired
+  selectProps: PropTypes.object.isRequired,
 } as any;
 
 export default MultiValue;

@@ -1,4 +1,4 @@
-import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
+// import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
 
 export const HOSTNAME =
   process.env.NODE_ENV === 'development'
@@ -70,7 +70,7 @@ const api = <T>(endpoint: Endpoint): ApiModel<T> => ({
     actions.call();
     const response = await endpoint<T>();
     actions.success({ data: response });
-  })
+  }),
 });
 
 export default api;

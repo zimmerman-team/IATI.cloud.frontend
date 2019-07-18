@@ -6,5 +6,5 @@ import { requestHostInterceptor } from './interceptors/requestHostInterceptor';
 const HOST = 'http://localhost:3000/';
 
 export const Client = createClient({
-  requestInterceptors: [requestHostInterceptor(HOST)]
+  requestInterceptors: [requestHostInterceptor(HOST)],
 });

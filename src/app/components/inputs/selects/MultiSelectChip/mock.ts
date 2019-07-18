@@ -37,10 +37,10 @@ const suggestions: OptionType[] = [
   { label: 'Bouvet Island' },
   { label: 'Brazil' },
   { label: 'British Indian Ocean Territory' },
-  { label: 'Brunei Darussalam' }
+  { label: 'Brunei Darussalam' },
 ].map(suggestion => ({
   value: suggestion.label,
-  label: suggestion.label
+  label: suggestion.label,
 }));
 
 export default suggestions;

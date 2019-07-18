@@ -16,7 +16,7 @@ const AntSwitch = withStyles(theme => ({
     padding: 0,
     display: 'flex',
     overflow: 'initial',
-    margin: 9
+    margin: 9,
   },
   switchBase: {
     padding: 4,
@@ -25,21 +25,21 @@ const AntSwitch = withStyles(theme => ({
       color: theme.palette.common.white,
       '& + $track': {
         opacity: 1,
-        backgroundColor: theme.palette.primary.main
-      }
-    }
+        backgroundColor: theme.palette.primary.main,
+      },
+    },
   },
   thumb: {
     width: 12,
     height: 12,
-    boxShadow: 'none'
+    boxShadow: 'none',
   },
   track: {
     borderRadius: 12,
     opacity: 1,
-    backgroundColor: theme.palette.grey[500]
+    backgroundColor: theme.palette.grey[500],
   },
-  checked: {}
+  checked: {},
 }))(Base);
 
 const Switch = (props: Props) => {

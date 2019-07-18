@@ -3,11 +3,11 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     useJSXTextNode: true,
     project: './tsconfig.json',
-    tsconfigRootDir: './'
+    tsconfigRootDir: './',
   },
   /*settings: {
     'import/resolver': {
@@ -21,37 +21,37 @@ module.exports = {
     'prettier',
     'prettier/react',
     'plugin:jest/recommended',
-    'jest-enzyme'
+    'jest-enzyme',
   ],
 
   env: {
     es6: true,
     node: true,
-    browser: true
+    browser: true,
   },
   plugins: ['prettier', 'react', 'react-hooks'],
   rules: {
     'react/jsx-filename-extension': [
       0,
-      { extensions: ['.js', '.jsx', '.tsx'] }
+      { extensions: ['.js', '.jsx', '.tsx'] },
     ],
     'react/jsx-no-duplicate-props': [
       'error',
       {
-        ignoreCase: false
-      }
+        ignoreCase: false,
+      },
     ],
     'react/jsx-max-depth': [
       'error',
       {
-        max: 5
-      }
+        max: 5,
+      },
     ],
     'react/boolean-prop-naming': [
       'error',
       {
-        rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+'
-      }
+        rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+',
+      },
     ],
     'react/prop-types': 0,
     'react/jsx-no-bind': 0,
@@ -88,6 +88,6 @@ module.exports = {
     'react/no-unused-prop-types': 0,
     'no-console': 0,
     'object-shorthand': 0,
-    'import/no-extraneous-dependencies': 0
-  }
+    'import/no-extraneous-dependencies': 0,
+  },
 };

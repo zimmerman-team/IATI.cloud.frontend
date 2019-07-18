@@ -5,7 +5,7 @@ import api, { ApiModel } from 'app/state/api';
 export interface OrganisationsInterface extends ApiModel<OrganisationModel[]> {}
 
 const organisations: OrganisationsInterface = {
-  ...api(getOrganisations)
+  ...api(getOrganisations),
 };
 
 export default organisations;

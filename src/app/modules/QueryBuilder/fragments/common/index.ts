@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { GridSpacing } from '@material-ui/core/Grid';
 /* common*/
 import { ModuleFragment } from 'app/modules/QueryBuilder/fragments/common/ModuleFragment';
-import { FragmentDivider } from 'app/modules/QueryBuilder/fragments/common/FragmentDivider';
+import FragmentDivider from 'app/modules/QueryBuilder/fragments/common/FragmentDivider';
 
 export type FragmentConfigType = {
   name?: string;

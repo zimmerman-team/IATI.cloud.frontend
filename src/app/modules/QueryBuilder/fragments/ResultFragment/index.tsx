@@ -10,7 +10,7 @@ import DataTable from 'app/components/datadisplay/tables/DataTable';
 
 import {
   FragmentProps,
-  FragmentDivider
+  FragmentDivider,
 } from 'app/modules/QueryBuilder/fragments/common';
 /* config & mock */
 

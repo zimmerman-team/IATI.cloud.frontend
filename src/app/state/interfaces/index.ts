@@ -11,5 +11,5 @@ export {
   OrganisationTypesInterface,
   RegionsInterface,
   SectorCategoryInterface,
-  SectorsInterface
+  SectorsInterface,
 };

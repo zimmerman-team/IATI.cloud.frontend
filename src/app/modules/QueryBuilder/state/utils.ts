@@ -2,7 +2,7 @@ import mapValues from 'lodash/mapValues';
 import {
   OrganisationModel,
   OrganisationTypeModel,
-  SectorModel
+  SectorModel,
 } from 'app/state/models';
 
 import { formatUrl } from 'url-lib';
@@ -72,7 +72,7 @@ export const constructQuery = store => {
       organisationTypesGroup
         ? { 'reporting-org.type': organisationTypesGroup }
         : null,
-      sectorsGroup ? { sector: sectorsGroup } : null
+      sectorsGroup ? { sector: sectorsGroup } : null,
     ]
   );
 

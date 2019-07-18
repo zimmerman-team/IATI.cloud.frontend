@@ -37,14 +37,14 @@ const Container = (props: ChippieProps) => {
           'Activity',
           'Locations',
           'Transactions',
-          'Organisation'
+          'Organisation',
         ]}
         chipRenderer={(
           { value, isFocused, isDisabled, handleClick, handleDelete },
           key
         ) => <Chip key={key} label={value} />}
         InputLabelProps={{
-          shrink: false
+          shrink: false,
         }}
         {...props}
       />

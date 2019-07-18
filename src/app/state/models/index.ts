@@ -13,5 +13,5 @@ export {
   OrganisationTypeModel,
   RegionModel,
   SectorCategoryModel,
-  SectorModel
+  SectorModel,
 };

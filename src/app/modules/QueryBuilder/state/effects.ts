@@ -5,7 +5,7 @@ import { StoreEffect } from './store';
 import {
   OrganisationModel,
   OrganisationTypeModel,
-  SectorModel
+  SectorModel,
 } from 'app/state/models';
 
 import appStore from 'app/state/store';
@@ -28,8 +28,8 @@ fields:
 
  */
 export const withEffects: StoreEffect = store => {
-  store.onAll().subscribe(({ key, value }) => {
-    localStorage.setItem(key, JSON.stringify(value));
+  store.onAll().subscribe(() => {
+    // localStorage.setItem(key, JSON.stringify(value));
 
     /* todo: too much repetition, refactor to be more efficient */
     const organisationTypes = store.get('organisationTypes')
@@ -56,7 +56,7 @@ export const withEffects: StoreEffect = store => {
         // check if the object contain data, else return null
         organisations ? { 'reporting-org': organisations } : null,
         organisationTypes ? { 'reporting-org.type': organisationTypes } : null,
-        sectorCategories ? { sector: sectorCategories } : null
+        sectorCategories ? { sector: sectorCategories } : null,
       ]
     );
 

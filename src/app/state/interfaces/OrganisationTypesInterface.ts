@@ -6,7 +6,7 @@ export interface OrganisationTypesInterface
   extends ApiModel<OrganisationTypeModel[]> {}
 
 const organisationTypes: OrganisationTypesInterface = {
-  ...api(getOrganisationTypes)
+  ...api(getOrganisationTypes),
 };
 
 export default organisationTypes;

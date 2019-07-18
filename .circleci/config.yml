@@ -48,7 +48,7 @@ jobs:
             fi
             source $BASH_ENV
       - run: yarn build
-#      - run: yarn build-storybook
+      - run: yarn build-storybook
       - run:
           name: Add target host to known_hosts files
           command: |
@@ -80,18 +80,18 @@ jobs:
             else
               rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder
             fi
-#      - run:
-#          name: Upload storybook build folder to target host
-#          command: |
-#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#              rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_DEV":~/storybook
-#            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-#              rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_DEV":~/storybook
-#            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-#              rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_DEV":~/storybook
-#            else
-#              rsync -O -ave ssh ~/oipa-query-builder/.out "$SSH_USER"@"$SSH_HOST_DEV":~/storybook
-#            fi
+      - run:
+          name: Upload storybook build folder to target host
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
+            else
+              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
+            fi
 
   test_e2e:
     docker:
@@ -109,13 +109,13 @@ jobs:
           name: Set CYPRESS_BASEURL
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+               echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+               echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+               echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
             else
-               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+               echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
             fi
             source $BASH_ENV
       - run:
@@ -142,28 +142,28 @@ jobs:
           name: Run lighthouse against deployment
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-               lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
+               lighthouse "$REACT_APP_PROJECT_URL_DEV" \
                 --port=9222 \
                       --chrome-flags=\"--headless\" \
                       --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')"-$(date +'%Y-%m-%d') \
                       --output=json \
                       --output=html
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-                lighthouse "https://$REACT_APP_PROJECT_URL_TEST" \
+                lighthouse "$REACT_APP_PROJECT_URL_TEST" \
                  --port=9222 \
                       --chrome-flags=\"--headless\" \
                       --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')"-$(date +'%Y-%m-%d') \
                       --output=json \
                       --output=html
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-                 lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
+                 lighthouse "$REACT_APP_PROJECT_URL_DEV" \
                   --port=9222 \
                       --chrome-flags=\"--headless\" \
                       --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')"-$(date +'%Y-%m-%d') \
                       --output=json \
                       --output=html
             else
-                  lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
+                  lighthouse "$REACT_APP_PROJECT_URL_DEV" \
                    --port=9222 \
                       --chrome-flags=\"--headless\" \
                       --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')"-$(date +'%Y-%m-%d') \
@@ -218,13 +218,13 @@ jobs:
           name: Send report files to droplet
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder/
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_TEST":~/oipa-query-builder/
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_TEST":/home/oipa-query-builder/
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder/
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/
             else
-                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder/
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/
             fi
       - run:
           name: Analyze and report desired vs actual lighthouse scores
@@ -243,9 +243,9 @@ workflows:
 #      - test_e2e:
 #          requires:
 #            - build_deploy
-    # - performance_test:
-     #     requires:
-      #      - build_deploy
-      #- process_performance_test_results:
-       #   requires:
-        #    - performance_test 
+      - performance_test:
+          requires:
+            - build_deploy
+      - process_performance_test_results:
+          requires:
+            - performance_test

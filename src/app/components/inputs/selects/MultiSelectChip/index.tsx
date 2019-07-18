@@ -40,28 +40,28 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      height: 'auto'
+      height: 'auto',
     },
     input: {
       display: 'flex',
       paddingLeft: '12px',
       paddingRight: '8px',
       height: 'auto',
-      backgroundColor: '#f0f3f7'
+      backgroundColor: '#f0f3f7',
     },
     valueContainer: {
       display: 'flex',
       flexWrap: 'wrap',
       flex: 1,
       alignItems: 'center',
-      overflow: 'hidden'
+      overflow: 'hidden',
     },
     singleValue: {
-      fontSize: 16
+      fontSize: 16,
     },
     divider: {
-      height: theme.spacing(2)
-    }
+      height: theme.spacing(2),
+    },
   })
 );
 
@@ -75,7 +75,7 @@ const components = {
   SingleValue,
   ValueContainer,
   DropdownIndicator,
-  ClearIndicator
+  ClearIndicator,
 };
 
 /* todo: move to external component */

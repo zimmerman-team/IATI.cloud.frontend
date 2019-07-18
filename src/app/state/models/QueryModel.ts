@@ -10,5 +10,5 @@ export const queryModel: QueryModel = {
   updateQuery: action((state, payload) => {
     // eslint-disable-next-line
     state.url = payload;
-  })
+  }),
 };
