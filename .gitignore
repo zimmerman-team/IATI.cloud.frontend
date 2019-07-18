@@ -72,6 +72,6 @@ cypress/screenshots/
 cypress/videos/
 
 #storybook build
-.out/
+build_storybook/
 
 
