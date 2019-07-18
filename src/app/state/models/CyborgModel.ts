@@ -5,7 +5,7 @@ import { Endpoint } from 'app/state/interfaces/Endpoint';
 export const fetchBorgUnits: Endpoint = (params: RequestInit = {}) =>
   fetch(`${HOSTNAME}data/borg.json`, {
     method: 'GET',
-    ...params
+    ...params,
   }).then(res => res.json());
 
 export interface BorgFragmentModule {
@@ -36,5 +36,5 @@ export const borgCollective: BorgCollectiveModel = {
   removeBorgUnit: action(state => {
     state.units.pop();
   }),
-  ...api(fetchBorgUnits)
+  ...api(fetchBorgUnits),
 };

@@ -6,7 +6,7 @@ export interface SectorCategoryInterface
   extends ApiModel<SectorCategoryModel[]> {}
 
 const sectorCategories: SectorCategoryInterface = {
-  ...api(getSectorCategories)
+  ...api(getSectorCategories),
 };
 
 export default sectorCategories;

@@ -17,7 +17,7 @@ const applicationStore: ApplicationStoreModel = {
   countries: countries,
   sectorCategories: sectorCategories,
   borgCollective: borgCollective,
-  query: queryModel
+  query: queryModel,
 };
 
 const appStore = createStore(applicationStore);

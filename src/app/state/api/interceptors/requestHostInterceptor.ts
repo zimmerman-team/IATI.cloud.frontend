@@ -5,6 +5,6 @@ export const requestHostInterceptor: (
 ) => RequestInterceptor = host => () => async action => {
   return {
     ...action,
-    endpoint: `${host}${action.endpoint}`
+    endpoint: `${host}${action.endpoint}`,
   };
 };

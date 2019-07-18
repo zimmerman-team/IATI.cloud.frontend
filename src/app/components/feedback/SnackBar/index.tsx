@@ -13,7 +13,7 @@ const variantIcon = {
   success: CheckCircleIcon,
   warning: WarningIcon,
   error: ErrorIcon,
-  info: InfoIcon
+  info: InfoIcon,
 };
 
 type SnackBarProps = {
@@ -26,21 +26,21 @@ type SnackBarProps = {
 
 const useStyles = makeStyles(() => ({
   success: {
-    backgroundColor: '#f25139'
+    backgroundColor: '#f25139',
   },
   error: {
-    backgroundColor: '#46b275'
+    backgroundColor: '#46b275',
   },
   info: {
     backgroundColor: '#FFFFFF',
     color: 'black',
     '& svg': {
-      color: 'blue'
-    }
+      color: 'blue',
+    },
   },
   warning: {
-    backgroundColor: '#f7ad1b'
-  }
+    backgroundColor: '#f7ad1b',
+  },
 }));
 
 const BaseSnackbar = styled(props => <Snackbar {...props} />)`
@@ -103,6 +103,6 @@ SnackBar.defaultProps = {
   variant: 'info',
   anchorOrigin: {
     vertical: 'bottom',
-    horizontal: 'left'
-  }
+    horizontal: 'left',
+  },
 };

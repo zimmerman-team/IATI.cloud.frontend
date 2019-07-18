@@ -3,4 +3,4 @@ export type SectorCategoryModel = {
   name: string;
   language: string;
   description?: string;
-}
+};

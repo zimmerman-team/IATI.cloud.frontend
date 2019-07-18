@@ -24,25 +24,25 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: 'flex',
       flexWrap: 'wrap',
-      marginBottom: '20px'
+      marginBottom: '20px',
     },
     formControl: {
       margin: theme.spacing(1),
-      minWidth: 277
+      minWidth: 277,
     },
     selectEmpty: {
-      marginTop: theme.spacing(2)
+      marginTop: theme.spacing(2),
     },
     menProps: {
       transition: 'initial!important',
       borderRadius: '2px',
       marginTop: '40px',
       boxShadow:
-        '0 4px 14px -2px rgba(130, 136, 148, 0.28), 0 0 2px 0 rgba(130, 136, 148, 0.22)'
+        '0 4px 14px -2px rgba(130, 136, 148, 0.28), 0 0 2px 0 rgba(130, 136, 148, 0.22)',
     },
     listProps: {
-      padding: 0
-    }
+      padding: 0,
+    },
   })
 );
 
@@ -78,8 +78,8 @@ const MultiSelect = (props: MultiSelectProps) => {
         MenuProps={{
           classes: {
             paper: classes.menProps,
-            list: classes.listProps
-          }
+            list: classes.listProps,
+          },
         }}
       >
         {props.data.map(item => (

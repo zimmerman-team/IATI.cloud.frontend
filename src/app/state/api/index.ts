@@ -70,7 +70,7 @@ const api = <T>(endpoint: Endpoint): ApiModel<T> => ({
     actions.call();
     const response = await endpoint<T>();
     actions.success({ data: response });
-  })
+  }),
 });
 
 export default api;

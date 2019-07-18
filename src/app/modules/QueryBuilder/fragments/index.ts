@@ -11,7 +11,7 @@ export {
   FilterFragment,
   OutputFragment,
   ResultFragment,
-  DownloadFragment
+  DownloadFragment,
 };
 
 export type FragmentBaseModel = {

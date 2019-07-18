@@ -20,8 +20,8 @@ export const optionsFilter: OptionType[] = [
   { name: 'Regions' },
   { name: 'Budgets' },
   { name: 'Codelists' },
-  { name: 'Chains' }
+  { name: 'Chains' },
 ].map(suggestion => ({
   code: suggestion.name,
-  name: suggestion.name
+  name: suggestion.name,
 }));

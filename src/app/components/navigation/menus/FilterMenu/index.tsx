@@ -38,7 +38,7 @@ const FilterMenu = (props: Props) => {
           {...TransitionProps}
           style={{
             transformOrigin:
-              placement === 'bottom' ? 'center top' : 'center bottom'
+              placement === 'bottom' ? 'center top' : 'center bottom',
           }}
         >
           <Paper id="menu-list-grow">

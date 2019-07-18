@@ -5,7 +5,7 @@ import api, { ApiModel } from 'app/state/api';
 export interface RegionInterface extends ApiModel<RegionModel[]> {}
 
 const regions: RegionInterface = {
-  ...api(getRegions)
+  ...api(getRegions),
 };
 
 export default regions;

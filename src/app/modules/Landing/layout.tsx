@@ -14,27 +14,27 @@ import Background from 'app/components/surfaces/Background';
 
 const useStyles = makeStyles(theme => ({
   h3: {
-    marginBottom: '8px'
+    marginBottom: '8px',
   },
   body2: {
-    marginBottom: '24px'
+    marginBottom: '24px',
   },
   caption: {
     opacity: 0.6,
     position: 'absolute',
-    bottom: '32px'
+    bottom: '32px',
   },
   link: {
     color: '#fff',
     textDecoration: 'none',
     fontWeight: 600,
     '&:visited ': {
-      color: '#FFF'
+      color: '#FFF',
     },
     '&:hover': {
-      color: '#FFF'
-    }
-  }
+      color: '#FFF',
+    },
+  },
 }));
 
 const TypoMod = styled(props => <Typography {...props} />)`

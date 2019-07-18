@@ -5,7 +5,7 @@ import api, { ApiModel } from 'app/state/api';
 export interface CountryInterface extends ApiModel<CountryModel[]> {}
 
 const countries: CountryInterface = {
-  ...api(getCountries)
+  ...api(getCountries),
 };
 
 export default countries;
