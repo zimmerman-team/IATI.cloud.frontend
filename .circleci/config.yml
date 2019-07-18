@@ -84,13 +84,13 @@ jobs:
           name: Upload storybook build folder to target host
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":~/build_storybook
+              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":~/build_storybook
+              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":~/build_storybook
+              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
             else
-              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":~/build_storybook
+              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
             fi
 
   test_e2e:
