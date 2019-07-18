@@ -109,13 +109,13 @@ jobs:
           name: Set CYPRESS_BASEURL
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+               echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+               echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+               echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
             else
-               echo 'export CYPRESS_baseUrl="https://$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+               echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
             fi
             source $BASH_ENV
       - run:
@@ -142,28 +142,28 @@ jobs:
           name: Run lighthouse against deployment
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-               lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
+               lighthouse "$REACT_APP_PROJECT_URL_DEV" \
                 --port=9222 \
                       --chrome-flags=\"--headless\" \
                       --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')"-$(date +'%Y-%m-%d') \
                       --output=json \
                       --output=html
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-                lighthouse "https://$REACT_APP_PROJECT_URL_TEST" \
+                lighthouse "$REACT_APP_PROJECT_URL_TEST" \
                  --port=9222 \
                       --chrome-flags=\"--headless\" \
                       --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')"-$(date +'%Y-%m-%d') \
                       --output=json \
                       --output=html
             elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-                 lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
+                 lighthouse "$REACT_APP_PROJECT_URL_DEV" \
                   --port=9222 \
                       --chrome-flags=\"--headless\" \
                       --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')"-$(date +'%Y-%m-%d') \
                       --output=json \
                       --output=html
             else
-                  lighthouse "https://$REACT_APP_PROJECT_URL_DEV" \
+                  lighthouse "$REACT_APP_PROJECT_URL_DEV" \
                    --port=9222 \
                       --chrome-flags=\"--headless\" \
                       --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')"-$(date +'%Y-%m-%d') \
