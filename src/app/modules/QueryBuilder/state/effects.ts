@@ -28,8 +28,8 @@ fields:
 
  */
 export const withEffects: StoreEffect = store => {
-  store.onAll().subscribe(({ key, value }) => {
-    localStorage.setItem(key, JSON.stringify(value));
+  store.onAll().subscribe(() => {
+    // localStorage.setItem(key, JSON.stringify(value));
 
     /* todo: too much repetition, refactor to be more efficient */
     const organisationTypes = store.get('organisationTypes')
