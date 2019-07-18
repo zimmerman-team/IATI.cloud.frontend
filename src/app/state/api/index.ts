@@ -1,4 +1,4 @@
-import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
+// import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
 
 export const HOSTNAME =
   process.env.NODE_ENV === 'development'

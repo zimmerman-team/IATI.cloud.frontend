@@ -6,7 +6,7 @@ import sectors from 'app/state/interfaces/SectorsInterface';
 import regions from 'app/state/interfaces/RegionsInterface';
 import countries from 'app/state/interfaces/CountriesInterface';
 import sectorCategories from 'app/state/interfaces/SectorCategoryInterface';
-import { borgCollective } from 'app/state/models/CyborgModel';
+// import { borgCollective } from 'app/state/models/CyborgModel';
 import { queryModel } from 'app/state/models/QueryModel';
 
 const applicationStore: ApplicationStoreModel = {
@@ -16,7 +16,6 @@ const applicationStore: ApplicationStoreModel = {
   regions: regions,
   countries: countries,
   sectorCategories: sectorCategories,
-  borgCollective: borgCollective,
   query: queryModel,
 };
 
