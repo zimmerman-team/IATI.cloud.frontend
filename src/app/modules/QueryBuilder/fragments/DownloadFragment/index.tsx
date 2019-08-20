@@ -8,14 +8,19 @@ import Download from '@material-ui/icons/GetApp';
 /* project component */
 import URLField from 'app/components/inputs/textdisplay/URLField';
 import IconButton from 'app/components/inputs/buttons/IconButton';
-import { useStoreState } from 'app/state/store';
+// import { useStoreState,State } from 'easy-peasy';
+// import { useStoreState, State } from 'easy-peasy';
 /* props & base */
 /* config & mock */
 import { fragmentConfig } from './model';
 
+import { ApplicationStoreModel } from 'app/state/models/ApplicationStoreModel';
+import { useStoreState } from 'app/state/store';
+// import { ApplicationStoreModel } from 'app/state/models';
+// import { useStoreState } from 'app/state/store';
 export const DownloadFragment = ({ store }) => {
   /* get query url from app store */
-  const queryURL = useStoreState(appStore => appStore.query.url);
+  const queryURL = useStoreState( state => state.query.url);
 
   return (
     <Grid container spacing={2} justify="space-between">

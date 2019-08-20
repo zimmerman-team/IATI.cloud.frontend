@@ -33,7 +33,7 @@ export const QueryBuilderLayout = () => {
         <FragmentDivider />
 
         {/* FILTERS FRAGMENT */}
-        {/* <FilterFragment /> */}
+         <FilterFragment />
         <FragmentDivider />
 
         {/* OUTPUT FORMAT FRAGMENT */}
@@ -42,10 +42,10 @@ export const QueryBuilderLayout = () => {
 
         {/* RESULT FRAGMENT */}
         {/* the ResultFragment contains FragmentDivider */}
-        {/* <ResultFragment /> */}
+         <ResultFragment />
 
         {/* DOWNLOAD FRAGMENT */}
-        {/* <DownloadFragment store={store} /> */}
+         <DownloadFragment store={store} />
       </Box>
     </Container>
   );

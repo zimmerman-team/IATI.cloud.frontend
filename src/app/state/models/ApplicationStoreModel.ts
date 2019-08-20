@@ -7,7 +7,7 @@ import { SectorCategoryInterface } from 'app/state/interfaces/SectorCategoryInte
 // import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
 import { QueryModel } from 'app/state/models/QueryModel';
 
-export type ApplicationStoreModel = {
+export interface ApplicationStoreModel {
   organisationTypes: OrganisationTypesInterface;
   organisations: OrganisationsInterface;
   sectors: SectorsInterface;
@@ -16,4 +16,4 @@ export type ApplicationStoreModel = {
   sectorCategories: SectorCategoryInterface;
   // borgCollective: BorgCollectiveModel;
   query: QueryModel;
-};
+}
