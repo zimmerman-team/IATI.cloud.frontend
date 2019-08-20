@@ -1,6 +1,5 @@
 {
   "workbench.colorCustomizations": {
-    "activityBarBadge.background": "#2979FF",
     "list.activeSelectionForeground": "#2979FF",
     "list.inactiveSelectionForeground": "#2979FF",
     "list.highlightForeground": "#2979FF",
@@ -9,7 +8,6 @@
     "textLink.foreground": "#2979FF",
     "progressBar.background": "#2979FF",
     "pickerGroup.foreground": "#2979FF",
-    "tab.activeBorder": "#2979FF",
     "notificationLink.foreground": "#2979FF",
     "editorWidget.resizeBorder": "#2979FF",
     "editorWidget.border": "#2979FF",
@@ -20,5 +18,6 @@
     "menu.selectionForeground": "#2979FF",
     "menubar.selectionForeground": "#2979FF"
   },
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "peacock.affectAccentBorders": true
 }
