@@ -25,14 +25,14 @@ module.exports = ({ config }) => {
           // It enables caching results in ./node_modules/.cache/babel-loader/
           // directory for faster rebuilds.
           cacheDirectory: true,
-          cacheCompression: false,
-          compact: false
+          cacheCompression: true,
+          compact: true
         }
       },
       // Optional
-      {
+      /*{
         loader: require.resolve('react-docgen-typescript-loader')
-      }
+      }*/
     ]
   });
   config.resolve.extensions.push('.ts', '.tsx');

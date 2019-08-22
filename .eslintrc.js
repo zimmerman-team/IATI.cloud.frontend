@@ -1,26 +1,21 @@
-// TODO: expand configuration and autoformat on save
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    ecmaVersion: 10,
     ecmaFeatures: {
       jsx: true,
     },
+    sourceType: 'module',
     useJSXTextNode: true,
     project: './tsconfig.json',
     tsconfigRootDir: './',
   },
-  /*settings: {
-    'import/resolver': {
-      node: {
-        moduleDirectory: ['node_modules', 'src']
-      }
-    }
-  },*/
   extends: [
     'airbnb',
     'prettier',
     'prettier/react',
     'plugin:jest/recommended',
+    'plugin:@typescript-eslint/recommended',
     'jest-enzyme',
   ],
 
@@ -56,8 +51,6 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-no-bind': 0,
     'no-underscore-dangle': 0,
-    'import/imports-first': ['warning', 'absolute-first'],
-    'import/newline-after-import': 'warning',
     'react/prefer-stateless-function': 'off',
     'react/destructuring-assignment': 0,
     'react/no-unused-state': 0,
@@ -81,7 +74,9 @@ module.exports = {
     'import/order': 0,
     'import/first': 0,
     'import/no-unresolved': 0,
-    // todo: enable on production
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/prefer-interface': 0,
+    '@typescript-eslint/indent': 0,
     'no-unused-vars': 0,
     'no-use-before-define': 0,
     'react/forbid-prop-types': 0,
