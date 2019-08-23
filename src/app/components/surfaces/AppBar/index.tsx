@@ -30,8 +30,6 @@ const BaseComponent = styled(props => <BaseAppBar {...props} />)`
           return theme.palette.grey.greyBase;
       }
     }};
-    position: fixed;
-    top: 0;
   }
 `;
 

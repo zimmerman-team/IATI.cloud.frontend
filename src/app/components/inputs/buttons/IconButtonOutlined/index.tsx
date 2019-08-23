@@ -22,7 +22,7 @@ const ZimmerButton = styled(props => <Button {...props} />)`
   && {
     justify-content: space-between;
     color: white;
-    width: 284px;
+    width: 100%;
     height: ${props => {
       switch (props.size) {
         case 'small':
