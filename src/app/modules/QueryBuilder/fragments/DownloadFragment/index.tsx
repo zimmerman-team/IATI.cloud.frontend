@@ -20,7 +20,7 @@ import { useStoreState } from 'app/state/store';
 // import { useStoreState } from 'app/state/store';
 export const DownloadFragment = ({ store }) => {
   /* get query url from app store */
-  const queryURL = useStoreState( state => state.query.url);
+  const queryURL = useStoreState(state => state.query.url);
 
   return (
     <Grid container spacing={2} justify="space-between">

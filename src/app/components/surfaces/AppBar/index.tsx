@@ -8,6 +8,7 @@ import AppBarButton from 'app/components/inputs/buttons/AppBarButton';
 import Grid from '@material-ui/core/Grid';
 import useLocation from 'react-use/lib/useLocation';
 import { Link } from 'react-router-dom';
+import { Box as MuiBox } from '@material-ui/core';
 
 const LinkMod = styled(Link)`
   text-decoration: none;
@@ -29,8 +30,12 @@ const BaseComponent = styled(props => <BaseAppBar {...props} />)`
           return theme.palette.grey.greyBase;
       }
     }};
-    position: fixed;
-    top: 0;
+  }
+`;
+
+const Box = styled(props => <MuiBox {...props} />)`
+  && {
+    margin: 20px;
   }
 `;
 
@@ -45,26 +50,20 @@ const AppBar = (props: AppBarProps) => {
       {...props}
     >
       <Toolbar>
-        <Grid
-          container
-          direction="row"
-          justify="space-between"
-          alignItems="center"
-        >
-          <Typography variant="h6">
-            <LinkMod to="/" data-cy="appbar-title">
-              {process.env.REACT_APP_CLIENT_NAME}
-            </LinkMod>
-          </Typography>
-          <Grid>
-            <AppBarButton label="Welcome" url="/" data-cy="appbar-button1" />
-            <AppBarButton
-              label="Query builder"
-              url="/querybuilder"
-              data-cy="appbar-button2"
-            />
-            {/*<AppBarButton label="API documentation" link="" data-cy="appbar-button3"/>*/}
-            {/*<AppBarButton label="Github" data-cy="appbar-button4"/>*/}
+        <Grid container direction="row" alignItems="center">
+          {/*<Typography variant="h6">*/}
+          {/*  <LinkMod to="/">{process.env.REACT_APP_CLIENT_NAME}</LinkMod>*/}
+          {/*</Typography>*/}
+          <Grid item>
+            <Box height="60px" width="256px" bgcolor="black" />
+          </Grid>
+
+          <Grid item justify="space-between">
+            <AppBarButton label="HOME" url="/" />
+            <AppBarButton label="ABOUT" url="/about" />
+            <AppBarButton label="QUERY BUILDER" url="/querybuilder" />
+            <AppBarButton label="API DOCUMENTATION" url="/api-documentation" />
+            <AppBarButton label="GUIDANCE" url="/guidance" />
           </Grid>
         </Grid>
       </Toolbar>

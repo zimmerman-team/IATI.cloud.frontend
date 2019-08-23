@@ -2,15 +2,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import useTitle from 'react-use/lib/useTitle';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
-
 import IconButtonOutlined from 'app/components/inputs/buttons/IconButtonOutlined';
+import AppBar from 'app/components/surfaces/AppBar';
 import Background from 'app/components/surfaces/Background';
+import { ArticleCard } from 'app/components/surfaces/Cards/ArticleCard';
 
 const useStyles = makeStyles(theme => ({
   h3: {
@@ -37,65 +36,95 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const TypoMod = styled(props => <Typography {...props} />)`
-  color: white;
+const TypographyOpacity = styled(props => <Typography {...props} />)`
+  opacity: 0.8;
 `;
+
+export const LandingMidSection = () => {
+  return (
+    <>
+      <Box bgcolor="white" paddingTop="80px" paddingBottom="80px">
+        <Grid container direction="row" spacing={8}>
+          <Grid item md={4}>
+            <ArticleCard
+              loaded
+              title="About Datastore"
+              description="IATI is a global initiative to improve the transparency of development and humanitarian resources and their results for addressing poverty and crises."
+              buttonLabel="More"
+            />
+          </Grid>
+          <Grid item md={4}>
+            <ArticleCard
+              loaded
+              title="Query Builder"
+              description="This tool allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format. You create queries based on finding the organisations, and then be configured filter the published data down to what you need."
+              buttonLabel="More"
+            />
+          </Grid>
+          <Grid item md={4}>
+            <ArticleCard
+              loaded
+              title="Documentation"
+              description="This tool allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format. You create queries based on finding the organisations, and then be configured filter the published data down to what you need."
+              buttonLabel="More"
+            />
+          </Grid>
+        </Grid>
+      </Box>
+    </>
+  );
+};
 
 export const LandingLayout = () => {
   const classes = useStyles();
 
   return (
-    <Background>
-      <Container maxWidth="lg">
-        <Box paddingTop="100px">
-          <Grid container spacing={4} direction="column">
-            <Grid item xs={12} sm={12} md={6}>
-              <Box marginBottom="32px">
-                <TypoMod variant="h3" className={classes.h3}>
-                  IATI Datastore
-                </TypoMod>
-                <TypoMod variant="h5">
-                  The query builder tool makes it easy build queries to obtain
-                  data from the IATI Datastore in CSV, XML and JSON format.
-                </TypoMod>
-              </Box>
+    <>
+      <Background>
+        <Container maxWidth="lg">
+          {/*HEADER*/}
+
+          <Box width="100%" height="50px" />
+
+          {/*MAIN*/}
+
+          <Grid container direction="column">
+            <Grid item md={7} lg={7}>
+              <Typography variant="h3" color="textSecondary">
+                IATI Datastore
+              </Typography>
+              <Box width="100%" height="24px" />
+              <TypographyOpacity variant="h5" color="textSecondary">
+                The query builder tool makes it easy build queries to obtain
+                data from the IATI Datastore in CSV, XML and JSON format.
+              </TypographyOpacity>
+              <Box width="100%" height="24px" />
+              <TypographyOpacity variant="body2" color="textSecondary">
+                The query builder uses OIPA to query the IATI database. An
+                open-source libary by Zimmerman & Zimmerman which extracts and
+                stores raw IATI XML files from the IATI Registry and makes it
+                avalible as API endpoints to build data driven information
+                solutions.
+              </TypographyOpacity>
             </Grid>
 
-            <Grid item xs={12} sm={12} md={6}>
-              <TypoMod variant="body2" className={classes.body2}>
-                The query builder uses{' '}
-                <Link
-                  href="https://www.oipa.nl"
-                  color="textSecondary"
-                  className={classes.link}
-                >
-                  OIPA
-                </Link>{' '}
-                to query the IATI database. An open-source library by{' '}
-                <Link
-                  href="https://www.zimmermanzimmerman.nl"
-                  color="textSecondary"
-                  className={classes.link}
-                >
-                  Zimmerman & Zimmerman
-                </Link>{' '}
-                which extracts and stores raw IATI XML files from the IATI
-                Registry and makes it available as API endpoints to build data
-                driven information solutions.
-              </TypoMod>
-            </Grid>
+            <Box width="100%" height="36px" />
 
-            <Grid item xs={12}>
+            <Grid item md={4} lg={4}>
               <IconButtonOutlined label="Query Builder" />
             </Grid>
           </Grid>
+        </Container>
+      </Background>
+      {/*ARTICLES*/}
 
-          <TypoMod variant="caption" className={classes.caption}>
-            Code licensed under the GNU AGPL. Documentation licensed under CC BY
-            3.0.
-          </TypoMod>
-        </Box>
+      <Container maxWidth="lg">
+        <LandingMidSection />
       </Container>
-    </Background>
+
+      {/*FOOTER*/}
+      {/*TODO: replace box with footer component*/}
+      <Box width="100%" height="200px" bgcolor="#155366" />
+    </>
   );
 };

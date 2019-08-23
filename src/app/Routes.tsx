@@ -21,7 +21,6 @@ function Routes() {
   const fetchSectors = useStoreActions(actions => actions.sectors.fetch);
   const fetchCountries = useStoreActions(actions => actions.countries.fetch);
 
-
   useEffectOnce(() => {
     console.log('Running effect once on mount');
     fetchOrganisationTypes();
