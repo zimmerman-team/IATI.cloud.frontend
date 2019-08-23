@@ -11,7 +11,7 @@ import {
   CustomTreeData,
   IntegratedFiltering,
   IntegratedPaging,
-  IntegratedSorting
+  IntegratedSorting,
 } from '@devexpress/dx-react-grid';
 import {
   Grid,
@@ -22,8 +22,8 @@ import {
   Toolbar,
   TableColumnVisibility,
   SearchPanel,
-  ColumnChooser
-} from 'app/utils/dx-react-grid-material-ui/dx-react-grid-material-ui.es';
+  ColumnChooser,
+} from '@devexpress/dx-react-grid-material-ui';
 import TableRow from 'app/components/datadisplay/tables/common/TableRow';
 import TableCell from 'app/components/datadisplay/tables/common/TableCell';
 import { tasks, employees, priorities } from './data.json';
@@ -31,7 +31,7 @@ import { tasks, employees, priorities } from './data.json';
 const EmployeeFormatter = ({ row }) => (
   <div
     style={{
-      display: 'flex'
+      display: 'flex',
     }}
   >
     <div
@@ -42,7 +42,7 @@ const EmployeeFormatter = ({ row }) => (
         width: '30px',
         height: '30px',
         margin: '-8px 8px -8px 0',
-        textAlign: 'center'
+        textAlign: 'center',
       }}
     >
       <img
@@ -51,7 +51,7 @@ const EmployeeFormatter = ({ row }) => (
         }`}
         style={{
           height: '28px',
-          margin: '0 auto'
+          margin: '0 auto',
         }}
         alt="Avatar"
       />
@@ -77,23 +77,24 @@ export default class Demo extends React.PureComponent {
         {
           name: 'Priority',
           title: 'Priority',
-          getCellValue: row => priorities.find(p => p.ID === row.Priority).Value
+          getCellValue: row =>
+            priorities.find(p => p.ID === row.Priority).Value,
         },
         {
           name: 'Completion',
           title: '% Completed',
-          getCellValue: row => `${row.Completion}%`
+          getCellValue: row => `${row.Completion}%`,
         },
         {
           name: 'Start_Date',
           title: 'Start Date',
-          getCellValue: row => row.Start_Date.split('T')[0]
+          getCellValue: row => row.Start_Date.split('T')[0],
         },
         {
           name: 'Due_Date',
           title: 'Due Date',
-          getCellValue: row => row.Due_Date.split('T')[0]
-        }
+          getCellValue: row => row.Due_Date.split('T')[0],
+        },
       ],
       rows: tasks,
       pageSizes: [5, 10, 20],
@@ -104,11 +105,11 @@ export default class Demo extends React.PureComponent {
         { columnName: 'Priority', width: 100 },
         { columnName: 'Completion', width: 100 },
         { columnName: 'Start_Date', width: 120 },
-        { columnName: 'Due_Date', width: 120 }
+        { columnName: 'Due_Date', width: 120 },
       ],
       defaultHiddenColumnNames: ['Priority', 'Completion'],
       tableColumnExtensions: [{ columnName: 'Completion', align: 'right' }],
-      employeeColumns: ['Assigned_Employee_ID']
+      employeeColumns: ['Assigned_Employee_ID'],
     };
   }
 
@@ -119,7 +120,7 @@ export default class Demo extends React.PureComponent {
       pageSizes,
       defaultHiddenColumnNames,
       tableColumnExtensions,
-      employeeColumns
+      employeeColumns,
     } = this.state;
 
     return (

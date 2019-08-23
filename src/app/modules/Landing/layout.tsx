@@ -83,8 +83,8 @@ export const LandingLayout = () => {
       <Background>
         <Container maxWidth="lg">
           {/*HEADER*/}
-          <AppBar />
-          <Box width="100%" height="40px" />
+
+          <Box width="100%" height="50px" />
 
           {/*MAIN*/}
 

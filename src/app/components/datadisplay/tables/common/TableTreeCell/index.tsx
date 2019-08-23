@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { TableTreeColumn } from 'app/utils/dx-react-grid-material-ui/dx-react-grid-material-ui.es';
+import { TableTreeColumn } from '@devexpress/dx-react-grid-material-ui';
 type Props = {
   label?: string;
 };
