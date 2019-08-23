@@ -403,5 +403,73 @@
         "workspaceRoot": "/Users/zimmerman-jim/Documents/projects/zimmerman/oipa-query-builder",
         "workspacePath": "src/app/modules/Landing/story.tsx",
         "id": "xJ2tML1CmpB78qjG"
+    },
+    {
+        "type": "Group",
+        "name": "step 1",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "DBCq9eyiP6m0hMHb",
+        "iconColor": "rgb(255, 0, 0)"
+    },
+    {
+        "type": "Group",
+        "name": "step 2",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "JNrnyg7dDxkpBtfL",
+        "iconColor": "rgb(106, 90, 205)"
+    },
+    {
+        "type": "Group",
+        "name": "step 3",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "boMpHBudnN0zXs84",
+        "iconColor": "rgb(0, 0, 128)"
+    },
+    {
+        "type": "Group",
+        "name": "step 4",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "MbSBK1ZayWfXmh7t",
+        "iconColor": "rgb(255, 165, 0)"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/zimmerman-jim/Documents/projects/zimmerman/oipa-query-builder/src/app/modules/QueryBuilder/steps/organisation",
+        "parent_id": "DBCq9eyiP6m0hMHb",
+        "workspaceRoot": "/Users/zimmerman-jim/Documents/projects/zimmerman/oipa-query-builder",
+        "workspacePath": "src/app/modules/QueryBuilder/steps/organisation",
+        "id": "sH7PV3hRtMk8Iyj6"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/zimmerman-jim/Documents/projects/zimmerman/oipa-query-builder/src/app/modules/QueryBuilder/steps/additional-filters",
+        "parent_id": "JNrnyg7dDxkpBtfL",
+        "workspaceRoot": "/Users/zimmerman-jim/Documents/projects/zimmerman/oipa-query-builder",
+        "workspacePath": "src/app/modules/QueryBuilder/steps/additional-filters",
+        "id": "u7bMVHjPseJ90voE"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/zimmerman-jim/Documents/projects/zimmerman/oipa-query-builder/src/app/modules/QueryBuilder/steps/output-format",
+        "parent_id": "boMpHBudnN0zXs84",
+        "workspaceRoot": "/Users/zimmerman-jim/Documents/projects/zimmerman/oipa-query-builder",
+        "workspacePath": "src/app/modules/QueryBuilder/steps/output-format",
+        "id": "DZ1YsgR9xUQOk5Ll"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/zimmerman-jim/Documents/projects/zimmerman/oipa-query-builder/src/app/modules/QueryBuilder/steps/results",
+        "parent_id": "MbSBK1ZayWfXmh7t",
+        "workspaceRoot": "/Users/zimmerman-jim/Documents/projects/zimmerman/oipa-query-builder",
+        "workspacePath": "src/app/modules/QueryBuilder/steps/results",
+        "id": "SWd6G3a9RcVD2hFj"
     }
 ]

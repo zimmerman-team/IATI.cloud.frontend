@@ -59,6 +59,8 @@
     "no-unused-expression": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
+
+    "jsx-self-close":false,
     "jsdoc-format": false,
     "one-line": [
       true,
