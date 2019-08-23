@@ -40,18 +40,54 @@ const TypographyOpacity = styled(props => <Typography {...props} />)`
   opacity: 0.8;
 `;
 
+export const LandingMidSection = () => {
+  return (
+    <>
+      <Box bgcolor="white" paddingTop="80px" paddingBottom="80px">
+        <Grid container direction="row" spacing={8}>
+          <Grid item md={4}>
+            <ArticleCard
+              loaded
+              title="About Datastore"
+              description="IATI is a global initiative to improve the transparency of development and humanitarian resources and their results for addressing poverty and crises."
+              buttonLabel="More"
+            />
+          </Grid>
+          <Grid item md={4}>
+            <ArticleCard
+              loaded
+              title="Query Builder"
+              description="This tool allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format. You create queries based on finding the organisations, and then be configured filter the published data down to what you need."
+              buttonLabel="More"
+            />
+          </Grid>
+          <Grid item md={4}>
+            <ArticleCard
+              loaded
+              title="Documentation"
+              description="This tool allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format. You create queries based on finding the organisations, and then be configured filter the published data down to what you need."
+              buttonLabel="More"
+            />
+          </Grid>
+        </Grid>
+      </Box>
+    </>
+  );
+};
+
 export const LandingLayout = () => {
   const classes = useStyles();
 
   return (
     <>
-      {/*HEADER*/}
       <Background>
-        <Container maxWidth={'lg'}>
-          <AppBar />
+        <Container maxWidth="lg">
+          {/*HEADER*/}
+
           <Box width="100%" height="50px" />
 
           {/*MAIN*/}
+
           <Grid container direction="column">
             <Grid item md={7} lg={7}>
               <Typography variant="h3" color="textSecondary">
@@ -80,34 +116,11 @@ export const LandingLayout = () => {
           </Grid>
         </Container>
       </Background>
-
       {/*ARTICLES*/}
-      <Box
-        maxWidth={'xl'}
-        bgcolor="white"
-        paddingBottom="80px"
-        paddingTop="80px"
-      >
-        <Container maxWidth={'lg'}>
-          <Grid container direction="row" justify="space-between" wrap="nowrap">
-            <ArticleCard
-              title="About Datastore"
-              description="IATI is a global initiative to improve the transparency of development and humanitarian resources and their results for addressing poverty and crises."
-              buttonLabel="More"
-            />
-            <ArticleCard
-              title="Query Builder"
-              description="This tool allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format. You create queries based on finding the organisations, and then be configured filter the published data down to what you need."
-              buttonLabel="More"
-            />
-            <ArticleCard
-              title="Documentation"
-              description="This tool allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format. You create queries based on finding the organisations, and then be configured filter the published data down to what you need."
-              buttonLabel="More"
-            />
-          </Grid>
-        </Container>
-      </Box>
+
+      <Container maxWidth="lg">
+        <LandingMidSection />
+      </Container>
 
       {/*FOOTER*/}
       {/*TODO: replace box with footer component*/}
