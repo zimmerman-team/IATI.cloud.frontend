@@ -1,19 +1,10 @@
 import React from 'react';
 import BaseAppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
-import theme from 'app/theme';
 import AppBarButton from 'app/components/inputs/buttons/AppBarButton';
 import Grid from '@material-ui/core/Grid';
-import useLocation from 'react-use/lib/useLocation';
-import { Link } from 'react-router-dom';
-import { Box as MuiBox } from '@material-ui/core';
-
-const LinkMod = styled(Link)`
-  text-decoration: none;
-  color: white;
-`;
+import { IATILogoColor } from 'app/components/svgs/IATILogo';
 
 type AppBarProps = {
   label?: string;
@@ -22,43 +13,21 @@ type AppBarProps = {
 
 const BaseComponent = styled(props => <BaseAppBar {...props} />)`
   && {
-    background-color: ${props => {
-      switch (props.location) {
-        case '/':
-          return 'initial';
-        default:
-          return theme.palette.grey.greyBase;
-      }
-    }};
-  }
-`;
-
-const Box = styled(props => <MuiBox {...props} />)`
-  && {
-    margin: 20px;
+    padding: 20px 45px 20px 20px;
+    background-color: white;
   }
 `;
 
 const AppBar = (props: AppBarProps) => {
-  const state = useLocation();
-
   return (
-    <BaseComponent
-      position="static"
-      elevation={0}
-      location={state.pathname}
-      {...props}
-    >
-      <Toolbar>
-        <Grid container direction="row" alignItems="center">
-          {/*<Typography variant="h6">*/}
-          {/*  <LinkMod to="/">{process.env.REACT_APP_CLIENT_NAME}</LinkMod>*/}
-          {/*</Typography>*/}
+    <BaseComponent position="static" elevation={0} {...props}>
+      <Toolbar disableGutters>
+        <Grid container justify="space-between" alignItems="center">
           <Grid item>
-            <Box height="60px" width="256px" bgcolor="black" />
+            <IATILogoColor />
           </Grid>
 
-          <Grid item justify="space-between">
+          <Grid item>
             <AppBarButton label="HOME" url="/" />
             <AppBarButton label="ABOUT" url="/about" />
             <AppBarButton label="QUERY BUILDER" url="/querybuilder" />
