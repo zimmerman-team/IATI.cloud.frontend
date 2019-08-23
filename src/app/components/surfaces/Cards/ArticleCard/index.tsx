@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import IconButton from 'app/components/inputs/buttons/IconButton';
 import { ArticleCardModel } from 'app/components/surfaces/Cards/ArticleCard/model';
-import ArrowForward from '@material-ui/core/SvgIcon/SvgIcon';
+import ArrowForward from '@material-ui/icons/ArrowForward';
 import { Skeletor } from 'app/components/utils/Skeletor';
 import { Box, Grid, Typography } from '@material-ui/core';
 
@@ -39,7 +38,7 @@ export const ArticleCard = (props: ArticleCardModel) => {
                 icon={<ArrowForward fontSize="small" />}
               />
             ) : (
-              <Skeletor height={'42px'} width="100%" />
+              <Skeletor height="42px" width="100%" />
             )}
           </Grid>
         </Grid>
