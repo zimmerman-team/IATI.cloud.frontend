@@ -11,7 +11,7 @@ storiesOf('Inputs|Buttons/', module).add('IconButton', () => (
     {/*<Container>*/}
     <Grid container direction="column" spacing={3}>
       <Grid item xs={3}>
-        <IconButton label="Add Filter" icon={<Add />} />
+        <IconButton label="More" icon={<Add />} />
       </Grid>
       <Grid item xs={3}>
         <IconButton label="XML Workbook" />
