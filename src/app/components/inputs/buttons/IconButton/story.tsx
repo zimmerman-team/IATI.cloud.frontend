@@ -8,10 +8,9 @@ import { Grid } from '@material-ui/core';
 
 storiesOf('Inputs|Buttons/', module).add('IconButton', () => (
   <Providers>
-    {/*<Container>*/}
     <Grid container direction="column" spacing={3}>
       <Grid item xs={3}>
-        <IconButton label="Add Filter" icon={<Add />} />
+        <IconButton label="More" icon={<Add />} />
       </Grid>
       <Grid item xs={3}>
         <IconButton label="XML Workbook" />
@@ -29,6 +28,5 @@ storiesOf('Inputs|Buttons/', module).add('IconButton', () => (
         <IconButton label="Download XLS" icon={<Download />} disabled />
       </Grid>
     </Grid>
-    {/*</Container>*/}
   </Providers>
 ));
