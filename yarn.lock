@@ -1039,30 +1039,38 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@devexpress/dx-core@1.11.1":
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/@devexpress/dx-core/-/dx-core-1.11.1.tgz#c15f6abde60cfedb741312f1fbac3107298f5c6b"
-  integrity sha512-C8Y2Ed9qqIV2QnihRYktEIK1ZZauOABVFMCUHK2+NUpkP33Gi+S92vazZAki/os0Yy5pUqhgFV8xCTKDraoQ4A==
+"@devexpress/dx-core@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-core/-/dx-core-2.0.3.tgz#6404957c50acb32dddae96cd09db35ffa750aa4e"
+  integrity sha512-VZR8SoFZihvNIzx1P5BTGcRhazCXuxVPji4wR+75KJldAqZRaQuaJtbYPxk63IXqsyk66m5LPFBjkUytdgqYsg==
 
-"@devexpress/dx-grid-core@1.11.1":
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/@devexpress/dx-grid-core/-/dx-grid-core-1.11.1.tgz#e0839a75afd052a6853401a722d073e5e1dac8ce"
-  integrity sha512-9WpxgtY2W15PU6TSb1Xwv2yScdUAJzBMRMLpw7K+xK1Uqunfzpl/amCok3FyzNR782BJJdxzU1SXt1uCRNqGNg==
+"@devexpress/dx-grid-core@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-grid-core/-/dx-grid-core-2.0.3.tgz#c81990173117e94cfd259358a4bd36abffa8614a"
+  integrity sha512-iV9RAVC3ROHoKU7zuADY65QcU551tdM0D5vpLLfxnHQpbn0BFVbaYFdqX4wCOjKlMDfV3gKFJgh8ypntiavlFg==
 
-"@devexpress/dx-react-core@^1.11.0":
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-core/-/dx-react-core-1.11.1.tgz#afbcffdb6df4762c9f9ed3cadc36d1dcce874a38"
-  integrity sha512-R/NDWi0btjdfoiPlG9VyOb72c+3KoRelaVH7uxQs1uLtT2l/2lBBmEsEknUbT/JMhz1pnPndMWpE63ZAmQ7E+Q==
+"@devexpress/dx-react-core@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-core/-/dx-react-core-2.0.3.tgz#6f222d7e1643289ef9bf9ea1d12bd27f4fefbb69"
+  integrity sha512-vlNMYqlyi7y0TEJt7kC65LoFiD85P/adYe/DIthufiLHiEt5yPj3ZmfQi8WT12z49Zzs22sG8F7hiGcoInRd6Q==
   dependencies:
-    "@devexpress/dx-core" "1.11.1"
+    "@devexpress/dx-core" "2.0.3"
     prop-types "^15.7.2"
 
-"@devexpress/dx-react-grid@^1.11.0":
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-grid/-/dx-react-grid-1.11.1.tgz#3266ad6ebb3c0bb44c4e21ad6834ea5eea882572"
-  integrity sha512-Yq/fXgFlqj+GaISF/xpH6wZNoENPGEiRiPjUGas8Lx/uj46UemHdRnZ/bayfBTb88WfbVDZHw4asxD/8YnTYqg==
+"@devexpress/dx-react-grid-material-ui@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-grid-material-ui/-/dx-react-grid-material-ui-2.0.3.tgz#09c0b0ab5c2e4e83279480d60c4b80424dfa8f64"
+  integrity sha512-MxymhliNYkbooYCeSE5I8IrrR8CEsRh3kx8KH6y0IpWyLP/1pvwTJBV+COzNW2ivn/kwFLzU5eXvvFO8hfHYqA==
   dependencies:
-    "@devexpress/dx-grid-core" "1.11.1"
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+
+"@devexpress/dx-react-grid@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-grid/-/dx-react-grid-2.0.3.tgz#68f849cde66ba9efe813ad4f9ab1b8f5d314afa0"
+  integrity sha512-L4QgFzK/mXvhnSqcqedfdGYqYoIE24MC1USElGmCPRTQruu5aBS4tpnGDcQcNqp4EpSoQ+FsA2kWQNjAXI+k1A==
+  dependencies:
+    "@devexpress/dx-grid-core" "2.0.3"
 
 "@devhammed/use-cookie@^1.0.3":
   version "1.0.3"
@@ -4518,7 +4526,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
