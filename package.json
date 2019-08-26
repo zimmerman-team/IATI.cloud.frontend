@@ -55,7 +55,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "storybook": "start-storybook -p 9009 -s public",
+    "storybook": "start-storybook -p 9009 -s public --ci",
     "build-storybook": "build-storybook -c .storybook -o build_storybook",
     "check-types": "tsc",
     "cy:run": "cypress run",
@@ -63,8 +63,7 @@
     "cy:open": "cypress open",
     "analyse": "madge src/index.tsx",
     "depcheck": "depcheck",
-    "why": "whybundled build/stats.json --duplicatesOnly ",
-    "postbuild": "react-snap"
+    "why": "whybundled build/stats.json --duplicatesOnly "
   },
   "reactSnap": {
     "puppeteerArgs": [
