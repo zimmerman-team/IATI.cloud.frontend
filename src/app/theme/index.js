@@ -1,5 +1,4 @@
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
-
 export const Spacing = {
   inputSideSpacing: '15px',
 };
@@ -7,7 +6,8 @@ export const Spacing = {
 export const Palette = {
   primary: {
     light: '#66a1ff',
-    main: '#3074f1',
+    // main: '#123123',
+    main: '#155366',
     dark: '#1e60d9',
     contrastText: '#fff',
   },
@@ -73,7 +73,7 @@ const Breakpoints = {
   xs: 0,
   sm: 600,
   md: 960,
-  lg: 1280,
+  lg: 1024,
   xl: 1920,
 };
 
@@ -207,4 +207,14 @@ export default createMuiTheme({
   mixins: Mixins,
   shape: Shape,
   zIndex: zIndex,
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 450,
+      md: 600,
+      lg: 1088,
+      xl: 1280,
+      xxl: 1920,
+    },
+  },
 });
