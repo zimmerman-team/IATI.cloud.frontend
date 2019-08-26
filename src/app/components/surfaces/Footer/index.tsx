@@ -11,7 +11,7 @@ import { IATILogoWhite } from 'app/components/svgs/IATILogo';
 import { ZZLogo } from 'app/components/svgs/ZZLogo';
 import styled from 'styled-components';
 
-//TODO: When Text Catalog is implemented in Zeplin, refactor to use the right Typography variants
+// TODO: When Text Catalog is implemented in Zeplin, refactor to use the right Typography variants
 const Typography1 = styled(props => (
   <MuiTypography {...props} color="textSecondary" />
 ))`
@@ -34,14 +34,15 @@ const Typography2 = styled(props => (
 
 export const Footer = () => {
   return (
-    //Normally I would use a container component for this, however I can't get a 100% width on this component when implemented in the page layouts.
-    <div style={{ position: 'absolute', bottom: 0, width: '100%' }}>
-      <Box bgcolor="#155366" height="200px" width="100%">
+    // Normally I would use a container component for this, however I can't get a 100% width on this component when implemented in the page layouts.
+
+    <Box bgcolor="#155366" width="100%" position="absolute" bottom="0">
+      <Container maxWidth="lg">
         {/*LEFT ITEM*/}
         <Grid
           container
           direction="row"
-          justify="space-around"
+          justify="space-between"
           alignItems="center"
           style={{ height: '200px' }}
         >
@@ -104,7 +105,7 @@ export const Footer = () => {
             </Grid>
           </Grid>
         </Grid>
-      </Box>
-    </div>
+      </Container>
+    </Box>
   );
 };
