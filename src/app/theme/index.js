@@ -134,7 +134,7 @@ export const Typography = {
   },
   body1: {
     fontSize: `${1}rem`,
-    fontWeight: Weight.regular,
+    fontWeight: Weight.light,
   },
   body2: {
     fontSize: `${0.875}rem`,
