@@ -1,7 +1,7 @@
 /* base */
 import React from 'react';
 import styled from 'styled-components';
-import makeStyles from '@material-ui/core/styles/makeStyles';
+// import makeStyles from '@material-ui/core/styles/makeStyles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -11,30 +11,30 @@ import AppBar from 'app/components/surfaces/AppBar';
 import Background from 'app/components/surfaces/Background';
 import { ArticleCard } from 'app/components/surfaces/Cards/ArticleCard';
 
-const useStyles = makeStyles(theme => ({
-  h3: {
-    marginBottom: '8px',
-  },
-  body2: {
-    marginBottom: '24px',
-  },
-  caption: {
-    opacity: 0.6,
-    position: 'absolute',
-    bottom: '32px',
-  },
-  link: {
-    color: '#fff',
-    textDecoration: 'none',
-    fontWeight: 600,
-    '&:visited ': {
-      color: '#FFF',
-    },
-    '&:hover': {
-      color: '#FFF',
-    },
-  },
-}));
+// const useStyles = makeStyles(theme => ({
+//   h3: {
+//     marginBottom: '8px',
+//   },
+//   body2: {
+//     marginBottom: '24px',
+//   },
+//   caption: {
+//     opacity: 0.6,
+//     position: 'absolute',
+//     bottom: '32px',
+//   },
+//   link: {
+//     color: '#fff',
+//     textDecoration: 'none',
+//     fontWeight: 600,
+//     '&:visited ': {
+//       color: '#FFF',
+//     },
+//     '&:hover': {
+//       color: '#FFF',
+//     },
+//   },
+// }));
 
 const TypographyOpacity = styled(props => <Typography {...props} />)`
   opacity: 0.8;
@@ -76,8 +76,6 @@ export const LandingMidSection = () => {
 };
 
 export const LandingLayout = () => {
-  const classes = useStyles();
-
   return (
     <>
       <Background>
