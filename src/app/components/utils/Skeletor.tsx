@@ -21,6 +21,7 @@ type SkeletorModel = {
   height?: string;
   debug?: boolean;
   type?: any;
+  hideLabel?: boolean;
 };
 
 export const Skeletor = (props: SkeletorModel) => {
@@ -33,11 +34,11 @@ export const Skeletor = (props: SkeletorModel) => {
   return (
     <Skeleton
       disableAnimate
-      variant="rect"
-      width={props.width}
-      height={props.height}
+      variant={props.type ? props.type : 'rect'}
+      width={props.width ? props.width : '100%'}
+      height={props.height ? props.height : '48px'}
     >
-      {sized}
+      {props.hideLabel ? '' : sized}
     </Skeleton>
   );
 };
