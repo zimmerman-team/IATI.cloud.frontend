@@ -42,7 +42,7 @@ export const Palette = {
     greyBase: '#a1aebd',
   },
   text: {
-    primary: 'rgba(0, 0, 0, 0.87)',
+    primary: '#121212',
     secondary: '#ffffff',
     disabled: 'rgba(0, 0, 0, 0.38)',
     hint: 'rgba(0, 0, 0, 0.38)',
@@ -207,7 +207,7 @@ export default createMuiTheme({
   mixins: Mixins,
   shape: Shape,
   zIndex: zIndex,
-  breakpoints:{
+  breakpoints: {
     values: {
       xs: 0,
       sm: 450,
@@ -215,6 +215,6 @@ export default createMuiTheme({
       lg: 1088,
       xl: 1280,
       xxl: 1920,
-    }
-  }
+    },
+  },
 });
