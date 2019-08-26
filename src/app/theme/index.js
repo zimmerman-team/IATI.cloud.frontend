@@ -1,20 +1,21 @@
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+
 export const Spacing = {
   inputSideSpacing: '15px',
 };
 
 export const Palette = {
   primary: {
-    light: '#66a1ff',
+    // light: '#66a1ff',
     // main: '#123123',
     main: '#155366',
-    dark: '#1e60d9',
+    // dark: '#1e60d9',
     contrastText: '#fff',
   },
   secondary: {
-    light: '#2bd3d9',
-    main: '#17b8be',
-    dark: '#0f9ea3',
+    // light: '#2bd3d9',
+    main: '#03dbe4',
+    // dark: '#0f9ea3',
     contrastText: '#000',
   },
   error: {
@@ -133,7 +134,7 @@ export const Typography = {
   },
   body1: {
     fontSize: `${1}rem`,
-    fontWeight: Weight.regular,
+    fontWeight: Weight.light,
   },
   body2: {
     fontSize: `${0.875}rem`,

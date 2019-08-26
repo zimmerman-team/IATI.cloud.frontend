@@ -12,10 +12,10 @@ export const IntroFragment = () => {
   return (
     <Grid container direction="column" spacing={4}>
       <Grid item xs={12} sm={12} md={6}>
-        <Typography variant="h3">{fragmentConfig.name}</Typography>
+        <Typography variant="h4" color="textSecondary">{fragmentConfig.name}</Typography>
       </Grid>
       <Grid item xs={12} sm={12} md={6}>
-        <Typography variant="body1">{fragmentConfig.description}</Typography>
+        <Typography variant="body2" color="textSecondary">{fragmentConfig.description}</Typography>
       </Grid>
     </Grid>
   );

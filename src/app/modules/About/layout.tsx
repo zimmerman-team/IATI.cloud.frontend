@@ -49,7 +49,7 @@ export const AboutLayout = () => {
 
         {/* WHAT CAN I DO */}
         <Section>
-          <Typography variant="h5" style={{ paddingBottom: '16px' }}>
+          <Typography variant="h6" style={{ paddingBottom: '16px' }}>
             What can I do with the IATI Datastore?
           </Typography>
           <Paragraph>
@@ -63,7 +63,7 @@ export const AboutLayout = () => {
 
         {/* MAKING A QUERY WITH THE IATI DATSTORE */}
         <Section>
-          <Typography variant="h5" style={{ paddingBottom: '16px' }}>
+          <Typography variant="h6" style={{ paddingBottom: '16px' }}>
             Making a query with the IATI Datastore
           </Typography>
           <Paragraph>
@@ -105,7 +105,7 @@ export const AboutLayout = () => {
 
         {/* IN WHAT FORMATS CAN I OUPTPUT THE IATI DATA */}
         <Section>
-          <Typography variant="h5" style={{ paddingBottom: '16px' }}>
+          <Typography variant="h6" style={{ paddingBottom: '16px' }}>
             In what formats can I output the IATI data?
           </Typography>
           <Paragraph>
@@ -159,7 +159,7 @@ export const AboutLayout = () => {
 
         {/* WHO MAINTAINS THE IATI DATASTORE */}
         <Section>
-          <Typography variant="h5" style={{ paddingBottom: '16px' }}>
+          <Typography variant="h6" style={{ paddingBottom: '16px' }}>
             Who maintains the IATI Datastore?
           </Typography>
           <Paragraph>
