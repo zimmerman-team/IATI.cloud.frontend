@@ -53,7 +53,9 @@
   font-style: normal;
   }
 
-
+html {
+  height: 100%;
+}
 
 body{
   margin                  : 0;
@@ -62,6 +64,9 @@ body{
   sans-serif;
   -webkit-font-smoothing  : antialiased;
   -moz-osx-font-smoothing : grayscale;
+  /*For a always sticky footer, code inspired by: https://codepen.io/cbracco/pen/zekgx*/
+  position: relative;
+  min-height: 100%;
   }
 
 code{
