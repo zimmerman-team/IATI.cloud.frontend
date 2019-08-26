@@ -3,12 +3,19 @@ import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { LocationDescriptor } from 'history';
+import { Typography as MuiTypography} from '@material-ui/core';
 
 type Props = {
   size?: string;
   label?: string;
   url?: LocationDescriptor<any>;
 };
+
+const Typography = styled(props => <MuiTypography {...props} />)`
+  && {
+  font-size: 14px;
+  }
+`;
 
 const BaseComponent = styled(props => <Button {...props} />)`
   && {
@@ -33,7 +40,9 @@ const CustomLink = styled(props => <NavLink {...props} />)`
 const AppBarButton = (props: Props) => {
   return (
     <BaseComponent size={props.size} color="inherit" {...props}>
-      <CustomLink to={props.url ? props.url : '/'}>{props.label}</CustomLink>
+      <Typography variant="body1">
+        <CustomLink to={props.url ? props.url : '/'}>{props.label}</CustomLink>
+      </Typography>
     </BaseComponent>
   );
 };

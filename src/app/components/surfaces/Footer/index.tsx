@@ -1,41 +1,16 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import {
   Grid,
-  Typography as MuiTypography,
+  Typography,
   Container,
   Box,
 } from '@material-ui/core';
 import { Mail, Phone, Star } from '@material-ui/icons';
 import { IATILogoWhite } from 'app/components/svgs/IATILogo';
 import { ZZLogo } from 'app/components/svgs/ZZLogo';
-import styled from 'styled-components';
-
-// TODO: When Text Catalog is implemented in Zeplin, refactor to use the right Typography variants
-const Typography1 = styled(props => (
-  <MuiTypography {...props} color="textSecondary" />
-))`
-  && {
-    font-family: Chalet-LondonNineteenSixty;
-    font-size: 16px;
-    line-height: 2.25;
-  }
-`;
-
-const Typography2 = styled(props => (
-  <MuiTypography {...props} color="textSecondary" />
-))`
-  && {
-    font-family: Chalet-LondonNineteenSixty;
-    font-size: 14px;
-    line-height: 1.43;
-  }
-`;
 
 export const Footer = () => {
   return (
-    // Normally I would use a container component for this, however I can't get a 100% width on this component when implemented in the page layouts.
-
     <Box bgcolor="#155366" width="100%" position="absolute" bottom="0">
       <Container maxWidth="lg">
         {/*LEFT ITEM*/}
@@ -52,20 +27,20 @@ export const Footer = () => {
 
           {/*MIDDLE ITEM*/}
           <Grid item>
-            <Grid container direction="column" justify="space-between">
+            <Grid container direction="column" justify="space-between" spacing={2}>
               <Grid container item alignItems="center">
                 <Phone style={{ marginRight: '16px', fill: 'white' }} />
-                <Typography1 variant="caption">+31 (0)00 000 00 00</Typography1>
+                <Typography variant="body1" color="textSecondary">+31 (0)00 000 00 00</Typography>
               </Grid>
               <Grid container item alignItems="center">
                 <Mail style={{ marginRight: '16px', fill: 'white' }} />
-                <Typography1 variant="caption">
+                <Typography variant="body1" color="textSecondary">
                   info@iatistandard.org
-                </Typography1>
+                </Typography>
               </Grid>
               <Grid container item alignItems="center">
                 <Star style={{ marginRight: '16px', fill: 'white' }} />
-                <Typography1 variant="caption">@iati</Typography1>
+                <Typography variant="body1" color="textSecondary">@iati</Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -80,12 +55,13 @@ export const Footer = () => {
             >
               <Grid item>
                 <Grid container item alignItems="center">
-                  <Typography2
-                    variant="caption"
+                  <Typography
+                    variant="body1"
+                    color="textSecondary"
                     style={{ marginRight: '16px' }}
                   >
                     powered by OIPA from
-                  </Typography2>
+                  </Typography>
                   <ZZLogo />
                 </Grid>
               </Grid>
@@ -97,10 +73,10 @@ export const Footer = () => {
                 style={{ marginTop: '32px', width: '350px' }}
                 wrap="wrap"
               >
-                <Typography2 variant="caption" align="center">
+                <Typography variant="body1" color="textSecondary" align="center">
                   Code licensed under the GNU AGPL. Documentation licensed under
                   CC BY 3.0.
-                </Typography2>
+                </Typography>
               </Grid>
             </Grid>
           </Grid>
