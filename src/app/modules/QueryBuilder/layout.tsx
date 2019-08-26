@@ -15,19 +15,21 @@ import {
   WhoFragment,
 } from 'app/modules/QueryBuilder/fragments';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
+import { PageContainer } from 'app/modules/common/PageContainer';
+import { Header } from 'app/components/surfaces/Header';
 /* config & mock */
 
 export const QueryBuilderLayout = () => {
   /* reference to the module store which is passed onto the fragments */
   const store = ModuleStore.useStore();
   return (
-    <Container maxWidth="lg">
-      {/* for using the box util component to set top padding because of the fixed positioning of appbar */}
-      <Box paddingTop="100px">
-        {/* INTRO FRAGMENT */}
-        <IntroFragment />
-        <FragmentDivider />
+    <PageContainer>
+      <Header>
+        <IntroFragment/>
+          {/*<FragmentDivider />*/}
+      </Header>
 
+      <Container maxWidth="lg">
         {/* WHO FRAGMENT */}
         <WhoFragment store={store} />
         <FragmentDivider />
@@ -46,7 +48,7 @@ export const QueryBuilderLayout = () => {
 
         {/* DOWNLOAD FRAGMENT */}
         <DownloadFragment store={store} />
-      </Box>
-    </Container>
+      </Container>
+    </PageContainer>
   );
 };
