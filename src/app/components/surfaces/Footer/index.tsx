@@ -34,7 +34,8 @@ const Typography2 = styled(props => (
 
 export const Footer = () => {
   return (
-    <Container maxWidth={false}>
+    //Normally I would use a container component for this, however I can't get a 100% width on this component when implemented in the page layouts.
+    <div style={{ position: 'absolute', bottom: 0, width: '100%' }}>
       <Box bgcolor="#155366" height="200px" width="100%">
         {/*LEFT ITEM*/}
         <Grid
@@ -104,6 +105,6 @@ export const Footer = () => {
           </Grid>
         </Grid>
       </Box>
-    </Container>
+    </div>
   );
 };
