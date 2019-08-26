@@ -1,6 +1,9 @@
 import React from 'react';
-import { Box, Container, Typography } from '@material-ui/core';
+import { Grid, Box, Container, Typography } from '@material-ui/core';
 import styled from 'styled-components';
+import { Header } from 'app/components/surfaces/Header';
+import { Footer } from 'app/components/surfaces/Footer';
+import { PageContainer } from 'app/modules/common/PageContainer';
 
 const Paragraph = styled.p`
   padding-bottom: 8px;
@@ -13,7 +16,21 @@ const Section = styled.section`
 
 export const AboutLayout = () => {
   return (
-    <>
+    <PageContainer footer>
+      <Header>
+        <Grid container>
+          <Grid item xs={6}>
+            <Typography variant="h4" color="textSecondary">
+              Query builder
+            </Typography>
+            <Box height="27px" width="100%"/>
+            <Typography variant="body2" color="textSecondary">
+              This tool allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format. You create queries based on finding the organisations, and then be configured filter the published data down to what you need and elements you want to include in your export. You find an example data table snippet of your query and your download link  in the bottom section.
+            </Typography>
+          </Grid>
+        </Grid>
+      </Header>
+
       <Container
         maxWidth="lg"
         style={{ paddingTop: '80px', paddingBottom: '8px' }}
@@ -181,10 +198,8 @@ export const AboutLayout = () => {
           </Paragraph>
         </Section>
       </Container>
-      {/*TODO: replace with footer*/}
-      <Box
-        style={{ width: '100%', backgroundColor: '#155366', height: '200px' }}
-      />
-    </>
+
+      <Footer/>
+    </PageContainer>
   );
 };

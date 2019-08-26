@@ -11,6 +11,9 @@ import AppBar from 'app/components/surfaces/AppBar';
 import Background from 'app/components/surfaces/Background';
 import { ArticleCard } from 'app/components/surfaces/Cards/ArticleCard';
 import { Footer } from 'app/components/surfaces/Footer';
+import { Header } from 'app/components/surfaces/Header';
+import { width } from '@material-ui/system';
+import { PageContainer } from 'app/modules/common/PageContainer';
 
 // const useStyles = makeStyles(theme => ({
 //   h3: {
@@ -78,15 +81,9 @@ export const LandingMidSection = () => {
 
 export const LandingLayout = () => {
   return (
-    <>
-      <Background>
-        <Container maxWidth="lg">
-          {/*HEADER*/}
-
-          <Box width="100%" height="50px" />
-
-          {/*MAIN*/}
-
+    <PageContainer footer>
+      {/*HEADER*/}
+      <Header>
           <Grid container direction="column">
             <Grid item md={7} lg={7}>
               <Typography variant="h3" color="textSecondary">
@@ -113,8 +110,8 @@ export const LandingLayout = () => {
               <IconButtonOutlined label="Query Builder" />
             </Grid>
           </Grid>
-        </Container>
-      </Background>
+      </Header>
+
       {/*ARTICLES*/}
 
       <Container maxWidth="lg">
@@ -124,7 +121,7 @@ export const LandingLayout = () => {
       {/*FOOTER*/}
       {/*TODO: replace box with footer component*/}
       {/*<Box width="100%" height="200px" bgcolor="#155366" />*/}
-      <Footer />
-    </>
+      {/*<Footer />*/}
+    </PageContainer>
   );
 };
