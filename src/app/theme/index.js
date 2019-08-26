@@ -43,7 +43,7 @@ export const Palette = {
     greyBase: '#a1aebd',
   },
   text: {
-    primary: 'rgba(0, 0, 0, 0.87)',
+    primary: '#121212',
     secondary: '#ffffff',
     disabled: 'rgba(0, 0, 0, 0.38)',
     hint: 'rgba(0, 0, 0, 0.38)',

@@ -10,6 +10,7 @@ import IconButtonOutlined from 'app/components/inputs/buttons/IconButtonOutlined
 import AppBar from 'app/components/surfaces/AppBar';
 import Background from 'app/components/surfaces/Background';
 import { ArticleCard } from 'app/components/surfaces/Cards/ArticleCard';
+import { Footer } from 'app/components/surfaces/Footer';
 
 // const useStyles = makeStyles(theme => ({
 //   h3: {
@@ -122,7 +123,8 @@ export const LandingLayout = () => {
 
       {/*FOOTER*/}
       {/*TODO: replace box with footer component*/}
-      <Box width="100%" height="200px" bgcolor="#155366" />
+      {/*<Box width="100%" height="200px" bgcolor="#155366" />*/}
+      <Footer />
     </>
   );
 };
