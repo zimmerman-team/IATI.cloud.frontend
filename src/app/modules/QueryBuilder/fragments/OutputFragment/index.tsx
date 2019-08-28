@@ -24,10 +24,7 @@ export const OutputFragment = () => {
   const { groups } = fragmentConfig;
 
   return (
-    <ModuleFragment
-      name={fragmentConfig.name}
-      description={fragmentConfig.description}
-    >
+    <Grid container spacing={4}>
       {/* <Grid item xs={12} sm={12} md={7}>
         <ConnectedSelect
           helperText="See "
@@ -45,6 +42,6 @@ export const OutputFragment = () => {
             {group && <RadioButtonsGroup items={group.items} />}
           </Grid>
         ))}
-    </ModuleFragment>
+    </Grid>
   );
 };

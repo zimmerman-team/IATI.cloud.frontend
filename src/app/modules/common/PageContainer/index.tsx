@@ -11,9 +11,9 @@ type PageContainerModel = {
 // Component inspired by: https://codepen.io/cbracco/pen/zekgx
 export const PageContainer = (props: PageContainerModel) => {
   return (
-    <Box paddingBottom={props.footer ? '200px' : '0px' }>
+    <Box paddingBottom={props.footer ? '200px' : '0px'}>
       {props.children}
-      {props.footer && <Footer/>}
+      {props.footer && <Footer />}
     </Box>
   );
 };

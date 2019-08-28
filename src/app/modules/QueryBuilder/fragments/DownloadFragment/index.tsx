@@ -16,10 +16,14 @@ import { fragmentConfig } from './model';
 
 import { ApplicationStoreModel } from 'app/state/models/ApplicationStoreModel';
 import { useStoreState } from 'app/state/store';
+import { ModuleStore } from "app/modules/QueryBuilder/state/store";
 // import { ApplicationStoreModel } from 'app/state/models';
 // import { useStoreState } from 'app/state/store';
-export const DownloadFragment = ({ store }) => {
+export const DownloadFragment = ( ) => {
   /* get query url from app store */
+
+  const store = ModuleStore.useStore();
+
   const queryURL = useStoreState(state => state.query.url);
 
   return (

@@ -25,19 +25,8 @@ export const FilterFragment = () => {
   }
 
   return (
-    <ModuleFragment
-      name={fragmentConfig.name}
-      description={fragmentConfig.description}
-    >
+    <Grid container spacing={4}>
       <Grid item xs={12} sm={12} md={12}>
-        {/*<MultiSelectChip
-          label="Data title, activity, or descriptions"
-          helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
-          placeholder="Text search"
-          search
-          options={optionsFilter}
-        />*/}
-
         <TextField />
       </Grid>
 
@@ -66,6 +55,6 @@ export const FilterFragment = () => {
         />
         <FilterMenu data={FilterData} anchorRef={anchorRef} open={openFilter} />
       </Grid>
-    </ModuleFragment>
+    </Grid>
   );
 };
