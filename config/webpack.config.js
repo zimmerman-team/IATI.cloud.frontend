@@ -29,6 +29,7 @@ const BrotliGzipPlugin = require('brotli-gzip-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const postcssNormalize = require('postcss-normalize');
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
+const { WebpackPluginRamdisk } = require('webpack-plugin-ramdisk');
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
@@ -371,8 +372,8 @@ module.exports = function(webpackEnv) {
               exclude: /@babel(?:\/|\\{1,2})runtime/,
               loader: require.resolve('babel-loader'),
               options: {
-                babelrc: false,
-                configFile: false,
+                babelrc: true,
+                configFile: true,
                 compact: false,
                 presets: [
                   [
@@ -503,6 +504,8 @@ module.exports = function(webpackEnv) {
             : undefined
         )
       ),
+      isEnvDevelopment &&
+        new WebpackPluginRamdisk(),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       isEnvProduction &&
@@ -610,7 +613,7 @@ module.exports = function(webpackEnv) {
           // The formatter is invoked directly in WebpackDevServerUtils during development
           formatter: isEnvProduction ? typescriptFormatter : undefined,
         }),
-      isEnvProduction &&
+      /*isEnvProduction &&
         new BrotliGzipPlugin({
           asset: '[path].br[query]',
           algorithm: 'brotli',
@@ -618,7 +621,7 @@ module.exports = function(webpackEnv) {
           threshold: 10240,
           minRatio: 0.8,
           quality: 11,
-        }),
+        }),*/
       // isEnvProduction &&
       //   new DuplicatePackageCheckerPlugin(),
       /*isEnvProduction &&

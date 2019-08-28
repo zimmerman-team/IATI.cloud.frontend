@@ -1,17 +1,18 @@
 /* core */
-import React from 'react';
 /* third-party */
 import Grid from '@material-ui/core/Grid';
-/* project component */
-import SimpleSelect from 'app/components/inputs/selects/SimpleSelect';
+import { ConnectedSelect } from 'app/components/inputs/selects/ConnectedSelect';
+import { ModuleFragment } from 'app/modules/QueryBuilder/fragments/common';
+import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
+/* config & mock */
+import { fragmentConfig } from 'app/modules/QueryBuilder/steps/organisation/model';
 /* common */
 import { useStoreState } from 'app/state/store';
-import { ModuleFragment } from 'app/modules/QueryBuilder/fragments/common';
-/* config & mock */
-import { fragmentConfig } from './model';
-import { ConnectedSelect } from 'app/components/inputs/selects/ConnectedSelect';
+import React from 'react';
 
-export const WhoFragment = ({ store }) => {
+export const WhoFragment = () => {
+  const store = ModuleStore.useStore();
+
   /* getting the fetched datat from the app store */
   const fetchedOrganisationTypes = useStoreState(
     state => state.organisationTypes.data
@@ -24,10 +25,7 @@ export const WhoFragment = ({ store }) => {
   );
 
   return (
-    <ModuleFragment
-      name={fragmentConfig.name}
-      description={fragmentConfig.description}
-    >
+    <Grid container spacing={4}>
       {/* this contains the organisation types dropdown */}
       <Grid item xs={12} sm={6} md={12}>
         <ConnectedSelect
@@ -64,6 +62,6 @@ export const WhoFragment = ({ store }) => {
           onChange={e => store.set('organisations')(e)}
         />
       </Grid>
-    </ModuleFragment>
+    </Grid>
   );
 };
