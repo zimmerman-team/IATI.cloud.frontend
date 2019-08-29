@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
     listProps: {
       padding: 0,
     },
-  })
+  }),
 );
 
 const MultiSelect = (props: MultiSelectProps) => {

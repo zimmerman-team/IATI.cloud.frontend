@@ -29,7 +29,7 @@ const ZimmerButton = styled(props => <Button {...props} />)`
   }
 `;
 
-//todo: Get rid of warning https://github.com/atomiks/tippy.js-react/issues/49
+// todo: Get rid of warning https://github.com/atomiks/tippy.js-react/issues/49
 const TooltipButton = (props: Props) => {
   return (
     <Tooltip
