@@ -1,4 +1,4 @@
-import { getOptionLabel, getOptionValue } from 'react-select/lib/builtins';
+import { getOptionLabel, getOptionValue } from 'react-select/src/builtins';
 import { OrganisationModel } from 'app/state/models';
 import { FragmentBaseModel } from 'app/modules/QueryBuilder/fragments/index';
 

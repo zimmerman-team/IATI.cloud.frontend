@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ValueContainerProps } from 'react-select/lib/components/containers';
+import { ValueContainerProps } from 'react-select/src/components/containers';
 
 interface OptionType {
   label: string;
@@ -17,7 +17,7 @@ function ValueContainer(props: ValueContainerProps<OptionType>) {
 
 ValueContainer.propTypes = {
   children: PropTypes.node,
-  selectProps: PropTypes.object.isRequired
+  selectProps: PropTypes.object.isRequired,
 } as any;
 
 export default ValueContainer;

@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { ControlProps } from 'react-select/lib/components/Control';
+import { ControlProps } from 'react-select/src/components/Control';
 import TextField, { BaseTextFieldProps } from '@material-ui/core/TextField';
 
 interface OptionType {

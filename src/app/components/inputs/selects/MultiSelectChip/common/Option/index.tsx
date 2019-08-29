@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { OptionProps } from 'react-select/lib/components/Option';
+import { OptionProps } from 'react-select/src/components/Option';
 import MenuItem from '@material-ui/core/MenuItem';
 import styled from 'styled-components';
 
@@ -37,7 +37,7 @@ Option.propTypes = {
   innerProps: PropTypes.object,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   isFocused: PropTypes.bool,
-  isSelected: PropTypes.bool
+  isSelected: PropTypes.bool,
 } as any;
 
 export default Option;
