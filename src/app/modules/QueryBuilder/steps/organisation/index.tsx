@@ -5,20 +5,20 @@ import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import { useStoreState } from 'app/state/store';
 import React from 'react';
 import { fragmentConfig } from 'app/modules/QueryBuilder/steps/organisation/model';
+import get from 'lodash/get';
 
 export const OrganisationFragment = () => {
-
   const store = ModuleStore.useStore();
 
   /* getting the fetched datat from the app store */
   const fetchedOrganisationTypes = useStoreState(
-    state => state.organisationTypes.data,
+    state => state.organisationTypes.data
   );
   const fetchedsectorCategories = useStoreState(
-    state => state.sectorCategories.data,
+    state => state.sectorCategories.data
   );
   const fetchedsectorOrganisations = useStoreState(
-    state => state.organisations.data,
+    state => state.organisations.data
   );
 
   return (
@@ -32,6 +32,7 @@ export const OrganisationFragment = () => {
           options={fetchedOrganisationTypes}
           value={store.get('organisationTypes')}
           onChange={e => store.set('organisationTypes')(e)}
+          placeholder={`All (${get(fetchedOrganisationTypes, 'length', 0)})`}
         />
       </Grid>
       {/** type of organisation */}
@@ -43,6 +44,7 @@ export const OrganisationFragment = () => {
           value={store.get('organisations')}
           options={fetchedsectorOrganisations}
           onChange={e => store.set('organisations')(e)}
+          placeholder={`All (${get(fetchedsectorOrganisations, 'length', 0)})`}
         />
       </Grid>
       {/** secondary publisher */}
@@ -58,6 +60,7 @@ export const OrganisationFragment = () => {
           value={store.get('sectorCategories')}
           options={fetchedsectorCategories}
           onChange={e => store.set('sectorCategories')(e)}
+          placeholder={`All (${get(fetchedsectorCategories, 'length', 0)})`}
         />
       </Grid>
       {/** sector category */}

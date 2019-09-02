@@ -5,6 +5,7 @@ import { OrganisationTypeModel } from 'app/state/models/OrganisationTypeModel';
 import { RegionModel } from 'app/state/models/RegionModel';
 import { SectorCategoryModel } from 'app/state/models/SectorCategoryModel';
 import { SectorModel } from 'app/state/models/SectorModel';
+import { ActivityStatusModel } from 'app/state/models/ActivityStatusModel';
 
 export {
   ApplicationStoreModel,
@@ -13,5 +14,6 @@ export {
   OrganisationTypeModel,
   RegionModel,
   SectorCategoryModel,
+  ActivityStatusModel,
   SectorModel,
 };

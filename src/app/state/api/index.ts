@@ -39,7 +39,10 @@ export const COUNTRIES =
     ? 'data/countries.json'
     : 'api/countries/?format=json';
 
-
+export const ACTIVITY_STATUS =
+  process.env.NODE_ENV === 'development'
+    ? 'data/activity_status.json'
+    : 'api/codelists/ActivityStatus/?format=json';
 
 export interface IResponse<T> {
   data: T;
