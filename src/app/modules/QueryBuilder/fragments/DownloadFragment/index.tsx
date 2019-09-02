@@ -36,7 +36,11 @@ export const DownloadFragment = () => {
         <URLField text={queryURL} />
       </Grid>
       <Grid item xs={12} sm={3} md={3}>
-        <IconButton label="Download CSV" icon={<Download />} disabled />
+        <IconButton
+          icon={<Download />}
+          label="Download CSV"
+          link={queryURL.replace('json', 'csv')}
+        />
       </Grid>
       <Grid item>
         <pre>
@@ -53,7 +57,7 @@ export const DownloadFragment = () => {
           {JSON.stringify(store.get('organisationTypes'), null, 2)}
           <br />
           <br />
-          ectorCategories
+          sectorCategories
           <br />
           {JSON.stringify(store.get('sectorCategories'), null, 2)}
           <br />
@@ -61,6 +65,11 @@ export const DownloadFragment = () => {
           organisations
           <br />
           {JSON.stringify(store.get('organisations'), null, 2)}
+          <br />
+          <br />
+          activityStatus
+          <br />
+          {JSON.stringify(store.get('activityStatus'), null, 2)}
         </pre>
       </Grid>
       *
