@@ -1,16 +1,21 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import { formatUrl } from 'url-lib';
 
 import { StoreEffect } from './store';
+
+import get from 'lodash/get';
 
 import {
   OrganisationModel,
   OrganisationTypeModel,
   SectorModel,
+  ActivityStatusModel,
 } from 'app/state/models';
 
 import appStore from 'app/state/store';
 
-const baseURL = 'http://preview.iatistandard.org/index.php?url=';
+const baseURL =
+  'https://test-datastore.iatistandard.org/api/activities/?format=json&fields=all&';
 /*
 
 fields:
@@ -50,13 +55,28 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
 
+    const activityStatus = store.get('activityStatus')
+      ? store.get('activityStatus').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
+
     const url = formatUrl(
       [baseURL],
       [
         // check if the object contain data, else return null
-        organisations ? { 'reporting-org': organisations } : null,
-        organisationTypes ? { 'reporting-org.type': organisationTypes } : null,
-        sectorCategories ? { sector: sectorCategories } : null,
+        get(organisations, 'length', 0)
+          ? { reporting_organisation_identifier: organisations }
+          : null,
+        get(organisationTypes, 'length', 0)
+          ? { 'reporting-org.type': organisationTypes }
+          : null,
+        get(sectorCategories, 'length', 0)
+          ? { sector: sectorCategories }
+          : null,
+        get(activityStatus, 'length', 0)
+          ? { activity_status: activityStatus }
+          : null,
       ]
     );
 
