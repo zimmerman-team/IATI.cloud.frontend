@@ -1,10 +1,9 @@
 /* core */
+/* layout */
+import { QueryBuilderLayout } from 'app/modules/QueryBuilder/layout';
 import React from 'react';
 /* third-party */
 import useTitle from 'react-use/lib/useTitle';
-/* layout */
-import { QueryBuilderLayout } from 'app/modules/QueryBuilder/layout';
-
 import { ModuleStore } from './state/store';
 
 function QueryBuilderModule() {

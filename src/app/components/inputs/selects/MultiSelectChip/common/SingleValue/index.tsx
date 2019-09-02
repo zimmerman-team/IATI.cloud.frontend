@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SingleValueProps } from 'react-select/lib/components/SingleValue';
+import { SingleValueProps } from 'react-select/src/components/SingleValue';
 import Typography from '@material-ui/core/Typography';
 
 interface OptionType {
@@ -22,7 +22,7 @@ function SingleValue(props: SingleValueProps<OptionType>) {
 SingleValue.propTypes = {
   children: PropTypes.node,
   innerProps: PropTypes.object,
-  selectProps: PropTypes.object.isRequired
+  selectProps: PropTypes.object.isRequired,
 } as any;
 
 export default SingleValue;

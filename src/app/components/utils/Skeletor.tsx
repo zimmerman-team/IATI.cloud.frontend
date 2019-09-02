@@ -38,7 +38,7 @@ export const Skeletor = (props: SkeletorModel) => {
       width={props.width ? props.width : '100%'}
       height={props.height ? props.height : '48px'}
     >
-      {props.hideLabel ? '' : sized}
+      {/**props.hideLabel ? '' : sized */}
     </Skeleton>
   );
 };

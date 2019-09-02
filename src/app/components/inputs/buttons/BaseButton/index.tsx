@@ -7,11 +7,11 @@ type Props = {
   size?: string;
   label?: string;
   variant?: string;
-  //next two variables are lowercase and strings, because warnings...
+  // next two variables are lowercase and strings, because warnings...
   isdisabled?: string;
   bgcolor?: string;
 };
-//todo: this component needs rethinking in the way it accepts variants and colours
+// todo: this component needs rethinking in the way it accepts variants and colours
 const ZimmerButton = styled(props => <Button {...props} />)`
   && {
     box-shadow: initial !important;
@@ -45,18 +45,18 @@ const ZimmerButton = styled(props => <Button {...props} />)`
           return '48px';
       }
     }};
-    
+
     background: ${props =>
       props.bgcolor === 'green' ? '#46b275' : Palette.primary.main}}
-    
+
     background-color: ${props =>
       props.isdisabled ? '#f0f3f7' : ''} !important;}
-    
+
     &:hover{
       cursor: ${props => (props.isdisabled === 'true' ? 'default' : '')}
       }
-    
-    
+
+
     & [class*='MuiButton-label'] {
       font-size: 12px;
       text-transform: capitalize;

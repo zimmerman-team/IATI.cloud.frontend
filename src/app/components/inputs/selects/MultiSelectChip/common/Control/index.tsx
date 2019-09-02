@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { ControlProps } from 'react-select/lib/components/Control';
+import { ControlProps } from 'react-select/src/components/Control';
 import TextField, { BaseTextFieldProps } from '@material-ui/core/TextField';
 
 interface OptionType {
@@ -16,7 +16,7 @@ function inputComponent({ inputRef, ...props }: InputComponentProps) {
 }
 
 inputComponent.propTypes = {
-  inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+  inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 } as any;
 
 function Control(props: ControlProps<OptionType>) {
@@ -24,7 +24,7 @@ function Control(props: ControlProps<OptionType>) {
     children,
     innerProps,
     innerRef,
-    selectProps: { classes, TextFieldProps }
+    selectProps: { classes, TextFieldProps },
   } = props;
 
   return (
@@ -33,11 +33,11 @@ function Control(props: ControlProps<OptionType>) {
       InputProps={{
         inputComponent,
         inputProps: {
+          children,
+          ...innerProps,
           className: classes.input,
           ref: innerRef,
-          children,
-          ...innerProps
-        }
+        },
       }}
       {...TextFieldProps}
     />
@@ -48,7 +48,7 @@ Control.propTypes = {
   children: PropTypes.node,
   innerProps: PropTypes.object,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-  selectProps: PropTypes.object.isRequired
+  selectProps: PropTypes.object.isRequired,
 } as any;
 
 export default Control;

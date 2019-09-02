@@ -1,4 +1,5 @@
-// import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
+import { Action, action, Thunk, thunk, computed, Computed } from 'easy-peasy';
+import { Endpoint } from 'app/state/interfaces/Endpoint';
 
 export const HOSTNAME =
   process.env.NODE_ENV === 'development'
@@ -7,6 +8,7 @@ export const HOSTNAME =
 
 // datastore.iati.cloud
 
+/* note */
 export const ORGANISATION_TYPES =
   process.env.NODE_ENV === 'development'
     ? 'data/organisation_types.json'
@@ -37,8 +39,7 @@ export const COUNTRIES =
     ? 'data/countries.json'
     : 'api/countries/?format=json';
 
-import { Action, action, Thunk, thunk, computed, Computed } from 'easy-peasy';
-import { Endpoint } from 'app/state/interfaces/Endpoint';
+
 
 export interface IResponse<T> {
   data: T;
