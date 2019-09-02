@@ -4,6 +4,7 @@ import React from 'react';
 import Select from 'react-select';
 
 import {
+  HeaderLabel,
   ClearIndicator,
   Control,
   DropdownIndicator,
@@ -30,16 +31,19 @@ const customStyles = {
 
 export const ConnectedSelect = (props: any) => {
   return (
-    <Select
-      components={{
-        MultiValueRemove,
-        IndicatorSeparator,
-        ClearIndicator,
-        DropdownIndicator,
-      }}
-      styles={customStyles}
-      isMulti
-      {...props}
-    />
+    <>
+      <HeaderLabel>{props.label}</HeaderLabel>
+      <Select
+        components={{
+          MultiValueRemove,
+          IndicatorSeparator,
+          ClearIndicator,
+          DropdownIndicator,
+        }}
+        styles={customStyles}
+        isMulti
+        {...props}
+      />
+    </>
   );
 };
