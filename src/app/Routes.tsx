@@ -22,6 +22,9 @@ function Routes() {
   const fetchRegions = useStoreActions(actions => actions.regions.fetch);
   const fetchSectors = useStoreActions(actions => actions.sectors.fetch);
   const fetchCountries = useStoreActions(actions => actions.countries.fetch);
+  const fetchActivityStatus = useStoreActions(
+    actions => actions.activityStatus.fetch
+  );
 
   useEffectOnce(() => {
     console.log('Running effect once on mount');
@@ -29,6 +32,7 @@ function Routes() {
     fetchOrganisations();
     fetchSectorCategories();
     fetchRegions();
+    fetchActivityStatus();
     // fetchSectors();
     // fetchCountries();
 

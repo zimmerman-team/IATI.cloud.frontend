@@ -6,6 +6,7 @@ import {
   SECTOR_CATEGORIES,
   COUNTRIES,
   REGIONS,
+  ACTIVITY_STATUS,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -43,6 +44,12 @@ export const getSectorCategories: Endpoint = (params: RequestInit = {}) =>
 
 export const getRegions: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + REGIONS, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json());
+
+export const getActivityStatus: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + ACTIVITY_STATUS, {
     method: 'GET',
     ...params,
   }).then(res => res.json());

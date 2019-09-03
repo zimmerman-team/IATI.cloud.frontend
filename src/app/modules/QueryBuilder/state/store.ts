@@ -6,6 +6,7 @@ import {
   SectorCategoryModel,
   CountryModel,
   RegionModel,
+  ActivityStatusModel,
 } from 'app/state/models';
 import { fromLocalStorage } from './utils';
 import { withEffects } from './effects';
@@ -20,6 +21,8 @@ export type ModuleStoreModel = {
   outputFormat?: any;
   repeatRows?: any;
   sampleSize?: any;
+  additionalFilters?: any;
+  activityStatus: ActivityStatusModel[];
 };
 
 const initialState = fromLocalStorage<ModuleStoreModel>({
@@ -29,6 +32,8 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   sectorCategories: [],
   countries: [],
   regions: [],
+  additionalFilters: [],
+  activityStatus: [],
 });
 
 export type StoreEffect = Effects<ModuleStoreModel>;

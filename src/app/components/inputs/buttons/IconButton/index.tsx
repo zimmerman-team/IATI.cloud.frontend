@@ -10,6 +10,7 @@ type Props = {
   onClick?: any;
   anchorref?: ReactNode;
   children?: ReactNode;
+  link?: string;
 };
 
 /*type BaseProps = {
@@ -50,6 +51,8 @@ const IconButton = (props: Props) => {
       disabled={props.disabled}
       onClick={props.onClick}
       anchorref={props.anchorref}
+      href={props.link}
+      target="_blank"
     >
       {props.label && props.label}
       {props.icon && props.icon}

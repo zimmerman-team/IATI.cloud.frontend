@@ -4,6 +4,7 @@ import OrganisationTypesInterface from 'app/state/interfaces/OrganisationTypesIn
 import RegionsInterface from 'app/state/interfaces/RegionsInterface';
 import SectorCategoryInterface from 'app/state/interfaces/SectorCategoryInterface';
 import SectorsInterface from 'app/state/interfaces/SectorsInterface';
+import ActivityStatusInterface from 'app/state/interfaces/ActivityStatusInterface';
 
 export {
   CountriesInterface,
@@ -12,4 +13,5 @@ export {
   RegionsInterface,
   SectorCategoryInterface,
   SectorsInterface,
+  ActivityStatusInterface,
 };
