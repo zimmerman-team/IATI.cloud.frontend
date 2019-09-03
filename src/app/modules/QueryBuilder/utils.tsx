@@ -15,7 +15,7 @@ import { OutputFormatSubModule } from 'app/modules/QueryBuilder/steps/output-for
 import { AdditionalFiltersSubModule } from 'app/modules/QueryBuilder/steps/additional-filters';
 
 export function getSteps() {
-  return ['Organisation', 'Additional filters', 'Output format', 'Results'];
+  return ['Core filters', 'Additional filters', 'Output format', 'Results'];
 }
 
 export function ColorlibStepIcon(props: StepIconProps) {
