@@ -8,13 +8,13 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
       display: 'flex',
-      flexWrap: 'wrap'
+      flexWrap: 'wrap',
     },
     textField: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
-      width: 200
-    }
+      width: 200,
+    },
   })
 );
 
@@ -24,7 +24,6 @@ const BaseComponent = styled(props => <TextField {...props} />)`
 
   justify-content: center;
   height: 48px;
-  width: 275px;
   background-color: #f0f3f7;
   border-radius: 2px;
 
@@ -63,7 +62,7 @@ export default function DateField() {
         type="date"
         defaultValue="2017-05-24"
         InputLabelProps={{
-          shrink: true
+          shrink: true,
         }}
       />
     </div>
