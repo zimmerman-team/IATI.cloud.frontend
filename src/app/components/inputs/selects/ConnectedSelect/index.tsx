@@ -14,6 +14,7 @@ import {
   MultiValue,
   MultiValueLabel,
   MultiValueRemove,
+  HelperBlock,
   Option,
   ValueContainer,
 } from './common';
@@ -44,6 +45,18 @@ export const ConnectedSelect = (props: any) => {
         isMulti
         {...props}
       />
+      <HelperBlock>
+        {props.helperText && <FieldInputLabel label={props.helperText} />}
+        {props.helperTextLink && props.helperTextUrl && (
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={props.helperTextUrl}
+          >
+            {props.helperTextLink}
+          </a>
+        )}
+      </HelperBlock>
     </>
   );
 };

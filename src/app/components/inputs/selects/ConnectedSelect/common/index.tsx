@@ -160,3 +160,15 @@ export const Menu = () => ({
   boxShadow:
     '0 4px 14px -2px rgba(130, 136, 148, 0.28), 0 0 2px 0 rgba(130, 136, 148, 0.22)',
 });
+
+export const HelperBlock = styled.div`
+  display: flex;
+  margin-top: 8px;
+  flex-direction: row;
+
+  a {
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 3px;
+  }
+`;
