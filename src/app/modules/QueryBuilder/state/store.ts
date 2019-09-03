@@ -23,6 +23,9 @@ export type ModuleStoreModel = {
   sampleSize?: any;
   additionalFilters?: any;
   activityStatus: ActivityStatusModel[];
+  mustHaveDates: string;
+  startDate: any;
+  endDate: any;
 };
 
 const initialState = fromLocalStorage<ModuleStoreModel>({
@@ -34,6 +37,9 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   regions: [],
   additionalFilters: [],
   activityStatus: [],
+  mustHaveDates: 'No',
+  startDate: '2001-01-01',
+  endDate: '2001-01-01',
 });
 
 export type StoreEffect = Effects<ModuleStoreModel>;

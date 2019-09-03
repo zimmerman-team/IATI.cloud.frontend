@@ -49,11 +49,37 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
 
-    const organisations = store.get('organisations')
-      ? store.get('organisations').map((item: OrganisationModel) => {
-          return item.organisation_identifier;
+    const sectors = store.get('sectors')
+      ? store.get('sectors').map((item: SectorModel) => {
+          return item.code;
         })
       : null;
+
+    const organisations = store.get('organisations')
+      ? store.get('organisations').map((item: OrganisationModel) => {
+          return item.reporting_organisation_identifier;
+        })
+      : null;
+
+    const countries = store.get('countries')
+      ? store.get('countries').map((item: SectorModel) => {
+          return item.code;
+        })
+      : null;
+
+    const regions = store.get('regions')
+      ? store.get('regions').map((item: SectorModel) => {
+          return item.code;
+        })
+      : null;
+
+    const dates =
+      store.get('mustHaveDates') === 'Yes'
+        ? {
+            startDate: store.get('startDate'),
+            endDate: store.get('endDate'),
+          }
+        : null;
 
     const activityStatus = store.get('activityStatus')
       ? store.get('activityStatus').map((item: ActivityStatusModel) => {
@@ -69,11 +95,18 @@ export const withEffects: StoreEffect = store => {
           ? { reporting_organisation_identifier: organisations }
           : null,
         get(organisationTypes, 'length', 0)
-          ? { 'reporting-org.type': organisationTypes }
+          ? { reporting_organisation_type: organisationTypes }
           : null,
         get(sectorCategories, 'length', 0)
-          ? { sector: sectorCategories }
+          ? { sector_category: sectorCategories }
           : null,
+        get(sectors, 'length', 0) ? { sector: sectors } : null,
+        get(countries, 'length', 0) ? { recipient_country: countries } : null,
+        get(regions, 'length', 0) ? { recipient_region: regions } : null,
+        dates && dates.startDate
+          ? { planned_start_date_gte: dates.startDate }
+          : null,
+        dates && dates.endDate ? { planned_end_date_gte: dates.endDate } : null,
         get(activityStatus, 'length', 0)
           ? { activity_status: activityStatus }
           : null,

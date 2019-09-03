@@ -39,11 +39,11 @@ export const fragmentConfig: FragmentModel = {
     helperText: 'E.g. AT-12 = Ministry of Interior.',
     helperTextLink: 'See list',
     helperTextUrl: 'http://reference.iatistandard.org/203/codelists/Sector/',
-    placeholder: 'All (24)',
+    placeholder: 'All (0)',
     getOptionLabel: (option: OrganisationModel) =>
-      `${option.organisation_identifier}: ${option.name.narratives[0].text}`,
+      `${option.reporting_organisation_identifier}: ${option.reporting_organisation}`,
     getOptionValue: (option: OrganisationModel) =>
-      option.organisation_identifier,
+      option.reporting_organisation_identifier,
   },
   organisationTypes: {
     label: 'Type of Organisation',
@@ -90,16 +90,18 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'All (0)',
     className: 'recipientCountrySelect',
     name: 'recipientCountry',
-    getOptionLabel: option => `${option.code}: ${option.name}`,
-    getOptionValue: option => option.code,
+    getOptionLabel: option =>
+      `${option.recipient_country.code}: ${option.recipient_country.name}`,
+    getOptionValue: option => option.recipient_country.code,
   },
   recipientRegion: {
     label: 'Recipient Region',
     placeholder: 'All (0)',
     className: 'recipientRegionSelect',
     name: 'recipientRegion',
-    getOptionLabel: option => `${option.code}: ${option.name}`,
-    getOptionValue: option => option.code,
+    getOptionLabel: option =>
+      `${option.recipient_region.code}: ${option.recipient_region.name}`,
+    getOptionValue: option => option.recipient_region.code,
   },
   activityPeriode: {
     label: 'Must have activity periode',

@@ -20,11 +20,18 @@ export const OrganisationFragment = () => {
   const fetchedOrganisationTypes = useStoreState(
     state => state.organisationTypes.data
   );
+  const fetchedsectorOrganisations = useStoreState(state =>
+    get(state.organisations.data, 'results', [])
+  );
+  const fetchedsectors = useStoreState(state => state.sectors.data);
   const fetchedsectorCategories = useStoreState(
     state => state.sectorCategories.data
   );
-  const fetchedsectorOrganisations = useStoreState(
-    state => state.organisations.data
+  const fetchedCountries = useStoreState(state =>
+    get(state.countries.data, 'results', [])
+  );
+  const fetchedRegions = useStoreState(state =>
+    get(state.regions.data, 'results', [])
   );
 
   return (
@@ -36,7 +43,7 @@ export const OrganisationFragment = () => {
           value={store.get('organisations')}
           options={fetchedsectorOrganisations}
           onChange={e => store.set('organisations')(e)}
-          placeholder={`All (${get(fetchedsectorOrganisations, 'length', 0)})`}
+          placeholder={`All (${fetchedsectorOrganisations.length})`}
         />
       </Grid>
       {/** type of organisation */}
@@ -61,8 +68,10 @@ export const OrganisationFragment = () => {
       <Grid item xs={12} md={6}>
         <ConnectedSelect
           {...fragmentConfig.organisationSector}
-          options={[]}
-          value={[]}
+          options={fetchedsectors}
+          value={store.get('sectors')}
+          onChange={e => store.set('sectors')(e)}
+          placeholder={`All (${get(fetchedsectors, 'length', 0)})`}
         />
       </Grid>
       {/** sector category */}
@@ -79,29 +88,48 @@ export const OrganisationFragment = () => {
       <Grid item xs={12} md={12}>
         <ConnectedSelect
           {...fragmentConfig.recipientCountry}
-          options={[]}
-          value={[]}
+          value={store.get('countries')}
+          options={fetchedCountries}
+          onChange={e => store.set('countries')(e)}
+          placeholder={`All (${fetchedCountries.length})`}
         />
       </Grid>
       {/** recipient region */}
       <Grid item xs={12} md={12}>
         <ConnectedSelect
           {...fragmentConfig.recipientRegion}
-          options={[]}
-          value={[]}
+          value={store.get('regions')}
+          options={fetchedRegions}
+          onChange={e => store.set('regions')(e)}
+          placeholder={`All (${fetchedRegions.length})`}
         />
       </Grid>
       {/** must have activity period */}
       <Grid item xs={12} md={4}>
-        <SimpleSelect label="Must have activity periode" data={['Yes', 'No']} />
+        <SimpleSelect
+          label="Must have activity periode"
+          data={['Yes', 'No']}
+          value={store.get('mustHaveDates')}
+          onChange={e => store.set('mustHaveDates')(e)}
+        />
       </Grid>
       {/** activity period start date */}
       <Grid item xs={12} md={4}>
-        <DateField />
+        <DateField
+          defaultValue="2001-01-01"
+          label="Activity period start date"
+          onChange={e => store.set('startDate')(e)}
+          disabled={store.get('mustHaveDates') === 'No'}
+        />
       </Grid>
       {/** activity period end date */}
       <Grid item xs={12} md={4}>
-        <DateField />
+        <DateField
+          defaultValue="2001-01-01"
+          label="Activity period end date"
+          onChange={e => store.set('endDate')(e)}
+          disabled={store.get('mustHaveDates') === 'No'}
+        />
       </Grid>
     </Grid>
   );

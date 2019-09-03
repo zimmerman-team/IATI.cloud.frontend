@@ -6,10 +6,8 @@ type root = {
 };
 
 export type OrganisationModel = {
-  url: string;
-  last_updated_datetime: null | string;
-  organisation_identifier: string;
-  name: OrganisationName;
+  reporting_organisation_identifier: string;
+  reporting_organisation: string;
 };
 type OrganisationName = {
   narratives: OrganisationNarrativesItem[];

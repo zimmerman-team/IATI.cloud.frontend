@@ -61,7 +61,7 @@ export const constructQuery = store => {
     : null;
   const organisationGroup = selectedOrganisations
     ? selectedOrganisations.map((type: OrganisationModel) => {
-        return type.organisation_identifier;
+        return type.reporting_organisation_identifier;
       })
     : null;
 
