@@ -4,17 +4,6 @@ import React from 'react';
 import { components } from 'react-select';
 import styled from 'styled-components';
 
-export const HeaderLabel = styled.div`
-  font-family: Inter;
-  font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.33;
-  letter-spacing: 0.42px;
-  margin-bottom: 3px;
-`;
-
 const IndicatorClearWrapper = styled.div`
   display: flex;
   align-items: center;

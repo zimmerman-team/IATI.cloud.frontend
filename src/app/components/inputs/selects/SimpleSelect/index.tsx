@@ -55,7 +55,7 @@ const SimpleSelect = (props: SimpleSelectProps) => {
   }
 
   return (
-    <React.Fragment>
+    <>
       {props.label && (
         <Grid container spacing={2}>
           <Grid item>
@@ -90,7 +90,7 @@ const SimpleSelect = (props: SimpleSelectProps) => {
         linkText={props.helperTextLink}
         url={props.helperTextUrl}
       />
-    </React.Fragment>
+    </>
   );
 };
 

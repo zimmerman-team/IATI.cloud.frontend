@@ -2,9 +2,9 @@
 import React from 'react';
 /** third-party */
 import Select from 'react-select';
+import FieldInputLabel from 'app/components/common/FieldInputLabel';
 
 import {
-  HeaderLabel,
   ClearIndicator,
   Control,
   DropdownIndicator,
@@ -32,7 +32,7 @@ const customStyles = {
 export const ConnectedSelect = (props: any) => {
   return (
     <>
-      <HeaderLabel>{props.label}</HeaderLabel>
+      <FieldInputLabel label={props.label} />
       <Select
         components={{
           MultiValueRemove,
