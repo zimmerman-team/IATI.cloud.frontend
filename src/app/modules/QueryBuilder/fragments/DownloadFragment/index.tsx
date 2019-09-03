@@ -52,9 +52,19 @@ export const DownloadFragment = () => {
           <b>Context Store:</b>
           <br />
           <br />
+          reportingOrganisations
+          <br />
+          {JSON.stringify(store.get('organisations'), null, 2)}
+          <br />
+          <br />
           organisationTypes
           <br />
           {JSON.stringify(store.get('organisationTypes'), null, 2)}
+          <br />
+          <br />
+          sectors
+          <br />
+          {JSON.stringify(store.get('sectors'), null, 2)}
           <br />
           <br />
           sectorCategories
@@ -62,9 +72,29 @@ export const DownloadFragment = () => {
           {JSON.stringify(store.get('sectorCategories'), null, 2)}
           <br />
           <br />
-          organisations
+          recipientCountries
           <br />
-          {JSON.stringify(store.get('organisations'), null, 2)}
+          {JSON.stringify(store.get('countries'), null, 2)}
+          <br />
+          <br />
+          recipientRegions
+          <br />
+          {JSON.stringify(store.get('regions'), null, 2)}
+          <br />
+          <br />
+          {store.get('mustHaveDates') === 'Yes' && (
+            <>
+              activityPeriode
+              <br />
+              {JSON.stringify(store.get('startDate'), null, 2)} -{' '}
+              {JSON.stringify(store.get('endDate'), null, 2)}
+              <br />
+              <br />
+            </>
+          )}
+          recipientRegions
+          <br />
+          {JSON.stringify(store.get('regions'), null, 2)}
           <br />
           <br />
           activityStatus
