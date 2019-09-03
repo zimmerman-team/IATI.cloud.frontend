@@ -17,6 +17,8 @@ type SimpleSelectProps = {
   helperTextUrl?: string;
   tip?: string;
   data: string[];
+  value: string;
+  onChange?: Function;
 };
 //TODO: Refactor to styled components
 const useStyles = makeStyles((theme: Theme) =>
@@ -48,10 +50,13 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const SimpleSelect = (props: SimpleSelectProps) => {
   const classes = useStyles();
-  const [values, setValues] = React.useState<string[]>([]);
+  const [values, setValues] = React.useState<string>(props.value);
 
   function handleChange(event: React.ChangeEvent<{ value: unknown }>) {
-    setValues(event.target.value as string[]);
+    setValues(event.target.value as string);
+    if (props.onChange) {
+      props.onChange(event.target.value);
+    }
   }
 
   return (
