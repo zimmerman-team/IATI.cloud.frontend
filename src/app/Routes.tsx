@@ -33,8 +33,8 @@ function Routes() {
     fetchSectorCategories();
     fetchRegions();
     fetchActivityStatus();
-    // fetchSectors();
-    // fetchCountries();
+    fetchSectors();
+    fetchCountries();
 
     return () => {
       console.log('Running clean-up of effect on unmount');

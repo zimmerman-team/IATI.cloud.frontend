@@ -2,9 +2,9 @@
 import React from 'react';
 /** third-party */
 import Select from 'react-select';
+import FieldInputLabel from 'app/components/common/FieldInputLabel';
 
 import {
-  HeaderLabel,
   ClearIndicator,
   Control,
   DropdownIndicator,
@@ -14,6 +14,7 @@ import {
   MultiValue,
   MultiValueLabel,
   MultiValueRemove,
+  HelperBlock,
   Option,
   ValueContainer,
 } from './common';
@@ -32,7 +33,7 @@ const customStyles = {
 export const ConnectedSelect = (props: any) => {
   return (
     <>
-      <HeaderLabel>{props.label}</HeaderLabel>
+      <FieldInputLabel label={props.label} />
       <Select
         components={{
           MultiValueRemove,
@@ -44,6 +45,18 @@ export const ConnectedSelect = (props: any) => {
         isMulti
         {...props}
       />
+      <HelperBlock>
+        {props.helperText && <FieldInputLabel label={props.helperText} />}
+        {props.helperTextLink && props.helperTextUrl && (
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={props.helperTextUrl}
+          >
+            {props.helperTextLink}
+          </a>
+        )}
+      </HelperBlock>
     </>
   );
 };

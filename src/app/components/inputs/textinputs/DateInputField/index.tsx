@@ -8,13 +8,13 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
       display: 'flex',
-      flexWrap: 'wrap'
+      flexWrap: 'wrap',
     },
     textField: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
-      width: 200
-    }
+      width: 200,
+    },
   })
 );
 
@@ -24,7 +24,6 @@ const BaseComponent = styled(props => <TextField {...props} />)`
 
   justify-content: center;
   height: 48px;
-  width: 275px;
   background-color: #f0f3f7;
   border-radius: 2px;
 
@@ -51,19 +50,21 @@ const BaseComponent = styled(props => <TextField {...props} />)`
   }
 `;
 
-export default function DateField() {
+export default function DateField(props) {
   const classes = useStyles();
 
   return (
     <div>
-      <FieldInputLabel label="Activity period" />
+      <FieldInputLabel label={props.label} />
       <BaseComponent
         id="date"
-        label="Birthday"
+        label={props.label}
         type="date"
-        defaultValue="2017-05-24"
+        onChange={e => props.onChange(e.target.value)}
+        defaultValue={props.defaultValue}
+        disabled={props.disabled}
         InputLabelProps={{
-          shrink: true
+          shrink: true,
         }}
       />
     </div>

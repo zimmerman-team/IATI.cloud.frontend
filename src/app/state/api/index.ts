@@ -1,46 +1,61 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import { Action, action, Thunk, thunk, computed, Computed } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
+// const NODE_ENV = process.env.NODE_ENV;
+
+/* uncomment this in order to get data from API */
+const NODE_ENV = 'production';
+
+// todo: find a way to avoid using @ts-ignore
+// @ts-ignore used cause
+
 export const HOSTNAME =
-  process.env.NODE_ENV === 'development'
-    ? '/'
-    : 'https://store.staging.iati.cloud/';
+  // @ts-ignore
+  NODE_ENV === 'development' ? '/' : 'https://test-datastore.iatistandard.org/';
 
 // datastore.iati.cloud
 
 /* note */
 export const ORGANISATION_TYPES =
-  process.env.NODE_ENV === 'development'
+  // @ts-ignore
+  NODE_ENV === 'development'
     ? 'data/organisation_types.json'
     : 'api/codelists/OrganisationType/?format=json';
 
 export const SECTORS =
-  process.env.NODE_ENV === 'development'
+  // @ts-ignore
+  NODE_ENV === 'development'
     ? 'data/sectors.json'
     : 'api/codelists/Sector/?format=json';
 
 export const SECTOR_CATEGORIES =
-  process.env.NODE_ENV === 'development'
+  // @ts-ignore
+  NODE_ENV === 'development'
     ? 'data/sector_category.json'
     : 'api/codelists/SectorCategory/?format=json';
 
 export const ORGANISATIONS =
-  process.env.NODE_ENV === 'development'
+  // @ts-ignore
+  NODE_ENV === 'development'
     ? 'data/organisations.json'
-    : 'api/organisations/?format=json';
+    : 'api/activities/aggregations/?format=json&group_by=reporting_organisation&aggregations=count';
 
 export const REGIONS =
-  process.env.NODE_ENV === 'development'
+  // @ts-ignore
+  NODE_ENV === 'development'
     ? 'data/regions.json'
-    : 'api/regions/?format=json';
+    : 'api/activities/aggregations/?format=json&group_by=recipient_region&aggregations=count';
 
 export const COUNTRIES =
-  process.env.NODE_ENV === 'development'
+  // @ts-ignore
+  NODE_ENV === 'development'
     ? 'data/countries.json'
-    : 'api/countries/?format=json';
+    : 'api/activities/aggregations/?format=json&group_by=recipient_country&aggregations=count';
 
 export const ACTIVITY_STATUS =
-  process.env.NODE_ENV === 'development'
+  // @ts-ignore
+  NODE_ENV === 'development'
     ? 'data/activity_status.json'
     : 'api/codelists/ActivityStatus/?format=json';
 

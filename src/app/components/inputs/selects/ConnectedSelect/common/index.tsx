@@ -4,17 +4,6 @@ import React from 'react';
 import { components } from 'react-select';
 import styled from 'styled-components';
 
-export const HeaderLabel = styled.div`
-  font-family: Inter;
-  font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.33;
-  letter-spacing: 0.42px;
-  margin-bottom: 3px;
-`;
-
 const IndicatorClearWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -171,3 +160,15 @@ export const Menu = () => ({
   boxShadow:
     '0 4px 14px -2px rgba(130, 136, 148, 0.28), 0 0 2px 0 rgba(130, 136, 148, 0.22)',
 });
+
+export const HelperBlock = styled.div`
+  display: flex;
+  margin-top: 8px;
+  flex-direction: row;
+
+  a {
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 3px;
+  }
+`;

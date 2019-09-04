@@ -1,7 +1,7 @@
 import { addParameters, addDecorator, configure } from '@storybook/react';
 // import StoryRouter from 'storybook-react-router';
 // import { setConsoleOptions, withConsole } from '@storybook/addon-console';
-const { withPropsTable } = require('storybook-addon-react-docgen');
+// const { withPropsTable } = require('storybook-addon-react-docgen');
 // import { action, configureActions } from '@storybook/addon-actions';
 // import { muiTheme } from 'storybook-addon-material-ui';
 
