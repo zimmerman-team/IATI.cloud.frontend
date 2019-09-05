@@ -15,30 +15,7 @@ import { Header } from 'app/components/surfaces/Header';
 import { width } from '@material-ui/system';
 import { PageContainer } from 'app/modules/common/PageContainer';
 
-// const useStyles = makeStyles(theme => ({
-//   h3: {
-//     marginBottom: '8px',
-//   },
-//   body2: {
-//     marginBottom: '24px',
-//   },
-//   caption: {
-//     opacity: 0.6,
-//     position: 'absolute',
-//     bottom: '32px',
-//   },
-//   link: {
-//     color: '#fff',
-//     textDecoration: 'none',
-//     fontWeight: 600,
-//     '&:visited ': {
-//       color: '#FFF',
-//     },
-//     '&:hover': {
-//       color: '#FFF',
-//     },
-//   },
-// }));
+
 
 const TypographyOpacity = styled(props => <Typography {...props} />)`
   opacity: 0.8;
@@ -55,6 +32,7 @@ export const LandingMidSection = () => {
               title="About Datastore"
               description="IATI is a global initiative to improve the transparency of development and humanitarian resources and their results for addressing poverty and crises."
               buttonLabel="More"
+              path="/about"
             />
           </Grid>
           <Grid item md={4}>
@@ -63,6 +41,8 @@ export const LandingMidSection = () => {
               title="Query Builder"
               description="This tool allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format. You create queries based on finding the organisations, and then be configured filter the published data down to what you need."
               buttonLabel="More"
+              path="/querybuilder"
+
             />
           </Grid>
           <Grid item md={4}>
