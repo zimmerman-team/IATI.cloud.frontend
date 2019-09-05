@@ -81,6 +81,8 @@ export const withEffects: StoreEffect = store => {
           }
         : null;
 
+    const textSearch = store.get('textSearch') ? store.get('textSearch') : null;
+
     const activityStatus = store.get('activityStatus')
       ? store.get('activityStatus').map((item: ActivityStatusModel) => {
           return item.code;
@@ -107,6 +109,7 @@ export const withEffects: StoreEffect = store => {
           ? { planned_start_date_gte: dates.startDate }
           : null,
         dates && dates.endDate ? { planned_end_date_gte: dates.endDate } : null,
+        textSearch ? { q: textSearch } : null,
         get(activityStatus, 'length', 0)
           ? { activity_status: activityStatus }
           : null,

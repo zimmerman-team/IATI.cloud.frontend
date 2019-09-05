@@ -22,6 +22,7 @@ export type ModuleStoreModel = {
   repeatRows?: any;
   sampleSize?: any;
   additionalFilters?: any;
+  textSearch: string;
   activityStatus: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
@@ -36,6 +37,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   countries: [],
   regions: [],
   additionalFilters: [],
+  textSearch: '',
   activityStatus: [],
   mustHaveDates: 'No',
   startDate: '2001-01-01',

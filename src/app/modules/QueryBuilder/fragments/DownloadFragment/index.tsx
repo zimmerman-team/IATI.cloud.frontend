@@ -97,6 +97,11 @@ export const DownloadFragment = () => {
           {JSON.stringify(store.get('regions'), null, 2)}
           <br />
           <br />
+          textSearch
+          <br />
+          {JSON.stringify(store.get('textSearch'), null, 2)}
+          <br />
+          <br />
           activityStatus
           <br />
           {JSON.stringify(store.get('activityStatus'), null, 2)}

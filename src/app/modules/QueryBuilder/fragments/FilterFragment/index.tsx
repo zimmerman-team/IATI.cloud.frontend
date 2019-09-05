@@ -16,6 +16,9 @@ export const FilterFragment = () => {
   const setAdditionFilters = e => {
     store.set('additionalFilters')(e);
   };
+  const setTextSearchValue = e => {
+    store.set('textSearch')(e.target.value);
+  };
 
   const addedFilterOptions = store.get('additionalFilters');
 
@@ -29,6 +32,7 @@ export const FilterFragment = () => {
           variant="outlined"
           placeholder="Text search"
           label="Data title,activity or descriptions"
+          onChange={setTextSearchValue}
           helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
         />
       </Grid>
