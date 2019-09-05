@@ -8,6 +8,7 @@ import countries from 'app/state/interfaces/CountriesInterface';
 import sectorCategories from 'app/state/interfaces/SectorCategoryInterface';
 import activityStatus from 'app/state/interfaces/ActivityStatusInterface';
 import activityScope from 'app/state/interfaces/ActivityScopeInterface';
+import aidType from 'app/state/interfaces/AidTypeInterface';
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { queryModel } from 'app/state/models/QueryModel';
 
@@ -22,6 +23,7 @@ const applicationStore: ApplicationStoreModel = {
   activityStatus: activityStatus,
   participatingOrgs: participatingOrgs,
   activityScope: activityScope,
+  aidType: aidType,
 };
 
 const appStore = createStore(applicationStore);

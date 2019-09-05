@@ -9,6 +9,7 @@ import {
   ACTIVITY_STATUS,
   ACTIVITY_SCOPE,
   PARTICIPATING_ORGS,
+  AID_TYPE,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -65,6 +66,12 @@ export const getParticipatingOrgs: Endpoint = (params: RequestInit = {}) =>
 
 export const getActivityScope: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + ACTIVITY_SCOPE, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json());
+
+export const getAidType: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + AID_TYPE, {
     method: 'GET',
     ...params,
   }).then(res => res.json());

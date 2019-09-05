@@ -46,7 +46,14 @@ export const additionalFiltersPopData = [
       },
       {
         label: 'Aid type',
-        component: () => <AddFilterModule label="Aid type" dataKey="aidType" />,
+        component: props => (
+          <AddFilterModule
+            label="Aid type"
+            dataKey="aidType"
+            value={props.store.get('aidType')}
+            onChange={e => props.store.set('aidType')(e)}
+          />
+        ),
       },
       {
         label: 'Aid type (category)',

@@ -73,6 +73,12 @@ export const ACTIVITY_SCOPE =
     ? 'data/activity_scope.json'
     : 'api/codelists/ActivityScope/?format=json';
 
+export const AID_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/aid_type.json'
+    : 'api/codelists/AidType/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }

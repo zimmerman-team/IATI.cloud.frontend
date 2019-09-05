@@ -115,6 +115,11 @@ export const DownloadFragment = () => {
           activityScope
           <br />
           {JSON.stringify(store.get('activityScope'), null, 2)}
+          <br />
+          <br />
+          aidType
+          <br />
+          {JSON.stringify(store.get('aidType'), null, 2)}
         </pre>
       </Grid>
     </Grid>

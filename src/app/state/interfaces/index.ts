@@ -6,6 +6,7 @@ import SectorCategoryInterface from 'app/state/interfaces/SectorCategoryInterfac
 import SectorsInterface from 'app/state/interfaces/SectorsInterface';
 import ActivityStatusInterface from 'app/state/interfaces/ActivityStatusInterface';
 import ActivityScopeInterface from 'app/state/interfaces/ActivityScopeInterface';
+import AidTypeInterface from 'app/state/interfaces/AidTypeInterface';
 import ParticipatingOrgsInterface from 'app/state/interfaces/ParticipatingOrgsInterface';
 
 export {
@@ -17,5 +18,6 @@ export {
   SectorsInterface,
   ActivityScopeInterface,
   ActivityStatusInterface,
+  AidTypeInterface,
   ParticipatingOrgsInterface,
 };

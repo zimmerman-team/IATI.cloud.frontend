@@ -25,6 +25,7 @@ export type ModuleStoreModel = {
   additionalFilters?: any;
   activityStatus: ActivityStatusModel[];
   activityScope: ActivityStatusModel[];
+  aidType: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
   endDate: any;
@@ -43,6 +44,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   textSearch: '',
   activityStatus: [],
   activityScope: [],
+  aidType: [],
   mustHaveDates: 'No',
   startDate: '2001-01-01',
   endDate: '2001-01-01',

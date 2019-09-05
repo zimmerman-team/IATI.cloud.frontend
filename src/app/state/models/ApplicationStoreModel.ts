@@ -6,6 +6,7 @@ import { CountryInterface } from 'app/state/interfaces/CountriesInterface';
 import { SectorCategoryInterface } from 'app/state/interfaces/SectorCategoryInterface';
 import { ActivityScopeInterface } from 'app/state/interfaces/ActivityScopeInterface';
 import { ActivityStatusInterface } from 'app/state/interfaces/ActivityStatusInterface';
+import { AidTypeInterface } from 'app/state/interfaces/AidTypeInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
 // import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
 import { QueryModel } from 'app/state/models/QueryModel';
@@ -20,6 +21,7 @@ export interface ApplicationStoreModel {
   // borgCollective: BorgCollectiveModel;
   query: QueryModel;
   activityStatus: ActivityStatusInterface;
-  participatingOrgs: ParticipatingOrgsInterface;
   activityScope: ActivityScopeInterface;
+  aidType: AidTypeInterface;
+  participatingOrgs: ParticipatingOrgsInterface;
 }
