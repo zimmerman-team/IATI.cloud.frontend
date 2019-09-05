@@ -25,6 +25,9 @@ function Routes() {
   const fetchActivityStatus = useStoreActions(
     actions => actions.activityStatus.fetch
   );
+  const fetchActivityScope = useStoreActions(
+    actions => actions.activityScope.fetch
+  );
   const fetchParticipatingOrgs = useStoreActions(
     actions => actions.participatingOrgs.fetch
   );
@@ -39,6 +42,7 @@ function Routes() {
     fetchSectors();
     fetchCountries();
     fetchParticipatingOrgs();
+    fetchActivityScope();
 
     return () => {
       console.log('Running clean-up of effect on unmount');

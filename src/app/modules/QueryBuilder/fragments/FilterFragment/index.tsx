@@ -27,6 +27,11 @@ export const FilterFragment = () => {
 
   const addedFilterOptions = store.get('additionalFilters');
 
+  const allAddFilters = [
+    ...additionalFiltersPopData[0][1],
+    ...additionalFiltersPopData[1][1],
+  ];
+
   return (
     <Grid container spacing={4}>
       <Grid item xs={12} sm={12} md={12}>
@@ -43,7 +48,7 @@ export const FilterFragment = () => {
       </Grid>
 
       <Tooltip title="Filter will be implemented when switch to Solr">
-        <Grid item xs={12} sm={12} md={6}>
+        <Grid item xs={12} sm={12} md={6} style={{ opacity: 0.3 }}>
           <ConnectedSelect
             label="Transaction Provider Org"
             options={[]}
@@ -54,7 +59,7 @@ export const FilterFragment = () => {
       </Tooltip>
 
       <Tooltip title="Filter will be implemented when switch to Solr">
-        <Grid item xs={12} sm={12} md={6}>
+        <Grid item xs={12} sm={12} md={6} style={{ opacity: 0.3 }}>
           <ConnectedSelect
             label="Transaction Receiver Org"
             options={[]}
@@ -79,10 +84,6 @@ export const FilterFragment = () => {
       </Grid>
 
       {addedFilterOptions.map(addedFilter => {
-        const allAddFilters = [
-          ...additionalFiltersPopData[0][1],
-          ...additionalFiltersPopData[1][1],
-        ];
         return find(allAddFilters, { label: addedFilter }).component({
           store,
         });

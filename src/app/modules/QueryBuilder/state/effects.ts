@@ -96,6 +96,12 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
 
+    const activityScope = store.get('activityScope')
+      ? store.get('activityScope').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
+
     const url = formatUrl(
       [baseURL],
       [
@@ -122,6 +128,9 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(activityStatus, 'length', 0)
           ? { activity_status: activityStatus }
+          : null,
+        get(activityScope, 'length', 0)
+          ? { activity_scope: activityScope }
           : null,
       ]
     );

@@ -67,6 +67,12 @@ export const ACTIVITY_STATUS =
 //     : 'api/activities/aggregations/?format=json&group_by=participating_organisation&aggregations=count';
 export const PARTICIPATING_ORGS = 'data/participating_organisations.json';
 
+export const ACTIVITY_SCOPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/activity_scope.json'
+    : 'api/codelists/ActivityScope/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }

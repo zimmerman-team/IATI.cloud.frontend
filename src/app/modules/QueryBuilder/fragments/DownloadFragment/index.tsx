@@ -110,6 +110,11 @@ export const DownloadFragment = () => {
           activityStatus
           <br />
           {JSON.stringify(store.get('activityStatus'), null, 2)}
+          <br />
+          <br />
+          activityScope
+          <br />
+          {JSON.stringify(store.get('activityScope'), null, 2)}
         </pre>
       </Grid>
     </Grid>

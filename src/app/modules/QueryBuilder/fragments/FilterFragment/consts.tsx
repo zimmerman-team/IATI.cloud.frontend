@@ -1,9 +1,8 @@
 /* core */
 import React from 'react';
-/* third-party */
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
 /* project component */
-import DateField from 'app/components/inputs/textinputs/DateInputField';
+// import DateField from 'app/components/inputs/textinputs/DateInputField';
 import { AddFilterModule } from 'app/modules/QueryBuilder/fragments/FilterFragment/common/AddFilterModule';
 
 export const additionalFiltersPopData = [
@@ -21,23 +20,28 @@ export const additionalFiltersPopData = [
           />
         ),
       },
-      {
-        label: 'Activity periode',
-        component: () => (
-          <>
-            <Grid item xs={12} sm={6} md={4}>
-              <DateField />
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <DateField />
-            </Grid>
-          </>
-        ),
-      },
+      // {
+      //   label: 'Activity periode',
+      //   component: () => (
+      //     <>
+      //       <Grid item xs={12} sm={6} md={4}>
+      //         <DateField />
+      //       </Grid>
+      //       <Grid item xs={12} sm={6} md={4}>
+      //         <DateField />
+      //       </Grid>
+      //     </>
+      //   ),
+      // },
       {
         label: 'Activity scope',
-        component: () => (
-          <AddFilterModule label="Activity scope" dataKey="activityScope" />
+        component: props => (
+          <AddFilterModule
+            label="Activity scope"
+            dataKey="activityScope"
+            value={props.store.get('activityScope')}
+            onChange={e => props.store.set('activityScope')(e)}
+          />
         ),
       },
       {
