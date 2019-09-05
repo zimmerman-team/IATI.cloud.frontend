@@ -31,7 +31,7 @@ const AppBar = (props: AppBarProps) => {
             <AppBarButton label="HOME" url="/" />
             <AppBarButton label="ABOUT" url="/about" />
             <AppBarButton label="QUERY BUILDER" url="/querybuilder" />
-            <AppBarButton label="API DOCUMENTATION" url="/api-documentation" />
+            <AppBarButton disabled label="API DOCUMENTATION" url="/api-documentation" />
             <AppBarButton label="GUIDANCE" url="/guidance" />
           </Grid>
         </Grid>
