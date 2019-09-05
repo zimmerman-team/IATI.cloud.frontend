@@ -108,6 +108,12 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
 
+    const aidTypeCategory = store.get('aidTypeCategory')
+      ? store.get('aidTypeCategory').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
+
     const url = formatUrl(
       [baseURL],
       [
@@ -139,6 +145,9 @@ export const withEffects: StoreEffect = store => {
           ? { activity_scope: activityScope }
           : null,
         get(aidType, 'length', 0) ? { aid_type: aidType } : null,
+        get(aidTypeCategory, 'length', 0)
+          ? { aid_type: aidTypeCategory }
+          : null,
       ]
     );
 

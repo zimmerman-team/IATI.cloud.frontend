@@ -79,6 +79,12 @@ export const AID_TYPE =
     ? 'data/aid_type.json'
     : 'api/codelists/AidType/?format=json';
 
+export const AID_TYPE_CATEGORY =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/aid_type_category.json'
+    : 'api/codelists/AidType-category/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }

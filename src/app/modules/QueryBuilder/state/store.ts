@@ -26,6 +26,7 @@ export type ModuleStoreModel = {
   activityStatus: ActivityStatusModel[];
   activityScope: ActivityStatusModel[];
   aidType: ActivityStatusModel[];
+  aidTypeCategory: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
   endDate: any;
@@ -45,6 +46,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   activityStatus: [],
   activityScope: [],
   aidType: [],
+  aidTypeCategory: [],
   mustHaveDates: 'No',
   startDate: '2001-01-01',
   endDate: '2001-01-01',

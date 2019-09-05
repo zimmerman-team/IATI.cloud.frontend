@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { Palette } from 'app/theme';
 import Typography from '@material-ui/core/Typography';
 import Checkbox from 'app/components/inputs/checkboxes/Checkbox';
+import { Tooltip } from '@material-ui/core';
 
 type Props = {
   data: any;
@@ -68,14 +69,36 @@ const ListControls = (props: Props) => {
             {category[1].map(item => {
               return (
                 <React.Fragment key={item.label}>
-                  <ListItem dense button onClick={handleToggle(item.label)}>
-                    <ListItemIcon>
-                      <Checkbox
-                        checked={checked.indexOf(item.label as never) !== -1}
-                      />
-                    </ListItemIcon>
-                    <ListItemText primary={item.label} />
-                  </ListItem>
+                  {item.disabled ? (
+                    <Tooltip title="Filter will be implemented when switch to Solr">
+                      <ListItem
+                        dense
+                        button
+                        style={{ opacity: item.disabled ? 0.4 : 1 }}
+                        onClick={() =>
+                          !item.disabled && handleToggle(item.label)
+                        }
+                      >
+                        <ListItemIcon>
+                          <Checkbox
+                            checked={
+                              checked.indexOf(item.label as never) !== -1
+                            }
+                          />
+                        </ListItemIcon>
+                        <ListItemText primary={item.label} />
+                      </ListItem>
+                    </Tooltip>
+                  ) : (
+                    <ListItem dense button onClick={handleToggle(item.label)}>
+                      <ListItemIcon>
+                        <Checkbox
+                          checked={checked.indexOf(item.label as never) !== -1}
+                        />
+                      </ListItemIcon>
+                      <ListItemText primary={item.label} />
+                    </ListItem>
+                  )}
                 </React.Fragment>
               );
             })}
