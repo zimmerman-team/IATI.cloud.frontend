@@ -31,7 +31,7 @@ const ZimmerButton = styled(props => (
         case 'large':
           return '56px';
         default:
-          return '42px';
+          return '48px';
       }
     }};
 
