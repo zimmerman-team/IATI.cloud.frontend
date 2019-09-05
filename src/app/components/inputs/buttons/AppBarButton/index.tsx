@@ -56,19 +56,23 @@ const AppBarButton = (props: Props) => {
   return (
     <BaseComponent size={props.size} color="inherit" {...props}>
       {props.disabled ? (
-        <span
+        <div
           // @ts-ignore
           style={{
+            display: 'flex',
+            alignItems: 'center',
             textDecoration: 'none',
             fontSize: '14px',
             fontFamily: 'Inter',
             fontWeight: '300',
             lineHeight: '1.17',
             letterSpacing: '0.25px',
+            height:'96px',
+            borderBottom: '4px solid transparent'
           }}
         >
           {props.label}
-        </span>
+        </div>
       ) : (
         <NavLink
           style={{
