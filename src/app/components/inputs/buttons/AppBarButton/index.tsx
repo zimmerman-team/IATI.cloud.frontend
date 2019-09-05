@@ -25,9 +25,12 @@ const BaseComponent = styled(props => <Button {...props} />)`
       font-weight: 300;
       line-height: 1.17;
       letter-spacing: 0.25px;
+      
+     
+      
     }
 
-    &:hover {
+     &:hover {
       opacity: 0.6;
       background-color: initial;
     }
@@ -46,7 +49,9 @@ const BaseComponent = styled(props => <Button {...props} />)`
 
 const AppBarButton = (props: Props) => {
   // tslint:disable-next-line:no-console prefer-template
-  console.log('is button active? ' + props.active);
+
+
+
 
   return (
     <BaseComponent size={props.size} color="inherit" {...props}>
@@ -66,9 +71,18 @@ const AppBarButton = (props: Props) => {
         </span>
       ) : (
         <NavLink
-          style={{ color: '#121212' }}
+          style={{
+            color: '#121212',
+            height: '96px',
+            display: 'flex',
+            alignItems: 'center',
+            borderBottom: '4px solid transparent'
+          }}
+
+          exact
+          activeStyle={{ borderBottom: '4px solid #03dbe4', height:'96px' }}
           // @ts-ignore
-          to={props.url && props.url}
+          to={props.url}
         >
           {props.label}
         </NavLink>
