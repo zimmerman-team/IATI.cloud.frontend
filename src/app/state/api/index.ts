@@ -59,6 +59,14 @@ export const ACTIVITY_STATUS =
     ? 'data/activity_status.json'
     : 'api/codelists/ActivityStatus/?format=json';
 
+// todo: uncomment when retrieve data from API
+// export const PARTICIPATING_ORGS =
+//   // @ts-ignore
+//   NODE_ENV === 'development'
+//     ? 'data/participating_organisations.json'
+//     : 'api/activities/aggregations/?format=json&group_by=participating_organisation&aggregations=count';
+export const PARTICIPATING_ORGS = 'data/participating_organisations.json';
+
 export interface IResponse<T> {
   data: T;
 }

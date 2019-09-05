@@ -25,6 +25,9 @@ function Routes() {
   const fetchActivityStatus = useStoreActions(
     actions => actions.activityStatus.fetch
   );
+  const fetchParticipatingOrgs = useStoreActions(
+    actions => actions.participatingOrgs.fetch
+  );
 
   useEffectOnce(() => {
     console.log('Running effect once on mount');
@@ -35,6 +38,7 @@ function Routes() {
     fetchActivityStatus();
     fetchSectors();
     fetchCountries();
+    fetchParticipatingOrgs();
 
     return () => {
       console.log('Running clean-up of effect on unmount');

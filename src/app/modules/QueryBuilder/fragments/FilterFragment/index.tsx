@@ -2,14 +2,16 @@
 import React from 'react';
 /* third-party */
 import Grid from '@material-ui/core/Grid';
-import { TextField } from '@material-ui/core';
+import { TextField, Tooltip } from '@material-ui/core';
 /* project component */
 import { AddFilterModule } from 'app/components/utils/Popover';
-import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import { ConnectedSelect } from 'app/components/inputs/selects/ConnectedSelect';
 /* utils */
+import get from 'lodash/get';
 import find from 'lodash/find';
+import { useStoreState } from 'app/state/store';
 import { additionalFiltersPopData } from './consts';
+import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 
 export const FilterFragment = () => {
   const store = ModuleStore.useStore();
@@ -19,6 +21,9 @@ export const FilterFragment = () => {
   const setTextSearchValue = e => {
     store.set('textSearch')(e.target.value);
   };
+  const fetchedParticipatingOrgs = useStoreState(state =>
+    get(state.participatingOrgs.data, 'results', [])
+  );
 
   const addedFilterOptions = store.get('additionalFilters');
 
@@ -37,39 +42,48 @@ export const FilterFragment = () => {
         />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={6}>
-        <ConnectedSelect
-          label="Transaction Provider Org"
-          options={[]}
-          getOptionValue={option => option.code}
-          getOptionLabel={option => `${option.code}: ${option.name}`}
-        />
-      </Grid>
+      <Tooltip title="Filter will be implemented when switch to Solr">
+        <Grid item xs={12} sm={12} md={6}>
+          <ConnectedSelect
+            label="Transaction Provider Org"
+            options={[]}
+            getOptionValue={option => option.code}
+            getOptionLabel={option => `${option.code}: ${option.name}`}
+          />
+        </Grid>
+      </Tooltip>
 
-      <Grid item xs={12} sm={12} md={6}>
-        <ConnectedSelect
-          label="Transaction Receiver Org"
-          options={[]}
-          getOptionValue={option => option.code}
-          getOptionLabel={option => `${option.code}: ${option.name}`}
-        />
-      </Grid>
+      <Tooltip title="Filter will be implemented when switch to Solr">
+        <Grid item xs={12} sm={12} md={6}>
+          <ConnectedSelect
+            label="Transaction Receiver Org"
+            options={[]}
+            getOptionValue={option => option.code}
+            getOptionLabel={option => `${option.code}: ${option.name}`}
+          />
+        </Grid>
+      </Tooltip>
 
       <Grid item xs={12} sm={12} md={12}>
         <ConnectedSelect
           label="Participating Organisation"
-          options={[]}
-          getOptionValue={option => option.code}
-          getOptionLabel={option => `${option.code}: ${option.name}`}
+          options={fetchedParticipatingOrgs}
+          value={store.get('participatingOrgs')}
+          onChange={e => store.set('participatingOrgs')(e)}
+          placeholder={`All (${fetchedParticipatingOrgs.length})`}
+          getOptionValue={option => option.participating_organisation_ref}
+          getOptionLabel={option =>
+            `${option.participating_organisation_ref}: ${option.participating_organisation}`
+          }
         />
       </Grid>
 
-      {addedFilterOptions.map(filter => {
+      {addedFilterOptions.map(addedFilter => {
         const allAddFilters = [
           ...additionalFiltersPopData[0][1],
           ...additionalFiltersPopData[1][1],
         ];
-        return find(allAddFilters, { label: filter }).component({
+        return find(allAddFilters, { label: addedFilter }).component({
           store,
         });
       })}

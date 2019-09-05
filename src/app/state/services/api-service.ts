@@ -7,6 +7,7 @@ import {
   COUNTRIES,
   REGIONS,
   ACTIVITY_STATUS,
+  PARTICIPATING_ORGS,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -50,6 +51,13 @@ export const getRegions: Endpoint = (params: RequestInit = {}) =>
 
 export const getActivityStatus: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + ACTIVITY_STATUS, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json());
+
+export const getParticipatingOrgs: Endpoint = (params: RequestInit = {}) =>
+  fetch('/' + PARTICIPATING_ORGS, {
+    // todo: add HOSTNAME when retrieve data from API
     method: 'GET',
     ...params,
   }).then(res => res.json());

@@ -10,6 +10,7 @@ import {
   OrganisationTypeModel,
   SectorModel,
   ActivityStatusModel,
+  ParticipatingOrgsModel,
 } from 'app/state/models';
 
 import appStore from 'app/state/store';
@@ -83,6 +84,12 @@ export const withEffects: StoreEffect = store => {
 
     const textSearch = store.get('textSearch') ? store.get('textSearch') : null;
 
+    const participatingOrgs = store.get('participatingOrgs')
+      ? store.get('participatingOrgs').map((item: ParticipatingOrgsModel) => {
+          return item.participating_organisation_ref;
+        })
+      : null;
+
     const activityStatus = store.get('activityStatus')
       ? store.get('activityStatus').map((item: ActivityStatusModel) => {
           return item.code;
@@ -110,6 +117,9 @@ export const withEffects: StoreEffect = store => {
           : null,
         dates && dates.endDate ? { planned_end_date_gte: dates.endDate } : null,
         textSearch ? { q: textSearch } : null,
+        get(participatingOrgs, 'length', 0)
+          ? { participating_organisation: participatingOrgs }
+          : null,
         get(activityStatus, 'length', 0)
           ? { activity_status: activityStatus }
           : null,

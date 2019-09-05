@@ -7,6 +7,7 @@ import regions from 'app/state/interfaces/RegionsInterface';
 import countries from 'app/state/interfaces/CountriesInterface';
 import sectorCategories from 'app/state/interfaces/SectorCategoryInterface';
 import activityStatus from 'app/state/interfaces/ActivityStatusInterface';
+import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { queryModel } from 'app/state/models/QueryModel';
 
 const applicationStore: ApplicationStoreModel = {
@@ -18,6 +19,7 @@ const applicationStore: ApplicationStoreModel = {
   sectorCategories: sectorCategories,
   query: queryModel,
   activityStatus: activityStatus,
+  participatingOrgs: participatingOrgs,
 };
 
 const appStore = createStore(applicationStore);
