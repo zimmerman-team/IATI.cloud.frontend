@@ -33,10 +33,13 @@ export const ArticleCard = (props: ArticleCardModel) => {
         <Grid container justify="flex-end" spacing={4}>
           <Grid item md={6}>
             {props.loaded ? (
-              <IconButton
-                label={props.buttonLabel}
-                icon={<ArrowForward fontSize="small" />}
-              />
+              props.path && (
+                <IconButton
+                  label={props.buttonLabel}
+                  icon={<ArrowForward fontSize="small" />}
+                  link={props.path && props.path}
+                />
+              )
             ) : (
               <Skeletor height="42px" width="100%" />
             )}

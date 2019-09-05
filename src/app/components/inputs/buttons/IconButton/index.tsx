@@ -52,7 +52,7 @@ const IconButton = (props: Props) => {
       onClick={props.onClick}
       anchorref={props.anchorref}
       href={props.link}
-      target="_blank"
+      target="_self"
     >
       {props.label && props.label}
       {props.icon && props.icon}

@@ -13,7 +13,7 @@ type Props = {
 };
 
 const BaseComponent = styled(props => <Button {...props} />)`
-  && {
+  &&& {
     padding: 0;
     height: 100px;
 
@@ -25,34 +25,19 @@ const BaseComponent = styled(props => <Button {...props} />)`
       font-weight: 300;
       line-height: 1.17;
       letter-spacing: 0.25px;
-      
-     
-      
     }
 
-     &:hover {
-      opacity: 0.6;
+    &:hover {
+      * {
+        color: rgba(0, 0, 0, 0.5) !important;
+      }
+
       background-color: initial;
     }
-
-    &::after {
-      //content:'ddd';
-      //height:3px;
-      //width:100%;
-      //background-color:yellow;
-      //border-bottom: 1px solid yellow;
-    }
-
-    //border-bottom: 4px solid #03dbe4;
   }
 `;
 
 const AppBarButton = (props: Props) => {
-  // tslint:disable-next-line:no-console prefer-template
-
-
-
-
   return (
     <BaseComponent size={props.size} color="inherit" {...props}>
       {props.disabled ? (
@@ -67,8 +52,8 @@ const AppBarButton = (props: Props) => {
             fontWeight: '300',
             lineHeight: '1.17',
             letterSpacing: '0.25px',
-            height:'96px',
-            borderBottom: '4px solid transparent'
+            height: '96px',
+            borderBottom: '4px solid transparent',
           }}
         >
           {props.label}
@@ -80,11 +65,10 @@ const AppBarButton = (props: Props) => {
             height: '96px',
             display: 'flex',
             alignItems: 'center',
-            borderBottom: '4px solid transparent'
+            borderBottom: '4px solid transparent',
           }}
-
           exact
-          activeStyle={{ borderBottom: '4px solid #03dbe4', height:'96px' }}
+          activeStyle={{ borderBottom: '4px solid #03dbe4', height: '96px' }}
           // @ts-ignore
           to={props.url}
         >
