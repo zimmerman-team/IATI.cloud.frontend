@@ -5,6 +5,9 @@ import RegionsInterface from 'app/state/interfaces/RegionsInterface';
 import SectorCategoryInterface from 'app/state/interfaces/SectorCategoryInterface';
 import SectorsInterface from 'app/state/interfaces/SectorsInterface';
 import ActivityStatusInterface from 'app/state/interfaces/ActivityStatusInterface';
+import ActivityScopeInterface from 'app/state/interfaces/ActivityScopeInterface';
+import AidTypeInterface from 'app/state/interfaces/AidTypeInterface';
+import ParticipatingOrgsInterface from 'app/state/interfaces/ParticipatingOrgsInterface';
 
 export {
   CountriesInterface,
@@ -13,5 +16,8 @@ export {
   RegionsInterface,
   SectorCategoryInterface,
   SectorsInterface,
+  ActivityScopeInterface,
   ActivityStatusInterface,
+  AidTypeInterface,
+  ParticipatingOrgsInterface,
 };

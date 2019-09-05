@@ -59,6 +59,32 @@ export const ACTIVITY_STATUS =
     ? 'data/activity_status.json'
     : 'api/codelists/ActivityStatus/?format=json';
 
+// todo: uncomment when retrieve data from API
+// export const PARTICIPATING_ORGS =
+//   // @ts-ignore
+//   NODE_ENV === 'development'
+//     ? 'data/participating_organisations.json'
+//     : 'api/activities/aggregations/?format=json&group_by=participating_organisation&aggregations=count';
+export const PARTICIPATING_ORGS = 'data/participating_organisations.json';
+
+export const ACTIVITY_SCOPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/activity_scope.json'
+    : 'api/codelists/ActivityScope/?format=json';
+
+export const AID_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/aid_type.json'
+    : 'api/codelists/AidType/?format=json';
+
+export const AID_TYPE_CATEGORY =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/aid_type_category.json'
+    : 'api/codelists/AidType-category/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }

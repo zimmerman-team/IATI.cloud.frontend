@@ -7,6 +7,7 @@ import {
   CountryModel,
   RegionModel,
   ActivityStatusModel,
+  ParticipatingOrgsModel,
 } from 'app/state/models';
 import { fromLocalStorage } from './utils';
 import { withEffects } from './effects';
@@ -23,9 +24,14 @@ export type ModuleStoreModel = {
   sampleSize?: any;
   additionalFilters?: any;
   activityStatus: ActivityStatusModel[];
+  activityScope: ActivityStatusModel[];
+  aidType: ActivityStatusModel[];
+  aidTypeCategory: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
   endDate: any;
+  textSearch: string;
+  participatingOrgs: ParticipatingOrgsModel[];
 };
 
 const initialState = fromLocalStorage<ModuleStoreModel>({
@@ -36,10 +42,15 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   countries: [],
   regions: [],
   additionalFilters: [],
+  textSearch: '',
   activityStatus: [],
+  activityScope: [],
+  aidType: [],
+  aidTypeCategory: [],
   mustHaveDates: 'No',
   startDate: '2001-01-01',
   endDate: '2001-01-01',
+  participatingOrgs: [],
 });
 
 export type StoreEffect = Effects<ModuleStoreModel>;

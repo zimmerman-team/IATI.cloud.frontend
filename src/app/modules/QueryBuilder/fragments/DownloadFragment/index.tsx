@@ -97,12 +97,27 @@ export const DownloadFragment = () => {
           {JSON.stringify(store.get('regions'), null, 2)}
           <br />
           <br />
+          textSearch
+          <br />
+          {JSON.stringify(store.get('textSearch'), null, 2)}
+          <br />
+          <br />
+          participatingOrganisations
+          <br />
+          {JSON.stringify(store.get('participatingOrgs'), null, 2)}
+          <br />
+          <br />
           activityStatus
           <br />
           {JSON.stringify(store.get('activityStatus'), null, 2)}
+          <br />
+          <br />
+          activityScope
+          <br />
+          {JSON.stringify(store.get('activityScope'), null, 2)}
+          <br />
         </pre>
       </Grid>
-      *
     </Grid>
   );
 };
