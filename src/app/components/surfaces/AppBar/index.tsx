@@ -13,29 +13,42 @@ type AppBarProps = {
 
 const BaseComponent = styled(props => <BaseAppBar {...props} />)`
   && {
-    padding: 20px 45px 20px 20px;
+    //padding: 20px 45px 20px 20px;
+    height: 100px;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 45px;
   }
 `;
 
 const AppBar = (props: AppBarProps) => {
+
   return (
     <BaseComponent position="static" elevation={0} {...props}>
-      <Toolbar disableGutters>
-        <Grid container justify="space-between" alignItems="center">
-          <Grid item>
-            <IATILogoColor />
-          </Grid>
-
-          <Grid item>
-            <AppBarButton label="HOME" url="/" />
-            <AppBarButton label="ABOUT" url="/about" />
-            <AppBarButton label="QUERY BUILDER" url="/querybuilder" />
-            <AppBarButton disabled label="API DOCUMENTATION" url="/api-documentation" />
-            <AppBarButton label="GUIDANCE" url="/guidance" />
-          </Grid>
+      <Grid container justify="space-between" alignItems="center">
+        <Grid item md={5}>
+          <IATILogoColor />
         </Grid>
-      </Toolbar>
+
+        <Grid
+          item
+          md={7}
+          style={{ display: 'flex', justifyContent: 'space-around' }}
+        >
+          <AppBarButton label="HOME" url="/" />
+          <AppBarButton label="ABOUT" url="/about" />
+          <AppBarButton label="QUERY BUILDER" url="/querybuilder" />
+          <AppBarButton
+            disabled
+            label="API DOCUMENTATION"
+            url="/api-documentation"
+          />
+          <AppBarButton disabled label="GUIDANCE" url="/guidance" />
+        </Grid>
+      </Grid>
     </BaseComponent>
   );
 };

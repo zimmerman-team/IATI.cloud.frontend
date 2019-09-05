@@ -3,56 +3,77 @@ import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { LocationDescriptor } from 'history';
-import { Typography as MuiTypography } from '@material-ui/core';
 
 type Props = {
   size?: string;
   label?: string;
   url?: LocationDescriptor<any>;
   disabled?: boolean;
+  active?: boolean;
 };
-
-const Typography = styled(props => <MuiTypography {...props} />)`
-  && {
-    font-size: 14px;
-  }
-`;
 
 const BaseComponent = styled(props => <Button {...props} />)`
   && {
-    margin-left: 32px;
+    padding: 0;
+    height: 100px;
+
     & [class*='MuiButton-label'] {
-      font-size: 14px;
       text-transform: capitalize;
+      text-decoration: none;
+      font-size: 14px;
+      font-family: Inter, sans-serif;
+      font-weight: 300;
+      line-height: 1.17;
+      letter-spacing: 0.25px;
     }
 
     &:hover {
       opacity: 0.6;
       background-color: initial;
     }
+
+    &::after {
+      //content:'ddd';
+      //height:3px;
+      //width:100%;
+      //background-color:yellow;
+      //border-bottom: 1px solid yellow;
+    }
+
+    //border-bottom: 4px solid #03dbe4;
   }
 `;
 
-const CustomLink = styled(props => <NavLink {...props} />)`
-  text-decoration: none;
-  color: #121212;
-`;
-
 const AppBarButton = (props: Props) => {
+  // tslint:disable-next-line:no-console prefer-template
+  console.log('is button active? ' + props.active);
+
   return (
-    <>
-      <BaseComponent size={props.size} color="inherit" {...props}>
-        <Typography variant="body1">
-          {props.disabled ? (
-            <span>{props.label}</span>
-          ) : (
-            <CustomLink to={props.url ? props.url : '/'}>
-              {props.label}
-            </CustomLink>
-          )}
-        </Typography>
-      </BaseComponent>
-    </>
+    <BaseComponent size={props.size} color="inherit" {...props}>
+      {props.disabled ? (
+        <span
+          // @ts-ignore
+          style={{
+            textDecoration: 'none',
+            fontSize: '14px',
+            fontFamily: 'Inter',
+            fontWeight: '300',
+            lineHeight: '1.17',
+            letterSpacing: '0.25px',
+          }}
+        >
+          {props.label}
+        </span>
+      ) : (
+        <NavLink
+          style={{ color: '#121212' }}
+          // @ts-ignore
+          to={props.url && props.url}
+        >
+          {props.label}
+        </NavLink>
+      )}
+    </BaseComponent>
   );
 };
 
