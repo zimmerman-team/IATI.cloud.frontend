@@ -10,6 +10,7 @@ import {
   OrganisationTypeModel,
   SectorModel,
   ActivityStatusModel,
+  ParticipatingOrgsModel,
 } from 'app/state/models';
 
 import appStore from 'app/state/store';
@@ -81,8 +82,34 @@ export const withEffects: StoreEffect = store => {
           }
         : null;
 
+    const textSearch = store.get('textSearch') ? store.get('textSearch') : null;
+
+    const participatingOrgs = store.get('participatingOrgs')
+      ? store.get('participatingOrgs').map((item: ParticipatingOrgsModel) => {
+          return item.participating_organisation_ref;
+        })
+      : null;
+
     const activityStatus = store.get('activityStatus')
       ? store.get('activityStatus').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
+
+    const activityScope = store.get('activityScope')
+      ? store.get('activityScope').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
+
+    const aidType = store.get('aidType')
+      ? store.get('aidType').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
+
+    const aidTypeCategory = store.get('aidTypeCategory')
+      ? store.get('aidTypeCategory').map((item: ActivityStatusModel) => {
           return item.code;
         })
       : null;
@@ -107,8 +134,19 @@ export const withEffects: StoreEffect = store => {
           ? { planned_start_date_gte: dates.startDate }
           : null,
         dates && dates.endDate ? { planned_end_date_gte: dates.endDate } : null,
+        textSearch ? { q: textSearch } : null,
+        get(participatingOrgs, 'length', 0)
+          ? { participating_organisation: participatingOrgs }
+          : null,
         get(activityStatus, 'length', 0)
           ? { activity_status: activityStatus }
+          : null,
+        get(activityScope, 'length', 0)
+          ? { activity_scope: activityScope }
+          : null,
+        get(aidType, 'length', 0) ? { aid_type: aidType } : null,
+        get(aidTypeCategory, 'length', 0)
+          ? { aid_type: aidTypeCategory }
           : null,
       ]
     );

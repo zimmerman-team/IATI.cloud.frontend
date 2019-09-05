@@ -1,0 +1,90 @@
+[
+    {
+        "code": "1",
+        "name": "Unearmarked"
+    },
+    {
+        "code": "2",
+        "name": "Softly Earmarked"
+    },
+    {
+        "code": "3",
+        "name": "Earmarked"
+    },
+    {
+        "code": "4",
+        "name": "Tightly Earmarked"
+    },
+    {
+        "code": "A01",
+        "name": "General budget support"
+    },
+    {
+        "code": "A02",
+        "name": "Sector budget support"
+    },
+    {
+        "code": "B01",
+        "name": "Core support to NGOs, other private bodies, PPPs and research institutes"
+    },
+    {
+        "code": "B02",
+        "name": "Core contributions to multilateral institutions"
+    },
+    {
+        "code": "B03",
+        "name": "Contributions to specific-purpose programmes and funds managed by implementing partners"
+    },
+    {
+        "code": "B04",
+        "name": "Basket funds/pooled funding"
+    },
+    {
+        "code": "D01",
+        "name": "Donor country personnel"
+    },
+    {
+        "code": "D02",
+        "name": "Other technical assistance"
+    },
+    {
+        "code": "E01",
+        "name": "Scholarships/training in donor country"
+    },
+    {
+        "code": "E02",
+        "name": "Imputed student costs"
+    },
+    {
+        "code": "F01",
+        "name": "Debt relief"
+    },
+    {
+        "code": "G01",
+        "name": "Administrative costs not included elsewhere"
+    },
+    {
+        "code": "H01",
+        "name": "Development awareness"
+    },
+    {
+        "code": "H02",
+        "name": "Refugees/asylum seekers in donor countries"
+    },
+    {
+        "code": "H03",
+        "name": "Asylum-seekers ultimately accepted"
+    },
+    {
+        "code": "H04",
+        "name": "Asylum-seekers ultimately rejected"
+    },
+    {
+        "code": "H05",
+        "name": "Recognised refugees"
+    },
+    {
+        "code": "C01",
+        "name": "Project-type interventions"
+    }
+]

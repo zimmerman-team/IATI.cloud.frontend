@@ -7,6 +7,10 @@ import {
   COUNTRIES,
   REGIONS,
   ACTIVITY_STATUS,
+  ACTIVITY_SCOPE,
+  PARTICIPATING_ORGS,
+  AID_TYPE,
+  AID_TYPE_CATEGORY,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -50,6 +54,31 @@ export const getRegions: Endpoint = (params: RequestInit = {}) =>
 
 export const getActivityStatus: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + ACTIVITY_STATUS, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json());
+
+export const getParticipatingOrgs: Endpoint = (params: RequestInit = {}) =>
+  fetch('/' + PARTICIPATING_ORGS, {
+    // todo: add HOSTNAME when retrieve data from API
+    method: 'GET',
+    ...params,
+  }).then(res => res.json());
+
+export const getActivityScope: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + ACTIVITY_SCOPE, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json());
+
+export const getAidType: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + AID_TYPE, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json());
+
+export const getAidTypeCategory: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + AID_TYPE_CATEGORY, {
     method: 'GET',
     ...params,
   }).then(res => res.json());

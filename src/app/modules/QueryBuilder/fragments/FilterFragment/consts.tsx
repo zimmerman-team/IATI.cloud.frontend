@@ -1,9 +1,6 @@
 /* core */
 import React from 'react';
-/* third-party */
-import Grid from '@material-ui/core/Grid';
 /* project component */
-import DateField from 'app/components/inputs/textinputs/DateInputField';
 import { AddFilterModule } from 'app/modules/QueryBuilder/fragments/FilterFragment/common/AddFilterModule';
 
 export const additionalFiltersPopData = [
@@ -22,39 +19,43 @@ export const additionalFiltersPopData = [
         ),
       },
       {
-        label: 'Activity periode',
-        component: () => (
-          <>
-            <Grid item xs={12} sm={6} md={4}>
-              <DateField />
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <DateField />
-            </Grid>
-          </>
-        ),
-      },
-      {
         label: 'Activity scope',
-        component: () => (
-          <AddFilterModule label="Activity scope" dataKey="activityScope" />
+        component: props => (
+          <AddFilterModule
+            label="Activity scope"
+            dataKey="activityScope"
+            value={props.store.get('activityScope')}
+            onChange={e => props.store.set('activityScope')(e)}
+          />
         ),
       },
       {
         label: 'Aid type',
-        component: () => <AddFilterModule label="Aid type" dataKey="aidType" />,
+        disabled: true,
+        component: props => (
+          <AddFilterModule
+            label="Aid type"
+            dataKey="aidType"
+            value={props.store.get('aidType')}
+            onChange={e => props.store.set('aidType')(e)}
+          />
+        ),
       },
       {
         label: 'Aid type (category)',
-        component: () => (
+        disabled: true,
+        component: props => (
           <AddFilterModule
             label="Aid type (category)"
             dataKey="aidTypeCategory"
+            value={props.store.get('aidTypeCategory')}
+            onChange={e => props.store.set('aidTypeCategory')(e)}
           />
         ),
       },
       {
         label: 'Aid type vocabulary',
+        disabled: true,
         component: () => (
           <AddFilterModule
             label="Aid type vocabulary"
@@ -69,6 +70,7 @@ export const additionalFiltersPopData = [
     [
       {
         label: 'Budget identifier',
+        disabled: true,
         component: () => (
           <AddFilterModule
             label="Budget identifier"
@@ -78,6 +80,7 @@ export const additionalFiltersPopData = [
       },
       {
         label: 'Budget identifier sector',
+        disabled: true,
         component: () => (
           <AddFilterModule
             label="Budget identifier sector"
@@ -87,6 +90,7 @@ export const additionalFiltersPopData = [
       },
       {
         label: 'Budget identifier sector (category)',
+        disabled: true,
         component: () => (
           <AddFilterModule
             label="Budget identifier sector (category)"
