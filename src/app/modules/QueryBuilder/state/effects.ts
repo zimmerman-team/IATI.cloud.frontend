@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import { formatUrl } from 'url-lib';
-
 import { StoreEffect } from './store';
 
 import get from 'lodash/get';
+import { baseURL } from 'app/state/api';
 import { constructSolrQuery } from './utils';
 
 import {
@@ -17,51 +16,32 @@ import {
 
 import appStore from 'app/state/store';
 
-let baseURL =
-  'https://test-datastore.iatistandard.org/search/activity/select?q=*:*&wt=json&rows=1000000';
-
-/*
-
-fields:
-- reporting-org
-- reporting-org.type
-- sector
-- recipient-country
-- recipient-region
-- start-date__lt
-- start-date__gt
-- end-date__lt
-- end-date__gt
-- transaction_provider-org
-- participating-org
-
- */
 export const withEffects: StoreEffect = store => {
   store.onAll().subscribe(() => {
-    // localStorage.setItem(key, JSON.stringify(value));
+    const rowFormat = store.get('rowFormat');
 
-    baseURL = `https://test-datastore.iatistandard.org/search/${store.get(
-      'rowFormat'
-    )}/select?`;
+    const formattedBaseURL = baseURL.replace(
+      'activity',
+      store.get('rowFormat')
+    );
 
     /* todo: too much repetition, refactor to be more efficient */
-    const organisationTypes = store.get('organisationTypes')
-      ? store.get('organisationTypes').map((item: OrganisationTypeModel) => {
-          return item.code;
-        })
-      : null;
+    const organisationTypes =
+      store.get('organisationTypes') && rowFormat === 'activity'
+        ? store.get('organisationTypes').map((item: OrganisationTypeModel) => {
+            return item.code;
+          })
+        : null;
 
-    const sectorCategories = store.get('sectorCategories')
-      ? store.get('sectorCategories').map((item: SectorModel) => {
-          return item.code;
-        })
-      : null;
-
-    const sectors = store.get('sectors')
-      ? store.get('sectors').map((item: SectorModel) => {
-          return item.code;
-        })
-      : null;
+    const sectors =
+      (store.get('sectors') || store.get('sectorCategories')) &&
+      rowFormat === 'activity'
+        ? (store.get('sectors') || [])
+            .concat(store.get('sectorCategories') || [])
+            .map((item: SectorModel) => {
+              return item.code;
+            })
+        : null;
 
     const organisations = store.get('organisations')
       ? store.get('organisations').map((item: OrganisationModel) => {
@@ -89,7 +69,10 @@ export const withEffects: StoreEffect = store => {
           }
         : null;
 
-    const textSearch = store.get('textSearch') ? store.get('textSearch') : null;
+    const textSearch =
+      store.get('textSearch') && rowFormat === 'activity'
+        ? store.get('textSearch')
+        : null;
 
     const transactionProviderOrgs = store.get('transactionProviderOrgs')
       ? store
@@ -113,29 +96,33 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
 
-    const activityStatus = store.get('activityStatus')
-      ? store.get('activityStatus').map((item: ActivityStatusModel) => {
-          return item.code;
-        })
-      : null;
+    const activityStatus =
+      store.get('activityStatus') && rowFormat === 'activity'
+        ? store.get('activityStatus').map((item: ActivityStatusModel) => {
+            return item.code;
+          })
+        : null;
 
-    const activityScope = store.get('activityScope')
-      ? store.get('activityScope').map((item: ActivityStatusModel) => {
-          return item.code;
-        })
-      : null;
+    const activityScope =
+      store.get('activityScope') && rowFormat === 'activity'
+        ? store.get('activityScope').map((item: ActivityStatusModel) => {
+            return item.code;
+          })
+        : null;
 
-    const aidType = store.get('aidType')
-      ? store.get('aidType').map((item: ActivityStatusModel) => {
-          return item.code;
-        })
-      : null;
+    const aidType =
+      store.get('aidType') && rowFormat === 'activity'
+        ? store.get('aidType').map((item: ActivityStatusModel) => {
+            return item.code;
+          })
+        : null;
 
-    const aidTypeVocabulary = store.get('aidTypeVocabulary')
-      ? store.get('aidTypeVocabulary').map((item: ActivityStatusModel) => {
-          return item.code;
-        })
-      : null;
+    const aidTypeVocabulary =
+      store.get('aidTypeVocabulary') && rowFormat === 'activity'
+        ? store.get('aidTypeVocabulary').map((item: ActivityStatusModel) => {
+            return item.code;
+          })
+        : null;
 
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
@@ -144,7 +131,7 @@ export const withEffects: StoreEffect = store => {
       : null;
 
     const surl = constructSolrQuery(
-      baseURL,
+      formattedBaseURL,
       [
         get(organisations, 'length', 0)
           ? `reporting_org_ref:${organisations}`
@@ -152,23 +139,21 @@ export const withEffects: StoreEffect = store => {
         get(organisationTypes, 'length', 0)
           ? `reporting_org_type_code:${organisationTypes}`
           : null,
-        get(sectorCategories, 'length', 0) || get(sectors, 'length', 0)
-          ? `sector_code:${sectorCategories || ''}${
-              sectors
-                ? `${get(sectorCategories, 'length', 0) ? ',' : ''}${sectors}`
-                : ''
-            }`
-          : null,
+        get(sectors, 'length', 0) ? `sector_code:${sectors}` : null,
         get(countries, 'length', 0)
           ? `recipient_country_code:${countries}`
           : null,
         get(regions, 'length', 0) ? `recipient_region_code:${regions}` : null,
         dates
-          ? `activity_date_iso_date:[${get(
+          ? `${
+              rowFormat === 'activity'
+                ? 'activity_date_iso_date'
+                : 'transaction_date_iso_date'
+            }:[${get(dates, 'startDate', '*')}T00:00:00Z TO ${get(
               dates,
-              'startDate',
+              'endDate',
               '*'
-            )}T00:00:00Z TO ${get(dates, 'endDate', '*')}T00:00:00Z]`
+            )}T00:00:00Z]`
           : null,
         textSearch
           ? `title_narrative:${textSearch} AND description:${textSearch}`
@@ -195,44 +180,6 @@ export const withEffects: StoreEffect = store => {
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null
     );
-
-    // const url = formatUrl(
-    //   [baseURL],
-    //   [
-    //     // check if the object contain data, else return null
-    //     get(organisations, 'length', 0)
-    //       ? { reporting_organisation_identifier: organisations }
-    //       : null,
-    //     get(organisationTypes, 'length', 0)
-    //       ? { reporting_organisation_type: organisationTypes }
-    //       : null,
-    //     get(sectorCategories, 'length', 0)
-    //       ? { sector_category: sectorCategories }
-    //       : null,
-    //     get(sectors, 'length', 0) ? { sector: sectors } : null,
-    //     get(countries, 'length', 0) ? { recipient_country: countries } : null,
-    //     get(regions, 'length', 0) ? { recipient_region: regions } : null,
-    //     dates && dates.startDate
-    //       ? { planned_start_date_gte: dates.startDate }
-    //       : null,
-    //     dates && dates.endDate ? { planned_end_date_gte: dates.endDate } : null,
-    //     textSearch ? { q: textSearch } : null,
-    //     get(participatingOrgs, 'length', 0)
-    //       ? { participating_organisation: participatingOrgs }
-    //       : null,
-    //     get(activityStatus, 'length', 0)
-    //       ? { activity_status: activityStatus }
-    //       : null,
-    //     get(activityScope, 'length', 0)
-    //       ? { activity_scope: activityScope }
-    //       : null,
-    //     get(aidType, 'length', 0) ? { aid_type: aidType } : null,
-    //     get(aidTypeCategory, 'length', 0)
-    //       ? { aid_type: aidTypeCategory }
-    //       : null,
-    //     get(fields, 'length', 0) ? { fields: fields } : null,
-    //   ]
-    // );
 
     // updates the app store
     appStore.getActions().query.updateQuery(surl);

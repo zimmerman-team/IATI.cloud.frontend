@@ -85,7 +85,7 @@ export const constructQuery = store => {
 export const constructSolrQuery = (baseURI, params, fields) => {
   const filterString = `q=${filter(params, p => p !== null).join(' AND ')}`;
 
-  return `${baseURI}${filterString !== '' ? filterString : 'q=*:*'}${
+  return `${baseURI}${filterString !== 'q=' ? filterString : 'q=*:*'}${
     fields ? `&${fields}` : ''
-  }&wt=json&rows=1000000`;
+  }&wt=json&rows=5000000`;
 };

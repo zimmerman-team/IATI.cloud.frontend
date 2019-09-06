@@ -70,7 +70,7 @@ export const FilterFragment = () => {
           onChange={e => store.set('transactionProviderOrgs')(e)}
           getOptionValue={option => option.value}
           getOptionLabel={option => option.value}
-          placeholder="All"
+          placeholder="All transaction provider organisations"
         />
       </Grid>
 
@@ -82,7 +82,7 @@ export const FilterFragment = () => {
           onChange={e => store.set('transactionReceiverOrgs')(e)}
           getOptionValue={option => option.value}
           getOptionLabel={option => option.value}
-          placeholder="All"
+          placeholder="All transaction receiver organisations"
         />
       </Grid>
 
@@ -92,8 +92,7 @@ export const FilterFragment = () => {
           options={fetchedParticipatingOrgs}
           value={store.get('participatingOrgs')}
           onChange={e => store.set('participatingOrgs')(e)}
-          // placeholder={`All (${fetchedParticipatingOrgs.length})`}
-          placeholder={`All participating organisations`}
+          placeholder="All participating organisations"
           getOptionValue={option => option.participating_organisation_ref}
           getOptionLabel={option =>
             `${option.participating_organisation_ref}: ${option.participating_organisation}`
