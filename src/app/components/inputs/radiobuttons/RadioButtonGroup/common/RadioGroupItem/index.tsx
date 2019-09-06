@@ -5,14 +5,10 @@ import FormItemLabel from 'app/components/sort/FormItemLabel';
 type Props = {
   value?: string;
   label?: string;
+  disabled?: boolean;
+  onChange?: Function;
 };
 
 export const RadioGroupItem = (props: Props) => {
-  return (
-    <FormItemLabel
-      value={props.value}
-      control={<RadioButton />}
-      label={props.label}
-    />
-  );
+  return <FormItemLabel {...props} control={<RadioButton />} />;
 };

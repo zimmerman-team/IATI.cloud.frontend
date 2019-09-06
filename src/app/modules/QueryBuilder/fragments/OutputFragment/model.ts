@@ -1,67 +1,97 @@
+import { groupedOptions } from './consts';
 import { FragmentBaseModel } from 'app/modules/QueryBuilder/fragments';
 import { RadioButtonsGroupModel } from 'app/components/inputs/radiobuttons/RadioButtonGroup/index';
 
 interface FragmentModel extends FragmentBaseModel {
-  groups: RadioButtonsGroupModel[];
+  getGroups: Function;
+  fieldsSelect: any;
 }
+
+export const getGroupOptions = store => {
+  const rowFormatSel = store.get('rowFormat');
+  const gOpts = groupedOptions.map(group => {
+    const value =
+      (rowFormatSel === 'activities' && group.label === 'Activities') ||
+      (rowFormatSel === 'transactions' && group.label === 'Transactions') ||
+      (rowFormatSel === 'budgets' && group.label === 'Budgets')
+        ? 0
+        : 1;
+    return {
+      label: `${group.label}${value === 0 ? '' : group.tip}`,
+      options: group.options.map(option => ({
+        ...option,
+        isDisabled: value,
+      })),
+    };
+  });
+  return gOpts;
+};
 
 export const fragmentConfig: FragmentModel = {
   name: 'Output format',
   description:
     'You can use default, but these options allow you to configure the way in which your data is disaggregated.',
-  groups: [
+  getGroups: store => [
     {
-      groupID: 'outputFormat',
-      title: 'Choose format',
-      tip: 'Lorem ipsum dolor simet. Empty.',
+      onChange: e => {
+        store.set('fields')([
+          { code: 'iati_identifier', name: 'IATI Identifier' },
+          { code: 'sectors', name: 'Sectors' },
+          { code: 'recipient_countries', name: 'Recipient Countries' },
+          { code: 'recipient_regions', name: 'Recipient Regions' },
+        ]);
+        store.set('rowFormat')(e.target.value);
+      },
+      value: store.get('rowFormat'),
+      groupID: 'rowFormat',
+      title: 'Row format',
+      tip: 'Row format',
       items: [
         {
-          value: '0',
-          label: 'One activity per row',
+          value: 'activities',
+          label: 'Each unique Activity',
         },
         {
-          value: '1',
-          label: 'One transaction per row',
+          value: 'transactions',
+          label: 'Each financial Transaction',
         },
         {
-          value: '2',
-          label: ' One budget per row',
+          value: 'budgets',
+          label: ' Each Budget in defined periods',
         },
       ],
     },
-    {
-      groupID: 'repeatRows',
-      title: 'Repeat rows?',
-      tip: 'Lorem ipsum dolor simet. Empty.',
-      items: [
-        {
-          value: '0',
-          label: 'No',
-        },
-        {
-          value: '1',
-          label: 'Multi-sector expansion',
-        },
-        {
-          value: '2',
-          label: 'Multi-country expansion',
-        },
-      ],
-    },
-    {
-      groupID: 'sampleSize',
-      title: 'Choose sample size',
-      tip: 'Lorem ipsum dolor simet. Empty.',
-      items: [
-        {
-          value: '0',
-          label: '50 rows',
-        },
-        {
-          value: '1',
-          label: 'Entire selection',
-        },
-      ],
-    },
+    // {
+    //   onChange: e => store.set('repeatRows')(e.target.value),
+    //   value: store.get('repeatRows'),
+    //   groupID: 'repeatRows',
+    //   title: 'Collapse repeating elements',
+    //   tip: 'Collapse repeating elements',
+    //   items: [
+    //     {
+    //       value: '0',
+    //       label: 'No',
+    //     },
+    //     {
+    //       value: '1',
+    //       label: 'If repeating sectors',
+    //     },
+    //     {
+    //       value: '2',
+    //       label: 'If repeating countries',
+    //     },
+    //   ],
+    // },
   ],
+  fieldsSelect: {
+    name: 'dataFields',
+    className: 'fieldsSelect',
+    placeholder: 'Select data fields',
+    label: 'Column elements to include',
+    getOptionValue: (option: any) => option.code,
+    getOptionLabel: (option: any) => option.name,
+    helperTextLink: 'See IATI documentation for full list of possible elements',
+    helperTextUrl:
+      'http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/',
+  },
 };
