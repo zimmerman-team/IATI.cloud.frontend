@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import AppBarButton from 'app/components/inputs/buttons/AppBarButton';
 import Grid from '@material-ui/core/Grid';
 import { IATILogoColor } from 'app/components/svgs/IATILogo';
+import { Link } from "react-router-dom";
 
 type AppBarProps = {
   label?: string;
@@ -30,7 +31,7 @@ const AppBar = (props: AppBarProps) => {
     <BaseComponent position="static" elevation={0} {...props}>
       <Grid container justify="space-between" alignItems="center">
         <Grid item md={5}>
-          <IATILogoColor />
+          <Link to="/"> <IATILogoColor /></Link>
         </Grid>
 
         <Grid

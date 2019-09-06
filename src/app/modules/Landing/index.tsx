@@ -11,49 +11,7 @@ import { fetchOrganisations, fetchBorgList } from 'app/state/api/actions';
 
 function LandingModule() {
   /* set the window title */
-  useTitle('OIPA');
-
-  // const { loading, payload, error } = useQuery<BorgModel[]>(fetchBorgList);
-  /* const { loading, payload, error } = useQuery<OrganisationModel[]>(
-    fetchOrganisations
-  );*/
-
-  // const test = useQuery<OrganisationModel[]>(fetchOrganisations);
-  //
-  // console.log('test 1000', test.payload);
-
-  /*if (payload) {
-    payload.map((item: OrganisationModel) => {
-      console.log(item.organisation_identifier);
-
-      if (item.name.narratives) {
-        item.name.narratives.map(mod => {
-          console.log('--------');
-          console.log(mod.text);
-          return mod;
-        });
-      }
-      console.log('');
-      console.log('');
-      return item;
-    });
-  }*/
-
-  /*if (payload) {
-    payload.map((item: BorgModel) => {
-      console.log(item.id);
-      if (item.modules) {
-        item.modules.map(mod => {
-          console.log('--------');
-          console.log(mod.id);
-          return mod;
-        });
-      }
-      console.log('');
-      console.log('');
-      return item;
-    });
-  }*/
+  useTitle('IATI');
 
   /* instantiate the layout*/
   return LandingLayout();

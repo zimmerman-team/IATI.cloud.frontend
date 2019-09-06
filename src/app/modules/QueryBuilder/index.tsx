@@ -8,7 +8,7 @@ import { ModuleStore } from './state/store';
 
 function QueryBuilderModule() {
   /* set the window title */
-  useTitle('OIPA - Query Builder');
+  useTitle('IATI - Query Builder');
 
   /* instantiate the layout*/
   return (
