@@ -3,25 +3,18 @@ import React from 'react';
 /* third-party */
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-/* todo: juan: you were referencing to a faulty path to get the download icon  */
 import Download from '@material-ui/icons/GetApp';
 /* project component */
 import URLField from 'app/components/inputs/textdisplay/URLField';
 import IconButton from 'app/components/inputs/buttons/IconButton';
-// import { useStoreState,State } from 'easy-peasy';
-// import { useStoreState, State } from 'easy-peasy';
-/* props & base */
 /* config & mock */
+import { downloadFile } from './util';
 import { fragmentConfig } from './model';
-
-import { ApplicationStoreModel } from 'app/state/models/ApplicationStoreModel';
 import { useStoreState } from 'app/state/store';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
-// import { ApplicationStoreModel } from 'app/state/models';
-// import { useStoreState } from 'app/state/store';
+
 export const DownloadFragment = () => {
   /* get query url from app store */
-
   const store = ModuleStore.useStore();
 
   const queryURL = useStoreState(state => state.query.url);
@@ -33,13 +26,49 @@ export const DownloadFragment = () => {
       </Grid>
       {/* todo: make re-usable component */}
       <Grid item xs={12} sm={9} md={9}>
-        <URLField text={queryURL} />
+        <URLField text={queryURL.replace('json', 'csv')} />
       </Grid>
       <Grid item xs={12} sm={3} md={3}>
         <IconButton
           icon={<Download />}
           label="Download CSV"
-          link={queryURL.replace('json', 'csv')}
+          onClick={() =>
+            downloadFile(queryURL.replace('json', 'csv'), 'download.csv')
+          }
+        />
+      </Grid>
+      <Grid item xs={12} sm={9} md={9}>
+        <URLField text={queryURL} />
+      </Grid>
+      <Grid item xs={12} sm={3} md={3}>
+        <IconButton
+          icon={<Download />}
+          label="Download JSON"
+          onClick={() => downloadFile(queryURL, 'download.json')}
+        />
+      </Grid>
+      <Grid item xs={12} sm={9} md={9}>
+        <URLField text={queryURL.replace('json', 'xml')} />
+      </Grid>
+      <Grid item xs={12} sm={3} md={3}>
+        <IconButton
+          icon={<Download />}
+          label="Download XML"
+          onClick={() =>
+            downloadFile(queryURL.replace('json', 'xml'), 'download.xml')
+          }
+        />
+      </Grid>
+      <Grid item xs={12} sm={9} md={9}>
+        <URLField text={queryURL.replace('json', 'xls')} />
+      </Grid>
+      <Grid item xs={12} sm={3} md={3}>
+        <IconButton
+          icon={<Download />}
+          label="Download XLS"
+          onClick={() =>
+            downloadFile(queryURL.replace('json', 'xls'), 'download.xls')
+          }
         />
       </Grid>
       <Grid item>
