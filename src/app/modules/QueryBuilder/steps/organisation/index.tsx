@@ -43,7 +43,8 @@ export const OrganisationFragment = () => {
           value={store.get('organisations')}
           options={fetchedsectorOrganisations}
           onChange={e => store.set('organisations')(e)}
-          placeholder={`All (${fetchedsectorOrganisations.length})`}
+          // placeholder={`All (${fetchedsectorOrganisations.length})`}
+          placeholder={`All organisations`}
         />
       </Grid>
       {/** type of organisation */}
@@ -53,7 +54,8 @@ export const OrganisationFragment = () => {
           options={fetchedOrganisationTypes}
           value={store.get('organisationTypes')}
           onChange={e => store.set('organisationTypes')(e)}
-          placeholder={`All (${get(fetchedOrganisationTypes, 'length', 0)})`}
+          // placeholder={`All (${get(fetchedOrganisationTypes, 'length', 0)})`}
+          placeholder={`All organisation types`}
         />
       </Grid>
       {/** secondary publisher */}
@@ -64,16 +66,6 @@ export const OrganisationFragment = () => {
           value={[]}
         />
       </Grid>
-      {/** sector */}
-      <Grid item xs={12} md={6}>
-        <ConnectedSelect
-          {...fragmentConfig.organisationSector}
-          options={fetchedsectors}
-          value={store.get('sectors')}
-          onChange={e => store.set('sectors')(e)}
-          placeholder={`All (${get(fetchedsectors, 'length', 0)})`}
-        />
-      </Grid>
       {/** sector category */}
       <Grid item xs={12} md={6}>
         <ConnectedSelect
@@ -81,7 +73,19 @@ export const OrganisationFragment = () => {
           value={store.get('sectorCategories')}
           options={fetchedsectorCategories}
           onChange={e => store.set('sectorCategories')(e)}
-          placeholder={`All (${get(fetchedsectorCategories, 'length', 0)})`}
+          // placeholder={`All (${get(fetchedsectorCategories, 'length', 0)})`}
+          placeholder={`All categories`}
+        />
+      </Grid>
+      {/** sector */}
+      <Grid item xs={12} md={6}>
+        <ConnectedSelect
+          {...fragmentConfig.organisationSector}
+          options={fetchedsectors}
+          value={store.get('sectors')}
+          onChange={e => store.set('sectors')(e)}
+          // placeholder={`All (${get(fetchedsectors, 'length', 0)})`}
+          placeholder={`All sectors`}
         />
       </Grid>
       {/** recipient country */}
@@ -91,7 +95,8 @@ export const OrganisationFragment = () => {
           value={store.get('countries')}
           options={fetchedCountries}
           onChange={e => store.set('countries')(e)}
-          placeholder={`All (${fetchedCountries.length})`}
+          // placeholder={`All (${fetchedCountries.length})`}
+          placeholder={`All countries`}
         />
       </Grid>
       {/** recipient region */}
@@ -101,7 +106,8 @@ export const OrganisationFragment = () => {
           value={store.get('regions')}
           options={fetchedRegions}
           onChange={e => store.set('regions')(e)}
-          placeholder={`All (${fetchedRegions.length})`}
+          // placeholder={`All (${fetchedRegions.length})`}
+          placeholder={`All regions`}
         />
       </Grid>
       {/** must have activity period */}
