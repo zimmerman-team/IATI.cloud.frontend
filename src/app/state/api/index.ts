@@ -2,6 +2,10 @@
 import { Action, action, Thunk, thunk, computed, Computed } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
+export const baseURL = `https://test-datastore.iatistandard.org/${
+  process.env.NODE_ENV === 'development' ? 'dev/' : ''
+}search/activity/select?`;
+
 // const NODE_ENV = process.env.NODE_ENV;
 
 /* uncomment this in order to get data from API */
