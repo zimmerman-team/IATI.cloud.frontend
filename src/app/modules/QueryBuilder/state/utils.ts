@@ -1,3 +1,4 @@
+import filter from 'lodash/filter';
 import mapValues from 'lodash/mapValues';
 import {
   OrganisationModel,

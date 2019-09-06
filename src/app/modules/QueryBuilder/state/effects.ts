@@ -2,6 +2,7 @@
 import { StoreEffect } from './store';
 
 import get from 'lodash/get';
+import { constructSolrQuery } from './utils';
 
 import {
   OrganisationModel,
@@ -9,6 +10,7 @@ import {
   SectorModel,
   ActivityStatusModel,
   ParticipatingOrgsModel,
+  TransactionProviderOrgModel,
 } from 'app/state/models';
 
 import appStore from 'app/state/store';
@@ -20,7 +22,7 @@ export const withEffects: StoreEffect = store => {
   store.onAll().subscribe(() => {
     baseURL = `https://test-datastore.iatistandard.org/dev/search/${store.get(
       'rowFormat'
-    )}/?format=json&`;
+    )}/select?`;
 
     /* todo: too much repetition, refactor to be more efficient */
     const organisationTypes = store.get('organisationTypes')
@@ -69,6 +71,22 @@ export const withEffects: StoreEffect = store => {
 
     const textSearch = store.get('textSearch') ? store.get('textSearch') : null;
 
+    const transactionProviderOrgs = store.get('transactionProviderOrgs')
+      ? store
+          .get('transactionProviderOrgs')
+          .map((item: TransactionProviderOrgModel) => {
+            return `"${item.value}"`;
+          })
+      : null;
+
+    const transactionReceiverOrgs = store.get('transactionReceiverOrgs')
+      ? store
+          .get('transactionReceiverOrgs')
+          .map((item: TransactionProviderOrgModel) => {
+            return `"${item.value}"`;
+          })
+      : null;
+
     const participatingOrgs = store.get('participatingOrgs')
       ? store.get('participatingOrgs').map((item: ParticipatingOrgsModel) => {
           return item.participating_organisation_ref;
@@ -93,8 +111,8 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
 
-    const aidTypeCategory = store.get('aidTypeCategory')
-      ? store.get('aidTypeCategory').map((item: ActivityStatusModel) => {
+    const aidTypeVocabulary = store.get('aidTypeVocabulary')
+      ? store.get('aidTypeVocabulary').map((item: ActivityStatusModel) => {
           return item.code;
         })
       : null;
@@ -105,46 +123,99 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
 
-    const url = formatUrl(
-      [baseURL],
+    const surl = constructSolrQuery(
+      baseURL,
       [
-        // check if the object contain data, else return null
         get(organisations, 'length', 0)
-          ? { reporting_organisation_identifier: organisations }
+          ? `reporting_org_ref:${organisations}`
           : null,
         get(organisationTypes, 'length', 0)
-          ? { reporting_organisation_type: organisationTypes }
+          ? `reporting_org_type_code:${organisationTypes}`
           : null,
-        get(sectorCategories, 'length', 0)
-          ? { sector_category: sectorCategories }
+        get(sectorCategories, 'length', 0) || get(sectors, 'length', 0)
+          ? `sector_code:${sectorCategories || ''}${
+              sectors
+                ? `${get(sectorCategories, 'length', 0) ? ',' : ''}${sectors}`
+                : ''
+            }`
           : null,
-        get(sectors, 'length', 0) ? { sector: sectors } : null,
-        get(countries, 'length', 0) ? { recipient_country: countries } : null,
-        get(regions, 'length', 0) ? { recipient_region: regions } : null,
-        dates && dates.startDate
-          ? { planned_start_date_gte: dates.startDate }
+        get(countries, 'length', 0)
+          ? `recipient_country_code:${countries}`
           : null,
-        dates && dates.endDate ? { planned_end_date_gte: dates.endDate } : null,
-        textSearch ? { q: textSearch } : null,
+        get(regions, 'length', 0) ? `recipient_region_code:${regions}` : null,
+        dates
+          ? `activity_date_iso_date:[${get(
+              dates,
+              'startDate',
+              '*'
+            )}T00:00:00Z TO ${get(dates, 'endDate', '*')}T00:00:00Z]`
+          : null,
+        textSearch
+          ? `title_narrative:${textSearch} AND description:${textSearch}`
+          : null,
+        get(transactionProviderOrgs, 'length', 0)
+          ? `transaction_provider_org_narrative:(${transactionProviderOrgs})`
+          : null,
+        get(transactionReceiverOrgs, 'length', 0)
+          ? `transaction_receiver_org_narrative:(${transactionReceiverOrgs})`
+          : null,
         get(participatingOrgs, 'length', 0)
-          ? { participating_organisation: participatingOrgs }
+          ? `participating_org_ref:${participatingOrgs}`
           : null,
         get(activityStatus, 'length', 0)
-          ? { activity_status: activityStatus }
+          ? `activity_status_code:${activityStatus}`
           : null,
         get(activityScope, 'length', 0)
-          ? { activity_scope: activityScope }
+          ? `activity_scope_code:${activityScope}`
           : null,
-        get(aidType, 'length', 0) ? { aid_type: aidType } : null,
-        get(aidTypeCategory, 'length', 0)
-          ? { aid_type: aidTypeCategory }
+        get(aidType, 'length', 0) ? `default_aid_type_code:${aidType}` : null,
+        get(aidTypeVocabulary, 'length', 0)
+          ? `default_aid_type_vocabulary:${aidTypeVocabulary}`
           : null,
-        get(fields, 'length', 0) ? { fields: fields } : null,
-      ]
+      ],
+      get(fields, 'length', 0) ? `fl=${fields}` : null
     );
 
+    // const url = formatUrl(
+    //   [baseURL],
+    //   [
+    //     // check if the object contain data, else return null
+    //     get(organisations, 'length', 0)
+    //       ? { reporting_organisation_identifier: organisations }
+    //       : null,
+    //     get(organisationTypes, 'length', 0)
+    //       ? { reporting_organisation_type: organisationTypes }
+    //       : null,
+    //     get(sectorCategories, 'length', 0)
+    //       ? { sector_category: sectorCategories }
+    //       : null,
+    //     get(sectors, 'length', 0) ? { sector: sectors } : null,
+    //     get(countries, 'length', 0) ? { recipient_country: countries } : null,
+    //     get(regions, 'length', 0) ? { recipient_region: regions } : null,
+    //     dates && dates.startDate
+    //       ? { planned_start_date_gte: dates.startDate }
+    //       : null,
+    //     dates && dates.endDate ? { planned_end_date_gte: dates.endDate } : null,
+    //     textSearch ? { q: textSearch } : null,
+    //     get(participatingOrgs, 'length', 0)
+    //       ? { participating_organisation: participatingOrgs }
+    //       : null,
+    //     get(activityStatus, 'length', 0)
+    //       ? { activity_status: activityStatus }
+    //       : null,
+    //     get(activityScope, 'length', 0)
+    //       ? { activity_scope: activityScope }
+    //       : null,
+    //     get(aidType, 'length', 0) ? { aid_type: aidType } : null,
+    //     get(aidTypeCategory, 'length', 0)
+    //       ? { aid_type: aidTypeCategory }
+    //       : null,
+    //     get(fields, 'length', 0) ? { fields: fields } : null,
+    //   ]
+    // );
+
     // updates the app store
-    appStore.getActions().query.updateQuery(url);
+    appStore.getActions().query.updateQuery(surl);
   });
 
   return store;

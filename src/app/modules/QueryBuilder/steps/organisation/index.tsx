@@ -123,6 +123,7 @@ export const OrganisationFragment = () => {
       <Grid item xs={12} md={4}>
         <DateField
           defaultValue="2001-01-01"
+          value={store.get('startDate')}
           label="Activity period start date"
           onChange={e => store.set('startDate')(e)}
           disabled={store.get('mustHaveDates') === 'No'}
@@ -132,6 +133,7 @@ export const OrganisationFragment = () => {
       <Grid item xs={12} md={4}>
         <DateField
           defaultValue="2001-01-01"
+          value={store.get('endDate')}
           label="Activity period end date"
           onChange={e => store.set('endDate')(e)}
           disabled={store.get('mustHaveDates') === 'No'}

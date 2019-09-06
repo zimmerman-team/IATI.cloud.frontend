@@ -31,7 +31,6 @@ export const additionalFiltersPopData = [
       },
       {
         label: 'Aid type',
-        disabled: true,
         component: props => (
           <AddFilterModule
             label="Aid type"
@@ -55,11 +54,12 @@ export const additionalFiltersPopData = [
       },
       {
         label: 'Aid type vocabulary',
-        disabled: true,
-        component: () => (
+        component: props => (
           <AddFilterModule
             label="Aid type vocabulary"
             dataKey="aidTypeVocabulary"
+            value={props.store.get('aidTypeVocabulary')}
+            onChange={e => props.store.set('aidTypeVocabulary')(e)}
           />
         ),
       },
