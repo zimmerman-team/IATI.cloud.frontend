@@ -56,7 +56,7 @@ function Routes() {
       <Switch>
         <Route
           exact
-          path="/querybuilder"
+          path="/querybuilder/:code"
           render={() => <QueryBuilderModule />}
         />
         <Route exact path="/" render={() => <LandingModule />} />
