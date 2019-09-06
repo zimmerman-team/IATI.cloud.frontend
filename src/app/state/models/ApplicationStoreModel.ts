@@ -7,7 +7,10 @@ import { SectorCategoryInterface } from 'app/state/interfaces/SectorCategoryInte
 import { ActivityScopeInterface } from 'app/state/interfaces/ActivityScopeInterface';
 import { ActivityStatusInterface } from 'app/state/interfaces/ActivityStatusInterface';
 import { AidTypeInterface } from 'app/state/interfaces/AidTypeInterface';
+import { AidTypeVocabularyInterface } from 'app/state/interfaces/AidTypeVocabularyInterface';
 import { AidTypeCategoryInterface } from 'app/state/interfaces/AidTypeCategoryInterface';
+import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
+import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
 // import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
 import { QueryModel } from 'app/state/models/QueryModel';
@@ -24,6 +27,9 @@ export interface ApplicationStoreModel {
   activityStatus: ActivityStatusInterface;
   activityScope: ActivityScopeInterface;
   aidType: AidTypeInterface;
+  aidTypeVocabulary: AidTypeVocabularyInterface;
   participatingOrgs: ParticipatingOrgsInterface;
   aidTypeCategory: AidTypeCategoryInterface;
+  transactionProviderOrgs: TransactionProviderOrgScope;
+  transactionReceiverOrgs: TransactionReceiverOrgsInterface;
 }

@@ -70,7 +70,7 @@ const ListControls = (props: Props) => {
               return (
                 <React.Fragment key={item.label}>
                   {item.disabled ? (
-                    <Tooltip title="Filter will be implemented when switch to Solr">
+                    <Tooltip title="Filter not available yet">
                       <ListItem
                         dense
                         button

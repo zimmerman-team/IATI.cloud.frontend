@@ -107,6 +107,16 @@ export const DownloadFragment = () => {
           {JSON.stringify(store.get('participatingOrgs'), null, 2)}
           <br />
           <br />
+          transactionProviderOrgs
+          <br />
+          {JSON.stringify(store.get('transactionProviderOrgs'), null, 2)}
+          <br />
+          <br />
+          transactionReceiverOrgs
+          <br />
+          {JSON.stringify(store.get('transactionReceiverOrgs'), null, 2)}
+          <br />
+          <br />
           activityStatus
           <br />
           {JSON.stringify(store.get('activityStatus'), null, 2)}
@@ -115,6 +125,17 @@ export const DownloadFragment = () => {
           activityScope
           <br />
           {JSON.stringify(store.get('activityScope'), null, 2)}
+          <br />
+          <br />
+          aidType
+          <br />
+          {JSON.stringify(store.get('aidType'), null, 2)}
+          <br />
+          <br />
+          aidTypeVocabulary
+          <br />
+          {JSON.stringify(store.get('aidTypeVocabulary'), null, 2)}
+          <br />
           <br />
         </pre>
       </Grid>

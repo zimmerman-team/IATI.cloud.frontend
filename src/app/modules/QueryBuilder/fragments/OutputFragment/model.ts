@@ -11,9 +11,9 @@ export const getGroupOptions = store => {
   const rowFormatSel = store.get('rowFormat');
   const gOpts = groupedOptions.map(group => {
     const value =
-      (rowFormatSel === 'activities' && group.label === 'Activities') ||
-      (rowFormatSel === 'transactions' && group.label === 'Transactions') ||
-      (rowFormatSel === 'budgets' && group.label === 'Budgets')
+      (rowFormatSel === 'activity' && group.label === 'Activities') ||
+      (rowFormatSel === 'transaction' && group.label === 'Transactions') ||
+      (rowFormatSel === 'budget' && group.label === 'Budgets')
         ? 0
         : 1;
     return {
@@ -34,12 +34,13 @@ export const fragmentConfig: FragmentModel = {
   getGroups: store => [
     {
       onChange: e => {
-        store.set('fields')([
-          { code: 'iati_identifier', name: 'IATI Identifier' },
-          { code: 'sectors', name: 'Sectors' },
-          { code: 'recipient_countries', name: 'Recipient Countries' },
-          { code: 'recipient_regions', name: 'Recipient Regions' },
-        ]);
+        // store.set('fields')([
+        //   { code: 'iati_identifier', name: 'IATI Identifier' },
+        //   { code: 'sectors', name: 'Sectors' },
+        //   { code: 'recipient_countries', name: 'Recipient Countries' },
+        //   { code: 'recipient_regions', name: 'Recipient Regions' },
+        // ]);
+        store.set('fields')([]);
         store.set('rowFormat')(e.target.value);
       },
       value: store.get('rowFormat'),
@@ -48,16 +49,17 @@ export const fragmentConfig: FragmentModel = {
       tip: 'Row format',
       items: [
         {
-          value: 'activities',
+          value: 'activity',
           label: 'Each unique Activity',
         },
         {
-          value: 'transactions',
+          value: 'transaction',
           label: 'Each financial Transaction',
         },
         {
-          value: 'budgets',
+          value: 'budget',
           label: ' Each Budget in defined periods',
+          disabled: true,
         },
       ],
     },

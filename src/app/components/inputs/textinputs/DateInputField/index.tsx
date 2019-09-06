@@ -60,6 +60,7 @@ export default function DateField(props) {
         id="date"
         label={props.label}
         type="date"
+        value={props.value}
         onChange={e => props.onChange(e.target.value)}
         defaultValue={props.defaultValue}
         disabled={props.disabled}
