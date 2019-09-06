@@ -1,51 +1,58 @@
+/* core */
 import React from 'react';
+/* third-party */
+import styled from 'styled-components';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import RadioButton from 'app/components/inputs/radiobuttons/RadioButton';
-import FormItemLabel from 'app/components/sort/FormItemLabel';
-import styled from 'styled-components';
-import TooltipButton from 'app/components/inputs/buttons/TooltipButton';
-import Grid from '@material-ui/core/Grid';
-import Tooltip from '@material-ui/core/Tooltip';
+/* project component */
 import { RadioGroupItem } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupItem';
 
 type ItemModel = {
   value: string;
   label: string;
+  disabled?: boolean;
 };
+
 export type RadioButtonsGroupModel = {
   title?: string;
   tip?: string;
   items: ItemModel[];
+  onChange?: Function;
   groupID?: string;
+  value?: string;
 };
 
-const RadioButtonsGroup = (props: RadioButtonsGroupModel) => {
-  const [value, setValue] = React.useState('0');
+const CustomFormControl = styled(props => <FormControl {...props} />)`
+  width: 100%;
+  > div {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
 
-  function handleChange(event: React.ChangeEvent<unknown>) {
-    // todo: implement module store logic
-    setValue((event.target as HTMLInputElement).value);
-    console.log('value has been set to', value);
+    > label {
+      width: 33%;
+      font-weight: normal;
+    }
   }
+`;
 
+const RadioButtonsGroup = (props: RadioButtonsGroupModel) => {
   return (
-    <React.Fragment>
-      <FormControl component="fieldset">
-        <RadioGroup
-          aria-label="gender"
-          name="rowFormat"
-          value={value}
-          onChange={handleChange}
-        >
-          {props.items &&
-            props.items.map(item => (
-              <RadioGroupItem value={item.value} label={item.label} />
-            ))}
+    <>
+      <CustomFormControl component="fieldset">
+        <RadioGroup value={props.value}>
+          {props.items.map(item => (
+            <RadioGroupItem
+              disabled={item.disabled}
+              key={item.value}
+              value={item.value}
+              onChange={props.onChange}
+              label={item.label}
+            />
+          ))}
         </RadioGroup>
-      </FormControl>
-    </React.Fragment>
+      </CustomFormControl>
+    </>
   );
 };
 

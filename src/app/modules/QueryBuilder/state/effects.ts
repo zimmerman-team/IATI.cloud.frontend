@@ -15,8 +15,9 @@ import {
 
 import appStore from 'app/state/store';
 
-const baseURL =
-  'https://test-datastore.iatistandard.org/api/activities/?format=json&fields=all&';
+let baseURL =
+  'https://test-datastore.iatistandard.org/api/activities/?format=json';
+
 /*
 
 fields:
@@ -36,6 +37,10 @@ fields:
 export const withEffects: StoreEffect = store => {
   store.onAll().subscribe(() => {
     // localStorage.setItem(key, JSON.stringify(value));
+
+    baseURL = `https://test-datastore.iatistandard.org/api/${store.get(
+      'rowFormat'
+    )}/?format=json&`;
 
     /* todo: too much repetition, refactor to be more efficient */
     const organisationTypes = store.get('organisationTypes')
@@ -114,6 +119,12 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
 
+    const fields = store.get('fields')
+      ? store.get('fields').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
+
     const url = formatUrl(
       [baseURL],
       [
@@ -148,6 +159,7 @@ export const withEffects: StoreEffect = store => {
         get(aidTypeCategory, 'length', 0)
           ? { aid_type: aidTypeCategory }
           : null,
+        get(fields, 'length', 0) ? { fields: fields } : null,
       ]
     );
 

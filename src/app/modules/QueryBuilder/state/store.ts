@@ -19,9 +19,6 @@ export type ModuleStoreModel = {
   sectorCategories: SectorCategoryModel[];
   countries: CountryModel[];
   regions: RegionModel[];
-  outputFormat?: any;
-  repeatRows?: any;
-  sampleSize?: any;
   additionalFilters?: any;
   activityStatus: ActivityStatusModel[];
   activityScope: ActivityStatusModel[];
@@ -32,6 +29,9 @@ export type ModuleStoreModel = {
   endDate: any;
   textSearch: string;
   participatingOrgs: ParticipatingOrgsModel[];
+  fields: ActivityStatusModel[];
+  rowFormat: string;
+  repeatRows: string;
 };
 
 const initialState = fromLocalStorage<ModuleStoreModel>({
@@ -51,6 +51,14 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   startDate: '2001-01-01',
   endDate: '2001-01-01',
   participatingOrgs: [],
+  fields: [
+    { code: 'iati_identifier', name: 'IATI Identifier' },
+    { code: 'sectors', name: 'Sectors' },
+    { code: 'recipient_countries', name: 'Recipient Countries' },
+    { code: 'recipient_regions', name: 'Recipient Regions' },
+  ],
+  rowFormat: 'activities',
+  repeatRows: '0',
 });
 
 export type StoreEffect = Effects<ModuleStoreModel>;
