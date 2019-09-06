@@ -1,47 +1,49 @@
 /* core */
-import React, { useEffect } from 'react';
+import React from 'react';
 /* third-party */
+import get from 'lodash/get';
+import filter from 'lodash/filter';
 import Grid from '@material-ui/core/Grid';
 /* project component */
-import MultiSelectChip from 'app/components/inputs/selects/MultiSelectChip';
-import RadioButtonsGroup from 'app/components/inputs/radiobuttons/RadioButtonGroup';
-/* common */
-import { ModuleFragment } from 'app/modules/QueryBuilder/fragments/common';
-/* config & mock */
-import { fragmentConfig } from './model';
-import { optionsFilter } from 'app/modules/QueryBuilder/mock';
-// import { QueryBuilderStore } from 'app/modules/QueryBuilder/state/appStore';
-import { useEffectOnce } from 'react-use';
 import { ConnectedSelect } from 'app/components/inputs/selects/ConnectedSelect';
-import TooltipButton from 'app/components/inputs/buttons/TooltipButton';
-import FormLabel from '@material-ui/core/FormLabel';
-import styled from 'styled-components';
+import RadioButtonsGroup from 'app/components/inputs/radiobuttons/RadioButtonGroup';
+/* config & mock */
+import { fragmentConfig, getGroupOptions } from './model';
+import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
 
 export const OutputFragment = () => {
-  // const addTodo = QueryBuilderStore.useStoreActions(actions => actions.addTodo);
+  const store = ModuleStore.useStore();
+  const { getGroups, fieldsSelect } = fragmentConfig;
 
-  const { groups } = fragmentConfig;
+  const setFields = e => {
+    store.set('fields')(e);
+  };
 
   return (
     <Grid container spacing={4}>
-      {/* <Grid item xs={12} sm={12} md={7}>
+      <Grid item xs={12} sm={12} md={12}>
         <ConnectedSelect
-          helperText="See "
-          helperTextLink="OIPA documentation"
-          helperTextAfter=" for full list of possible elements"
-          helperTextUrl="https://www.zimmermanzimmerman.nl"
-          options={optionsFilter}
+          {...fieldsSelect}
+          onChange={setFields}
+          value={store.get('fields')}
+          options={getGroupOptions(store)}
         />
-      </Grid> */}
-
-      {groups &&
-        groups.map(group => (
-          <Grid item xs={12} sm={4} md={4}>
-            {group.title && <RadioGroupTitle title={group.title} />}
-            {group && <RadioButtonsGroup items={group.items} />}
-          </Grid>
-        ))}
+      </Grid>
+      {getGroups(store).map(group => (
+        <Grid item xs={12} sm={12} md={12} key={group.title}>
+          {group.title && (
+            <RadioGroupTitle title={group.title} tip={group.tip} />
+          )}
+          {group && (
+            <RadioButtonsGroup
+              items={group.items}
+              value={group.value}
+              onChange={group.onChange}
+            />
+          )}
+        </Grid>
+      ))}
     </Grid>
   );
 };

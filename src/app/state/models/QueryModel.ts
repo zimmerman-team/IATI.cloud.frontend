@@ -6,7 +6,7 @@ export type QueryModel = {
 };
 
 export const queryModel: QueryModel = {
-  url: '',
+  url: 'https://test-datastore.iatistandard.org/api/activities/?format=json',
   updateQuery: action((state, payload) => {
     // eslint-disable-next-line
     state.url = payload;
