@@ -26,7 +26,7 @@ export const DownloadFragment = () => {
       </Grid>
       {/* todo: make re-usable component */}
       <Grid item xs={12} sm={9} md={9}>
-        <URLField text={queryURL} />
+        <URLField text={queryURL.replace('json', 'csv')} />
       </Grid>
       <Grid item xs={12} sm={3} md={3}>
         <IconButton
@@ -34,6 +34,40 @@ export const DownloadFragment = () => {
           label="Download CSV"
           onClick={() =>
             downloadFile(queryURL.replace('json', 'csv'), 'download.csv')
+          }
+        />
+      </Grid>
+      <Grid item xs={12} sm={9} md={9}>
+        <URLField text={queryURL} />
+      </Grid>
+      <Grid item xs={12} sm={3} md={3}>
+        <IconButton
+          icon={<Download />}
+          label="Download JSON"
+          onClick={() => downloadFile(queryURL, 'download.json')}
+        />
+      </Grid>
+      <Grid item xs={12} sm={9} md={9}>
+        <URLField text={queryURL.replace('json', 'xml')} />
+      </Grid>
+      <Grid item xs={12} sm={3} md={3}>
+        <IconButton
+          icon={<Download />}
+          label="Download XML"
+          onClick={() =>
+            downloadFile(queryURL.replace('json', 'xml'), 'download.xml')
+          }
+        />
+      </Grid>
+      <Grid item xs={12} sm={9} md={9}>
+        <URLField text={queryURL.replace('json', 'xls')} />
+      </Grid>
+      <Grid item xs={12} sm={3} md={3}>
+        <IconButton
+          icon={<Download />}
+          label="Download XLS"
+          onClick={() =>
+            downloadFile(queryURL.replace('json', 'xls'), 'download.xls')
           }
         />
       </Grid>
