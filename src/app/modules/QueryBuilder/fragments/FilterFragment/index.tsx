@@ -75,7 +75,8 @@ export const FilterFragment = () => {
           options={fetchedParticipatingOrgs}
           value={store.get('participatingOrgs')}
           onChange={e => store.set('participatingOrgs')(e)}
-          placeholder={`All (${fetchedParticipatingOrgs.length})`}
+          // placeholder={`All (${fetchedParticipatingOrgs.length})`}
+          placeholder={`All participating organisations`}
           getOptionValue={option => option.participating_organisation_ref}
           getOptionLabel={option =>
             `${option.participating_organisation_ref}: ${option.participating_organisation}`
