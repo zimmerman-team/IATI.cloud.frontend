@@ -29,6 +29,15 @@ function Routes() {
     actions => actions.activityScope.fetch
   );
   const fetchAidType = useStoreActions(actions => actions.aidType.fetch);
+  const fetchAidTypeVocabulary = useStoreActions(
+    actions => actions.aidTypeVocabulary.fetch
+  );
+  const fetchTransactionProviderOrgs = useStoreActions(
+    actions => actions.transactionProviderOrgs.fetch
+  );
+  const fetchTransactionReceiverOrgs = useStoreActions(
+    actions => actions.transactionReceiverOrgs.fetch
+  );
   const fetchParticipatingOrgs = useStoreActions(
     actions => actions.participatingOrgs.fetch
   );
@@ -42,9 +51,12 @@ function Routes() {
     fetchActivityStatus();
     fetchSectors();
     fetchCountries();
+    fetchTransactionProviderOrgs();
+    fetchTransactionReceiverOrgs();
     fetchParticipatingOrgs();
     fetchActivityScope();
     fetchAidType();
+    fetchAidTypeVocabulary();
 
     return () => {
       console.log('Running clean-up of effect on unmount');

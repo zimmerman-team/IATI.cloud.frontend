@@ -8,6 +8,7 @@ import {
   RegionModel,
   ActivityStatusModel,
   ParticipatingOrgsModel,
+  TransactionProviderOrgModel,
 } from 'app/state/models';
 import { fromLocalStorage } from './utils';
 import { withEffects } from './effects';
@@ -24,10 +25,13 @@ export type ModuleStoreModel = {
   activityScope: ActivityStatusModel[];
   aidType: ActivityStatusModel[];
   aidTypeCategory: ActivityStatusModel[];
+  aidTypeVocabulary: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
   endDate: any;
   textSearch: string;
+  transactionProviderOrgs: TransactionProviderOrgModel[];
+  transactionReceiverOrgs: TransactionProviderOrgModel[];
   participatingOrgs: ParticipatingOrgsModel[];
   fields: ActivityStatusModel[];
   rowFormat: string;
@@ -47,17 +51,15 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   activityScope: [],
   aidType: [],
   aidTypeCategory: [],
+  aidTypeVocabulary: [],
   mustHaveDates: 'No',
   startDate: '2001-01-01',
   endDate: '2001-01-01',
   participatingOrgs: [],
-  fields: [
-    { code: 'iati_identifier', name: 'IATI Identifier' },
-    { code: 'sectors', name: 'Sectors' },
-    { code: 'recipient_countries', name: 'Recipient Countries' },
-    { code: 'recipient_regions', name: 'Recipient Regions' },
-  ],
-  rowFormat: 'activities',
+  transactionProviderOrgs: [],
+  transactionReceiverOrgs: [],
+  fields: [],
+  rowFormat: 'activity',
   repeatRows: '0',
 });
 

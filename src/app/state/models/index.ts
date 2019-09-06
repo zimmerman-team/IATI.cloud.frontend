@@ -7,6 +7,7 @@ import { SectorCategoryModel } from 'app/state/models/SectorCategoryModel';
 import { SectorModel } from 'app/state/models/SectorModel';
 import { ParticipatingOrgsModel } from 'app/state/models/ParticipatingOrgsModel';
 import { ActivityStatusModel } from 'app/state/models/ActivityStatusModel';
+import { TransactionProviderOrgModel } from 'app/state/models/TransactionProviderOrgModel';
 
 export {
   ApplicationStoreModel,
@@ -18,4 +19,5 @@ export {
   ActivityStatusModel,
   SectorModel,
   ParticipatingOrgsModel,
+  TransactionProviderOrgModel,
 };

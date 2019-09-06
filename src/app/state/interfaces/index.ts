@@ -7,7 +7,10 @@ import SectorsInterface from 'app/state/interfaces/SectorsInterface';
 import ActivityStatusInterface from 'app/state/interfaces/ActivityStatusInterface';
 import ActivityScopeInterface from 'app/state/interfaces/ActivityScopeInterface';
 import AidTypeInterface from 'app/state/interfaces/AidTypeInterface';
+import AidTypeVocabularyInterface from 'app/state/interfaces/AidTypeVocabularyInterface';
 import ParticipatingOrgsInterface from 'app/state/interfaces/ParticipatingOrgsInterface';
+import TransactionProviderOrgsInterface from 'app/state/interfaces/TransactionProviderOrgsInterface';
+import TransactionReceiverOrgsInterface from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 
 export {
   CountriesInterface,
@@ -19,5 +22,8 @@ export {
   ActivityScopeInterface,
   ActivityStatusInterface,
   AidTypeInterface,
+  AidTypeVocabularyInterface,
   ParticipatingOrgsInterface,
+  TransactionProviderOrgsInterface,
+  TransactionReceiverOrgsInterface,
 };

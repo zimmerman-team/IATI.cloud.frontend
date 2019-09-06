@@ -10,7 +10,10 @@ import {
   ACTIVITY_SCOPE,
   PARTICIPATING_ORGS,
   AID_TYPE,
+  TRANSACTION_PROVIDER_ORGS,
+  TRANSACTION_RECEIVER_ORGS,
   AID_TYPE_CATEGORY,
+  AID_TYPE_VOCABULARY,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -65,6 +68,22 @@ export const getParticipatingOrgs: Endpoint = (params: RequestInit = {}) =>
     ...params,
   }).then(res => res.json());
 
+export const getTransactionProviderOrgs: Endpoint = (
+  params: RequestInit = {}
+) =>
+  fetch(HOSTNAME + TRANSACTION_PROVIDER_ORGS, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.clone().json());
+
+export const getTransactionReceiverOrgs: Endpoint = (
+  params: RequestInit = {}
+) =>
+  fetch(HOSTNAME + TRANSACTION_RECEIVER_ORGS, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.clone().json());
+
 export const getActivityScope: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + ACTIVITY_SCOPE, {
     method: 'GET',
@@ -79,6 +98,12 @@ export const getAidType: Endpoint = (params: RequestInit = {}) =>
 
 export const getAidTypeCategory: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + AID_TYPE_CATEGORY, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json());
+
+export const getAidTypeVocabulary: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + AID_TYPE_VOCABULARY, {
     method: 'GET',
     ...params,
   }).then(res => res.json());
