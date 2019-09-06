@@ -3,25 +3,18 @@ import React from 'react';
 /* third-party */
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-/* todo: juan: you were referencing to a faulty path to get the download icon  */
 import Download from '@material-ui/icons/GetApp';
 /* project component */
 import URLField from 'app/components/inputs/textdisplay/URLField';
 import IconButton from 'app/components/inputs/buttons/IconButton';
-// import { useStoreState,State } from 'easy-peasy';
-// import { useStoreState, State } from 'easy-peasy';
-/* props & base */
 /* config & mock */
+import { downloadFile } from './util';
 import { fragmentConfig } from './model';
-
-import { ApplicationStoreModel } from 'app/state/models/ApplicationStoreModel';
 import { useStoreState } from 'app/state/store';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
-// import { ApplicationStoreModel } from 'app/state/models';
-// import { useStoreState } from 'app/state/store';
+
 export const DownloadFragment = () => {
   /* get query url from app store */
-
   const store = ModuleStore.useStore();
 
   const queryURL = useStoreState(state => state.query.url);
@@ -39,7 +32,9 @@ export const DownloadFragment = () => {
         <IconButton
           icon={<Download />}
           label="Download CSV"
-          link={queryURL.replace('json', 'csv')}
+          onClick={() =>
+            downloadFile(queryURL.replace('json', 'csv'), 'download.csv')
+          }
         />
       </Grid>
       <Grid item>

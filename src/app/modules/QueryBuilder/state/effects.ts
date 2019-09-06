@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import { formatUrl } from 'url-lib';
-
 import { StoreEffect } from './store';
 
 import get from 'lodash/get';
@@ -16,29 +14,11 @@ import {
 import appStore from 'app/state/store';
 
 let baseURL =
-  'https://test-datastore.iatistandard.org/api/activities/?format=json';
+  'https://test-datastore.iatistandard.org/dev/search/activity/select?q=*:*&wt=json&rows=1000000';
 
-/*
-
-fields:
-- reporting-org
-- reporting-org.type
-- sector
-- recipient-country
-- recipient-region
-- start-date__lt
-- start-date__gt
-- end-date__lt
-- end-date__gt
-- transaction_provider-org
-- participating-org
-
- */
 export const withEffects: StoreEffect = store => {
   store.onAll().subscribe(() => {
-    // localStorage.setItem(key, JSON.stringify(value));
-
-    baseURL = `https://test-datastore.iatistandard.org/api/${store.get(
+    baseURL = `https://test-datastore.iatistandard.org/dev/search/${store.get(
       'rowFormat'
     )}/?format=json&`;
 

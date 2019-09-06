@@ -80,3 +80,11 @@ export const constructQuery = store => {
 
   // return url;
 };
+
+export const constructSolrQuery = (baseURI, params, fields) => {
+  const filterString = `q=${filter(params, p => p !== null).join(' AND ')}`;
+
+  return `${baseURI}${filterString !== 'q=' ? filterString : 'q=*:*'}${
+    fields ? `&${fields}` : ''
+  }&wt=json&rows=1000000`;
+};
