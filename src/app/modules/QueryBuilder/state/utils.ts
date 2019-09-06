@@ -1,3 +1,4 @@
+import filter from 'lodash/filter';
 import mapValues from 'lodash/mapValues';
 import {
   OrganisationModel,
@@ -79,4 +80,12 @@ export const constructQuery = store => {
   console.log(url);
 
   // return url;
+};
+
+export const constructSolrQuery = (baseURI, params, fields) => {
+  const filterString = `q=${filter(params, p => p !== null).join(' AND ')}`;
+
+  return `${baseURI}${filterString !== '' ? filterString : 'q=*:*'}${
+    fields ? `&${fields}` : ''
+  }&wt=json&rows=1000000`;
 };

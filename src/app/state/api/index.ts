@@ -67,6 +67,18 @@ export const ACTIVITY_STATUS =
 //     : 'api/activities/aggregations/?format=json&group_by=participating_organisation&aggregations=count';
 export const PARTICIPATING_ORGS = 'data/participating_organisations.json';
 
+export const TRANSACTION_PROVIDER_ORGS =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/activity_scope.json'
+    : 'dev/search/activity/select?q=*:*&facet=on&facet.pivot=transaction_provider_org_narrative&rows=0&facet.limit=1000';
+
+export const TRANSACTION_RECEIVER_ORGS =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/activity_scope.json'
+    : 'dev/search/activity/select?q=*:*&facet=on&facet.pivot=transaction_receiver_org_narrative&rows=0&facet.limit=1000';
+
 export const ACTIVITY_SCOPE =
   // @ts-ignore
   NODE_ENV === 'development'
@@ -84,6 +96,12 @@ export const AID_TYPE_CATEGORY =
   NODE_ENV === 'development'
     ? 'data/aid_type_category.json'
     : 'api/codelists/AidType-category/?format=json';
+
+export const AID_TYPE_VOCABULARY =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/aid_type_category.json'
+    : 'api/codelists/AidType-vocabulary/?format=json';
 
 export interface IResponse<T> {
   data: T;
