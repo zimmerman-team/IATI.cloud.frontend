@@ -15,8 +15,6 @@ import { Header } from 'app/components/surfaces/Header';
 import { width } from '@material-ui/system';
 import { PageContainer } from 'app/modules/common/PageContainer';
 
-
-
 const TypographyOpacity = styled(props => <Typography {...props} />)`
   opacity: 0.8;
 `;
@@ -30,7 +28,7 @@ export const LandingMidSection = () => {
             <ArticleCard
               loaded
               title="About Datastore"
-              description="IATI is a global initiative to improve the transparency of development and humanitarian resources and their results for addressing poverty and crises."
+              description="The Datastore uses OIPA, an open-source tool created by Zimmerman & Zimmerman. OIPA extracts and stores raw IATI XML files from the IATI Registry and makes it available as API endpoints to build data driven information solutions."
               buttonLabel="More"
               path="/about"
             />
@@ -39,17 +37,16 @@ export const LandingMidSection = () => {
             <ArticleCard
               loaded
               title="Query Builder"
-              description="This tool allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format. You create queries based on finding the organisations, and then be configured filter the published data down to what you need."
+              description="Use the Query Builder to easily search IATI data based on selected filters and have it returned in spreadsheet (CSV or XLS), JSON and XML formats."
               buttonLabel="More"
               path="/querybuilder"
-
             />
           </Grid>
           <Grid item md={4}>
             <ArticleCard
               loaded
-              title="Documentation"
-              description="This tool allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format. You create queries based on finding the organisations, and then be configured filter the published data down to what you need."
+              title="API Documentation"
+              description="For guidance on how to form API queries and the available endpoints and filters please see the OIPA’s technical documentation."
               buttonLabel="More"
             />
           </Grid>
@@ -64,32 +61,37 @@ export const LandingLayout = () => {
     <PageContainer footer>
       {/*HEADER*/}
       <Header>
-          <Grid container direction="column">
-            <Grid item md={7} lg={7}>
-              <Typography variant="h3" color="textSecondary">
-                IATI Datastore
-              </Typography>
-              <Box width="100%" height="24px" />
-              <TypographyOpacity variant="h5" color="textSecondary">
-                The query builder tool makes it easy build queries to obtain
-                data from the IATI Datastore in CSV, XML and JSON format.
-              </TypographyOpacity>
-              <Box width="100%" height="24px" />
-              <TypographyOpacity variant="body2" color="textSecondary">
-                The query builder uses OIPA to query the IATI database. An
-                open-source libary by Zimmerman & Zimmerman which extracts and
-                stores raw IATI XML files from the IATI Registry and makes it
-                avalible as API endpoints to build data driven information
-                solutions.
-              </TypographyOpacity>
-            </Grid>
-
-            <Box width="100%" height="36px" />
-
-            <Grid item md={4} lg={4}>
-              <IconButtonOutlined label="Query Builder" />
-            </Grid>
+        <Grid container direction="column">
+          <Grid item md={7} lg={7}>
+            <Typography variant="h3" color="textSecondary">
+              IATI Datastore
+            </Typography>
+            <Box width="100%" height="24px" />
+            <TypographyOpacity variant="h5" color="textSecondary">
+              The IATI Datastore provides data on development and humanitarian
+              spending and projects that address poverty and crises across the
+              world.
+            </TypographyOpacity>
+            <Box width="100%" height="24px" />
+            <TypographyOpacity variant="body2" color="textSecondary">
+              Find data published by organisations from governments, development
+              finance institutions and UN agencies to NGOs, foundations and the
+              private sector. They have published data according to the IATI
+              Standard, our set of rules and guidance for sharing useful, open
+              data.
+            </TypographyOpacity>
+            <Box width="100%" height="24px" />
+            <TypographyOpacity variant="body2" color="textSecondary">
+              Access data through using the Datastore’s API or Query Builder.
+            </TypographyOpacity>
           </Grid>
+
+          <Box width="100%" height="36px" />
+
+          <Grid item md={4} lg={4}>
+            <IconButtonOutlined label="Query Builder" />
+          </Grid>
+        </Grid>
       </Header>
 
       {/*ARTICLES*/}
