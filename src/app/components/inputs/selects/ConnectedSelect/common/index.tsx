@@ -152,8 +152,8 @@ export const MultiValueLabel = () => ({
   marginRight: '10px',
 });
 
-export const Menu = () => ({
-  // outline: '2px solid blue',
+export const Menu = provided => ({
+  ...provided,
   borderRadius: '2px',
   margin: 0,
   padding: 0,
