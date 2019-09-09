@@ -16,6 +16,7 @@ import { AdditionalFiltersSubModule } from 'app/modules/QueryBuilder/steps/addit
 import { OutputFormatSubModule } from 'app/modules/QueryBuilder/steps/output-format';
 import { ResultsSubModule } from 'app/modules/QueryBuilder/steps/results';
 import { NavLink } from 'react-router-dom';
+import { QueryBuilderRoutes } from 'app/modules/QueryBuilder/routes';
 /* config & mock */
 
 export type NavButtonModel = {
@@ -63,7 +64,6 @@ export const NavigationButton = (props: NavButtonModel) => {
         letterSpacing="0.15px"
         textAlign="center"
         color="black"
-
       >
         {props.label}
       </Box>
@@ -104,7 +104,6 @@ export const QueryBuilderLayout = () => {
               display="flex"
               flexDirection="row"
               justifyContent="space-between"
-
             >
               {navButtons.map(item => (
                 <NavigationButton
@@ -119,28 +118,7 @@ export const QueryBuilderLayout = () => {
           <Box height="40px" width="100%" />
 
           <Grid item md={12}>
-            <Switch>
-              <Route
-                exact
-                path="/querybuilder/core-filters"
-                render={() => <OrganisationFragment />}
-              />
-              <Route
-                exact
-                path="/querybuilder/additional-filters"
-                render={() => <AdditionalFiltersSubModule />}
-              />
-              <Route
-                exact
-                path="/querybuilder/output-format"
-                render={() => <OutputFormatSubModule />}
-              />
-              <Route
-                exact
-                path="/querybuilder/results"
-                render={() => <ResultsSubModule />}
-              />
-            </Switch>
+            <QueryBuilderRoutes />
           </Grid>
 
           <Box height="40px" width="100%" />
