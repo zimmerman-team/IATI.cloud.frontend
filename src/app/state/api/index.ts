@@ -75,13 +75,17 @@ export const TRANSACTION_PROVIDER_ORGS =
   // @ts-ignore
   NODE_ENV === 'development'
     ? 'data/activity_scope.json'
-    : 'dev/search/activity/select?q=*:*&facet=on&facet.pivot=transaction_provider_org_narrative&rows=0&facet.limit=1000';
+    : `${
+        process.env.NODE_ENV === 'development' ? 'dev/' : ''
+      }search/activity/select?q=*:*&facet=on&facet.pivot=transaction_provider_org_narrative&rows=0&facet.limit=1000`;
 
 export const TRANSACTION_RECEIVER_ORGS =
   // @ts-ignore
   NODE_ENV === 'development'
     ? 'data/activity_scope.json'
-    : 'dev/search/activity/select?q=*:*&facet=on&facet.pivot=transaction_receiver_org_narrative&rows=0&facet.limit=1000';
+    : `${
+        process.env.NODE_ENV === 'development' ? 'dev/' : ''
+      }search/activity/select?q=*:*&facet=on&facet.pivot=transaction_receiver_org_narrative&rows=0&facet.limit=1000`;
 
 export const ACTIVITY_SCOPE =
   // @ts-ignore
