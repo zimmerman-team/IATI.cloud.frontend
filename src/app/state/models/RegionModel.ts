@@ -1,4 +1,4 @@
 export type RegionModel = {
-  code: string;
-  name: string;
+  recipient_region: any;
+  count: number;
 };

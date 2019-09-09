@@ -1,5 +1,4 @@
 export type CountryModel = {
-  code: string;
-  name: string;
-  language: string;
+  recipient_country: any;
+  count: number;
 };
