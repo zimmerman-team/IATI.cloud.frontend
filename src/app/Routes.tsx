@@ -4,6 +4,7 @@ import { PageLoader } from 'app/modules/common/PageLoader';
 import { useStoreActions } from 'app/state/store';
 import { useEffectOnce } from 'react-use';
 import { About } from 'app/modules/About';
+import { DocModule } from "app/modules/Documentation";
 
 const LandingModule = lazy(() => import('app/modules/Landing'));
 const QueryBuilderModule = lazy(() => import('app/modules/QueryBuilder'));
@@ -72,6 +73,7 @@ function Routes() {
           render={() => <QueryBuilderModule />}
         />
         <Route exact path="/" render={() => <LandingModule />} />
+        <Route exact path="/documentation" render={() => <DocModule />} />
         <Route exact path="/about" render={() => <About />} />
       </Switch>
     </Suspense>
