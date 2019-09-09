@@ -9,6 +9,8 @@ import {
   OrganisationModel,
   OrganisationTypeModel,
   SectorModel,
+  CountryModel,
+  RegionModel,
   ActivityStatusModel,
   ParticipatingOrgsModel,
   TransactionProviderOrgModel,
@@ -50,14 +52,14 @@ export const withEffects: StoreEffect = store => {
       : null;
 
     const countries = store.get('countries')
-      ? store.get('countries').map((item: SectorModel) => {
-          return item.code;
+      ? store.get('countries').map((item: CountryModel) => {
+          return item.recipient_country.code;
         })
       : null;
 
     const regions = store.get('regions')
-      ? store.get('regions').map((item: SectorModel) => {
-          return item.code;
+      ? store.get('regions').map((item: RegionModel) => {
+          return item.recipient_region.code;
         })
       : null;
 
