@@ -1,5 +1,5 @@
 export type ParticipatingOrgsModel = {
+  field: string;
+  value: string;
   count: number;
-  participating_organisation_: string;
-  participating_organisation_ref: string;
 };
