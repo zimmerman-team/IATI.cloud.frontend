@@ -152,15 +152,6 @@ export const MultiValueLabel = () => ({
   marginRight: '10px',
 });
 
-/*export const Menu = () => ({
-  // outline: '2px solid blue',
-  borderRadius: '2px',
-  margin: 0,
-  padding: 0,
-  boxShadow:
-    '0 4px 14px -2px rgba(130, 136, 148, 0.28), 0 0 2px 0 rgba(130, 136, 148, 0.22)',
-});*/
-
 export const Menu = provided => ({
   ...provided,
   borderRadius: '2px',

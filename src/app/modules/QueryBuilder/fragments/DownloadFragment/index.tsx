@@ -72,12 +72,16 @@ export const DownloadFragment = () => {
         />
       </Grid>
       <Grid item>
-        <pre>
+        <div>
+          <br />
           queryString
+          <br />
           <br />
           {JSON.stringify(queryURL, null, 2)}
           <br />
           <br />
+        </div>
+        <pre>
           <b>Context Store:</b>
           <br />
           <br />
