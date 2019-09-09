@@ -60,14 +60,14 @@ export const DownloadFragment = () => {
         />
       </Grid>
       <Grid item xs={12} sm={9} md={9}>
-        <URLField text={queryURL.replace('json', 'xls')} />
+        <URLField text={queryURL.replace('json', 'xlsx')} />
       </Grid>
       <Grid item xs={12} sm={3} md={3}>
         <IconButton
           icon={<Download />}
           label="Download XLS"
           onClick={() =>
-            downloadFile(queryURL.replace('json', 'xls'), 'download.xls')
+            downloadFile(queryURL.replace('json', 'xlsx'), 'download.xls')
           }
         />
       </Grid>
