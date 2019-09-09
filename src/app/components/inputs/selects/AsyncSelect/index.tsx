@@ -17,7 +17,7 @@ import {
   HelperBlock,
   Option,
   ValueContainer,
-} from './common';
+} from 'app/components/inputs/selects/ConnectedSelect/common';
 
 const customStyles = {
   option: (provided: any, state: any) => Option(provided, state),
