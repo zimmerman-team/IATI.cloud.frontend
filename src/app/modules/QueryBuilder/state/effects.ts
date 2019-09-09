@@ -66,8 +66,14 @@ export const withEffects: StoreEffect = store => {
     const dates =
       store.get('mustHaveDates') === 'Yes'
         ? {
-            startDate: store.get('startDate'),
-            endDate: store.get('endDate'),
+            startDate:
+              store.get('startDate') !== ''
+                ? `${store.get('startDate')}T00:00:00Z`
+                : '*',
+            endDate:
+              store.get('endDate') !== ''
+                ? `${store.get('endDate')}T00:00:00Z`
+                : '*',
           }
         : null;
 
@@ -94,7 +100,7 @@ export const withEffects: StoreEffect = store => {
 
     const participatingOrgs = store.get('participatingOrgs')
       ? store.get('participatingOrgs').map((item: ParticipatingOrgsModel) => {
-          return item.participating_organisation_ref;
+          return item.value;
         })
       : null;
 
@@ -136,48 +142,60 @@ export const withEffects: StoreEffect = store => {
       formattedBaseURL,
       [
         get(organisations, 'length', 0)
-          ? `reporting_org_ref:${organisations}`
+          ? `reporting_org_ref:(${organisations && organisations.join(' ')})`
           : null,
         get(organisationTypes, 'length', 0)
-          ? `reporting_org_type_code:${organisationTypes}`
+          ? `reporting_org_type_code:(${organisationTypes &&
+              organisationTypes.join(' ')})`
           : null,
-        get(sectors, 'length', 0) ? `sector_code:${sectors}` : null,
+        get(sectors, 'length', 0)
+          ? `sector_code:(${sectors && sectors.join(' ')})`
+          : null,
         get(countries, 'length', 0)
-          ? `recipient_country_code:${countries}`
+          ? `recipient_country_code:(${countries && countries.join(' ')})`
           : null,
-        get(regions, 'length', 0) ? `recipient_region_code:${regions}` : null,
+        get(regions, 'length', 0)
+          ? `recipient_region_code:(${regions && regions.join(' ')})`
+          : null,
         dates
           ? `${
               rowFormat === 'activity'
                 ? 'activity_date_iso_date'
                 : 'transaction_date_iso_date'
-            }:[${get(dates, 'startDate', '*')}T00:00:00Z TO ${get(
+            }:[${get(dates, 'startDate', '*')} TO ${get(
               dates,
               'endDate',
               '*'
-            )}T00:00:00Z]`
+            )}]`
           : null,
         textSearch
-          ? `title_narrative:${textSearch} AND description:${textSearch}`
+          ? `(title_narrative:${textSearch} OR description:${textSearch})`
           : null,
         get(transactionProviderOrgs, 'length', 0)
-          ? `transaction_provider_org_narrative:(${transactionProviderOrgs})`
+          ? `transaction_provider_org_narrative:(${transactionProviderOrgs &&
+              transactionProviderOrgs.join(' ')})`
           : null,
         get(transactionReceiverOrgs, 'length', 0)
-          ? `transaction_receiver_org_narrative:(${transactionReceiverOrgs})`
+          ? `transaction_receiver_org_narrative:(${transactionReceiverOrgs &&
+              transactionReceiverOrgs.join(' ')})`
           : null,
         get(participatingOrgs, 'length', 0)
-          ? `participating_org_ref:${participatingOrgs}`
+          ? `participating_org_ref:(${participatingOrgs &&
+              participatingOrgs.join(' ')})`
           : null,
         get(activityStatus, 'length', 0)
-          ? `activity_status_code:${activityStatus}`
+          ? `activity_status_code:(${activityStatus &&
+              activityStatus.join(' ')})`
           : null,
         get(activityScope, 'length', 0)
-          ? `activity_scope_code:${activityScope}`
+          ? `activity_scope_code:(${activityScope && activityScope.join(' ')})`
           : null,
-        get(aidType, 'length', 0) ? `default_aid_type_code:${aidType}` : null,
+        get(aidType, 'length', 0)
+          ? `default_aid_type_code:(${aidType && aidType.join(' ')})`
+          : null,
         get(aidTypeVocabulary, 'length', 0)
-          ? `default_aid_type_vocabulary:${aidTypeVocabulary}`
+          ? `default_aid_type_vocabulary:(${aidTypeVocabulary &&
+              aidTypeVocabulary.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null

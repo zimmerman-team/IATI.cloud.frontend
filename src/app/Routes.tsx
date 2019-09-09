@@ -32,15 +32,15 @@ function Routes() {
   const fetchAidTypeVocabulary = useStoreActions(
     actions => actions.aidTypeVocabulary.fetch
   );
-  const fetchTransactionProviderOrgs = useStoreActions(
-    actions => actions.transactionProviderOrgs.fetch
-  );
-  const fetchTransactionReceiverOrgs = useStoreActions(
-    actions => actions.transactionReceiverOrgs.fetch
-  );
-  const fetchParticipatingOrgs = useStoreActions(
-    actions => actions.participatingOrgs.fetch
-  );
+  // const fetchTransactionProviderOrgs = useStoreActions(
+  //   actions => actions.transactionProviderOrgs.fetch
+  // );
+  // const fetchTransactionReceiverOrgs = useStoreActions(
+  //   actions => actions.transactionReceiverOrgs.fetch
+  // );
+  // const fetchParticipatingOrgs = useStoreActions(
+  //   actions => actions.participatingOrgs.fetch
+  // );
 
   useEffectOnce(() => {
     console.log('Running effect once on mount');
@@ -51,9 +51,9 @@ function Routes() {
     fetchActivityStatus();
     fetchSectors();
     fetchCountries();
-    fetchTransactionProviderOrgs();
-    fetchTransactionReceiverOrgs();
-    fetchParticipatingOrgs();
+    // fetchTransactionProviderOrgs();
+    // fetchTransactionReceiverOrgs();
+    // fetchParticipatingOrgs();
     fetchActivityScope();
     fetchAidType();
     fetchAidTypeVocabulary();

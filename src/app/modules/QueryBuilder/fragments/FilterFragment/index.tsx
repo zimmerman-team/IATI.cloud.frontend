@@ -2,9 +2,10 @@
 import React from 'react';
 /* third-party */
 import Grid from '@material-ui/core/Grid';
-import { TextField, Tooltip } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 /* project component */
 import { AddFilterModule } from 'app/components/utils/Popover';
+import { AsyncSelect } from 'app/components/inputs/selects/AsyncSelect';
 import { ConnectedSelect } from 'app/components/inputs/selects/ConnectedSelect';
 /* utils */
 import get from 'lodash/get';
@@ -63,40 +64,41 @@ export const FilterFragment = () => {
       </Grid>
 
       <Grid item xs={12} sm={12} md={6}>
-        <ConnectedSelect
+        <AsyncSelect
           label="Transaction Provider Org"
-          options={fetchedTransactionProviderOrgs}
+          // options={fetchedTransactionProviderOrgs}
           value={store.get('transactionProviderOrgs')}
           onChange={e => store.set('transactionProviderOrgs')(e)}
           getOptionValue={option => option.value}
           getOptionLabel={option => option.value}
           placeholder="All transaction provider organisations"
+          pivot="transaction_provider_org_narrative"
         />
       </Grid>
 
       <Grid item xs={12} sm={12} md={6}>
-        <ConnectedSelect
+        <AsyncSelect
           label="Transaction Receiver Org"
-          options={fetchedTransactionReceiverOrgs}
+          // options={fetchedTransactionReceiverOrgs}
           value={store.get('transactionReceiverOrgs')}
           onChange={e => store.set('transactionReceiverOrgs')(e)}
           getOptionValue={option => option.value}
           getOptionLabel={option => option.value}
           placeholder="All transaction receiver organisations"
+          pivot="transaction_receiver_org_narrative"
         />
       </Grid>
 
       <Grid item xs={12} sm={12} md={12}>
-        <ConnectedSelect
+        <AsyncSelect
           label="Participating Organisation"
-          options={fetchedParticipatingOrgs}
+          // options={fetchedParticipatingOrgs}
           value={store.get('participatingOrgs')}
           onChange={e => store.set('participatingOrgs')(e)}
           placeholder="All participating organisations"
-          getOptionValue={option => option.participating_organisation_ref}
-          getOptionLabel={option =>
-            `${option.participating_organisation_ref}: ${option.participating_organisation}`
-          }
+          getOptionValue={option => option.value}
+          getOptionLabel={option => option.value}
+          pivot="participating_org_ref"
         />
       </Grid>
 
