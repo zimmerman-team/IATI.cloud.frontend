@@ -86,7 +86,7 @@ export const withEffects: StoreEffect = store => {
       ? store
           .get('transactionProviderOrgs')
           .map((item: TransactionProviderOrgModel) => {
-            return `"${item.value}"`;
+            return item.value;
           })
       : null;
 
@@ -94,7 +94,7 @@ export const withEffects: StoreEffect = store => {
       ? store
           .get('transactionReceiverOrgs')
           .map((item: TransactionProviderOrgModel) => {
-            return `"${item.value}"`;
+            return item.value;
           })
       : null;
 
@@ -179,11 +179,11 @@ export const withEffects: StoreEffect = store => {
           ? `(title_narrative:"${textSearch}" OR description:"${textSearch}")`
           : null,
         get(transactionProviderOrgs, 'length', 0)
-          ? `transaction_provider_org_narrative:(${transactionProviderOrgs &&
+          ? `transaction_provider_org_ref:(${transactionProviderOrgs &&
               transactionProviderOrgs.join(' ')})`
           : null,
         get(transactionReceiverOrgs, 'length', 0)
-          ? `transaction_receiver_org_narrative:(${transactionReceiverOrgs &&
+          ? `transaction_receiver_org_ref:(${transactionReceiverOrgs &&
               transactionReceiverOrgs.join(' ')})`
           : null,
         get(participatingOrgs, 'length', 0)
