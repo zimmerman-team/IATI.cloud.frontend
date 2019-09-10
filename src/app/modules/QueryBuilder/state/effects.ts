@@ -86,7 +86,7 @@ export const withEffects: StoreEffect = store => {
       ? store
           .get('transactionProviderOrgs')
           .map((item: TransactionProviderOrgModel) => {
-            return item.value;
+            return item.value.trim();
           })
       : null;
 
@@ -94,13 +94,13 @@ export const withEffects: StoreEffect = store => {
       ? store
           .get('transactionReceiverOrgs')
           .map((item: TransactionProviderOrgModel) => {
-            return item.value;
+            return item.value.trim();
           })
       : null;
 
     const participatingOrgs = store.get('participatingOrgs')
       ? store.get('participatingOrgs').map((item: ParticipatingOrgsModel) => {
-          return item.value;
+          return item.value.trim();
         })
       : null;
 
