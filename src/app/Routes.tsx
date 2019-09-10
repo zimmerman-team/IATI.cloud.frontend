@@ -4,7 +4,7 @@ import { PageLoader } from 'app/modules/common/PageLoader';
 import { useStoreActions } from 'app/state/store';
 import { useEffectOnce } from 'react-use';
 import { About } from 'app/modules/About';
-import { DocModule } from "app/modules/Documentation";
+import { DocModule } from 'app/modules/Documentation';
 
 const LandingModule = lazy(() => import('app/modules/Landing'));
 const QueryBuilderModule = lazy(() => import('app/modules/QueryBuilder'));
@@ -30,6 +30,9 @@ function Routes() {
     actions => actions.activityScope.fetch
   );
   const fetchAidType = useStoreActions(actions => actions.aidType.fetch);
+  const fetchAidTypeCategory = useStoreActions(
+    actions => actions.aidTypeCategory.fetch
+  );
   const fetchAidTypeVocabulary = useStoreActions(
     actions => actions.aidTypeVocabulary.fetch
   );
@@ -57,6 +60,7 @@ function Routes() {
     // fetchParticipatingOrgs();
     fetchActivityScope();
     fetchAidType();
+    fetchAidTypeCategory();
     fetchAidTypeVocabulary();
 
     return () => {

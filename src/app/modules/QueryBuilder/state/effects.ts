@@ -125,6 +125,13 @@ export const withEffects: StoreEffect = store => {
           })
         : null;
 
+    const aidTypeCategory =
+      store.get('aidTypeCategory') && rowFormat === 'activity'
+        ? store.get('aidTypeCategory').map((item: ActivityStatusModel) => {
+            return item.code;
+          })
+        : null;
+
     const aidTypeVocabulary =
       store.get('aidTypeVocabulary') && rowFormat === 'activity'
         ? store.get('aidTypeVocabulary').map((item: ActivityStatusModel) => {
@@ -192,6 +199,10 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(aidType, 'length', 0)
           ? `default_aid_type_code:(${aidType && aidType.join(' ')})`
+          : null,
+        get(aidTypeCategory, 'length', 0)
+          ? `default_aid_type_category_code:(${aidTypeCategory &&
+              aidTypeCategory.join(' ')})`
           : null,
         get(aidTypeVocabulary, 'length', 0)
           ? `default_aid_type_vocabulary:(${aidTypeVocabulary &&

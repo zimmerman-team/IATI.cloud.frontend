@@ -44,7 +44,7 @@ export const FilterFragment = () => {
 
   const allAddFilters = [
     ...additionalFiltersPopData[0][1],
-    ...additionalFiltersPopData[1][1],
+    // ...additionalFiltersPopData[1][1],
   ];
 
   return (

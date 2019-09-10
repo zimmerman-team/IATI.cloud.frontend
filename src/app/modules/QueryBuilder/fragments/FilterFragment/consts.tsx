@@ -42,7 +42,6 @@ export const additionalFiltersPopData = [
       },
       {
         label: 'Aid type (category)',
-        disabled: true,
         component: props => (
           <AddFilterModule
             label="Aid type (category)"
@@ -65,39 +64,39 @@ export const additionalFiltersPopData = [
       },
     ],
   ],
-  [
-    'Transaction',
-    [
-      {
-        label: 'Budget identifier',
-        disabled: true,
-        component: () => (
-          <AddFilterModule
-            label="Budget identifier"
-            dataKey="budgetIdentifier"
-          />
-        ),
-      },
-      {
-        label: 'Budget identifier sector',
-        disabled: true,
-        component: () => (
-          <AddFilterModule
-            label="Budget identifier sector"
-            dataKey="budgetIdentifierSector"
-          />
-        ),
-      },
-      {
-        label: 'Budget identifier sector (category)',
-        disabled: true,
-        component: () => (
-          <AddFilterModule
-            label="Budget identifier sector (category)"
-            dataKey="budgetIdentifierSectorCategory"
-          />
-        ),
-      },
-    ],
-  ],
+  // [
+  //   'Transaction',
+  //   [
+  //     {
+  //       label: 'Budget identifier',
+  //       disabled: true,
+  //       component: () => (
+  //         <AddFilterModule
+  //           label="Budget identifier"
+  //           dataKey="budgetIdentifier"
+  //         />
+  //       ),
+  //     },
+  //     {
+  //       label: 'Budget identifier sector',
+  //       disabled: true,
+  //       component: () => (
+  //         <AddFilterModule
+  //           label="Budget identifier sector"
+  //           dataKey="budgetIdentifierSector"
+  //         />
+  //       ),
+  //     },
+  //     {
+  //       label: 'Budget identifier sector (category)',
+  //       disabled: true,
+  //       component: () => (
+  //         <AddFilterModule
+  //           label="Budget identifier sector (category)"
+  //           dataKey="budgetIdentifierSectorCategory"
+  //         />
+  //       ),
+  //     },
+  //   ],
+  // ],
 ];
