@@ -71,107 +71,113 @@ export const DownloadFragment = () => {
           }
         />
       </Grid>
-      <Grid item>
-        <div>
-          <br />
-          queryString
-          <br />
-          <br />
-          {JSON.stringify(queryURL, null, 2)}
-          <br />
-          <br />
-        </div>
-        <pre>
-          <b>Context Store:</b>
-          <br />
-          <br />
-          reportingOrganisations
-          <br />
-          {JSON.stringify(store.get('organisations'), null, 2)}
-          <br />
-          <br />
-          organisationTypes
-          <br />
-          {JSON.stringify(store.get('organisationTypes'), null, 2)}
-          <br />
-          <br />
-          sectors
-          <br />
-          {JSON.stringify(store.get('sectors'), null, 2)}
-          <br />
-          <br />
-          sectorCategories
-          <br />
-          {JSON.stringify(store.get('sectorCategories'), null, 2)}
-          <br />
-          <br />
-          recipientCountries
-          <br />
-          {JSON.stringify(store.get('countries'), null, 2)}
-          <br />
-          <br />
-          recipientRegions
-          <br />
-          {JSON.stringify(store.get('regions'), null, 2)}
-          <br />
-          <br />
-          {store.get('mustHaveDates') === 'Yes' && (
-            <>
-              activityPeriode
-              <br />
-              {JSON.stringify(store.get('startDate'), null, 2)} -{' '}
-              {JSON.stringify(store.get('endDate'), null, 2)}
-              <br />
-              <br />
-            </>
-          )}
-          recipientRegions
-          <br />
-          {JSON.stringify(store.get('regions'), null, 2)}
-          <br />
-          <br />
-          textSearch
-          <br />
-          {JSON.stringify(store.get('textSearch'), null, 2)}
-          <br />
-          <br />
-          participatingOrganisations
-          <br />
-          {JSON.stringify(store.get('participatingOrgs'), null, 2)}
-          <br />
-          <br />
-          transactionProviderOrgs
-          <br />
-          {JSON.stringify(store.get('transactionProviderOrgs'), null, 2)}
-          <br />
-          <br />
-          transactionReceiverOrgs
-          <br />
-          {JSON.stringify(store.get('transactionReceiverOrgs'), null, 2)}
-          <br />
-          <br />
-          activityStatus
-          <br />
-          {JSON.stringify(store.get('activityStatus'), null, 2)}
-          <br />
-          <br />
-          activityScope
-          <br />
-          {JSON.stringify(store.get('activityScope'), null, 2)}
-          <br />
-          <br />
-          aidType
-          <br />
-          {JSON.stringify(store.get('aidType'), null, 2)}
-          <br />
-          <br />
-          aidTypeVocabulary
-          <br />
-          {JSON.stringify(store.get('aidTypeVocabulary'), null, 2)}
-          <br />
-          <br />
-        </pre>
-      </Grid>
+      {/* ---------------------------------------------------------------------------------------------------------- */}
+      {/* DEBUG */}
+
+      {process.env.NODE_ENV !== 'production' && (
+        <Grid item>
+          <div>
+            <br />
+            queryString
+            <br />
+            <br />
+            {JSON.stringify(queryURL, null, 2)}
+            <br />
+            <br />
+          </div>
+          <pre>
+            <b>Context Store:</b>
+            <br />
+            <br />
+            reportingOrganisations
+            <br />
+            {JSON.stringify(store.get('organisations'), null, 2)}
+            <br />
+            <br />
+            organisationTypes
+            <br />
+            {JSON.stringify(store.get('organisationTypes'), null, 2)}
+            <br />
+            <br />
+            sectors
+            <br />
+            {JSON.stringify(store.get('sectors'), null, 2)}
+            <br />
+            <br />
+            sectorCategories
+            <br />
+            {JSON.stringify(store.get('sectorCategories'), null, 2)}
+            <br />
+            <br />
+            recipientCountries
+            <br />
+            {JSON.stringify(store.get('countries'), null, 2)}
+            <br />
+            <br />
+            recipientRegions
+            <br />
+            {JSON.stringify(store.get('regions'), null, 2)}
+            <br />
+            <br />
+            {store.get('mustHaveDates') === 'Yes' && (
+              <>
+                activityPeriode
+                <br />
+                {JSON.stringify(store.get('startDate'), null, 2)} -{' '}
+                {JSON.stringify(store.get('endDate'), null, 2)}
+                <br />
+                <br />
+              </>
+            )}
+            recipientRegions
+            <br />
+            {JSON.stringify(store.get('regions'), null, 2)}
+            <br />
+            <br />
+            textSearch
+            <br />
+            {JSON.stringify(store.get('textSearch'), null, 2)}
+            <br />
+            <br />
+            participatingOrganisations
+            <br />
+            {JSON.stringify(store.get('participatingOrgs'), null, 2)}
+            <br />
+            <br />
+            transactionProviderOrgs
+            <br />
+            {JSON.stringify(store.get('transactionProviderOrgs'), null, 2)}
+            <br />
+            <br />
+            transactionReceiverOrgs
+            <br />
+            {JSON.stringify(store.get('transactionReceiverOrgs'), null, 2)}
+            <br />
+            <br />
+            activityStatus
+            <br />
+            {JSON.stringify(store.get('activityStatus'), null, 2)}
+            <br />
+            <br />
+            activityScope
+            <br />
+            {JSON.stringify(store.get('activityScope'), null, 2)}
+            <br />
+            <br />
+            aidType
+            <br />
+            {JSON.stringify(store.get('aidType'), null, 2)}
+            <br />
+            <br />
+            aidTypeVocabulary
+            <br />
+            {JSON.stringify(store.get('aidTypeVocabulary'), null, 2)}
+            <br />
+            <br />
+          </pre>
+        </Grid>
+      )}
+      {/* ---------------------------------------------------------------------------------------------------------- */}
     </Grid>
   );
 };
