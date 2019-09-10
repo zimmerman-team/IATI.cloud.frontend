@@ -86,7 +86,7 @@ export const withEffects: StoreEffect = store => {
       ? store
           .get('transactionProviderOrgs')
           .map((item: TransactionProviderOrgModel) => {
-            return `"${item.value}"`;
+            return item.value;
           })
       : null;
 
@@ -94,7 +94,7 @@ export const withEffects: StoreEffect = store => {
       ? store
           .get('transactionReceiverOrgs')
           .map((item: TransactionProviderOrgModel) => {
-            return `"${item.value}"`;
+            return item.value;
           })
       : null;
 
@@ -121,6 +121,13 @@ export const withEffects: StoreEffect = store => {
     const aidType =
       store.get('aidType') && rowFormat === 'activity'
         ? store.get('aidType').map((item: ActivityStatusModel) => {
+            return item.code;
+          })
+        : null;
+
+    const aidTypeCategory =
+      store.get('aidTypeCategory') && rowFormat === 'activity'
+        ? store.get('aidTypeCategory').map((item: ActivityStatusModel) => {
             return item.code;
           })
         : null;
@@ -169,14 +176,14 @@ export const withEffects: StoreEffect = store => {
             )}]`
           : null,
         textSearch
-          ? `(title_narrative:${textSearch} OR description:${textSearch})`
+          ? `(title_narrative:"${textSearch}" OR description:"${textSearch}")`
           : null,
         get(transactionProviderOrgs, 'length', 0)
-          ? `transaction_provider_org_narrative:(${transactionProviderOrgs &&
+          ? `transaction_provider_org_ref:(${transactionProviderOrgs &&
               transactionProviderOrgs.join(' ')})`
           : null,
         get(transactionReceiverOrgs, 'length', 0)
-          ? `transaction_receiver_org_narrative:(${transactionReceiverOrgs &&
+          ? `transaction_receiver_org_ref:(${transactionReceiverOrgs &&
               transactionReceiverOrgs.join(' ')})`
           : null,
         get(participatingOrgs, 'length', 0)
@@ -192,6 +199,10 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(aidType, 'length', 0)
           ? `default_aid_type_code:(${aidType && aidType.join(' ')})`
+          : null,
+        get(aidTypeCategory, 'length', 0)
+          ? `default_aid_type_category_code:(${aidTypeCategory &&
+              aidTypeCategory.join(' ')})`
           : null,
         get(aidTypeVocabulary, 'length', 0)
           ? `default_aid_type_vocabulary:(${aidTypeVocabulary &&

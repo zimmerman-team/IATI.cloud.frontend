@@ -44,7 +44,7 @@ export const FilterFragment = () => {
 
   const allAddFilters = [
     ...additionalFiltersPopData[0][1],
-    ...additionalFiltersPopData[1][1],
+    // ...additionalFiltersPopData[1][1],
   ];
 
   return (
@@ -72,7 +72,7 @@ export const FilterFragment = () => {
           getOptionValue={option => option.value}
           getOptionLabel={option => option.value}
           placeholder="All transaction provider organisations"
-          pivot="transaction_provider_org_narrative"
+          pivot="transaction_provider_org_ref"
         />
       </Grid>
 
@@ -85,7 +85,7 @@ export const FilterFragment = () => {
           getOptionValue={option => option.value}
           getOptionLabel={option => option.value}
           placeholder="All transaction receiver organisations"
-          pivot="transaction_receiver_org_narrative"
+          pivot="transaction_receiver_org_ref"
         />
       </Grid>
 
