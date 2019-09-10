@@ -6,4 +6,5 @@ export type ArticleCardModel = {
   buttonLabel: string;
   loaded?: boolean;
   path?: string;
+  target?: string;
 };

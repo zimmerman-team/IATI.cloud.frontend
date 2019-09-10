@@ -11,6 +11,7 @@ type Props = {
   anchorref?: ReactNode;
   children?: ReactNode;
   link?: string;
+  target?: string;
 };
 
 /*type BaseProps = {
@@ -52,7 +53,7 @@ const IconButton = (props: Props) => {
       onClick={props.onClick}
       anchorref={props.anchorref}
       href={props.link}
-      target="_self"
+      target={props.target}
     >
       {props.label && props.label}
       {props.icon && props.icon}

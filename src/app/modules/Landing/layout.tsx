@@ -31,6 +31,7 @@ export const LandingMidSection = () => {
               description="The Datastore uses OIPA, an open-source tool created by Zimmerman & Zimmerman. OIPA extracts and stores raw IATI XML files from the IATI Registry and makes it available as API endpoints to build data driven information solutions."
               buttonLabel="More"
               path="/about"
+              target="_self"
             />
           </Grid>
           <Grid item md={4}>
@@ -40,6 +41,7 @@ export const LandingMidSection = () => {
               description="Use the Query Builder to easily search IATI data based on selected filters and have it returned in spreadsheet (CSV or XLS), JSON and XML formats."
               buttonLabel="More"
               path="/querybuilder"
+              target="_self"
             />
           </Grid>
           <Grid item md={4}>
@@ -48,6 +50,8 @@ export const LandingMidSection = () => {
               title="API Documentation"
               description="For guidance on how to form API queries and the available endpoints and filters please see the OIPA’s technical documentation."
               buttonLabel="More"
+              path="https://docs.oipa.nl"
+              target="_blank"
             />
           </Grid>
         </Grid>

@@ -29,6 +29,8 @@ export const ArticleCard = (props: ArticleCardModel) => {
       </Grid>
 
       {/** card button */}
+
+
       <Grid item>
         <Grid container justify="flex-end" spacing={4}>
           <Grid item md={6}>
@@ -38,6 +40,7 @@ export const ArticleCard = (props: ArticleCardModel) => {
                   label={props.buttonLabel}
                   icon={<ArrowForward fontSize="small" />}
                   link={props.path && props.path}
+                  target={props.target}
                 />
               )
             ) : (
