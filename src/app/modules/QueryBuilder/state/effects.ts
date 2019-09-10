@@ -169,7 +169,7 @@ export const withEffects: StoreEffect = store => {
             )}]`
           : null,
         textSearch
-          ? `(title_narrative:${textSearch} OR description:${textSearch})`
+          ? `(title_narrative:"${textSearch}" OR description:"${textSearch}")`
           : null,
         get(transactionProviderOrgs, 'length', 0)
           ? `transaction_provider_org_narrative:(${transactionProviderOrgs &&
