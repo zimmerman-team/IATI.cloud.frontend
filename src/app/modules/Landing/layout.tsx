@@ -40,7 +40,7 @@ export const LandingMidSection = () => {
               title="Query Builder"
               description="Use the Query Builder to easily search IATI data based on selected filters and have it returned in spreadsheet (CSV or XLS), JSON and XML formats."
               buttonLabel="More"
-              path="/querybuilder"
+              path="/querybuilder/core-filters"
               target="_self"
             />
           </Grid>

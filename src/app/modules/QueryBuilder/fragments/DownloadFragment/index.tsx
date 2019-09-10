@@ -59,7 +59,7 @@ export const DownloadFragment = () => {
           }
         />
       </Grid>
-      <Grid item xs={12} sm={9} md={9}>
+      {/* <Grid item xs={12} sm={9} md={9}>
         <URLField text={queryURL.replace('json', 'xlsx')} />
       </Grid>
       <Grid item xs={12} sm={3} md={3}>
@@ -70,7 +70,7 @@ export const DownloadFragment = () => {
             downloadFile(queryURL.replace('json', 'xlsx'), 'download.xls')
           }
         />
-      </Grid>
+      </Grid> */}
       {/* ---------------------------------------------------------------------------------------------------------- */}
       {/* DEBUG */}
 
