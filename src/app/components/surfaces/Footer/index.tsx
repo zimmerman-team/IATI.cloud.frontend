@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Grid,
-  Typography,
-  Container,
-  Box,
-} from '@material-ui/core';
+import { Grid, Typography, Container, Box } from '@material-ui/core';
 import { Mail, Phone, Star } from '@material-ui/icons';
 import { IATILogoWhite } from 'app/components/svgs/IATILogo';
 import { ZZLogo } from 'app/components/svgs/ZZLogo';
@@ -27,10 +22,17 @@ export const Footer = () => {
 
           {/*MIDDLE ITEM*/}
           <Grid item>
-            <Grid container direction="column" justify="space-between" spacing={2}>
+            <Grid
+              container
+              direction="column"
+              justify="space-between"
+              spacing={2}
+            >
               <Grid container item alignItems="center">
                 <Phone style={{ marginRight: '16px', fill: 'white' }} />
-                <Typography variant="body1" color="textSecondary">+31 (0)00 000 00 00</Typography>
+                <Typography variant="body1" color="textSecondary">
+                  +31 (0)00 000 00 00
+                </Typography>
               </Grid>
               <Grid container item alignItems="center">
                 <Mail style={{ marginRight: '16px', fill: 'white' }} />
@@ -40,7 +42,9 @@ export const Footer = () => {
               </Grid>
               <Grid container item alignItems="center">
                 <Star style={{ marginRight: '16px', fill: 'white' }} />
-                <Typography variant="body1" color="textSecondary">@iati</Typography>
+                <Typography variant="body1" color="textSecondary">
+                  @iati
+                </Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -62,7 +66,12 @@ export const Footer = () => {
                   >
                     powered by OIPA from
                   </Typography>
-                  <ZZLogo />
+                  <ZZLogo
+                    onClick={() =>
+                      window.open('https://www.zimmermanzimmerman.nl', '_blank')
+                    }
+                    style={{ cursor: 'pointer' }}
+                  />
                 </Grid>
               </Grid>
 
@@ -73,7 +82,11 @@ export const Footer = () => {
                 style={{ marginTop: '32px', width: '350px' }}
                 wrap="wrap"
               >
-                <Typography variant="body1" color="textSecondary" align="center">
+                <Typography
+                  variant="body1"
+                  color="textSecondary"
+                  align="center"
+                >
                   Code licensed under the GNU AGPL. Documentation licensed under
                   CC BY 3.0.
                 </Typography>
