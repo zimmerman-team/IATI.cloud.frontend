@@ -14,6 +14,7 @@ import {
   TRANSACTION_RECEIVER_ORGS,
   AID_TYPE_CATEGORY,
   AID_TYPE_VOCABULARY,
+  DEFAULT_CURRENCY,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -104,6 +105,12 @@ export const getAidTypeCategory: Endpoint = (params: RequestInit = {}) =>
 
 export const getAidTypeVocabulary: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + AID_TYPE_VOCABULARY, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json());
+
+export const getDefaultCurrency: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + DEFAULT_CURRENCY,{
     method: 'GET',
     ...params,
   }).then(res => res.json());

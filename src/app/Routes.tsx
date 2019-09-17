@@ -36,6 +36,9 @@ function Routes() {
   const fetchAidTypeVocabulary = useStoreActions(
     actions => actions.aidTypeVocabulary.fetch
   );
+  const fetchDefaultCurrency = useStoreActions(
+    actions => actions.defaultCurrency.fetch
+  )
   // const fetchTransactionProviderOrgs = useStoreActions(
   //   actions => actions.transactionProviderOrgs.fetch
   // );
@@ -62,6 +65,7 @@ function Routes() {
     fetchAidType();
     fetchAidTypeCategory();
     fetchAidTypeVocabulary();
+    fetchDefaultCurrency();
 
     return () => {
       console.log('Running clean-up of effect on unmount');

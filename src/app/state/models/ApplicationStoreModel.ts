@@ -9,6 +9,7 @@ import { ActivityStatusInterface } from 'app/state/interfaces/ActivityStatusInte
 import { AidTypeInterface } from 'app/state/interfaces/AidTypeInterface';
 import { AidTypeVocabularyInterface } from 'app/state/interfaces/AidTypeVocabularyInterface';
 import { AidTypeCategoryInterface } from 'app/state/interfaces/AidTypeCategoryInterface';
+import { DefaultCurrencyInterface } from 'app/state/interfaces/DefaultCurrencyInterface';
 import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
@@ -28,6 +29,7 @@ export interface ApplicationStoreModel {
   activityScope: ActivityScopeInterface;
   aidType: AidTypeInterface;
   aidTypeVocabulary: AidTypeVocabularyInterface;
+  defaultCurrency: DefaultCurrencyInterface;
   participatingOrgs: ParticipatingOrgsInterface;
   aidTypeCategory: AidTypeCategoryInterface;
   transactionProviderOrgs: TransactionProviderOrgScope;
