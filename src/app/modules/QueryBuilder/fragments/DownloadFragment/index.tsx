@@ -174,6 +174,11 @@ export const DownloadFragment = () => {
             {JSON.stringify(store.get('aidTypeVocabulary'), null, 2)}
             <br />
             <br />
+            defaultCurrency
+            <br/>
+            {JSON.stringify(store.get('defaultCurrency'), null, 2)}
+            <br/>
+            <br/>
           </pre>
         </Grid>
       )}
