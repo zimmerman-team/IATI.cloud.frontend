@@ -13,6 +13,7 @@ import find from 'lodash/find';
 import { useStoreState } from 'app/state/store';
 import { additionalFiltersPopData } from './consts';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
+import IconTextInput from 'app/components/inputs/textinputs/IconTextInputFIeld';
 
 export const FilterFragment = () => {
   const store = ModuleStore.useStore();
@@ -50,7 +51,16 @@ export const FilterFragment = () => {
   return (
     <Grid container spacing={4}>
       <Grid item xs={12} sm={12} md={12}>
-        <TextField
+        <IconTextInput
+          label="Search in title, activity or description"
+          placeholder="Text search"
+          onChange={setTextSearchValue}
+          value={store.get('textSearch')}
+          helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
+        />
+
+        {/* todo: keep it for now, but delete later */}
+        {/*<TextField
           fullWidth
           autoFocus
           margin="normal"
@@ -60,7 +70,7 @@ export const FilterFragment = () => {
           value={store.get('textSearch')}
           label="Search in title, activity or description"
           helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
-        />
+        />*/}
       </Grid>
 
       <Grid item xs={12} sm={12} md={6}>
