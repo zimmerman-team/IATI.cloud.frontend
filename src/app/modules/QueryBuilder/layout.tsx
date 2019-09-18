@@ -17,7 +17,7 @@ import { OutputFormatSubModule } from 'app/modules/QueryBuilder/steps/output-for
 import { ResultsSubModule } from 'app/modules/QueryBuilder/steps/results';
 import { NavLink } from 'react-router-dom';
 import { QueryBuilderRoutes } from 'app/modules/QueryBuilder/routes';
-import { ModuleHeader } from "app/modules/common/ModuleHeader";
+import { ModuleHeader } from 'app/modules/common/ModuleHeader';
 /* config & mock */
 
 export type NavButtonModel = {
@@ -77,15 +77,15 @@ export const QueryBuilderLayout = () => {
 
   return (
     <PageContainer>
-
       {/* module header */}
-      <ModuleHeader/>
+      <ModuleHeader />
 
       {/* step navigator */}
       <Container maxWidth="lg">
         <Grid container>
           <Box height="40px" width="100%" />
-          <Grid item md={12}>
+
+          <Grid item md={12} style={{ position: 'relative' }}>
             <Box
               display="flex"
               flexDirection="row"
@@ -99,6 +99,12 @@ export const QueryBuilderLayout = () => {
                 />
               ))}
             </Box>
+            <Box
+              width="100%"
+              borderBottom="1px solid #e2e2e2"
+              position={'absolute'}
+              bottom="3px"
+            />
           </Grid>
 
           <Box height="40px" width="100%" />
