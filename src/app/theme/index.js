@@ -215,7 +215,7 @@ export default createMuiTheme({
       md: 600,
       lg: 1088,
       xl: 1280,
-      xxl: 1920,
+      xxl: 1440,
     },
   },
 });

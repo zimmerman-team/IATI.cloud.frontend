@@ -58,7 +58,7 @@ export const FilterFragment = () => {
           placeholder="Text search"
           onChange={setTextSearchValue}
           value={store.get('textSearch')}
-          label="Data title,activity or descriptions"
+          label="Search in title, activity or description"
           helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
         />
       </Grid>
@@ -102,12 +102,6 @@ export const FilterFragment = () => {
         />
       </Grid>
 
-      {addedFilterOptions.map(addedFilter => {
-        return find(allAddFilters, { label: addedFilter }).component({
-          store,
-        });
-      })}
-
       <Grid item xs={12} sm={12} md={4}>
         <AddFilterModule
           data={additionalFiltersPopData}
@@ -115,6 +109,12 @@ export const FilterFragment = () => {
           addedFilterOptions={addedFilterOptions}
         />
       </Grid>
+      <Grid item xs={12} sm={12} md={8} />
+      {addedFilterOptions.map(addedFilter => {
+        return find(allAddFilters, { label: addedFilter }).component({
+          store,
+        });
+      })}
     </Grid>
   );
 };

@@ -11,7 +11,7 @@ import { fetchOrganisations, fetchBorgList } from 'app/state/api/actions';
 
 function LandingModule() {
   /* set the window title */
-  useTitle('IATI');
+  useTitle('IATI Datastore');
 
   /* instantiate the layout*/
   return LandingLayout();
