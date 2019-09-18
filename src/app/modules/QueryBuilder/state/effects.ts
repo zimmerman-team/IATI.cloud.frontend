@@ -159,6 +159,13 @@ export const withEffects: StoreEffect = store => {
         })
         : null;
 
+    const hierarchy =
+      store.get('hierarchy') && rowFormat === 'activity'
+        ? store.get('hierarchy').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+        : null;
+
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
           return item.code;
@@ -237,8 +244,11 @@ export const withEffects: StoreEffect = store => {
           defaultCurrency.join(' ')})`
           : null,
         get(defaultFlowType, 'length', 0)
-          ? `default_flow_type_code: (${defaultFlowType &&
+          ? `default_flow_type_code:(${defaultFlowType &&
           defaultFlowType.join(' ')})`
+          : null,
+        get(hierarchy, 'length', 0)
+          ? `hierarchy:(${hierarchy && hierarchy.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null

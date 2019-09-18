@@ -17,6 +17,7 @@ import {
   COLLABORATION_TYPE,
   DEFAULT_CURRENCY,
   DEFAULT_FLOW_TYPE,
+  HIERARCHY,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -127,6 +128,11 @@ export const getDefaultFlowType: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + DEFAULT_FLOW_TYPE, {
     method: 'GET',
     ...params,
+  }).then(res => res.json());
+
+export const getHierarchy: Endpoint = (params: RequestInit = {}) =>
+  fetch('/' + HIERARCHY,{
+    method: 'GET'
   }).then(res => res.json());
 
 const getData = (params: RequestInit = {}, host: string, path: number) =>

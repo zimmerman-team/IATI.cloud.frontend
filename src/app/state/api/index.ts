@@ -2,9 +2,7 @@
 import { Action, action, Thunk, thunk, computed, Computed } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
-export const baseURL = `https://test-datastore.iatistandard.org/${
-  process.env.NODE_ENV === 'development' ? 'dev/' : ''
-}search/activity/select?`;
+export const baseURL = `https://test-datastore.iatistandard.org/search/activity/select?`;
 
 // const NODE_ENV = process.env.NODE_ENV;
 
@@ -128,6 +126,9 @@ export const DEFAULT_FLOW_TYPE =
   NODE_ENV === 'development'
     ? 'data/default_flow_type.json'
     : 'api/codelists/FlowType/?format=json';
+
+export const HIERARCHY = 'data/hierarchy.json';
+
 export interface IResponse<T> {
   data: T;
 }
