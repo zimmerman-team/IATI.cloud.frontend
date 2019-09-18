@@ -36,6 +36,9 @@ function Routes() {
   const fetchAidTypeVocabulary = useStoreActions(
     actions => actions.aidTypeVocabulary.fetch
   );
+  const fetchCollaborationType = useStoreActions(
+    actions => actions.collaborationType.fetch
+  );
   // const fetchTransactionProviderOrgs = useStoreActions(
   //   actions => actions.transactionProviderOrgs.fetch
   // );
@@ -62,6 +65,7 @@ function Routes() {
     fetchAidType();
     fetchAidTypeCategory();
     fetchAidTypeVocabulary();
+    fetchCollaborationType();
 
     return () => {
       console.log('Running clean-up of effect on unmount');

@@ -14,6 +14,7 @@ import {
   TRANSACTION_RECEIVER_ORGS,
   AID_TYPE_CATEGORY,
   AID_TYPE_VOCABULARY,
+  COLLABORATION_TYPE,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -107,6 +108,12 @@ export const getAidTypeVocabulary: Endpoint = (params: RequestInit = {}) =>
     method: 'GET',
     ...params,
   }).then(res => res.json());
+
+export const getCollaborationType: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + COLLABORATION_TYPE, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json())
 
 const getData = (params: RequestInit = {}, host: string, path: number) =>
   fetch(HOSTNAME + REGIONS, {

@@ -138,6 +138,12 @@ export const withEffects: StoreEffect = store => {
             return item.code;
           })
         : null;
+    const collaborationType =
+      store.get('collaborationType') && rowFormat === 'activity'
+        ? store.get('collaborationType').map((item: ActivityStatusModel) => {
+            return item.code;
+        })
+        : null;
 
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
@@ -207,6 +213,10 @@ export const withEffects: StoreEffect = store => {
         get(aidTypeVocabulary, 'length', 0)
           ? `default_aid_type_vocabulary:(${aidTypeVocabulary &&
               aidTypeVocabulary.join(' ')})`
+          : null,
+        get(collaborationType, 'length', 0)
+          ? `collaboration_type_code:(${collaborationType && 
+            collaborationType.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null

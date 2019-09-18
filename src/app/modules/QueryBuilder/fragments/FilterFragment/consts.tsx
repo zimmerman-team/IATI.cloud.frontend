@@ -62,6 +62,17 @@ export const additionalFiltersPopData = [
           />
         ),
       },
+      {
+        label: 'Collaboration type',
+        component: props => (
+          <AddFilterModule
+            label="Collaboration type"
+            dataKey="collaborationType"
+            value={props.store.get('collaborationType')}
+            onChange={e => props.store.set('collaborationType')(e)}
+          />
+        )
+      }
     ],
   ],
   // [

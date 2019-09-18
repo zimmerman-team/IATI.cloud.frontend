@@ -111,6 +111,12 @@ export const AID_TYPE_VOCABULARY =
     ? 'data/aid_type_category.json'
     : 'api/codelists/AidType-vocabulary/?format=json';
 
+export const COLLABORATION_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/collaboration_type.json'
+    : 'api/codelists/CollaborationType/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }
