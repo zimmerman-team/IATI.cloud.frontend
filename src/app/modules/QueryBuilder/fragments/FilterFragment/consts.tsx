@@ -62,6 +62,18 @@ export const additionalFiltersPopData = [
           />
         ),
       },
+
+      {
+        label: 'Default currency',
+        component: props => (
+          <AddFilterModule
+            label="Currency"
+            dataKey="defaultCurrency"
+            value={props.store.get('defaultCurrency')}
+            onChange={e => props.store.set('defaultCurrency')(e)}
+          />
+        )
+      },
       {
         label: 'Collaboration type',
         component: props => (
@@ -72,7 +84,8 @@ export const additionalFiltersPopData = [
             onChange={e => props.store.set('collaborationType')(e)}
           />
         )
-      }
+      },
+
     ],
   ],
   // [

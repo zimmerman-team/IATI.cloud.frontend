@@ -12,6 +12,7 @@ import transactionProviderOrgs from 'app/state/interfaces/TransactionProviderOrg
 import transactionReceiverOrgs from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import aidType from 'app/state/interfaces/AidTypeInterface';
 import aidTypeVocabulary from 'app/state/interfaces/AidTypeVocabularyInterface';
+import defaultCurrency from 'app/state/interfaces/DefaultCurrencyInterface';
 import aidTypeCategory from 'app/state/interfaces/AidTypeCategoryInterface';
 import collaborationType from 'app/state/interfaces/CollaborationTypeInterface'
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
@@ -34,6 +35,7 @@ const applicationStore: ApplicationStoreModel = {
   aidTypeVocabulary: aidTypeVocabulary,
   aidTypeCategory: aidTypeCategory,
   collaborationType: collaborationType,
+  defaultCurrency: defaultCurrency,
 };
 
 const appStore = createStore(applicationStore);

@@ -36,6 +36,9 @@ function Routes() {
   const fetchAidTypeVocabulary = useStoreActions(
     actions => actions.aidTypeVocabulary.fetch
   );
+  const fetchDefaultCurrency = useStoreActions(
+    actions => actions.defaultCurrency.fetch
+  )
   const fetchCollaborationType = useStoreActions(
     actions => actions.collaborationType.fetch
   );
@@ -65,6 +68,7 @@ function Routes() {
     fetchAidType();
     fetchAidTypeCategory();
     fetchAidTypeVocabulary();
+    fetchDefaultCurrency();
     fetchCollaborationType();
 
     return () => {
