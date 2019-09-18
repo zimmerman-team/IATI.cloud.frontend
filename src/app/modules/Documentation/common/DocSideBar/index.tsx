@@ -4,32 +4,42 @@ import styled from 'styled-components';
 import { Skeletor } from 'app/components/utils/Skeletor';
 import { NavLink } from 'react-router-dom';
 
+
+type  SideBarItemModel = {
+label:string;
+path:string;
+}
+
 const SideBarItem = () => {
   return (
-    <NavLink exact to="/documentation">
-      <Grid item md={12}>
+    <Grid item md={12}>
+      <NavLink exact to="/documentation">
         <Skeletor width="100%" height="25px" />
-      </Grid>
-    </NavLink>
+      </NavLink>
+    </Grid>
   );
 };
 
 export const DocsideBar = () => {
   return (
-    // @ts-ignore
 
     <Grid container spacing={4} direction={'column'}>
-      <Grid item>
+
+      {/* api search field */}
+      <Grid item md={12}>
+        <Skeletor />
+      </Grid>
+
+      {/* api item header */}
+      <Grid item md={12}>
         <Typography variant="h6">H6 header</Typography>
       </Grid>
-      <Grid item md={12}>
-        <Grid container direction="column">
-          <SideBarItem />
-          <SideBarItem />
-          <SideBarItem />
-          <SideBarItem />
-        </Grid>
-      </Grid>
+
+      {/* api sub  items*/}
+      <SideBarItem />
+      <SideBarItem />
+      <SideBarItem />
+      <SideBarItem />
     </Grid>
   );
 };
