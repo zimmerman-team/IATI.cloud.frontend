@@ -12,7 +12,7 @@ const IndicatorClearWrapper = styled.div`
   margin-right: 8px;
   div {
     padding: 0;
-  
+
     &:hover {
       background-color: transparent;
       opacity: 0.5;
@@ -44,8 +44,8 @@ const MultiValueRemoveWrapper = styled.div`
   cursor: pointer;
   div {
     padding: 0;
-    svg{
-       font-size:1.05rem!important;
+    svg {
+      font-size: 1.05rem !important;
     }
     &:hover {
       background-color: transparent;
@@ -117,6 +117,7 @@ export const Control = () => ({
   display: 'flex',
   alignItems: 'center',
   padding: 0,
+  paddingLeft: '8px',
   margin: 0,
 });
 
@@ -141,7 +142,7 @@ export const MultiValue = provided => ({
   height: '32px',
   display: 'flex',
   alignItems: 'center',
-  backgroundColor: '#3074f1',
+  backgroundColor: '#155366',
   paddingLeft: '12px',
   paddingRight: '9px',
   userSelect: 'none',
@@ -174,5 +175,6 @@ export const HelperBlock = styled.div`
     font-size: 12px;
     font-weight: normal;
     margin-left: 3px;
+    color: #185568;
   }
 `;
