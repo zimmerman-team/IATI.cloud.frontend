@@ -179,6 +179,11 @@ export const DownloadFragment = () => {
             {JSON.stringify(store.get('defaultCurrency'), null, 2)}
             <br/>
             <br/>
+            collaborationType
+            <br />
+            {JSON.stringify(store.get('collaborationType'), null, 2)}
+            <br/>
+            <br/>
           </pre>
         </Grid>
       )}

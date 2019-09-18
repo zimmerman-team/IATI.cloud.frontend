@@ -138,6 +138,12 @@ export const withEffects: StoreEffect = store => {
             return item.code;
           })
         : null;
+    const collaborationType =
+      store.get('collaborationType') && rowFormat === 'activity'
+        ? store.get('collaborationType').map((item: ActivityStatusModel) => {
+            return item.code;
+        })
+        : null;
 
     const defaultCurrency =
       store.get('defaultCurrency') && rowFormat === 'activity'
@@ -214,6 +220,10 @@ export const withEffects: StoreEffect = store => {
         get(aidTypeVocabulary, 'length', 0)
           ? `default_aid_type_vocabulary:(${aidTypeVocabulary &&
               aidTypeVocabulary.join(' ')})`
+          : null,
+        get(collaborationType, 'length', 0)
+          ? `collaboration_type_code:(${collaborationType && 
+            collaborationType.join(' ')})`
           : null,
         get(defaultCurrency, 'length', 0)
           ? `default_currency:(${defaultCurrency &&
