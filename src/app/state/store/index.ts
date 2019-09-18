@@ -14,6 +14,7 @@ import aidType from 'app/state/interfaces/AidTypeInterface';
 import aidTypeVocabulary from 'app/state/interfaces/AidTypeVocabularyInterface';
 import defaultCurrency from 'app/state/interfaces/DefaultCurrencyInterface';
 import aidTypeCategory from 'app/state/interfaces/AidTypeCategoryInterface';
+import collaborationType from 'app/state/interfaces/CollaborationTypeInterface'
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { queryModel } from 'app/state/models/QueryModel';
 
@@ -33,6 +34,7 @@ const applicationStore: ApplicationStoreModel = {
   aidType: aidType,
   aidTypeVocabulary: aidTypeVocabulary,
   aidTypeCategory: aidTypeCategory,
+  collaborationType: collaborationType,
   defaultCurrency: defaultCurrency,
 };
 

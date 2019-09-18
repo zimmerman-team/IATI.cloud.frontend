@@ -117,6 +117,12 @@ export const DEFAULT_CURRENCY =
     ? 'data/default_currency.json'
     : 'api/codelists/Currency/?format=json';
 
+export const COLLABORATION_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/collaboration_type.json'
+    : 'api/codelists/CollaborationType/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }

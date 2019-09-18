@@ -27,6 +27,7 @@ export type ModuleStoreModel = {
   aidTypeCategory: ActivityStatusModel[];
   aidTypeVocabulary: ActivityStatusModel[];
   defaultCurrency: ActivityStatusModel[];
+  collaborationType: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
   endDate: any;
@@ -54,6 +55,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   aidTypeCategory: [],
   aidTypeVocabulary: [],
   defaultCurrency: [],
+  collaborationType: [],
   mustHaveDates: 'No',
   startDate: '',
   endDate: '',

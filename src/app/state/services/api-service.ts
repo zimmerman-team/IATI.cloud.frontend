@@ -14,6 +14,7 @@ import {
   TRANSACTION_RECEIVER_ORGS,
   AID_TYPE_CATEGORY,
   AID_TYPE_VOCABULARY,
+  COLLABORATION_TYPE,
   DEFAULT_CURRENCY,
 } from 'app/state/api';
 
@@ -114,6 +115,12 @@ export const getDefaultCurrency: Endpoint = (params: RequestInit = {}) =>
     method: 'GET',
     ...params,
   }).then(res => res.json());
+
+export const getCollaborationType: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + COLLABORATION_TYPE, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json())
 
 const getData = (params: RequestInit = {}, host: string, path: number) =>
   fetch(HOSTNAME + REGIONS, {
