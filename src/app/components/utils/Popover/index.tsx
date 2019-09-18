@@ -3,7 +3,7 @@ import IconButton from 'app/components/inputs/buttons/IconButton';
 
 import ListControls from 'app/components/datadisplay/Lists/ListControls';
 import { Add } from '@material-ui/icons';
-import { Popover } from '@material-ui/core';
+import { Box, Popover } from '@material-ui/core';
 
 export const AddFilterModule = props => {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
@@ -30,11 +30,11 @@ export const AddFilterModule = props => {
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'bottom',
+          vertical: 'top',
           horizontal: 'left',
         }}
         transformOrigin={{
-          vertical: 'top',
+          vertical: 'bottom',
           horizontal: 'left',
         }}
       >

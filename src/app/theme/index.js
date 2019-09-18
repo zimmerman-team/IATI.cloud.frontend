@@ -55,7 +55,7 @@ export const Palette = {
   },
   action: {
     active: 'rgba(0, 0, 0, 0.54)',
-    hover: 'rgba(0, 0, 0, 0.08)',
+    hover: '#e2e6eb',
     hoverOpacity: 0.08,
     selected: 'rgba(0, 0, 0, 0.14)',
     disabled: '#a1aebd',

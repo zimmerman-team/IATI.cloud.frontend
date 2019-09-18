@@ -16,28 +16,51 @@ type Props = {
 };
 
 const BaseComponent = styled(props => <List {...props} />)`
-  padding: 0;
+  &&& {
+    padding: 0;
 
-  & [class*='MuiTypography-body2'] {
-    color: black;
+    min-width: 320px;
+    & [class*='MuiTypography-body2'] {
+      color: black;
+    }
+
+    & [class*='MuiListItem-button'] {
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+
+    & [class*='Mui-checked'] > [class*='MuiSvgIcon-root'] {
+      fill: ${Palette.primary.main};
+    }
   }
+`;
 
-  & [class*='MuiListItem-button'] {
-    padding-top: 3px;
-    padding-bottom: 3px;
+const ListItemModded = styled(props => <ListItem {...props} />)`
+  &&& {
+    //background-color: black;
+    padding: 0;
+    padding-left: 7px;
   }
+`;
 
-  & [class*='Mui-checked'] > [class*='MuiSvgIcon-root'] {
-    fill: ${Palette.primary.main};
+const ListItemIconModded = styled(props => <ListItemIcon {...props} />)`
+  &&& {
+    min-width: 48px;
   }
 `;
 
 const ListCategory = styled(props => <Typography {...props} />)`
-  color: black;
-  padding: 16px 0 8px 30px;
-  background: ${Palette.grey[40]};
-  border-top: 1px solid ${Palette.action.disabledBackground};
-  border-bottom: 1px solid ${Palette.action.disabledBackground};
+  &&& {
+    color: black;
+    //padding: 16px 0 8px 30px;
+    padding-left: 18px;
+    padding-top: 26px;
+    padding-bottom: 8px;
+    font-size: 20px;
+    background: ${Palette.grey[40]};
+    border-top: 1px solid ${Palette.action.disabledBackground};
+    border-bottom: 1px solid ${Palette.action.disabledBackground};
+  }
 `;
 
 //todo: look into virtualized lists https://material-ui.com/components/lists/
@@ -71,10 +94,12 @@ const ListControls = (props: Props) => {
                 <React.Fragment key={item.label}>
                   {item.disabled ? (
                     <Tooltip title="Filter not available yet">
-                      <ListItem
+                      <ListItemModded
                         dense
                         button
-                        style={{ opacity: item.disabled ? 0.4 : 1 }}
+                        style={{
+                          opacity: item.disabled ? 0.4 : 1,
+                        }}
                         onClick={() =>
                           !item.disabled && handleToggle(item.label)
                         }
@@ -87,17 +112,21 @@ const ListControls = (props: Props) => {
                           />
                         </ListItemIcon>
                         <ListItemText primary={item.label} />
-                      </ListItem>
+                      </ListItemModded>
                     </Tooltip>
                   ) : (
-                    <ListItem dense button onClick={handleToggle(item.label)}>
-                      <ListItemIcon>
+                    <ListItemModded
+                      dense
+                      button
+                      onClick={handleToggle(item.label)}
+                    >
+                      <ListItemIconModded>
                         <Checkbox
                           checked={checked.indexOf(item.label as never) !== -1}
                         />
-                      </ListItemIcon>
+                      </ListItemIconModded>
                       <ListItemText primary={item.label} />
-                    </ListItem>
+                    </ListItemModded>
                   )}
                 </React.Fragment>
               );
