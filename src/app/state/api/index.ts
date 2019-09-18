@@ -123,6 +123,11 @@ export const COLLABORATION_TYPE =
     ? 'data/collaboration_type.json'
     : 'api/codelists/CollaborationType/?format=json';
 
+export const DEFAULT_FLOW_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/default_flow_type.json'
+    : 'api/codelists/FlowType/?format=json';
 export interface IResponse<T> {
   data: T;
 }

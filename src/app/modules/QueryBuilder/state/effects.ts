@@ -152,6 +152,13 @@ export const withEffects: StoreEffect = store => {
         })
         : null;
 
+    const defaultFlowType =
+      store.get('defaultFlowType') && rowFormat === 'activity'
+        ? store.get('defaultFlowType').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+        : null;
+
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
           return item.code;
@@ -228,6 +235,10 @@ export const withEffects: StoreEffect = store => {
         get(defaultCurrency, 'length', 0)
           ? `default_currency:(${defaultCurrency &&
           defaultCurrency.join(' ')})`
+          : null,
+        get(defaultFlowType, 'length', 0)
+          ? `default_flow_type_code: (${defaultFlowType &&
+          defaultFlowType.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null

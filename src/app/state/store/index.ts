@@ -14,7 +14,8 @@ import aidType from 'app/state/interfaces/AidTypeInterface';
 import aidTypeVocabulary from 'app/state/interfaces/AidTypeVocabularyInterface';
 import defaultCurrency from 'app/state/interfaces/DefaultCurrencyInterface';
 import aidTypeCategory from 'app/state/interfaces/AidTypeCategoryInterface';
-import collaborationType from 'app/state/interfaces/CollaborationTypeInterface'
+import collaborationType from 'app/state/interfaces/CollaborationTypeInterface';
+import defaultFlowType from 'app/state/interfaces/DefaultFlowTypeInterface';
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { queryModel } from 'app/state/models/QueryModel';
 
@@ -36,6 +37,7 @@ const applicationStore: ApplicationStoreModel = {
   aidTypeCategory: aidTypeCategory,
   collaborationType: collaborationType,
   defaultCurrency: defaultCurrency,
+  defaultFlowType: defaultFlowType,
 };
 
 const appStore = createStore(applicationStore);
