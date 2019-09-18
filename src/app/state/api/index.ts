@@ -111,6 +111,12 @@ export const AID_TYPE_VOCABULARY =
     ? 'data/aid_type_category.json'
     : 'api/codelists/AidType-vocabulary/?format=json';
 
+export const DEFAULT_CURRENCY =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/default_currency.json'
+    : 'api/codelists/Currency/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }
