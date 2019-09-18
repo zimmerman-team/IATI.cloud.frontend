@@ -12,6 +12,7 @@ const IndicatorClearWrapper = styled.div`
   margin-right: 8px;
   div {
     padding: 0;
+  
     &:hover {
       background-color: transparent;
       opacity: 0.5;
@@ -43,9 +44,12 @@ const MultiValueRemoveWrapper = styled.div`
   cursor: pointer;
   div {
     padding: 0;
+    svg{
+       font-size:1.05rem!important;
+    }
     &:hover {
       background-color: transparent;
-      opacity: 0.5;
+      opacity: 0;
     }
   }
 `;
@@ -73,7 +77,7 @@ export const DropdownIndicator = ({ innerProps }) => {
 export const ClearIndicator = ({ innerProps }) => {
   return (
     <IndicatorClearWrapper {...innerProps}>
-      <Clear htmlColor="#828894" fontSize="small" />
+      <Clear htmlColor="#828894" fontSize="inherit" />
     </IndicatorClearWrapper>
   );
 };
