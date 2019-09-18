@@ -114,6 +114,7 @@
     "@percy/cypress": "^1.0.9",
     "@semantic-release/changelog": "^3.0.4",
     "@semantic-release/release-notes-generator": "^7.3.0",
+    "@storybook/addon-docs": "^5.2.1",
     "@storybook/addons": "^5.1.11",
     "@storybook/react": "^5.1.11",
     "@svgr/webpack": "4.3.2",
