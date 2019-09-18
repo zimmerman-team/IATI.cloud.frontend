@@ -58,7 +58,7 @@ export const FilterFragment = () => {
           placeholder="Text search"
           onChange={setTextSearchValue}
           value={store.get('textSearch')}
-          label="Data title,activity or descriptions"
+          label="Search in title, activity or description"
           helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
         />
       </Grid>
