@@ -48,6 +48,9 @@ function Routes() {
   const fetchHierarchy = useStoreActions(
     actions => actions.hierarchy.fetch
   );
+  const fetchFinanceType = useStoreActions(
+    actions => actions.financeType.fetch
+  );
   // const fetchTransactionProviderOrgs = useStoreActions(
   //   actions => actions.transactionProviderOrgs.fetch
   // );
@@ -78,6 +81,7 @@ function Routes() {
     fetchCollaborationType();
     fetchDefaultFlowType();
     fetchHierarchy();
+    fetchFinanceType();
 
     return () => {
       console.log('Running clean-up of effect on unmount');

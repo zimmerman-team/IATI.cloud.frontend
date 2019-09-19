@@ -18,6 +18,7 @@ import {
   DEFAULT_CURRENCY,
   DEFAULT_FLOW_TYPE,
   HIERARCHY,
+  FINANCE_TYPE,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -134,6 +135,11 @@ export const getHierarchy: Endpoint = (params: RequestInit = {}) =>
   fetch('/' + HIERARCHY,{
     method: 'GET'
   }).then(res => res.json());
+
+export const getFinanceType: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + FINANCE_TYPE, {
+    method: 'GET'
+  }).then(res => res.json())
 
 const getData = (params: RequestInit = {}, host: string, path: number) =>
   fetch(HOSTNAME + REGIONS, {

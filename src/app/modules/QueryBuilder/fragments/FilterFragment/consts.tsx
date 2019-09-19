@@ -107,6 +107,17 @@ export const additionalFiltersPopData = [
           />
         )
       },
+      {
+        label: 'Default finance type',
+        component: props => (
+          <AddFilterModule
+            label="Default finance type"
+            dataKey="financeType"
+            value={props.store.get('financeType')}
+            onChange={e => props.store.set('financeType')(e)}
+          />
+        )
+      },
     ],
   ],
   // [

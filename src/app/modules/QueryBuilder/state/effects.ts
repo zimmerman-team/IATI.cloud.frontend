@@ -166,6 +166,13 @@ export const withEffects: StoreEffect = store => {
           })
         : null;
 
+    const financeType =
+      store.get('financeType') && rowFormat === 'activity'
+        ? store.get('financeType').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+        : null;
+
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
           return item.code;
@@ -248,6 +255,9 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(hierarchy, 'length', 0)
           ? `hierarchy:(${hierarchy && hierarchy.join(' ')})`
+          : null,
+        get(financeType, 'length', 0)
+          ? `default_finance_type_code:(${financeType && financeType.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null
