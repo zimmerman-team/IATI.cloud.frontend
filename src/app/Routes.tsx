@@ -60,6 +60,9 @@ function Routes() {
   const fetchdocumentLinkCategory = useStoreActions(
     actions => actions.documentLinkCategory.fetch
   );
+  const fetchiatiVersion = useStoreActions(
+    actions => actions.iatiVersion.fetch
+  );
   // const fetchTransactionProviderOrgs = useStoreActions(
   //   actions => actions.transactionProviderOrgs.fetch
   // );
@@ -94,6 +97,7 @@ function Routes() {
     fetchTiedStatus();
     fetchtransactionType();
     fetchdocumentLinkCategory();
+    fetchiatiVersion();
 
     return () => {
       console.log('Running clean-up of effect on unmount');

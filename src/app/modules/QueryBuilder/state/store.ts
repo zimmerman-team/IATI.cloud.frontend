@@ -34,6 +34,7 @@ export type ModuleStoreModel = {
   tiedStatus: ActivityStatusModel[];
   transactionType: ActivityStatusModel[];
   documentLinkCategory: ActivityStatusModel[];
+  iatiVersion: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
   endDate: any;
@@ -68,6 +69,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   tiedStatus:[],
   transactionType: [],
   documentLinkCategory:[],
+  iatiVersion:[],
   mustHaveDates: 'No',
   startDate: '',
   endDate: '',

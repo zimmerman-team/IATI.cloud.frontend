@@ -191,6 +191,12 @@ export const withEffects: StoreEffect = store => {
           return item.code
         })
         : null;
+    const iatiVersion =
+      store.get('iatiVersion') && rowFormat === 'activity'
+        ? store.get('iatiVersion').map((item: ActivityStatusModel) => {
+          return item.code
+        })
+        : null;
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
           return item.code;
@@ -285,6 +291,9 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(documentLinkCategory, 'length', 0)
           ? `document_link_category_code:(${documentLinkCategory && documentLinkCategory.join(' ')})`
+          : null,
+        get(iatiVersion, 'length', 0)
+          ? `dataset_iati_version:(${iatiVersion && iatiVersion.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null

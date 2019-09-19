@@ -22,6 +22,7 @@ import {
   TIED_STATUS,
   TRANSACTION_TYPE,
   DOCUMENT_LINK_CATEGORY,
+  IATI_VERSION,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -156,6 +157,11 @@ export const getTransactionType: Endpoint = (params: RequestInit = {}) =>
 
 export const getdocumentLinkCategory: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + DOCUMENT_LINK_CATEGORY,{
+    method: 'GET'
+  }).then(res => res.json());
+
+export const getIatiVersion: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + IATI_VERSION,{
     method: 'GET'
   }).then(res => res.json());
 
