@@ -21,8 +21,8 @@ const TypographyOpacity = styled(props => <Typography {...props} />)`
 `;
 
 const TextLink = styled.a`
-text-decoration: none;
-color:yellow;
+  text-decoration: none;
+  color: yellow;
 `;
 
 export const LandingMidSection = () => {
@@ -85,7 +85,11 @@ export const LandingLayout = () => {
             <TypographyOpacity variant="body2" color="textSecondary">
               The IATI Datastore holds all activity data published on
               development and humanitarian activities available on the{' '}
-              <Link href="https://iatiregistry.org/" variant="body2" style={{color: 'white', textDecoration: 'underline'}}>
+              <Link
+                href="https://iatiregistry.org/"
+                variant="body2"
+                style={{ color: 'white', textDecoration: 'underline' }}
+              >
                 IATI Registry
               </Link>
               . The Datastore is primarily aimed at users who have technical

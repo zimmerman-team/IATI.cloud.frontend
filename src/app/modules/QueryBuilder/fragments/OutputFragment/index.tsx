@@ -1,20 +1,23 @@
 /* core */
 import React from 'react';
 /* third-party */
-import get from 'lodash/get';
-import filter from 'lodash/filter';
 import Grid from '@material-ui/core/Grid';
 /* project component */
 import { ConnectedSelect } from 'app/components/inputs/selects/ConnectedSelect';
 import RadioButtonsGroup from 'app/components/inputs/radiobuttons/RadioButtonGroup';
 /* config & mock */
-import { fragmentConfig, getGroupOptions } from './model';
+import {
+  fragmentConfig,
+  getGroupOptions,
+  getActivityOptions,
+  getTransactionOptions,
+} from './model';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
 
 export const OutputFragment = () => {
   const store = ModuleStore.useStore();
-  const { getGroups, fieldsSelect } = fragmentConfig;
+  const { getGroups, fieldsSelect, fieldsSelectTransactions } = fragmentConfig;
 
   const setFields = e => {
     store.set('fields')(e);
@@ -27,7 +30,15 @@ export const OutputFragment = () => {
           {...fieldsSelect}
           onChange={setFields}
           value={store.get('fields')}
-          options={getGroupOptions(store)}
+          options={getActivityOptions(store)}
+        />
+      </Grid>
+      <Grid item xs={12} sm={12} md={12}>
+        <ConnectedSelect
+          {...fieldsSelectTransactions}
+          onChange={setFields}
+          value={store.get('fields')}
+          options={getTransactionOptions(store)}
         />
       </Grid>
       {getGroups(store).map(group => (
