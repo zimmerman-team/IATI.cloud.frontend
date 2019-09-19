@@ -72,7 +72,7 @@ export const additionalFiltersPopData = [
             value={props.store.get('defaultCurrency')}
             onChange={e => props.store.set('defaultCurrency')(e)}
           />
-        )
+        ),
       },
       {
         label: 'Collaboration type',
@@ -83,7 +83,7 @@ export const additionalFiltersPopData = [
             value={props.store.get('collaborationType')}
             onChange={e => props.store.set('collaborationType')(e)}
           />
-        )
+        ),
       },
       {
         label: 'Default flow type',
@@ -94,7 +94,7 @@ export const additionalFiltersPopData = [
             value={props.store.get('defaultFlowType')}
             onChange={e => props.store.set('defaultFlowType')(e)}
           />
-        )
+        ),
       },
       {
         label: 'Hierarchy',
@@ -105,7 +105,7 @@ export const additionalFiltersPopData = [
             value={props.store.get('hierarchy')}
             onChange={e => props.store.set('hierarchy')(e)}
           />
-        )
+        ),
       },
       {
         label: 'Default finance type',
@@ -116,7 +116,7 @@ export const additionalFiltersPopData = [
             value={props.store.get('financeType')}
             onChange={e => props.store.set('financeType')(e)}
           />
-        )
+        ),
       },
       {
         label: 'Default tied status',
@@ -127,7 +127,7 @@ export const additionalFiltersPopData = [
             value={props.store.get('tiedStatus')}
             onChange={e => props.store.set('tiedStatus')(e)}
           />
-        )
+        ),
       },
     ],
   ],
