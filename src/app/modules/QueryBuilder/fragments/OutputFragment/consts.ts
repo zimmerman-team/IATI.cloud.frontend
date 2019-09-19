@@ -90,3 +90,19 @@ export const groupedOptions = [
   //   tip: " (change 'Row format' selection to 'Each Budget In Defined Periods')",
   // },
 ];
+
+export const activityOptions = [
+  {
+    label: 'Activities',
+    options: activityFields,
+    tip: " (change 'Row format' selection to 'Each Unique Activity')",
+  },
+];
+
+export const transactionOptions = [
+  {
+    label: 'Transactions',
+    options: transactionFields,
+    tip: " (change 'Row format' selection to 'Each Financial Transaction')",
+  },
+];

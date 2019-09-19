@@ -142,28 +142,28 @@ export const withEffects: StoreEffect = store => {
       store.get('collaborationType') && rowFormat === 'activity'
         ? store.get('collaborationType').map((item: ActivityStatusModel) => {
             return item.code;
-        })
+          })
         : null;
 
     const defaultCurrency =
       store.get('defaultCurrency') && rowFormat === 'activity'
         ? store.get('defaultCurrency').map((item: ActivityStatusModel) => {
-          return item.code;
-        })
+            return item.code;
+          })
         : null;
 
     const defaultFlowType =
       store.get('defaultFlowType') && rowFormat === 'activity'
         ? store.get('defaultFlowType').map((item: ActivityStatusModel) => {
-          return item.code;
-        })
+            return item.code;
+          })
         : null;
 
     const hierarchy =
       store.get('hierarchy') && rowFormat === 'activity'
         ? store.get('hierarchy').map((item: ActivityStatusModel) => {
-          return item.code;
-        })
+            return item.code;
+          })
         : null;
 
     const fields = store.get('fields')
@@ -236,16 +236,15 @@ export const withEffects: StoreEffect = store => {
               aidTypeVocabulary.join(' ')})`
           : null,
         get(collaborationType, 'length', 0)
-          ? `collaboration_type_code:(${collaborationType && 
-            collaborationType.join(' ')})`
+          ? `collaboration_type_code:(${collaborationType &&
+              collaborationType.join(' ')})`
           : null,
         get(defaultCurrency, 'length', 0)
-          ? `default_currency:(${defaultCurrency &&
-          defaultCurrency.join(' ')})`
+          ? `default_currency:(${defaultCurrency && defaultCurrency.join(' ')})`
           : null,
         get(defaultFlowType, 'length', 0)
           ? `default_flow_type_code:(${defaultFlowType &&
-          defaultFlowType.join(' ')})`
+              defaultFlowType.join(' ')})`
           : null,
         get(hierarchy, 'length', 0)
           ? `hierarchy:(${hierarchy && hierarchy.join(' ')})`
