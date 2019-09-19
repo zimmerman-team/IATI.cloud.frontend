@@ -30,6 +30,7 @@ export type ModuleStoreModel = {
   collaborationType: ActivityStatusModel[];
   defaultFlowType: ActivityStatusModel[];
   hierarchy: ActivityStatusModel[];
+  financeType: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
   endDate: any;
@@ -60,6 +61,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   collaborationType: [],
   defaultFlowType: [],
   hierarchy:[],
+  financeType:[],
   mustHaveDates: 'No',
   startDate: '',
   endDate: '',

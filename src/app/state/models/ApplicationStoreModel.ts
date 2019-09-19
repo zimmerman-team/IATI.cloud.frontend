@@ -13,6 +13,7 @@ import { CollaborationTypeInterface} from '../interfaces/CollaborationTypeInterf
 import { DefaultCurrencyInterface } from 'app/state/interfaces/DefaultCurrencyInterface';
 import { DefaultFlowTypeInterface} from '../interfaces/DefaultFlowTypeInterface';
 import {HierarchyInterface} from '../interfaces/HierarchyInterface';
+import {FinanceTypeInterface} from 'app/state/interfaces/FinanceTypeInterface';
 import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
@@ -38,6 +39,7 @@ export interface ApplicationStoreModel {
   collaborationType: CollaborationTypeInterface;
   defaultFlowType: DefaultFlowTypeInterface;
   hierarchy: HierarchyInterface;
+  financeType: FinanceTypeInterface;
   transactionProviderOrgs: TransactionProviderOrgScope;
   transactionReceiverOrgs: TransactionReceiverOrgsInterface;
 }

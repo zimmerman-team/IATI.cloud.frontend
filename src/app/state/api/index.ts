@@ -129,6 +129,12 @@ export const DEFAULT_FLOW_TYPE =
 
 export const HIERARCHY = 'data/hierarchy.json';
 
+export const FINANCE_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/finance_type.json'
+    : 'api/codelists/FinanceType/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }
