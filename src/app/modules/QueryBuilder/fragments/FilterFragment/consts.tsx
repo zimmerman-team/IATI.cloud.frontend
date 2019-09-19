@@ -129,6 +129,28 @@ export const additionalFiltersPopData = [
           />
         ),
       },
+      {
+        label: 'Transaction type',
+        component: props => (
+          <AddFilterModule
+            label="Transaction type"
+            dataKey="transactionType"
+            value={props.store.get('transactionType')}
+            onChange={e => props.store.set('transactionType')(e)}
+          />
+        )
+      },
+      {
+        label: 'Document link category',
+        component: props => (
+          <AddFilterModule
+            label="Document link category"
+            dataKey="documentLinkCategory"
+            value={props.store.get('documentLinkCategory')}
+            onChange={e => props.store.set('documentLinkCategory')(e)}
+          />
+        )
+      },
     ],
   ],
   // [

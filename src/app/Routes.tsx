@@ -32,7 +32,6 @@ function Routes() {
     fetchRegions();
     fetchSectors();
     fetchCountries();
-
     return () => {
       console.log('Running clean-up of effect on unmount');
     };

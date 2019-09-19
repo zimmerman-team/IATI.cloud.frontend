@@ -136,7 +136,19 @@ export const TIED_STATUS =
   // @ts-ignore
   NODE_ENV === 'development'
     ? 'data/tied_status.json'
-    : 'api/codelists/TiedStatus/?format=json'
+    : 'api/codelists/TiedStatus/?format=json';
+
+export const TRANSACTION_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/transaction_type.json'
+    : 'api/codelists/TransactionType/?format=json';
+
+export const DOCUMENT_LINK_CATEGORY =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/document_link_category.json'
+    : 'api/codelists/DocumentCategory/?format=json';
 
 export interface IResponse<T> {
   data: T;

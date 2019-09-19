@@ -179,7 +179,18 @@ export const withEffects: StoreEffect = store => {
           return item.code;
         })
         : null;
-
+    const transactionType =
+      store.get('transactionType') && rowFormat === 'activity'
+        ? store.get('transactionType').map((item: ActivityStatusModel) => {
+          return item.code
+        })
+        : null;
+    const documentLinkCategory =
+      store.get('documentLinkCategory') && rowFormat === 'activity'
+        ? store.get('documentLinkCategory').map((item: ActivityStatusModel) => {
+          return item.code
+        })
+        : null;
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
           return item.code;
@@ -268,6 +279,12 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(tiedStatus, 'length', 0)
           ? `default_tied_status_code:(${tiedStatus && tiedStatus.join(' ')})`
+          : null,
+        get(transactionType, 'length', 0)
+          ? `transaction_type:(${transactionType && transactionType.join(' ')})`
+          : null,
+        get(documentLinkCategory, 'length', 0)
+          ? `document_link_category_code:(${documentLinkCategory && documentLinkCategory.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null
