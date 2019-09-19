@@ -19,6 +19,7 @@ import defaultFlowType from 'app/state/interfaces/DefaultFlowTypeInterface';
 import hierarchy from 'app/state/interfaces/HierarchyInterface';
 import financeType from 'app/state/interfaces/FinanceTypeInterface';
 import tiedStatus from 'app/state/interfaces/TiedStatusInterface';
+import transactionType from 'app/state/interfaces/TransactionTypeInterface';
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { queryModel } from 'app/state/models/QueryModel';
 
@@ -43,6 +44,7 @@ const applicationStore: ApplicationStoreModel = {
   defaultFlowType: defaultFlowType,
   hierarchy: hierarchy,
   financeType: financeType,
+  transactionType: transactionType,
   tiedStatus: tiedStatus,
 };
 

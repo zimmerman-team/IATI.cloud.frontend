@@ -54,6 +54,9 @@ function Routes() {
   const fetchTiedStatus = useStoreActions(
     actions => actions.tiedStatus.fetch
   );
+  const fetchtransactionType = useStoreActions(
+    actions => actions.transactionType.fetch
+  );
   // const fetchTransactionProviderOrgs = useStoreActions(
   //   actions => actions.transactionProviderOrgs.fetch
   // );
@@ -86,6 +89,7 @@ function Routes() {
     fetchHierarchy();
     fetchFinanceType();
     fetchTiedStatus();
+    fetchtransactionType();
 
     return () => {
       console.log('Running clean-up of effect on unmount');

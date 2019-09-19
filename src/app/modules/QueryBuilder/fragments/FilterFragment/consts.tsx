@@ -129,6 +129,17 @@ export const additionalFiltersPopData = [
           />
         )
       },
+      {
+        label: 'Transaction type',
+        component: props => (
+          <AddFilterModule
+            label="Transaction type"
+            dataKey="transactionType"
+            value={props.store.get('transactionType')}
+            onChange={e => props.store.set('transactionType')(e)}
+          />
+        )
+      },
     ],
   ],
   // [
