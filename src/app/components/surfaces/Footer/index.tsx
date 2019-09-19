@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, Container, Box } from '@material-ui/core';
+import { Grid, Typography, Container, Box, Link } from '@material-ui/core';
 import { Mail, Phone, Star } from '@material-ui/icons';
 import { IATILogoWhite } from 'app/components/svgs/IATILogo';
 import { ZZLogo } from 'app/components/svgs/ZZLogo';
@@ -87,8 +87,21 @@ export const Footer = () => {
                   color="textSecondary"
                   align="center"
                 >
-                  Code licensed under the GNU AGPL. Documentation licensed under
-                  CC BY 3.0.
+                  Code licensed under the
+                  <Link
+                    href={'https://www.gnu.org/licenses/agpl-3.0.en.html'}
+                    style={{ color: 'white', textDecoration: 'underline' }}
+                  >
+                    GNU AGPL
+                  </Link>
+                  . Documentation licensed under
+                  <Link
+                    href="https://creativecommons.org/licenses/by/4.0/"
+                    style={{ color: 'white', textDecoration: 'underline' }}
+                  >
+                    CC BY 3.0
+                  </Link>
+                  .
                 </Typography>
               </Grid>
             </Grid>
