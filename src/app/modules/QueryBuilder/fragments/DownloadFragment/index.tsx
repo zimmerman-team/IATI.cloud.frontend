@@ -204,6 +204,9 @@ export const DownloadFragment = () => {
             {JSON.stringify(store.get('tiedStatus'), null, 2)}
             <br/>
             <br/>
+            transactionType
+            <br/>
+            {JSON.stringify(store.get('transactionType'), null, 2)}
           </pre>
         </Grid>
       )}
