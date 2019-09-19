@@ -23,55 +23,6 @@ function Routes() {
   const fetchRegions = useStoreActions(actions => actions.regions.fetch);
   const fetchSectors = useStoreActions(actions => actions.sectors.fetch);
   const fetchCountries = useStoreActions(actions => actions.countries.fetch);
-  const fetchActivityStatus = useStoreActions(
-    actions => actions.activityStatus.fetch
-  );
-  const fetchActivityScope = useStoreActions(
-    actions => actions.activityScope.fetch
-  );
-  const fetchAidType = useStoreActions(actions => actions.aidType.fetch);
-  const fetchAidTypeCategory = useStoreActions(
-    actions => actions.aidTypeCategory.fetch
-  );
-  const fetchAidTypeVocabulary = useStoreActions(
-    actions => actions.aidTypeVocabulary.fetch
-  );
-  const fetchDefaultCurrency = useStoreActions(
-    actions => actions.defaultCurrency.fetch
-  );
-  const fetchCollaborationType = useStoreActions(
-    actions => actions.collaborationType.fetch
-  );
-  const fetchDefaultFlowType = useStoreActions(
-    actions => actions.defaultFlowType.fetch
-  );
-  const fetchHierarchy = useStoreActions(
-    actions => actions.hierarchy.fetch
-  );
-  const fetchFinanceType = useStoreActions(
-    actions => actions.financeType.fetch
-  );
-  const fetchTiedStatus = useStoreActions(
-    actions => actions.tiedStatus.fetch
-  );
-  const fetchtransactionType = useStoreActions(
-    actions => actions.transactionType.fetch
-  );
-  const fetchdocumentLinkCategory = useStoreActions(
-    actions => actions.documentLinkCategory.fetch
-  );
-  const fetchiatiVersion = useStoreActions(
-    actions => actions.iatiVersion.fetch
-  );
-  // const fetchTransactionProviderOrgs = useStoreActions(
-  //   actions => actions.transactionProviderOrgs.fetch
-  // );
-  // const fetchTransactionReceiverOrgs = useStoreActions(
-  //   actions => actions.transactionReceiverOrgs.fetch
-  // );
-  // const fetchParticipatingOrgs = useStoreActions(
-  //   actions => actions.participatingOrgs.fetch
-  // );
 
   useEffectOnce(() => {
     console.log('Running effect once on mount');
@@ -79,26 +30,8 @@ function Routes() {
     fetchOrganisations();
     fetchSectorCategories();
     fetchRegions();
-    fetchActivityStatus();
     fetchSectors();
     fetchCountries();
-    // fetchTransactionProviderOrgs();
-    // fetchTransactionReceiverOrgs();
-    // fetchParticipatingOrgs();
-    fetchActivityScope();
-    fetchAidType();
-    fetchAidTypeCategory();
-    fetchAidTypeVocabulary();
-    fetchDefaultCurrency();
-    fetchCollaborationType();
-    fetchDefaultFlowType();
-    fetchHierarchy();
-    fetchFinanceType();
-    fetchTiedStatus();
-    fetchtransactionType();
-    fetchdocumentLinkCategory();
-    fetchiatiVersion();
-
     return () => {
       console.log('Running clean-up of effect on unmount');
     };
