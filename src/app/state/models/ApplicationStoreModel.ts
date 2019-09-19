@@ -16,6 +16,7 @@ import {HierarchyInterface} from '../interfaces/HierarchyInterface';
 import {FinanceTypeInterface} from 'app/state/interfaces/FinanceTypeInterface';
 import {TiedStatusInterface} from '../interfaces/TiedStatusInterface';
 import {TransactionTypeInterface} from 'app/state/interfaces/TransactionTypeInterface';
+import {DocumentLinkCategoryInterface} from 'app/state/interfaces/DocumentLinkCategoryInterface';
 import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
@@ -46,4 +47,5 @@ export interface ApplicationStoreModel {
   transactionType: TransactionTypeInterface;
   transactionProviderOrgs: TransactionProviderOrgScope;
   transactionReceiverOrgs: TransactionReceiverOrgsInterface;
+  documentLinkCategory: DocumentLinkCategoryInterface;
 }
