@@ -64,7 +64,7 @@ export const Footer = () => {
                     color="textSecondary"
                     style={{ marginRight: '16px' }}
                   >
-                    powered by OIPA from
+                    powered by
                   </Typography>
                   <ZZLogo
                     onClick={() =>
