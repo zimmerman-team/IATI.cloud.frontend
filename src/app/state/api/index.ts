@@ -147,6 +147,12 @@ export const TRANSACTION_TYPE =
     ? 'data/transaction_type.json'
     : 'api/codelists/TransactionType/?format=json';
 
+export const DOCUMENT_LINK_CATEGORY =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/document_link_category.json'
+    : 'api/codelists/DocumentCategory/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }

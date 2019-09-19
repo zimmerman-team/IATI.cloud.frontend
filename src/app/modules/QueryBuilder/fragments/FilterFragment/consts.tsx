@@ -140,6 +140,17 @@ export const additionalFiltersPopData = [
           />
         )
       },
+      {
+        label: 'Document link category',
+        component: props => (
+          <AddFilterModule
+            label="Document link category"
+            dataKey="documentLinkCategory"
+            value={props.store.get('documentLinkCategory')}
+            onChange={e => props.store.set('documentLinkCategory')(e)}
+          />
+        )
+      },
     ],
   ],
   // [

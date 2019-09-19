@@ -20,6 +20,7 @@ import hierarchy from 'app/state/interfaces/HierarchyInterface';
 import financeType from 'app/state/interfaces/FinanceTypeInterface';
 import tiedStatus from 'app/state/interfaces/TiedStatusInterface';
 import transactionType from 'app/state/interfaces/TransactionTypeInterface';
+import documentLinkCategory from 'app/state/interfaces/DocumentLinkCategoryInterface';
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { queryModel } from 'app/state/models/QueryModel';
 
@@ -46,6 +47,7 @@ const applicationStore: ApplicationStoreModel = {
   financeType: financeType,
   transactionType: transactionType,
   tiedStatus: tiedStatus,
+  documentLinkCategory: documentLinkCategory,
 };
 
 const appStore = createStore(applicationStore);
