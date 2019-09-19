@@ -156,6 +156,12 @@ export const IATI_VERSION =
     ? 'data/iati_version.json'
     : 'api/codelists/Version/?format=json';
 
+export const LANGUAGE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/iati_language.json'
+    : 'api/codelists/Language/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }

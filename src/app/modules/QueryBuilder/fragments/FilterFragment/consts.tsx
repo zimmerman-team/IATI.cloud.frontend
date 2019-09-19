@@ -170,9 +170,22 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="IATI version"
             dataKey="iatiVersion"
+            placeholder="All IATI versions"
             value={props.store.get('iatiVersion')}
             onChange={e => props.store.set('iatiVersion')(e)}
           />
+        )
+      },
+      {
+        label: 'Default language',
+        component: props => (
+          <AddFilterModule
+            label="Default language"
+            dataKey="language"
+            placeholder="All languages"
+            value={props.store.get('language')}
+            onChange={e => props.store.set('language')(e)}
+            />
         )
       },
     ],

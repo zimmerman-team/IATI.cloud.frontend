@@ -23,6 +23,7 @@ import {
   TRANSACTION_TYPE,
   DOCUMENT_LINK_CATEGORY,
   IATI_VERSION,
+  LANGUAGE,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -162,6 +163,11 @@ export const getdocumentLinkCategory: Endpoint = (params: RequestInit = {}) =>
 
 export const getIatiVersion: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + IATI_VERSION,{
+    method: 'GET'
+  }).then(res => res.json());
+
+export const getLanguage: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + LANGUAGE, {
     method: 'GET'
   }).then(res => res.json());
 
