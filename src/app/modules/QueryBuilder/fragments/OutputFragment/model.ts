@@ -1,10 +1,11 @@
-import { groupedOptions } from './consts';
+import { activityOptions, groupedOptions, transactionOptions } from './consts';
 import { FragmentBaseModel } from 'app/modules/QueryBuilder/fragments';
 import { RadioButtonsGroupModel } from 'app/components/inputs/radiobuttons/RadioButtonGroup/index';
 
 interface FragmentModel extends FragmentBaseModel {
   getGroups: Function;
   fieldsSelect: any;
+  fieldsSelectTransactions?: any;
 }
 
 export const getGroupOptions = store => {
@@ -16,6 +17,38 @@ export const getGroupOptions = store => {
       (rowFormatSel === 'budget' && group.label === 'Budgets')
         ? 0
         : 1;
+    return {
+      label: `${group.label}${value === 0 ? '' : group.tip}`,
+      options: group.options.map(option => ({
+        ...option,
+        isDisabled: value,
+      })),
+    };
+  });
+  return gOpts;
+};
+
+export const getActivityOptions = store => {
+  const rowFormatSel = store.get('rowFormat');
+  const gOpts = activityOptions.map(group => {
+    const value =
+      rowFormatSel === 'activity' && group.label === 'Activities' ? 0 : 1;
+    return {
+      label: `${group.label}${value === 0 ? '' : group.tip}`,
+      options: group.options.map(option => ({
+        ...option,
+        isDisabled: value,
+      })),
+    };
+  });
+  return gOpts;
+};
+
+export const getTransactionOptions = store => {
+  const rowFormatSel = store.get('rowFormat');
+  const gOpts = transactionOptions.map(group => {
+    const value =
+      rowFormatSel === 'transaction' && group.label === 'Transactions' ? 0 : 1;
     return {
       label: `${group.label}${value === 0 ? '' : group.tip}`,
       options: group.options.map(option => ({
@@ -89,7 +122,18 @@ export const fragmentConfig: FragmentModel = {
     name: 'dataFields',
     className: 'fieldsSelect',
     placeholder: 'Select data fields',
-    label: 'Column elements to include',
+    label: 'Column elements to include: activities',
+    getOptionValue: (option: any) => option.code,
+    getOptionLabel: (option: any) => option.name,
+    helperTextLink: 'See IATI documentation for full list of possible elements',
+    helperTextUrl:
+      'http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/',
+  },
+  fieldsSelectTransactions: {
+    name: 'dataFields2',
+    className: 'fieldsSelect2',
+    placeholder: 'Select data fields',
+    label: 'Column elements to include: transactions',
     getOptionValue: (option: any) => option.code,
     getOptionLabel: (option: any) => option.name,
     helperTextLink: 'See IATI documentation for full list of possible elements',
