@@ -16,6 +16,7 @@ import defaultCurrency from 'app/state/interfaces/DefaultCurrencyInterface';
 import aidTypeCategory from 'app/state/interfaces/AidTypeCategoryInterface';
 import collaborationType from 'app/state/interfaces/CollaborationTypeInterface';
 import defaultFlowType from 'app/state/interfaces/DefaultFlowTypeInterface';
+import hierarchy from 'app/state/interfaces/HierarchyInterface';
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { queryModel } from 'app/state/models/QueryModel';
 
@@ -38,6 +39,7 @@ const applicationStore: ApplicationStoreModel = {
   collaborationType: collaborationType,
   defaultCurrency: defaultCurrency,
   defaultFlowType: defaultFlowType,
+  hierarchy: hierarchy,
 };
 
 const appStore = createStore(applicationStore);

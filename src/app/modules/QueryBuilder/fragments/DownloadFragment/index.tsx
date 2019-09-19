@@ -189,6 +189,11 @@ export const DownloadFragment = () => {
             {JSON.stringify(store.get('defaultFlowType'), null, 2)}
             <br/>
             <br/>
+            hierarchy
+            <br/>
+            {JSON.stringify(store.get('hierarchy'), null, 2)}
+            <br/>
+            <br/>
           </pre>
         </Grid>
       )}

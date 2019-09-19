@@ -96,8 +96,17 @@ export const additionalFiltersPopData = [
           />
         )
       },
-
-
+      {
+        label: 'Hierarchy',
+        component: props => (
+          <AddFilterModule
+            label="Hierarchy"
+            dataKey="hierarchy"
+            value={props.store.get('hierarchy')}
+            onChange={e => props.store.set('hierarchy')(e)}
+          />
+        )
+      },
     ],
   ],
   // [

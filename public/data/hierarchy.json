@@ -1,0 +1,14 @@
+[
+  {
+    "code": "1",
+    "name": "activity"
+  },
+  {
+    "code": "2",
+    "name": "sub-activity"
+  },
+  {
+    "code": "3",
+    "name": "sub-sub-activity"
+  }
+]

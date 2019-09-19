@@ -123,6 +123,9 @@ export const DEFAULT_FLOW_TYPE =
   NODE_ENV === 'development'
     ? 'data/default_flow_type.json'
     : 'api/codelists/FlowType/?format=json';
+
+export const HIERARCHY = 'data/hierarchy.json';
+
 export interface IResponse<T> {
   data: T;
 }
