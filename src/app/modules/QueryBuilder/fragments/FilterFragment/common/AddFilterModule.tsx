@@ -13,6 +13,7 @@ type Props = {
   dataKey: string;
   value?: any;
   onChange?: Function;
+  placeholder: string;
 };
 
 export function AddFilterModule(props: Props) {
@@ -32,7 +33,7 @@ export function AddFilterModule(props: Props) {
             action();
           }
         }}
-        placeholder="All"
+        placeholder={props.placeholder}
         getOptionValue={option => option.code}
         getOptionLabel={option => `${option.code}: ${option.name}`}
       />

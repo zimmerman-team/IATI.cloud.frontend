@@ -13,6 +13,7 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Activity status"
             dataKey="activityStatus"
+            placeholder="All activity statuses"
             value={props.store.get('activityStatus')}
             onChange={e => props.store.set('activityStatus')(e)}
           />
@@ -24,6 +25,7 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Activity scope"
             dataKey="activityScope"
+            placeholder="All activity scopes"
             value={props.store.get('activityScope')}
             onChange={e => props.store.set('activityScope')(e)}
           />
@@ -35,6 +37,7 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Aid type"
             dataKey="aidType"
+            placeholder="All aid types"
             value={props.store.get('aidType')}
             onChange={e => props.store.set('aidType')(e)}
           />
@@ -46,6 +49,7 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Aid type (category)"
             dataKey="aidTypeCategory"
+            placeholder="All aid type categories"
             value={props.store.get('aidTypeCategory')}
             onChange={e => props.store.set('aidTypeCategory')(e)}
           />
@@ -57,6 +61,7 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Aid type vocabulary"
             dataKey="aidTypeVocabulary"
+            placeholder="All aid type vocabularies"
             value={props.store.get('aidTypeVocabulary')}
             onChange={e => props.store.set('aidTypeVocabulary')(e)}
           />
@@ -69,6 +74,7 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Currency"
             dataKey="defaultCurrency"
+            placeholder="All currencies"
             value={props.store.get('defaultCurrency')}
             onChange={e => props.store.set('defaultCurrency')(e)}
           />
@@ -80,6 +86,7 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Collaboration type"
             dataKey="collaborationType"
+            placeholder="All collaboration types"
             value={props.store.get('collaborationType')}
             onChange={e => props.store.set('collaborationType')(e)}
           />
@@ -91,6 +98,7 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Default flow type"
             dataKey="defaultFlowType"
+            placeholder="All default flow types"
             value={props.store.get('defaultFlowType')}
             onChange={e => props.store.set('defaultFlowType')(e)}
           />
@@ -102,6 +110,7 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Hierarchy"
             dataKey="hierarchy"
+            placeholder="All hierarchies"
             value={props.store.get('hierarchy')}
             onChange={e => props.store.set('hierarchy')(e)}
           />
@@ -113,6 +122,7 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Default finance type"
             dataKey="financeType"
+            placeholder="All default finance types"
             value={props.store.get('financeType')}
             onChange={e => props.store.set('financeType')(e)}
           />
@@ -124,6 +134,7 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Default tied status"
             dataKey="tiedStatus"
+            placeholder="All default tied statuses"
             value={props.store.get('tiedStatus')}
             onChange={e => props.store.set('tiedStatus')(e)}
           />
@@ -135,10 +146,11 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Transaction type"
             dataKey="transactionType"
+            placeholder="All transaction types"
             value={props.store.get('transactionType')}
             onChange={e => props.store.set('transactionType')(e)}
           />
-        )
+        ),
       },
       {
         label: 'Document link category',
@@ -146,10 +158,11 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Document link category"
             dataKey="documentLinkCategory"
+            placeholder="All document link categories"
             value={props.store.get('documentLinkCategory')}
             onChange={e => props.store.set('documentLinkCategory')(e)}
           />
-        )
+        ),
       },
     ],
   ],
