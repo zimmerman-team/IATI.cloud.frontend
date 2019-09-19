@@ -16,6 +16,7 @@ import {
   AID_TYPE_VOCABULARY,
   COLLABORATION_TYPE,
   DEFAULT_CURRENCY,
+  DEFAULT_FLOW_TYPE,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -120,7 +121,13 @@ export const getCollaborationType: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + COLLABORATION_TYPE, {
     method: 'GET',
     ...params,
-  }).then(res => res.json())
+  }).then(res => res.json());
+
+export const getDefaultFlowType: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + DEFAULT_FLOW_TYPE, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json());
 
 const getData = (params: RequestInit = {}, host: string, path: number) =>
   fetch(HOSTNAME + REGIONS, {

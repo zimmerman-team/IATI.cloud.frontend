@@ -2,9 +2,8 @@
 import { Action, action, Thunk, thunk, computed, Computed } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
-export const baseURL = `https://test-datastore.iatistandard.org/${
-  process.env.NODE_ENV === 'development' ? 'dev/' : ''
-}search/activity/select?`;
+export const baseURL =
+  'https://test-datastore.iatistandard.org/search/activity/select?';
 
 // const NODE_ENV = process.env.NODE_ENV;
 
@@ -75,17 +74,13 @@ export const TRANSACTION_PROVIDER_ORGS =
   // @ts-ignore
   NODE_ENV === 'development'
     ? 'data/activity_scope.json'
-    : `${
-        process.env.NODE_ENV === 'development' ? 'dev/' : ''
-      }search/activity/select?q=*:*&facet=on&facet.pivot=transaction_provider_org_narrative&rows=0&facet.limit=1000`;
+    : 'search/activity/select?q=*:*&facet=on&facet.pivot=transaction_provider_org_narrative&rows=0&facet.limit=1000';
 
 export const TRANSACTION_RECEIVER_ORGS =
   // @ts-ignore
   NODE_ENV === 'development'
     ? 'data/activity_scope.json'
-    : `${
-        process.env.NODE_ENV === 'development' ? 'dev/' : ''
-      }search/activity/select?q=*:*&facet=on&facet.pivot=transaction_receiver_org_narrative&rows=0&facet.limit=1000`;
+    : 'search/activity/select?q=*:*&facet=on&facet.pivot=transaction_receiver_org_narrative&rows=0&facet.limit=1000';
 
 export const ACTIVITY_SCOPE =
   // @ts-ignore
@@ -123,6 +118,11 @@ export const COLLABORATION_TYPE =
     ? 'data/collaboration_type.json'
     : 'api/codelists/CollaborationType/?format=json';
 
+export const DEFAULT_FLOW_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/default_flow_type.json'
+    : 'api/codelists/FlowType/?format=json';
 export interface IResponse<T> {
   data: T;
 }

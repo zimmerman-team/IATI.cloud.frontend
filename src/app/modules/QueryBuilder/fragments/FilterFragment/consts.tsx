@@ -85,6 +85,18 @@ export const additionalFiltersPopData = [
           />
         )
       },
+      {
+        label: 'Default flow type',
+        component: props => (
+          <AddFilterModule
+            label="Default flow type"
+            dataKey="defaultFlowType"
+            value={props.store.get('defaultFlowType')}
+            onChange={e => props.store.set('defaultFlowType')(e)}
+          />
+        )
+      },
+
 
     ],
   ],
