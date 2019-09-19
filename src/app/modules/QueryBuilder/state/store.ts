@@ -31,6 +31,7 @@ export type ModuleStoreModel = {
   defaultFlowType: ActivityStatusModel[];
   hierarchy: ActivityStatusModel[];
   financeType: ActivityStatusModel[];
+  tiedStatus: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
   endDate: any;
@@ -62,6 +63,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   defaultFlowType: [],
   hierarchy:[],
   financeType:[],
+  tiedStatus:[],
   mustHaveDates: 'No',
   startDate: '',
   endDate: '',

@@ -132,6 +132,12 @@ export const FINANCE_TYPE =
     ? 'data/finance_type.json'
     : 'api/codelists/FinanceType/?format=json';
 
+export const TIED_STATUS =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/tied_status.json'
+    : 'api/codelists/TiedStatus/?format=json'
+
 export interface IResponse<T> {
   data: T;
 }

@@ -14,6 +14,7 @@ import { DefaultCurrencyInterface } from 'app/state/interfaces/DefaultCurrencyIn
 import { DefaultFlowTypeInterface} from '../interfaces/DefaultFlowTypeInterface';
 import {HierarchyInterface} from '../interfaces/HierarchyInterface';
 import {FinanceTypeInterface} from 'app/state/interfaces/FinanceTypeInterface';
+import {TiedStatusInterface} from '../interfaces/TiedStatusInterface';
 import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
@@ -40,6 +41,7 @@ export interface ApplicationStoreModel {
   defaultFlowType: DefaultFlowTypeInterface;
   hierarchy: HierarchyInterface;
   financeType: FinanceTypeInterface;
+  tiedStatus: TiedStatusInterface;
   transactionProviderOrgs: TransactionProviderOrgScope;
   transactionReceiverOrgs: TransactionReceiverOrgsInterface;
 }

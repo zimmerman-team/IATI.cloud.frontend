@@ -118,6 +118,17 @@ export const additionalFiltersPopData = [
           />
         )
       },
+      {
+        label: 'Default tied status',
+        component: props => (
+          <AddFilterModule
+            label="Default tied status"
+            dataKey="tiedStatus"
+            value={props.store.get('tiedStatus')}
+            onChange={e => props.store.set('tiedStatus')(e)}
+          />
+        )
+      },
     ],
   ],
   // [
