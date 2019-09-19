@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Typography, Container, Box, Link } from '@material-ui/core';
-import { Mail, Phone, Star } from '@material-ui/icons';
+import { Mail, Phone, Star, Twitter } from '@material-ui/icons';
 import { IATILogoWhite } from 'app/components/svgs/IATILogo';
 import { ZZLogo } from 'app/components/svgs/ZZLogo';
 
@@ -37,13 +37,25 @@ export const Footer = () => {
               <Grid container item alignItems="center">
                 <Mail style={{ marginRight: '16px', fill: 'white' }} />
                 <Typography variant="body1" color="textSecondary">
-                  info@iatistandard.org
+                  <Link
+                    href={'mailto:info@iatistandard.org'}
+                    target="_blank"
+                    style={{ color: 'white', textDecoration: 'underline' }}
+                  >
+                    info@iatistandard.org
+                  </Link>
                 </Typography>
               </Grid>
               <Grid container item alignItems="center">
-                <Star style={{ marginRight: '16px', fill: 'white' }} />
+                <Twitter style={{ marginRight: '16px', fill: 'white' }} />
                 <Typography variant="body1" color="textSecondary">
-                  @iati
+                  <Link
+                    href={'https://twitter.com/IATI_aid'}
+                    target="_blank"
+                    style={{ color: 'white', textDecoration: 'underline' }}
+                  >
+                    @iati
+                  </Link>
                 </Typography>
               </Grid>
             </Grid>
@@ -90,6 +102,7 @@ export const Footer = () => {
                   Code licensed under the
                   <Link
                     href={'https://www.gnu.org/licenses/agpl-3.0.en.html'}
+                    target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >
                     GNU AGPL
@@ -97,6 +110,7 @@ export const Footer = () => {
                   . Documentation licensed under
                   <Link
                     href="https://creativecommons.org/licenses/by/4.0/"
+                    target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >
                     CC BY 3.0

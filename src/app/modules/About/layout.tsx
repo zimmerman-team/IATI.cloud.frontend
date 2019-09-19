@@ -25,7 +25,7 @@ export const AboutLayout = () => {
         {/* Appbar component needs a refactor, therefore not in this PR.*/}
         {/* INTRODUCTION*/}
         <Section>
-          
+
           <Paragraph>
             <Typography variant="body1">
               The IATI Datastore enables you to output data in four different
