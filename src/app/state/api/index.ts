@@ -150,6 +150,12 @@ export const DOCUMENT_LINK_CATEGORY =
     ? 'data/document_link_category.json'
     : 'api/codelists/DocumentCategory/?format=json';
 
+export const IATI_VERSION =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/iati_version.json'
+    : 'api/codelists/Version/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }

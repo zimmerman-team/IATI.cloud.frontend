@@ -212,6 +212,11 @@ export const DownloadFragment = () => {
             documentLinkCategory
             <br/>
             {JSON.stringify(store.get('documentLinkCategory'), null,2)}
+            <br />
+            <br/>
+            iatiVersion
+            <br/>
+            {JSON.stringify(store.get('iatiVersion'),null,2)}
           </pre>
         </Grid>
       )}

@@ -21,6 +21,7 @@ import financeType from 'app/state/interfaces/FinanceTypeInterface';
 import tiedStatus from 'app/state/interfaces/TiedStatusInterface';
 import transactionType from 'app/state/interfaces/TransactionTypeInterface';
 import documentLinkCategory from 'app/state/interfaces/DocumentLinkCategoryInterface';
+import iatiVersion from 'app/state/interfaces/IATIVersionInterface';
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { queryModel } from 'app/state/models/QueryModel';
 
@@ -48,6 +49,7 @@ const applicationStore: ApplicationStoreModel = {
   transactionType: transactionType,
   tiedStatus: tiedStatus,
   documentLinkCategory: documentLinkCategory,
+  iatiVersion: iatiVersion,
 };
 
 const appStore = createStore(applicationStore);

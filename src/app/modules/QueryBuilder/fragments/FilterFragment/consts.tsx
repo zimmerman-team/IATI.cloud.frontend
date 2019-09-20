@@ -164,6 +164,18 @@ export const additionalFiltersPopData = [
           />
         ),
       },
+      {
+        label: 'IATI version',
+        component: props => (
+          <AddFilterModule
+            label="IATI version"
+            dataKey="iatiVersion"
+            placeholder="All IATI versions"
+            value={props.store.get('iatiVersion')}
+            onChange={e => props.store.set('iatiVersion')(e)}
+          />
+        )
+      },
     ],
   ],
   // [
