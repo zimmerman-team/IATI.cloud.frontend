@@ -162,6 +162,12 @@ export const LANGUAGE =
     ? 'data/iati_language.json'
     : 'api/codelists/Language/?format=json';
 
+export const TRANSACTION_FLOW_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/transaction_flow_type.json'
+    : 'api/codelists/FlowType/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }

@@ -33,6 +33,7 @@ export type ModuleStoreModel = {
   financeType: ActivityStatusModel[];
   tiedStatus: ActivityStatusModel[];
   transactionType: ActivityStatusModel[];
+  transactionFlowType: ActivityStatusModel[];
   documentLinkCategory: ActivityStatusModel[];
   iatiVersion: ActivityStatusModel[];
   language: ActivityStatusModel[];
@@ -69,6 +70,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   financeType:[],
   tiedStatus:[],
   transactionType: [],
+  transactionFlowType: [],
   documentLinkCategory:[],
   iatiVersion:[],
   language:[],

@@ -222,6 +222,11 @@ export const DownloadFragment = () => {
             defaultLanguage
             <br/>
             {JSON.stringify(store.get('language'),null,2)}
+            <br/>
+            <br/>
+            transactionFlowType
+            <br/>
+            {JSON.stringify(store.get('transactionFlowType'),null,2)}
           </pre>
         </Grid>
       )}
