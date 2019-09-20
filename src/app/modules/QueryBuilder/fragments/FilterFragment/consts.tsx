@@ -225,6 +225,18 @@ export const additionalFiltersPopData = [
             />
         )
       },
+      {
+        label: 'Humanitarian',
+        component: props => (
+          <AddFilterModule
+            label="Humanitarian"
+            dataKey="humanitarian"
+            placeholder="All options"
+            value={props.store.get('humanitarian')}
+            onChange={e => props.store.set('humanitarian')(e)}
+          />
+        )
+      },
     ],
   ],
   // [

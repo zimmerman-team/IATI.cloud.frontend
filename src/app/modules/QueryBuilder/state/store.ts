@@ -39,6 +39,7 @@ export type ModuleStoreModel = {
   documentLinkCategory: ActivityStatusModel[];
   iatiVersion: ActivityStatusModel[];
   language: ActivityStatusModel[];
+  humanitarian: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
   endDate: any;
@@ -78,6 +79,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   documentLinkCategory:[],
   iatiVersion:[],
   language:[],
+  humanitarian:[],
   mustHaveDates: 'No',
   startDate: '',
   endDate: '',
