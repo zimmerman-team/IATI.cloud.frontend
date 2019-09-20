@@ -11,6 +11,14 @@ import { AidTypeVocabularyInterface } from 'app/state/interfaces/AidTypeVocabula
 import { AidTypeCategoryInterface } from 'app/state/interfaces/AidTypeCategoryInterface';
 import { CollaborationTypeInterface} from '../interfaces/CollaborationTypeInterface';
 import { DefaultCurrencyInterface } from 'app/state/interfaces/DefaultCurrencyInterface';
+import { DefaultFlowTypeInterface} from '../interfaces/DefaultFlowTypeInterface';
+import {HierarchyInterface} from '../interfaces/HierarchyInterface';
+import {FinanceTypeInterface} from 'app/state/interfaces/FinanceTypeInterface';
+import {TiedStatusInterface} from '../interfaces/TiedStatusInterface';
+import {TransactionTypeInterface} from 'app/state/interfaces/TransactionTypeInterface';
+import {DocumentLinkCategoryInterface} from 'app/state/interfaces/DocumentLinkCategoryInterface';
+import {IATIVersionInterface} from 'app/state/interfaces/IATIVersionInterface';
+import {LanguageInterface} from 'app/state/interfaces/LanguageInterface';
 import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
@@ -34,6 +42,14 @@ export interface ApplicationStoreModel {
   participatingOrgs: ParticipatingOrgsInterface;
   aidTypeCategory: AidTypeCategoryInterface;
   collaborationType: CollaborationTypeInterface;
+  defaultFlowType: DefaultFlowTypeInterface;
+  hierarchy: HierarchyInterface;
+  financeType: FinanceTypeInterface;
+  tiedStatus: TiedStatusInterface;
+  transactionType: TransactionTypeInterface;
   transactionProviderOrgs: TransactionProviderOrgScope;
   transactionReceiverOrgs: TransactionReceiverOrgsInterface;
+  documentLinkCategory: DocumentLinkCategoryInterface;
+  iatiVersion: IATIVersionInterface;
+  language: LanguageInterface;
 }

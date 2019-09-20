@@ -8,7 +8,6 @@ import { SectorModel } from 'app/state/models/SectorModel';
 import { ParticipatingOrgsModel } from 'app/state/models/ParticipatingOrgsModel';
 import { ActivityStatusModel } from 'app/state/models/ActivityStatusModel';
 import { TransactionProviderOrgModel } from 'app/state/models/TransactionProviderOrgModel';
-
 export {
   ApplicationStoreModel,
   CountryModel,

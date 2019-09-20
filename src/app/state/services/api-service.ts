@@ -16,6 +16,14 @@ import {
   AID_TYPE_VOCABULARY,
   COLLABORATION_TYPE,
   DEFAULT_CURRENCY,
+  DEFAULT_FLOW_TYPE,
+  HIERARCHY,
+  FINANCE_TYPE,
+  TIED_STATUS,
+  TRANSACTION_TYPE,
+  DOCUMENT_LINK_CATEGORY,
+  IATI_VERSION,
+  LANGUAGE,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -120,7 +128,48 @@ export const getCollaborationType: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + COLLABORATION_TYPE, {
     method: 'GET',
     ...params,
-  }).then(res => res.json())
+  }).then(res => res.json());
+
+export const getDefaultFlowType: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + DEFAULT_FLOW_TYPE, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json());
+
+export const getHierarchy: Endpoint = (params: RequestInit = {}) =>
+  fetch('/' + HIERARCHY,{
+    method: 'GET'
+  }).then(res => res.json());
+
+export const getFinanceType: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + FINANCE_TYPE, {
+    method: 'GET'
+  }).then(res => res.json());
+
+export const getTiedStatus: Endpoint = (params: RequestInit = {}) =>
+    fetch(HOSTNAME + TIED_STATUS, {
+      method: 'GET'
+    }).then(res => res.json());
+
+export const getTransactionType: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + TRANSACTION_TYPE, {
+    method: 'GET'
+  }).then(res => res.json());
+
+export const getdocumentLinkCategory: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + DOCUMENT_LINK_CATEGORY,{
+    method: 'GET'
+  }).then(res => res.json());
+
+export const getIatiVersion: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + IATI_VERSION,{
+    method: 'GET'
+  }).then(res => res.json());
+
+export const getLanguage: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + LANGUAGE, {
+    method: 'GET'
+  }).then(res => res.json());
 
 const getData = (params: RequestInit = {}, host: string, path: number) =>
   fetch(HOSTNAME + REGIONS, {

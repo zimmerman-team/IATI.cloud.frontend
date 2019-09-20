@@ -184,6 +184,44 @@ export const DownloadFragment = () => {
             {JSON.stringify(store.get('collaborationType'), null, 2)}
             <br/>
             <br/>
+            defaultFlowType
+            <br/>
+            {JSON.stringify(store.get('defaultFlowType'), null, 2)}
+            <br/>
+            <br/>
+            hierarchy
+            <br/>
+            {JSON.stringify(store.get('hierarchy'), null, 2)}
+            <br/>
+            <br/>
+            financeType
+            <br/>
+            {JSON.stringify(store.get('financeType'), null, 2)}
+            <br/>
+            <br/>
+            tiedStatus
+            <br/>
+            {JSON.stringify(store.get('tiedStatus'), null, 2)}
+            <br/>
+            <br/>
+            transactionType
+            <br/>
+            {JSON.stringify(store.get('transactionType'), null, 2)}
+            <br/>
+            <br/>
+            documentLinkCategory
+            <br/>
+            {JSON.stringify(store.get('documentLinkCategory'), null,2)}
+            <br />
+            <br/>
+            iatiVersion
+            <br/>
+            {JSON.stringify(store.get('iatiVersion'),null,2)}
+            <br/>
+            <br/>
+            defaultLanguage
+            <br/>
+            {JSON.stringify(store.get('language'),null,2)}
           </pre>
         </Grid>
       )}

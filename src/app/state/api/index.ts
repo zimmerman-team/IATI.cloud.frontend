@@ -2,9 +2,8 @@
 import { Action, action, Thunk, thunk, computed, Computed } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
-export const baseURL = `https://test-datastore.iatistandard.org/${
-  process.env.NODE_ENV === 'development' ? 'dev/' : ''
-}search/activity/select?`;
+export const baseURL =
+  'https://test-datastore.iatistandard.org/search/activity/select?';
 
 // const NODE_ENV = process.env.NODE_ENV;
 
@@ -75,17 +74,13 @@ export const TRANSACTION_PROVIDER_ORGS =
   // @ts-ignore
   NODE_ENV === 'development'
     ? 'data/activity_scope.json'
-    : `${
-        process.env.NODE_ENV === 'development' ? 'dev/' : ''
-      }search/activity/select?q=*:*&facet=on&facet.pivot=transaction_provider_org_narrative&rows=0&facet.limit=1000`;
+    : 'search/activity/select?q=*:*&facet=on&facet.pivot=transaction_provider_org_narrative&rows=0&facet.limit=1000';
 
 export const TRANSACTION_RECEIVER_ORGS =
   // @ts-ignore
   NODE_ENV === 'development'
     ? 'data/activity_scope.json'
-    : `${
-        process.env.NODE_ENV === 'development' ? 'dev/' : ''
-      }search/activity/select?q=*:*&facet=on&facet.pivot=transaction_receiver_org_narrative&rows=0&facet.limit=1000`;
+    : 'search/activity/select?q=*:*&facet=on&facet.pivot=transaction_receiver_org_narrative&rows=0&facet.limit=1000';
 
 export const ACTIVITY_SCOPE =
   // @ts-ignore
@@ -122,6 +117,50 @@ export const COLLABORATION_TYPE =
   NODE_ENV === 'development'
     ? 'data/collaboration_type.json'
     : 'api/codelists/CollaborationType/?format=json';
+
+export const DEFAULT_FLOW_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/default_flow_type.json'
+    : 'api/codelists/FlowType/?format=json';
+
+export const HIERARCHY = 'data/hierarchy.json';
+
+export const FINANCE_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/finance_type.json'
+    : 'api/codelists/FinanceType/?format=json';
+
+export const TIED_STATUS =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/tied_status.json'
+    : 'api/codelists/TiedStatus/?format=json';
+
+export const TRANSACTION_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/transaction_type.json'
+    : 'api/codelists/TransactionType/?format=json';
+
+export const DOCUMENT_LINK_CATEGORY =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/document_link_category.json'
+    : 'api/codelists/DocumentCategory/?format=json';
+
+export const IATI_VERSION =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/iati_version.json'
+    : 'api/codelists/Version/?format=json';
+
+export const LANGUAGE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/iati_language.json'
+    : 'api/codelists/Language/?format=json';
 
 export interface IResponse<T> {
   data: T;

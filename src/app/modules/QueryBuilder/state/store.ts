@@ -28,6 +28,14 @@ export type ModuleStoreModel = {
   aidTypeVocabulary: ActivityStatusModel[];
   defaultCurrency: ActivityStatusModel[];
   collaborationType: ActivityStatusModel[];
+  defaultFlowType: ActivityStatusModel[];
+  hierarchy: ActivityStatusModel[];
+  financeType: ActivityStatusModel[];
+  tiedStatus: ActivityStatusModel[];
+  transactionType: ActivityStatusModel[];
+  documentLinkCategory: ActivityStatusModel[];
+  iatiVersion: ActivityStatusModel[];
+  language: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
   endDate: any;
@@ -56,6 +64,14 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   aidTypeVocabulary: [],
   defaultCurrency: [],
   collaborationType: [],
+  defaultFlowType: [],
+  hierarchy:[],
+  financeType:[],
+  tiedStatus:[],
+  transactionType: [],
+  documentLinkCategory:[],
+  iatiVersion:[],
+  language:[],
   mustHaveDates: 'No',
   startDate: '',
   endDate: '',

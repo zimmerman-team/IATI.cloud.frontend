@@ -142,16 +142,67 @@ export const withEffects: StoreEffect = store => {
       store.get('collaborationType') && rowFormat === 'activity'
         ? store.get('collaborationType').map((item: ActivityStatusModel) => {
             return item.code;
-        })
+          })
         : null;
 
     const defaultCurrency =
       store.get('defaultCurrency') && rowFormat === 'activity'
         ? store.get('defaultCurrency').map((item: ActivityStatusModel) => {
+            return item.code;
+          })
+        : null;
+
+    const defaultFlowType =
+      store.get('defaultFlowType') && rowFormat === 'activity'
+        ? store.get('defaultFlowType').map((item: ActivityStatusModel) => {
+            return item.code;
+          })
+        : null;
+
+    const hierarchy =
+      store.get('hierarchy') && rowFormat === 'activity'
+        ? store.get('hierarchy').map((item: ActivityStatusModel) => {
+            return item.code;
+          })
+        : null;
+
+    const financeType =
+      store.get('financeType') && rowFormat === 'activity'
+        ? store.get('financeType').map((item: ActivityStatusModel) => {
           return item.code;
         })
         : null;
 
+    const tiedStatus =
+      store.get('tiedStatus') && rowFormat === 'activity'
+        ? store.get('tiedStatus').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+        : null;
+    const transactionType =
+      store.get('transactionType') && rowFormat === 'activity'
+        ? store.get('transactionType').map((item: ActivityStatusModel) => {
+          return item.code
+        })
+        : null;
+    const documentLinkCategory =
+      store.get('documentLinkCategory') && rowFormat === 'activity'
+        ? store.get('documentLinkCategory').map((item: ActivityStatusModel) => {
+          return item.code
+        })
+        : null;
+    const iatiVersion =
+      store.get('iatiVersion') && rowFormat === 'activity'
+        ? store.get('iatiVersion').map((item: ActivityStatusModel) => {
+          return item.code
+        })
+        : null;
+    const language =
+      store.get('language') && rowFormat === 'activity'
+        ? store.get('language').map((item: ActivityStatusModel) => {
+          return item.code
+        })
+        : null;
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
           return item.code;
@@ -222,12 +273,36 @@ export const withEffects: StoreEffect = store => {
               aidTypeVocabulary.join(' ')})`
           : null,
         get(collaborationType, 'length', 0)
-          ? `collaboration_type_code:(${collaborationType && 
-            collaborationType.join(' ')})`
+          ? `collaboration_type_code:(${collaborationType &&
+              collaborationType.join(' ')})`
           : null,
         get(defaultCurrency, 'length', 0)
-          ? `default_currency:(${defaultCurrency &&
-          defaultCurrency.join(' ')})`
+          ? `default_currency:(${defaultCurrency && defaultCurrency.join(' ')})`
+          : null,
+        get(defaultFlowType, 'length', 0)
+          ? `default_flow_type_code:(${defaultFlowType &&
+              defaultFlowType.join(' ')})`
+          : null,
+        get(hierarchy, 'length', 0)
+          ? `hierarchy:(${hierarchy && hierarchy.join(' ')})`
+          : null,
+        get(financeType, 'length', 0)
+          ? `default_finance_type_code:(${financeType && financeType.join(' ')})`
+          : null,
+        get(tiedStatus, 'length', 0)
+          ? `default_tied_status_code:(${tiedStatus && tiedStatus.join(' ')})`
+          : null,
+        get(transactionType, 'length', 0)
+          ? `transaction_type:(${transactionType && transactionType.join(' ')})`
+          : null,
+        get(documentLinkCategory, 'length', 0)
+          ? `document_link_category_code:(${documentLinkCategory && documentLinkCategory.join(' ')})`
+          : null,
+        get(iatiVersion, 'length', 0)
+          ? `dataset_iati_version:(${iatiVersion && iatiVersion.join(' ')})`
+          : null,
+        get(language, 'length', 0)
+          ? `default_lang:(${language && language.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null
