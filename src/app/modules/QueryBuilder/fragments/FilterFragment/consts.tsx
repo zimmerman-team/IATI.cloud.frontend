@@ -178,6 +178,18 @@ export const additionalFiltersPopData = [
         )
       },
       {
+        label: 'Transaction value currency',
+        component: props => (
+          <AddFilterModule
+            label="Transaction value currency"
+            dataKey="defaultCurrency"
+            placeholder="All transactions value currencies"
+            value={props.store.get("transactionValueCurrency")}
+            onChange={e => props.store.set("transactionValueCurrency")(e)}
+          />
+        )
+      },
+      {
         label: 'Document link category',
         component: props => (
           <AddFilterModule
