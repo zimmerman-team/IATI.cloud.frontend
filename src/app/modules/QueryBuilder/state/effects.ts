@@ -209,6 +209,12 @@ export const withEffects: StoreEffect = store => {
           return item.code
         })
         : null;
+    const transactionTiedStatus =
+      store.get('transactionTiedStatus') && rowFormat === 'activity'
+        ? store.get('transactionTiedStatus').map((item: ActivityStatusModel) => {
+          return item.code
+        })
+        : null;
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
           return item.code;
@@ -312,6 +318,9 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(transactionFlowType, 'length', 0)
           ? `transaction_flow_type_code:(${transactionFlowType && transactionFlowType.join(' ')})`
+          : null,
+        get(transactionTiedStatus, 'length', 0)
+          ? `transaction_tied_status_code:(${transactionTiedStatus && transactionTiedStatus.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null
