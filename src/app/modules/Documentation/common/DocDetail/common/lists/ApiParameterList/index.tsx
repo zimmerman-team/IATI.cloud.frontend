@@ -1,10 +1,6 @@
 import { Box } from '@material-ui/core';
 import React from 'react';
-
-export type ApiCallParamItemModel = {
-  paramName: string;
-  paramValue: string;
-};
+import { ApiCallParamListModel, ApiCallParamItemModel } from './model';
 
 export const ApiCallParamItem = (props: ApiCallParamItemModel) => {
   return (
@@ -12,7 +8,9 @@ export const ApiCallParamItem = (props: ApiCallParamItemModel) => {
       css={`
         display: flex;
         width: 100%;
+        margin-bottom: 10px;
         div {
+          font-size: 1rem;
           &:first-child {
             font-weight: bold;
             width: 35%;
@@ -26,26 +24,6 @@ export const ApiCallParamItem = (props: ApiCallParamItemModel) => {
   );
 };
 
-export type ApiCallParamListModel = {
-  parameters: ApiCallParamItemModel[];
-};
-
-export const paramListMockData: ApiCallParamListModel = {
-  parameters: [
-    {
-      paramName: 'format',
-      paramValue: 'json',
-    },
-    {
-      paramName: 'test',
-      paramValue: 'it',
-    },
-    {
-      paramName: 'lorem',
-      paramValue: 'ipsum',
-    },
-  ],
-};
 export const ApiCallParamList = (props: ApiCallParamListModel) => {
   return (
     <>

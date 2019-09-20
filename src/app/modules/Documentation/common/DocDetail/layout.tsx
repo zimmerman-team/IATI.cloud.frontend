@@ -4,10 +4,8 @@ import { Skeletor } from 'app/components/utils/Skeletor';
 import styled from 'styled-components';
 import { ApiList } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiBaseList';
 import { itemList } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiBaseList/mock';
-import {
-  ApiCallParamList,
-  paramListMockData,
-} from 'app/modules/Documentation/common/DocDetail/common/lists/ApiParameterList';
+import { ApiCallParamList } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiParameterList';
+import { paramListMockData } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiParameterList/mock';
 
 const HeaderH6 = styled.div`
   font-family: Inter;
@@ -158,16 +156,12 @@ export const DocDetailLayout = () => {
             returned.
           </Typography>
         </Grid>
-
-        <ApiItemDivider />
       </Grid>
       {/* ---------- */}
 
-      <Box height="100px" width="100%" />
-
+      <Box width="100%" height="20px" />
       {/* -------------------- */}
       {/* Call */}
-
       <Grid container spacing={2}>
         <Grid item md={12}>
           <ApiItemDivider />
@@ -178,7 +172,8 @@ export const DocDetailLayout = () => {
           <div
             css={`
               display: flex;
-              font-size: 16px;
+              font-size: 18px;
+              font-weight: 500;
             `}
           >
             <div
