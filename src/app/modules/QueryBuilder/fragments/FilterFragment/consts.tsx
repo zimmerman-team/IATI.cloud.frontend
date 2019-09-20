@@ -176,6 +176,18 @@ export const additionalFiltersPopData = [
           />
         )
       },
+      {
+        label: 'Default language',
+        component: props => (
+          <AddFilterModule
+            label="Default language"
+            dataKey="language"
+            placeholder="All languages"
+            value={props.store.get('language')}
+            onChange={e => props.store.set('language')(e)}
+            />
+        )
+      },
     ],
   ],
   // [

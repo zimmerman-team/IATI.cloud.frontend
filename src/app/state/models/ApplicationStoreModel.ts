@@ -18,6 +18,7 @@ import {TiedStatusInterface} from '../interfaces/TiedStatusInterface';
 import {TransactionTypeInterface} from 'app/state/interfaces/TransactionTypeInterface';
 import {DocumentLinkCategoryInterface} from 'app/state/interfaces/DocumentLinkCategoryInterface';
 import {IATIVersionInterface} from 'app/state/interfaces/IATIVersionInterface';
+import {LanguageInterface} from 'app/state/interfaces/LanguageInterface';
 import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
@@ -50,4 +51,5 @@ export interface ApplicationStoreModel {
   transactionReceiverOrgs: TransactionReceiverOrgsInterface;
   documentLinkCategory: DocumentLinkCategoryInterface;
   iatiVersion: IATIVersionInterface;
+  language: LanguageInterface;
 }

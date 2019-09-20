@@ -197,6 +197,12 @@ export const withEffects: StoreEffect = store => {
           return item.code
         })
         : null;
+    const language =
+      store.get('language') && rowFormat === 'activity'
+        ? store.get('language').map((item: ActivityStatusModel) => {
+          return item.code
+        })
+        : null;
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
           return item.code;
@@ -294,6 +300,9 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(iatiVersion, 'length', 0)
           ? `dataset_iati_version:(${iatiVersion && iatiVersion.join(' ')})`
+          : null,
+        get(language, 'length', 0)
+          ? `default_lang:(${language && language.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null

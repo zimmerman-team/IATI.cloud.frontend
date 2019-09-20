@@ -217,6 +217,11 @@ export const DownloadFragment = () => {
             iatiVersion
             <br/>
             {JSON.stringify(store.get('iatiVersion'),null,2)}
+            <br/>
+            <br/>
+            defaultLanguage
+            <br/>
+            {JSON.stringify(store.get('language'),null,2)}
           </pre>
         </Grid>
       )}
