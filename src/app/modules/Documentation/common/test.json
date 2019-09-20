@@ -1,0 +1,78 @@
+{
+  "info": {
+    "_postman_id": "ccd5b6fd-bfc9-459b-828b-013e2217f437",
+    "name": "API Documentation",
+    "description": "This API provides programmatic access to read IATI data. The API responses are available in JSON, XML, CSV and XLS. By default the API response provides JSON ouput with the &format=JSON construct, but if you woulde like to output XML, CSV or XLS, you nee to change that construct into that format.\n\n# Available endpoints\n\n* Activities: `api/activities/`\n* Budget aggregation: `/api/budgets/aggregations`\n* Chains: `/api/chains`\n* Codelists: `/api/publishers`\n* Countries: `/api/countries`\n* Current branch: `/api/branch`\n* Datasets: `/api/datasets`\n* Locations: `/api/locations`\n* Organisations: `/api/organisations`\n* Publishers: `/api/publishers`\n* Regions: `/api/regions`\n* Results aggregations: `/api/results/aggregations`\n* Sectors: `/api/sectors`\n* Transactions: `/api/transactions`\n\n\n# XML export\nIf you require XML format from the API, simply use the format  &format=XML in your call. \n\n# CSV export\nIf you require CSV format from the API, simply use the format  &format=CSV in your call. \n\n# XLS export\nIf you require XLS format from the API, simply use the format  &format=XLS in your call. \n\nNot all the API calls have multi format support.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Activity List ",
+      "item": [
+        {
+          "name": "Request parameters",
+          "item": [
+            {
+              "name": "activity_id(optional)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e370de5c-56cd-40cf-9c2b-ec442434a708",
+                    "exec": [
+                      "tests[\"Response is JSON.\"] = postman.getResponseHeader(\"Content-Type\") === \"application/json\";",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/api/activities/?format=json&activity_id=46824,46826&fields=sectors,id,participating_organisations",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "activities",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "csv",
+                      "disabled": true
+                    },
+                    {
+                      "key": "format",
+                      "value": "xls",
+                      "disabled": true
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "activity_id",
+                      "value": "46824,46826"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "sectors,id,participating_organisations"
+                    }
+                  ]
+                },
+                "description": "Comma separated list of activity id's."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

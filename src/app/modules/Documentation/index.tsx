@@ -1,6 +1,6 @@
 import React from 'react';
-import { DocuLayout } from "app/modules/Documentation/layout";
+import { DocuLayout } from 'app/modules/Documentation/layout';
 
-export function DocModule() {
-  return <DocuLayout/>;
+export function DocumentationModule() {
+  return <DocuLayout />;
 }
