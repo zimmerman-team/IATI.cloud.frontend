@@ -1,4 +1,4 @@
-import { ApiListModel } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiBaseList';
+import { ApiListModel } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiBaseList/model';
 
 export const itemList: ApiListModel = {
   data: [
