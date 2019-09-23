@@ -40,6 +40,7 @@ export type ModuleStoreModel = {
   iatiVersion: ActivityStatusModel[];
   language: ActivityStatusModel[];
   humanitarian: ActivityStatusModel[];
+  transactionHumanitarian: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
   endDate: any;
@@ -80,6 +81,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   iatiVersion:[],
   language:[],
   humanitarian:[],
+  transactionHumanitarian:[],
   mustHaveDates: 'No',
   startDate: '',
   endDate: '',
