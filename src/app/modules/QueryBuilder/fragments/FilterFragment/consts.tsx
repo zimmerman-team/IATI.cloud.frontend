@@ -249,6 +249,18 @@ export const additionalFiltersPopData = [
           />
         )
       },
+      {
+        label: 'Other identifier type',
+        component: props => (
+          <AddFilterModule
+            label="Other identifier type"
+            dataKey="otherIdentifierType"
+            placeholder="All other identifier types"
+            value={props.store.get('otherIdentifierType')}
+            onChange={e => props.store.set('otherIdentifierType')(e)}
+          />
+        )
+      },
 
     ],
   ],

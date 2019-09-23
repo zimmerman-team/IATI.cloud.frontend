@@ -26,6 +26,7 @@ import {
   LANGUAGE,
   TRANSACTION_FLOW_TYPE,
   TRANSACTION_TIED_STATUS,
+  OTHER_IDENTIFIER_TYPE,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -190,6 +191,11 @@ export const getHumanitarian: Endpoint = (params: RequestInit = {}) =>
 
 export const getTransactionHumanitarian: Endpoint = (params: RequestInit = {}) =>
   fetch('/data/humanitarian.json',{
+    method: 'GET'
+  }).then(res => res.json());
+
+export const getOtherIdentifierType: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + OTHER_IDENTIFIER_TYPE, {
     method: 'GET'
   }).then(res => res.json());
 
