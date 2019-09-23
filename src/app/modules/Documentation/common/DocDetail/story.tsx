@@ -6,18 +6,17 @@ import { Container, Grid } from '@material-ui/core';
 import { DebugBox } from 'app/utils/layout';
 import { DocsideBar } from 'app/modules/Documentation/common/DocSideBar';
 
-
 storiesOf('Modules|API Documentation', module).add('Detail', () => (
   <Providers>
-    <DebugBox>
-      // @ts-ignore
-      <Container maxWidth="xxl">
-        <Grid container spacing={4}>
-          <Grid item md={5}>
-            <DocDetailModule />
-          </Grid>
+    {/*<DebugBox>*/}
+
+    <Container maxWidth="xl">
+      <Grid container spacing={4}>
+        <Grid item md={6}>
+          <DocDetailModule />
         </Grid>
-      </Container>
-    </DebugBox>
+      </Grid>
+    </Container>
+    {/*</DebugBox>*/}
   </Providers>
 ));

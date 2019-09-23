@@ -1,45 +1,78 @@
 import React from 'react';
-import { Container, Grid, Typography } from '@material-ui/core';
+import { Box, Container, Grid, Typography } from '@material-ui/core';
 import styled from 'styled-components';
 import { Skeletor } from 'app/components/utils/Skeletor';
 import { NavLink } from 'react-router-dom';
 
+import { makeStyles } from '@material-ui/core/styles';
+import TreeView from '@material-ui/lab/TreeView';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import TreeItem from '@material-ui/lab/TreeItem';
 
-type  SideBarItemModel = {
-label:string;
-path:string;
-}
+import {
+  SideBarItemModel,
+  SideBarModel,
+} from 'app/modules/Documentation/common/DocSideBar/mock';
 
-const SideBarItem = () => {
+const SideBarItem = (props: SideBarItemModel) => {
   return (
-    <Grid item md={12}>
+    <Box width="100%" marginBottom="20px">
       <NavLink exact to="/documentation">
-        <Skeletor width="100%" height="25px" />
+        <SiderbarTreeItem nodeId={props.label} label={props.label}>
+          <TreeItem nodeId="6" label="Material-UI">
+            <TreeItem nodeId="7" label="src">
+              <TreeItem nodeId="8" label="index.js" />
+              <TreeItem nodeId="9" label="tree-view.js" />
+            </TreeItem>
+          </TreeItem>
+        </SiderbarTreeItem>
       </NavLink>
-    </Grid>
+    </Box>
   );
 };
 
-export const DocsideBar = () => {
+const SiderbarTreeItem = styled(TreeItem)`
+  &&& {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: 0.15px;
+    color: rgba(1, 1, 10, 0.6);
+  }
+`;
+
+export const DocsideBar = (props: SideBarModel) => {
   return (
-
-    <Grid container spacing={4} direction={'column'}>
-
+    <Box
+      width="100%"
+      maxWidth="285px"
+      style={{ backgroundColor: '#f0f3f7', outline: '1px solid black' }}
+      padding="40px"
+    >
       {/* api search field */}
-      <Grid item md={12}>
+      {/*<Grid item md={12}>
         <Skeletor />
-      </Grid>
-
-      {/* api item header */}
-      <Grid item md={12}>
-        <Typography variant="h6">H6 header</Typography>
-      </Grid>
+      </Grid>*/}
 
       {/* api sub  items*/}
-      <SideBarItem />
-      <SideBarItem />
-      <SideBarItem />
-      <SideBarItem />
-    </Grid>
+
+      {props.sideBarItems.map(item => (
+        <SideBarItem label={item.label} />
+      ))}
+
+      <Box width="100%" height="20px" />
+
+      <TreeView
+        defaultCollapseIcon={<ExpandMoreIcon />}
+        defaultExpandIcon={<ChevronRightIcon />}
+      >
+        {props.categories.map(item => (
+          <SideBarItem label={item.label} />
+        ))}
+      </TreeView>
+      <Box width="100%" height="200px" />
+    </Box>
   );
 };
