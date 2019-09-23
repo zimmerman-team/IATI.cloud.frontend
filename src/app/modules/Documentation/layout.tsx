@@ -3,5 +3,5 @@ import { PageContainer } from 'app/modules/common/PageContainer';
 import { ModuleHeader } from 'app/modules/common/ModuleHeader';
 
 export const DocuLayout = () => {
-  return <PageContainer></PageContainer>;
+  return <></>;
 };

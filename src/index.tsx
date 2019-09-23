@@ -3,6 +3,7 @@ import { hydrate, render } from 'react-dom';
 import 'index.css';
 import App from 'app';
 import * as serviceWorker from 'serviceWorker';
+import * as _ from 'styled-components/cssprop';
 
 const rootElement = document.getElementById('root');
 
