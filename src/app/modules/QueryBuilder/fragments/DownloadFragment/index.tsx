@@ -227,6 +227,11 @@ export const DownloadFragment = () => {
             transactionFlowType
             <br/>
             {JSON.stringify(store.get('transactionFlowType'),null,2)}
+            <br/>
+            <br/>
+            transactionTiedStatus
+            <br/>
+            {JSON.stringify(store.get('transactionTiedStatus'),null,2)}
           </pre>
         </Grid>
       )}

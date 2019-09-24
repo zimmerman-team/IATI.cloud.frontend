@@ -168,6 +168,12 @@ export const TRANSACTION_FLOW_TYPE =
     ? 'data/transaction_flow_type.json'
     : 'api/codelists/FlowType/?format=json';
 
+export const TRANSACTION_TIED_STATUS =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/transaction_tied_status.json'
+    : 'api/codelists/TiedStatus/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }

@@ -165,6 +165,19 @@ export const additionalFiltersPopData = [
         )
       },
       {
+        label: 'Transaction tied status',
+        component: props => (
+          <AddFilterModule
+            label="Transaction tied status"
+            dataKey="transactionTiedStatus"
+            placeholder="All transaction tied status"
+            value={props.store.get('transactionTiedStatus')}
+            onChange={e => props.store.set('transactionTiedStatus')(e)}
+
+          />
+        )
+      },
+      {
         label: 'Document link category',
         component: props => (
           <AddFilterModule

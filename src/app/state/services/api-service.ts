@@ -25,6 +25,7 @@ import {
   IATI_VERSION,
   LANGUAGE,
   TRANSACTION_FLOW_TYPE,
+  TRANSACTION_TIED_STATUS,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -175,7 +176,12 @@ export const getLanguage: Endpoint = (params: RequestInit = {}) =>
 export const getTransactionFlowType: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + TRANSACTION_FLOW_TYPE,{
     method: 'GET'
-  }).then(res => res.json())
+  }).then(res => res.json());
+
+export const getTransactionTiedStatus: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + TRANSACTION_TIED_STATUS,{
+    method: 'GET'
+  }).then(res => res.json());
 
 const getData = (params: RequestInit = {}, host: string, path: number) =>
   fetch(HOSTNAME + REGIONS, {
