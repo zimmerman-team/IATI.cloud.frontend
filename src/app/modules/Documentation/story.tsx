@@ -5,23 +5,22 @@ import Providers from 'app/Providers';
 import { Container, Grid } from '@material-ui/core';
 import { DebugBox } from 'app/utils/layout';
 import { DocsideBar } from 'app/modules/Documentation/common/DocSideBar';
-import { DocDetailModule } from "app/modules/Documentation/common/DocDetail";
-import { DocExampleModule } from "app/modules/Documentation/common/DocExample";
+import { DocCallPreview } from 'app/modules/Documentation/common/DocCallPreview';
+import { DocDetail } from 'app/modules/Documentation/common/DocDetail';
 
 storiesOf('Modules|API Documentation', module).add('Detail total', () => (
   <Providers>
     <DebugBox>
-
-      <Container maxWidth="xxl">
+      <Container maxWidth="xl">
         <Grid container spacing={4}>
           <Grid item md={3}>
             <DocsideBar />
           </Grid>
           <Grid item md={5}>
-            <DocDetailModule />
+            <DocDetail />
           </Grid>
           <Grid item md={4}>
-            <DocExampleModule />
+            <DocCallPreview />
           </Grid>
         </Grid>
       </Container>

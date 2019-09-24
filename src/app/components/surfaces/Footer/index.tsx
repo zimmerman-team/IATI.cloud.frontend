@@ -99,7 +99,7 @@ export const Footer = () => {
                   color="textSecondary"
                   align="center"
                 >
-                  Code licensed under the
+                  Code licensed under the{' '}
                   <Link
                     href={'https://www.gnu.org/licenses/agpl-3.0.en.html'}
                     target="_blank"
@@ -107,7 +107,7 @@ export const Footer = () => {
                   >
                     GNU AGPL
                   </Link>
-                  . Documentation licensed under
+                  . Documentation licensed under{' '}
                   <Link
                     href="https://creativecommons.org/licenses/by/4.0/"
                     target="_blank"

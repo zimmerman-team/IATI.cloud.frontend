@@ -1,19 +1,17 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { DocDetail } from '.';
 import Providers from 'app/Providers';
 import { Container, Grid } from '@material-ui/core';
 import { DebugBox } from 'app/utils/layout';
-import { DocsideBar } from 'app/modules/Documentation/common/DocSideBar';
+import { DocCallPreview } from 'app/modules/Documentation/common/DocCallPreview';
 
-storiesOf('Modules|API Documentation', module).add('Detail', () => (
+storiesOf('Modules|API Documentation', module).add('Preview', () => (
   <Providers>
     {/*<DebugBox>*/}
-
     <Container maxWidth="xl">
-      <Grid container spacing={4}>
-        <Grid item md={6}>
-          <DocDetail />
+      <Grid container>
+        <Grid item md={5}>
+          <DocCallPreview />
         </Grid>
       </Grid>
     </Container>
