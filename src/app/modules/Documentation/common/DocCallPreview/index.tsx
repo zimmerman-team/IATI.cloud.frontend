@@ -1,48 +1,42 @@
 import React from 'react';
-import { Box, Grid } from '@material-ui/core';
-import { Skeletor } from 'app/components/utils/Skeletor';
+import { Box } from '@material-ui/core';
 
-export const DocumentationModule = () => {
+import { RequestNavigator } from 'app/modules/Documentation/common/DocCallPreview/common/RequestNavigator';
+import { RequestExample } from 'app/modules/Documentation/common/DocCallPreview/common/RequestExample';
+import { RequestResponse } from 'app/modules/Documentation/common/DocCallPreview/common/RequestResponse';
+
+export const DocCallPreview = () => {
   return (
-    <Grid container spacing={4}>
+    <div
+      css={`
+        background-color: #222224;
+      `}
+    >
       {/* ------------------------------------------------------------------ */}
       {/* tab container: use router? */}
-      {/* todo: make proper navigator */}
-      <Grid item md={12}>
-        <Grid container spacing={4}>
-          <Grid item md={5}>
-            <Skeletor height={'55px'} />
-          </Grid>
-          <Grid item md={5}>
-            <Skeletor height={'55px'} />
-          </Grid>
-        </Grid>
-      </Grid>
+      <RequestNavigator />
 
       {/* ------------------------------------------------------------------ */}
 
       <Box width="100%" height={'40px'} />
+      <Box width="100%" height={'1px'} bgcolor="white" />
 
       {/* ------------------------------------------------------------------ */}
-      {/* fragment 1  */}
+      {/* Example Request  */}
       {/* todo: check with siem what to actually show here */}
-      <Grid item md={12}>
-        <Skeletor height={'100px'} />
-      </Grid>
+      <RequestExample />
 
       {/* ------------------------------------------------------------------ */}
 
       <Box width="100%" height={'40px'} />
+      <Box width="100%" height={'1px'} bgcolor="white" />
 
       {/* ------------------------------------------------------------------ */}
-      {/* fragment 2  */}
-
-      <Grid item md={12}>
-        <Skeletor height={'100px'} />
-      </Grid>
+      {/* Example Response  */}
+      <RequestResponse />
 
       {/* ------------------------------------------------------------------ */}
       {/* fragment 3  */}
-    </Grid>
+    </div>
   );
 };

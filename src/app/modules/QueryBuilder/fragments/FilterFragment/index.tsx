@@ -56,7 +56,7 @@ export const FilterFragment = () => {
           placeholder="Text search"
           onChange={setTextSearchValue}
           value={store.get('textSearch')}
-          helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
+          helperText="Have minimum 1-2 other filters selected to avoid searching the entire database"
         />
 
         {/* todo: keep it for now, but delete later */}
