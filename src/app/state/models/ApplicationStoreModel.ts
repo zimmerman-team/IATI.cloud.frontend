@@ -23,6 +23,7 @@ import {IATIVersionInterface} from 'app/state/interfaces/IATIVersionInterface';
 import {LanguageInterface} from 'app/state/interfaces/LanguageInterface';
 import {HumanitarianInterface} from 'app/state/interfaces/HumanitarianInterface';
 import {TransactionHumanitarianInterface} from 'app/state/interfaces/TransactionHumanitarianInterface';
+import {OtherIdentifierTypeInterface} from 'app/state/interfaces/OtherIdentifierTypeInterface';
 import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
@@ -60,4 +61,5 @@ export interface ApplicationStoreModel {
   transactionFlowType: TransactionFlowTypeInterface;
   transactionTiedStatus: TransactionTiedStatusInterface;
   humanitarian: HumanitarianInterface;
+  otherIdentifierType: OtherIdentifierTypeInterface;
 }
