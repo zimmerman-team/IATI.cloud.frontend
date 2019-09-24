@@ -10,6 +10,7 @@ type NavButtonModel = {
 };
 const NavButton = (props: NavButtonModel) => {
   return (
+    // @ts-ignore
     <Box
       height={'55px'}
       css={`

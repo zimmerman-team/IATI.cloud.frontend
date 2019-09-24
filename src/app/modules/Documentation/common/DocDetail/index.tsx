@@ -23,13 +23,15 @@ export const DocDetail = (props: ApiDocModel) => {
       <Box width="100%" height="50px" />
       {/* -------------------- */}
       {/* Category header */}
-      {ApiDocMock.apiDocCategories.map(category => (
-        <ApiCategory
-          categoryName={category.categoryName}
-          categoryDesc={category.categoryDesc}
-          categoryCalls={category.categoryCalls}
-        />
-      ))}
+      {ApiDocMock.apiDocCategories &&
+        ApiDocMock.apiDocCategories.map(category => (
+          <ApiCategory
+          key={category.categoryName}
+            categoryName={category.categoryName}
+            categoryDesc={category.categoryDesc}
+            categoryCalls={category.categoryCalls}
+          />
+        ))}
 
       {/* ---------- */}
 

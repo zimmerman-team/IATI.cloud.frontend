@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Grid } from '@material-ui/core';
 import { Skeletor } from 'app/components/utils/Skeletor';
 
-export const DocExample = () => {
+export const DocumentationModule = () => {
   return (
     <Grid container spacing={4}>
       {/* ------------------------------------------------------------------ */}
