@@ -183,6 +183,11 @@ export const getTransactionTiedStatus: Endpoint = (params: RequestInit = {}) =>
     method: 'GET'
   }).then(res => res.json());
 
+export const getHumanitarian: Endpoint = (params: RequestInit = {}) =>
+  fetch('/data/humanitarian.json',{
+    method: 'GET'
+  }).then(res => res.json());
+
 const getData = (params: RequestInit = {}, host: string, path: number) =>
   fetch(HOSTNAME + REGIONS, {
     method: 'GET',

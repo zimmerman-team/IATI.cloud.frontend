@@ -237,6 +237,11 @@ export const DownloadFragment = () => {
             transactionValueCurrency
             <br/>
             {JSON.stringify(store.get('transactionValueCurrency'),null,2)}
+            <br/>
+            <br/>
+            humanitarian
+            <br/>
+            {JSON.stringify(store.get('humanitarian'),null,2)}
           </pre>
         </Grid>
       )}

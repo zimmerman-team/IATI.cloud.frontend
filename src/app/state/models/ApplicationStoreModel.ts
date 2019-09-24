@@ -21,6 +21,7 @@ import {TransactionTiedStatusInterface} from 'app/state/interfaces/TransactionTi
 import {DocumentLinkCategoryInterface} from 'app/state/interfaces/DocumentLinkCategoryInterface';
 import {IATIVersionInterface} from 'app/state/interfaces/IATIVersionInterface';
 import {LanguageInterface} from 'app/state/interfaces/LanguageInterface';
+import {HumanitarianInterface} from 'app/state/interfaces/HumanitarianInterface';
 import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
@@ -56,4 +57,5 @@ export interface ApplicationStoreModel {
   language: LanguageInterface;
   transactionFlowType: TransactionFlowTypeInterface,
   transactionTiedStatus: TransactionTiedStatusInterface,
+  humanitarian:HumanitarianInterface,
 }
