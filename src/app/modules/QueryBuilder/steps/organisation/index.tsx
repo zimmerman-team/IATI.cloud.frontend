@@ -33,6 +33,9 @@ export const OrganisationFragment = () => {
   const fetchedRegions = useStoreState(state =>
     get(state.regions.data, 'results', [])
   );
+  const fetchedSecondaryReporter = useStoreState(state =>
+    state.secondaryReporter.data
+  );
 
   return (
     <Grid container spacing={4}>
@@ -61,9 +64,11 @@ export const OrganisationFragment = () => {
       {/** secondary publisher */}
       <Grid item xs={12} md={4}>
         <ConnectedSelect
-          {...fragmentConfig.secondaryPublisher}
-          options={[]}
-          value={[]}
+          {...fragmentConfig.secondaryReporter}
+          options={fetchedSecondaryReporter}
+          value={store.get('secondaryReporter')}
+          onChange={e => store.set('secondaryReporter')(e)}
+          placeholder={`All options`}
         />
       </Grid>
       {/** sector category */}

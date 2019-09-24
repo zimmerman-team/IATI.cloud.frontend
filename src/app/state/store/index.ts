@@ -6,6 +6,7 @@ import sectors from 'app/state/interfaces/SectorsInterface';
 import regions from 'app/state/interfaces/RegionsInterface';
 import countries from 'app/state/interfaces/CountriesInterface';
 import sectorCategories from 'app/state/interfaces/SectorCategoryInterface';
+import secondaryReporter from 'app/state/interfaces/SecondaryReporterInterface';
 import activityStatus from 'app/state/interfaces/ActivityStatusInterface';
 import activityScope from 'app/state/interfaces/ActivityScopeInterface';
 import transactionProviderOrgs from 'app/state/interfaces/TransactionProviderOrgsInterface';
@@ -39,6 +40,7 @@ const applicationStore: ApplicationStoreModel = {
   countries: countries,
   sectorCategories: sectorCategories,
   query: queryModel,
+  secondaryReporter: secondaryReporter,
   activityStatus: activityStatus,
   participatingOrgs: participatingOrgs,
   activityScope: activityScope,

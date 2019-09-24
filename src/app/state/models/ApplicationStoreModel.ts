@@ -27,6 +27,7 @@ import {OtherIdentifierTypeInterface} from 'app/state/interfaces/OtherIdentifier
 import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
+import { SecondaryReporterInterface } from 'app/state/interfaces/SecondaryReporterInterface';
 // import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
 import { QueryModel } from 'app/state/models/QueryModel';
 
@@ -62,4 +63,5 @@ export interface ApplicationStoreModel {
   transactionTiedStatus: TransactionTiedStatusInterface;
   humanitarian: HumanitarianInterface;
   otherIdentifierType: OtherIdentifierTypeInterface;
+  secondaryReporter: SecondaryReporterInterface;
 }

@@ -14,6 +14,7 @@ import {
   ActivityStatusModel,
   ParticipatingOrgsModel,
   TransactionProviderOrgModel,
+  SecondaryReporterModel,
 } from 'app/state/models';
 
 import appStore from 'app/state/store';
@@ -50,6 +51,12 @@ export const withEffects: StoreEffect = store => {
           return item.reporting_organisation_identifier;
         })
       : null;
+
+    const secondaryReporter = store.get('secondaryReporter')
+      ? store.get('secondaryReporter').map((item: SecondaryReporterModel) => {
+          return item.code;
+        })
+      :null;
 
     const countries = store.get('countries')
       ? store.get('countries').map((item: CountryModel) => {
@@ -260,6 +267,9 @@ export const withEffects: StoreEffect = store => {
         get(sectors, 'length', 0)
           ? `sector_code:(${sectors && sectors.join(' ')})`
           : null,
+        get(secondaryReporter, 'length', 0)
+          ? `reporting_org_secondary_reporter:(${secondaryReporter && secondaryReporter.join(' ')})`
+          :null,
         get(countries, 'length', 0)
           ? `recipient_country_code:(${countries && countries.join(' ')})`
           : null,
