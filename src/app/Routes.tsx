@@ -12,35 +12,35 @@ const QueryBuilderModule = lazy(() => import('app/modules/QueryBuilder'));
 function Routes() {
   /* todo: refactor, doesn't quite feel right to do initiate the fetches like this */
   const fetchOrganisationTypes = useStoreActions(
-    actions => actions.organisationTypes.fetch,
+    actions => actions.organisationTypes.fetch
   );
   const fetchOrganisations = useStoreActions(
-    actions => actions.organisations.fetch,
+    actions => actions.organisations.fetch
   );
   const fetchSectorCategories = useStoreActions(
-    actions => actions.sectorCategories.fetch,
+    actions => actions.sectorCategories.fetch
   );
   const fetchRegions = useStoreActions(actions => actions.regions.fetch);
   const fetchSectors = useStoreActions(actions => actions.sectors.fetch);
   const fetchCountries = useStoreActions(actions => actions.countries.fetch);
   const fetchActivityStatus = useStoreActions(
-    actions => actions.activityStatus.fetch,
+    actions => actions.activityStatus.fetch
   );
   const fetchActivityScope = useStoreActions(
-    actions => actions.activityScope.fetch,
+    actions => actions.activityScope.fetch
   );
   const fetchAidType = useStoreActions(actions => actions.aidType.fetch);
   const fetchAidTypeCategory = useStoreActions(
-    actions => actions.aidTypeCategory.fetch,
+    actions => actions.aidTypeCategory.fetch
   );
   const fetchAidTypeVocabulary = useStoreActions(
-    actions => actions.aidTypeVocabulary.fetch,
+    actions => actions.aidTypeVocabulary.fetch
   );
   const fetchDefaultCurrency = useStoreActions(
-    actions => actions.defaultCurrency.fetch,
+    actions => actions.defaultCurrency.fetch
   );
   const fetchCollaborationType = useStoreActions(
-    actions => actions.collaborationType.fetch,
+    actions => actions.collaborationType.fetch
   );
   const fetchSecondaryReporter = useStoreActions(
     actions => actions.secondaryReporter.fetch
