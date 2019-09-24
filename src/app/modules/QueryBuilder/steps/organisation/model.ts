@@ -57,7 +57,7 @@ export const fragmentConfig: FragmentModel = {
     getOptionValue: option => option.code,
   },
   secondaryPublisher: {
-    label: 'Secondary Publisher?',
+    label: 'Secondary Reporter?',
     placeholder: 'Choose',
     className: 'secondaryPublisherSelect',
     name: 'secondaryPublisher',
