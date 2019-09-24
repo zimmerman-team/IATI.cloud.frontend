@@ -153,6 +153,18 @@ export const additionalFiltersPopData = [
         ),
       },
       {
+        label: 'Transaction flow type',
+        component: props => (
+          <AddFilterModule
+            label="Transaction flow type"
+            dataKey="transactionFlowType"
+            placeholder="All transaction flow types"
+            value={props.store.get('transactionFlowType')}
+            onChange={e => props.store.set('transactionFlowType')(e)}
+          />
+        )
+      },
+      {
         label: 'Document link category',
         component: props => (
           <AddFilterModule

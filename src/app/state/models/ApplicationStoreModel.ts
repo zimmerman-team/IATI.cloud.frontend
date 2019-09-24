@@ -16,6 +16,7 @@ import {HierarchyInterface} from '../interfaces/HierarchyInterface';
 import {FinanceTypeInterface} from 'app/state/interfaces/FinanceTypeInterface';
 import {TiedStatusInterface} from '../interfaces/TiedStatusInterface';
 import {TransactionTypeInterface} from 'app/state/interfaces/TransactionTypeInterface';
+import {TransactionFlowTypeInterface} from 'app/state/interfaces/TransactionFlowTypeInterface';
 import {DocumentLinkCategoryInterface} from 'app/state/interfaces/DocumentLinkCategoryInterface';
 import {IATIVersionInterface} from 'app/state/interfaces/IATIVersionInterface';
 import {LanguageInterface} from 'app/state/interfaces/LanguageInterface';
@@ -52,4 +53,5 @@ export interface ApplicationStoreModel {
   documentLinkCategory: DocumentLinkCategoryInterface;
   iatiVersion: IATIVersionInterface;
   language: LanguageInterface;
+  transactionFlowType: TransactionFlowTypeInterface,
 }
