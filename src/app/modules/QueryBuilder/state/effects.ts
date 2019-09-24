@@ -227,6 +227,13 @@ export const withEffects: StoreEffect = store => {
           return item.code
         })
         : null;
+    const transactionHumanitarian =
+      store.get('transactionHumanitarian') && rowFormat === 'activity'
+        ? store.get('transactionHumanitarian').map((item: ActivityStatusModel) => {
+          return item.code
+        })
+        : null;
+
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
           return item.code;
@@ -339,6 +346,9 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(humanitarian, 'length', 0)
           ? `humanitarian:(${humanitarian && humanitarian.join(' ')})`
+          : null,
+        get(transactionHumanitarian, 'length', 0)
+          ? `transaction_humanitarian:(${transactionHumanitarian && transactionHumanitarian.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null

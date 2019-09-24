@@ -190,6 +190,18 @@ export const additionalFiltersPopData = [
         )
       },
       {
+        label: 'Transaction humanitarian',
+        component: props => (
+          <AddFilterModule
+            label="Transaction humanitarian"
+            dataKey="transactionHumanitarian"
+            placeholder="All options"
+            value={props.store.get('transactionHumanitarian')}
+            onChange={e => props.store.set('transactionHumanitarian')(e)}
+          />
+        )
+      },
+      {
         label: 'Document link category',
         component: props => (
           <AddFilterModule
@@ -237,6 +249,7 @@ export const additionalFiltersPopData = [
           />
         )
       },
+
     ],
   ],
   // [
