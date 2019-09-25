@@ -11,6 +11,7 @@ import AidTypeVocabularyInterface from 'app/state/interfaces/AidTypeVocabularyIn
 import ParticipatingOrgsInterface from 'app/state/interfaces/ParticipatingOrgsInterface';
 import TransactionProviderOrgsInterface from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import TransactionReceiverOrgsInterface from 'app/state/interfaces/TransactionReceiverOrgsInterface';
+import SecondaryReporterInterface from 'app/state/interfaces/SecondaryReporterInterface';
 
 export {
   CountriesInterface,
@@ -26,4 +27,5 @@ export {
   ParticipatingOrgsInterface,
   TransactionProviderOrgsInterface,
   TransactionReceiverOrgsInterface,
+  SecondaryReporterInterface,
 };

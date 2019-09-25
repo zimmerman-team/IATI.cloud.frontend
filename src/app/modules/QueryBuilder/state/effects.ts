@@ -14,6 +14,7 @@ import {
   ActivityStatusModel,
   ParticipatingOrgsModel,
   TransactionProviderOrgModel,
+  SecondaryReporterModel,
 } from 'app/state/models';
 
 import appStore from 'app/state/store';
@@ -49,6 +50,12 @@ export const withEffects: StoreEffect = store => {
           return item.reporting_organisation_identifier;
         })
       : null;
+
+    const secondaryReporter = store.get('secondaryReporter')
+      ? store.get('secondaryReporter').map((item: SecondaryReporterModel) => {
+          return item.code;
+        })
+      :null;
 
     const countries = store.get('countries')
       ? store.get('countries').map((item: CountryModel) => {
@@ -226,6 +233,20 @@ export const withEffects: StoreEffect = store => {
           return item.code
         })
         : null;
+    const transactionHumanitarian =
+      store.get('transactionHumanitarian') && rowFormat === 'activity'
+        ? store.get('transactionHumanitarian').map((item: ActivityStatusModel) => {
+          return item.code
+        })
+        : null;
+
+    const otherIdentifierType =
+      store.get('otherIdentifierType') && rowFormat === 'activity'
+        ? store.get('otherIdentifierType').map((item: ActivityStatusModel) => {
+          return item.code
+        })
+        : null;
+
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
           return item.code;
@@ -248,6 +269,9 @@ export const withEffects: StoreEffect = store => {
         get(sectors, 'length', 0) && rowFormat === 'transaction'
           ? `transaction_sector_code:(${sectors && sectors.join(' ')})`
           : null,
+        get(secondaryReporter, 'length', 0)
+          ? `reporting_org_secondary_reporter:(${secondaryReporter && secondaryReporter.join(' ')})`
+          :null,
         get(countries, 'length', 0) && rowFormat === 'activity'
           ? `recipient_country_code:(${countries && countries.join(' ')})`
           : null,
@@ -350,6 +374,12 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(humanitarian, 'length', 0) && rowFormat === 'transaction'
           ? `transaction_humanitarian:(${humanitarian && humanitarian.join(' ')})`
+          : null,
+        get(transactionHumanitarian, 'length', 0)
+          ? `transaction_humanitarian:(${transactionHumanitarian && transactionHumanitarian.join(' ')})`
+          : null,
+        get(otherIdentifierType, 'length', 0)
+          ? `other_identifier_type:(${otherIdentifierType && otherIdentifierType.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null

@@ -21,7 +21,7 @@ interface FragmentModel extends FragmentBaseModel {
   organisationTypes: SelectModel;
   organisationSector: SelectModel;
   organisations: SelectModel;
-  secondaryPublisher: SelectModel;
+  secondaryReporter: SelectModel;
   sectorCategory: SelectModel;
   recipientCountry: SelectModel;
   recipientRegion: SelectModel;
@@ -56,11 +56,11 @@ export const fragmentConfig: FragmentModel = {
     getOptionLabel: option => `${option.code}: ${option.name}`,
     getOptionValue: option => option.code,
   },
-  secondaryPublisher: {
+  secondaryReporter: {
     label: 'Secondary Reporter?',
     placeholder: 'Choose',
-    className: 'secondaryPublisherSelect',
-    name: 'secondaryPublisher',
+    className: 'secondaryReporterSelect',
+    name: 'secondaryReporter',
     getOptionLabel: option => `${option.code}: ${option.name}`,
     getOptionValue: option => option.code,
   },

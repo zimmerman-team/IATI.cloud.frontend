@@ -99,6 +99,11 @@ export const DownloadFragment = () => {
             {JSON.stringify(store.get('organisationTypes'), null, 2)}
             <br />
             <br />
+            secondaryReporter
+            <br/>
+            {JSON.stringify(store.get('secondaryReporter'), null,2)}
+            <br/>
+            <br/>
             sectors
             <br />
             {JSON.stringify(store.get('sectors'), null, 2)}
@@ -242,6 +247,16 @@ export const DownloadFragment = () => {
             humanitarian
             <br/>
             {JSON.stringify(store.get('humanitarian'),null,2)}
+            <br/>
+            <br/>
+            transactionHumanitarian
+            <br/>
+            {JSON.stringify(store.get('transactionHumanitarian'), null, 2)}
+            <br/>
+            <br/>
+            otherIdentifierType
+            <br/>
+            {JSON.stringify(store.get('otherIdentifierType'), null, 2)}
           </pre>
         </Grid>
       )}
