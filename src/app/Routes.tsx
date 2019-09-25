@@ -42,6 +42,9 @@ function Routes() {
   const fetchCollaborationType = useStoreActions(
     actions => actions.collaborationType.fetch
   );
+  const fetchSecondaryReporter = useStoreActions(
+    actions => actions.secondaryReporter.fetch
+  );
   // const fetchTransactionProviderOrgs = useStoreActions(
   //   actions => actions.transactionProviderOrgs.fetch
   // );
@@ -60,6 +63,7 @@ function Routes() {
     fetchRegions();
     fetchSectors();
     fetchCountries();
+    fetchSecondaryReporter();
     return () => {
       console.log('Running clean-up of effect on unmount');
     };

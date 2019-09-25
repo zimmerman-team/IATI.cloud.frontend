@@ -6,6 +6,7 @@ import sectors from 'app/state/interfaces/SectorsInterface';
 import regions from 'app/state/interfaces/RegionsInterface';
 import countries from 'app/state/interfaces/CountriesInterface';
 import sectorCategories from 'app/state/interfaces/SectorCategoryInterface';
+import secondaryReporter from 'app/state/interfaces/SecondaryReporterInterface';
 import activityStatus from 'app/state/interfaces/ActivityStatusInterface';
 import activityScope from 'app/state/interfaces/ActivityScopeInterface';
 import transactionProviderOrgs from 'app/state/interfaces/TransactionProviderOrgsInterface';
@@ -26,6 +27,8 @@ import documentLinkCategory from 'app/state/interfaces/DocumentLinkCategoryInter
 import iatiVersion from 'app/state/interfaces/IATIVersionInterface';
 import language from 'app/state/interfaces/LanguageInterface';
 import humanitarian from 'app/state/interfaces/HumanitarianInterface';
+import transactionHumanitarian from 'app/state/interfaces/TransactionHumanitarianInterface';
+import otherIdentifierType from 'app/state/interfaces/OtherIdentifierTypeInterface';
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { queryModel } from 'app/state/models/QueryModel';
 
@@ -37,6 +40,7 @@ const applicationStore: ApplicationStoreModel = {
   countries: countries,
   sectorCategories: sectorCategories,
   query: queryModel,
+  secondaryReporter: secondaryReporter,
   activityStatus: activityStatus,
   participatingOrgs: participatingOrgs,
   activityScope: activityScope,
@@ -58,6 +62,8 @@ const applicationStore: ApplicationStoreModel = {
   iatiVersion: iatiVersion,
   language: language,
   humanitarian: humanitarian,
+  transactionHumanitarian: transactionHumanitarian,
+  otherIdentifierType: otherIdentifierType,
 };
 
 const appStore = createStore(applicationStore);

@@ -102,7 +102,7 @@ export const FilterFragment = () => {
       <Grid item xs={12} sm={12} md={12}>
         <AsyncSelect
           label="Participating Organisation"
-          // options={fetchedParticipatingOrgs}
+          //options={fetchedParticipatingOrgs}
           value={store.get('participatingOrgs')}
           onChange={e => store.set('participatingOrgs')(e)}
           placeholder="All participating organisations"

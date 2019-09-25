@@ -22,9 +22,12 @@ import {DocumentLinkCategoryInterface} from 'app/state/interfaces/DocumentLinkCa
 import {IATIVersionInterface} from 'app/state/interfaces/IATIVersionInterface';
 import {LanguageInterface} from 'app/state/interfaces/LanguageInterface';
 import {HumanitarianInterface} from 'app/state/interfaces/HumanitarianInterface';
+import {TransactionHumanitarianInterface} from 'app/state/interfaces/TransactionHumanitarianInterface';
+import {OtherIdentifierTypeInterface} from 'app/state/interfaces/OtherIdentifierTypeInterface';
 import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
+import { SecondaryReporterInterface } from 'app/state/interfaces/SecondaryReporterInterface';
 // import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
 import { QueryModel } from 'app/state/models/QueryModel';
 
@@ -50,12 +53,15 @@ export interface ApplicationStoreModel {
   financeType: FinanceTypeInterface;
   tiedStatus: TiedStatusInterface;
   transactionType: TransactionTypeInterface;
+  transactionHumanitarian: TransactionHumanitarianInterface;
   transactionProviderOrgs: TransactionProviderOrgScope;
   transactionReceiverOrgs: TransactionReceiverOrgsInterface;
   documentLinkCategory: DocumentLinkCategoryInterface;
   iatiVersion: IATIVersionInterface;
   language: LanguageInterface;
-  transactionFlowType: TransactionFlowTypeInterface,
-  transactionTiedStatus: TransactionTiedStatusInterface,
-  humanitarian:HumanitarianInterface,
+  transactionFlowType: TransactionFlowTypeInterface;
+  transactionTiedStatus: TransactionTiedStatusInterface;
+  humanitarian: HumanitarianInterface;
+  otherIdentifierType: OtherIdentifierTypeInterface;
+  secondaryReporter: SecondaryReporterInterface;
 }

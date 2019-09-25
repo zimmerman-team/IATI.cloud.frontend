@@ -20,6 +20,7 @@ export type ModuleStoreModel = {
   sectorCategories: SectorCategoryModel[];
   countries: CountryModel[];
   regions: RegionModel[];
+  secondaryReporter: OrganisationTypeModel[];
   additionalFilters?: any;
   activityStatus: ActivityStatusModel[];
   activityScope: ActivityStatusModel[];
@@ -40,6 +41,8 @@ export type ModuleStoreModel = {
   iatiVersion: ActivityStatusModel[];
   language: ActivityStatusModel[];
   humanitarian: ActivityStatusModel[];
+  transactionHumanitarian: ActivityStatusModel[];
+  otherIdentifierType: ActivityStatusModel[];
   mustHaveDates: string;
   startDate: any;
   endDate: any;
@@ -59,6 +62,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   sectorCategories: [],
   countries: [],
   regions: [],
+  secondaryReporter: [],
   additionalFilters: [],
   textSearch: '',
   activityStatus: [],
@@ -80,7 +84,9 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   iatiVersion:[],
   language:[],
   humanitarian:[],
-  mustHaveDates: 'No',
+  transactionHumanitarian:[],
+  otherIdentifierType: [],
+  mustHaveDates: '0',
   startDate: '',
   endDate: '',
   participatingOrgs: [],

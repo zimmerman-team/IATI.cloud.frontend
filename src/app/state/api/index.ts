@@ -174,6 +174,12 @@ export const TRANSACTION_TIED_STATUS =
     ? 'data/transaction_tied_status.json'
     : 'api/codelists/TiedStatus/?format=json';
 
+export const OTHER_IDENTIFIER_TYPE =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/other_identifier_type.json'
+    : 'api/codelists/OtherIdentifierType/?format=json';
+
 export interface IResponse<T> {
   data: T;
 }
