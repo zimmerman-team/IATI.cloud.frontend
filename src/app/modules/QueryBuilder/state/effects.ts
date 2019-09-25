@@ -36,8 +36,7 @@ export const withEffects: StoreEffect = store => {
         : null;
 
     const sectors =
-      (store.get('sectors') || store.get('sectorCategories')) &&
-      rowFormat === 'activity'
+      (store.get('sectors') || store.get('sectorCategories'))
         ? (store.get('sectors') || [])
             .concat(store.get('sectorCategories') || [])
             .map((item: SectorModel) => {
@@ -98,7 +97,7 @@ export const withEffects: StoreEffect = store => {
           })
       : null;
 
-    const participatingOrgs = store.get('participatingOrgs')
+    const participatingOrgs = store.get('participatingOrgs') && rowFormat === 'activity'
       ? store.get('participatingOrgs').map((item: ParticipatingOrgsModel) => {
           return item.value.trim();
         })
@@ -204,13 +203,13 @@ export const withEffects: StoreEffect = store => {
         })
         : null;
     const transactionFlowType =
-      store.get('transactionFlowType') && rowFormat === 'activity'
+      store.get('transactionFlowType')
         ? store.get('transactionFlowType').map((item: ActivityStatusModel) => {
           return item.code
         })
         : null;
     const transactionTiedStatus =
-      store.get('transactionTiedStatus') && rowFormat === 'activity'
+      store.get('transactionTiedStatus')
         ? store.get('transactionTiedStatus').map((item: ActivityStatusModel) => {
           return item.code
         })
@@ -222,7 +221,7 @@ export const withEffects: StoreEffect = store => {
         })
         : null;
     const humanitarian =
-      store.get('humanitarian') && rowFormat === 'activity'
+      store.get('humanitarian')
         ? store.get('humanitarian').map((item: ActivityStatusModel) => {
           return item.code
         })
@@ -243,14 +242,23 @@ export const withEffects: StoreEffect = store => {
           ? `reporting_org_type_code:(${organisationTypes &&
               organisationTypes.join(' ')})`
           : null,
-        get(sectors, 'length', 0)
+        get(sectors, 'length', 0) && rowFormat === 'activity'
           ? `sector_code:(${sectors && sectors.join(' ')})`
           : null,
-        get(countries, 'length', 0)
+        get(sectors, 'length', 0) && rowFormat === 'transaction'
+          ? `transaction_sector_code:(${sectors && sectors.join(' ')})`
+          : null,
+        get(countries, 'length', 0) && rowFormat === 'activity'
           ? `recipient_country_code:(${countries && countries.join(' ')})`
           : null,
-        get(regions, 'length', 0)
+        get(countries, 'length', 0) && rowFormat === 'transaction'
+          ? `transaction_recipient_country_code:(${countries && countries.join(' ')})`
+          : null,
+        get(regions, 'length', 0) && rowFormat === 'activity'
           ? `recipient_region_code:(${regions && regions.join(' ')})`
+          : null,
+        get(regions, 'length', 0) && rowFormat === 'transaction'
+          ? `transaction_recipient_region_code:(${regions && regions.join(' ')})`
           : null,
         dates
           ? `${
@@ -337,8 +345,11 @@ export const withEffects: StoreEffect = store => {
         get(transactionValueCurrency, 'length', 0)
           ? `transaction_value_currency:(${transactionValueCurrency && transactionValueCurrency.join(' ')})`
           : null,
-        get(humanitarian, 'length', 0)
+        get(humanitarian, 'length', 0) && rowFormat === 'activity'
           ? `humanitarian:(${humanitarian && humanitarian.join(' ')})`
+          : null,
+        get(humanitarian, 'length', 0) && rowFormat === 'transaction'
+          ? `transaction_humanitarian:(${humanitarian && humanitarian.join(' ')})`
           : null,
       ],
       get(fields, 'length', 0) ? `fl=${fields}` : null
