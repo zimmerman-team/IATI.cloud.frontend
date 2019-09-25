@@ -15,6 +15,8 @@ const Base = styled.div`
   background-position: center right;
   padding-bottom: 47px;
   padding-top: 40px;
+  position: sticky;
+  top: 0;
 `;
 
 const Background = (props: Props) => {

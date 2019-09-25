@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
-import { Skeletor } from 'app/components/utils/Skeletor';
+
 import { ApiList } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiBaseList';
 import { itemList } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiBaseList/mock';
 import styled from 'styled-components';
@@ -16,9 +16,10 @@ const HeaderH6 = styled.div`
   color: var(--black);
 `;
 
-export const ApiDocIntro = () => {
+export const DocLanding = () => {
   return (
     <>
+      <Box width="100%" height="20px" />
       <Grid container>
         <Grid item md={12}>
           <Typography variant="h5">API Documentation</Typography>
@@ -38,18 +39,18 @@ export const ApiDocIntro = () => {
         </Grid>
       </Grid>
 
-      <Box width="100%" height="30px" />
+      {/*<Box width="100%" height="30px" />*/}
       {/* ------------------------------------------------------------------ */}
 
       {/* links */}
-      <Grid container spacing={4}>
+      {/* <Grid container spacing={4}>
         <Grid item md={4}>
           <Skeletor width="100%" height="48px" />
         </Grid>
         <Grid item md={4}>
           <Skeletor width="100%" height="48px" />
         </Grid>
-      </Grid>
+      </Grid>*/}
 
       <Box width="100%" height="50px" />
       {/* -------------------- */}

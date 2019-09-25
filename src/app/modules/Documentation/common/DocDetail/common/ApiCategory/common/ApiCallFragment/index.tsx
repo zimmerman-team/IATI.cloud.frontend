@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { ApiCallParamList } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiParameterList';
 import { ApiCallModel } from 'app/modules/Documentation/common/DocDetail/common/ApiCategory/common/ApiCallFragment/model';
-import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/index';
+import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/common/utils/ui';
 
 export const ApiCallFragment = (props: ApiCallModel) => {
   return (

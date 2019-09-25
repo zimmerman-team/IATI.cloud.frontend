@@ -9,47 +9,44 @@ import TreeView from '@material-ui/lab/TreeView';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
-
 import {
   SideBarItemModel,
   SideBarModel,
-} from 'app/modules/Documentation/common/DocSideBar/mock';
+} from 'app/modules/Documentation/common/DocSideBar/model';
 
-const SideBarItem = (props: SideBarItemModel) => {
-  return (
-    <Box width="100%" marginBottom="20px">
-      <NavLink exact to="/documentation">
-        <SiderbarTreeItem nodeId={props.label} label={props.label}>
-          <TreeItem nodeId="6" label="Material-UI">
-            <TreeItem nodeId="7" label="src">
-              <TreeItem nodeId="8" label="index.js" />
-              <TreeItem nodeId="9" label="tree-view.js" />
-            </TreeItem>
-          </TreeItem>
-        </SiderbarTreeItem>
-      </NavLink>
-    </Box>
-  );
-};
+import { DocData } from 'app/modules/Documentation/data';
 
-const SiderbarTreeItem = styled(TreeItem)`
-  &&& {
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.5;
-    letter-spacing: 0.15px;
-    color: rgba(1, 1, 10, 0.6);
+const CustomLink = styled(props => <NavLink {...props} />)`
+  width: 100%;
+  margin-bottom: 20px;
+  height: 24px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+  color: rgba(1, 1, 10, 0.6);
+
+  &:hover {
+    color: #25a898;
   }
 `;
 
 export const DocsideBar = (props: SideBarModel) => {
   return (
-    <Box
-      width="100%"
-      maxWidth="285px"
-      style={{ backgroundColor: '#f0f3f7', outline: '1px solid black' }}
-      padding="40px"
+    // @ts-ignore
+    <div
+      css={`
+        padding: 20px;
+        padding-bottom: 0;
+        background-color: #f0f3f7;
+        position: sticky;
+        top: 187px;
+        height: calc(100vh - 187px);
+        overflow-y: scroll;
+      `}
     >
       {/* api search field */}
       {/*<Grid item md={12}>
@@ -58,21 +55,25 @@ export const DocsideBar = (props: SideBarModel) => {
 
       {/* api sub  items*/}
 
-      {props.sideBarItems.map(item => (
-        <SideBarItem label={item.label} />
-      ))}
+      <CustomLink key="Introduction" to="/documentation/introduction">
+        Introduction
+      </CustomLink>
 
       <Box width="100%" height="20px" />
-
-      <TreeView
-        defaultCollapseIcon={<ExpandMoreIcon />}
-        defaultExpandIcon={<ChevronRightIcon />}
+      <div
+        css={`
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+        `}
       >
-        {props.categories.map(item => (
-          <SideBarItem label={item.label} />
+        {DocData.collection.item.map(item => (
+          <CustomLink key={item.name} to={item.name}>
+            {item.name}
+          </CustomLink>
         ))}
-      </TreeView>
-      <Box width="100%" height="200px" />
-    </Box>
+      </div>
+    </div>
   );
 };

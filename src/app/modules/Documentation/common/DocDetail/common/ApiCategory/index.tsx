@@ -1,8 +1,8 @@
 import { Grid, Typography } from '@material-ui/core';
 import React from 'react';
+import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/common/utils/ui';
 import { ApiCallFragment } from 'app/modules/Documentation/common/DocDetail/common/ApiCategory/common/ApiCallFragment';
 import { ApiCallCategoryModel } from 'app/modules/Documentation/common/DocDetail/common/ApiCategory/model';
-import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/index';
 
 export const ApiCategory = (props: ApiCallCategoryModel) => {
   return (

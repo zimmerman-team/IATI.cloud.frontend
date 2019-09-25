@@ -76,7 +76,7 @@ function Routes() {
         <Route exact path="/" render={() => <LandingModule />} />
         <Route
           exact
-          path="/documentation"
+          path="/documentation/:category"
           render={() => <DocumentationModule />}
         />
         <Route exact path="/about" render={() => <About />} />
