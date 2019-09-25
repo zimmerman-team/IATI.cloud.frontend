@@ -99,6 +99,11 @@ export const DownloadFragment = () => {
             {JSON.stringify(store.get('organisationTypes'), null, 2)}
             <br />
             <br />
+            secondaryReporter
+            <br/>
+            {JSON.stringify(store.get('secondaryReporter'), null,2)}
+            <br/>
+            <br/>
             sectors
             <br />
             {JSON.stringify(store.get('sectors'), null, 2)}

@@ -199,6 +199,11 @@ export const getOtherIdentifierType: Endpoint = (params: RequestInit = {}) =>
     method: 'GET'
   }).then(res => res.json());
 
+export const getSecondaryReporter: Endpoint = (params: RequestInit = {}) =>
+  fetch('/data/secondary_reporter.json', {
+    method: 'GET'
+  }).then(res => res.json());
+
 const getData = (params: RequestInit = {}, host: string, path: number) =>
   fetch(HOSTNAME + REGIONS, {
     method: 'GET',
