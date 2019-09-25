@@ -228,13 +228,13 @@ export const withEffects: StoreEffect = store => {
         })
         : null;
     const humanitarian =
-      store.get('humanitarian')
+      store.get('humanitarian') && rowFormat === 'activity'
         ? store.get('humanitarian').map((item: ActivityStatusModel) => {
           return item.code
         })
         : null;
     const transactionHumanitarian =
-      store.get('transactionHumanitarian') && rowFormat === 'activity'
+      store.get('transactionHumanitarian')
         ? store.get('transactionHumanitarian').map((item: ActivityStatusModel) => {
           return item.code
         })
@@ -369,11 +369,8 @@ export const withEffects: StoreEffect = store => {
         get(transactionValueCurrency, 'length', 0)
           ? `transaction_value_currency:(${transactionValueCurrency && transactionValueCurrency.join(' ')})`
           : null,
-        get(humanitarian, 'length', 0) && rowFormat === 'activity'
+        get(humanitarian, 'length', 0)
           ? `humanitarian:(${humanitarian && humanitarian.join(' ')})`
-          : null,
-        get(humanitarian, 'length', 0) && rowFormat === 'transaction'
-          ? `transaction_humanitarian:(${humanitarian && humanitarian.join(' ')})`
           : null,
         get(transactionHumanitarian, 'length', 0)
           ? `transaction_humanitarian:(${transactionHumanitarian && transactionHumanitarian.join(' ')})`
