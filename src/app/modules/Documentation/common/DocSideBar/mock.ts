@@ -1,41 +1,17 @@
-export type SideBarItemModel = {
-  label: string;
-  path?: string;
-};
-
-export type SideBarModel = {
-  sideBarItems: SideBarItemModel[];
-  categories: SideBarItemModel[];
-};
+import { SideBarModel } from 'app/modules/Documentation/common/DocSideBar/model';
 
 export const sidebarConfig: SideBarModel = {
   sideBarItems: [
     {
       label: 'Introduction',
-      path: '/',
-    },
-    {
-      label: 'Available endpoints',
-      path: '/',
-    },
-    {
-      label: 'XML export',
-      path: '/',
-    },
-    {
-      label: 'CSV export',
-      path: '/',
-    },
-    {
-      label: 'XLS export',
-      path: '/',
+      path: '/documentation/introduction',
     },
   ],
 
   categories: [
     {
       label: 'Activity List',
-      path: '/',
+      path: '/documentation/detail',
     },
     {
       label: 'Activity Detail',

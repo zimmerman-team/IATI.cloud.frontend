@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 import { Box, Grid } from '@material-ui/core';
 import { Skeletor } from 'app/components/utils/Skeletor';
 import { RequestNavigatorModel } from 'app/modules/Documentation/common/DocCallPreview/common/RequestNavigator/model';
+import { NavLink } from 'react-router-dom';
+import { LocationDescriptorObject } from 'history';
 
 type NavButtonModel = {
   label: string;
@@ -10,10 +12,10 @@ type NavButtonModel = {
 };
 const NavButton = (props: NavButtonModel) => {
   return (
-    // @ts-ignore
-    <Box
-      height={'55px'}
+    <NavLink
+      to="/documentation"
       css={`
+        height: 55px;
         font-family: Inter, serif;
         font-size: 16px;
         font-weight: 500;
@@ -26,25 +28,37 @@ const NavButton = (props: NavButtonModel) => {
         justify-content: center;
         align-items: center;
         color: white;
-        border-bottom: 2px solid;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+          border-bottom-color: white;
+        }
       `}
     >
       {props.label}
-    </Box>
+    </NavLink>
   );
 };
 
 export const RequestNavigator = (props: RequestNavigatorModel) => {
   return (
-    <Grid container spacing={0}>
+    <Grid
+      container
+      spacing={0}
+      css={`
+        position: sticky;
+        top: 0;
+        background-color: #5b6673;
+      `}
+    >
       <Grid item md={4}>
-        <NavButton label={'Node'} />
+        <NavButton label="Node" path="/" />
       </Grid>
       <Grid item md={4}>
-        <NavButton label={'Ruby'} />
+        <NavButton label="Ruby" path="/" />
       </Grid>
       <Grid item md={4}>
-        <NavButton label={'Python'} />
+        <NavButton label="Python" path="/" />
       </Grid>
     </Grid>
   );

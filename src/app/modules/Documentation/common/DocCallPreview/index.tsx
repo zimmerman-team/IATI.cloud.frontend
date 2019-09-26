@@ -7,9 +7,14 @@ import { RequestResponse } from 'app/modules/Documentation/common/DocCallPreview
 
 export const DocCallPreview = () => {
   return (
-    <div
+    // @ts-ignore
+    <Box
       css={`
         background-color: #222224;
+        position: sticky;
+        top: 187px;
+        height: calc(100vh - 187px);
+        overflow-y: scroll;
       `}
     >
       {/* ------------------------------------------------------------------ */}
@@ -18,8 +23,7 @@ export const DocCallPreview = () => {
 
       {/* ------------------------------------------------------------------ */}
 
-      <Box width="100%" height={'40px'} />
-      <Box width="100%" height={'1px'} bgcolor="white" />
+      <Box width="100%" height={'30px'} />
 
       {/* ------------------------------------------------------------------ */}
       {/* Example Request  */}
@@ -37,6 +41,6 @@ export const DocCallPreview = () => {
 
       {/* ------------------------------------------------------------------ */}
       {/* fragment 3  */}
-    </div>
+    </Box>
   );
 };
