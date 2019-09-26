@@ -308,41 +308,41 @@ export const withEffects: StoreEffect = store => {
         startDateAfter !== null && startDateAfter.startDateAfter !== '*'
           ? `${
               rowFormat === 'activity'
-                ? '(activity_date_start_planned'
-                : '(transaction_date_start_planned'
+                ? '(activity_date_start_actual'
+                : '(transaction_date_start_actual'
             }:[${get(startDateAfter, 'startDateAfter', '*')} TO *] OR ${rowFormat === 'activity'
-                        ? `activity_date_start_actual`
-                        : `transaction_date_start_actual`}:[${get(startDateAfter, 'startDateAfter', '*')} TO *])`
+                        ? `activity_date_start_planned`
+                        : `transaction_date_start_planned`}:[${get(startDateAfter, 'startDateAfter', '*')} TO *])`
           : null,
         startDateBefore !== null && startDateBefore.startDateBefore !== '*'
 
           ? `${
             rowFormat === 'activity'
-              ? `(activity_date_start_planned`
-              : `(transaction_date_start_planned`
+              ? `(activity_date_start_actual`
+              : `(transaction_date_start_actual`
           }:[* TO ${get(startDateBefore, 'startDateBefore', '*')}] OR ${rowFormat === 'activity'
-                            ? `activity_date_start_actual`
-                            : `transaction_date_start_actual`}:[* TO ${get(startDateBefore, 'startDateBefore', '*')}])`
+                            ? `activity_date_start_planned`
+                            : `transaction_date_start_planned`}:[* TO ${get(startDateBefore, 'startDateBefore', '*')}])`
           : null,
         endDateAfter !== null && endDateAfter.endDateAfter !== '*'
           ? `${
             rowFormat === 'activity'
-              ? '(activity_date_end_planned'
-              : '(transaction_date_end_planned'
+              ? '(activity_date_end_actual'
+              : '(transaction_date_end_actual'
           }:[${get(endDateAfter, 'endDateAfter', '*')} TO *] OR ${rowFormat === 'activity'
-          ? `activity_date_end_actual`
-          : `transaction_date_end_actual`}:[${get(endDateAfter, 'endDateAfter', '*')} TO *])`
+          ? `activity_date_end_planned`
+          : `transaction_date_end_planned`}:[${get(endDateAfter, 'endDateAfter', '*')} TO *])`
           : null,
 
         endDateBefore !== null && endDateBefore.endDateBefore !== '*'
 
           ? `${
             rowFormat === 'activity'
-              ? `(activity_date_end_planned`
-              : `(transaction_date_end_planned`
+              ? `(activity_date_end_actual`
+              : `(transaction_date_end_actual`
           }:[* TO ${get(endDateBefore, 'endDateBefore', '*')}] OR ${rowFormat === 'activity'
-          ? `activity_date_end_actual`
-          : `transaction_date_end_actual`}:[* TO ${get(endDateBefore, 'endDateBefore', '*')}])`
+          ? `activity_date_end_planned`
+          : `transaction_date_end_planned`}:[* TO ${get(endDateBefore, 'endDateBefore', '*')}])`
           : null,
 
         textSearch
