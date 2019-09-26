@@ -128,8 +128,15 @@ export const DownloadFragment = () => {
               <>
                 activityPeriode
                 <br />
-                {JSON.stringify(store.get('startDate'), null, 2)} -{' '}
-                {JSON.stringify(store.get('endDate'), null, 2)}
+                [<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp; startDate After: {JSON.stringify(store.get('startDateAfter'), null, 2)}
+                <br/>
+                &nbsp;&nbsp;&nbsp;&nbsp; startDateBefore: {JSON.stringify(store.get('startDateBefore'), null, 2)}
+                <br/>
+                &nbsp;&nbsp;&nbsp;&nbsp; endDateAfter: {JSON.stringify(store.get('endDateAfter'), null, 2)}
+                <br/>
+                &nbsp;&nbsp;&nbsp;&nbsp; endDateBefore: {JSON.stringify(store.get('endDateBefore'), null, 2)}
+                <br/>]
                 <br />
                 <br />
               </>
