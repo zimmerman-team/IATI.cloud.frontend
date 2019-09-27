@@ -1,36 +1,53 @@
 import React from 'react';
 import { Container, Grid } from '@material-ui/core';
-import { sidebarConfig } from 'app/modules/Documentation/common/DocSideBar/mock';
+import { StoreProvider } from 'easy-peasy';
 import { DocCallPreview } from 'app/modules/Documentation/common/DocCallPreview';
-import { DocDetail } from 'app/modules/Documentation/common/DocDetail';
 import { DocsideBar } from 'app/modules/Documentation/common/DocSideBar';
-import { ApiDocMock } from 'app/modules/Documentation/mock';
-import { DocumentationRoutes } from 'app/modules/Documentation/routes';
-import { ModuleHeader } from 'app/modules/common/ModuleHeader';
 import { Header } from 'app/components/surfaces/Header';
-import { DocData } from './data';
+import docStore from 'app/modules/Documentation/state/store';
+import { DocumentationRoutes } from 'app/modules/Documentation/routes';
 
 export const DocumentationModule = () => {
-  console.log(DocData.collection.item);
-
   return (
-    <Container maxWidth="xl">
-      <Header />
-      <Grid container spacing={4}>
-        <Grid item md={3}>
-          <DocsideBar
-            sideBarItems={sidebarConfig.sideBarItems}
-            categories={sidebarConfig.categories}
-          />
+    <StoreProvider store={docStore}>
+      <Container maxWidth="xl">
+        <Grid container>
+          <Header />
+          <Grid
+            item
+            md={3}
+            css={`
+              &&& {
+                padding-bottom: 0;
+              }
+            `}
+          >
+            <DocsideBar />
+          </Grid>
+          <Grid
+            item
+            md={5}
+            css={`
+              &&& {
+                padding-bottom: 0;
+              }
+            `}
+          >
+            <DocumentationRoutes />
+          </Grid>
+          <Grid
+            item
+            md={4}
+            css={`
+              &&& {
+                padding-bottom: 0;
+              }
+            `}
+          >
+            <DocCallPreview />
+          </Grid>
         </Grid>
-        <Grid item md={5}>
-          <DocumentationRoutes />
-          {/*<DocDetail apiDocCategories={ApiDocMock.apiDocCategories} />*/}
-        </Grid>
-        <Grid item md={4}>
-          <DocCallPreview />
-        </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </StoreProvider>
   );
 };
