@@ -1,21 +1,105 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useStoreState } from 'app/modules/Documentation/state/store';
+import { Box, Grid, Typography } from '@material-ui/core';
+import { useTitle } from 'react-use';
+import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/common/utils/ui';
+import { ApiCallFragment } from 'app/modules/Documentation/common/DocDetail/common/ApiCategory/common/ApiCallFragment';
+import { InView } from 'react-intersection-observer';
+import useScrollSpy from 'react-use-scrollspy';
 
-import { ApiCategory } from 'app/modules/Documentation/common/DocDetail/common/ApiCategory';
-import { ApiDocModel } from 'app/modules/Documentation/model';
-
-export const DocDetail = (props: ApiDocModel) => {
+const CategoryHeader = ({ category }) => {
   return (
-    <>
-      
-      {props.apiDocCategories &&
-        props.apiDocCategories.map(category => (
-          <ApiCategory
-            key={category.categoryName}
-            categoryName={category.categoryName}
-            categoryDesc={category.categoryDesc}
-            categoryCalls={category.categoryCalls}
-          />
-        ))}
-    </>
+    <React.Fragment>
+      <Grid container spacing={2} id={category.name}>
+        <Grid item md={12}>
+          <Typography variant="h3">{category.name}</Typography>
+        </Grid>
+        <Grid item md={12}>
+          <Typography variant="body2">
+            {category.description && category.description}
+          </Typography>
+        </Grid>
+      </Grid>
+      <Box height="40px" />
+    </React.Fragment>
+  );
+};
+
+const SubCategoryHeader = ({ item }) => {
+  return (
+    <React.Fragment>
+      <ApiItemDivider />
+      <Grid item md={12}>
+        <Typography variant="h5">{item.name}</Typography>
+      </Grid>
+      <ApiItemDivider />
+    </React.Fragment>
+  );
+};
+
+const SubCaregoryDescription = ({ item }) => {
+  return (
+    <Grid item md={12}>
+      <Typography variant="body2">
+        {item.description && item.description}
+      </Typography>
+    </Grid>
+  );
+};
+
+const CallFragment = ({ item }) => (
+  <React.Fragment>
+    {item.request && <ApiCallFragment data={item} key={item._postman_id} />}
+
+    {item.item &&
+      item.item.map(item => (
+        <React.Fragment key={item._postman_id}>
+          <ApiCallFragment data={item} />
+          {/* -------------------- */}
+          {item.item &&
+            item.item.map(subItem => (
+              <ApiCallFragment data={subItem} key={subItem.name} />
+            ))}
+          {/* ---------- */}
+        </React.Fragment>
+      ))}
+  </React.Fragment>
+);
+
+const SubCategoryFragment = ({ item }) => (
+  <Grid container spacing={2} id={item.name} key={item.name}>
+    {item._postman_isSubFolder && <SubCategoryHeader item={item} />}
+
+    <Box height="20px" />
+
+    {item.description && <SubCaregoryDescription item={item} />}
+
+    <Box height="20px" />
+
+    <CallFragment item={item} />
+  </Grid>
+);
+
+export const DocDetail = ({ _postman_id }) => {
+  const categories = useStoreState(state => state.collection.item);
+  const category = categories.find(
+    category => category._postman_id === _postman_id
+  );
+
+  if (category) {
+    useTitle('API Documentation - ' + category.name);
+  }
+
+  return (
+    <React.Fragment>
+      <Box height="20px" />
+      {category && <CategoryHeader category={category} />}
+
+      {/* -------------------- */}
+      {/* map through cattegories */}
+      {category &&
+        category.item.map(item => <SubCategoryFragment item={item} />)}
+      {/* ---------- */}
+    </React.Fragment>
   );
 };

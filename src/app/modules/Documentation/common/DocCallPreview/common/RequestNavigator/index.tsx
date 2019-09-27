@@ -1,9 +1,7 @@
-import React, { ReactNode } from 'react';
-import { Box, Grid } from '@material-ui/core';
-import { Skeletor } from 'app/components/utils/Skeletor';
-import { RequestNavigatorModel } from 'app/modules/Documentation/common/DocCallPreview/common/RequestNavigator/model';
-import { NavLink } from 'react-router-dom';
-import { LocationDescriptorObject } from 'history';
+import React from "react";
+import { Grid } from "@material-ui/core";
+import { RequestNavigatorModel } from "app/modules/Documentation/common/DocCallPreview/common/RequestNavigator/model";
+import { NavLink } from "react-router-dom";
 
 type NavButtonModel = {
   label: string;

@@ -1,12 +1,23 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
-import { ApiCallParamList } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiParameterList';
-import { ApiCallModel } from 'app/modules/Documentation/common/DocDetail/common/ApiCategory/common/ApiCallFragment/model';
+import { Box, Grid, Typography } from '@material-ui/core';
 import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/common/utils/ui';
+import { ApiCallParamList } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiParameterList';
 
-export const ApiCallFragment = (props: ApiCallModel) => {
+import { useInView, InView } from 'react-intersection-observer';
+export const ApiCallFragment = data => {
+  const parsed = data.data;
+  const request = parsed.request;
+  const targetURL = 'https://test-datastore.iatistandard.org';
+
+  const [ref, inView, entry] = useInView({
+    /* Optional options */
+    threshold: 1,
+    rootMargin: '-200px 0px 100px 0px',
+  });
+
   return (
-    <Grid item md={12}>
+    <Grid item md={12} id={parsed.name ? parsed.name : ''} ref={ref}>
+      <Box width="100%" height="50px" />
       <Grid container spacing={2}>
         <Grid item md={12}>
           {/* call header */}
@@ -17,51 +28,60 @@ export const ApiCallFragment = (props: ApiCallModel) => {
               font-weight: 500;
             `}
           >
+            {request && (
+              <div
+                css={`
+                  margin-right: 10px;
+                  color: green;
+                `}
+              >
+                {request.method}
+              </div>
+            )}
+            <div>{parsed.name}</div>
+       
+            {console.log(entry)}
+          </div>
+        </Grid>
+        {/* call url */}
+        {request && (
+          <Grid item md={12}>
             <div
               css={`
-                margin-right: 10px;
-                color: green;
+                background-color: #f0f3f7;
+                padding: 10px;
+                overflow: hidden;
+                overflow-wrap: break-word;
               `}
             >
-              {props.callType}
+              <code
+                css={`
+                  font-size: 12px;
+                  color: rgba(34, 34, 34, 0.38);
+                `}
+              >
+                {request.url.raw.replace('{{url}}', targetURL)}
+              </code>
             </div>
-            <div>activities</div>
-          </div>
-        </Grid>
-
-        {/* call url */}
-
-        <Grid item md={12}>
-          <div
-            css={`
-              background-color: #f0f3f7;
-              padding: 10px;
-            `}
-          >
-            <code
-              css={`
-                font-size: 14px;
-                color: rgba(34, 34, 34, 0.38);
-              `}
-            >
-              {props.callPath}
-            </code>
-          </div>
-        </Grid>
-
-        <Grid item md={12}>
-          {/* parameter description */}
-          <Typography variant="body2">{props.callDescription}</Typography>
-        </Grid>
-
-        <Grid item md={12}>
-          {/* parameter list */}
-          <ApiCallParamList parameters={props.callParameters} />
-        </Grid>
-
+          </Grid>
+        )}
+        {parsed.description && (
+          <Grid item md={12}>
+            {/* parameter description */}
+            <Typography variant="body2">
+              {parsed.description && parsed.description}
+            </Typography>
+          </Grid>
+        )}
+        {request && (
+          <Grid item md={12}>
+            {/* parameter list */} <ApiCallParamList data={request.url.query} />
+          </Grid>
+        )}
         <Grid item md={12}>
           <ApiItemDivider />
         </Grid>
+        <Box width="100%" height="50px" />
       </Grid>
     </Grid>
   );
