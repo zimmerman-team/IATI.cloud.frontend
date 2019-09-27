@@ -98,7 +98,7 @@ export const DocDetail = ({ _postman_id }) => {
       {/* -------------------- */}
       {/* map through cattegories */}
       {category &&
-        category.item.map(item => <SubCategoryFragment item={item} />)}
+        category.item.map(item => <SubCategoryFragment item={item} key={item._postman_id}/>)}
       {/* ---------- */}
     </React.Fragment>
   );

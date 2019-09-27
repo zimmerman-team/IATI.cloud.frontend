@@ -5,11 +5,36 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { codes } from './code';
 import { monokaiSublime } from 'react-syntax-highlighter/dist/styles/hljs';
+import { useStoreState } from 'app/modules/Documentation/state/store';
 
-const ADDED = [1, 2];
-const REMOVED = [6];
 
 export const RequestExample = (props: RequestExampleModel) => {
+  const mockID = 'debbe231-72a6-46a8-8974-6fb636c9dfcf';
+  const categories = useStoreState(state => state.collection.item);
+  const subCategories = categories.map(subCategories => subCategories.item);
+  // console.log(subCategories.flat(Infinity));
+
+  const flattened = subCategories.flat(Infinity);
+
+const testtt = 'a571c294-861f-4286-b054-bcf61e1c5545';
+  const subCategory = flattened.find(
+    subCategory =>
+      subCategory._postman_id === 'a01662dc-60f7-400d-bc31-a3e66ff1caa3'
+  );
+
+  console.log(subCategory);
+
+  const subCatItem = subCategory.item;
+
+
+  const apiCall = subCatItem.find(
+    apiCall => apiCall.name === 'has_{field_name} (optional)'
+  );
+  console.log('call me maybe',apiCall);
+
+  // const found = sub.find(found => found.name === 'activities');
+  // console.log('example ' + category);
+
   return (
     <Grid container>
       {/* header */}
@@ -54,7 +79,7 @@ export const RequestExample = (props: RequestExampleModel) => {
             <SyntaxHighlighter
               css={`
                 /* todo: optimal fontsize */
-                font-size: 13px;
+                font-size: 12px;
                 overflow-wrap: break-word;
               `}
               // showLineNumbers

@@ -15,6 +15,13 @@ export const ApiCallFragment = data => {
     rootMargin: '-200px 0px 100px 0px',
   });
 
+    
+     if( entry)
+     {
+      //  console.log(entry.target.id);
+     }
+    
+
   return (
     <Grid item md={12} id={parsed.name ? parsed.name : ''} ref={ref}>
       <Box width="100%" height="50px" />
@@ -39,8 +46,8 @@ export const ApiCallFragment = data => {
               </div>
             )}
             <div>{parsed.name}</div>
-       
-            {console.log(entry)}
+
+        
           </div>
         </Grid>
         {/* call url */}
