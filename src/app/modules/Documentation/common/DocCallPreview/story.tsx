@@ -1,9 +1,8 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Providers from 'app/Providers';
-import { Container, Grid } from '@material-ui/core';
-import { DebugBox } from 'app/utils/layout';
-import { DocCallPreview } from 'app/modules/Documentation/common/DocCallPreview';
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import Providers from "app/Providers";
+import { Container, Grid } from "@material-ui/core";
+import { DocCallPreview } from "app/modules/Documentation/common/DocCallPreview";
 
 storiesOf('Modules|API Documentation', module).add('Preview', () => (
   <Providers>
