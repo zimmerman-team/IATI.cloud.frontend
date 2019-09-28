@@ -30,7 +30,7 @@ export const withEffects: StoreEffect = store => {
 
     /* todo: too much repetition, refactor to be more efficient */
     const organisationTypes =
-      store.get('organisationTypes') && rowFormat === 'activity'
+      store.get('organisationTypes') && (rowFormat === 'activity' || rowFormat === "transaction")
         ? store.get('organisationTypes').map((item: OrganisationTypeModel) => {
             return item.code;
           })
@@ -292,10 +292,14 @@ export const withEffects: StoreEffect = store => {
         get(organisations, 'length', 0)
           ? `reporting_org_ref:(${organisations && organisations.join(' ')})`
           : null,
-        get(organisationTypes, 'length', 0)
+        get(organisationTypes, 'length', 0) && rowFormat === "activity"
           ? `reporting_org_type_code:(${organisationTypes &&
               organisationTypes.join(' ')})`
           : null,
+        get(organisationTypes, 'length', 0) && rowFormat === "transaction"
+          ?`reporting_org_type:(${organisationTypes && organisationTypes.join(' ')})`
+          : null,
+
         get(sectors, 'length', 0)
           ? `sector_code:(${sectors && sectors.join(' ')})`
           : null,
