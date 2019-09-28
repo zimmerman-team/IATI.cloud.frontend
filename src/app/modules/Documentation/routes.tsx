@@ -18,17 +18,12 @@ export const DocumentationRoutes = () => {
       `}
     >
       <Switch>
-        <Route
-          exact
-          path="/documentation/introduction"
-          render={() => <DocLanding />}
-        />
-        <Route
-          path="/documentation/:_postman_id"
-          render={({ match }) => (
-            <DocDetail _postman_id={match.params._postman_id} />
-          )}
-        />
+        <Route exact path="/documentation/introduction">
+          <DocLanding />
+        </Route>
+        <Route path="/documentation/:_postman_id">
+          <DocDetail />
+        </Route>
       </Switch>
     </div>
   );

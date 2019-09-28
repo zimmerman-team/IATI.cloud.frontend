@@ -4,8 +4,8 @@ import { Box, Grid, Typography } from '@material-ui/core';
 import { useTitle } from 'react-use';
 import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/common/utils/ui';
 import { ApiCallFragment } from 'app/modules/Documentation/common/DocDetail/common/ApiCategory/common/ApiCallFragment';
-import { InView } from 'react-intersection-observer';
-import useScrollSpy from 'react-use-scrollspy';
+
+import { useParams } from 'react-router';
 
 const CategoryHeader = ({ category }) => {
   return (
@@ -80,7 +80,11 @@ const SubCategoryFragment = ({ item }) => (
   </Grid>
 );
 
-export const DocDetail = ({ _postman_id }) => {
+/* -------------------------------------------------------------------------- */
+/* DocDetail */
+/* -------------------------------------------------------------------------- */
+export const DocDetail = () => {
+  let { _postman_id } = useParams();
   const categories = useStoreState(state => state.collection.item);
   const category = categories.find(
     category => category._postman_id === _postman_id
@@ -98,8 +102,13 @@ export const DocDetail = ({ _postman_id }) => {
       {/* -------------------- */}
       {/* map through cattegories */}
       {category &&
-        category.item.map(item => <SubCategoryFragment item={item} key={item._postman_id}/>)}
+        category.item.map(item => (
+          <SubCategoryFragment item={item} key={item._postman_id} />
+        ))}
       {/* ---------- */}
+      <Box height="50vh" />
     </React.Fragment>
   );
 };
+
+/* -------------------------------------------------------------------------- */

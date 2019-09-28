@@ -13,37 +13,13 @@ export const DocumentationModule = () => {
       <Container maxWidth="xl">
         <Grid container>
           <Header />
-          <Grid
-            item
-            md={3}
-            css={`
-              &&& {
-                padding-bottom: 0;
-              }
-            `}
-          >
+          <Grid item md={3}>
             <DocsideBar />
           </Grid>
-          <Grid
-            item
-            md={5}
-            css={`
-              &&& {
-                padding-bottom: 0;
-              }
-            `}
-          >
+          <Grid item md={5}>
             <DocumentationRoutes />
           </Grid>
-          <Grid
-            item
-            md={4}
-            css={`
-              &&& {
-                padding-bottom: 0;
-              }
-            `}
-          >
+          <Grid item md={4}>
             <DocCallPreview />
           </Grid>
         </Grid>

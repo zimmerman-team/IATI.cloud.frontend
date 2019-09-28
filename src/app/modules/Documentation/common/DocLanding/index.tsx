@@ -38,9 +38,7 @@ export const DocLanding = () => {
           </Typography>
         </Grid>
       </Grid>
-
       {/* ------------------------------------------------------------------ */}
-
       <Box width="100%" height="50px" />
       /* -------------------- */}
       {/* available endpoints */}
@@ -53,7 +51,6 @@ export const DocLanding = () => {
         </Grid>
       </Grid>
       {/* ---------- */}
-
       <Box width="100%" height="50px" />
       {/* -------------------- */}
       {/* Exports */}

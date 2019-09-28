@@ -1,6 +1,6 @@
 import { DocStoreModel } from 'app/modules/Documentation/state/model';
 
-export const docData: DocStoreModel = {
+export const docData = {
   collection: {
     info: {
       _postman_id: 'c07eebd3-61b2-47b4-9bfd-1bac7ec96c9f',
