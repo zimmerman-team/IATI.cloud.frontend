@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import {
-  ApiListItemModel,
-  ApiListModel,
-} from 'app/modules/Documentation/common/DocDetail/common/lists/ApiBaseList/model';
+import { ApiListItemModel } from "app/modules/Documentation/common/DocDetail/common/lists/ApiBaseList/model";
+import { Collection } from "app/modules/Documentation/state/model";
 
 export const ApiListItem = (props: ApiListItemModel) => {
   return (
@@ -19,15 +17,16 @@ export const ApiListItem = (props: ApiListItemModel) => {
         color: rgba(34, 34, 34, 0.38);
       `}
     >
-      {props.label}
+      {props.name}
     </li>
   );
 };
 
-export const ApiList = (props: ApiListModel) => {
+export const ApiList = (props: Collection) => {
   return (
     <ul>
-      {props.data && props.data.map(item => <ApiListItem label={item} />)}
+      {props.item &&
+        props.item.map(endpoint => <ApiListItem name={endpoint.name} />)}
     </ul>
   );
 };

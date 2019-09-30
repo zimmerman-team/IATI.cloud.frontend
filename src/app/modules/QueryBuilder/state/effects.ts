@@ -37,8 +37,7 @@ export const withEffects: StoreEffect = store => {
         : null;
 
     const sectors =
-      (store.get('sectors') || store.get('sectorCategories')) &&
-      rowFormat === 'activity'
+      (store.get('sectors') || store.get('sectorCategories'))
         ? (store.get('sectors') || [])
             .concat(store.get('sectorCategories') || [])
             .map((item: SectorModel) => {
@@ -299,18 +298,26 @@ export const withEffects: StoreEffect = store => {
         get(organisationTypes, 'length', 0) && (rowFormat === "transaction" || rowFormat === "budget")
           ?`reporting_org_type:(${organisationTypes && organisationTypes.join(' ')})`
           : null,
-
-        get(sectors, 'length', 0)
+        get(sectors, 'length', 0) && rowFormat === 'activity'
           ? `sector_code:(${sectors && sectors.join(' ')})`
+          : null,
+        get(sectors, 'length', 0) && rowFormat === 'transaction'
+          ? `transaction_sector_code:(${sectors && sectors.join(' ')})`
           : null,
         get(secondaryReporter, 'length', 0)
           ? `reporting_org_secondary_reporter:(${secondaryReporter && secondaryReporter.join(' ')})`
           :null,
-        get(countries, 'length', 0)
+        get(countries, 'length', 0) && rowFormat === 'activity'
           ? `recipient_country_code:(${countries && countries.join(' ')})`
           : null,
-        get(regions, 'length', 0)
+        get(countries, 'length', 0) && rowFormat === 'transaction'
+          ? `transaction_recipient_country_code:(${countries && countries.join(' ')})`
+          : null,
+        get(regions, 'length', 0) && rowFormat === 'activity'
           ? `recipient_region_code:(${regions && regions.join(' ')})`
+          : null,
+        get(regions, 'length', 0) && rowFormat === 'transaction'
+          ? `transaction_recipient_region_code:(${regions && regions.join(' ')})`
           : null,
 
         startDateAfter !== null && startDateAfter.startDateAfter !== '*' && rowFormat === "activity"

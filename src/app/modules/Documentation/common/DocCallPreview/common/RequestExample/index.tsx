@@ -1,14 +1,24 @@
 import React from 'react';
-import { Box, Grid } from '@material-ui/core';
-import { RequestExampleModel } from 'app/modules/Documentation/common/DocCallPreview/common/RequestExample/model';
-import { Skeletor } from 'app/components/utils/Skeletor';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { codes } from './code';
+import { Grid } from '@material-ui/core';
 
-export const RequestExample = (props: RequestExampleModel) => {
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { codes } from './code';
+import { monokaiSublime } from 'react-syntax-highlighter/dist/styles/hljs';
+import { useStoreState } from 'app/modules/Documentation/state/store';
+import { RequestModel, UrlModel } from 'app/modules/Documentation/state/model';
+
+export const RequestExample = () => {
+  const request: RequestModel = useStoreState(
+    state => state.request.activeRequest
+  );
+
+  const url: UrlModel = request.url;
+  if (request) {
+    console.log('active request: ' + url.raw);
+  }
+
   return (
-    <Grid container spacing={4}>
+    <Grid container>
       {/* header */}
       <Grid item md={12}>
         <div
@@ -30,7 +40,7 @@ export const RequestExample = (props: RequestExampleModel) => {
             flex-direction: column;
           `}
         >
-          <div
+          {/*<div
             css={`
               padding: 20px;
               color: white;
@@ -39,7 +49,7 @@ export const RequestExample = (props: RequestExampleModel) => {
             `}
           >
             // has_crs_add (optional)
-          </div>
+          </div>*/}
           <div
             css={`
               padding: 20px;
@@ -51,12 +61,17 @@ export const RequestExample = (props: RequestExampleModel) => {
             <SyntaxHighlighter
               css={`
                 /* todo: optimal fontsize */
-                font-size: 13px;
+                font-size: 12px;
+                overflow-wrap: break-word;
               `}
-              language="javascript"
-              style={vs2015}
+              // showLineNumbers
+              wrapLines
+              language="python"
+              style={monokaiSublime}
             >
-              {codes.code}
+              {/*{codes.code}*/}
+
+              {'path:' + url.raw.replace('{{url}}', '')}
             </SyntaxHighlighter>
           </div>
         </div>

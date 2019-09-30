@@ -1,9 +1,8 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
-
 import { ApiList } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiBaseList';
-import { itemList } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiBaseList/mock';
 import styled from 'styled-components';
+import { useStoreState } from 'app/modules/Documentation/state/store';
 
 const HeaderH6 = styled.div`
   font-family: Inter;
@@ -17,6 +16,7 @@ const HeaderH6 = styled.div`
 `;
 
 export const DocLanding = () => {
+  const data = useStoreState(state => state.collection);
   return (
     <>
       <Box width="100%" height="20px" />
@@ -38,33 +38,19 @@ export const DocLanding = () => {
           </Typography>
         </Grid>
       </Grid>
-
-      {/*<Box width="100%" height="30px" />*/}
       {/* ------------------------------------------------------------------ */}
-
-      {/* links */}
-      {/* <Grid container spacing={4}>
-        <Grid item md={4}>
-          <Skeletor width="100%" height="48px" />
-        </Grid>
-        <Grid item md={4}>
-          <Skeletor width="100%" height="48px" />
-        </Grid>
-      </Grid>*/}
-
       <Box width="100%" height="50px" />
-      {/* -------------------- */}
+      /* -------------------- */}
       {/* available endpoints */}
       <Grid container spacing={4}>
         <Grid item md={12}>
           <Typography variant="h6">Available endpoints</Typography>
         </Grid>
         <Grid item md={12}>
-          <ApiList data={itemList.data} />
+          <ApiList info={data.info} item={data.item} />
         </Grid>
       </Grid>
       {/* ---------- */}
-
       <Box width="100%" height="50px" />
       {/* -------------------- */}
       {/* Exports */}
