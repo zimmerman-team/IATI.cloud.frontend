@@ -1,9 +1,8 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import { DocsideBar } from ".";
-import Providers from "app/Providers";
-import { Container, Grid } from "@material-ui/core";
-import { sidebarConfig } from "app/modules/Documentation/common/DocSideBar/mock";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { DocsideBar } from '.';
+import Providers from 'app/Providers';
+import { Container, Grid } from '@material-ui/core';
 
 storiesOf('Modules|API Documentation', module).add('Sidebar', () => (
   <Providers>
@@ -11,10 +10,10 @@ storiesOf('Modules|API Documentation', module).add('Sidebar', () => (
       <Grid container>
         <Grid item md={4}>
           {/*<DebugBox>*/}
-          <DocsideBar
+          {/*<DocsideBar
             sideBarItems={sidebarConfig.sideBarItems}
             categories={sidebarConfig.categories}
-          />
+          />*/}
           {/*</DebugBox>*/}
         </Grid>
       </Grid>
