@@ -33,8 +33,8 @@ export const OrganisationFragment = () => {
   const fetchedRegions = useStoreState(state =>
     get(state.regions.data, 'results', [])
   );
-  const fetchedSecondaryReporter = useStoreState(state =>
-    state.secondaryReporter.data
+  const fetchedSecondaryReporter = useStoreState(
+    state => state.secondaryReporter.data
   );
 
   return (
@@ -118,7 +118,7 @@ export const OrganisationFragment = () => {
       {/** must have activity period */}
       <Grid item xs={12} md={4}>
         <SimpleSelect
-          label="Must have activity periode"
+          label="Must have activity period"
           data={['Yes', 'No']}
           value={store.get('mustHaveDates')}
           onChange={e => store.set('mustHaveDates')(e)}
