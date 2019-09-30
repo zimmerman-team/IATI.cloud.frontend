@@ -1,4 +1,29 @@
 export const codes = {
-  code:
-    "var https = require('https');\n\nvar options = {\n  'method': 'GET',\n  'hostname': 'test-datastore.iatistandard.org',\n  'path': '/api/activities/?format=csv&fields=descriptions%2Ctitle%2Ctransaction_types',\n  'headers': {\n  }\n};\n\nvar req = https.request(options, function (res) {\n  var chunks = [];\n\n  res.on(\"data\", function (chunk) {\n    chunks.push(chunk);\n  });\n\n  res.on(\"end\", function (chunk) {\n    var body = Buffer.concat(chunks);\n    console.log(body.toString());\n  });\n\n  res.on(\"error\", function (error) {\n    console.error(error);\n  });\n});\n\nreq.end();",
+  code: `var https = require('https');
+var options = {
+  'method': 'GET',
+  'hostname': 'test-datastore.iatistandard.org',
+  'path': '/api/activities/?has_other_identifier=True&fields=title%2Cother_identifier&format=json',
+  'headers': {
+  }
+};
+
+var req = https.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function (chunk) {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+
+  res.on("error", function (error) {
+    console.error(error);
+  });
+});
+
+req.end();`,
 };

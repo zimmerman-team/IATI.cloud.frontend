@@ -1,8 +1,7 @@
-import { Box } from '@material-ui/core';
 import React from 'react';
-import { ApiCallParamListModel, ApiCallParamItemModel } from './model';
 
-export const ApiCallParamItem = (props: ApiCallParamItemModel) => {
+export const ApiCallParamItem = ({ data }) => {
+  // console.log('query', data.key);
   return (
     <li
       css={`
@@ -10,21 +9,22 @@ export const ApiCallParamItem = (props: ApiCallParamItemModel) => {
         width: 100%;
         margin-bottom: 10px;
         div {
-          font-size: 1rem;
+          font-size: 14px;
           &:first-child {
             font-weight: bold;
-            width: 35%;
+            width: 50%;
           }
         }
       `}
     >
-      <div>{props.paramName}</div>
-      <div>{props.paramValue}</div>
+      <div>{data.key}</div>
+      <div>{data.value}</div>
     </li>
   );
 };
 
-export const ApiCallParamList = (props: ApiCallParamListModel) => {
+export const ApiCallParamList = ({ data }) => {
+  // console.log(data);
   return (
     <>
       {/* -------------------- */}
@@ -51,13 +51,7 @@ export const ApiCallParamList = (props: ApiCallParamListModel) => {
           padding: 0;
         `}
       >
-        {props.parameters.map(item => (
-          <ApiCallParamItem
-            key={item.paramName}
-            paramName={item.paramName}
-            paramValue={item.paramValue}
-          />
-        ))}
+        {data && data.map(item => <ApiCallParamItem data={item} />)}
       </ul>
       {/* --------- */}
     </>
