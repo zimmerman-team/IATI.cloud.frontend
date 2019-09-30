@@ -4,7 +4,7 @@ import { Box, Grid, Typography } from '@material-ui/core';
 import { useTitle } from 'react-use';
 import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/common/utils/ui';
 import { ApiCallFragment } from 'app/modules/Documentation/common/DocDetail/common/ApiCategory/common/ApiCallFragment';
-
+import parse from 'html-react-parser';
 import { useParams } from 'react-router';
 
 const CategoryHeader = ({ category }) => {
@@ -16,7 +16,7 @@ const CategoryHeader = ({ category }) => {
         </Grid>
         <Grid item md={12}>
           <Typography variant="body2">
-            {category.description && category.description}
+            {parse(category.description && category.description)}
           </Typography>
         </Grid>
       </Grid>

@@ -48,7 +48,6 @@ export const ApiCallFragment = data => {
 
   if (percent > 99) {
     if (targetRef.current) {
-      // console.log(encodeURIComponent(targetRef.current.id));
       if (request) {
         showRequest(request);
       }

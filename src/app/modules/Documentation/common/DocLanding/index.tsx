@@ -40,7 +40,7 @@ export const DocLanding = () => {
       </Grid>
       {/* ------------------------------------------------------------------ */}
       <Box width="100%" height="50px" />
-      /* -------------------- */}
+      {/* -------------------- */}
       {/* available endpoints */}
       <Grid container spacing={4}>
         <Grid item md={12}>

@@ -13,9 +13,6 @@ export const RequestExample = () => {
   );
 
   const url: UrlModel = request.url;
-  if (request) {
-    console.log('active request: ' + url.raw);
-  }
 
   return (
     <Grid container>
@@ -40,16 +37,6 @@ export const RequestExample = () => {
             flex-direction: column;
           `}
         >
-          {/*<div
-            css={`
-              padding: 20px;
-              color: white;
-              padding-top: 0;
-              padding-bottom: 0;
-            `}
-          >
-            // has_crs_add (optional)
-          </div>*/}
           <div
             css={`
               padding: 20px;
