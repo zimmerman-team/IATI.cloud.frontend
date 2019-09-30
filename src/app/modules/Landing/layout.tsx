@@ -20,11 +20,6 @@ const TypographyOpacity = styled(props => <Typography {...props} />)`
   opacity: 0.8;
 `;
 
-const TextLink = styled.a`
-  text-decoration: none;
-  color: yellow;
-`;
-
 export const LandingMidSection = () => {
   return (
     <>

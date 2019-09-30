@@ -7,10 +7,10 @@ import { Box, Grid } from '@material-ui/core';
 
 export const Header = (props: HeaderModel) => {
   return (
-    <Grid item md={12}>
-      <Background>
+    <Background>
+      <Container maxWidth={'lg'}>
         <Grid container justify="center">
-          <Grid item md={11}>
+          <Grid item md={12}>
             <AppBar />
             {props.children && (
               <>
@@ -20,7 +20,7 @@ export const Header = (props: HeaderModel) => {
             )}
           </Grid>
         </Grid>
-      </Background>
-    </Grid>
+      </Container>
+    </Background>
   );
 };
