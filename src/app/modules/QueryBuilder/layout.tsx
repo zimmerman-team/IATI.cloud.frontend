@@ -80,45 +80,52 @@ export const QueryBuilderLayout = () => {
       {/* module header */}
       <ModuleHeader
         title="Query Builder"
-        description="This tool allows you to build common queries to obtain data from the IATI Datastore in JSON, XML, CSV,and XLSformat."
+        description="The Query Builder allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format."
       />
 
       {/* step navigator */}
-      <Container maxWidth="lg">
-        <Grid container>
-          <Box height="40px" width="100%" />
+      <div
+        css={`
+          height: calc(100vh - 363px);
+          overflow-y: scroll;
+        `}
+      >
+        <Container maxWidth="lg">
+          <Grid container>
+            <Box height="40px" width="100%" />
 
-          <Grid item md={12} style={{ position: 'relative' }}>
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="space-between"
-            >
-              {navButtons.map(item => (
-                <NavigationButton
-                  key={item.label}
-                  path={item.path}
-                  label={item.label}
-                />
-              ))}
-            </Box>
-            <Box
-              width="100%"
-              borderBottom="1px solid #e2e2e2"
-              position={'absolute'}
-              bottom="3px"
-            />
+            <Grid item md={12} style={{ position: 'relative' }}>
+              <Box
+                display="flex"
+                flexDirection="row"
+                justifyContent="space-between"
+              >
+                {navButtons.map(item => (
+                  <NavigationButton
+                    key={item.label}
+                    path={item.path}
+                    label={item.label}
+                  />
+                ))}
+              </Box>
+              <Box
+                width="100%"
+                borderBottom="1px solid #e2e2e2"
+                position={'absolute'}
+                bottom="3px"
+              />
+            </Grid>
+
+            <Box height="40px" width="100%" />
+
+            <Grid item md={12}>
+              <QueryBuilderRoutes />
+            </Grid>
+
+            <Box height="40px" width="100%" />
           </Grid>
-
-          <Box height="40px" width="100%" />
-
-          <Grid item md={12}>
-            <QueryBuilderRoutes />
-          </Grid>
-
-          <Box height="40px" width="100%" />
-        </Grid>
-      </Container>
+        </Container>
+      </div>
     </PageContainer>
   );
 };

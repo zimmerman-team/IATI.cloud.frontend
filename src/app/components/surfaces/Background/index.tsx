@@ -8,15 +8,15 @@ type Props = {
 };
 
 const Base = styled.div`
-  //height: 100vh;
+  position: relative;
   background-image: url(${BackgroundImage}),
     linear-gradient(to bottom, #5db9cc, #135062);
   background-repeat: no-repeat;
   background-position: center right;
   padding-bottom: 47px;
   padding-top: 40px;
-  position: sticky;
-  top: 0;
+
+  z-index: 20;
 `;
 
 const Background = (props: Props) => {

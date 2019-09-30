@@ -10,9 +10,9 @@ import { DocumentationRoutes } from 'app/modules/Documentation/routes';
 export const DocumentationModule = () => {
   return (
     <StoreProvider store={docStore}>
-      <Container maxWidth="xl">
-        <Grid container>
-          <Header />
+      <Header />
+      <Container maxWidth="lg">
+        <Grid container direction="row">
           <Grid item md={3}>
             <DocsideBar />
           </Grid>

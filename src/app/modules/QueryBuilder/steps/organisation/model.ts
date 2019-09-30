@@ -104,7 +104,7 @@ export const fragmentConfig: FragmentModel = {
     getOptionValue: option => option.recipient_region.code,
   },
   activityPeriode: {
-    label: 'Must have activity periode',
+    label: 'Must have activity period',
     placeholder: 'No',
     className: 'activityPeriode',
     name: 'activityPeriode',

@@ -3,7 +3,7 @@ const data = [
     'Activity',
     [
       'Activity Status',
-      'Activity periode',
+      'Activity period',
       'Activity Scope',
       'Aid type',
       'Aid Type (category)',
