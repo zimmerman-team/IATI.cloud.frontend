@@ -37,7 +37,8 @@ export const withEffects: StoreEffect = store => {
         : null;
 
     const sectors =
-      (store.get('sectors') || store.get('sectorCategories'))
+      (store.get('sectors') || store.get('sectorCategories')) &&
+      rowFormat === 'activity'
         ? (store.get('sectors') || [])
             .concat(store.get('sectorCategories') || [])
             .map((item: SectorModel) => {
@@ -69,19 +70,48 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
 
-    const dates =
+    const startDateAfter =
       store.get('mustHaveDates') === 'Yes'
         ? {
-            startDate:
-              store.get('startDate') !== ''
-                ? `${store.get('startDate')}T00:00:00Z`
+            startDateAfter:
+              store.get('startDateAfter') !== ''
+                ? `${store.get('startDateAfter')}T00:00:00Z`
                 : '*',
-            endDate:
+            /*endDate:
               store.get('endDate') !== ''
                 ? `${store.get('endDate')}T00:00:00Z`
-                : '*',
+                : '*',*/
           }
         : null;
+    const startDateBefore =
+      store.get('mustHaveDates') === 'Yes'
+        ? {
+          startDateBefore:
+            store.get('startDateBefore') !== ''
+              ? `${store.get(`startDateBefore`)}T00:00:00Z`
+              : '*',
+          }
+        : null;
+    const endDateAfter =
+      store.get('mustHaveDates') === 'Yes'
+        ? {
+            endDateAfter:
+              store.get('endDateAfter') !== ''
+                ? `${store.get('endDateAfter')}T00:00:00Z`
+                : '*',
+          }
+          : null;
+
+    const endDateBefore =
+      store.get('mustHaveDates') === 'Yes'
+        ? {
+            endDateBefore:
+              store.get('endDateBefore') !== ''
+                ? `${store.get('endDateBefore')}T00:00:00Z`
+                : '*',
+          }
+          : null;
+
 
     const textSearch =
       store.get('textSearch') && rowFormat === 'activity'
@@ -104,7 +134,7 @@ export const withEffects: StoreEffect = store => {
           })
       : null;
 
-    const participatingOrgs = store.get('participatingOrgs') && rowFormat === 'activity'
+    const participatingOrgs = store.get('participatingOrgs')
       ? store.get('participatingOrgs').map((item: ParticipatingOrgsModel) => {
           return item.value.trim();
         })
@@ -284,17 +314,46 @@ export const withEffects: StoreEffect = store => {
         get(regions, 'length', 0) && rowFormat === 'transaction'
           ? `transaction_recipient_region_code:(${regions && regions.join(' ')})`
           : null,
-        dates
+        startDateAfter !== null && startDateAfter.startDateAfter !== '*'
           ? `${
               rowFormat === 'activity'
-                ? 'activity_date_iso_date'
-                : 'transaction_date_iso_date'
-            }:[${get(dates, 'startDate', '*')} TO ${get(
-              dates,
-              'endDate',
-              '*'
-            )}]`
+                ? '(activity_date_start_actual'
+                : '(transaction_date_start_actual'
+            }:[${get(startDateAfter, 'startDateAfter', '*')} TO *] OR ${rowFormat === 'activity'
+                        ? `(-activity_date_start_actual:[* TO *] AND activity_date_start_planned`
+                        : `(-transaction_date_start_actual:[* TO *] AND transaction_date_start_planned`}:[${get(startDateAfter, 'startDateAfter', '*')} TO *]))`
           : null,
+        startDateBefore !== null && startDateBefore.startDateBefore !== '*'
+
+          ? `${
+            rowFormat === 'activity'
+              ? `(activity_date_start_actual`
+              : `(transaction_date_start_actual`
+          }:[* TO ${get(startDateBefore, 'startDateBefore', '*')}] OR ${rowFormat === 'activity'
+                            ? `(-activity_date_start_actual:[* TO *] AND activity_date_start_planned`
+                            : `(-transaction_date_start_actual:[* TO *] AND transaction_date_start_planned`}:[* TO ${get(startDateBefore, 'startDateBefore', '*')}]))`
+          : null,
+        endDateAfter !== null && endDateAfter.endDateAfter !== '*'
+          ? `${
+            rowFormat === 'activity'
+              ? '(activity_date_end_actual'
+              : '(transaction_date_end_actual'
+          }:[${get(endDateAfter, 'endDateAfter', '*')} TO *] OR ${rowFormat === 'activity'
+          ? `(-activity_date_end_actual:[* TO *] AND activity_date_end_planned`
+          : `(-transaction_date_end_actual: [* TO *] AND transaction_date_end_planned`}:[${get(endDateAfter, 'endDateAfter', '*')} TO *]))`
+          : null,
+
+        endDateBefore !== null && endDateBefore.endDateBefore !== '*'
+
+          ? `${
+            rowFormat === 'activity'
+              ? `(activity_date_end_actual`
+              : `(transaction_date_end_actual`
+          }:[* TO ${get(endDateBefore, 'endDateBefore', '*')}] OR ${rowFormat === 'activity'
+          ? `(-activity_date_end_actual: [* TO *] AND activity_date_end_planned`
+          : `(-transaction_date_end_actual: [* TO *] AND transaction_date_end_planned`}:[* TO ${get(endDateBefore, 'endDateBefore', '*')}]))`
+          : null,
+
         textSearch
           ? `(title_narrative:"${textSearch}" OR description:"${textSearch}")`
           : null,

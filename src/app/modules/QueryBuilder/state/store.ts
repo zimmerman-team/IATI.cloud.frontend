@@ -44,8 +44,10 @@ export type ModuleStoreModel = {
   transactionHumanitarian: ActivityStatusModel[];
   otherIdentifierType: ActivityStatusModel[];
   mustHaveDates: string;
-  startDate: any;
-  endDate: any;
+  startDateAfter: any;
+  startDateBefore: any;
+  endDateAfter: any;
+  endDateBefore: any;
   textSearch: string;
   transactionProviderOrgs: TransactionProviderOrgModel[];
   transactionReceiverOrgs: TransactionProviderOrgModel[];
@@ -87,8 +89,10 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   transactionHumanitarian:[],
   otherIdentifierType: [],
   mustHaveDates: '0',
-  startDate: '',
-  endDate: '',
+  startDateAfter: '',
+  startDateBefore: '',
+  endDateAfter: '',
+  endDateBefore: '',
   participatingOrgs: [],
   transactionProviderOrgs: [],
   transactionReceiverOrgs: [],
