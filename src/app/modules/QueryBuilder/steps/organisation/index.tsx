@@ -124,13 +124,13 @@ export const OrganisationFragment = () => {
           onChange={e => store.set('mustHaveDates')(e)}
         />
       </Grid>
-      {/** activity period start date */}
+      {/** activity period start date (after) */}
       <Grid item xs={12} md={4}>
         <DateField
           // defaultValue="2001-01-01"
-          value={store.get('startDate')}
-          label="Activity period start date"
-          onChange={e => store.set('startDate')(e)}
+          value={store.get('startDateAfter')}
+          label="Activity period start date (After)"
+          onChange={e => store.set('startDateAfter')(e)}
           disabled={store.get('mustHaveDates') === 'No'}
         />
       </Grid>
@@ -138,12 +138,37 @@ export const OrganisationFragment = () => {
       <Grid item xs={12} md={4}>
         <DateField
           // defaultValue="2001-01-01"
-          value={store.get('endDate')}
-          label="Activity period end date"
-          onChange={e => store.set('endDate')(e)}
+          value={store.get('endDateAfter')}
+          label="Activity period end date (After)"
+          onChange={e => store.set('endDateAfter')(e)}
           disabled={store.get('mustHaveDates') === 'No'}
         />
       </Grid>
+      {/** empty grid here **/}
+      <Grid item xs={12} md={4}/>
+      {/** activity period start date (before)*/}
+      <Grid item xs={12} md={4}>
+        <DateField
+          // defaultValue="2001-01-01"
+          value={store.get('startDateBefore')}
+          label="Activity period start date (Before)"
+          onChange={e => store.set('startDateBefore')(e)}
+          disabled={store.get('mustHaveDates') === 'No'}
+        />
+
+      </Grid>
+      {/** activity period end date (before)*/}
+      <Grid item xs={12} md={4}>
+        <DateField
+          // defaultValue="2001-01-01"
+          value={store.get('endDateBefore')}
+          label="Activity period end date (Before)"
+          onChange={e => store.set('endDateBefore')(e)}
+          disabled={store.get('mustHaveDates') === 'No'}
+        />
+
+      </Grid>
+
     </Grid>
   );
 };

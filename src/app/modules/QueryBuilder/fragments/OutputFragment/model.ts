@@ -92,7 +92,6 @@ export const fragmentConfig: FragmentModel = {
         {
           value: 'budget',
           label: ' Each Budget in defined periods',
-          disabled: true,
         },
       ],
     },

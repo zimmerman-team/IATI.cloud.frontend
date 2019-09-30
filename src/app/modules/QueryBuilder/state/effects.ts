@@ -30,7 +30,7 @@ export const withEffects: StoreEffect = store => {
 
     /* todo: too much repetition, refactor to be more efficient */
     const organisationTypes =
-      store.get('organisationTypes') && rowFormat === 'activity'
+      store.get('organisationTypes')
         ? store.get('organisationTypes').map((item: OrganisationTypeModel) => {
             return item.code;
           })
@@ -57,38 +57,68 @@ export const withEffects: StoreEffect = store => {
         })
       :null;
 
-    const countries = store.get('countries')
+    const countries = store.get('countries') && (rowFormat === "activity" || rowFormat === "transaction")
       ? store.get('countries').map((item: CountryModel) => {
           return item.recipient_country.code;
         })
       : null;
 
-    const regions = store.get('regions')
+    const regions = store.get('regions') && (rowFormat === "activity" || rowFormat === "transaction")
       ? store.get('regions').map((item: RegionModel) => {
           return item.recipient_region.code;
         })
       : null;
 
-    const dates =
-      store.get('mustHaveDates') === 'Yes'
+    const startDateAfter =
+      store.get('mustHaveDates') === 'Yes' && (rowFormat === "activity" || rowFormat === "budget")
         ? {
-            startDate:
-              store.get('startDate') !== ''
-                ? `${store.get('startDate')}T00:00:00Z`
+            startDateAfter:
+              store.get('startDateAfter') !== ''
+                ? `${store.get('startDateAfter')}T00:00:00Z`
                 : '*',
-            endDate:
+            /*endDate:
               store.get('endDate') !== ''
                 ? `${store.get('endDate')}T00:00:00Z`
-                : '*',
+                : '*',*/
           }
         : null;
+    const startDateBefore =
+      store.get('mustHaveDates') === 'Yes' && (rowFormat === "activity" || rowFormat === "budget")
+        ? {
+          startDateBefore:
+            store.get('startDateBefore') !== ''
+              ? `${store.get(`startDateBefore`)}T00:00:00Z`
+              : '*',
+          }
+        : null;
+    const endDateAfter =
+      store.get('mustHaveDates') === 'Yes' && (rowFormat === "activity" || rowFormat === "budget")
+        ? {
+            endDateAfter:
+              store.get('endDateAfter') !== ''
+                ? `${store.get('endDateAfter')}T00:00:00Z`
+                : '*',
+          }
+          : null;
+
+    const endDateBefore =
+      store.get('mustHaveDates') === 'Yes' && (rowFormat === "activity" || rowFormat === "budget")
+        ? {
+            endDateBefore:
+              store.get('endDateBefore') !== ''
+                ? `${store.get('endDateBefore')}T00:00:00Z`
+                : '*',
+          }
+          : null;
+
 
     const textSearch =
       store.get('textSearch') && rowFormat === 'activity'
         ? store.get('textSearch')
         : null;
 
-    const transactionProviderOrgs = store.get('transactionProviderOrgs')
+    const transactionProviderOrgs =
+      store.get('transactionProviderOrgs') && (rowFormat === 'activity' || rowFormat === "transaction")
       ? store
           .get('transactionProviderOrgs')
           .map((item: TransactionProviderOrgModel) => {
@@ -96,7 +126,8 @@ export const withEffects: StoreEffect = store => {
           })
       : null;
 
-    const transactionReceiverOrgs = store.get('transactionReceiverOrgs')
+    const transactionReceiverOrgs =
+      store.get('transactionReceiverOrgs') && (rowFormat === "activity" || rowFormat === "transaction")
       ? store
           .get('transactionReceiverOrgs')
           .map((item: TransactionProviderOrgModel) => {
@@ -104,7 +135,8 @@ export const withEffects: StoreEffect = store => {
           })
       : null;
 
-    const participatingOrgs = store.get('participatingOrgs') && rowFormat === 'activity'
+    const participatingOrgs =
+      store.get('participatingOrgs') && rowFormat === "activity"
       ? store.get('participatingOrgs').map((item: ParticipatingOrgsModel) => {
           return item.value.trim();
         })
@@ -210,19 +242,19 @@ export const withEffects: StoreEffect = store => {
         })
         : null;
     const transactionFlowType =
-      store.get('transactionFlowType')
+      store.get('transactionFlowType') && (rowFormat === 'activity' || rowFormat === "transaction")
         ? store.get('transactionFlowType').map((item: ActivityStatusModel) => {
           return item.code
         })
         : null;
     const transactionTiedStatus =
-      store.get('transactionTiedStatus')
+      store.get('transactionTiedStatus') && (rowFormat === 'activity' || rowFormat === "transaction")
         ? store.get('transactionTiedStatus').map((item: ActivityStatusModel) => {
           return item.code
         })
         : null;
     const transactionValueCurrency =
-      store.get('transactionValueCurrency') && rowFormat === 'activity'
+      store.get('transactionValueCurrency') && (rowFormat === 'activity' || rowFormat === "transaction")
         ? store.get('transactionValueCurrency').map((item: ActivityStatusModel) => {
           return item.code
         })
@@ -234,14 +266,14 @@ export const withEffects: StoreEffect = store => {
         })
         : null;
     const transactionHumanitarian =
-      store.get('transactionHumanitarian')
+      store.get('transactionHumanitarian') && (rowFormat === 'activity' || rowFormat === "transaction")
         ? store.get('transactionHumanitarian').map((item: ActivityStatusModel) => {
           return item.code
         })
         : null;
 
     const otherIdentifierType =
-      store.get('otherIdentifierType') && rowFormat === 'activity'
+      store.get('otherIdentifierType') && (rowFormat === 'activity' || rowFormat === "transaction")
         ? store.get('otherIdentifierType').map((item: ActivityStatusModel) => {
           return item.code
         })
@@ -259,9 +291,12 @@ export const withEffects: StoreEffect = store => {
         get(organisations, 'length', 0)
           ? `reporting_org_ref:(${organisations && organisations.join(' ')})`
           : null,
-        get(organisationTypes, 'length', 0)
+        get(organisationTypes, 'length', 0) && (rowFormat === "activity")
           ? `reporting_org_type_code:(${organisationTypes &&
               organisationTypes.join(' ')})`
+          : null,
+        get(organisationTypes, 'length', 0) && (rowFormat === "transaction" || rowFormat === "budget")
+          ?`reporting_org_type:(${organisationTypes && organisationTypes.join(' ')})`
           : null,
         get(sectors, 'length', 0) && rowFormat === 'activity'
           ? `sector_code:(${sectors && sectors.join(' ')})`
@@ -284,17 +319,45 @@ export const withEffects: StoreEffect = store => {
         get(regions, 'length', 0) && rowFormat === 'transaction'
           ? `transaction_recipient_region_code:(${regions && regions.join(' ')})`
           : null,
-        dates
-          ? `${
-              rowFormat === 'activity'
-                ? 'activity_date_iso_date'
-                : 'transaction_date_iso_date'
-            }:[${get(dates, 'startDate', '*')} TO ${get(
-              dates,
-              'endDate',
-              '*'
-            )}]`
+
+        startDateAfter !== null && startDateAfter.startDateAfter !== '*' && rowFormat === "activity"
+          ? `(activity_date_start_actual:[${get(startDateAfter, 'startDateAfter', '*')} TO *] OR (-activity_date_start_actual:[* TO *] 
+              AND activity_date_start_planned:[${get(startDateAfter, 'startDateAfter', '*')} TO *]))`
           : null,
+
+        startDateAfter !== null && startDateAfter.startDateAfter !== '*' && rowFormat === "budget"
+          ? `budget_period_start_iso_date:[${get(startDateAfter, 'startDateAfter', '*')} TO *]`
+          : null,
+
+        startDateBefore !== null && startDateBefore.startDateBefore !== '*' && rowFormat === "activity"
+
+          ? `(activity_date_start_actual:[* TO ${get(startDateBefore, 'startDateBefore', '*')}] OR (-activity_date_start_actual:[* TO *] 
+              AND activity_date_start_planned:[* TO ${get(startDateBefore, 'startDateBefore', '*')}]))`
+          : null,
+
+        startDateBefore !== null && startDateBefore.startDateBefore !== '*' && rowFormat === "budget"
+          ? `budget_period_start_iso_date:[* TO ${get(startDateBefore, 'startDateBefore', '*')}]`
+          : null,
+
+        endDateAfter !== null && endDateAfter.endDateAfter !== '*' && rowFormat === "activity"
+          ? `(activity_date_end_actual:[${get(endDateAfter, 'endDateAfter', '*')} TO *] OR (-activity_date_end_actual:[* TO *] 
+               AND activity_date_end_planned:[${get(endDateAfter, 'endDateAfter', '*')} TO *]))`
+          : null,
+
+        endDateAfter !== null && endDateAfter.endDateAfter !== '*' && rowFormat === "budget"
+          ? `budget_period_end_iso_date:[${get(endDateAfter, 'endDateAfter', '*')} TO *]`
+          : null,
+
+        endDateBefore !== null && endDateBefore.endDateBefore !== '*' && rowFormat === "activity"
+
+          ? `(activity_date_end_actual:[* TO ${get(endDateBefore, 'endDateBefore', '*')}] OR (-activity_date_end_actual: [* TO *] 
+                AND activity_date_end_planned:[* TO ${get(endDateBefore, 'endDateBefore', '*')}]))`
+          : null,
+
+        endDateBefore !== null && endDateBefore.endDateBefore !== '*' && rowFormat === "budget"
+          ? `budget_period_end_iso_date:[* TO ${get(endDateBefore, 'endDateBefore', '*')}]`
+          : null,
+
         textSearch
           ? `(title_narrative:"${textSearch}" OR description:"${textSearch}")`
           : null,
