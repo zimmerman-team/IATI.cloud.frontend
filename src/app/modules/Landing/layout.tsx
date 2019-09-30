@@ -34,7 +34,7 @@ export const LandingMidSection = () => {
             <ArticleCard
               loaded
               title="About Datastore"
-              description="IATI is a global initiative to improve the transparency of development and humanitarian resources and their results for addressing poverty and crises."
+              description="The Datastore uses OIPA, an open-source tool created by Zimmerman & Zimmerman. OIPA extracts and stores raw IATI XML files from the IATI Registry and makes it available as API endpoints to build data driven information solutions."
               buttonLabel="More"
               path="/about"
               target="_self"
@@ -44,7 +44,7 @@ export const LandingMidSection = () => {
             <ArticleCard
               loaded
               title="Query Builder"
-              description="This tool allows you to build custom queries to extract data from the IATI Datastore in JSON, XML, CSV and XLS format. You build queries based on finding organisations and then be configured filter the published data down to what you need."
+              description="Use the Query Builder to easily search IATI data based on selected filters and have it returned in spreadsheet (CSV or XLS), JSON and XML formats."
               buttonLabel="More"
               path="/querybuilder/core-filters"
               target="_self"
@@ -56,7 +56,7 @@ export const LandingMidSection = () => {
               title="API Documentation"
               description="For guidance on how to form API queries and the available endpoints and filters please see the OIPA’s technical documentation."
               buttonLabel="More"
-              path="https://docs.oipa.nl"
+              path="/docimentation/introduction"
               target="_blank"
             />
           </Grid>
@@ -78,25 +78,17 @@ export const LandingLayout = () => {
             </Typography>
             <Box width="100%" height="24px" />
             <TypographyOpacity variant="h5" color="textSecondary">
-              The IATI Datastore enables you to output data in four different
-              formats (JSON, XML, CSV and XLS) for various purposes.
+              The IATI Datastore provides data on development and humanitarian
+              spending and projects that address poverty and crises across the
+              world.
             </TypographyOpacity>
             <Box width="100%" height="24px" />
             <TypographyOpacity variant="body2" color="textSecondary">
-              The IATI Datastore holds all activity data published on
-              development and humanitarian activities available on the{' '}
-              <Link
-                href="https://iatiregistry.org/"
-                variant="body2"
-                style={{ color: 'white', textDecoration: 'underline' }}
-              >
-                IATI Registry
-              </Link>
-              . The Datastore is primarily aimed at users who have technical
-              expertise in manipulating data. It lets you query the content of
-              all the original IATI XML files in a single place. In addition to
-              XML, the IATI data can be downloaded in a spreadsheet (CSV) or
-              JSON format.
+              Find data published by organisations from governments, development
+              finance institutions and UN agencies to NGOs, foundations and the
+              private sector. They have published data according to the IATI
+              Standard, our set of rules and guidance for sharing useful, open
+              data. JSON format.
             </TypographyOpacity>
             <Box width="100%" height="24px" />
             <TypographyOpacity variant="body2" color="textSecondary">

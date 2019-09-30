@@ -80,7 +80,7 @@ export const QueryBuilderLayout = () => {
       {/* module header */}
       <ModuleHeader
         title="Query Builder"
-        description="This tool allows you to build common queries to obtain data from the IATI Datastore in JSON, XML, CSV,and XLSformat."
+        description="The Query Builder allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format."
       />
 
       {/* step navigator */}
