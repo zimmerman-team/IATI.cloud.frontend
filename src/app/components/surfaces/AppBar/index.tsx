@@ -22,6 +22,8 @@ const BaseComponent = styled(props => <BaseAppBar {...props} />)`
     align-items: center;
     padding-left: 20px;
     padding-right: 45px;
+    position: sticky;
+    top: 40px;
   }
 `;
 
