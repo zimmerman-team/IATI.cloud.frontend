@@ -218,7 +218,7 @@ export const withEffects: StoreEffect = store => {
         })
         : null;
     const transactionType =
-      store.get('transactionType') && rowFormat === 'activity'
+      store.get('transactionType') && (rowFormat === 'activity' || rowFormat === "transaction")
         ? store.get('transactionType').map((item: ActivityStatusModel) => {
           return item.code
         })
