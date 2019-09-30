@@ -284,6 +284,8 @@ export const withEffects: StoreEffect = store => {
           return item.code;
         })
       : null;
+    let sector;
+    let output;
 
     const surl = constructSolrQuery(
       formattedBaseURL,
@@ -299,10 +301,16 @@ export const withEffects: StoreEffect = store => {
           ?`reporting_org_type:(${organisationTypes && organisationTypes.join(' ')})`
           : null,
         get(sectors, 'length', 0) && rowFormat === 'activity'
-          ? `sector_code:(${sectors && sectors.join(' ')})`
+          ? (
+              sector = sectors && sectors.join(' '),
+              output =`"${  sector.split(' ').join('" "')}"`,
+              `sector_code:(${output})`
+            )
           : null,
         get(sectors, 'length', 0) && rowFormat === 'transaction'
-          ? `transaction_sector_code:(${sectors && sectors.join(' ')})`
+          ? ( sector = sectors && sectors.join(' '),
+            output =`"${  sector.split(' ').join('" "')}"`,
+            `transaction_sector_code:(${output})`)
           : null,
         get(secondaryReporter, 'length', 0)
           ? `reporting_org_secondary_reporter:(${secondaryReporter && secondaryReporter.join(' ')})`
@@ -321,7 +329,7 @@ export const withEffects: StoreEffect = store => {
           : null,
 
         startDateAfter !== null && startDateAfter.startDateAfter !== '*' && rowFormat === "activity"
-          ? `(activity_date_start_actual:[${get(startDateAfter, 'startDateAfter', '*')} TO *] OR (-activity_date_start_actual:[* TO *] 
+          ? `(activity_date_start_actual:[${get(startDateAfter, 'startDateAfter', '*')} TO *] OR (-activity_date_start_actual:[* TO *]
               AND activity_date_start_planned:[${get(startDateAfter, 'startDateAfter', '*')} TO *]))`
           : null,
 
@@ -331,7 +339,7 @@ export const withEffects: StoreEffect = store => {
 
         startDateBefore !== null && startDateBefore.startDateBefore !== '*' && rowFormat === "activity"
 
-          ? `(activity_date_start_actual:[* TO ${get(startDateBefore, 'startDateBefore', '*')}] OR (-activity_date_start_actual:[* TO *] 
+          ? `(activity_date_start_actual:[* TO ${get(startDateBefore, 'startDateBefore', '*')}] OR (-activity_date_start_actual:[* TO *]
               AND activity_date_start_planned:[* TO ${get(startDateBefore, 'startDateBefore', '*')}]))`
           : null,
 
@@ -340,7 +348,7 @@ export const withEffects: StoreEffect = store => {
           : null,
 
         endDateAfter !== null && endDateAfter.endDateAfter !== '*' && rowFormat === "activity"
-          ? `(activity_date_end_actual:[${get(endDateAfter, 'endDateAfter', '*')} TO *] OR (-activity_date_end_actual:[* TO *] 
+          ? `(activity_date_end_actual:[${get(endDateAfter, 'endDateAfter', '*')} TO *] OR (-activity_date_end_actual:[* TO *]
                AND activity_date_end_planned:[${get(endDateAfter, 'endDateAfter', '*')} TO *]))`
           : null,
 
@@ -350,7 +358,7 @@ export const withEffects: StoreEffect = store => {
 
         endDateBefore !== null && endDateBefore.endDateBefore !== '*' && rowFormat === "activity"
 
-          ? `(activity_date_end_actual:[* TO ${get(endDateBefore, 'endDateBefore', '*')}] OR (-activity_date_end_actual: [* TO *] 
+          ? `(activity_date_end_actual:[* TO ${get(endDateBefore, 'endDateBefore', '*')}] OR (-activity_date_end_actual: [* TO *]
                 AND activity_date_end_planned:[* TO ${get(endDateBefore, 'endDateBefore', '*')}]))`
           : null,
 
