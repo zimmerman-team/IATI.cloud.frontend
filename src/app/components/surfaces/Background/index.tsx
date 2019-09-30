@@ -8,7 +8,6 @@ type Props = {
 };
 
 const Base = styled.div`
-  //height: 100vh;
   background-image: url(${BackgroundImage}),
     linear-gradient(to bottom, #5db9cc, #135062);
   background-repeat: no-repeat;
@@ -17,6 +16,7 @@ const Base = styled.div`
   padding-top: 40px;
   position: sticky;
   top: 0;
+  z-index: 20;
 `;
 
 const Background = (props: Props) => {
