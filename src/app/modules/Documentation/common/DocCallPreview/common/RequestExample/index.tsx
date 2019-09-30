@@ -71,7 +71,13 @@ export const RequestExample = () => {
             >
               {/*{codes.code}*/}
 
-              {'path:' + url.raw.replace('{{url}}', '')}
+              {/*{'curl --location --request GET ' +*/}
+              {'' +
+                url.raw.replace(
+                  '{{url}}',
+                  ''
+                  // 'https://test-datastore.iatistandard.org'
+                )}
             </SyntaxHighlighter>
           </div>
         </div>
