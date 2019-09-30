@@ -1,11 +1,10 @@
-import React from 'react';
-import { Grid } from '@material-ui/core';
+import React from "react";
+import { Grid } from "@material-ui/core";
 
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { codes } from './code';
+import SyntaxHighlighter from "react-syntax-highlighter";
 // import { monokaiSublime } from 'react-syntax-highlighter/dist/styles/hljs';
-import { useStoreState } from 'app/modules/Documentation/state/store';
-import { RequestModel, UrlModel } from 'app/modules/Documentation/state/model';
+import { useStoreState } from "app/modules/Documentation/state/store";
+import { RequestModel, UrlModel } from "app/modules/Documentation/state/model";
 
 export const RequestExample = () => {
   const request: RequestModel = useStoreState(

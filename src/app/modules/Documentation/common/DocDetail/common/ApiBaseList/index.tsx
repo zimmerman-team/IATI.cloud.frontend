@@ -1,8 +1,8 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { ApiListItemModel } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiBaseList/model';
-import { Collection } from 'app/modules/Documentation/state/model';
-import styled from 'styled-components';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { ApiListItemModel } from "app/modules/Documentation/common/DocDetail/common/ApiBaseList/model";
+import { Collection } from "app/modules/Documentation/state/model";
+import styled from "styled-components";
 
 const LandingEndpointItem = styled.li`
   font-family: 'Roboto Mono', monospace;

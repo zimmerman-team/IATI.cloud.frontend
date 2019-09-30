@@ -1,13 +1,13 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useStoreState } from 'app/modules/Documentation/state/store';
 import { Box, Grid, Typography } from '@material-ui/core';
 import { useTitle } from 'react-use';
 import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/common/utils/ui';
-import { ApiCallFragment } from 'app/modules/Documentation/common/DocDetail/common/ApiCategory/common/ApiCallFragment';
+import { ApiCallFragment } from 'app/modules/Documentation/common/DocDetail/common/ApiCallFragment';
 import parse from 'html-react-parser';
 import { useParams } from 'react-router';
 
-const CategoryHeader = ({ category }) => {
+export const CategoryHeader = ({ category }) => {
   return (
     <React.Fragment>
       <Grid container spacing={2} id={category.name}>
@@ -25,7 +25,7 @@ const CategoryHeader = ({ category }) => {
   );
 };
 
-const SubCategoryHeader = ({ item }) => {
+export const SubCategoryHeader = ({ item }) => {
   return (
     <React.Fragment>
       <ApiItemDivider />
@@ -37,7 +37,7 @@ const SubCategoryHeader = ({ item }) => {
   );
 };
 
-const SubCaregoryDescription = ({ item }) => {
+export const SubCaregoryDescription = ({ item }) => {
   return (
     <Grid item md={12}>
       <Typography variant="body2">
@@ -47,7 +47,7 @@ const SubCaregoryDescription = ({ item }) => {
   );
 };
 
-const CallFragment = ({ item }) => (
+export const CallFragment = ({ item }) => (
   <React.Fragment>
     {item.request && <ApiCallFragment data={item} key={item._postman_id} />}
 
@@ -66,7 +66,7 @@ const CallFragment = ({ item }) => (
   </React.Fragment>
 );
 
-const SubCategoryFragment = ({ item }) => (
+export const SubCategoryFragment = ({ item }) => (
   <Grid container spacing={2} id={item.name} key={item.name}>
     {item._postman_isSubFolder && <SubCategoryHeader item={item} />}
 

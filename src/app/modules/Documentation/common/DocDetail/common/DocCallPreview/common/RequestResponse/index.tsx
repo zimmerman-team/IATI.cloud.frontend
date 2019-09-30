@@ -1,14 +1,11 @@
-import { Box, Button, Grid } from '@material-ui/core';
-import { RequestResponseModel } from 'app/modules/Documentation/common/DocCallPreview/common/RequestResponse/model';
+import { Box, Button, Grid } from "@material-ui/core";
 // import { response } from 'app/modules/Documentation/common/DocCallPreview/common/RequestExample/response';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { darcula } from 'react-syntax-highlighter/dist/styles/prism';
 
-import { RequestModel, UrlModel } from 'app/modules/Documentation/state/model';
-import { useStoreState } from 'app/modules/Documentation/state/store';
-import React, { Suspense } from 'react';
-import useFetch from 'use-http';
-import styled from 'styled-components';
+import { RequestModel, UrlModel } from "app/modules/Documentation/state/model";
+import { useStoreState } from "app/modules/Documentation/state/store";
+import React from "react";
+import useFetch from "use-http";
+import styled from "styled-components";
 
 const ResponseDiv = styled.div`
   color: white;

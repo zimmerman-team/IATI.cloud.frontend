@@ -1,4 +1,4 @@
-import { action, Action } from 'easy-peasy';
+import { action, Action } from "easy-peasy";
 
 export interface RequestModel {
   method: string;

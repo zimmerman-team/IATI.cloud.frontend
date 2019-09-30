@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const ParameterHeader = styled.div`
   border-top: 1px solid #f0f3f7;
@@ -16,7 +16,6 @@ const ParameterList = styled.div`
 `;
 
 export const ApiCallParamItem = ({ data }) => {
-  // console.log('query', data.key);
   return (
     <li
       css={`
@@ -39,7 +38,6 @@ export const ApiCallParamItem = ({ data }) => {
 };
 
 export const ApiCallParamList = ({ data }) => {
-  // console.log(data);
   return (
     <>
       {/* -------------------- */}

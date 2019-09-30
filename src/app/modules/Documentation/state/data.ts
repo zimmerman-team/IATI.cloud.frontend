@@ -1,5 +1,3 @@
-import { DocStoreModel } from 'app/modules/Documentation/state/model';
-
 export const docData = {
   collection: {
     info: {
