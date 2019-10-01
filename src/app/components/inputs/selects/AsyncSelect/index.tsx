@@ -63,7 +63,7 @@ export const AsyncSelect = (props: any) => {
           loadOptions(search, loadedOptions, { page }, props.pivot)
         }
         additional={{
-          page: 1,
+          page: 0,
         }}
         debounceTimeout={1000}
       />
