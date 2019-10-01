@@ -48,7 +48,7 @@ jobs:
             fi
             source $BASH_ENV
       - run: yarn build
-      - run: yarn build-storybook
+#      - run: yarn build-storybook
       - run:
           name: Add target host to known_hosts files
           command: |
@@ -80,18 +80,18 @@ jobs:
             else
               rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder
             fi
-      - run:
-          name: Upload storybook build folder to target host
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
-            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
-            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
-              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
-            else
-              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
-            fi
+#      - run:
+#          name: Upload storybook build folder to target host
+#          command: |
+#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+#              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
+#            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+#              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
+#            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+#              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
+#            else
+#              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
+#            fi
 
   test_e2e:
     docker:

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
-import { ApiList } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiBaseList';
-import styled from 'styled-components';
-import { useStoreState } from 'app/modules/Documentation/state/store';
+import React from "react";
+import { Box, Grid, Typography } from "@material-ui/core";
+import { ApiList } from "app/modules/Documentation/common/DocDetail/common/ApiBaseList";
+import styled from "styled-components";
+import { useStoreState } from "app/modules/Documentation/state/store";
 
 const HeaderH6 = styled.div`
   font-family: Inter;
@@ -40,7 +40,7 @@ export const DocLanding = () => {
       </Grid>
       {/* ------------------------------------------------------------------ */}
       <Box width="100%" height="50px" />
-      /* -------------------- */}
+      {/* -------------------- */}
       {/* available endpoints */}
       <Grid container spacing={4}>
         <Grid item md={12}>

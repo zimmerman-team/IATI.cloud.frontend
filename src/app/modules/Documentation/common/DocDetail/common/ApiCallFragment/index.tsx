@@ -1,10 +1,10 @@
-import React from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
-import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/common/utils/ui';
-import { ApiCallParamList } from 'app/modules/Documentation/common/DocDetail/common/lists/ApiParameterList';
-import { useVisible } from 'react-hooks-visible';
-import styled from 'styled-components';
-import { useStoreActions } from 'app/modules/Documentation/state/store';
+import React from "react";
+import { Box, Grid, Typography } from "@material-ui/core";
+import { ApiItemDivider } from "app/modules/Documentation/common/DocDetail/common/utils/ui";
+import { ApiCallParamList } from "app/modules/Documentation/common/DocDetail/common/ApiParameterList";
+import { useVisible } from "react-hooks-visible";
+import styled from "styled-components";
+import { useStoreActions } from "app/modules/Documentation/state/store";
 
 const CallHeader = styled.div`
   display: flex;
@@ -48,7 +48,6 @@ export const ApiCallFragment = data => {
 
   if (percent > 99) {
     if (targetRef.current) {
-      // console.log(encodeURIComponent(targetRef.current.id));
       if (request) {
         showRequest(request);
       }

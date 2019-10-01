@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import { RequestNavigatorModel } from "app/modules/Documentation/common/DocCallPreview/common/RequestNavigator/model";
+import { RequestNavigatorModel } from "app/modules/Documentation/common/DocDetail/common/DocCallPreview/common/RequestNavigator/model";
 import { NavLink } from "react-router-dom";
 
 type NavButtonModel = {

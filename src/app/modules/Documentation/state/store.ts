@@ -1,9 +1,6 @@
-import { action, createStore, createTypedHooks } from 'easy-peasy';
-import {
-  DocStoreModel,
-  requestsModel,
-} from 'app/modules/Documentation/state/model';
-import { docData } from 'app/modules/Documentation/state/data';
+import { createStore, createTypedHooks } from "easy-peasy";
+import { DocStoreModel, requestsModel } from "app/modules/Documentation/state/model";
+import { docData } from "app/modules/Documentation/state/data";
 
 const docStoreModel: DocStoreModel = {
   collection: docData.collection,

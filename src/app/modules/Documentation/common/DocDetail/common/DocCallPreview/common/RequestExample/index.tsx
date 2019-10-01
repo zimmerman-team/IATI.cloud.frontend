@@ -1,11 +1,10 @@
-import React from 'react';
-import { Grid } from '@material-ui/core';
+import React from "react";
+import { Grid } from "@material-ui/core";
 
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { codes } from './code';
+import SyntaxHighlighter from "react-syntax-highlighter";
 // import { monokaiSublime } from 'react-syntax-highlighter/dist/styles/hljs';
-import { useStoreState } from 'app/modules/Documentation/state/store';
-import { RequestModel, UrlModel } from 'app/modules/Documentation/state/model';
+import { useStoreState } from "app/modules/Documentation/state/store";
+import { RequestModel, UrlModel } from "app/modules/Documentation/state/model";
 
 export const RequestExample = () => {
   const request: RequestModel = useStoreState(
@@ -13,9 +12,6 @@ export const RequestExample = () => {
   );
 
   const url: UrlModel = request.url;
-  if (request) {
-    console.log('active request: ' + url.raw);
-  }
 
   return (
     <Grid container>
@@ -40,16 +36,6 @@ export const RequestExample = () => {
             flex-direction: column;
           `}
         >
-          {/*<div
-            css={`
-              padding: 20px;
-              color: white;
-              padding-top: 0;
-              padding-bottom: 0;
-            `}
-          >
-            // has_crs_add (optional)
-          </div>*/}
           <div
             css={`
               padding: 20px;
