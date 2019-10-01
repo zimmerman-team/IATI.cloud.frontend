@@ -51,7 +51,7 @@ export const LandingMidSection = () => {
               title="API Documentation"
               description="For guidance on how to form API queries and the available endpoints and filters please see the OIPA’s technical documentation."
               buttonLabel="More"
-              path="/docimentation/introduction"
+              path="/documentation/introduction"
               target="_blank"
             />
           </Grid>
