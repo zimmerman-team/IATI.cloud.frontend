@@ -141,6 +141,13 @@ export const withEffects: StoreEffect = store => {
           return item.value.trim();
         })
       : null;
+    if (participatingOrgs != null) {
+      for (let i = 0; i < participatingOrgs.length; i++) {
+        if(participatingOrgs[i].includes("#")){
+          participatingOrgs[i] =participatingOrgs[i].replace(/#/g, '%23')
+        }
+      }
+    }
 
     const activityStatus =
       store.get('activityStatus') && rowFormat === 'activity'
@@ -284,7 +291,7 @@ export const withEffects: StoreEffect = store => {
           return item.code;
         })
       : null;
-    let sector;
+    let temp_string;
     let output;
 
     const surl = constructSolrQuery(
@@ -302,14 +309,14 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(sectors, 'length', 0) && rowFormat === 'activity'
           ? (
-              sector = sectors && sectors.join(' '),
-              output =`"${  sector.split(' ').join('" "')}"`,
+              temp_string = sectors && sectors.join(' '),
+              output =`"${  temp_string.split(' ').join('" "')}"`,
               `sector_code:(${output})`
             )
           : null,
         get(sectors, 'length', 0) && rowFormat === 'transaction'
-          ? ( sector = sectors && sectors.join(' '),
-            output =`"${  sector.split(' ').join('" "')}"`,
+          ? ( temp_string = sectors && sectors.join(' '),
+            output =`"${  temp_string.split(' ').join('" "')}"`,
             `transaction_sector_code:(${output})`)
           : null,
         get(secondaryReporter, 'length', 0)
@@ -378,8 +385,9 @@ export const withEffects: StoreEffect = store => {
               transactionReceiverOrgs.join(' ')})`
           : null,
         get(participatingOrgs, 'length', 0)
-          ? `participating_org_ref:(${participatingOrgs &&
-              participatingOrgs.join(' ')})`
+          ? ( temp_string = participatingOrgs && participatingOrgs.join(' '),
+            output =`"${  temp_string.split(' ').join('" "')}"`,
+            `participating_org_ref:(${output})`)
           : null,
         get(activityStatus, 'length', 0)
           ? `activity_status_code:(${activityStatus &&
