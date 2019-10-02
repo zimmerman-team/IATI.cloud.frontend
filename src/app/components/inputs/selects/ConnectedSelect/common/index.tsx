@@ -96,6 +96,10 @@ export const Option = (provided, state) => ({
   ...provided,
   // borderBottom: '1px dotted pink',
   // color: state.isSelected ? 'red' : 'blue',
+
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
   color: 'black',
   padding: 0,
   height: '48px',
@@ -138,6 +142,9 @@ export const MenuList = (provided, state) => ({
 
 export const MultiValue = provided => ({
   ...provided,
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
   borderRadius: '2px',
   height: '32px',
   display: 'flex',
@@ -149,6 +156,9 @@ export const MultiValue = provided => ({
 });
 
 export const MultiValueLabel = () => ({
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
   fontSize: '14px',
   textTransform: 'capitalize',
   fontFamily: 'Inter',

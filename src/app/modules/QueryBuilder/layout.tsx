@@ -5,21 +5,11 @@ import { Header } from 'app/components/surfaces/Header';
 import { PageContainer } from 'app/modules/common/PageContainer';
 /* fragments */
 import React from 'react';
-
-import { Box, Grid, Typography } from '@material-ui/core';
-
-import { DebugBox } from 'app/utils/layout';
-import { Route, Switch } from 'react-router';
-
-import { OrganisationFragment } from 'app/modules/QueryBuilder/steps/organisation';
-import { AdditionalFiltersSubModule } from 'app/modules/QueryBuilder/steps/additional-filters';
-import { OutputFormatSubModule } from 'app/modules/QueryBuilder/steps/output-format';
-import { ResultsSubModule } from 'app/modules/QueryBuilder/steps/results';
+import { Box, Grid } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { QueryBuilderRoutes } from 'app/modules/QueryBuilder/routes';
 import { ModuleHeader } from 'app/modules/common/ModuleHeader';
 /* config & mock */
-
 export type NavButtonModel = {
   label: string;
   path: string;
