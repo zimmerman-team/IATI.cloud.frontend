@@ -30,7 +30,7 @@ export const SECTORS =
   // @ts-ignore
   NODE_ENV === 'development'
     ? 'data/sectors.json'
-    : 'api/codelists/Sector/?format=json';
+    : 'api/codelists/Sector/?format=json&vocabulary=1';
 
 export const SECTOR_CATEGORIES =
   // @ts-ignore
