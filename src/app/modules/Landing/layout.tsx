@@ -1,20 +1,14 @@
 /* base */
 import React from 'react';
 import styled from 'styled-components';
-// import makeStyles from '@material-ui/core/styles/makeStyles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import IconButtonOutlined from 'app/components/inputs/buttons/IconButtonOutlined';
-import AppBar from 'app/components/surfaces/AppBar';
-import Background from 'app/components/surfaces/Background';
 import { ArticleCard } from 'app/components/surfaces/Cards/ArticleCard';
-import { Footer } from 'app/components/surfaces/Footer';
 import { Header } from 'app/components/surfaces/Header';
-import { width } from '@material-ui/system';
 import { PageContainer } from 'app/modules/common/PageContainer';
-import Link from '@material-ui/core/Link';
 
 const TypographyOpacity = styled(props => <Typography {...props} />)`
   opacity: 0.8;
@@ -63,8 +57,9 @@ export const LandingMidSection = () => {
 
 export const LandingLayout = () => {
   return (
-    <PageContainer footer>
-      {/*HEADER*/}
+    <>
+      <PageContainer footer>
+        {/*HEADER*/}
 
       <Header>
         <Grid container direction="column">
@@ -92,24 +87,25 @@ export const LandingLayout = () => {
             </TypographyOpacity>
           </Grid>
 
-          <Box width="100%" height="36px" />
+            <Box width="100%" height="36px" />
 
-          <Grid item md={4} lg={4}>
-            <IconButtonOutlined label="Query Builder" />
+            <Grid item md={4} lg={4}>
+              <IconButtonOutlined label="Query Builder" />
+            </Grid>
           </Grid>
-        </Grid>
-      </Header>
+        </Header>
 
-      {/*ARTICLES*/}
+        {/*ARTICLES*/}
 
-      <Container maxWidth="lg">
-        <LandingMidSection />
-      </Container>
+        <Container maxWidth="lg">
+          <LandingMidSection />
+        </Container>
 
-      {/*FOOTER*/}
-      {/*TODO: replace box with footer component*/}
-      {/*<Box width="100%" height="200px" bgcolor="#155366" />*/}
-      {/*<Footer />*/}
-    </PageContainer>
+        {/*FOOTER*/}
+        {/*TODO: replace box with footer component*/}
+        {/*<Box width="100%" height="200px" bgcolor="#155366" />*/}
+        {/*<Footer />*/}
+      </PageContainer>
+    </>
   );
 };
