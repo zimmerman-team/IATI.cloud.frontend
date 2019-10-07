@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import ArrowForward from '@material-ui/icons/ArrowForward';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
   label?: string;
 };
 
-const CustomLink = styled(props => <NavLink {...props} />)`
+const CustomLink = styled.div`
   text-decoration: none;
   color: white;
   display: flex;
@@ -44,12 +44,14 @@ const ZimmerButton = styled(props => <Button {...props} />)`
 
 const IconButtonOutlined = (props: Props) => {
   return (
-    <ZimmerButton size={props.size} variant="outlined">
-      <CustomLink to="/querybuilder/core-filters">
-        <Typography variant="subtitle1"> {props.label} </Typography>
-        <ArrowForward fontSize="small" />
-      </CustomLink>
-    </ZimmerButton>
+    <Link to="/querybuilder/core-filters">
+      <ZimmerButton size={props.size} variant="outlined">
+        <CustomLink>
+          <Typography variant="subtitle1"> {props.label} </Typography>
+          <ArrowForward fontSize="small" />
+        </CustomLink>
+      </ZimmerButton>
+    </Link>
   );
 };
 
