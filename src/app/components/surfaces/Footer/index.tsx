@@ -38,11 +38,11 @@ export const Footer = () => {
                 <Mail style={{ marginRight: '16px', fill: 'white' }} />
                 <Typography variant="body1" color="textSecondary">
                   <Link
-                    href={'mailto:info@iatistandard.org'}
+                    href={'mailto:support@iatistandard.org'}
                     target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >
-                    info@iatistandard.org
+                    support@iatistandard.org
                   </Link>
                 </Typography>
               </Grid>
