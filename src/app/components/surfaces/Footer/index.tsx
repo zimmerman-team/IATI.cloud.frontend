@@ -29,12 +29,6 @@ export const Footer = () => {
               spacing={2}
             >
               <Grid container item alignItems="center">
-                <Phone style={{ marginRight: '16px', fill: 'white' }} />
-                <Typography variant="body1" color="textSecondary">
-                  +31 (0)00 000 00 00
-                </Typography>
-              </Grid>
-              <Grid container item alignItems="center">
                 <Mail style={{ marginRight: '16px', fill: 'white' }} />
                 <Typography variant="body1" color="textSecondary">
                   <Link
