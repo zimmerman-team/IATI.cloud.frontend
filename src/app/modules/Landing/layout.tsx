@@ -84,7 +84,7 @@ export const LandingLayout = () => {
               finance institutions and UN agencies to NGOs, foundations and the
               private sector. They have published data according to the IATI
               Standard, our set of rules and guidance for sharing useful, open
-              data. JSON format.
+              data. 
             </TypographyOpacity>
             <Box width="100%" height="24px" />
             <TypographyOpacity variant="body2" color="textSecondary">
