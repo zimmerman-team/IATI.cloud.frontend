@@ -66,7 +66,7 @@ export const AboutLayout = () => {
                 </a>{' '}
                 provides data published by organisations who have used version 2
                 of the IATI Standard. This is following the decision to
-                deprecate
+                deprecate 
                 <a
                   href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"
                   target="_blank"
