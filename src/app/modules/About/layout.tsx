@@ -97,9 +97,6 @@ export const AboutLayout = () => {
 
           {/* Testing the new Datastore API (19 Aug - 18 Sept) */}
           <Section>
-            <Typography variant="h6" style={{ paddingBottom: '16px' }}>
-              Testing the new Datastore API (19 Aug - 18 Sept)
-            </Typography>
             <Paragraph>
               <Typography variant="body1">
                 Users are invited to{' '}
