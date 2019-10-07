@@ -180,9 +180,6 @@ export const AboutLayout = () => {
 
           {/* What will happen after the Datastore testing phase?  */}
           <Section>
-            <Typography variant="h6" style={{ paddingBottom: '16px' }}>
-              What will happen after the Datastore testing phase?
-            </Typography>
             <Paragraph>
               <Typography variant="body1">
                 After the testing deadline of 18 September, the technical team
