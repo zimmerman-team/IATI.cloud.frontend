@@ -165,7 +165,7 @@ export const getdocumentLinkCategory: Endpoint = (params: RequestInit = {}) =>
   }).then(res => res.json());
 
 export const getIatiVersion: Endpoint = (params: RequestInit = {}) =>
-  fetch(HOSTNAME + IATI_VERSION,{
+  fetch('/' + IATI_VERSION,{
     method: 'GET'
   }).then(res => res.json());
 

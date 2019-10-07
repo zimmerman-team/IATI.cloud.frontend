@@ -115,54 +115,54 @@ export const OrganisationFragment = () => {
           placeholder={`All regions`}
         />
       </Grid>
-      {/** must have activity period */}
+      {/** Filter by date */}
       <Grid item xs={12} md={4}>
         <SimpleSelect
-          label="Must have activity period"
+          label="Filter by Date?"
           data={['Yes', 'No']}
           value={store.get('mustHaveDates')}
           onChange={e => store.set('mustHaveDates')(e)}
         />
       </Grid>
-      {/** activity period start date (after) */}
+      {/** activity/budget period start date (after) */}
       <Grid item xs={12} md={4}>
         <DateField
           // defaultValue="2001-01-01"
           value={store.get('startDateAfter')}
-          label="Activity period start date (After)"
+          label="Activity / Budget start date (after)"
           onChange={e => store.set('startDateAfter')(e)}
           disabled={store.get('mustHaveDates') === 'No'}
         />
       </Grid>
-      {/** activity period end date */}
+      {/** activity/budget  end date (after) */}
       <Grid item xs={12} md={4}>
         <DateField
           // defaultValue="2001-01-01"
           value={store.get('endDateAfter')}
-          label="Activity period end date (After)"
+          label="Activity / Budget end date (after)"
           onChange={e => store.set('endDateAfter')(e)}
           disabled={store.get('mustHaveDates') === 'No'}
         />
       </Grid>
       {/** empty grid here **/}
       <Grid item xs={12} md={4}/>
-      {/** activity period start date (before)*/}
+      {/** activity/budget  start date (before)*/}
       <Grid item xs={12} md={4}>
         <DateField
           // defaultValue="2001-01-01"
           value={store.get('startDateBefore')}
-          label="Activity period start date (Before)"
+          label="Activity / Budget start date (before)"
           onChange={e => store.set('startDateBefore')(e)}
           disabled={store.get('mustHaveDates') === 'No'}
         />
 
       </Grid>
-      {/** activity period end date (before)*/}
+      {/** activity/budgegt end date (before)*/}
       <Grid item xs={12} md={4}>
         <DateField
           // defaultValue="2001-01-01"
           value={store.get('endDateBefore')}
-          label="Activity period end date (Before)"
+          label="Activity / Budget end date (before)"
           onChange={e => store.set('endDateBefore')(e)}
           disabled={store.get('mustHaveDates') === 'No'}
         />
