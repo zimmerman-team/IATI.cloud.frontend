@@ -71,7 +71,7 @@ export const AboutLayout = () => {
                   href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"
                   target="_blank"
                 >
-                  version 1 by IATI members
+                   version 1 by IATI members
                 </a>
                 , which was implemented July 2019.
               </Typography>
