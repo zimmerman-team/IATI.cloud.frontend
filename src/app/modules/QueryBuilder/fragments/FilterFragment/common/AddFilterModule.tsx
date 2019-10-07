@@ -21,6 +21,28 @@ export function AddFilterModule(props: Props) {
     get(state, `${props.dataKey}.data`, [])
   );
   const action = useStoreActions(actions => actions[props.dataKey].fetch);
+  const label = props.label;
+  if (label === "IATI version") {
+      return (
+        <Grid item xs={12} sm={12} md={4} key={props.label}>
+          <ConnectedSelect
+            label={props.label}
+            value={props.value}
+            options={values || []}
+            onChange={props.onChange}
+            onMenuOpen={() => {
+              if (values.length === 0) {
+                action();
+              }
+            }}
+            placeholder={props.placeholder}
+            getOptionValue={option => option.code}
+            getOptionLabel={option => `${option.code}`}
+          />
+        </Grid>
+      );
+  }
+
   return (
     <Grid item xs={12} sm={12} md={4} key={props.label}>
       <ConnectedSelect
@@ -39,4 +61,6 @@ export function AddFilterModule(props: Props) {
       />
     </Grid>
   );
+
+
 }
