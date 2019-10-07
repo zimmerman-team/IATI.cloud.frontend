@@ -44,7 +44,18 @@ export const BannerNotice = () => (
         text-align: center;
       `}
     >
-      Query Builder is in a testing phase from 7th Oct - 4th Nov 2019
+      The Query Builder is in a testing phase until 4th Nov 2019. If you find
+      any issues, please raise them{' '}
+      <a
+        href="https://github.com/zimmerman-zimmerman/OIPA/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc"
+        target="_blank"
+        css={`
+          color: white;
+          text-decoration: underline;
+        `}
+      >
+        here
+      </a>
     </div>
   </div>
 );
