@@ -206,9 +206,6 @@ export const AboutLayout = () => {
 
           {/* Help to transition from using the old datastore to the new IATI Datastore */}
           <Section>
-            <Typography variant="h6" style={{ paddingBottom: '16px' }}>
-              What will happen after the Datastore testing phase?
-            </Typography>
             <Paragraph>
               <Typography variant="body1">
                 The technical team will be working to ensure that users can
