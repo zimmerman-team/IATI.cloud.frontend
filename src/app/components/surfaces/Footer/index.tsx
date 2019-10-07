@@ -95,7 +95,7 @@ export const Footer = () => {
                 >
                   Code licensed under the{' '}
                   <Link
-                    href={'https://github.com/zimmerman-zimmerman/OIPA/blob/master/LICENSE.MD'}
+                    href={'https://github.com/zimmerman-zimmerman/OIPA/blob/master/LICENSE.MDs'}
                     target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >
