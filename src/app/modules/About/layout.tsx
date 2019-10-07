@@ -259,53 +259,7 @@ export const AboutLayout = () => {
           </Section>
 
           {/* Using the Datastore API */}
-          <Section>
-            <Typography variant="h6" style={{ paddingBottom: '16px' }}>
-              Using the Datastore API
-            </Typography>
-            <Paragraph>
-              <Typography variant="body1">
-                To access all IATI datasets, for example, you can run a simple
-                API query:{' '}
-                <a
-                  href="http://datastore.iatistandard.org/api/1/access/activity.xml"
-                  target="_blank"
-                >
-                  http://datastore.iatistandard.org/api/1/access/activity.xml
-                </a>
-              </Typography>
-            </Paragraph>
 
-            <Paragraph>
-              If you have more specific questions you want to answer with IATI
-              data, you can set up a filter for a specific IATI element. For
-              instance, if you are looking for IATI activities taking place in
-              Uganda (UG), you can run this API query:
-              <a
-                href="http://datastore.iatistandard.org/api/1/access/activity.xml?recipient-country=UG"
-                target="_blank"
-              >
-                http://datastore.iatistandard.org/api/1/access/activity.xml?recipient-country=UG
-              </a>
-            </Paragraph>
-
-            <Paragraph>
-              <Typography variant="body1">
-                For examples of more detailed queries and filters, such as
-                searching for invalid data that the datastore cannot process,
-                see IATI
-              </Typography>
-              Datastore.
-            </Paragraph>
-
-            <Paragraph>
-              <Typography variant="body1">
-                There is additional information for developers who want to use
-                the Datastore APIs, such as the Data API, Error API, or Metadata
-                API.
-              </Typography>
-            </Paragraph>
-          </Section>
 
           {/* Using the Query Builder */}
           <Section>
