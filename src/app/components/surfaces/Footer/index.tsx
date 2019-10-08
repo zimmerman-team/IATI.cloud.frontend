@@ -29,20 +29,14 @@ export const Footer = () => {
               spacing={2}
             >
               <Grid container item alignItems="center">
-                <Phone style={{ marginRight: '16px', fill: 'white' }} />
-                <Typography variant="body1" color="textSecondary">
-                  +31 (0)00 000 00 00
-                </Typography>
-              </Grid>
-              <Grid container item alignItems="center">
                 <Mail style={{ marginRight: '16px', fill: 'white' }} />
                 <Typography variant="body1" color="textSecondary">
                   <Link
-                    href={'mailto:info@iatistandard.org'}
+                    href={'mailto:support@iatistandard.org'}
                     target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >
-                    info@iatistandard.org
+                    support@iatistandard.org
                   </Link>
                 </Typography>
               </Grid>
@@ -101,7 +95,7 @@ export const Footer = () => {
                 >
                   Code licensed under the{' '}
                   <Link
-                    href={'https://www.gnu.org/licenses/agpl-3.0.en.html'}
+                    href={'https://github.com/zimmerman-zimmerman/OIPA/blob/master/LICENSE.MDs'}
                     target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >

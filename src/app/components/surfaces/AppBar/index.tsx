@@ -53,7 +53,10 @@ const AppBar = (props: AppBarProps) => {
             label="API DOCUMENTATION"
             url="/documentation/introduction"
           />
-          <AppBarButton disabled label="GUIDANCE" url="/guidance" />
+
+          {/* <AppBarButton disabled label="GUIDANCE" url="/guidance" />*/}
+
+
         </Grid>
       </Grid>
     </BaseComponent>
