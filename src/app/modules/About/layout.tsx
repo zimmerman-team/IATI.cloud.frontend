@@ -95,86 +95,6 @@ export const AboutLayout = () => {
             </Paragraph>
           </Section>
 
-          {/* Testing the new Datastore API (19 Aug - 18 Sept) */}
-          <Section>
-            <Paragraph>
-              <Typography variant="body1">
-                Users are invited to{' '}
-                <a
-                  href="http://https://test-datastore.iatistandard.org/api/"
-                  target="_blank"
-                >
-                  test the API
-                </a>{' '}
-                to build queries of selected IATI data and review the output of
-                data from the Datastore. Specifically users are requested to:
-              </Typography>
-            </Paragraph>
-            <Paragraph>
-              <Typography variant="body1">
-                <ul>
-                  <li>
-                    - check that they can filter the data by the
-                    elements/parameters they require;
-                  </li>
-                  <li>
-                    - review the content of the data that is returned to ensure
-                    it accurately matches the elements/parameters selected and,
-                  </li>
-                  <li>
-                    - check that the output they receive is usable and matches
-                    their expectations.
-                  </li>
-                </ul>
-              </Typography>
-            </Paragraph>
-            <Paragraph>
-              <Typography variant="body1">
-                When testing, please refer to the{' '}
-                <a href="https://docs.oipa.nl/?version=latest" target="_blank">
-                  Datastore API documentation
-                </a>{' '}
-                and{' '}
-                <a
-                  href="https://docs.google.com/document/d/1nTu1Jdg17toiQoemJT3R9YPwvAwCN1gpFnnL1R-lfHY/edit?usp=sharing"
-                  target="_blank"
-                >
-                  IATI Datastore – API mapping and examples
-                </a>
-                , then provide your feedback on Github on the{' '}
-                <a
-                  href="https://github.com/zimmerman-zimmerman/OIPA/projects/5"
-                  target="_blank"
-                >
-                  IATI Datastore project
-                </a>
-                . This will help the technical team and Zimmerman and Zimmerman
-                more easily review feedback and, where applicable, convert
-                issues directly into GitHub tickets to work on
-              </Typography>
-            </Paragraph>
-            <Paragraph>
-              <Typography variant="body1">
-                Testing the new Datastore Query Builder (1st - 31st October).
-              </Typography>
-            </Paragraph>
-            <Paragraph>
-              <Typography variant="body1">
-                Users are invited to test the new query builder to test that the
-                range of filters meet their needs and to review the outputs they
-                receive match expectations.
-              </Typography>
-            </Paragraph>
-            <Paragraph>
-              <Typography variant="body1">
-                Please provide your feedback on Github on the IATI Datastore
-                project. This will help the technical team and Zimmerman and
-                Zimmerman more easily review feedback and, where applicable,
-                convert issues directly into GitHub tickets to work on
-              </Typography>
-            </Paragraph>
-          </Section>
-
 
           {/* What can I do with the IATI Datastore? */}
           <Section>
@@ -227,9 +147,9 @@ export const AboutLayout = () => {
             </Typography>
             <Paragraph>
               <Typography variant="body1">
-                The Query builder allows users to build common queries through a
+                The <a href="https://test-datastore.iatistandard.org/querybuilder/core-filters" target="_blank">Query builder</a> allows users to build common queries through a
                 series of drop down and freetext filters.
-              </Typography>
+                  </Typography>
             </Paragraph>
           </Section>
 
