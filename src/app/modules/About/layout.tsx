@@ -175,73 +175,6 @@ export const AboutLayout = () => {
             </Paragraph>
           </Section>
 
-          {/* What will happen after the Datastore testing phase?  */}
-          <Section>
-            <Paragraph>
-              <Typography variant="body1">
-                After the testing deadline of 18 September, the technical team
-                and Zimmerman and Zimmerman will post an update about the
-                collected feedback on IATI Discuss. They will also contact users
-                individually if more information is needed, continue triaging
-                issues and action changes where required.
-              </Typography>
-            </Paragraph>
-            <Paragraph>
-              <Typography variant="body1">So, you can output:</Typography>
-            </Paragraph>
-            <Paragraph>
-              <Typography variant="body1">
-                Based on the scope of the testing phase and its follow-up weeks,
-                a date for the official launch of the Datastore will be set and
-                the old Datastore will be phased out 6 months after this date.
-              </Typography>
-            </Paragraph>
-          </Section>
-
-          {/* Help to transition from using the old datastore to the new IATI Datastore */}
-          <Section>
-            <Paragraph>
-              <Typography variant="body1">
-                The technical team will be working to ensure that users can
-                smoothly transition from using the old datastore to using the
-                new IATI Datastore. They will:
-              </Typography>
-            </Paragraph>
-            <Paragraph>
-              <Typography variant="body1">So, you can output:</Typography>
-            </Paragraph>
-            <Paragraph>
-              <Typography variant="body1">
-                <ul>
-                  <li>
-                    provide a mapping document with some examples to help
-                    testing and migrating between Datastore versions
-                  </li>
-                  <li>
-                    provide automated redirects from old to new datastore API
-                    calls for 6 months
-                  </li>
-                  <li>publish API documentation and a User Manual</li>
-                  <li>
-                    offer direct support from the technical team via email or
-                    one-to-one calls
-                  </li>
-                </ul>
-              </Typography>
-            </Paragraph>
-            <Paragraph>
-              <Typography variant="body1">
-                Thanks in advance to IATI’s dedicated community who are able to
-                support the testing phase of the Datastore. The technical team
-                and Zimmerman and Zimmerman look forward to receiving your
-                feedback. For any questions please email:{' '}
-                <a href="mailto:support@iatistandard.org" target="_blank">
-                  support@iatistandard.org
-                </a>
-                .
-              </Typography>
-            </Paragraph>
-          </Section>
 
           {/* What can I do with the IATI Datastore? */}
           <Section>
@@ -303,7 +236,7 @@ export const AboutLayout = () => {
           {/* In what formats can I output the IATI data? */}
           <Section>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
-              In what formats can I output the IATI data?
+              In what formats can I output IATI data?
             </Typography>
             <Paragraph>
               <Typography variant="body1">
