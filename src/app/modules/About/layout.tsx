@@ -66,7 +66,7 @@ export const AboutLayout = () => {
                 </a>{' '}
                 provides data published by organisations who have used version 2
                 of the IATI Standard. This is following the decision to
-                deprecate 
+                deprecate{' '}
                 <a
                   href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"
                   target="_blank"
@@ -122,7 +122,7 @@ export const AboutLayout = () => {
                     it accurately matches the elements/parameters selected and,
                   </li>
                   <li>
-                    -check that the output they receive is usable and matches
+                    - check that the output they receive is usable and matches
                     their expectations.
                   </li>
                 </ul>
@@ -260,16 +260,29 @@ export const AboutLayout = () => {
 
           {/* Using the Datastore API */}
 
-
           <Section>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
-            Using the Datastore API
+              Using the Datastore API
             </Typography>
             <Paragraph>
               <Typography variant="body1">
-              For detailed documentation on how to use the API, please refer to the <a href="https://test-datastore.iatistandard.org/documentation/introduction" target="_blank">Datastore API documentation</a>. 
-              For information on how to map queries from the ‘old’ Datastore to the new one, please see the <a href="https://docs.google.com/document/d/1nTu1Jdg17toiQoemJT3R9YPwvAwCN1gpFnnL1R-lfHY/edit" target="_blank">mapping document</a>.
-          
+                For detailed documentation on how to use the API, please refer
+                to the{' '}
+                <a
+                  href="https://test-datastore.iatistandard.org/documentation/introduction"
+                  target="_blank"
+                >
+                  Datastore API documentation
+                </a>
+                . For information on how to map queries from the ‘old’ Datastore
+                to the new one, please see the{' '}
+                <a
+                  href="https://docs.google.com/document/d/1nTu1Jdg17toiQoemJT3R9YPwvAwCN1gpFnnL1R-lfHY/edit"
+                  target="_blank"
+                >
+                  mapping document
+                </a>
+                .
               </Typography>
             </Paragraph>
           </Section>

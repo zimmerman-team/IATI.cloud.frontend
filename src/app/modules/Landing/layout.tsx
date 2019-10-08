@@ -61,31 +61,31 @@ export const LandingLayout = () => {
       <PageContainer footer>
         {/*HEADER*/}
 
-      <Header>
-        <Grid container direction="column">
-          <Grid item md={7} lg={7}>
-            <Typography variant="h3" color="textSecondary">
-              IATI Datastore
-            </Typography>
-            <Box width="100%" height="24px" />
-            <TypographyOpacity variant="h5" color="textSecondary">
-              The IATI Datastore provides data on development and humanitarian
-              spending and projects that address poverty and crises across the
-              world.
-            </TypographyOpacity>
-            <Box width="100%" height="24px" />
-            <TypographyOpacity variant="body2" color="textSecondary">
-              Find data published by organisations from governments, development
-              finance institutions and UN agencies to NGOs, foundations and the
-              private sector. They have published data according to the IATI
-              Standard, our set of rules and guidance for sharing useful, open
-              data. 
-            </TypographyOpacity>
-            <Box width="100%" height="24px" />
-            <TypographyOpacity variant="body2" color="textSecondary">
-              Access data through using the Datastore’s API or Query Builder.
-            </TypographyOpacity>
-          </Grid>
+        <Header>
+          <Grid container direction="column">
+            <Grid item md={7} lg={7}>
+              <Typography variant="h3" color="textSecondary">
+                IATI Datastore
+              </Typography>
+              <Box width="100%" height="24px" />
+              <TypographyOpacity variant="h5" color="textSecondary">
+                The IATI Datastore provides data on development and humanitarian
+                spending and projects that address poverty and crises across the
+                world.
+              </TypographyOpacity>
+              <Box width="100%" height="24px" />
+              <TypographyOpacity variant="body2" color="textSecondary">
+                Find data published by organisations from governments,
+                development finance institutions and UN agencies to NGOs,
+                foundations and the private sector. They have published data
+                according to the IATI Standard, our set of rules and guidance
+                for sharing useful, open data.
+              </TypographyOpacity>
+              <Box width="100%" height="24px" />
+              <TypographyOpacity variant="body2" color="textSecondary">
+                Access data through using the Datastore’s API or Query Builder.
+              </TypographyOpacity>
+            </Grid>
 
             <Box width="100%" height="36px" />
 
