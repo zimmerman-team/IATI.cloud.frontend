@@ -47,7 +47,7 @@ export const BannerNotice = () => (
       The Query Builder is in a testing phase until 4th Nov 2019. If you find
       any issues, please raise them{' '}
       <a
-        href="https://github.com/zimmerman-zimmerman/OIPA/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc"
+        href="https://github.com/zimmerman-zimmerman/iati.cloud/issues/new/choose"
         target="_blank"
         css={`
           color: white;
