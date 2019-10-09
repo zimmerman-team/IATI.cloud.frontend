@@ -291,6 +291,12 @@ export const withEffects: StoreEffect = store => {
           return item.code;
         })
       : null;
+    const modifiedFields = (): string[] | null => {
+      if (fields !== null && fields.includes("transaction_value")) {
+        fields.push("transaction_value_currency");
+        }
+      return fields;
+    };
     let temp_string;
     let output;
 
@@ -458,7 +464,7 @@ export const withEffects: StoreEffect = store => {
           ? `other_identifier_type:(${otherIdentifierType && otherIdentifierType.join(' ')})`
           : null,
       ],
-      get(fields, 'length', 0) ? `fl=${fields}` : null
+      get(modifiedFields(), 'length', 0) ? `fl=${fields}` : null
     );
 
     // updates the app store

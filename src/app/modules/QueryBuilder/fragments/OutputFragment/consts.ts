@@ -59,6 +59,7 @@ export const transactionFields = [
   { code: 'id', name: 'ID' },
   { code: 'transaction_type', name: 'Type' },
   { code: 'transaction_value', name: 'Value' },
+  { code: 'transaction_value_currency', name: 'Currency' },
   { code: 'reporting_org_narrative', name: 'Reporting Organization' },
 ];
 
