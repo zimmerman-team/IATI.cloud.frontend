@@ -191,12 +191,12 @@ export const docData = {
                       header: [],
                       url: {
                         raw:
-                          '{{url}}/api/activities/?has_recipient_country=False&format=json',
+                          '{{url}}/api/activities/?has_recipient_region=False&format=json',
                         host: ['{{url}}'],
                         path: ['api', 'activities', ''],
                         query: [
                           {
-                            key: 'has_recipient_country',
+                            key: 'has_recipient_region',
                             value: 'False',
                           },
                           {
@@ -1247,7 +1247,23 @@ export const docData = {
                   method: 'GET',
                   header: [],
                   url: {
-                    raw: '',
+                    raw: '{{url}}/api/activities/?sector_vocabulary=1&fields=title,budget_not_provided&format=json',
+                    host: ['{{url}}'],
+                    path:['api','activities',''],
+                    query:[
+                      {
+                        key: 'sector_vocabulary',
+                        value: '1'
+                      },
+                      {
+                        key:'fields',
+                        value:'title',
+                      },
+                      {
+                        key: 'format',
+                        value: 'json',
+                      }
+                      ]
                   },
                 },
               },
@@ -2766,7 +2782,7 @@ export const docData = {
               method: 'GET',
               header: [],
               url: {
-                raw: '',
+                raw: '{{url}}/api/activities/4673164/transactions',
               },
             },
           },
@@ -5220,7 +5236,19 @@ export const docData = {
                       method: 'GET',
                       header: [],
                       url: {
-                        raw: '',
+                        raw: '{{url}}/api/transactions/?iati_identifier=US-GOV-1-998-AID-OAA-TO-14-00035&format=json',
+                        hoste:['{{url}}'],
+                        path: ['api','transactions'],
+                        query:[
+                          {
+                            key: 'iati_identifier',
+                            value: 'US-GOV-1-998-AID-OAA-TO-14-00035'
+                          },
+                          {
+                            key:'format',
+                            value:'json',
+                          },
+                        ]
                       },
                       description: '`iati_identifier` of the parent activity.',
                     },
