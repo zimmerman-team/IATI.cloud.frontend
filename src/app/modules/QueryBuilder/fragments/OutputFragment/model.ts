@@ -1,6 +1,5 @@
 import { activityOptions, groupedOptions, transactionOptions } from './consts';
 import { FragmentBaseModel } from 'app/modules/QueryBuilder/fragments';
-import { RadioButtonsGroupModel } from 'app/components/inputs/radiobuttons/RadioButtonGroup/index';
 
 interface FragmentModel extends FragmentBaseModel {
   getGroups: Function;

@@ -8,7 +8,6 @@ import RadioButtonsGroup from 'app/components/inputs/radiobuttons/RadioButtonGro
 /* config & mock */
 import {
   fragmentConfig,
-  getGroupOptions,
   getActivityOptions,
   getTransactionOptions,
 } from './model';

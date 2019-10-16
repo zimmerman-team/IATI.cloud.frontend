@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Typography, Container, Box, Link } from '@material-ui/core';
-import { Mail, Phone, Star, Twitter } from '@material-ui/icons';
+import { Mail, Twitter } from '@material-ui/icons';
 import { IATILogoWhite } from 'app/components/svgs/IATILogo';
 import { ZZLogo } from 'app/components/svgs/ZZLogo';
 

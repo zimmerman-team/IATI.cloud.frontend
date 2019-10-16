@@ -1,6 +1,5 @@
 import React from 'react';
 import BaseAppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import styled from 'styled-components';
 import AppBarButton from 'app/components/inputs/buttons/AppBarButton';
 import Grid from '@material-ui/core/Grid';

@@ -1,9 +1,9 @@
-import React from "react";
-import { Box } from "@material-ui/core";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { useStoreState } from "app/modules/Documentation/state/store";
-import { HashLink } from "react-router-hash-link";
+import React from 'react';
+import { Box } from '@material-ui/core';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { useStoreState } from 'app/modules/Documentation/state/store';
+import { HashLink } from 'react-router-hash-link';
 
 const CustomLink = styled(props => <NavLink {...props} />)`
   width: 100%;
@@ -16,7 +16,8 @@ const CustomLink = styled(props => <NavLink {...props} />)`
   font-stretch: normal;
   line-height: 1.5;
   letter-spacing: 0.15px;
-  color: rgb(18, 18, 18);
+
+  color: rgba(1, 1, 10, 0.6);
 
   &:hover {
     color: #25a898;

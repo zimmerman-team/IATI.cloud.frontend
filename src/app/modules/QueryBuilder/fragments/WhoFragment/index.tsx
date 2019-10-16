@@ -2,7 +2,6 @@
 /* third-party */
 import Grid from '@material-ui/core/Grid';
 import { ConnectedSelect } from 'app/components/inputs/selects/ConnectedSelect';
-import { ModuleFragment } from 'app/modules/QueryBuilder/fragments/common';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 /* config & mock */
 import { fragmentConfig } from 'app/modules/QueryBuilder/steps/organisation/model';

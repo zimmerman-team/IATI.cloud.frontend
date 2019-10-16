@@ -1,7 +1,6 @@
 /* core */
 /* third-party */
 import Container from '@material-ui/core/Container';
-import { Header } from 'app/components/surfaces/Header';
 import { PageContainer } from 'app/modules/common/PageContainer';
 /* fragments */
 import React from 'react';

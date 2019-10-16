@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { LandingLayout, LandingMidSection } from './layout';
 import Providers from 'app/Providers';
-import { DebugBox } from 'app/utils/layout';
 import { Container } from '@material-ui/core';
 
 storiesOf('Modules|Landing', module).add('Landing', () => (

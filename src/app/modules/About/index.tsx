@@ -1,10 +1,10 @@
 import React from 'react';
 import { AboutLayout } from './layout';
-import { useTitle } from "react-use";
-// import { mockData } from './mock';
+import { useTitle } from 'react-use';
 
-export function About() {
+function About() {
   useTitle('IATI Datastore - About');
-
   return <AboutLayout />;
 }
+
+export default About;

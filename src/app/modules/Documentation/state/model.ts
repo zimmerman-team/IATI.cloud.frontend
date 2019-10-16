@@ -1,4 +1,5 @@
-import { action, Action } from "easy-peasy";
+import { action, Action } from 'easy-peasy';
+import { PostmanRoot } from 'app/modules/Documentation/state/PostmanModel';
 
 export interface RequestModel {
   method: string;
@@ -65,6 +66,7 @@ export type ProtocolProfileBehavior = {
 export interface DocStoreModel {
   collection: Collection;
   request: RequestsModel;
+  postmanData: PostmanRoot;
 }
 
 export interface Collection {

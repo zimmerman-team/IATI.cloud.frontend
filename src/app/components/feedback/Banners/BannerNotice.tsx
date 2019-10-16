@@ -49,6 +49,7 @@ export const BannerNotice = () => (
       <a
         href="https://github.com/zimmerman-zimmerman/iati.cloud/issues/new/choose"
         target="_blank"
+        rel="noopener noreferrer"
         css={`
           color: white;
           text-decoration: underline;
