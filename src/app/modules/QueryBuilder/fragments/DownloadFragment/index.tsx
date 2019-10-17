@@ -18,6 +18,23 @@ export const DownloadFragment = () => {
   const store = ModuleStore.useStore();
 
   const queryURL = useStoreState(state => state.query.url);
+  const rowFormat = store.get('rowFormat');
+  let stringToBeReplaced = 'csv';
+
+  //this is how we do to remove (not remove but leave them blank) JSON strings in CSV output.
+  //this operation is needed only when there is no field specification in the query.
+  if (rowFormat === 'activity' && !queryURL.includes('fl')){
+    stringToBeReplaced = 'csv&fl=*,reporting_org:[value v=""],title:[value v=""],description:[value v=""],description_narrative:[value v=""],participating_org:[value v=""],other_identifier:[value v=""],' +
+      'activity_date:[value v=""],contact_info:[value v=""],recipient_country:[value v=""],recipient_region:[value v=""],location:[value v=""],sector:[value v=""],' +
+      'tag:[value v=""],country_budget_items:[value v=""],humanitarian_scope:[value v=""],policy_marker:[value v=""],default_aid_type:[value v=""],budget:[value v=""],' +
+      'planned_disbursement:[value v=""],transaction:[value v=""],document_link:[value v=""],related_activity:[value v=""],legacy_data:[value v=""],conditions:[value v=""],' +
+      'result_document_link:[value v=""],result_reference:[value v=""],result_indicator:[value v=""],result_indicator_reference:[value v=""],result_indicator_baseline_document_link_title:[value v=""],' +
+      'result_indicator_baseline_document_link_description:[value v=""],fss:[value v=""],crs_add:[value v=""]'
+  }
+
+  if (rowFormat === 'transaction' && !queryURL.includes('fl')){
+    stringToBeReplaced = 'csv&fl=*,reporting_org_narrative:[value v=""],sector:[value v=""]'
+  }
 
   return (
     <Grid container spacing={2} justify="space-between">
@@ -26,14 +43,14 @@ export const DownloadFragment = () => {
       </Grid>
       {/* todo: make re-usable component */}
       <Grid item xs={12} sm={9} md={9}>
-        <URLField text={queryURL.replace('json', 'csv')} />
+        <URLField text={queryURL.replace('json', stringToBeReplaced)} />
       </Grid>
       <Grid item xs={12} sm={3} md={3}>
         <IconButton
           icon={<Download />}
           label="Download CSV"
           onClick={() =>
-            downloadFile(queryURL.replace('json', 'csv'), 'download.csv')
+            downloadFile(queryURL.replace('json', stringToBeReplaced), 'download.csv')
           }
         />
       </Grid>
