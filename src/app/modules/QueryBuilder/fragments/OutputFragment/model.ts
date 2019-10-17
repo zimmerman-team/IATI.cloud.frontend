@@ -78,7 +78,7 @@ export const fragmentConfig: FragmentModel = {
       },
       value: store.get('rowFormat'),
       groupID: 'rowFormat',
-      title: 'Row format',
+      title: 'Choose if you would like to output your data with:',
       tip: 'Row format',
       items: [
         {
