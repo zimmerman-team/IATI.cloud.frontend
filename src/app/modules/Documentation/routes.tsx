@@ -17,7 +17,7 @@ const RouteContainer = styled.div`
 `;
 
 export const DocumentationRoutes = () => {
-  const fetchPostman = useStoreActions(actions => actions.postmanData.fetch);
+  const fetchPostman = useStoreActions(actions => actions.fetch);
 
   useEffectOnce(() => {
     console.log('Running effect once on mount');

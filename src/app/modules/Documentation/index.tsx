@@ -17,15 +17,15 @@ function DocumentationModule() {
       <Header />
       <Container maxWidth="lg">
         <Grid container direction="row">
-          <Grid item md={3}>
+          <Grid item md={4}>
             <DocsideBar />
           </Grid>
-          <Grid item md={5}>
+          <Grid item md={8}>
             <DocumentationRoutes />
           </Grid>
-          <Grid item md={4}>
+          {/*<Grid item md={4}>
             <DocCallPreview />
-          </Grid>
+          </Grid>*/}
         </Grid>
       </Container>
     </StoreProvider>

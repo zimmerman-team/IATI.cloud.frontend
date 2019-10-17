@@ -1,5 +1,15 @@
 import { action, Action } from 'easy-peasy';
-import { PostmanRoot } from 'app/modules/Documentation/state/PostmanModel';
+import { Endpoint } from 'app/state/interfaces/Endpoint';
+import { ApiModel } from 'app/state/api';
+
+export const fetchPostmanDatas: Endpoint = (params: RequestInit = {}) =>
+  fetch(
+    `https://datastore.iati.cloud/backend/static/postman/postman_json.json`,
+    {
+      method: 'GET',
+      ...params,
+    }
+  ).then(res => res.json());
 
 export interface RequestModel {
   method: string;
@@ -63,10 +73,10 @@ export type ProtocolProfileBehavior = {
 };
 
 //cc:joejoejoe
-export interface DocStoreModel {
+export interface DocStoreModel extends ApiModel<Collection> {
   collection: Collection;
   request: RequestsModel;
-  postmanData: PostmanRoot;
+  // postmanData: PostmanRoot;
 }
 
 export interface Collection {

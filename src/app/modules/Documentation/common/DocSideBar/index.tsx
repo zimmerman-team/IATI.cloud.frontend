@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { useStoreState } from 'app/modules/Documentation/state/store';
 import { HashLink } from 'react-router-hash-link';
+import { Root } from 'app/modules/Documentation/state/RootModel';
 
 const CustomLink = styled(props => <NavLink {...props} />)`
   width: 100%;
@@ -77,7 +78,9 @@ export const DocsideBarNavList = styled.div`
 `;
 
 export const DocsideBar = () => {
-  const categories = useStoreState(state => state.collection);
+  // @ts-ignore
+  const data: Root = useStoreState(state => state.data && state.data);
+  const categories = data && data.collection;
 
   return (
     <DocsideBarContainer>
