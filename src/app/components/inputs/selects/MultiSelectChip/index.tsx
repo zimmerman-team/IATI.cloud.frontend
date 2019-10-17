@@ -2,7 +2,6 @@ import React from 'react';
 import Select from 'react-select';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import NoOptionsMessage from './common/NoOptionsMessage';
-import suggestions from './mock';
 import Control from './common/Control';
 import Option from './common/Option';
 import Menu from './common/Menu';
@@ -28,6 +27,7 @@ type MultiSelectChipProps = {
   tooltip?: string;
   className?: string;
   name?: string;
+  /* todo: replace any with more specific types */
   value?: any;
   options?: any;
   onChange?: any;

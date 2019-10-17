@@ -2,11 +2,9 @@
 import React from 'react';
 /* third-party */
 import Grid from '@material-ui/core/Grid';
-import { TextField } from '@material-ui/core';
 /* project component */
 import { AddFilterModule } from 'app/components/utils/Popover';
 import { AsyncSelect } from 'app/components/inputs/selects/AsyncSelect';
-import { ConnectedSelect } from 'app/components/inputs/selects/ConnectedSelect';
 /* utils */
 import get from 'lodash/get';
 import find from 'lodash/find';

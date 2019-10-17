@@ -1,10 +1,15 @@
 import React from 'react';
 import { useStoreState } from 'app/modules/Documentation/state/store';
 import { Box, Grid, Typography } from '@material-ui/core';
-import { useTitle } from 'react-use';
+import { useEffectOnce, useTitle } from 'react-use';
 import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/common/utils/ui';
 import { ApiCallFragment } from 'app/modules/Documentation/common/DocDetail/common/ApiCallFragment';
 import { useParams } from 'react-router';
+import { Root } from 'app/modules/Documentation/state/RootModel';
+import {
+  MainCategoryModel,
+  SubCategory1Model,
+} from 'app/modules/Documentation/state/model';
 
 export const CategoryHeader = ({ category }) => {
   return (
@@ -84,14 +89,26 @@ export const SubCategoryFragment = ({ item }) => (
 /* -------------------------------------------------------------------------- */
 export const DocDetail = () => {
   let { _postman_id } = useParams();
-  const categories = useStoreState(state => state.collection.item);
-  const category = categories.find(
-    category => category._postman_id === _postman_id
-  );
 
-  if (category) {
-    useTitle('API Documentation - ' + category.name);
-  }
+  // @ts-ignore
+  const data: Root = useStoreState(state => state.data && state.data);
+  const categories: MainCategoryModel[] = data && data.collection.item;
+
+  // const categories = useStoreState(state => state.collection.item);
+  // @ts-ignore
+  const category: SubCategory1Model =
+    categories &&
+    categories.find(category => category._postman_id === _postman_id);
+
+  /* if (category) {
+    useEffectOnce(() => {
+      console.log('Running effect once on mount');
+      useTitle('API Documentation - ' + category.name);
+      return () => {
+        console.log('Running clean-up of effect on unmount');
+      };
+    });
+  }*/
 
   return (
     <React.Fragment>
@@ -101,6 +118,7 @@ export const DocDetail = () => {
       {/* -------------------- */}
       {/* map through cattegories */}
       {category &&
+        // @ts-ignore
         category.item.map(item => (
           <SubCategoryFragment item={item} key={item._postman_id} />
         ))}

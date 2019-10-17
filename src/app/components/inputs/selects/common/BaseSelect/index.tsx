@@ -1,7 +1,7 @@
 import React, { ChangeEvent, ReactNode } from 'react';
 import styled from 'styled-components';
 import Select from '@material-ui/core/Select';
-import { Spacing } from 'app/theme/index';
+import { Spacing } from "app/theme";
 import BaseInput from 'app/components/inputs/selects/common/BaseInput';
 
 type SelectProps = {

@@ -1,6 +1,6 @@
 import { getOptionLabel, getOptionValue } from 'react-select/src/builtins';
 import { OrganisationModel } from 'app/state/models';
-import { FragmentBaseModel } from 'app/modules/QueryBuilder/fragments/index';
+import { FragmentBaseModel } from 'app/modules/QueryBuilder/fragments';
 
 type SelectModel = {
   label?: string;

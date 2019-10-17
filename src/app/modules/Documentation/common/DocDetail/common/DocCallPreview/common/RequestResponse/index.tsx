@@ -1,11 +1,11 @@
-import { Box, Button, Grid } from "@material-ui/core";
+import { Box, Button, Grid } from '@material-ui/core';
 // import { response } from 'app/modules/Documentation/common/DocCallPreview/common/RequestExample/response';
 
-import { RequestModel, UrlModel } from "app/modules/Documentation/state/model";
-import { useStoreState } from "app/modules/Documentation/state/store";
-import React from "react";
-import useFetch from "use-http";
-import styled from "styled-components";
+import { RequestModel, UrlModel } from 'app/modules/Documentation/state/model';
+import { useStoreState } from 'app/modules/Documentation/state/store';
+import React from 'react';
+import useFetch from 'use-http';
+import styled from 'styled-components';
 
 const ResponseDiv = styled.div`
   color: white;
@@ -39,8 +39,6 @@ export const RequestResponse = () => {
 
   const [request, response] = useFetch(moddedURL);
   const handleClick = () => request.get();
-
-  // const { data, loading } = useFetch(moddedURL, { onMount: true });
 
   console.log('leggo');
 
