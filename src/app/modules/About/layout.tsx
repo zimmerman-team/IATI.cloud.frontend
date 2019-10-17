@@ -1,7 +1,6 @@
 import React from 'react';
-import { Grid, Box, Container, Typography } from '@material-ui/core';
+import { Box, Container, Typography } from '@material-ui/core';
 import styled from 'styled-components';
-import { Header } from 'app/components/surfaces/Header';
 import { Footer } from 'app/components/surfaces/Footer';
 import { PageContainer } from 'app/modules/common/PageContainer';
 import { ModuleHeader } from 'app/modules/common/ModuleHeader';

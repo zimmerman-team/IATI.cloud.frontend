@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import ArrowForward from '@material-ui/icons/ArrowForward';
 import styled from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 
 type Props = {

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { Spacing } from 'app/theme/index';
+import { Spacing } from 'app/theme';
 
 type Props = {
   label?: string;

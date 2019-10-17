@@ -1,8 +1,9 @@
-import React from "react";
-import { Box, Grid, Typography } from "@material-ui/core";
-import { ApiList } from "app/modules/Documentation/common/DocDetail/common/ApiBaseList";
-import styled from "styled-components";
-import { useStoreState } from "app/modules/Documentation/state/store";
+import React from 'react';
+import { Box, Grid, Typography } from '@material-ui/core';
+import { ApiList } from 'app/modules/Documentation/common/DocDetail/common/ApiBaseList';
+import styled from 'styled-components';
+import { useStoreState } from 'app/modules/Documentation/state/store';
+import { Root } from 'app/modules/Documentation/state/RootModel';
 
 const HeaderH6 = styled.div`
   font-family: Inter;
@@ -16,7 +17,10 @@ const HeaderH6 = styled.div`
 `;
 
 export const DocLanding = () => {
-  const data = useStoreState(state => state.collection);
+  // @ts-ignore
+  const data: Root = useStoreState(state => state.data && state.data);
+  const collection = data && data.collection;
+
   return (
     <>
       <Box width="100%" height="20px" />
@@ -47,7 +51,9 @@ export const DocLanding = () => {
           <Typography variant="h6">Available endpoints</Typography>
         </Grid>
         <Grid item md={12}>
-          <ApiList info={data.info} item={data.item} />
+          {collection && (
+            <ApiList info={collection.info} item={collection.item} />
+          )}
         </Grid>
       </Grid>
       {/* ---------- */}

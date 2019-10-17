@@ -1,8 +1,5 @@
 import React from 'react';
-import { Grid, Box } from '@material-ui/core';
-import { Skeleton } from '@material-ui/lab';
-import { useSize } from 'react-use';
-import styled from 'styled-components';
+import { Grid} from '@material-ui/core';
 import { Skeletor } from 'app/components/utils/Skeletor';
 
 const FilterPlaceholder = () => {

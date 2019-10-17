@@ -1,9 +1,10 @@
-import React from "react";
-import { Box } from "@material-ui/core";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { useStoreState } from "app/modules/Documentation/state/store";
-import { HashLink } from "react-router-hash-link";
+import React from 'react';
+import { Box } from '@material-ui/core';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { useStoreState } from 'app/modules/Documentation/state/store';
+import { HashLink } from 'react-router-hash-link';
+import { Root } from 'app/modules/Documentation/state/RootModel';
 
 const CustomLink = styled(props => <NavLink {...props} />)`
   width: 100%;
@@ -16,7 +17,8 @@ const CustomLink = styled(props => <NavLink {...props} />)`
   font-stretch: normal;
   line-height: 1.5;
   letter-spacing: 0.15px;
-  color: rgb(18, 18, 18);
+
+  color: rgba(1, 1, 10, 0.6);
 
   &:hover {
     color: #25a898;
@@ -76,7 +78,9 @@ export const DocsideBarNavList = styled.div`
 `;
 
 export const DocsideBar = () => {
-  const categories = useStoreState(state => state.collection);
+  // @ts-ignore
+  const data: Root = useStoreState(state => state.data && state.data);
+  const categories = data && data.collection;
 
   return (
     <DocsideBarContainer>

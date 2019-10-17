@@ -1,13 +1,13 @@
-import React, { Suspense, lazy, useEffect } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { PageLoader } from 'app/modules/common/PageLoader';
 import { useStoreActions } from 'app/state/store';
 import { useEffectOnce } from 'react-use';
-import { About } from 'app/modules/About';
-import { DocumentationModule } from 'app/modules/Documentation';
 
+const AboutModule = lazy(() => import('app/modules/About'));
 const LandingModule = lazy(() => import('app/modules/Landing'));
 const QueryBuilderModule = lazy(() => import('app/modules/QueryBuilder'));
+const DocumentationModule = lazy(() => import('app/modules/Documentation'));
 
 export function MainRoutes() {
   /* todo: refactor, doesn't quite feel right to do initiate the fetches like this */
@@ -73,7 +73,7 @@ export function MainRoutes() {
           <DocumentationModule />
         </Route>
         <Route exact path="/about">
-          <About />
+          <AboutModule />
         </Route>
       </Switch>
     </Suspense>

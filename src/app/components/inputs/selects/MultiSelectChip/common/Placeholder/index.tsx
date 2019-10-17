@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { PlaceholderProps } from 'react-select/src/components/Placeholder';
-import { Palette } from 'app/theme';
 import styled from 'styled-components';
 
 interface OptionType {

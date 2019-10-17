@@ -75,7 +75,7 @@ export const getActivityStatus: Endpoint = (params: RequestInit = {}) =>
   }).then(res => res.json());
 
 export const getParticipatingOrgs: Endpoint = (params: RequestInit = {}) =>
-  fetch('/' + PARTICIPATING_ORGS, {
+  fetch(`/${PARTICIPATING_ORGS}`, {
     // todo: add HOSTNAME when retrieve data from API
     method: 'GET',
     ...params,
@@ -122,7 +122,7 @@ export const getAidTypeVocabulary: Endpoint = (params: RequestInit = {}) =>
   }).then(res => res.json());
 
 export const getDefaultCurrency: Endpoint = (params: RequestInit = {}) =>
-  fetch(HOSTNAME + DEFAULT_CURRENCY,{
+  fetch(HOSTNAME + DEFAULT_CURRENCY, {
     method: 'GET',
     ...params,
   }).then(res => res.json());
@@ -140,68 +140,70 @@ export const getDefaultFlowType: Endpoint = (params: RequestInit = {}) =>
   }).then(res => res.json());
 
 export const getHierarchy: Endpoint = (params: RequestInit = {}) =>
-  fetch('/' + HIERARCHY,{
-    method: 'GET'
+  fetch(`/${HIERARCHY}`, {
+    method: 'GET',
   }).then(res => res.json());
 
 export const getFinanceType: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + FINANCE_TYPE, {
-    method: 'GET'
+    method: 'GET',
   }).then(res => res.json());
 
 export const getTiedStatus: Endpoint = (params: RequestInit = {}) =>
-    fetch(HOSTNAME + TIED_STATUS, {
-      method: 'GET'
-    }).then(res => res.json());
+  fetch(HOSTNAME + TIED_STATUS, {
+    method: 'GET',
+  }).then(res => res.json());
 
 export const getTransactionType: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + TRANSACTION_TYPE, {
-    method: 'GET'
+    method: 'GET',
   }).then(res => res.json());
 
 export const getdocumentLinkCategory: Endpoint = (params: RequestInit = {}) =>
-  fetch(HOSTNAME + DOCUMENT_LINK_CATEGORY,{
-    method: 'GET'
+  fetch(HOSTNAME + DOCUMENT_LINK_CATEGORY, {
+    method: 'GET',
   }).then(res => res.json());
 
 export const getIatiVersion: Endpoint = (params: RequestInit = {}) =>
-  fetch('/' + IATI_VERSION,{
-    method: 'GET'
+  fetch(`/${IATI_VERSION}`, {
+    method: 'GET',
   }).then(res => res.json());
 
 export const getLanguage: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + LANGUAGE, {
-    method: 'GET'
+    method: 'GET',
   }).then(res => res.json());
 
 export const getTransactionFlowType: Endpoint = (params: RequestInit = {}) =>
-  fetch(HOSTNAME + TRANSACTION_FLOW_TYPE,{
-    method: 'GET'
+  fetch(HOSTNAME + TRANSACTION_FLOW_TYPE, {
+    method: 'GET',
   }).then(res => res.json());
 
 export const getTransactionTiedStatus: Endpoint = (params: RequestInit = {}) =>
-  fetch(HOSTNAME + TRANSACTION_TIED_STATUS,{
-    method: 'GET'
+  fetch(HOSTNAME + TRANSACTION_TIED_STATUS, {
+    method: 'GET',
   }).then(res => res.json());
 
 export const getHumanitarian: Endpoint = (params: RequestInit = {}) =>
-  fetch('/data/humanitarian.json',{
-    method: 'GET'
+  fetch('/data/humanitarian.json', {
+    method: 'GET',
   }).then(res => res.json());
 
-export const getTransactionHumanitarian: Endpoint = (params: RequestInit = {}) =>
-  fetch('/data/humanitarian.json',{
-    method: 'GET'
+export const getTransactionHumanitarian: Endpoint = (
+  params: RequestInit = {}
+) =>
+  fetch('/data/humanitarian.json', {
+    method: 'GET',
   }).then(res => res.json());
 
 export const getOtherIdentifierType: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + OTHER_IDENTIFIER_TYPE, {
-    method: 'GET'
+    method: 'GET',
   }).then(res => res.json());
 
 export const getSecondaryReporter: Endpoint = (params: RequestInit = {}) =>
   fetch('/data/secondary_reporter.json', {
-    method: 'GET'
+    method: 'GET',
   }).then(res => res.json());
 
 const getData = (params: RequestInit = {}, host: string, path: number) =>
