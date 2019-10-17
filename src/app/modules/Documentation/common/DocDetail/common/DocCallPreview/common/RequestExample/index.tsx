@@ -1,10 +1,29 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-
 import SyntaxHighlighter from "react-syntax-highlighter";
-// import { monokaiSublime } from 'react-syntax-highlighter/dist/styles/hljs';
 import { useStoreState } from "app/modules/Documentation/state/store";
 import { RequestModel, UrlModel } from "app/modules/Documentation/state/model";
+import styled from 'styled-components';
+
+
+const ElementOne = styled.div`
+  color: white;
+  padding: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+`;
+
+const ElementTwo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ELementThree = styled.div`
+  padding: 20px;
+  color: white;
+  padding-top: 0;
+  padding-bottom: 0;
+`;
 
 export const RequestExample = () => {
   const request: RequestModel = useStoreState(
@@ -17,33 +36,12 @@ export const RequestExample = () => {
     <Grid container>
       {/* header */}
       <Grid item md={12}>
-        <div
-          css={`
-            color: white;
-            padding: 20px;
-            padding-top: 0;
-            padding-bottom: 0;
-          `}
-        >
-          Example request
-        </div>
+        <ElementOne>Example request</ElementOne>
       </Grid>
       {/* content */}
       <Grid item md={12}>
-        <div
-          css={`
-            display: flex;
-            flex-direction: column;
-          `}
-        >
-          <div
-            css={`
-              padding: 20px;
-              color: white;
-              padding-top: 0;
-              padding-bottom: 0;
-            `}
-          >
+        <ElementTwo>
+          <ELementThree>
             <SyntaxHighlighter
               css={`
                 /* todo: optimal fontsize */
@@ -64,8 +62,8 @@ export const RequestExample = () => {
                   // 'https://test-datastore.iatistandard.org'
                 )}
             </SyntaxHighlighter>
-          </div>
-        </div>
+          </ELementThree>
+        </ElementTwo>
       </Grid>
     </Grid>
   );

@@ -15,25 +15,25 @@ const ParameterList = styled.div`
   padding: 0;
 `;
 
+const ParameterListItem = styled.li`
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  div {
+    font-size: 14px;
+    &:first-child {
+      font-weight: bold;
+      width: 50%;
+    }
+  }
+`;
+
 export const ApiCallParamItem = ({ data }) => {
   return (
-    <li
-      css={`
-        display: flex;
-        width: 100%;
-        margin-bottom: 10px;
-        div {
-          font-size: 14px;
-          &:first-child {
-            font-weight: bold;
-            width: 50%;
-          }
-        }
-      `}
-    >
+    <ParameterListItem>
       <div>{data.key}</div>
       <div>{data.value}</div>
-    </li>
+    </ParameterListItem>
   );
 };
 

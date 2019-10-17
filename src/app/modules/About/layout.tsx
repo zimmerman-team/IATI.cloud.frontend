@@ -14,18 +14,18 @@ const Section = styled.section`
   margin-bottom: calc(60px - 8px);
 `;
 
+const ContainerDiv = styled.div`
+  height: calc(100vh - 290px);
+  overflow-y: scroll;
+`;
+
 export const AboutLayout = () => {
   return (
     <PageContainer footer>
       <ModuleHeader title="About the new Datastore" />
 
       <Box width="100%" height="40px" />
-      <div
-        css={`
-          height: calc(100vh - 290px);
-          overflow-y: scroll;
-        `}
-      >
+      <ContainerDiv>
         <Container maxWidth="lg" style={{ paddingBottom: '8px' }}>
           {/* Appbar component needs a refactor, therefore not in this PR.*/}
           {/* INTRODUCTION*/}
@@ -70,7 +70,7 @@ export const AboutLayout = () => {
                   href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"
                   target="_blank"
                 >
-                   version 1 by IATI members
+                  version 1 by IATI members
                 </a>
                 , which was implemented July 2019.
               </Typography>
@@ -93,7 +93,6 @@ export const AboutLayout = () => {
               </Typography>
             </Paragraph>
           </Section>
-
 
           {/* What can I do with the IATI Datastore? */}
           <Section>
@@ -146,9 +145,16 @@ export const AboutLayout = () => {
             </Typography>
             <Paragraph>
               <Typography variant="body1">
-                The <a href="https://test-datastore.iatistandard.org/querybuilder/core-filters" target="_blank">Query builder</a> allows users to build common queries through a
-                series of drop down and freetext filters.
-                  </Typography>
+                The{' '}
+                <a
+                  href="https://test-datastore.iatistandard.org/querybuilder/core-filters"
+                  target="_blank"
+                >
+                  Query builder
+                </a>{' '}
+                allows users to build common queries through a series of drop
+                down and freetext filters.
+              </Typography>
             </Paragraph>
           </Section>
 
@@ -213,7 +219,7 @@ export const AboutLayout = () => {
         </Container>
 
         <Footer />
-      </div>
+      </ContainerDiv>
     </PageContainer>
   );
 };

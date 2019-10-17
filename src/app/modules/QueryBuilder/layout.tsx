@@ -8,6 +8,7 @@ import { Box, Grid } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { QueryBuilderRoutes } from 'app/modules/QueryBuilder/routes';
 import { ModuleHeader } from 'app/modules/common/ModuleHeader';
+import styled from 'styled-components';
 /* config & mock */
 export type NavButtonModel = {
   label: string;
@@ -61,6 +62,11 @@ export const NavigationButton = (props: NavButtonModel) => {
   );
 };
 
+const StepNavigatorContainer = styled.div`
+  height: calc(100vh - 363px);
+  overflow-y: scroll;
+`;
+
 export const QueryBuilderLayout = () => {
   /* reference to the module store which is passed onto the fragments */
 
@@ -73,12 +79,7 @@ export const QueryBuilderLayout = () => {
       />
 
       {/* step navigator */}
-      <div
-        css={`
-          height: calc(100vh - 363px);
-          overflow-y: scroll;
-        `}
-      >
+      <StepNavigatorContainer>
         <Container maxWidth="lg">
           <Grid container>
             <Box height="40px" width="100%" />
@@ -114,7 +115,7 @@ export const QueryBuilderLayout = () => {
             <Box height="40px" width="100%" />
           </Grid>
         </Container>
-      </div>
+      </StepNavigatorContainer>
     </PageContainer>
   );
 };

@@ -7,6 +7,19 @@ import App from 'app';
 import * as serviceWorker from 'serviceWorker';
 import * as _ from 'styled-components/cssprop';
 
+import LogRocket from 'logrocket';
+LogRocket.init('zimmerman-zimmerman/querybuilder');
+
+LogRocket.identify('JIM_FUNG', {
+  name: 'Jin Fung',
+  email: 'jim@fung.io',
+});
+//
+// import Reactotron from 'reactotron-react-js';
+//
+// Reactotron.configure() // we can use plugins here -- more on this later
+//   .connect();
+
 const rootElement = document.getElementById('root');
 
 if (rootElement != null) {

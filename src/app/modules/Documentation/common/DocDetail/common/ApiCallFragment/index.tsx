@@ -1,38 +1,28 @@
-import React from "react";
-import { Box, Grid, Typography } from "@material-ui/core";
-import { ApiItemDivider } from "app/modules/Documentation/common/DocDetail/common/utils/ui";
-import { ApiCallParamList } from "app/modules/Documentation/common/DocDetail/common/ApiParameterList";
-import { useVisible } from "react-hooks-visible";
-import styled from "styled-components";
-import { useStoreActions } from "app/modules/Documentation/state/store";
+import React from 'react';
+import { Box, Grid, Typography } from '@material-ui/core';
+import { useVisible } from 'react-hooks-visible';
+import { useClipboard } from 'use-clipboard-copy';
 
-const CallHeader = styled.div`
-  display: flex;
-  font-size: 18px;
-  font-weight: 500;
-`;
-const MethodType = styled.div`
-  margin-right: 10px;
-  color: green;
-`;
-
-const CallContainer = styled.div`
-  background-color: #f0f3f7;
-  padding: 10px;
-  overflow: hidden;
-  overflow-wrap: break-word;
-`;
-
-const Code = styled.code`
-  font-size: 12px;
-  color: rgba(34, 34, 34, 0.38);
-`;
+import { useStoreActions } from 'app/modules/Documentation/state/store';
+import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/common/utils/ui';
+import { ApiCallParamList } from 'app/modules/Documentation/common/DocDetail/common/ApiParameterList';
+import { Code } from './Code';
+import { CallContainer } from './CallContainer';
+import { MethodType } from './MethodType';
+import { CallHeader } from './CallHeader';
+import styled from 'styled-components';
 
 /* -------------------------------------------------------------------------- */
 /* ApiCallFragment */
 /* -------------------------------------------------------------------------- */
 
+const CopySignal = styled.div`
+  color: green;
+  margin-left: 10px;
+`;
+
 export const ApiCallFragment = data => {
+  const clipboard = useClipboard({ copiedTimeout: 600 });
   const parsed = data.data;
   const request = parsed.request;
   const targetURL = 'https://test-datastore.iatistandard.org';
@@ -46,13 +36,18 @@ export const ApiCallFragment = data => {
     }
   );
 
-  if (percent > 99) {
-    if (targetRef.current) {
-      if (request) {
-        showRequest(request);
-      }
-    }
-  }
+  // if (percent > 99) {
+  //   if (targetRef.current) {
+  //     if (request) {
+  //       showRequest(request);
+  //     }
+  //   }
+  // }
+
+  const handleClick = React.useCallback(() => {
+    const url = request.url.raw.replace('{{url}}', targetURL);
+    clipboard.copy(url); // programmatically copying a value
+  }, [clipboard.copy]);
 
   return (
     <Grid
@@ -69,16 +64,20 @@ export const ApiCallFragment = data => {
           <CallHeader>
             {request && <MethodType>{request.method}</MethodType>}
             <div>{parsed.name}</div>
+            <CopySignal>{clipboard.copied ? 'Copied' : ''}</CopySignal>
           </CallHeader>
         </Grid>
 
         {/* call url */}
         {request && (
-          <Grid item md={12}>
-            <CallContainer>
-              <Code>{request.url.raw.replace('{{url}}', targetURL)}</Code>
-            </CallContainer>
-          </Grid>
+          <>
+            <Grid item md={12}>
+              <CallContainer onClick={handleClick}>
+                <Code>{request.url.raw.replace('{{url}}', targetURL)}</Code>
+              </CallContainer>
+            </Grid>
+            <Grid item md={12}></Grid>
+          </>
         )}
 
         {/* parameter description */}

@@ -77,6 +77,19 @@ export const DocsideBarNavList = styled.div`
   align-items: flex-start;
 `;
 
+const CategoryContainer = styled.div`
+  margin-bottom: 20px;
+`;
+
+const ItemContainer = styled.div`
+  margin-bottom: 10px;
+  padding-left: 10px;
+`;
+
+const SubItemContainer = styled.div`
+  padding-left: 10px;
+`;
+
 export const DocsideBar = () => {
   // @ts-ignore
   const data: Root = useStoreState(state => state.data && state.data);
@@ -95,12 +108,7 @@ export const DocsideBar = () => {
         {/* main */}
         {categories &&
           categories.item.map(item => (
-            <div
-              css={`
-                margin-bottom: 20px;
-              `}
-              key={item._postman_id}
-            >
+            <CategoryContainer key={item._postman_id}>
               <CustomLink to={item._postman_id + '#' + item.name}>
                 {item.name}
               </CustomLink>
@@ -108,13 +116,7 @@ export const DocsideBar = () => {
               {/* sub 1 */}
               {item.item &&
                 item.item.map(subItem1 => (
-                  <div
-                    css={`
-                      margin-bottom: 10px;
-                      padding-left: 10px;
-                    `}
-                    key={subItem1._postman_id}
-                  >
+                  <ItemContainer key={subItem1._postman_id}>
                     {subItem1._postman_isSubFolder ? (
                       <SubLink1
                         css={`
@@ -134,12 +136,7 @@ export const DocsideBar = () => {
                     {/* sub 2 */}
                     {subItem1.item &&
                       subItem1.item.map(subItem2 => (
-                        <div
-                          key={subItem2._postman_id}
-                          css={`
-                            padding-left: 10px;
-                          `}
-                        >
+                        <SubItemContainer key={subItem2._postman_id}>
                           {subItem2._postman_isSubFolder ? (
                             <SubLink2
                               css={`
@@ -160,24 +157,19 @@ export const DocsideBar = () => {
                           {/* sub 3 */}
                           {subItem2.item &&
                             subItem2.item.map(subItem3 => (
-                              <div
-                                key={subItem3._postman_id}
-                                css={`
-                                  padding-left: 10px;
-                                `}
-                              >
+                              <SubItemContainer key={subItem3._postman_id}>
                                 <SubLink3
                                   to={item._postman_id + '#' + subItem3.name}
                                 >
                                   {subItem3.name}
                                 </SubLink3>
-                              </div>
+                              </SubItemContainer>
                             ))}
-                        </div>
+                        </SubItemContainer>
                       ))}
-                  </div>
+                  </ItemContainer>
                 ))}
-            </div>
+            </CategoryContainer>
           ))}
       </DocsideBarNavList>
     </DocsideBarContainer>

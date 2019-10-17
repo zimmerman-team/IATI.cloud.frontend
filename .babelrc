@@ -12,6 +12,7 @@
     "@babel/plugin-proposal-throw-expressions",
     "@babel/plugin-transform-react-inline-elements",
     "@babel/plugin-transform-runtime",
-    "babel-plugin-styled-components"
+    "babel-plugin-styled-components",
+    "add-react-displayname"
   ]
 }

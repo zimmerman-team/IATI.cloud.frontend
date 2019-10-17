@@ -471,5 +471,13 @@
         "workspaceRoot": "/Users/zimmerman-jim/Documents/projects/zimmerman/oipa-query-builder",
         "workspacePath": "src/app/modules/QueryBuilder/steps/results",
         "id": "SWd6G3a9RcVD2hFj"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/zimmerman-jim/Documents/projects/zimmerman/oipa-query-builder/src/app/modules/Documentation",
+        "parent_id": null,
+        "workspaceRoot": "/Users/zimmerman-jim/Documents/projects/zimmerman/oipa-query-builder",
+        "workspacePath": "src/app/modules/Documentation",
+        "id": "oDSkR3yp08H4iz2a"
     }
 ]
