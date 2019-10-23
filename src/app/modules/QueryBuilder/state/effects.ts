@@ -313,8 +313,71 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
     const modifiedFields = (): string[] | null => {
-      if (fields !== null && fields.includes('transaction_value')) {
-        fields.push('transaction_value_currency');
+      if (fields !== null ) {
+        if(fields.includes('transaction_value')) {
+          fields.push('transaction_value_currency');
+        }
+        fields.forEach((item,i)=>{
+          switch(item){
+            case('reporting_org'):
+              fields[i] = 'reporting_org_*';
+              break;
+
+            case('title'):
+              fields[i] = 'title_*';
+              break;
+
+            case('description'):
+              fields[i] = 'description_*';
+              break;
+
+            case('participating_org'):
+              fields[i] = 'participating_org_*';
+              break;
+
+            case('activity_date'):
+              fields[i] = 'activity_date_*';
+              break;
+
+            case('contact_info'):
+              fields[i] = 'contact_info_*';
+              break;
+
+            case('recipient_country'):
+              fields[i] = 'recipient_country_*';
+              break;
+
+            case('location'):
+              fields[i] = 'location_*';
+              break;
+
+            case('humanitarian_scope'):
+              fields[i] = 'humanitarian_scope_*';
+              break;
+
+            case('default_aid_type'):
+              fields[i] = 'default_aid_type_*';
+              break;
+
+            case('planned_disbursement'):
+              fields[i] = 'planned_disbursement_*';
+              break;
+
+            case('transaction'):
+              fields[i] = 'transaction_*';
+              break;
+
+            case('document_link'):
+              fields[i] = 'document_link_*';
+              break;
+
+            case('related_activity'):
+              fields[i] = 'related_activity_*';
+              break;
+
+          }
+        });
+
       }
       return fields;
     };
