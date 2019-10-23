@@ -22,12 +22,13 @@ const IconTextInput = (props: Props) => {
     <React.Fragment>
       {props.label && <FieldInputLabel label={props.label} />}
       <FieldBackdrop>
-        <Box marginLeft={Spacing.inputSideSpacing}>
+        <Box marginLeft={Spacing.inputSideSpacing} width="100%">
           <InputBase
             placeholder={props.placeholder ? props.placeholder : 'Empty'}
             inputProps={{ 'aria-label': 'Placeholder text' }}
             value={props.value}
             onChange={props.onChange}
+            style={{ width: '100%' }}
           />
         </Box>
 
