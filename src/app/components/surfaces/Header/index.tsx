@@ -11,7 +11,7 @@ export const Header = (props: HeaderModel) => {
     <Background>
       <Container maxWidth={'lg'}>
         <Grid container justify="center">
-          <Grid item md={12}>
+          <Grid item xs={12} md={12}>
             <AppBar />
             {props.children && (
               <>

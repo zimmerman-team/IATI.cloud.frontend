@@ -1,4 +1,4 @@
-export type FragmentBaseModel = {
+export interface FragmentBaseModel {
   name: string;
   description?: string;
-};
+}

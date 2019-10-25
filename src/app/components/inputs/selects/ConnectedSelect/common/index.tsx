@@ -121,7 +121,7 @@ export const Control = () => ({
   display: 'flex',
   alignItems: 'center',
   padding: 0,
-  paddingLeft: '8px',
+  // paddingLeft: '8px',
   margin: 0,
 });
 

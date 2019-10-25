@@ -7,7 +7,7 @@ import { Grid } from '@material-ui/core';
 import { SimpleSelect } from 'app/components/inputs/selects/SimpleSelect';
 import { DateField } from 'app/components/inputs/textinputs/DateInputField';
 import { ConnectedSelect } from 'app/components/inputs/selects/ConnectedSelect';
-import { fragmentConfig } from 'app/modules/QueryBuilder/steps/core-filters/model';
+import { fragmentConfig } from 'app/modules/QueryBuilder/fragments/core-filters/model';
 /* utils */
 import get from 'lodash/get';
 import { useStoreState } from 'app/state/store';
@@ -175,9 +175,10 @@ export const CoreFiltersFragment = () => {
           justify-content: flex-end;
           width: 100%;
           margin-top: 50px;
+          padding: 16px;
         `}
       >
-        <Grid item md={2}>
+        <Grid item xs={4} md={2}>
           <Link to="/querybuilder/additional-filters">
             <TextButton label="Next" />
           </Link>

@@ -10,7 +10,7 @@ import {
   fragmentConfig,
   getActivityOptions,
   getTransactionOptions,
-} from 'app/modules/QueryBuilder/steps/output-format/common/OutputFragment/model';
+} from 'app/modules/QueryBuilder/fragments/output-format/model';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
 import { Link } from 'react-router-dom';
@@ -63,9 +63,10 @@ export const OutputFragment = () => {
           justify-content: flex-end;
           width: 100%;
           margin-top: 50px;
+          padding: 16px;
         `}
       >
-        <Grid item md={2}>
+        <Grid item xs={4} md={2}>
           <Link to="/querybuilder/results">
             <TextButton label="Next" />
           </Link>

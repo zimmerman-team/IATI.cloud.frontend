@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography, useTheme } from '@material-ui/core';
 import { Header } from 'app/components/surfaces/Header';
+import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
 
 type ModuleModel = {
   title?: string;
@@ -8,12 +9,15 @@ type ModuleModel = {
 };
 
 export const ModuleHeader = (props: ModuleModel) => {
+  const theme = useTheme();
+  const md = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
     <Header>
       <Grid container>
-        <Grid item xs={6}>
+        <Grid item xs={12} lg={6}>
           {props.title && (
-            <Typography variant="h4" color="textSecondary">
+            <Typography variant={md ? 'h6' : 'h4'} color="textSecondary">
               {props.title}
             </Typography>
           )}

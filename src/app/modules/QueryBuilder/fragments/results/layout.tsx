@@ -8,10 +8,12 @@ import Download from '@material-ui/icons/GetApp';
 import { URLField } from 'app/components/inputs/textdisplay/URLField';
 import { IconButton } from 'app/components/inputs/buttons/IconButton';
 /* config & mock */
-import { downloadFile } from 'app/modules/QueryBuilder/steps/results/common/DownloadFragment/util';
-import { fragmentConfig } from 'app/modules/QueryBuilder/steps/results/common/DownloadFragment/model';
+import { downloadFile } from 'app/modules/QueryBuilder/fragments/results/util';
+import { fragmentConfig } from 'app/modules/QueryBuilder/fragments/results/model';
 import { useStoreState } from 'app/state/store';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 export const DownloadFragment = () => {
   /* get query url from app store */
@@ -20,6 +22,10 @@ export const DownloadFragment = () => {
   const queryURL = useStoreState(state => state.query.url);
   const rowFormat = store.get('rowFormat');
   let stringToBeReplaced = 'csv';
+
+  const theme = useTheme();
+  const md = useMediaQuery(theme.breakpoints.down('md'));
+  // const md = useMediaQuery('(min-width:768px)');
 
   //this is how we do to remove (not remove but leave them blank) JSON strings in CSV output.
   //this operation is needed only when there is no field specification in the query.
@@ -44,13 +50,13 @@ export const DownloadFragment = () => {
         <Typography variant="subtitle1">{fragmentConfig.name}</Typography>
       </Grid>
       {/* todo: make re-usable component */}
-      <Grid item xs={12} sm={9} md={9}>
+      <Grid item xs={12} md={10} lg={9}>
         <URLField text={queryURL.replace('json', stringToBeReplaced)} />
       </Grid>
-      <Grid item xs={12} sm={3} md={3}>
+      <Grid item xs={4} md={2} lg={3} justify="flex-end">
         <IconButton
           icon={<Download />}
-          label="Download CSV"
+          label={md ? 'CSV' : 'Download CSV'}
           onClick={() =>
             downloadFile(
               queryURL.replace('json', stringToBeReplaced),
@@ -59,40 +65,29 @@ export const DownloadFragment = () => {
           }
         />
       </Grid>
-      <Grid item xs={12} sm={9} md={9}>
+      <Grid item xs={12} md={10} lg={9}>
         <URLField text={queryURL} />
       </Grid>
-      <Grid item xs={12} sm={3} md={3}>
+      <Grid item xs={4} md={2} lg={3}>
         <IconButton
           icon={<Download />}
-          label="Download JSON"
+          label={md ? 'JSON' : 'Download JSON'}
           onClick={() => downloadFile(queryURL, 'download.json')}
         />
       </Grid>
-      <Grid item xs={12} sm={9} md={9}>
+      <Grid item xs={12} md={10} lg={9}>
         <URLField text={queryURL.replace('json', 'xml')} />
       </Grid>
-      <Grid item xs={12} sm={3} md={3}>
+      <Grid item xs={4} md={2} lg={3}>
         <IconButton
           icon={<Download />}
-          label="Download XML"
+          label={md ? 'XML' : 'Download XML'}
           onClick={() =>
             downloadFile(queryURL.replace('json', 'xml'), 'download.xml')
           }
         />
       </Grid>
-      {/* <Grid item xs={12} sm={9} md={9}>
-        <URLField text={queryURL.replace('json', 'xlsx')} />
-      </Grid>
-      <Grid item xs={12} sm={3} md={3}>
-        <IconButton
-          icon={<Download />}
-          label="Download XLS"
-          onClick={() =>
-            downloadFile(queryURL.replace('json', 'xlsx'), 'download.xls')
-          }
-        />
-      </Grid> */}
+
       {/* ---------------------------------------------------------------------------------------------------------- */}
       {/* DEBUG */}
 

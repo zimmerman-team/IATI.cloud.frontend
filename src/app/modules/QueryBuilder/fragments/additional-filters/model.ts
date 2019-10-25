@@ -1,4 +1,4 @@
-import { FragmentBaseModel } from 'app/modules/QueryBuilder/fragments';
+import { FragmentBaseModel } from 'app/modules/QueryBuilder/fragments/index';
 
 export const fragmentConfig: FragmentBaseModel = {
   name: 'Filters',

@@ -1,7 +1,7 @@
 /* core */
 import React from 'react';
 /* project component */
-import { AddFilterModule } from 'app/modules/QueryBuilder/steps/additional-filters/common/FilterFragment/common/AddFilterModule';
+import { AddFilterModule } from 'app/modules/QueryBuilder/fragments/additional-filters/common/AddFilterModule';
 
 export const additionalFiltersPopData = [
   [

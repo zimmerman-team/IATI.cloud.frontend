@@ -3,7 +3,7 @@ import { Box } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import { NavButtonModel } from './layout';
+import { NavButtonModel } from 'app/modules/QueryBuilder/layout';
 export const NavigationButton = (props: NavButtonModel) => {
   const theme = useTheme();
   const md = useMediaQuery(theme.breakpoints.up('md'));

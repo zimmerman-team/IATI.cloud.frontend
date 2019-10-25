@@ -1,4 +1,8 @@
-import { activityOptions, groupedOptions, transactionOptions } from 'app/modules/QueryBuilder/steps/output-format/common/OutputFragment/consts';
+import {
+  activityOptions,
+  groupedOptions,
+  transactionOptions,
+} from 'app/modules/QueryBuilder/fragments/output-format/consts';
 import { FragmentBaseModel } from 'app/modules/QueryBuilder/fragments';
 
 interface FragmentModel extends FragmentBaseModel {

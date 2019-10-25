@@ -9,7 +9,7 @@ import { AsyncSelect } from 'app/components/inputs/selects/AsyncSelect';
 import get from 'lodash/get';
 import find from 'lodash/find';
 import { useStoreState } from 'app/state/store';
-import { additionalFiltersPopData } from 'app/modules/QueryBuilder/steps/additional-filters/common/FilterFragment/consts';
+import { additionalFiltersPopData } from 'app/modules/QueryBuilder/fragments/additional-filters/consts';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import IconTextInput from 'app/components/inputs/textinputs/IconTextInputFIeld';
 import { Add } from '@material-ui/icons';
@@ -134,9 +134,10 @@ export const FilterFragment = () => {
           justify-content: flex-end;
           width: 100%;
           margin-top: 50px;
+          padding: 16px;
         `}
       >
-        <Grid item md={2}>
+        <Grid item xs={4} md={2}>
           <Link to="/querybuilder/output-format">
             <TextButton label="Next" />
           </Link>
