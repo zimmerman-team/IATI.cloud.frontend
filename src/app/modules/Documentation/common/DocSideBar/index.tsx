@@ -1,94 +1,19 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import Box from '@material-ui/core/Box';
+import SearchIcon from '@material-ui/icons/Search';
 import { useStoreState } from 'app/modules/Documentation/state/store';
-import { HashLink } from 'react-router-hash-link';
 import { Root } from 'app/modules/Documentation/state/RootModel';
-
-const CustomLink = styled(props => <NavLink {...props} />)`
-  width: 100%;
-  margin-bottom: 20px;
-  height: 24px;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: 0.15px;
-
-  color: rgba(1, 1, 10, 0.6);
-
-  &:hover {
-    color: #25a898;
-  }
-`;
-
-const CustomLink2 = styled(props => <HashLink {...props} />)`
-  width: 100%;
-  margin-bottom: 20px;
-  height: 24px;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: 0.15px;
-  color: rgb(18, 18, 18);
-
-  &:hover {
-    color: #25a898;
-  }
-`;
-
-const SubLink1 = styled(props => <CustomLink2 {...props} />)`
-  font-size: 14px;
-  color: rgb(85, 85, 85);
-`;
-
-const SubLink2 = styled(props => <CustomLink2 {...props} />)`
-  font-size: 12px;
-  color: rgb(127, 127, 127);
-`;
-
-const SubLink3 = styled(props => <CustomLink2 {...props} />)`
-  font-size: 10px;
-  color: rgb(163, 163, 163);
-`;
-
-export const DocsideBarContainer = styled.div`
-  &&& {
-    padding-left: 20px;
-    padding-bottom: 0;
-    background-color: #f0f3f7;
-    position: sticky;
-    top: 187px;
-    height: calc(100vh - 187px);
-    overflow-y: scroll;
-  }
-`;
-
-export const DocsideBarNavList = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-`;
-
-const CategoryContainer = styled.div`
-  margin-bottom: 20px;
-`;
-
-const ItemContainer = styled.div`
-  margin-bottom: 10px;
-  padding-left: 10px;
-`;
-
-const SubItemContainer = styled.div`
-  padding-left: 10px;
-`;
+import { CustomLink } from 'app/modules/Documentation/common/DocSideBar/common/ui/CustomLink';
+import { SubLink1 } from 'app/modules/Documentation/common/DocSideBar/common/ui/SubLink1';
+import { SubLink2 } from 'app/modules/Documentation/common/DocSideBar/common/ui/SubLink2';
+import { SubLink3 } from 'app/modules/Documentation/common/DocSideBar/common/ui/SubLink3';
+import { DocsideBarContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/DocsideBarContainer';
+import { DocsideBarNavList } from 'app/modules/Documentation/common/DocSideBar/common/ui/DocsideBarNavList';
+import { CategoryContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/CategoryContainer';
+import { ItemContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/ItemContainer';
+import { SubItemContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/SubItemContainer';
+import { ApiDocSearchBoxContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/ApiDocSearchBoxContainer';
+import { ApiDocSearchInput } from 'app/modules/Documentation/common/DocSideBar/common/ui/ApiDocSearchInput';
 
 export const DocsideBar = () => {
   // @ts-ignore
@@ -97,6 +22,18 @@ export const DocsideBar = () => {
 
   return (
     <DocsideBarContainer>
+      <Box height={'25px'} />
+      <ApiDocSearchBoxContainer>
+        <ApiDocSearchInput
+          placeholder="Search"
+          inputProps={{ 'aria-label': 'search' }}
+        />
+        <SearchIcon
+          css={`
+            color: #a1aebd;
+          `}
+        />
+      </ApiDocSearchBoxContainer>
       <Box height="20px" />
       <CustomLink key="Introduction" to="/documentation/introduction">
         Introduction

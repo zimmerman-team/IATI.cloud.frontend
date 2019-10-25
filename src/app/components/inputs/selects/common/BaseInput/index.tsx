@@ -9,8 +9,6 @@ const BaseComponent = styled(props => <InputBase {...props} />)`
   }
 `;
 
-const BaseInput = props => {
+export const BaseInput = props => {
   return <BaseComponent {...props} />;
 };
-
-export default BaseInput;

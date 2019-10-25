@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import Component from '@material-ui/core/Chip';
-import IconChipDelete from 'app/assets/icons/IconChipDelete';
+import { IconChipDelete } from 'app/assets/icons/IconChipDelete';
 import styled from 'styled-components';
 
 type Props = {
@@ -28,7 +28,7 @@ const BaseComponent = styled(props => <Component {...props} />)`
   }
 `;
 
-const Chip = (props: Props) => {
+export const Chip = (props: Props) => {
   function handleDelete() {
     console.log('You clicked the delete icon.');
   }
@@ -48,5 +48,3 @@ const Chip = (props: Props) => {
     />
   );
 };
-
-export default Chip;

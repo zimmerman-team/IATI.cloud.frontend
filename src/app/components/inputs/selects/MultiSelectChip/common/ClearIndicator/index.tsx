@@ -5,12 +5,10 @@ interface OptionType {
   children?: ReactNode;
 }
 
-const ClearIndicator = (props: OptionType) => {
+export const ClearIndicator = (props: OptionType) => {
   return (
     <React.Fragment {...props}>
       <Clear />
     </React.Fragment>
   );
 };
-
-export default ClearIndicator;

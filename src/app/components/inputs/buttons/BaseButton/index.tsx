@@ -65,7 +65,7 @@ const ZimmerButton = styled(props => <Button {...props} />)`
       }
 `;
 
-const BaseButton = (props: Props) => {
+export const BaseButton = (props: Props) => {
   return (
     <ZimmerButton
       size={props.size}
@@ -77,5 +77,3 @@ const BaseButton = (props: Props) => {
     </ZimmerButton>
   );
 };
-
-export default BaseButton;

@@ -2,7 +2,7 @@
 import React from 'react';
 /** third-party */
 import Select from 'react-select';
-import FieldInputLabel from 'app/components/common/FieldInputLabel';
+import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
 
 import {
   ClearIndicator,

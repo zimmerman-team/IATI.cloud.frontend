@@ -37,7 +37,7 @@ const BaseComponent = styled(props => <Button {...props} />)`
   }
 `;
 
-const AppBarButton = (props: Props) => {
+export const AppBarButton = (props: Props) => {
   return (
     <BaseComponent size={props.size} color="inherit" {...props}>
       {props.disabled ? (
@@ -78,5 +78,3 @@ const AppBarButton = (props: Props) => {
     </BaseComponent>
   );
 };
-
-export default AppBarButton;

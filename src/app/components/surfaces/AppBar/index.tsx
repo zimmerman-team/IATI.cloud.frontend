@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseAppBar from '@material-ui/core/AppBar';
 import styled from 'styled-components';
-import AppBarButton from 'app/components/inputs/buttons/AppBarButton';
+import { AppBarButton } from 'app/components/inputs/buttons/AppBarButton';
 import Grid from '@material-ui/core/Grid';
 import { IATILogoColor } from 'app/components/svgs/IATILogo';
 import { Link } from 'react-router-dom';
@@ -26,7 +26,7 @@ const BaseComponent = styled(props => <BaseAppBar {...props} />)`
   }
 `;
 
-const AppBar = (props: AppBarProps) => {
+export const AppBar = (props: AppBarProps) => {
   return (
     <BaseComponent position="static" elevation={0} {...props}>
       <Grid container justify="space-between" alignItems="center">
@@ -54,12 +54,8 @@ const AppBar = (props: AppBarProps) => {
           />
 
           {/* <AppBarButton disabled label="GUIDANCE" url="/guidance" />*/}
-
-
         </Grid>
       </Grid>
     </BaseComponent>
   );
 };
-
-export default AppBar;

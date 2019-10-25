@@ -1,44 +1,8 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
-import { RequestNavigatorModel } from "app/modules/Documentation/common/DocDetail/common/DocCallPreview/common/RequestNavigator/model";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { Grid } from '@material-ui/core';
+import { NavButton } from 'app/modules/Documentation/common/DocDetail/common/DocCallPreview/common/RequestNavigator/common/NavButton/NavButton';
 
-type NavButtonModel = {
-  label: string;
-  path?: string;
-  active?: boolean;
-};
-const NavButton = (props: NavButtonModel) => {
-  return (
-    <NavLink
-      to="/documentation"
-      css={`
-        height: 55px;
-        font-family: Inter, serif;
-        font-size: 16px;
-        font-weight: 500;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.5;
-        letter-spacing: 0.15px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        border-bottom: 2px solid transparent;
-
-        &:hover {
-          border-bottom-color: white;
-        }
-      `}
-    >
-      {props.label}
-    </NavLink>
-  );
-};
-
-export const RequestNavigator = (props: RequestNavigatorModel) => {
+export const RequestNavigator = () => {
   return (
     <Grid
       container

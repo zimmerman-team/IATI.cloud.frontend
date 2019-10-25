@@ -14,12 +14,10 @@ const BaseComponent = styled.div`
   padding: 12px;
 `;
 
-const TooltipContent = (props: Props) => {
+export const TooltipContent = (props: Props) => {
   return (
     <BaseComponent {...props}>
       {props.text ? props.text : 'empty'}
     </BaseComponent>
   );
 };
-
-export default TooltipContent;

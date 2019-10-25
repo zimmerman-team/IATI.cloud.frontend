@@ -16,8 +16,6 @@ const BaseComponent = styled(props => (
   }
 `;
 
-const TableCell = (props: Props) => {
+export const TableCell = (props: Props) => {
   return <BaseComponent {...props} />;
 };
-
-export default TableCell;

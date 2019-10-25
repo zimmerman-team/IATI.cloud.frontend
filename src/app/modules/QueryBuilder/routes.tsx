@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
-import { OrganisationFragment } from 'app/modules/QueryBuilder/steps/organisation';
+import { CoreFiltersFragment } from 'app/modules/QueryBuilder/steps/core-filters';
 import { AdditionalFiltersSubModule } from 'app/modules/QueryBuilder/steps/additional-filters';
 import { OutputFormatSubModule } from 'app/modules/QueryBuilder/steps/output-format';
 import { ResultsSubModule } from 'app/modules/QueryBuilder/steps/results';
@@ -9,7 +9,7 @@ export const QueryBuilderRoutes = () => {
   return (
     <Switch>
       <Route exact path="/querybuilder/core-filters">
-        <OrganisationFragment />
+        <CoreFiltersFragment />
       </Route>
       <Route exact path="/querybuilder/additional-filters">
         <AdditionalFiltersSubModule />

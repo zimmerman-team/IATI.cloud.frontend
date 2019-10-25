@@ -1,20 +1,9 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
 import { ApiList } from 'app/modules/Documentation/common/DocDetail/common/ApiBaseList';
-import styled from 'styled-components';
 import { useStoreState } from 'app/modules/Documentation/state/store';
 import { Root } from 'app/modules/Documentation/state/RootModel';
-
-const HeaderH6 = styled.div`
-  font-family: Inter;
-  font-size: 20px;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: var(--black);
-`;
+import { HeaderH6 } from 'app/modules/Documentation/common/DocLanding/common/ui/HeaderH6';
 
 export const DocLanding = () => {
   // @ts-ignore

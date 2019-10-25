@@ -1,14 +1,14 @@
 import React from 'react';
+import parse from 'html-react-parser';
 import createStyles from '@material-ui/core/styles/createStyles';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import Grid from '@material-ui/core/Grid';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import FieldInputLabel from 'app/components/common/FieldInputLabel';
-import TooltipButton from 'app/components/inputs/buttons/TooltipButton/index';
-import parse from 'html-react-parser';
-import BaseMenuItem from 'app/components/inputs/selects/common/BaseMenuItem';
-import BaseSelect from 'app/components/inputs/selects/common/BaseSelect';
+import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
+import { TooltipButton } from 'app/components/inputs/buttons/TooltipButton/index';
+import { BaseMenuItem } from 'app/components/inputs/selects/common/BaseMenuItem';
+import { BaseSelect } from 'app/components/inputs/selects/common/BaseSelect';
 
 type MultiSelectProps = {
   label?: string;
@@ -43,10 +43,10 @@ const useStyles = makeStyles((theme: Theme) =>
     listProps: {
       padding: 0,
     },
-  }),
+  })
 );
 
-const MultiSelect = (props: MultiSelectProps) => {
+export const MultiSelect = (props: MultiSelectProps) => {
   const classes = useStyles();
   const [data, setData] = React.useState<string[]>([]);
 
@@ -95,5 +95,3 @@ const MultiSelect = (props: MultiSelectProps) => {
     </React.Fragment>
   );
 };
-
-export default MultiSelect;

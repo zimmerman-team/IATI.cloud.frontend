@@ -1,7 +1,7 @@
 import React from 'react';
-import IconButton from 'app/components/inputs/buttons/IconButton';
+import { IconButton } from 'app/components/inputs/buttons/IconButton';
 
-import ListControls from 'app/components/datadisplay/Lists/ListControls';
+import { ListControls } from 'app/components/datadisplay/Lists/ListControls';
 import { Add } from '@material-ui/icons';
 import { Popover } from '@material-ui/core';
 

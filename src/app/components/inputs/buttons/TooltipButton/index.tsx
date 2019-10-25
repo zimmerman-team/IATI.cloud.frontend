@@ -30,7 +30,7 @@ const ZimmerButton = styled(props => <Button {...props} />)`
 `;
 
 // todo: Get rid of warning https://github.com/atomiks/tippy.js-react/issues/49
-const TooltipButton = (props: Props) => {
+export const TooltipButton = (props: Props) => {
   return (
     <Tooltip
       title={props.tip ? props.tip : 'empty tooltip'}
@@ -47,5 +47,3 @@ const TooltipButton = (props: Props) => {
     </Tooltip>
   );
 };
-
-export default TooltipButton;

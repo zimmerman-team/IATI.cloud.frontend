@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Component from '.';
 import Providers from 'app/Providers';
 import { Grid } from '@material-ui/core';
-import suggestions from './mock';
+import { suggestions } from './mock';
 
 storiesOf('Inputs|Selects/', module).add('Multi Select Chips ', () => (
   <Providers>

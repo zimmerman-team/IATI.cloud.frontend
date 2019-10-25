@@ -45,19 +45,18 @@ const BannerElement4 = styled.a`
 `;
 
 export const BannerNotice = () => (
-         <BannerElement1>
-           <BannerElement2>!</BannerElement2>
-           <BannerElement3>
-             The Query Builder is in a testing phase until 4th Nov 2019. If you
-             find any issues, please raise them{' '}
-             <BannerElement4
-               href="https://github.com/zimmerman-zimmerman/iati.cloud/issues/new/choose"
-               target="_blank"
-               rel="noopener noreferrer"
-
-             >
-               here
-             </BannerElement4>
-           </BannerElement3>
-         </BannerElement1>
-       );
+  <BannerElement1>
+    <BannerElement2>!</BannerElement2>
+    <BannerElement3>
+      The Query Builder is in a testing phase until 4th Nov 2019. If you find
+      any issues, please raise them{' '}
+      <BannerElement4
+        href="https://github.com/zimmerman-zimmerman/iati.cloud/issues/new/choose"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        here
+      </BannerElement4>
+    </BannerElement3>
+  </BannerElement1>
+);

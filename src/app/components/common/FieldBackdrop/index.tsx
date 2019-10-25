@@ -20,8 +20,6 @@ const BaseComponent = styled.div`
   //padding-right: ${Spacing.inputSideSpacing};
 `;
 
-const FieldBackdrop = (props: Props) => {
+export const FieldBackdrop = (props: Props) => {
   return <BaseComponent>{props.children}</BaseComponent>;
 };
-
-export default FieldBackdrop;

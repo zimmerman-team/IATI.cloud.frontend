@@ -2,7 +2,7 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components';
-import FieldInputLabel from 'app/components/common/FieldInputLabel/index';
+import { FieldInputLabel } from 'app/components/common/FieldInputLabel/index';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -50,7 +50,7 @@ const BaseComponent = styled(props => <TextField {...props} />)`
   }
 `;
 
-export default function DateField(props) {
+export const DateField = props => {
   const classes = useStyles();
 
   return (
@@ -70,4 +70,4 @@ export default function DateField(props) {
       />
     </div>
   );
-}
+};

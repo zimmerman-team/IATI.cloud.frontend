@@ -3,7 +3,7 @@ interface OptionType {
   value: string;
 }
 
-const suggestions: OptionType[] = [
+export const suggestions: OptionType[] = [
   { label: 'Afghanistan' },
   { label: 'Aland Islands' },
   { label: 'Albania' },
@@ -42,5 +42,3 @@ const suggestions: OptionType[] = [
   value: suggestion.label,
   label: suggestion.label,
 }));
-
-export default suggestions;

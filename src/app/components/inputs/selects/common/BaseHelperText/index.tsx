@@ -18,7 +18,7 @@ const BaseComponent = styled(props => <FormHelperText {...props} />)`
   }
 `;
 
-const BaseHelperText = (props: Props) => {
+export const BaseHelperText = (props: Props) => {
   return (
     <BaseComponent>
       {props.helperText}
@@ -31,5 +31,3 @@ const BaseHelperText = (props: Props) => {
     </BaseComponent>
   );
 };
-
-export default BaseHelperText;

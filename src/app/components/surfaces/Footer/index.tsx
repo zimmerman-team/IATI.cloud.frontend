@@ -14,14 +14,40 @@ export const Footer = () => {
           direction="row"
           justify="space-between"
           alignItems="center"
-          style={{ height: '200px' }}
+          css={`
+            @media only screen and (max-width: 768px) {
+              height: 400px;
+            }
+
+            height: 200px;
+          `}
         >
-          <Grid item>
+          <Grid
+            item
+            md={12}
+            lg={4}
+            css={`
+              display: flex;
+              @media only screen and (max-width: 768px) {
+                justify-content: center;
+              }
+            `}
+          >
             <IATILogoWhite />
           </Grid>
 
           {/*MIDDLE ITEM*/}
-          <Grid item>
+          <Grid
+            item
+            md={12}
+            lg={4}
+            css={`
+              display: flex;
+              @media only screen and (max-width: 768px) {
+                justify-content: center;
+              }
+            `}
+          >
             <Grid
               container
               direction="column"
@@ -56,7 +82,7 @@ export const Footer = () => {
           </Grid>
 
           {/*RIGHT ITEM*/}
-          <Grid item>
+          <Grid item md={12} lg={4}>
             <Grid
               container
               direction="column"
@@ -95,7 +121,9 @@ export const Footer = () => {
                 >
                   Code licensed under the{' '}
                   <Link
-                    href={'https://github.com/zimmerman-zimmerman/OIPA/blob/master/LICENSE.MD'}
+                    href={
+                      'https://github.com/zimmerman-zimmerman/OIPA/blob/master/LICENSE.MD'
+                    }
                     target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >

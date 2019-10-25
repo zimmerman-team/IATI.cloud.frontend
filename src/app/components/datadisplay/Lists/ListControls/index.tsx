@@ -6,7 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import styled from 'styled-components';
 import { Palette } from 'app/theme';
 import Typography from '@material-ui/core/Typography';
-import Checkbox from 'app/components/inputs/checkboxes/Checkbox';
+import { Checkbox } from 'app/components/inputs/checkboxes/Checkbox';
 import { Tooltip } from '@material-ui/core';
 
 type Props = {
@@ -64,7 +64,7 @@ const ListCategory = styled(props => <Typography {...props} />)`
 `;
 
 //todo: look into virtualized lists https://material-ui.com/components/lists/
-const ListControls = (props: Props) => {
+export const ListControls = (props: Props) => {
   const [checked, setChecked] = React.useState(props.addedFilterOptions || []);
 
   const handleToggle = value => () => {
@@ -137,5 +137,3 @@ const ListControls = (props: Props) => {
     </BaseComponent>
   );
 };
-
-export default ListControls;

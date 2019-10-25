@@ -31,8 +31,6 @@ const BaseComponent = styled(props => <TextField {...props} />)`
   }
 `;
 
-const BaseTextField = (props: Props) => {
+export const BaseTextField = (props: Props) => {
   return <BaseComponent value={props.value} {...props} />;
 };
-
-export default BaseTextField;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid} from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { Skeletor } from 'app/components/utils/Skeletor';
 
 const FilterPlaceholder = () => {
@@ -23,11 +23,11 @@ export const AdditionalFiltersLayout = () => {
         <Skeletor />
       </Grid>
       {/** Transaction Provider Org */}
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={12} lg={6}>
         <Skeletor />
       </Grid>
       {/** Transaction Receiver Org */}
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={12} lg={6}>
         <Skeletor />
       </Grid>
 

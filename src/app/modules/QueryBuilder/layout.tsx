@@ -5,10 +5,10 @@ import { PageContainer } from 'app/modules/common/PageContainer';
 /* fragments */
 import React from 'react';
 import { Box, Grid } from '@material-ui/core';
-import { NavLink } from 'react-router-dom';
 import { QueryBuilderRoutes } from 'app/modules/QueryBuilder/routes';
 import { ModuleHeader } from 'app/modules/common/ModuleHeader';
-import styled from 'styled-components';
+import { NavigationButton } from './NavigationButton';
+import { StepNavigatorContainer } from './StepNavigatorContainer';
 /* config & mock */
 export type NavButtonModel = {
   label: string;
@@ -33,39 +33,6 @@ export const navButtons: NavButtonModel[] = [
     path: '/querybuilder/results',
   },
 ];
-
-export const NavigationButton = (props: NavButtonModel) => {
-  return (
-    <NavLink
-      to={props.path}
-      activeStyle={{ borderBottom: '4px solid #03dbe4' }}
-    >
-      <Box
-        width="235px"
-        height="30px"
-        bgcolor="grey"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        fontFamily="Inter"
-        fontSize="16px"
-        fontWeight="500"
-        fontStyle="normal"
-        lineHeight="1.5"
-        letterSpacing="0.15px"
-        textAlign="center"
-        color="black"
-      >
-        {props.label}
-      </Box>
-    </NavLink>
-  );
-};
-
-const StepNavigatorContainer = styled.div`
-  /* height: calc(100vh - 185px); */
-  overflow-y: scroll;
-`;
 
 export const QueryBuilderLayout = () => {
   /* reference to the module store which is passed onto the fragments */

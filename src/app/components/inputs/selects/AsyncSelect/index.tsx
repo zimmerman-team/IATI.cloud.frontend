@@ -2,7 +2,7 @@
 import React from 'react';
 /** third-party */
 import AsyncPaginate from 'react-select-async-paginate';
-import FieldInputLabel from 'app/components/common/FieldInputLabel';
+import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
 
 import {
   ClearIndicator,
@@ -31,7 +31,8 @@ const customStyles = {
 };
 
 async function loadOptions(search, loadedOptions, { page }, pivot) {
-  const url = `https://test-datastore.iatistandard.org/search/activity/select?q=${pivot}:*&facet=on&facet.pivot=${pivot}&rows=0&facet.sort=${pivot}&facet.limit=10&facet.offset=${page * 10}&facet.matches=${search.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}.*$`;
+  const url = `https://test-datastore.iatistandard.org/search/activity/select?q=${pivot}:*&facet=on&facet.pivot=${pivot}&rows=0&facet.sort=${pivot}&facet.limit=10&facet.offset=${page *
+    10}&facet.matches=${search.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}.*$`;
   const response = await fetch(url);
   const responseJSON = await response.json();
 

@@ -21,8 +21,6 @@ const BaseComponent = styled(props => <Component {...props} />)`
   }
 `;
 
-const TableRow = (props: Props) => {
+export const TableRow = (props: Props) => {
   return <BaseComponent {...props} />;
 };
-
-export default TableRow;

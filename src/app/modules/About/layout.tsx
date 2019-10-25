@@ -1,35 +1,24 @@
 import React from 'react';
 import { Box, Container, Typography } from '@material-ui/core';
-import styled from 'styled-components';
 import { Footer } from 'app/components/surfaces/Footer';
 import { PageContainer } from 'app/modules/common/PageContainer';
 import { ModuleHeader } from 'app/modules/common/ModuleHeader';
-
-const Paragraph = styled.p`
-  padding-bottom: 8px;
-`;
-
-const Section = styled.section`
-  //Calculating for clarity, every section ends with a paragraph as child
-  margin-bottom: calc(60px - 8px);
-`;
-
-const ContainerDiv = styled.div`
-  height: calc(100vh - 290px);
-  overflow-y: scroll;
-`;
+import { Paragraph } from './Paragraph';
+import { Section } from './Section';
+import { ContainerDiv } from './ContainerDiv';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
 
 export const AboutLayout = () => {
   return (
     <PageContainer footer>
       <ModuleHeader title="About the new Datastore" />
-
       <Box width="100%" height="40px" />
-      <ContainerDiv>
-        <Container maxWidth="lg" style={{ paddingBottom: '8px' }}>
+      <Container maxWidth="lg">
+        <Grid container spacing={4}>
           {/* Appbar component needs a refactor, therefore not in this PR.*/}
           {/* INTRODUCTION*/}
-          <Section>
+          <Grid item lg={12}>
             <Paragraph>
               <Typography variant="body1">
                 The new IATI Datastore offers a robust online data service,
@@ -47,10 +36,10 @@ export const AboutLayout = () => {
                 user-friendly Datastore Query Builder.
               </Typography>
             </Paragraph>
-          </Section>
+          </Grid>
 
           {/* what can be accessed? */}
-          <Section>
+          <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
               What data can be accessed?
             </Typography>
@@ -92,10 +81,10 @@ export const AboutLayout = () => {
                 .
               </Typography>
             </Paragraph>
-          </Section>
+          </Grid>
 
           {/* What can I do with the IATI Datastore? */}
-          <Section>
+          <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
               What can I do with the IATI Datastore?
             </Typography>
@@ -107,11 +96,11 @@ export const AboutLayout = () => {
                 can do this via using the Datastore API or the Query Builder.
               </Typography>
             </Paragraph>
-          </Section>
+          </Grid>
 
           {/* Using the Datastore API */}
 
-          <Section>
+          <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
               Using the Datastore API
             </Typography>
@@ -136,10 +125,10 @@ export const AboutLayout = () => {
                 .
               </Typography>
             </Paragraph>
-          </Section>
+          </Grid>
 
           {/* Using the Query Builder */}
-          <Section>
+          <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
               Using the Query Builder
             </Typography>
@@ -156,10 +145,10 @@ export const AboutLayout = () => {
                 down and freetext filters.
               </Typography>
             </Paragraph>
-          </Section>
+          </Grid>
 
           {/* In what formats can I output the IATI data? */}
-          <Section>
+          <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
               In what formats can I output IATI data?
             </Typography>
@@ -215,11 +204,15 @@ export const AboutLayout = () => {
                 XML output is available in the JSON output.
               </Typography>
             </Paragraph>
-          </Section>
-        </Container>
+          </Grid>
+        </Grid>
+      </Container>
 
-        <Footer />
-      </ContainerDiv>
+      <Hidden lgUp>
+        <Box height={'300px'} />
+      </Hidden>
+
+      <Footer />
     </PageContainer>
   );
 };

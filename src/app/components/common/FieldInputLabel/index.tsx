@@ -15,8 +15,8 @@ const BaseInputLabel = styled(props => <InputLabel {...props} />)`
   }
 `;
 
-const FieldInputLabel = (props: Props) => {
+export const FieldInputLabel = (props: Props) => {
   return <BaseInputLabel {...props}>{props.label}</BaseInputLabel>;
 };
 
-export default FieldInputLabel;
+

@@ -1,15 +1,15 @@
 import React from 'react';
-import BaseButton from 'app/components/inputs/buttons/BaseButton';
+import { BaseButton } from 'app/components/inputs/buttons/BaseButton';
 import Box from '@material-ui/core/Box';
 import { useCopyToClipboard } from 'react-use';
-import FieldBackdrop from 'app/components/common/FieldBackdrop';
-import BaseTextField from 'app/components/inputs/common/BaseTextField';
+import { FieldBackdrop } from 'app/components/common/FieldBackdrop';
+import { BaseTextField } from 'app/components/inputs/common/BaseTextField';
 
 type Props = {
   text?: string;
 };
 
-const URLField: React.FC<Props> = props => {
+export const URLField: React.FC<Props> = props => {
   const [state, copyToClipboard] = useCopyToClipboard();
   function renderButton() {
     if (props.text === '') {
@@ -38,5 +38,3 @@ const URLField: React.FC<Props> = props => {
     </FieldBackdrop>
   );
 };
-
-export default URLField;

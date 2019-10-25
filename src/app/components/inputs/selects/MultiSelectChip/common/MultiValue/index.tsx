@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MultiValueProps } from 'react-select/src/components/MultiValue';
-import Chip from 'app/components/datadisplay/Chip';
 import clsx from 'clsx';
-import IconChipDelete from 'app/assets/icons/IconChipDelete';
+import { MultiValueProps } from 'react-select/src/components/MultiValue';
+import { Chip } from 'app/components/datadisplay/Chip';
+import { IconChipDelete } from 'app/assets/icons/IconChipDelete';
 
 interface OptionType {
   label?: string;

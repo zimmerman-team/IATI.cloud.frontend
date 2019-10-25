@@ -19,8 +19,6 @@ const Base = styled.div`
   z-index: 20;
 `;
 
-const Background = (props: Props) => {
+export const Background = (props: Props) => {
   return <Base>{props.children}</Base>;
 };
-
-export default Background;

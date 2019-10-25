@@ -1,9 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
-import ListControls from 'app/components/datadisplay/Lists/ListControls';
-import styled from 'styled-components';
+import { ListControls } from 'app/components/datadisplay/Lists/ListControls';
 
 type Props = {
   data: any;
@@ -18,14 +18,13 @@ const BaseComponent = styled(props => <Popper {...props} />)`
     max-height: 614px;
     overflow: scroll;
   }
-  ,
+
   & [class*='MuiList-root'] {
     padding: 0px;
   }
-  ,
 `;
 
-const FilterMenu = (props: Props) => {
+export const FilterMenu = (props: Props) => {
   return (
     <BaseComponent
       open={props.open}
@@ -49,5 +48,3 @@ const FilterMenu = (props: Props) => {
     </BaseComponent>
   );
 };
-
-export default FilterMenu;

@@ -16,14 +16,11 @@ const BaseComponent = styled(props => <FormControlLabel {...props} />)`
     & [class*='MuiFormControlLabel-label'] {
       font-size: 14px;
       text-transform: capitalize;
-
       padding-left: 8px;
     }
   }
 `;
 
-const FormItemLabel = (props: Props) => {
+export const FormItemLabel = (props: Props) => {
   return <BaseComponent {...props} />;
 };
-
-export default FormItemLabel;

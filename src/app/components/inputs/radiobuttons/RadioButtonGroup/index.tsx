@@ -36,7 +36,7 @@ const CustomFormControl = styled(props => <FormControl {...props} />)`
   }
 `;
 
-const RadioButtonsGroup = (props: RadioButtonsGroupModel) => {
+export const RadioButtonsGroup = (props: RadioButtonsGroupModel) => {
   return (
     <>
       <CustomFormControl component="fieldset">
@@ -55,5 +55,3 @@ const RadioButtonsGroup = (props: RadioButtonsGroupModel) => {
     </>
   );
 };
-
-export default RadioButtonsGroup;

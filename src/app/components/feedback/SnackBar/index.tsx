@@ -61,7 +61,7 @@ const BaseSnackbar = styled(props => <Snackbar {...props} />)`
   }
 `;
 
-const SnackBar = (props: SnackBarProps) => {
+export const SnackBar = (props: SnackBarProps) => {
   const [open, setOpen] = React.useState(props.open);
   const { message, onClose, variant, ...other } = props;
   const Icon = variantIcon[variant];
@@ -95,7 +95,6 @@ const SnackBar = (props: SnackBarProps) => {
     </BaseSnackbar>
   );
 };
-export default SnackBar;
 
 SnackBar.defaultProps = {
   message:

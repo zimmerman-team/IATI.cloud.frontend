@@ -1,8 +1,8 @@
 import React from 'react';
 import ChipInput from 'material-ui-chip-input';
 import styled from 'styled-components';
-import Chip from 'app/components/datadisplay/Chip';
-import BaseHelperText from 'app/components/inputs/selects/common/BaseHelperText';
+import { Chip } from 'app/components/datadisplay/Chip';
+import { BaseHelperText } from 'app/components/inputs/selects/common/BaseHelperText';
 
 interface ChippieProps {
   value?: any;
@@ -26,7 +26,7 @@ const Component = styled(props => <ChipInput {...props} />)`
   }
 `;
 
-const Container = (props: ChippieProps) => {
+export const Container = (props: ChippieProps) => {
   return (
     <React.Fragment>
       <Component
@@ -57,5 +57,3 @@ const Container = (props: ChippieProps) => {
     </React.Fragment>
   );
 };
-
-export default Container;

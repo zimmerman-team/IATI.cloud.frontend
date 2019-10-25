@@ -13,8 +13,6 @@ const BaseComponent = styled(props => <Radio {...props} />)`
   }
 `;
 
-const RadioButton = (props: Props) => {
+export const RadioButton = (props: Props) => {
   return <BaseComponent {...props} />;
 };
-
-export default RadioButton;

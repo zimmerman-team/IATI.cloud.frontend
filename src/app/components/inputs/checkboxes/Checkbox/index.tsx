@@ -46,8 +46,6 @@ const BaseComponent = styled(props => (
   }
 `;
 
-const Checkbox = (props: Props) => {
+export const Checkbox = (props: Props) => {
   return <BaseComponent {...props} />;
 };
-
-export default Checkbox;

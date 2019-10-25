@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconChipDelete = props => (
+export const IconChipDelete = props => (
   <svg width="1.2em" height="1.2em" viewBox="0 0 24 24" {...props}>
     <g fill="none" fillRule="evenodd">
       <path d="M0 0h24v24H0z" />
@@ -12,5 +12,3 @@ const IconChipDelete = props => (
     </g>
   </svg>
 );
-
-export default IconChipDelete;

@@ -24,8 +24,8 @@ import {
   SearchPanel,
   ColumnChooser,
 } from '@devexpress/dx-react-grid-material-ui';
-import TableRow from 'app/components/datadisplay/tables/common/TableRow';
-import TableCell from 'app/components/datadisplay/tables/common/TableCell';
+import { TableRow } from 'app/components/datadisplay/tables/common/TableRow';
+import { TableCell } from 'app/components/datadisplay/tables/common/TableCell';
 import { tasks, employees, priorities } from './data.json';
 
 const EmployeeFormatter = ({ row }) => (

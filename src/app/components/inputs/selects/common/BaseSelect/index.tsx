@@ -1,8 +1,8 @@
 import React, { ChangeEvent, ReactNode } from 'react';
 import styled from 'styled-components';
 import Select from '@material-ui/core/Select';
-import { Spacing } from "app/theme";
-import BaseInput from 'app/components/inputs/selects/common/BaseInput';
+import { Spacing } from 'app/theme';
+import { BaseInput } from 'app/components/inputs/selects/common/BaseInput';
 
 type SelectProps = {
   children?: ReactNode;
@@ -38,8 +38,6 @@ const BaseComponent = styled(props => (
   }
 `;
 
-const BaseSelect = (props: SelectProps) => {
+export const BaseSelect = (props: SelectProps) => {
   return <BaseComponent {...props} />;
 };
-
-export default BaseSelect;

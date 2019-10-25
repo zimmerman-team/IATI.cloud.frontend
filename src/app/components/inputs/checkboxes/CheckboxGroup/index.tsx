@@ -4,16 +4,16 @@ import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
-import Checkbox from 'app/components/inputs/checkboxes/Checkbox';
-import FormItemLabel from 'app/components/sort/FormItemLabel';
+import { Checkbox } from 'app/components/inputs/checkboxes/Checkbox';
+import { FormItemLabel } from 'app/components/sort/FormItemLabel';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    display: 'flex'
+    display: 'flex',
   },
   formControl: {
-    margin: theme.spacing(3)
-  }
+    margin: theme.spacing(3),
+  },
 }));
 
 function CheckboxesGroup() {
@@ -21,7 +21,7 @@ function CheckboxesGroup() {
   const [state, setState] = React.useState({
     option1: true,
     option2: false,
-    option3: false
+    option3: false,
   });
 
   const handleChange = (name: string) => (

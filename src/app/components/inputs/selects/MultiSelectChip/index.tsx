@@ -9,13 +9,13 @@ import MultiValue from './common/MultiValue';
 import Placeholder from './common/Placeholder';
 import SingleValue from './common/SingleValue';
 import ValueContainer from './common/ValueContainer';
-import DropdownIndicator from './common/DropdownIndicator';
-import ClearIndicator from './common/ClearIndicator';
+import { DropdownIndicator } from './common/DropdownIndicator';
+import { ClearIndicator } from './common/ClearIndicator';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
-import FieldInputLabel from 'app/components/common/FieldInputLabel';
-import TooltipButton from 'app/components/inputs/buttons/TooltipButton';
-import BaseHelperText from 'app/components/inputs/selects/common/BaseHelperText';
+import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
+import { TooltipButton } from 'app/components/inputs/buttons/TooltipButton';
+import { BaseHelperText } from 'app/components/inputs/selects/common/BaseHelperText';
 
 type MultiSelectChipProps = {
   label?: string;
@@ -125,7 +125,7 @@ const Component = styled(props => <Select {...props} />)`
   }
 `;
 
-const MultiSelectChip = (props: MultiSelectChipProps) => {
+export const MultiSelectChip = (props: MultiSelectChipProps) => {
   const classes = useStyles();
 
   return (
@@ -153,5 +153,3 @@ const MultiSelectChip = (props: MultiSelectChipProps) => {
     </div>
   );
 };
-
-export default MultiSelectChip;

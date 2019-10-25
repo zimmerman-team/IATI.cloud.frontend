@@ -42,8 +42,6 @@ const AntSwitch = withStyles(theme => ({
   checked: {},
 }))(Base);
 
-const Switch = (props: Props) => {
+export const Switch = (props: Props) => {
   return <AntSwitch {...props} />;
 };
-
-export default Switch;

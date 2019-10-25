@@ -2,14 +2,14 @@ import React from 'react';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
-import Switch from 'app/components/inputs/switches/Switch';
-import FormItemLabel from 'app/components/sort/FormItemLabel';
+import { Switch } from 'app/components/inputs/switches/Switch';
+import { FormItemLabel } from 'app/components/sort/FormItemLabel';
 
-function SwitchesGroup() {
+export const SwitchesGroup = () => {
   const [state, setState] = React.useState({
     gilad: true,
     jason: false,
-    antoine: true
+    antoine: true,
   });
 
   const handleChange = (name: string) => (
@@ -55,6 +55,4 @@ function SwitchesGroup() {
       </FormGroup>
     </FormControl>
   );
-}
-
-export default SwitchesGroup;
+};

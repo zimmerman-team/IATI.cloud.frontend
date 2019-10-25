@@ -6,12 +6,10 @@ interface OptionType {
   selectProps?: any;
 }
 
-const DropdownIndicator = (props: OptionType) => {
+export const DropdownIndicator = (props: OptionType) => {
   return (
     <React.Fragment>
       {props.selectProps.search ? <Search /> : <ArrowDropDown />}
     </React.Fragment>
   );
 };
-
-export default DropdownIndicator;

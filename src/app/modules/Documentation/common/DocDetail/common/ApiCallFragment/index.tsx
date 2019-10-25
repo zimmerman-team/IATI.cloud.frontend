@@ -6,10 +6,10 @@ import { useClipboard } from 'use-clipboard-copy';
 import { useStoreActions } from 'app/modules/Documentation/state/store';
 import { ApiItemDivider } from 'app/modules/Documentation/common/DocDetail/common/utils/ui';
 import { ApiCallParamList } from 'app/modules/Documentation/common/DocDetail/common/ApiParameterList';
-import { Code } from './Code';
-import { CallContainer } from './CallContainer';
-import { MethodType } from './MethodType';
-import { CallHeader } from './CallHeader';
+import { Code } from 'app/modules/Documentation/common/DocDetail/common/ApiCallFragment/common/ui/Code';
+import { CallContainer } from 'app/modules/Documentation/common/DocDetail/common/ApiCallFragment/common/ui/CallContainer';
+import { MethodType } from 'app/modules/Documentation/common/DocDetail/common/ApiCallFragment/common/ui/MethodType';
+import { CallHeader } from 'app/modules/Documentation/common/DocDetail/common/ApiCallFragment/common/ui/CallHeader';
 import styled from 'styled-components';
 
 /* -------------------------------------------------------------------------- */

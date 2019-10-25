@@ -3,12 +3,12 @@ import createStyles from '@material-ui/core/styles/createStyles';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import Grid from '@material-ui/core/Grid';
-import FieldInputLabel from 'app/components/common/FieldInputLabel';
-import TooltipButton from 'app/components/inputs/buttons/TooltipButton/index';
-import BaseMenuItem from 'app/components/inputs/selects/common/BaseMenuItem';
-import BaseSelect from 'app/components/inputs/selects/common/BaseSelect';
+import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
+import { TooltipButton } from 'app/components/inputs/buttons/TooltipButton';
+import { BaseMenuItem } from 'app/components/inputs/selects/common/BaseMenuItem';
+import { BaseSelect } from 'app/components/inputs/selects/common/BaseSelect';
 import './style.css';
-import BaseHelperText from '../common/BaseHelperText';
+import { BaseHelperText } from '../common/BaseHelperText';
 
 type SimpleSelectProps = {
   label?: string;
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const SimpleSelect = (props: SimpleSelectProps) => {
+export const SimpleSelect = (props: SimpleSelectProps) => {
   const classes = useStyles();
   const [values, setValues] = React.useState<string>(props.value);
 
@@ -98,5 +98,3 @@ const SimpleSelect = (props: SimpleSelectProps) => {
     </>
   );
 };
-
-export default SimpleSelect;

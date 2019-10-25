@@ -15,8 +15,6 @@ const BaseComponent = styled(props => (
   }
 `;
 
-const TableTreeCell = (props: Props) => {
+export const TableTreeCell = (props: Props) => {
   return <BaseComponent {...props} />;
 };
-
-export default TableTreeCell;

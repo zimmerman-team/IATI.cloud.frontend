@@ -10,12 +10,10 @@ const Box = styled(Base)`
   height: 100vh;
 `;
 
-const Progress = props => {
+export const Progress = props => {
   return (
     <Box>
       <CircularProgress {...props} size={70} thickness={3.6} color="primary" />
     </Box>
   );
 };
-
-export default Progress;

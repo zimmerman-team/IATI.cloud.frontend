@@ -8,8 +8,8 @@ import {
   MainCategoryModel,
   SubCategory1Model,
 } from 'app/modules/Documentation/state/model';
-import { CategoryHeader } from './CategoryHeader';
-import { SubCategoryFragment } from './SubCategoryFragment';
+import { CategoryHeader } from 'app/modules/Documentation/common/DocDetail/common/ui/CategoryHeader';
+import { SubCategoryFragment } from 'app/modules/Documentation/common/DocDetail/common/ui/SubCategoryFragment';
 
 /* -------------------------------------------------------------------------- */
 /* DocDetail */
