@@ -313,71 +313,141 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
     const modifiedFields = (): string[] | null => {
-      if (fields !== null ) {
-        if(fields.includes('transaction_value')) {
+      if (fields !== null) {
+        if (fields.includes('transaction_value')) {
           fields.push('transaction_value_currency');
         }
-        fields.forEach((item,i)=>{
-          switch(item){
-            case('reporting_org'):
+        fields.forEach((item, i) => {
+          switch (item) {
+            case 'reporting_org':
               fields[i] = 'reporting_org_*';
               break;
 
-            case('title'):
+            case 'title':
               fields[i] = 'title_*';
               break;
 
-            case('description'):
+            case 'description':
               fields[i] = 'description_*';
               break;
 
-            case('participating_org'):
+            case 'description_narrative':
+              fields[i] = 'description_narrative_*';
+              break;
+
+            case 'participating_org':
               fields[i] = 'participating_org_*';
               break;
 
-            case('activity_date'):
+            case 'other_identifier':
+              fields[i] = 'other_identifier_*';
+              break;
+
+            case 'activity_date':
               fields[i] = 'activity_date_*';
               break;
 
-            case('contact_info'):
+            case 'contact_info':
               fields[i] = 'contact_info_*';
               break;
 
-            case('recipient_country'):
+            case 'recipient_country':
               fields[i] = 'recipient_country_*';
               break;
 
-            case('location'):
+            case 'recipient_region':
+              fields[i] = 'recipient_region_*';
+              break;
+
+            case 'location':
               fields[i] = 'location_*';
               break;
 
-            case('humanitarian_scope'):
+            case 'sector':
+              fields[i] = 'sector_*';
+              break;
+
+            case 'tag':
+              fields[i] = 'tag_*';
+              break;
+
+            case 'country_budget_items':
+              fields[i] = 'country_budget_items_*';
+              break;
+
+            case 'humanitarian_scope':
               fields[i] = 'humanitarian_scope_*';
               break;
 
-            case('default_aid_type'):
+            case 'policy_marker':
+              fields[i] = 'policy_marker_*';
+              break;
+
+            case 'default_aid_type':
               fields[i] = 'default_aid_type_*';
               break;
 
-            case('planned_disbursement'):
+            case 'budget':
+              fields[i] = 'budget_*';
+              break;
+
+            case 'planned_disbursement':
               fields[i] = 'planned_disbursement_*';
               break;
 
-            case('transaction'):
+            case 'transaction':
               fields[i] = 'transaction_*';
               break;
 
-            case('document_link'):
+            case 'document_link':
               fields[i] = 'document_link_*';
               break;
 
-            case('related_activity'):
+            case 'related_activity':
               fields[i] = 'related_activity_*';
               break;
 
+            case 'legacy_data':
+              fields[i] = 'legacy_data_*';
+              break;
+
+            case 'conditions':
+              fields[i] = 'conditions_*';
+              break;
+
+            case 'result_document_link':
+              fields[i] = 'result_document_link_*';
+              break;
+
+            case 'result_reference':
+              fields[i] = 'result_reference_*';
+              break;
+
+            case 'result_indicator':
+              fields[i] = 'result_indicator_*';
+              break;
+
+            case 'result_indicator_reference':
+              fields[i] = 'result_indicator_reference_*';
+              break;
+
+            case 'result_indicator_baseline_document_link_title':
+              fields[i] = 'result_indicator_baseline_document_link_title_*';
+              break;
+
+            case 'result_indicator_baseline_document_link_description':
+              fields[i] = 'result_indicator_baseline_document_link_description_*';
+              break;
+
+            case 'fss':
+              fields[i] = 'fss_*';
+              break;
+
+            case 'crs_add':
+              fields[i] = 'crs_*';
+              break;
           }
         });
-
       }
       return fields;
     };
