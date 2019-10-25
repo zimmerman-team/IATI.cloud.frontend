@@ -13,6 +13,8 @@ import {
 } from 'app/modules/QueryBuilder/steps/output-format/common/OutputFragment/model';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
+import { Link } from 'react-router-dom';
+import { TextButton } from 'app/components/inputs/buttons/TextButton';
 
 export const OutputFragment = () => {
   const store = ModuleStore.useStore();
@@ -54,6 +56,21 @@ export const OutputFragment = () => {
           )}
         </Grid>
       ))}
+
+      <div
+        css={`
+          display: flex;
+          justify-content: flex-end;
+          width: 100%;
+          margin-top: 50px;
+        `}
+      >
+        <Grid item md={2}>
+          <Link to="/querybuilder/results">
+            <TextButton label="Next" />
+          </Link>
+        </Grid>
+      </div>
     </Grid>
   );
 };

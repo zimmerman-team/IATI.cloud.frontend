@@ -12,6 +12,10 @@ import { useStoreState } from 'app/state/store';
 import { additionalFiltersPopData } from 'app/modules/QueryBuilder/steps/additional-filters/common/FilterFragment/consts';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import IconTextInput from 'app/components/inputs/textinputs/IconTextInputFIeld';
+import { Add } from '@material-ui/icons';
+import { IconButton } from 'app/components/inputs/buttons/IconButton';
+import { TextButton } from 'app/components/inputs/buttons/TextButton';
+import { Link } from 'react-router-dom';
 
 export const FilterFragment = () => {
   const store = ModuleStore.useStore();
@@ -123,6 +127,21 @@ export const FilterFragment = () => {
           store,
         });
       })}
+
+      <div
+        css={`
+          display: flex;
+          justify-content: flex-end;
+          width: 100%;
+          margin-top: 50px;
+        `}
+      >
+        <Grid item md={2}>
+          <Link to="/querybuilder/output-format">
+            <TextButton label="Next" />
+          </Link>
+        </Grid>
+      </div>
     </Grid>
   );
 };
