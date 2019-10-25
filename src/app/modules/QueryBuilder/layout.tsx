@@ -63,7 +63,7 @@ export const NavigationButton = (props: NavButtonModel) => {
 };
 
 const StepNavigatorContainer = styled.div`
-  height: calc(100vh - 363px);
+  /* height: calc(100vh - 185px); */
   overflow-y: scroll;
 `;
 
