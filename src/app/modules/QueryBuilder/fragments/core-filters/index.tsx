@@ -12,8 +12,9 @@ import { fragmentConfig } from 'app/modules/QueryBuilder/fragments/core-filters/
 import get from 'lodash/get';
 import { useStoreState } from 'app/state/store';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
-import { Link } from 'react-router-dom';
-import { TextButton } from 'app/components/inputs/buttons/TextButton';
+
+import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
+import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNavigatorButton';
 
 export const CoreFiltersFragment = () => {
   const store = ModuleStore.useStore();
@@ -169,21 +170,12 @@ export const CoreFiltersFragment = () => {
         />
       </Grid>
 
-      <div
-        css={`
-          display: flex;
-          justify-content: flex-end;
-          width: 100%;
-          margin-top: 50px;
-          padding: 16px;
-        `}
-      >
-        <Grid item xs={4} md={2}>
-          <Link to="/querybuilder/additional-filters">
-            <TextButton label="Next" />
-          </Link>
-        </Grid>
-      </div>
+      <QbStepNavigator>
+        <QbStepNavigatorButton
+          label="Next"
+          path="/querybuilder/additional-filters"
+        />
+      </QbStepNavigator>
     </Grid>
   );
 };

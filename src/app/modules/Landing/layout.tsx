@@ -22,7 +22,7 @@ export const LandingLayout = () => {
 
         <Header>
           <Grid container direction="column">
-            <Grid item md={7} lg={7}>
+            <Grid item md={12} lg={7}>
               <Typography variant="h3" color="textSecondary">
                 IATI Datastore
               </Typography>
@@ -48,7 +48,7 @@ export const LandingLayout = () => {
 
             <Box width="100%" height="36px" />
 
-            <Grid item md={4} lg={4}>
+            <Grid item sm={12} md={4} lg={4}>
               <IconButtonOutlined label="Query Builder" />
             </Grid>
           </Grid>

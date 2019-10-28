@@ -15,6 +15,8 @@ import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
 import { Link } from 'react-router-dom';
 import { TextButton } from 'app/components/inputs/buttons/TextButton';
+import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNavigatorButton';
+import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
 
 export const OutputFragment = () => {
   const store = ModuleStore.useStore();
@@ -57,21 +59,13 @@ export const OutputFragment = () => {
         </Grid>
       ))}
 
-      <div
-        css={`
-          display: flex;
-          justify-content: flex-end;
-          width: 100%;
-          margin-top: 50px;
-          padding: 16px;
-        `}
-      >
-        <Grid item xs={4} md={2}>
-          <Link to="/querybuilder/results">
-            <TextButton label="Next" />
-          </Link>
-        </Grid>
-      </div>
+      <QbStepNavigator>
+        <QbStepNavigatorButton
+          label="Previous"
+          path="/querybuilder/additional-filters"
+        />
+        <QbStepNavigatorButton label="Next" path="/querybuilder/results" />
+      </QbStepNavigator>
     </Grid>
   );
 };

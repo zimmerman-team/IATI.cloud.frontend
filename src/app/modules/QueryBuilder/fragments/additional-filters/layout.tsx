@@ -12,10 +12,9 @@ import { useStoreState } from 'app/state/store';
 import { additionalFiltersPopData } from 'app/modules/QueryBuilder/fragments/additional-filters/consts';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import IconTextInput from 'app/components/inputs/textinputs/IconTextInputFIeld';
-import { Add } from '@material-ui/icons';
-import { IconButton } from 'app/components/inputs/buttons/IconButton';
-import { TextButton } from 'app/components/inputs/buttons/TextButton';
-import { Link } from 'react-router-dom';
+
+import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNavigatorButton';
+import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
 
 export const FilterFragment = () => {
   const store = ModuleStore.useStore();
@@ -128,21 +127,16 @@ export const FilterFragment = () => {
         });
       })}
 
-      <div
-        css={`
-          display: flex;
-          justify-content: flex-end;
-          width: 100%;
-          margin-top: 50px;
-          padding: 16px;
-        `}
-      >
-        <Grid item xs={4} md={2}>
-          <Link to="/querybuilder/output-format">
-            <TextButton label="Next" />
-          </Link>
-        </Grid>
-      </div>
+      <QbStepNavigator>
+        <QbStepNavigatorButton
+          label="Previous"
+          path="/querybuilder/core-filters"
+        />
+        <QbStepNavigatorButton
+          label="Next"
+          path="/querybuilder/output-format"
+        />
+      </QbStepNavigator>
     </Grid>
   );
 };

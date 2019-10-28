@@ -12,6 +12,10 @@ const BannerElement1 = styled.div`
   align-items: center;
   background-color: #c74239;
   z-index: 40;
+  @media (max-width: 768px) {
+    //padding-left: 10px;
+    //padding-right: 10px;
+  }
 `;
 
 const BannerElement2 = styled.div`
@@ -25,6 +29,10 @@ const BannerElement2 = styled.div`
   align-items: center;
   font-weight: bold;
   margin-right: 5px;
+  flex-shrink: 0;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const BannerElement3 = styled.div`
@@ -37,6 +45,12 @@ const BannerElement3 = styled.div`
   line-height: 1.71;
   letter-spacing: 0.2px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+    line-height: initial;
+    max-width: 95vw;
+  }
 `;
 
 const BannerElement4 = styled.a`

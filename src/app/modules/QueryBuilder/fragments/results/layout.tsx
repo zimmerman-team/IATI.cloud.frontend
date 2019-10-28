@@ -14,6 +14,8 @@ import { useStoreState } from 'app/state/store';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNavigatorButton';
+import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
 
 export const DownloadFragment = () => {
   /* get query url from app store */
@@ -289,6 +291,17 @@ export const DownloadFragment = () => {
         </Grid>
       )}
       {/* ---------------------------------------------------------------------------------------------------------- */}
+
+      <QbStepNavigator>
+        <QbStepNavigatorButton
+          label="Previous"
+          path="/querybuilder/output-format"
+        />
+        <QbStepNavigatorButton
+          label="Beginning"
+          path="/querybuilder/core-filters"
+        />
+      </QbStepNavigator>
     </Grid>
   );
 };
