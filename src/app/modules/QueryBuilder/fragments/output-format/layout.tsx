@@ -27,7 +27,14 @@ export const OutputFragment = () => {
   };
 
   return (
-    <Grid container spacing={4}>
+    <Grid
+      container
+      spacing={4}
+      css={`
+        min-height: 1000px;
+      `}
+      direction="column"
+    >
       <Grid item xs={12} sm={12} md={12}>
         <ConnectedSelect
           {...fieldsSelect}

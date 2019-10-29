@@ -41,7 +41,14 @@ export const CoreFiltersFragment = () => {
   );
 
   return (
-    <Grid container spacing={4}>
+    <Grid
+      container
+      spacing={4}
+      css={`
+        min-height: 1000px;
+      `}
+      // direction="column"
+    >
       {/** reporting organisation*/}
       <Grid item xs={12} md={12} lg={12}>
         <ConnectedSelect
@@ -108,7 +115,7 @@ export const CoreFiltersFragment = () => {
         />
       </Grid>
       {/** recipient region */}
-      <Grid item xs={12} md={12}>
+      <Grid item xs={12} md={12} lg={12}>
         <ConnectedSelect
           {...fragmentConfig.recipientRegion}
           value={store.get('regions')}
@@ -119,7 +126,7 @@ export const CoreFiltersFragment = () => {
         />
       </Grid>
       {/** Filter by date */}
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={4} lg={4}>
         <SimpleSelect
           label="Filter by Date?"
           data={['Yes', 'No']}
@@ -128,7 +135,7 @@ export const CoreFiltersFragment = () => {
         />
       </Grid>
       {/** activity/budget period start date (after) */}
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={4} lg={4}>
         <DateField
           // defaultValue="2001-01-01"
           value={store.get('startDateAfter')}
@@ -138,7 +145,7 @@ export const CoreFiltersFragment = () => {
         />
       </Grid>
       {/** activity/budget  end date (after) */}
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={4} lg={4}>
         <DateField
           // defaultValue="2001-01-01"
           value={store.get('endDateAfter')}
@@ -148,9 +155,9 @@ export const CoreFiltersFragment = () => {
         />
       </Grid>
       {/** empty grid here **/}
-      <Grid item xs={12} md={4} />
+      <Grid item xs={12} md={4} lg={4} />
       {/** activity/budget  start date (before)*/}
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={4} lg={4}>
         <DateField
           // defaultValue="2001-01-01"
           value={store.get('startDateBefore')}
@@ -160,7 +167,7 @@ export const CoreFiltersFragment = () => {
         />
       </Grid>
       {/** activity/budgegt end date (before)*/}
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={4} lg={4}>
         <DateField
           // defaultValue="2001-01-01"
           value={store.get('endDateBefore')}

@@ -50,8 +50,15 @@ export const FilterFragment = () => {
   ];
 
   return (
-    <Grid container spacing={4}>
-      <Grid item xs={12} sm={12} md={12}>
+    <Grid
+      container
+      spacing={4}
+      css={`
+        min-height: 1000px;
+      `}
+      direction="column"
+    >
+      <Grid item xs={12} sm={12} md={12} lg={12}>
         <IconTextInput
           label="Search in title, activity or description"
           placeholder="Text search"
@@ -74,33 +81,37 @@ export const FilterFragment = () => {
         />*/}
       </Grid>
 
-      <Grid item xs={12} sm={12} md={12} lg={6}>
-        <AsyncSelect
-          label="Transaction Provider Org"
-          // options={fetchedTransactionProviderOrgs}
-          value={store.get('transactionProviderOrgs')}
-          onChange={e => store.set('transactionProviderOrgs')(e)}
-          getOptionValue={option => option.value}
-          getOptionLabel={option => option.value}
-          placeholder="All transaction provider organisations"
-          pivot="transaction_provider_org_ref"
-        />
+      <Grid item lg={12}>
+        <Grid container spacing={4}>
+          <Grid item xs={12} sm={12} md={12} lg={6}>
+            <AsyncSelect
+              label="Transaction Provider Org"
+              // options={fetchedTransactionProviderOrgs}
+              value={store.get('transactionProviderOrgs')}
+              onChange={e => store.set('transactionProviderOrgs')(e)}
+              getOptionValue={option => option.value}
+              getOptionLabel={option => option.value}
+              placeholder="All transaction provider organisations"
+              pivot="transaction_provider_org_ref"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={12} md={12} lg={6}>
+            <AsyncSelect
+              label="Transaction Receiver Org"
+              // options={fetchedTransactionReceiverOrgs}
+              value={store.get('transactionReceiverOrgs')}
+              onChange={e => store.set('transactionReceiverOrgs')(e)}
+              getOptionValue={option => option.value}
+              getOptionLabel={option => option.value}
+              placeholder="All transaction receiver organisations"
+              pivot="transaction_receiver_org_ref"
+            />
+          </Grid>
+        </Grid>
       </Grid>
 
-      <Grid item xs={12} sm={12} md={12} lg={6}>
-        <AsyncSelect
-          label="Transaction Receiver Org"
-          // options={fetchedTransactionReceiverOrgs}
-          value={store.get('transactionReceiverOrgs')}
-          onChange={e => store.set('transactionReceiverOrgs')(e)}
-          getOptionValue={option => option.value}
-          getOptionLabel={option => option.value}
-          placeholder="All transaction receiver organisations"
-          pivot="transaction_receiver_org_ref"
-        />
-      </Grid>
-
-      <Grid item xs={12} sm={12} md={12}>
+      <Grid item xs={12} sm={12} md={12} lg={12}>
         <AsyncSelect
           label="Participating Organisation"
           //options={fetchedParticipatingOrgs}
@@ -113,14 +124,14 @@ export const FilterFragment = () => {
         />
       </Grid>
 
-      <Grid item xs={12} sm={12} md={4}>
+      <Grid item xs={12} sm={12} md={4} lg={4}>
         <AddFilterModule
           data={additionalFiltersPopData}
           onCheckChange={setAdditionFilters}
           addedFilterOptions={addedFilterOptions}
         />
       </Grid>
-      <Grid item xs={12} sm={12} md={8} />
+      <Grid item xs={12} sm={12} md={8} lg={8} />
       {addedFilterOptions.map(addedFilter => {
         return find(allAddFilters, { label: addedFilter }).component({
           store,
