@@ -243,9 +243,9 @@ workflows:
 #      - test_e2e:
 #          requires:
 #            - build_deploy
-      - performance_test:
-          requires:
-            - build_deploy
-      - process_performance_test_results:
-          requires:
-            - performance_test
+#      - performance_test:
+#          requires:
+#            - build_deploy
+#      - process_performance_test_results:
+#          requires:
+#            - performance_test
