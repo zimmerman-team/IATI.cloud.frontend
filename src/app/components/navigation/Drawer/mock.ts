@@ -12,7 +12,7 @@ export const mockData: DrawerMenuModel = {
     },
     {
       label: 'QUERY BUILDER',
-      url: '/signatory-progress',
+      url: '/querybuilder/core-filters',
     },
     {
       label: 'API DOCUMENTATION',
