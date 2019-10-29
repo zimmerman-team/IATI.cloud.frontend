@@ -57,29 +57,34 @@ export const QueryBuilderLayout = () => {
           <Grid container>
             <Box height="40px" width="100%" />
 
-            <Hidden smDown>
-              <Grid item md={12} style={{ position: 'relative' }}>
-                <Box
-                  display="flex"
-                  flexDirection="row"
-                  justifyContent="space-between"
-                >
-                  {navButtons.map(item => (
-                    <NavigationButton
-                      key={item.label}
-                      path={item.path}
-                      label={item.label}
-                    />
-                  ))}
-                </Box>
-                <Box
-                  width="100%"
-                  borderBottom="1px solid #e2e2e2"
-                  position={'absolute'}
-                  bottom="3px"
-                />
-              </Grid>
-            </Hidden>
+            <Grid
+              item
+              md={12}
+              style={{ position: 'relative' }}
+              css={`
+                overflow-x: scroll;
+              `}
+            >
+              <Box
+                display="flex"
+                flexDirection="row"
+                justifyContent="space-between"
+              >
+                {navButtons.map(item => (
+                  <NavigationButton
+                    key={item.label}
+                    path={item.path}
+                    label={item.label}
+                  />
+                ))}
+              </Box>
+              <Box
+                width="100%"
+                borderBottom="1px solid #e2e2e2"
+                position={'absolute'}
+                bottom="3px"
+              />
+            </Grid>
 
             <Box height="40px" width="100%" />
 
