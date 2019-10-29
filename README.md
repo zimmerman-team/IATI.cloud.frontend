@@ -7,6 +7,17 @@
 ## What is the IATI Query Builder?
 
 
+The IATI Query Builder runs on top the the iati.cloud API application. It will allow users to interact with all the IATI data that is available in the [IATI Registry](http://www.iatiregistry.org/publisher) using a form based interface which enables a user to select what IATI fields to extract, select dates and output formats.
+
+IATI is a global aid transparency standard and it makes information about aid spending easier to access, re-use and understand the underlying data using a unified open standard. You can find more about the IATI XML standard at: <a href="http://www.iatistandard.org" target="_blank">www.iatistandard.org</a>
+
+## About the project
+* Website:         <a href="https://www.iati.cloud" target="_blank">www.iati.cloud</a>
+* Authors:          <a href="https://www.zimmermanzimmerman.nl/" target="_blank">Zimmerman & Zimmerman</a>
+* License:          AGPLv3 (see included <a href="https://github.com/zimmerman-zimmerman/query-builder-iati.cloud/blob/develop/LICENSE.MD" target="_blank">LICENSE</a> file for full license)
+* Github Repo:      <a href="https://github.com/zimmerman-zimmerman/query-builder-iati.cloud/" target="_blank">github.com/zimmerman-zimmerman/query-builder-iati.cloud</a>
+* Bug Tracker:      <a href="https://github.com/zimmerman-zimmerman/query-builder-iati.cloud/issues" target="_blank">github.com/zimmerman-zimmerman/query-builder-iati.cloud/issues</a>
+
 ## Installing
 
 <b>1.</b> Set up the <a href="https://github.com/zimmerman-zimmerman/iati.cloud" target="_blank">iati.cloud backend</a> first<br/>
@@ -20,14 +31,6 @@
 
 <b>6.</b> Run yarn start 
 
-## Contributing
+## Can I contribute?
 
-Please see our Contributing Guideline which explains repo organization, linting, testing, and other steps.
-
-## License
-
-This project is licensed under the terms of the [LICENSE TYPE]
-
-## Contributors
-
-## Supporters
+Yes! We are mainly looking for coders to help on the project. If you are a coder feel free to *Fork* the repository and send us Pull requests!
