@@ -5,7 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MuiCloseIcon from '@material-ui/icons/Close';
 import MuiLink from '@material-ui/core/Link';
 import MuiListItemText from '@material-ui/core/ListItemText';
-import Colors from 'app/theme/color';
+// import Colors from 'app/theme/color';
 import styled from 'styled-components';
 //TODO: code splitting
 export const Drawer = styled(props => <MuiDrawer {...props} />)`
@@ -24,7 +24,7 @@ export const MenuButton = styled(props => <MenuIcon {...props} />)`
   }
 `;
 export const Link = styled(props => <MuiLink {...props} />)`&& {
-  color: ${props => props.highlight ? Colors.branddark : Colors.greydark60OrFontbase}
+  color: ${props => (props.highlight ? '#155366' : '#121212')}
     :hover{
     text-decoration: none !important;
     cursor: ${props => (props.highlight ? 'default' : 'pointer')}
