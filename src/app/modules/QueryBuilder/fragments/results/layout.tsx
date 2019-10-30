@@ -121,10 +121,6 @@ export const DownloadFragment = () => {
           label="Previous"
           path="/querybuilder/output-format"
         />
-        <QbStepNavigatorButton
-          label="Beginning"
-          path="/querybuilder/core-filters"
-        />
       </QbStepNavigator>
     </Grid>
   );
