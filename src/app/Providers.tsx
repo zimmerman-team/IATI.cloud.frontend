@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import ThemeProvider from '@material-ui/styles/ThemeProvider';
+import { ThemeProvider } from '@material-ui/core/styles';
 import theme from 'app/theme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { StoreProvider } from 'easy-peasy';
