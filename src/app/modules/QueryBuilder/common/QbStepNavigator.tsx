@@ -1,24 +1,14 @@
 import React from 'react';
-import { Box, Grid, useTheme } from '@material-ui/core';
-import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
+import { Box, Grid } from '@material-ui/core';
 export const QbStepNavigator = (props: { children: React.ReactNode }) => {
-  const theme = useTheme();
-  const md = useMediaQuery(theme.breakpoints.down('md'));
-
-  // console.log(React.Children.count(props.children));
-
   const childCount = React.Children.count(props.children);
 
-  // const justify = if(childCount > 1){return "space-in-between";}else{return "flex-end";}
-
   return (
-    <Grid item lg={12}>
+    <Grid item xs={12} lg={12}>
       <Box
         display="flex"
         justifyContent={childCount > 1 ? 'space-between' : 'flex-end'}
-        // width="100%"
         marginTop="50px"
-        // padding="16px"
       >
         {props.children}
       </Box>
