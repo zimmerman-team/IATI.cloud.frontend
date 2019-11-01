@@ -7,7 +7,7 @@ import { ResultsSubModule } from 'app/modules/QueryBuilder/fragments/results';
 
 export const QueryBuilderRoutes = () => {
   return (
-    <React.Fragment>
+    <>
       {/*<Switch>*/}
       <Route exact path="/querybuilder/core-filters">
         <CoreFiltersFragment />
@@ -22,6 +22,6 @@ export const QueryBuilderRoutes = () => {
         <ResultsSubModule />
       </Route>
       {/*// </Switch>*/}
-    </React.Fragment>
+    </>
   );
 };

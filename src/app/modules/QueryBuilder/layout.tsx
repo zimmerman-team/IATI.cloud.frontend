@@ -62,7 +62,7 @@ export const QueryBuilderLayout = () => {
               md={12}
               style={{ position: 'relative' }}
               css={`
-                overflow-x: scroll;
+                overflow-x: auto;
               `}
             >
               <Box
