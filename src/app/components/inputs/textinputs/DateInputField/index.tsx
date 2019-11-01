@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components';
 import { FieldInputLabel } from 'app/components/common/FieldInputLabel/index';
+import { TooltipButton } from 'app/components/inputs/buttons/TooltipButton';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -50,12 +51,21 @@ const BaseComponent = styled(props => <TextField {...props} />)`
   }
 `;
 
-export const DateField = props => {
-  const classes = useStyles();
+const Header = styled.div`
+  display: flex;
+  align-items: baseline;
+  label {
+    margin-right: 10px;
+  }
+`;
 
+export const DateField = props => {
   return (
-    <div>
-      <FieldInputLabel label={props.label} />
+    <>
+      <Header>
+        <FieldInputLabel label={props.label} />
+        {props.tip && <TooltipButton tip={props.tip} />}
+      </Header>
       <BaseComponent
         id="date"
         label={props.label}
@@ -68,6 +78,6 @@ export const DateField = props => {
           shrink: true,
         }}
       />
-    </div>
+    </>
   );
 };

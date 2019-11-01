@@ -134,46 +134,50 @@ export const CoreFiltersFragment = () => {
           onChange={e => store.set('mustHaveDates')(e)}
         />
       </Grid>
-      {/** activity/budget period start date (after) */}
+      {/** activity/budget period start date (from) */}
       <Grid item xs={12} md={4} lg={4}>
         <DateField
           // defaultValue="2001-01-01"
           value={store.get('startDateAfter')}
-          label="Activity / Budget start date (after)"
+          label="Activity / Budget start date (from)"
           onChange={e => store.set('startDateAfter')(e)}
           disabled={store.get('mustHaveDates') === 'No'}
+          tip="Use this to filter by activities/budgets that have a start date that is greater than or equal to your chosen date"
         />
       </Grid>
-      {/** activity/budget  end date (after) */}
+      {/** activity/budget  end date (from) */}
       <Grid item xs={12} md={4} lg={4}>
         <DateField
           // defaultValue="2001-01-01"
           value={store.get('endDateAfter')}
-          label="Activity / Budget end date (after)"
+          label="Activity / Budget end date (from)"
           onChange={e => store.set('endDateAfter')(e)}
           disabled={store.get('mustHaveDates') === 'No'}
+          tip="Use this to filter by activities/budgets that have an end date that is greater than or equal to your chosen date"
         />
       </Grid>
       {/** empty grid here **/}
       <Grid item xs={12} md={4} lg={4} />
-      {/** activity/budget  start date (before)*/}
+      {/** activity/budget  start date (to)*/}
       <Grid item xs={12} md={4} lg={4}>
         <DateField
           // defaultValue="2001-01-01"
           value={store.get('startDateBefore')}
-          label="Activity / Budget start date (before)"
+          label="Activity / Budget start date (to)"
           onChange={e => store.set('startDateBefore')(e)}
           disabled={store.get('mustHaveDates') === 'No'}
+          tip="Use this to filter by activities/budgets that have an end date that is greater than or equal to your chosen date"
         />
       </Grid>
-      {/** activity/budgegt end date (before)*/}
+      {/** activity/budgegt end date (to)*/}
       <Grid item xs={12} md={4} lg={4}>
         <DateField
           // defaultValue="2001-01-01"
           value={store.get('endDateBefore')}
-          label="Activity / Budget end date (before)"
+          label="Activity / Budget end date (to)"
           onChange={e => store.set('endDateBefore')(e)}
           disabled={store.get('mustHaveDates') === 'No'}
+          tip="Use this to filter by activities/budgets that have an end date that is less than or equal to your chosen date"
         />
       </Grid>
 
