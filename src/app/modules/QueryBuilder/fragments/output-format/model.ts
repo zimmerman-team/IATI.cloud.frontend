@@ -82,7 +82,7 @@ export const fragmentConfig: FragmentModel = {
       value: store.get('rowFormat'),
       groupID: 'rowFormat',
       title: 'Choose if you would like to output your data with:',
-      tip: 'Row format',
+      tip: 'Choose if you would like to output your data with: \n - One activity per row \n - One transaction per row \n - One budget period per row',
       items: [
         {
           value: 'activity',
