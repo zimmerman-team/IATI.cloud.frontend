@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const DocsideBarContainer = styled.div`
   &&& {
     padding-left: 20px;
@@ -7,6 +8,6 @@ export const DocsideBarContainer = styled.div`
     position: sticky;
     top: 187px;
     height: calc(100vh - 187px);
-    overflow-y: scroll;
+    // overflow-y: scroll;
   }
 `;

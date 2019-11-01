@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Grid, useTheme } from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
+
 export const QbStepNavigator = (props: { children: React.ReactNode }) => {
   const theme = useTheme();
   const md = useMediaQuery(theme.breakpoints.down('md'));
