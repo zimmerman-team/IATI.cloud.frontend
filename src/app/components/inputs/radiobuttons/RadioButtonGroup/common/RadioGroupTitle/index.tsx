@@ -9,7 +9,7 @@ import { TooltipButton } from 'app/components/inputs/buttons/TooltipButton';
 
 type Props = {
   title: string;
-  tip?: string;
+  tip?: string | React.ReactNode;
 };
 
 const GroupTitle = styled(props => <FormLabel {...props} />)`

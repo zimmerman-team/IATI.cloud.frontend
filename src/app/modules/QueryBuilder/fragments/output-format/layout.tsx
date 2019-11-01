@@ -54,7 +54,10 @@ export const OutputFragment = () => {
       {getGroups(store).map(group => (
         <Grid item xs={12} sm={12} md={12} key={group.title}>
           {group.title && (
-            <RadioGroupTitle title={group.title} tip={group.tip} />
+            <RadioGroupTitle
+              title={group.title}
+              tip={<div style={{ whiteSpace: 'pre-line' }}>{group.tip}</div>}
+            />
           )}
           {group && (
             <RadioButtonsGroup
