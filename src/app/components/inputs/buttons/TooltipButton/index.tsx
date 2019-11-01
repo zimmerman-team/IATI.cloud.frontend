@@ -6,7 +6,7 @@ import { Tooltip } from '@material-ui/core';
 type Props = {
   size?: string;
   label?: string;
-  tip?: string;
+  tip?: string | React.ReactNode;
 };
 
 const ZimmerButton = styled(props => <Button {...props} />)`

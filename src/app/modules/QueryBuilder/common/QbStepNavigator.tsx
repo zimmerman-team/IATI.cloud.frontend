@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Grid } from '@material-ui/core';
+
 export const QbStepNavigator = (props: { children: React.ReactNode }) => {
   const childCount = React.Children.count(props.children);
 

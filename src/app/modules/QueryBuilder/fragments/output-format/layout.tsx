@@ -35,15 +35,6 @@ export const OutputFragment = () => {
       `}
       direction="column"
     >
-          {group && (
-            <RadioButtonsGroup
-              items={group.items}
-              value={group.value}
-              onChange={group.onChange}
-            />
-          )}
-        </Grid>
-      ))}
       <Grid item xs={12} sm={12} md={12}>
         <ConnectedSelect
           {...fieldsSelect}
@@ -60,6 +51,23 @@ export const OutputFragment = () => {
           options={getTransactionOptions(store)}
         />
       </Grid>
+      {getGroups(store).map(group => (
+        <Grid item xs={12} sm={12} md={12} key={group.title}>
+          {group.title && (
+            <RadioGroupTitle
+              title={group.title}
+              tip={<div style={{ whiteSpace: 'pre-line' }}>{group.tip}</div>}
+            />
+          )}
+          {group && (
+            <RadioButtonsGroup
+              items={group.items}
+              value={group.value}
+              onChange={group.onChange}
+            />
+          )}
+        </Grid>
+      ))}
 
       <QbStepNavigator>
         <QbStepNavigatorButton

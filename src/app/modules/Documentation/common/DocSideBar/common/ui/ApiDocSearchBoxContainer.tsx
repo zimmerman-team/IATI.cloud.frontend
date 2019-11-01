@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const ApiDocSearchBoxContainer = styled.div`
   display: flex;
   align-items: center;
@@ -9,4 +10,5 @@ export const ApiDocSearchBoxContainer = styled.div`
   padding-left: 10px;
   padding-right: 10px;
   width: 85%;
+  position: sticky;
 `;
