@@ -436,7 +436,8 @@ export const withEffects: StoreEffect = store => {
               break;
 
             case 'result_indicator_baseline_document_link_description':
-              fields[i] = 'result_indicator_baseline_document_link_description_*';
+              fields[i] =
+                'result_indicator_baseline_document_link_description_*';
               break;
 
             case 'fss':

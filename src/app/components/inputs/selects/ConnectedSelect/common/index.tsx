@@ -94,16 +94,12 @@ export const MultiValueRemove = props => {
 
 export const Option = (provided, state) => ({
   ...provided,
-  // borderBottom: '1px dotted pink',
-  // color: state.isSelected ? 'red' : 'blue',
-
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   color: 'black',
   padding: 0,
   height: '48px',
-  // outline: '1px solid green',
   fontWeight: 300,
   fontSize: '14px',
   fontFamily: 'Inter',
@@ -121,18 +117,15 @@ export const Control = () => ({
   display: 'flex',
   alignItems: 'center',
   padding: 0,
-  // paddingLeft: '8px',
   margin: 0,
 });
 
 export const ValueContainer = provided => ({
   ...provided,
   padding: '5px',
-  // outline: '2px solid green'
 });
 
 export const MenuList = (provided, state) => ({
-  // outline: '1px solid blue',
   ...provided,
   height: '300px',
   padding: 0,

@@ -1,7 +1,8 @@
 import React from 'react';
 import { ApiCallFragment } from 'app/modules/Documentation/common/DocDetail/common/ApiCallFragment';
+
 export const CallFragment = ({ item }) => (
-  <React.Fragment>
+  <>
     {item.request && <ApiCallFragment data={item} key={item._postman_id} />}
 
     {item.item &&
@@ -15,5 +16,5 @@ export const CallFragment = ({ item }) => (
             ))}
         </React.Fragment>
       ))}
-  </React.Fragment>
+  </>
 );

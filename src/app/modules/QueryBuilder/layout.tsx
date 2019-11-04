@@ -8,7 +8,6 @@ import { QueryBuilderRoutes } from 'app/modules/QueryBuilder/routes';
 import { ModuleHeader } from 'app/modules/common/ModuleHeader';
 import { NavigationButton } from 'app/modules/QueryBuilder/common/NavigationButton';
 import { StepNavigatorContainer } from 'app/modules/QueryBuilder/common/StepNavigatorContainer';
-import Hidden from '@material-ui/core/Hidden';
 import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
 
 /* config & mock */

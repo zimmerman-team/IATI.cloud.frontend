@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { HashLink } from 'react-router-hash-link';
+
 export const CustomLink2 = styled(props => <HashLink {...props} />)`
   width: 100%;
   margin-bottom: 20px;
   height: 24px;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 16px;
   font-weight: 500;
   font-style: normal;

@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { LocationDescriptor } from 'history';
 
 type Props = {
   size?: string;

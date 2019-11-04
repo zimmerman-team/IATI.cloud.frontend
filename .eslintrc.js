@@ -39,7 +39,7 @@ module.exports = {
     'react/jsx-max-depth': [
       'error',
       {
-        max: 5,
+        max: 10,
       },
     ],
     'react/boolean-prop-naming': [
@@ -85,5 +85,7 @@ module.exports = {
     'object-shorthand': 0,
     'import/no-extraneous-dependencies': 0,
     'react/self-closing-comp': 0,
+    '@typescript-eslint/no-empty-interface': 0,
+    'react/jsx-props-no-spreading':0
   },
 };

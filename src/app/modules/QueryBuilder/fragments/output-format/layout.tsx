@@ -13,8 +13,6 @@ import {
 } from 'app/modules/QueryBuilder/fragments/output-format/model';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
-import { Link } from 'react-router-dom';
-import { TextButton } from 'app/components/inputs/buttons/TextButton';
 import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNavigatorButton';
 import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
 

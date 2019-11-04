@@ -18,7 +18,6 @@ export const Footer = () => {
             @media only screen and (max-width: 768px) {
               height: 400px;
             }
-
             height: 200px;
           `}
         >
@@ -35,7 +34,6 @@ export const Footer = () => {
           >
             <IATILogoWhite />
           </Grid>
-
           {/*MIDDLE ITEM*/}
           <Grid
             item
@@ -58,7 +56,7 @@ export const Footer = () => {
                 <Mail style={{ marginRight: '16px', fill: 'white' }} />
                 <Typography variant="body1" color="textSecondary">
                   <Link
-                    href={'mailto:support@iatistandard.org'}
+                    href="mailto:support@iatistandard.org"
                     target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >
@@ -70,7 +68,7 @@ export const Footer = () => {
                 <Twitter style={{ marginRight: '16px', fill: 'white' }} />
                 <Typography variant="body1" color="textSecondary">
                   <Link
-                    href={'https://twitter.com/IATI_aid'}
+                    href="https://twitter.com/IATI_aid"
                     target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >
@@ -80,7 +78,6 @@ export const Footer = () => {
               </Grid>
             </Grid>
           </Grid>
-
           {/*RIGHT ITEM*/}
           <Grid item md={12} lg={4}>
             <Grid
@@ -121,9 +118,7 @@ export const Footer = () => {
                 >
                   Code licensed under the{' '}
                   <Link
-                    href={
-                      'https://github.com/zimmerman-zimmerman/OIPA/blob/master/LICENSE.MD'
-                    }
+                    href="https://github.com/zimmerman-zimmerman/OIPA/blob/master/LICENSE.MD"
                     target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >

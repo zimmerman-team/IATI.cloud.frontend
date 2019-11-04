@@ -4,8 +4,6 @@ import { Footer } from 'app/components/surfaces/Footer';
 import { PageContainer } from 'app/modules/common/PageContainer';
 import { ModuleHeader } from 'app/modules/common/ModuleHeader';
 import { Paragraph } from './Paragraph';
-import { Section } from './Section';
-import { ContainerDiv } from './ContainerDiv';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 

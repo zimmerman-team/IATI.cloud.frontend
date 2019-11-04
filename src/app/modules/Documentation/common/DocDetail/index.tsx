@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStoreState } from 'app/modules/Documentation/state/store';
 import { Box } from '@material-ui/core';
-import { useEffectOnce, useTitle } from 'react-use';
 import { useParams } from 'react-router';
 import { Root } from 'app/modules/Documentation/state/RootModel';
 import {

@@ -6,7 +6,7 @@ import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import Grid from '@material-ui/core/Grid';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
-import { TooltipButton } from 'app/components/inputs/buttons/TooltipButton/index';
+import { TooltipButton } from "app/components/inputs/buttons/TooltipButton";
 import { BaseMenuItem } from 'app/components/inputs/selects/common/BaseMenuItem';
 import { BaseSelect } from 'app/components/inputs/selects/common/BaseSelect';
 
