@@ -32,7 +32,13 @@ const customStyles = {
 
 export const ConnectedSelect = (props: any) => {
   return (
-    <>
+    <div
+      css={`
+        opacity: ${props.disabled ? 0.5 : 1};
+        user-select: ${props.disabled ? 'none' : 'initial'};
+        pointer-events: ${props.disabled ? 'none' : 'auto'};
+      `}
+    >
       <FieldInputLabel label={props.label} />
       <Select
         components={{
@@ -57,6 +63,6 @@ export const ConnectedSelect = (props: any) => {
           </a>
         )}
       </HelperBlock>
-    </>
+    </div>
   );
 };

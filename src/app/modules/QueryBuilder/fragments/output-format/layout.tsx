@@ -24,6 +24,8 @@ export const OutputFragment = () => {
     store.set('fields')(e);
   };
 
+  const activityActive = store.get('rowFormat') === 'activity';
+
   return (
     <Grid
       container
@@ -33,22 +35,6 @@ export const OutputFragment = () => {
       `}
       direction="column"
     >
-      <Grid item xs={12} sm={12} md={12}>
-        <ConnectedSelect
-          {...fieldsSelect}
-          onChange={setFields}
-          value={store.get('fields')}
-          options={getActivityOptions(store)}
-        />
-      </Grid>
-      <Grid item xs={12} sm={12} md={12}>
-        <ConnectedSelect
-          {...fieldsSelectTransactions}
-          onChange={setFields}
-          value={store.get('fields')}
-          options={getTransactionOptions(store)}
-        />
-      </Grid>
       {getGroups(store).map(group => (
         <Grid item xs={12} sm={12} md={12} key={group.title}>
           {group.title && (
@@ -66,6 +52,26 @@ export const OutputFragment = () => {
           )}
         </Grid>
       ))}
+
+      <Grid item xs={12} sm={12} md={12}>
+        <ConnectedSelect
+          {...fieldsSelect}
+          onChange={setFields}
+          value={store.get('fields')}
+          options={getActivityOptions(store)}
+          disabled={!activityActive}
+        />
+      </Grid>
+
+      <Grid item xs={12} sm={12} md={12}>
+        <ConnectedSelect
+          {...fieldsSelectTransactions}
+          onChange={setFields}
+          value={store.get('fields')}
+          options={getTransactionOptions(store)}
+          disabled={activityActive}
+        />
+      </Grid>
 
       <QbStepNavigator>
         <QbStepNavigatorButton

@@ -76,8 +76,11 @@ export const fragmentConfig: FragmentModel = {
         //   { code: 'recipient_countries', name: 'Recipient Countries' },
         //   { code: 'recipient_regions', name: 'Recipient Regions' },
         // ]);
+
         store.set('fields')([]);
         store.set('rowFormat')(e.target.value);
+
+        // console.log(`onChange: ${e.target.value}`);
       },
       value: store.get('rowFormat'),
       groupID: 'rowFormat',
