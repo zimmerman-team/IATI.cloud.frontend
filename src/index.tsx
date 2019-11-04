@@ -24,12 +24,9 @@ const rootElement = document.getElementById('root');
 
 if (rootElement != null) {
   if (rootElement.hasChildNodes()) {
-    hydrate(
-      <App openSnackbar={serviceWorker.isUpdateAvailable} />,
-      rootElement
-    );
+    hydrate(<App />, rootElement);
   } else {
-    render(<App openSnackbar={serviceWorker.isUpdateAvailable} />, rootElement);
+    render(<App />, rootElement);
   }
 }
 
