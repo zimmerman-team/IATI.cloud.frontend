@@ -1,3 +1,4 @@
+//cc:query builder module fragments#; query builder fragments - additional filters;fragment model
 import { FragmentBaseModel } from 'app/modules/QueryBuilder/fragments/index';
 
 export const fragmentConfig: FragmentBaseModel = {

@@ -1,3 +1,4 @@
+//cc:application state#2;application store model
 import { OrganisationTypesInterface } from 'app/state/interfaces/OrganisationTypesInterface';
 import { OrganisationsInterface } from 'app/state/interfaces/OrganisationsInterface';
 import { SectorsInterface } from 'app/state/interfaces/SectorsInterface';
@@ -9,26 +10,25 @@ import { ActivityStatusInterface } from 'app/state/interfaces/ActivityStatusInte
 import { AidTypeInterface } from 'app/state/interfaces/AidTypeInterface';
 import { AidTypeVocabularyInterface } from 'app/state/interfaces/AidTypeVocabularyInterface';
 import { AidTypeCategoryInterface } from 'app/state/interfaces/AidTypeCategoryInterface';
-import { CollaborationTypeInterface} from '../interfaces/CollaborationTypeInterface';
+import { CollaborationTypeInterface } from '../interfaces/CollaborationTypeInterface';
 import { DefaultCurrencyInterface } from 'app/state/interfaces/DefaultCurrencyInterface';
-import { DefaultFlowTypeInterface} from '../interfaces/DefaultFlowTypeInterface';
-import {HierarchyInterface} from '../interfaces/HierarchyInterface';
-import {FinanceTypeInterface} from 'app/state/interfaces/FinanceTypeInterface';
-import {TiedStatusInterface} from '../interfaces/TiedStatusInterface';
-import {TransactionTypeInterface} from 'app/state/interfaces/TransactionTypeInterface';
-import {TransactionFlowTypeInterface} from 'app/state/interfaces/TransactionFlowTypeInterface';
-import {TransactionTiedStatusInterface} from 'app/state/interfaces/TransactionTiedStatusInterface';
-import {DocumentLinkCategoryInterface} from 'app/state/interfaces/DocumentLinkCategoryInterface';
-import {IATIVersionInterface} from 'app/state/interfaces/IATIVersionInterface';
-import {LanguageInterface} from 'app/state/interfaces/LanguageInterface';
-import {HumanitarianInterface} from 'app/state/interfaces/HumanitarianInterface';
-import {TransactionHumanitarianInterface} from 'app/state/interfaces/TransactionHumanitarianInterface';
-import {OtherIdentifierTypeInterface} from 'app/state/interfaces/OtherIdentifierTypeInterface';
+import { DefaultFlowTypeInterface } from '../interfaces/DefaultFlowTypeInterface';
+import { HierarchyInterface } from '../interfaces/HierarchyInterface';
+import { FinanceTypeInterface } from 'app/state/interfaces/FinanceTypeInterface';
+import { TiedStatusInterface } from '../interfaces/TiedStatusInterface';
+import { TransactionTypeInterface } from 'app/state/interfaces/TransactionTypeInterface';
+import { TransactionFlowTypeInterface } from 'app/state/interfaces/TransactionFlowTypeInterface';
+import { TransactionTiedStatusInterface } from 'app/state/interfaces/TransactionTiedStatusInterface';
+import { DocumentLinkCategoryInterface } from 'app/state/interfaces/DocumentLinkCategoryInterface';
+import { IATIVersionInterface } from 'app/state/interfaces/IATIVersionInterface';
+import { LanguageInterface } from 'app/state/interfaces/LanguageInterface';
+import { HumanitarianInterface } from 'app/state/interfaces/HumanitarianInterface';
+import { TransactionHumanitarianInterface } from 'app/state/interfaces/TransactionHumanitarianInterface';
+import { OtherIdentifierTypeInterface } from 'app/state/interfaces/OtherIdentifierTypeInterface';
 import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { SecondaryReporterInterface } from 'app/state/interfaces/SecondaryReporterInterface';
-// import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
 import { QueryModel } from 'app/state/models/QueryModel';
 
 export interface ApplicationStoreModel {
@@ -38,7 +38,6 @@ export interface ApplicationStoreModel {
   regions: RegionInterface;
   countries: CountryInterface;
   sectorCategories: SectorCategoryInterface;
-  // borgCollective: BorgCollectiveModel;
   query: QueryModel;
   activityStatus: ActivityStatusInterface;
   activityScope: ActivityScopeInterface;

@@ -1,3 +1,5 @@
+//cc:application modules#;api documentation module
+//cc:api documentation module#; main
 import React from 'react';
 import { Container, Grid } from '@material-ui/core';
 import { StoreProvider } from 'easy-peasy';
@@ -21,9 +23,6 @@ function DocumentationModule() {
           <Grid item md={8}>
             <DocumentationRoutes />
           </Grid>
-          {/*<Grid item md={4}>
-            <DocCallPreview />
-          </Grid>*/}
         </Grid>
       </Container>
     </StoreProvider>

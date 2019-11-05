@@ -1,3 +1,4 @@
+//cc:query builder module fragments#; query builder fragments - core filters;fragment model
 import { getOptionLabel, getOptionValue } from 'react-select/src/builtins';
 import { OrganisationModel } from 'app/state/models';
 import { FragmentBaseModel } from 'app/modules/QueryBuilder/fragments';

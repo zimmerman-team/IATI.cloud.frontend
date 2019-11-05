@@ -1,4 +1,5 @@
-/* eslint-disable react/jsx-props-no-spreading */
+//cc:query builder module#; query builder fragments - core filters
+//cc:query builder module fragments#; query builder fragments - core filters;fragment layout and logic
 /* core */
 import React from 'react';
 /* third-party */

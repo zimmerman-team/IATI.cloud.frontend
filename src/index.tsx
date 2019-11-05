@@ -1,24 +1,13 @@
-//cc:app index
+//cc:application base#;root index
 
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 import 'index.css';
 import App from 'app';
-import * as serviceWorker from 'serviceWorker';
+// import * as serviceWorker from 'serviceWorker';
+
+// this import looks unused; it isn't so please do not remove
 import * as _ from 'styled-components/cssprop';
-
-/*import LogRocket from 'logrocket';
-LogRocket.init('zimmerman-zimmerman/querybuilder');
-
-LogRocket.identify('JIM_FUNG', {
-  name: 'Jin Fung',
-  email: 'jim@fung.io',
-});*/
-//
-// import Reactotron from 'reactotron-react-js';
-//
-// Reactotron.configure() // we can use plugins here -- more on this later
-//   .connect();
 
 const rootElement = document.getElementById('root');
 
@@ -30,11 +19,7 @@ if (rootElement != null) {
   }
 }
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
-
+/* for now we're leaving the serviceworker disabled*/
 /*if (process.env.REACT_APP_NODE_ENV === 'development') {
   serviceWorker.unregister();
 } else {

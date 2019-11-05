@@ -1,3 +1,4 @@
+//cc:api documentation module#; navigation - side bar
 import React from 'react';
 import Box from '@material-ui/core/Box';
 import SearchIcon from '@material-ui/icons/Search';
