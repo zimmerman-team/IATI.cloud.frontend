@@ -54,15 +54,15 @@ export const DocLanding = () => {
           <HeaderH6>XML Export</HeaderH6>
           <Typography variant="body2">
             If you require XML format from the API, simply use the format
-            &format=XML in your call.
+            &format=xml in your call.
           </Typography>
         </Grid>
 
         <Grid item md={12}>
           <HeaderH6>CSV Export</HeaderH6>
           <Typography variant="body2">
-            If you require XML format from the API, simply use the format
-            &format=XML in your call.
+            If you require CSV format from the API, simply use the format
+            &format=csv in your call.
           </Typography>
         </Grid>
 
@@ -70,7 +70,7 @@ export const DocLanding = () => {
           <HeaderH6>XLS Export</HeaderH6>
           <Typography variant="body2">
             If you require XLS format from the API, simply use the format
-            &format=XLS in your call. Not all the API calls have multi format
+            &format=xls in your call. Not all the API calls have multi format
             support.
           </Typography>
         </Grid>
