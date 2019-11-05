@@ -28,6 +28,8 @@ import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionPro
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { SecondaryReporterInterface } from 'app/state/interfaces/SecondaryReporterInterface';
+import { PolicyMarkerInterface} from 'app/state/interfaces/PolicyMarkerInterface';
+import { TagInterface} from '../interfaces/TagInterface';
 // import { BorgCollectiveModel } from 'app/state/models/CyborgModel';
 import { QueryModel } from 'app/state/models/QueryModel';
 
@@ -64,4 +66,6 @@ export interface ApplicationStoreModel {
   humanitarian: HumanitarianInterface;
   otherIdentifierType: OtherIdentifierTypeInterface;
   secondaryReporter: SecondaryReporterInterface;
+  policyMarker: PolicyMarkerInterface;
+  tag: TagInterface;
 }

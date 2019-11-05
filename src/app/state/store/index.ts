@@ -30,6 +30,8 @@ import humanitarian from 'app/state/interfaces/HumanitarianInterface';
 import transactionHumanitarian from 'app/state/interfaces/TransactionHumanitarianInterface';
 import otherIdentifierType from 'app/state/interfaces/OtherIdentifierTypeInterface';
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
+import policyMarker from '../interfaces/PolicyMarkerInterface';
+import tag from 'app/state/interfaces/TagInterface';
 import { queryModel } from 'app/state/models/QueryModel';
 
 const applicationStore: ApplicationStoreModel = {
@@ -64,6 +66,8 @@ const applicationStore: ApplicationStoreModel = {
   humanitarian: humanitarian,
   transactionHumanitarian: transactionHumanitarian,
   otherIdentifierType: otherIdentifierType,
+  policyMarker: policyMarker,
+  tag: tag,
 };
 
 const appStore = createStore(applicationStore);
