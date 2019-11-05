@@ -21,15 +21,24 @@ IATI is a global aid transparency standard and it makes information about aid sp
 ## Installing
 
 <b>1.</b> Set up the <a href="https://github.com/zimmerman-zimmerman/iati.cloud" target="_blank">iati.cloud backend</a> first<br/>
-<b>2.</b> Checkout repo to local folder<br/>
+<b>2.</b> Checkout this repository to a local folder<br/>
 <b>3.</b> Make sure you've installed node.js 10.16.3 or higher<br/>
-<b>4.</b> Run yarn install <br/>
+<b>4.</b> Run ```yarn install``` <br/>
 <b>5.</b> Create an .env file and specify the following variables:
 - NODE_PATH=src/
 - REACT_APP_CLIENT_NAME=IATI Datastore
 
 
 <b>6.</b> Run yarn start 
+
+## Documentation
+For a birds eye view on the different facets of the query builder please take the following steps:
+
+<b>1.</b> Install <a href="https://github.com/Bogdan-Lyashenko/codecrumbs">codecrumbs</a> by running: ```yarn global add codecrumbs```<br/>
+<b>2.</b> Start by running: ```codecrumbs```<br/>
+<b>3.</b> Open a browser window or a new tab and navigate to: http://localhost:1234<br/>
+
+
 
 ## Can I contribute?
 

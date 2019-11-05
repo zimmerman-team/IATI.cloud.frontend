@@ -54,7 +54,7 @@ export const DocLanding = () => {
           <HeaderH6>XML Export</HeaderH6>
           <Typography variant="body2">
             If you require XML format from the API, simply use the format
-            &format=XML in your call.
+            &format=xml in your call.
           </Typography>
         </Grid>
 
