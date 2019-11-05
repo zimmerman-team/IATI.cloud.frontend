@@ -1,3 +1,4 @@
+//cc:api documentation module#; content - landing
 import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
 import { ApiList } from 'app/modules/Documentation/common/DocDetail/common/ApiBaseList';
@@ -23,11 +24,10 @@ export const DocLanding = () => {
         {/* description */}
         <Grid item md={12}>
           <Typography variant="body2">
-            This API provides programmatic access to read IATI data. The API
-            responses are available in JSON, XML, CSV and XLS. By default the
-            API response provides JSON ouput with the &format=JSON construct,
-            but if you would like to output XML, CSV or XLS, you need to change
-            that construct into that format.
+            This API provides programmatic access to query IATI data. The API
+            responses are available in JSON, XML and CSV format. The API is
+            developed using the Django rest framework and also makes use of
+            Solr, an open source enterprise search platform, written in Java.
           </Typography>
         </Grid>
       </Grid>
@@ -62,16 +62,13 @@ export const DocLanding = () => {
           <HeaderH6>CSV Export</HeaderH6>
           <Typography variant="body2">
             If you require CSV format from the API, simply use the format
-            &format=csv in your call.
+            &format=CSV in your call.
           </Typography>
         </Grid>
 
         <Grid item md={12}>
-          <HeaderH6>XLS Export</HeaderH6>
           <Typography variant="body2">
-            If you require XLS format from the API, simply use the format
-            &format=xls in your call. Not all the API calls have multi format
-            support.
+            Not all the API calls have multi format support.
           </Typography>
         </Grid>
       </Grid>

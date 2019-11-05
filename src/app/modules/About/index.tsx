@@ -1,3 +1,5 @@
+//cc:application modules#;about module;
+
 import React from 'react';
 import { AboutLayout } from './layout';
 import { useTitle } from 'react-use';

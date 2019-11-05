@@ -1,3 +1,4 @@
+//cc:query builder module fragments#; query builder fragments - output format;fragment model
 import {
   activityOptions,
   groupedOptions,

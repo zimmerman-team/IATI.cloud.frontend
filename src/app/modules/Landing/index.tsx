@@ -1,4 +1,4 @@
-//cc:landing module
+//cc:application modules#;landing module
 /* core */
 import React from 'react';
 /* third-party */

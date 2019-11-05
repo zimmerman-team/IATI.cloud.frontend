@@ -1,3 +1,4 @@
+//cc:query builder module fragments#; query builder fragments - additional filters;fragment layout and logic
 /* core */
 import React from 'react';
 /* third-party */

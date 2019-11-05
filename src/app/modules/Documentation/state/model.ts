@@ -1,3 +1,4 @@
+//cc:api documentation module#; state - model
 import { action, Action } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 import { ApiModel } from 'app/state/api';
@@ -72,7 +73,6 @@ export type ProtocolProfileBehavior = {
   disableBodyPruning: boolean;
 };
 
-//cc:joejoejoe
 export interface DocStoreModel extends ApiModel<Collection> {
   collection: Collection;
   request: RequestsModel;

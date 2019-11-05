@@ -3,5 +3,7 @@ module.exports = {
   projectDir: 'src',
   clientPort: 1234,
   projectNameAlias: 'iati-query-builder',
-  debugModeEnabled: true
+  debugModeEnabled: false,
+  webpackConfig:'config/webpack.config.js',
+  tsConfig: 'tsconfig.json'
 };
