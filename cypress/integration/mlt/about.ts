@@ -1,0 +1,1 @@
+  "The new IATI Datastore offers a robust online data service, providing timely and standardised access to data published according to the IATI Standard. Data users can gain data on development and humanitarian resources and results through using the Datastore’s API. Users will also be able to download data from a new user-friendly Datastore Query Builder.",
