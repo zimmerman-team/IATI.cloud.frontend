@@ -606,7 +606,7 @@ export const withEffects: StoreEffect = store => {
         textSearch && rowFormat === 'transaction'
           ? `(description_narrative:"${textSearch}")`
           : null,
-        
+
         get(transactionProviderOrgs, 'length', 0)
           ? `transaction_provider_org_ref:(${transactionProviderOrgs &&
               transactionProviderOrgs.join(' ')})`
