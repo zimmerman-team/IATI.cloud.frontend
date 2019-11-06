@@ -1,3 +1,4 @@
+//cc:query builder module fragments#; query builder fragments - additional filters;fragment constants
 /* core */
 import React from 'react';
 /* project component */
@@ -162,7 +163,7 @@ export const additionalFiltersPopData = [
             value={props.store.get('transactionFlowType')}
             onChange={e => props.store.set('transactionFlowType')(e)}
           />
-        )
+        ),
       },
       {
         label: 'Transaction tied status',
@@ -173,9 +174,8 @@ export const additionalFiltersPopData = [
             placeholder="All transaction tied status"
             value={props.store.get('transactionTiedStatus')}
             onChange={e => props.store.set('transactionTiedStatus')(e)}
-
           />
-        )
+        ),
       },
       {
         label: 'Transaction value currency',
@@ -184,10 +184,10 @@ export const additionalFiltersPopData = [
             label="Transaction value currency"
             dataKey="defaultCurrency"
             placeholder="All transactions value currencies"
-            value={props.store.get("transactionValueCurrency")}
-            onChange={e => props.store.set("transactionValueCurrency")(e)}
+            value={props.store.get('transactionValueCurrency')}
+            onChange={e => props.store.set('transactionValueCurrency')(e)}
           />
-        )
+        ),
       },
       {
         label: 'Transaction humanitarian',
@@ -199,7 +199,7 @@ export const additionalFiltersPopData = [
             value={props.store.get('transactionHumanitarian')}
             onChange={e => props.store.set('transactionHumanitarian')(e)}
           />
-        )
+        ),
       },
       {
         label: 'Document link category',
@@ -223,7 +223,7 @@ export const additionalFiltersPopData = [
             value={props.store.get('iatiVersion')}
             onChange={e => props.store.set('iatiVersion')(e)}
           />
-        )
+        ),
       },
       {
         label: 'Default language',
@@ -234,8 +234,8 @@ export const additionalFiltersPopData = [
             placeholder="All languages"
             value={props.store.get('language')}
             onChange={e => props.store.set('language')(e)}
-            />
-        )
+          />
+        ),
       },
       {
         label: 'Humanitarian',
@@ -247,7 +247,7 @@ export const additionalFiltersPopData = [
             value={props.store.get('humanitarian')}
             onChange={e => props.store.set('humanitarian')(e)}
           />
-        )
+        ),
       },
       {
         label: 'Other identifier type',
@@ -259,9 +259,8 @@ export const additionalFiltersPopData = [
             value={props.store.get('otherIdentifierType')}
             onChange={e => props.store.set('otherIdentifierType')(e)}
           />
-        )
+        ),
       },
-
     ],
   ],
   // [

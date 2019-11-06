@@ -1,3 +1,5 @@
+//cc:application base#;application store
+//cc:application state#1;application store
 import { createStore, createTypedHooks } from 'easy-peasy';
 import { ApplicationStoreModel } from 'app/state/models';
 import organisationTypes from 'app/state/interfaces/OrganisationTypesInterface';

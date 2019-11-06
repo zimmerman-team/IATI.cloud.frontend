@@ -1,3 +1,5 @@
+//cc:application base#;applicaiton theme
+
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 
 export const Spacing = {

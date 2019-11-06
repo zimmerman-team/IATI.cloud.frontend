@@ -1,3 +1,5 @@
+//cc:application modules#;query builder module;
+//cc:query builder module#; query builder module
 /* core */
 /* layout */
 import { QueryBuilderLayout } from 'app/modules/QueryBuilder/layout';

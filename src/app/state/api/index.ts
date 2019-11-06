@@ -5,8 +5,6 @@ import { Endpoint } from 'app/state/interfaces/Endpoint';
 export const baseURL =
   'https://test-datastore.iatistandard.org/search/activity/select?';
 
-// const NODE_ENV = process.env.NODE_ENV;
-
 /* uncomment this in order to get data from API */
 const NODE_ENV = 'production';
 
@@ -151,7 +149,6 @@ export const DOCUMENT_LINK_CATEGORY =
     : 'api/codelists/DocumentCategory/?format=json';
 
 export const IATI_VERSION = 'data/version.json';
-
 
 /*export const IATI_VERSION =
   // @ts-ignore

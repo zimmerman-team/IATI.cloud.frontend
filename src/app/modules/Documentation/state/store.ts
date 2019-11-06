@@ -1,3 +1,4 @@
+//cc:api documentation module#; state - store
 import { createStore, createTypedHooks } from 'easy-peasy';
 import {
   DocStoreModel,

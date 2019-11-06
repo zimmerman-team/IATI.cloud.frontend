@@ -1,3 +1,4 @@
+//cc:query builder module fragments#; query builder fragments - results;fragment layout and logic
 /* core */
 import React from 'react';
 /* third-party */
@@ -56,6 +57,7 @@ export const DownloadFragment = () => {
       `}
       direction="column"
     >
+      <Grid item lg={12}></Grid>
       <Grid item xs={12} sm={12} lg={12}>
         <Typography variant="subtitle1">{fragmentConfig.name}</Typography>
       </Grid>

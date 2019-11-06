@@ -1,5 +1,6 @@
+//cc:query builder module#; query builder subroutes
 import React from 'react';
-import { Route} from 'react-router';
+import { Route } from 'react-router';
 import { CoreFiltersFragment } from 'app/modules/QueryBuilder/fragments/core-filters';
 import { AdditionalFiltersSubModule } from 'app/modules/QueryBuilder/fragments/additional-filters';
 import { OutputFormatSubModule } from 'app/modules/QueryBuilder/fragments/output-format';

@@ -1,3 +1,4 @@
+//cc:application base#;webpack config
 'use strict';
 
 const fs = require('fs');

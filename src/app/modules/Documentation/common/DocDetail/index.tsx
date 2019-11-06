@@ -1,3 +1,4 @@
+//cc:api documentation module#; content - api category/call detail
 import React from 'react';
 import { useStoreState } from 'app/modules/Documentation/state/store';
 import { Box } from '@material-ui/core';
