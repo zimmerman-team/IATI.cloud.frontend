@@ -23,7 +23,7 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "baseUrl": "src",
-    "types": ["cypress", "@percy/cypress"],
+    "types": ["cypress"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "sourceMap": false,
