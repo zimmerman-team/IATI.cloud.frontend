@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/camelcase */
+//cc:query builder module#; query builder state; effects
 import { StoreEffect } from './store';
 
 import get from 'lodash/get';
@@ -18,6 +18,17 @@ import {
 } from 'app/state/models';
 
 import appStore from 'app/state/store';
+
+/*
+const withLocalStorage: StoreEffect = store => {
+  // Listen on all changes to the store.
+  store
+    .onAll()
+    .subscribe(({ key, value, previousValue }) =>
+      console.log(key, 'changed from', previousValue, 'to', value)
+    );
+};
+*/
 
 export const withEffects: StoreEffect = store => {
   store.onAll().subscribe(() => {
