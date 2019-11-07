@@ -130,7 +130,7 @@ export const withEffects: StoreEffect = store => {
         : null;
 
     const textSearch =
-      store.get('textSearch') && rowFormat === 'activity'
+      store.get('textSearch') && (rowFormat === 'activity' || rowFormat === 'transaction')
         ? store.get('textSearch')
         : null;
 
@@ -610,9 +610,14 @@ export const withEffects: StoreEffect = store => {
             )}]`
           : null,
 
-        textSearch
-          ? `(title_narrative:"${textSearch}" OR description:"${textSearch}")`
+        textSearch && rowFormat === 'activity'
+          ? `(title_narrative:"${textSearch}" OR description_narrative:"${textSearch}")`
           : null,
+
+        textSearch && rowFormat === 'transaction'
+          ? `(description_narrative:"${textSearch}")`
+          : null,
+
         get(transactionProviderOrgs, 'length', 0)
           ? `transaction_provider_org_ref:(${transactionProviderOrgs &&
               transactionProviderOrgs.join(' ')})`
