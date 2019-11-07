@@ -1,0 +1,36 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "types": [
+      "cypress-commands",
+      "cypress",
+      "@types/testing-library__cypress",
+      "cypress-plugin-snapshots"
+    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "app/*": ["src/app/*"]
+    }
+  },
+  "include": [
+    "integration/*.ts",
+    "integration/*/*.ts",
+    "support/*.ts",
+    "../node_modules/cypress",
+    "integration/common/*.ts"
+  ]
+}

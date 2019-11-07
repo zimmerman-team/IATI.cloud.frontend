@@ -6,7 +6,7 @@ import { ZZLogo } from 'app/components/svgs/ZZLogo';
 
 export const Footer = () => {
   return (
-    <Box bgcolor="#155366" width="100%" position="absolute" bottom="0">
+    <Box bgcolor="#155366" width="100%" position="absolute" bottom="0" data-testid="Footer">
       <Container maxWidth="lg">
         {/*LEFT ITEM*/}
         <Grid
