@@ -18,6 +18,7 @@ import { useTheme } from '@material-ui/core/styles';
 import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNavigatorButton';
 import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
 
+const filename = () => new Date().toISOString().slice(0,19);
 export const DownloadFragment = () => {
   /* get query url from app store */
   const store = ModuleStore.useStore();
@@ -73,7 +74,7 @@ export const DownloadFragment = () => {
               onClick={() =>
                 downloadFile(
                   queryURL.replace('json', stringToBeReplaced),
-                  'download.csv'
+                  `iati-cloud-${filename()}.csv`
                 )
               }
             />
@@ -90,7 +91,7 @@ export const DownloadFragment = () => {
             <IconButton
               icon={<Download />}
               label={md ? 'JSON' : 'Download JSON'}
-              onClick={() => downloadFile(queryURL, 'download.json')}
+              onClick={() => downloadFile(queryURL, `iati-cloud-${filename()}.json`)}
             />
           </Grid>
         </Grid>
@@ -106,7 +107,7 @@ export const DownloadFragment = () => {
               icon={<Download />}
               label={md ? 'XML' : 'Download XML'}
               onClick={() =>
-                downloadFile(queryURL.replace('json', 'xml'), 'download.xml')
+                downloadFile(queryURL.replace('json', 'xml'), `iati-cloud-${filename()}.xml`)
               }
             />
           </Grid>
