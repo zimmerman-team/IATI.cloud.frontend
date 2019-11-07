@@ -28,6 +28,8 @@ import {
   TRANSACTION_FLOW_TYPE,
   TRANSACTION_TIED_STATUS,
   OTHER_IDENTIFIER_TYPE,
+  POLICY_MARKER,
+  TAG,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -61,6 +63,16 @@ export const getSectorCategories: Endpoint = (params: RequestInit = {}) =>
   fetch(HOSTNAME + SECTOR_CATEGORIES, {
     method: 'GET',
     ...params,
+  }).then(res => res.json());
+
+export const getPolicyMarker: Endpoint = (params: RequestInit = {}) =>
+  fetch(`/${POLICY_MARKER}`, {
+    method: 'GET',
+  }).then(res => res.json());
+
+export const getTag: Endpoint = (params: RequestInit = {}) =>
+  fetch(`/${TAG}`, {
+    method: 'GET',
   }).then(res => res.json());
 
 export const getRegions: Endpoint = (params: RequestInit = {}) =>

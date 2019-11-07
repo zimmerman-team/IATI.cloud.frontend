@@ -217,6 +217,20 @@ export const withEffects: StoreEffect = store => {
           })
         : null;
 
+    const policyMarker =
+      store.get('policyMarker') && rowFormat === 'activity'
+        ? store.get('policyMarker').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+        : null;
+
+    const tag =
+      store.get('tag') && rowFormat === 'activity'
+        ? store.get('tag').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+        : null;
+
     const defaultFlowType =
       store.get('defaultFlowType') && rowFormat === 'activity'
         ? store.get('defaultFlowType').map((item: ActivityStatusModel) => {
@@ -705,6 +719,14 @@ export const withEffects: StoreEffect = store => {
         get(otherIdentifierType, 'length', 0)
           ? `other_identifier_type:(${otherIdentifierType &&
               otherIdentifierType.join(' ')})`
+          : null,
+        get(policyMarker, 'length', 0)
+          ? `policy_marker_code:(${policyMarker &&
+          policyMarker.join(' ')})`
+          : null,
+        get(tag, 'length', 0)
+          ? `tag_code:(${tag &&
+          tag.join(' ')})`
           : null,
       ],
       get(modifiedFields(), 'length', 0) ? `fl=${fields}` : null

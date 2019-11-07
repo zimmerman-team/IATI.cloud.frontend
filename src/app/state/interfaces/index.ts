@@ -12,6 +12,7 @@ import ParticipatingOrgsInterface from 'app/state/interfaces/ParticipatingOrgsIn
 import TransactionProviderOrgsInterface from 'app/state/interfaces/TransactionProviderOrgsInterface';
 import TransactionReceiverOrgsInterface from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import SecondaryReporterInterface from 'app/state/interfaces/SecondaryReporterInterface';
+import PolicyMarkerInterface from 'app/state/interfaces/PolicyMarkerInterface';
 
 export {
   CountriesInterface,
@@ -28,4 +29,5 @@ export {
   TransactionProviderOrgsInterface,
   TransactionReceiverOrgsInterface,
   SecondaryReporterInterface,
+  PolicyMarkerInterface,
 };
