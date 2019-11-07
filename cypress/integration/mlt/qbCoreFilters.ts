@@ -40,30 +40,6 @@ describe('Query Builder - core filters', function() {
     cy.get('a > .MuiButtonBase-root').click();
   });
 
-  it('should show the correct text', function() {
-    coreFiltersLabels.forEach(text => {cy.get(`[label= "${text}"]`).should('exist')});
-    comparePlaceholderText()
-  });
-
-  it('should show navigations', function() {
-    cy.findByTestId('AppBar').should('exist');
-    cy.get('.active')
-    cy.get('[href="/querybuilder/additional-filters"]').should('exist')
-    cy.get('[href="/querybuilder/output-format"]').should('exist')
-    cy.get('[href="/querybuilder/results"]').should('exist')
-  });
-
-  it('should be able to select all fields', function() {
-    testSelect(".organisationNameSelect", 2, 0)
-    testSelect(".organisationTypeSelect", 3, 0)
-    testSelect(".secondaryReporterSelect", 4, 0)
-    testSelect(".sectorCategorySelect", 5, 0)
-    testSelect(".organisationSectorSelect", 6, 0)
-    testSelect(".recipientCountrySelect", 7, 0)
-    testSelect(".recipientRegionSelect", 8, 0)
-  });
-});
-
 function comparePlaceholderText(){
     cy.get('.organisationNameSelect').should('have.text', "All organisations");
     cy.get('.organisationTypeSelect').should('have.text', "All organisation types");
@@ -81,4 +57,4 @@ function testSelect(selector: string, selectNumber: number,  optionNumber: numbe
       cy.get(`#react-select-${selectNumber}-option-${optionNumber}`).click();
       cy.get(`[class*=multiValue]`).last().should('have.text', selectText);
     })
-}
+}})
