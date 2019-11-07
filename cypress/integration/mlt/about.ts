@@ -32,7 +32,7 @@ describe('About', function() {
   it('should show the correct text', function() {
     aboutHeadersText.map(text => cy.queryAllByText(text).should('exist'));
     for (let index = 0; index < aboutParagraphs.length; index++) {
-      cy.get(`[data-cy="p${index}"]`).should('contain.text', aboutParagraphs[index])
+      cy.get(`[data-testid="p${index}"]`).should('contain.text', aboutParagraphs[index])
     }
   });
 
