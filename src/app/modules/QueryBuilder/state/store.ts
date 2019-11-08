@@ -44,6 +44,8 @@ export type ModuleStoreModel = {
   humanitarian: ActivityStatusModel[];
   transactionHumanitarian: ActivityStatusModel[];
   otherIdentifierType: ActivityStatusModel[];
+  policyMarker: ActivityStatusModel[];
+  tag: ActivityStatusModel[];
   mustHaveDates: string;
   startDateAfter: any;
   startDateBefore: any;
@@ -62,6 +64,8 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   organisationTypes: [],
   organisations: [],
   sectors: [],
+  policyMarker: [],
+  tag: [],
   sectorCategories: [],
   countries: [],
   regions: [],

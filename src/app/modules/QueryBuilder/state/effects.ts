@@ -130,7 +130,7 @@ export const withEffects: StoreEffect = store => {
         : null;
 
     const textSearch =
-      store.get('textSearch') && rowFormat === 'activity'
+      store.get('textSearch') && (rowFormat === 'activity' || rowFormat === 'transaction')
         ? store.get('textSearch')
         : null;
 
@@ -215,6 +215,20 @@ export const withEffects: StoreEffect = store => {
         ? store.get('defaultCurrency').map((item: ActivityStatusModel) => {
             return item.code;
           })
+        : null;
+
+    const policyMarker =
+      store.get('policyMarker') && rowFormat === 'activity'
+        ? store.get('policyMarker').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+        : null;
+
+    const tag =
+      store.get('tag') && rowFormat === 'activity'
+        ? store.get('tag').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
         : null;
 
     const defaultFlowType =
@@ -610,9 +624,14 @@ export const withEffects: StoreEffect = store => {
             )}]`
           : null,
 
-        textSearch
-          ? `(title_narrative:"${textSearch}" OR description:"${textSearch}")`
+        textSearch && rowFormat === 'activity'
+          ? `(title_narrative:"${textSearch}" OR description_narrative:"${textSearch}")`
           : null,
+
+        textSearch && rowFormat === 'transaction'
+          ? `(description_narrative:"${textSearch}")`
+          : null,
+
         get(transactionProviderOrgs, 'length', 0)
           ? `transaction_provider_org_ref:(${transactionProviderOrgs &&
               transactionProviderOrgs.join(' ')})`
@@ -700,6 +719,14 @@ export const withEffects: StoreEffect = store => {
         get(otherIdentifierType, 'length', 0)
           ? `other_identifier_type:(${otherIdentifierType &&
               otherIdentifierType.join(' ')})`
+          : null,
+        get(policyMarker, 'length', 0)
+          ? `policy_marker_code:(${policyMarker &&
+          policyMarker.join(' ')})`
+          : null,
+        get(tag, 'length', 0)
+          ? `tag_code:(${tag &&
+          tag.join(' ')})`
           : null,
       ],
       get(modifiedFields(), 'length', 0) ? `fl=${fields}` : null

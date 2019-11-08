@@ -36,6 +36,10 @@ export const SECTOR_CATEGORIES =
     ? 'data/sector_category.json'
     : 'api/codelists/SectorCategory/?format=json&ordering=code';
 
+export const POLICY_MARKER = 'data/policy_marker.json';
+
+export const TAG = 'data/tag.json';
+
 export const ORGANISATIONS =
   // @ts-ignore
   NODE_ENV === 'development'
