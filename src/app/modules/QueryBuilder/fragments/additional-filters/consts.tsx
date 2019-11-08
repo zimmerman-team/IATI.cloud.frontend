@@ -261,6 +261,32 @@ export const additionalFiltersPopData = [
           />
         ),
       },
+
+      {
+        label: 'Policy marker',
+        component: props => (
+          <AddFilterModule
+            label="Policy marker"
+            dataKey="policyMarker"
+            placeholder="All other identifier types"
+            value={props.store.get('policyMarker')}
+            onChange={e => props.store.set('policyMarker')(e)}
+          />
+        )
+      },
+      {
+        label: 'Tag',
+        component: props => (
+          <AddFilterModule
+            label="Tag"
+            dataKey="tag"
+            placeholder="All other identifier types"
+            value={props.store.get('tag')}
+            onChange={e => props.store.set('tag')(e)}
+          />
+        )
+      },
+
     ],
   ],
   // [

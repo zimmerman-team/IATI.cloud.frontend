@@ -47,7 +47,7 @@ export const fragmentConfig: FragmentModel = {
       option.reporting_organisation_identifier,
   },
   organisationTypes: {
-    label: 'Type of Organisation',
+    label: 'Type of Reporting Organisation',
     helperTextLink: 'Code List',
     helperTextUrl:
       'http://reference.iatistandard.org/203/codelists/OrganisationType/',

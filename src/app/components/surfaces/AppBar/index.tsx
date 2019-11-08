@@ -38,7 +38,7 @@ const BaseComponent = styled(props => <BaseAppBar {...props} />)`
 
 export const AppBar = (props: AppBarProps) => {
   return (
-    <BaseComponent position="static" elevation={0} {...props}>
+    <BaseComponent position="static" elevation={0} {...props} data-testid="AppBar">
       <Grid container justify="space-between" alignItems="center">
         <Grid item xs={8} md={5} lg={5}>
           <Link to="/">
