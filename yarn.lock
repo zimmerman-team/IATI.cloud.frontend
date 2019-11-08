@@ -17266,7 +17266,7 @@ style-to-object@0.2.3, style-to-object@^0.2.1:
   dependencies:
     inline-style-parser "0.1.1"
 
-styled-components@^5.0.0-beta.8:
+styled-components@^5.0.0-rc.1:
   version "5.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-5.0.0-rc.1.tgz#c94f7f5b04a7d73875d86fcb07db434391a633c2"
   integrity sha512-8YpQtS+w1UmjJVjWx/fVFsyp22KT3rnNuMWRk9zIrjz+x8BSZVaIPLfpVSeG4p81LpH1cQTNSXAZ1lZwBHpRUQ==
@@ -17496,7 +17496,7 @@ term-size@^1.2.0:
   dependencies:
     execa "^0.7.0"
 
-terser-webpack-plugin@1.4.1, terser-webpack-plugin@^1.2.4, terser-webpack-plugin@^1.4.1:
+terser-webpack-plugin@^1.2.4, terser-webpack-plugin@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-1.4.1.tgz#61b18e40eaee5be97e771cdbb10ed1280888c2b4"
   integrity sha512-ZXmmfiwtCLfz8WKZyYUuuHf3dMYEjg8NrjHMb0JqHVHVOSkzp3cW2/XG1fP3tRhqEqSzMwzzRQGtAPbs4Cncxg==
