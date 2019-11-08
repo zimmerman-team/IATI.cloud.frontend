@@ -26,6 +26,8 @@ export const OutputFragment = () => {
   };
 
   const activityActive = store.get('rowFormat') === 'activity';
+  const transactionActive = store.get('rowFormat') === 'transaction';
+  const budgetActive = store.get('rowFormat') === 'budget';
 
   return (
     <Grid
@@ -60,7 +62,7 @@ export const OutputFragment = () => {
           onChange={setFields}
           value={store.get('fields')}
           options={getActivityOptions(store)}
-          disabled={!activityActive}
+          disabled={transactionActive || budgetActive}
         />
       </Grid>
 
@@ -70,7 +72,7 @@ export const OutputFragment = () => {
           onChange={setFields}
           value={store.get('fields')}
           options={getTransactionOptions(store)}
-          disabled={activityActive}
+          disabled={activityActive || budgetActive}
         />
       </Grid>
 
