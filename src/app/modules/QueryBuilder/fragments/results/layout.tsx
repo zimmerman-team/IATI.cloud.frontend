@@ -17,8 +17,9 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNavigatorButton';
 import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
+import { DataTable } from 'app/components/datadisplay/DataTable';
 
-const filename = () => new Date().toISOString().slice(0,19);
+const filename = () => new Date().toISOString().slice(0, 19);
 export const DownloadFragment = () => {
   /* get query url from app store */
   const store = ModuleStore.useStore();
@@ -57,6 +58,9 @@ export const DownloadFragment = () => {
       `}
       direction="column"
     >
+      <Grid item lg={12}>
+        <DataTable />
+      </Grid>
       <Grid item lg={12}></Grid>
       <Grid item xs={12} sm={12} lg={12}>
         <Typography variant="subtitle1">{fragmentConfig.name}</Typography>
@@ -91,7 +95,9 @@ export const DownloadFragment = () => {
             <IconButton
               icon={<Download />}
               label={md ? 'JSON' : 'Download JSON'}
-              onClick={() => downloadFile(queryURL, `iati-cloud-${filename()}.json`)}
+              onClick={() =>
+                downloadFile(queryURL, `iati-cloud-${filename()}.json`)
+              }
             />
           </Grid>
         </Grid>
@@ -107,7 +113,10 @@ export const DownloadFragment = () => {
               icon={<Download />}
               label={md ? 'XML' : 'Download XML'}
               onClick={() =>
-                downloadFile(queryURL.replace('json', 'xml'), `iati-cloud-${filename()}.xml`)
+                downloadFile(
+                  queryURL.replace('json', 'xml'),
+                  `iati-cloud-${filename()}.xml`
+                )
               }
             />
           </Grid>
