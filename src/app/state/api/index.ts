@@ -13,7 +13,7 @@ const NODE_ENV = 'production';
 
 export const HOSTNAME =
   // @ts-ignore
-  NODE_ENV === 'development' ? '/' : 'https://test-datastore.iatistandard.org/';
+  NODE_ENV === 'development' ? '/' : 'https://iatidatastore.iatistandard.org/';
 
 // datastore.iati.cloud
 
