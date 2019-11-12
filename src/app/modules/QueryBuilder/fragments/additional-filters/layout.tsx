@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 /* project component */
 import { AddFilterModule } from 'app/components/utils/Popover';
 import { AsyncSelect } from 'app/components/inputs/selects/AsyncSelect';
+import { LoadingOverlay } from 'app/components/common/LoadingOverlay';
 /* utils */
 import get from 'lodash/get';
 import find from 'lodash/find';
@@ -59,6 +60,7 @@ export const FilterFragment = () => {
       `}
       direction="column"
     >
+      <LoadingOverlay />
       <Grid item xs={12} sm={12} md={12} lg={12}>
         <IconTextInput
           label="Search in title, activity or description"
