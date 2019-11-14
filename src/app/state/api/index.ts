@@ -3,7 +3,7 @@ import { Action, action, Thunk, thunk, computed, Computed } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
 export const baseURL =
-  'https://test-datastore.iatistandard.org/search/activity/select?';
+  'https://iati.cloud/search/activity?';
 
 /* uncomment this in order to get data from API */
 const NODE_ENV = 'production';

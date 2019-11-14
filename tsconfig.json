@@ -26,12 +26,7 @@
     "types": ["cypress"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "sourceMap": false,
-    "plugins": [
-      {
-        "name": "typescript-tslint-plugin"
-      }
-    ]
+    "sourceMap": false
   },
   "include": ["src", "**/*.ts", "**/*.tsx"],
   "exclude": [
