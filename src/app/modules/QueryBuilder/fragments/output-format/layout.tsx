@@ -22,7 +22,7 @@ export const OutputFragment = () => {
   const { getGroups, fieldsSelect, fieldsSelectTransactions } = fragmentConfig;
 
   const setFields = e => {
-    store.set('fields')(e);
+    store.set('fields')(e || []);
   };
 
   const activityActive = store.get('rowFormat') === 'activity';
