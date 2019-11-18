@@ -1,7 +1,8 @@
 // @ts-nocheck
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Paper from '@material-ui/core/Paper';
 import { Column } from '@devexpress/dx-react-grid';
+import sortBy from 'lodash/sortBy';
 import {
   Grid,
   Table,
@@ -14,8 +15,6 @@ import {
   Response,
   ResponseModel,
 } from 'app/components/datadisplay/DataTable/model';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import { docs } from 'jest-cli/build/cli/args';
 
 interface IRow {
@@ -24,44 +23,58 @@ interface IRow {
   city: string;
   car: string;
 }
+import {
+  defaultActivityTableCols,
+  defaultTransactionTableCols,
+  defaultBudgetTableCols,
+} from 'app/modules/QueryBuilder/fragments/results/model';
 
-const URL =
-  'https://test-datastore.iatistandard.org/search/activity/select?q=reporting_org_type_code:(10)%20AND%20sector_code:(%2211130%22%20%22112%22)%20AND%20recipient_country_code:(KE)&wt=json&rows=10';
-
-export const DataTable = () => {
-  const [rows, setRows] = useState([]);
+export const DataTable = props => {
+  const [cols, setCols] = useState(
+    props.rowFormat === 'activity'
+      ? defaultActivityTableCols
+      : props.rowFormat === 'transaction'
+      ? defaultTransactionTableCols
+      : defaultBudgetTableCols
+  );
 
   const options = {
     onMount: true, // will fire on componentDidMount (GET by default)
     data: [], // default for `data` will be an array instead of undefined
   };
-  const { loading, error, data } = useFetch(URL, options);
+  const { loading, error, data } = useFetch(
+    props.url.replace(/rows=5000000/, 'rows=10'),
+    options
+  );
   const loadedData: ResponseModel = data && data;
   const responseData: Response = loadedData && loadedData.response;
-  const docsData: Doc[] = responseData && responseData.docs;
+  const docsData: Doc[] = responseData ? responseData.docs : [];
 
-  const columns: Column[] = [
-    { name: 'reporting_org', title: 'Reporting Organisation' },
-    { name: 'reporting_org_type_name', title: 'Reporting Org. Type' },
-    { name: 'recipient_country_name', title: 'Country' },
-  ];
-
-  //useEffect(() => loadData(setRows(docsData)));
+  useEffect(() => {
+    if (!props.defaultCols && docsData.length > 0) {
+      const newCols: any = [];
+      Object.keys(docsData[0]).forEach(key => {
+        newCols.push({ name: key, title: key });
+      });
+      setCols(sortBy(newCols, 'name'));
+    }
+  }, [docsData, props.defaultCols]);
 
   return (
     <>
       {error && 'Error!'}
       {loading && 'Loading...'}
-      {
-        <Paper>
-          {console.log('docs', docsData)}
-
-          <Grid rows={rows} columns={columns}>
-            <Table />
-            <TableHeaderRow />
-          </Grid>
-        </Paper>
-      }
+      <Paper>
+        <Grid rows={docsData} columns={cols}>
+          <Table
+          // columnExtensions={cols.map(col => ({
+          //   columnName: col.name,
+          //   width: 'auto',
+          // }))}
+          />
+          <TableHeaderRow />
+        </Grid>
+      </Paper>
     </>
   );
 };
