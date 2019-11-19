@@ -60,13 +60,10 @@ export const AsyncSelect = (props: any) => {
         }}
         styles={customStyles}
         isMulti
-        loadOptions={(search, loadedOptions, { page }) =>
-          loadOptions(search, loadedOptions, { page }, props.pivot)
-        }
+        loadOptions={(search, loadedOptions, { page }) =>loadOptions(search, loadedOptions, { page }, props.pivot)}
         additional={{
           page: 0,
         }}
-        debounceTimeout={1000}
       />
       <HelperBlock>
         {props.helperText && <FieldInputLabel label={props.helperText} />}

@@ -59,7 +59,11 @@ export const DownloadFragment = () => {
       direction="column"
     >
       <Grid item lg={12}>
-        <DataTable />
+        <DataTable
+          url={queryURL}
+          rowFormat={store.get('rowFormat')}
+          defaultCols={store.get('fields').length === 0}
+        />
       </Grid>
       <Grid item lg={12}></Grid>
       <Grid item xs={12} sm={12} lg={12}>
