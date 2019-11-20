@@ -49,7 +49,7 @@ export function getResults(data, searchVal) {
             }
             if (item2.item) {
               item2.item.forEach(item3 => {
-                item3Pass = item2.name.indexOf(searchVal) > -1;
+                item3Pass = item3.name.indexOf(searchVal) > -1;
                 if ((!categoryPass || !item1Pass || !item2Pass) && item3Pass) {
                   if (!categoryPass) {
                     results.push({ ...category, item: [] });
