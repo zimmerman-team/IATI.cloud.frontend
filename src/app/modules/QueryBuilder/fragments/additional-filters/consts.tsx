@@ -9,6 +9,79 @@ export const additionalFiltersPopData = [
     'Activity',
     [
       {
+        label: 'IATI version',
+        component: props => (
+          <AddFilterModule
+            label="IATI version"
+            dataKey="iatiVersion"
+            placeholder="All IATI versions"
+            value={props.store.get('iatiVersion')}
+            onChange={e => props.store.set('iatiVersion')(e)}
+          />
+        ),
+      },
+      {
+        label: 'Default language',
+        component: props => (
+          <AddFilterModule
+            label="Default language"
+            dataKey="language"
+            placeholder="All languages"
+            value={props.store.get('language')}
+            onChange={e => props.store.set('language')(e)}
+          />
+        ),
+      },
+      {
+        label: 'Default currency',
+        component: props => (
+          <AddFilterModule
+            label="Currency"
+            dataKey="defaultCurrency"
+            placeholder="All currencies"
+            value={props.store.get('defaultCurrency')}
+            onChange={e => props.store.set('defaultCurrency')(e)}
+          />
+        ),
+      },
+      {
+        label: 'Hierarchy',
+        component: props => (
+          <AddFilterModule
+            label="Hierarchy"
+            dataKey="hierarchy"
+            placeholder="All hierarchies"
+            value={props.store.get('hierarchy')}
+            onChange={e => props.store.set('hierarchy')(e)}
+          />
+        ),
+      },
+      {
+        label: 'Humanitarian',
+        component: props => (
+          <AddFilterModule
+            label="Humanitarian"
+            dataKey="humanitarian"
+            placeholder="All options"
+            value={props.store.get('humanitarian')}
+            onChange={e => props.store.set('humanitarian')(e)}
+          />
+        ),
+      },
+      {
+        label: 'Other identifier type',
+        component: props => (
+          <AddFilterModule
+            label="Other identifier type"
+            dataKey="otherIdentifierType"
+            placeholder="All other identifier types"
+            value={props.store.get('otherIdentifierType')}
+            onChange={e => props.store.set('otherIdentifierType')(e)}
+          />
+        ),
+      },
+
+      {
         label: 'Activity status',
         component: props => (
           <AddFilterModule
@@ -33,53 +106,28 @@ export const additionalFiltersPopData = [
         ),
       },
       {
-        label: 'Aid type',
+        label: 'Tag',
         component: props => (
           <AddFilterModule
-            label="Aid type"
-            dataKey="aidType"
-            placeholder="All aid types"
-            value={props.store.get('aidType')}
-            onChange={e => props.store.set('aidType')(e)}
+            label="Tag"
+            dataKey="tag"
+            placeholder="All other identifier types"
+            value={props.store.get('tag')}
+            onChange={e => props.store.set('tag')(e)}
           />
-        ),
+        )
       },
       {
-        label: 'Aid type (category)',
+        label: 'Policy marker',
         component: props => (
           <AddFilterModule
-            label="Aid type (category)"
-            dataKey="aidTypeCategory"
-            placeholder="All aid type categories"
-            value={props.store.get('aidTypeCategory')}
-            onChange={e => props.store.set('aidTypeCategory')(e)}
+            label="Policy marker"
+            dataKey="policyMarker"
+            placeholder="All other identifier types"
+            value={props.store.get('policyMarker')}
+            onChange={e => props.store.set('policyMarker')(e)}
           />
-        ),
-      },
-      {
-        label: 'Aid type vocabulary',
-        component: props => (
-          <AddFilterModule
-            label="Aid type vocabulary"
-            dataKey="aidTypeVocabulary"
-            placeholder="All aid type vocabularies"
-            value={props.store.get('aidTypeVocabulary')}
-            onChange={e => props.store.set('aidTypeVocabulary')(e)}
-          />
-        ),
-      },
-
-      {
-        label: 'Default currency',
-        component: props => (
-          <AddFilterModule
-            label="Currency"
-            dataKey="defaultCurrency"
-            placeholder="All currencies"
-            value={props.store.get('defaultCurrency')}
-            onChange={e => props.store.set('defaultCurrency')(e)}
-          />
-        ),
+        )
       },
       {
         label: 'Collaboration type',
@@ -106,18 +154,6 @@ export const additionalFiltersPopData = [
         ),
       },
       {
-        label: 'Hierarchy',
-        component: props => (
-          <AddFilterModule
-            label="Hierarchy"
-            dataKey="hierarchy"
-            placeholder="All hierarchies"
-            value={props.store.get('hierarchy')}
-            onChange={e => props.store.set('hierarchy')(e)}
-          />
-        ),
-      },
-      {
         label: 'Default finance type',
         component: props => (
           <AddFilterModule
@@ -126,6 +162,42 @@ export const additionalFiltersPopData = [
             placeholder="All default finance types"
             value={props.store.get('financeType')}
             onChange={e => props.store.set('financeType')(e)}
+          />
+        ),
+      },
+      {
+        label: 'Default Aid type',
+        component: props => (
+          <AddFilterModule
+            label="Default Aid type"
+            dataKey="aidType"
+            placeholder="All aid types"
+            value={props.store.get('aidType')}
+            onChange={e => props.store.set('aidType')(e)}
+          />
+        ),
+      },
+      {
+        label: 'Default Aid type (category)',
+        component: props => (
+          <AddFilterModule
+            label="Default Aid type (category)"
+            dataKey="aidTypeCategory"
+            placeholder="All aid type categories"
+            value={props.store.get('aidTypeCategory')}
+            onChange={e => props.store.set('aidTypeCategory')(e)}
+          />
+        ),
+      },
+      {
+        label: 'Default Aid type vocabulary',
+        component: props => (
+          <AddFilterModule
+            label="Default Aid type vocabulary"
+            dataKey="aidTypeVocabulary"
+            placeholder="All aid type vocabularies"
+            value={props.store.get('aidTypeVocabulary')}
+            onChange={e => props.store.set('aidTypeVocabulary')(e)}
           />
         ),
       },
@@ -213,80 +285,6 @@ export const additionalFiltersPopData = [
           />
         ),
       },
-      {
-        label: 'IATI version',
-        component: props => (
-          <AddFilterModule
-            label="IATI version"
-            dataKey="iatiVersion"
-            placeholder="All IATI versions"
-            value={props.store.get('iatiVersion')}
-            onChange={e => props.store.set('iatiVersion')(e)}
-          />
-        ),
-      },
-      {
-        label: 'Default language',
-        component: props => (
-          <AddFilterModule
-            label="Default language"
-            dataKey="language"
-            placeholder="All languages"
-            value={props.store.get('language')}
-            onChange={e => props.store.set('language')(e)}
-          />
-        ),
-      },
-      {
-        label: 'Humanitarian',
-        component: props => (
-          <AddFilterModule
-            label="Humanitarian"
-            dataKey="humanitarian"
-            placeholder="All options"
-            value={props.store.get('humanitarian')}
-            onChange={e => props.store.set('humanitarian')(e)}
-          />
-        ),
-      },
-      {
-        label: 'Other identifier type',
-        component: props => (
-          <AddFilterModule
-            label="Other identifier type"
-            dataKey="otherIdentifierType"
-            placeholder="All other identifier types"
-            value={props.store.get('otherIdentifierType')}
-            onChange={e => props.store.set('otherIdentifierType')(e)}
-          />
-        ),
-      },
-
-      {
-        label: 'Policy marker',
-        component: props => (
-          <AddFilterModule
-            label="Policy marker"
-            dataKey="policyMarker"
-            placeholder="All other identifier types"
-            value={props.store.get('policyMarker')}
-            onChange={e => props.store.set('policyMarker')(e)}
-          />
-        )
-      },
-      {
-        label: 'Tag',
-        component: props => (
-          <AddFilterModule
-            label="Tag"
-            dataKey="tag"
-            placeholder="All other identifier types"
-            value={props.store.get('tag')}
-            onChange={e => props.store.set('tag')(e)}
-          />
-        )
-      },
-
     ],
   ],
   // [
