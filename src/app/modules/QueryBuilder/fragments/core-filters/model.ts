@@ -24,6 +24,7 @@ interface FragmentModel extends FragmentBaseModel {
   organisations: SelectModel;
   secondaryReporter: SelectModel;
   sectorCategory: SelectModel;
+  sectorVocabulary: SelectModel;
   recipientCountry: SelectModel;
   recipientRegion: SelectModel;
   activityPeriode: SelectModel;
@@ -83,6 +84,16 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'All (0)',
     className: 'sectorCategorySelect',
     name: 'sectorCategory',
+    getOptionLabel: option => `${option.code}: ${option.name}`,
+    getOptionValue: option => option.code,
+  },
+  sectorVocabulary: {
+    label: 'Sector Vocabulary',
+    helperTextUrl:
+      'http://reference.iatistandard.org/203/codelists/SectorVocabulary/',
+    placeholder: 'All (0)',
+    className: 'sectorVocabularySelect',
+    name: 'sectorVocabulary',
     getOptionLabel: option => `${option.code}: ${option.name}`,
     getOptionValue: option => option.code,
   },

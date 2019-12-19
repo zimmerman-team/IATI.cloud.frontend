@@ -5,6 +5,7 @@ import {
   OrganisationModel,
   SectorModel,
   SectorCategoryModel,
+  SectorVocabularyModel,
   CountryModel,
   RegionModel,
   ActivityStatusModel,
@@ -19,6 +20,7 @@ export type ModuleStoreModel = {
   organisations: OrganisationModel[];
   sectors: SectorModel[];
   sectorCategories: SectorCategoryModel[];
+  sectorVocabularies: SectorVocabularyModel[];
   countries: CountryModel[];
   regions: RegionModel[];
   secondaryReporter: OrganisationTypeModel[];
@@ -67,6 +69,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   policyMarker: [],
   tag: [],
   sectorCategories: [],
+  sectorVocabularies: [],
   countries: [],
   regions: [],
   secondaryReporter: [],

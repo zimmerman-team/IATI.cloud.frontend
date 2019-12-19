@@ -5,6 +5,7 @@ import { SectorsInterface } from 'app/state/interfaces/SectorsInterface';
 import { RegionInterface } from 'app/state/interfaces/RegionsInterface';
 import { CountryInterface } from 'app/state/interfaces/CountriesInterface';
 import { SectorCategoryInterface } from 'app/state/interfaces/SectorCategoryInterface';
+import { SectorVocabularyInterface} from 'app/state/interfaces/SectorVocabularyInterface';
 import { ActivityScopeInterface } from 'app/state/interfaces/ActivityScopeInterface';
 import { ActivityStatusInterface } from 'app/state/interfaces/ActivityStatusInterface';
 import { AidTypeInterface } from 'app/state/interfaces/AidTypeInterface';
@@ -41,6 +42,7 @@ export interface ApplicationStoreModel {
   regions: RegionInterface;
   countries: CountryInterface;
   sectorCategories: SectorCategoryInterface;
+  sectorVocabularies: SectorVocabularyInterface;
   query: QueryModel;
   activityStatus: ActivityStatusInterface;
   activityScope: ActivityScopeInterface;
