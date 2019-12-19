@@ -8,6 +8,7 @@ import sectors from 'app/state/interfaces/SectorsInterface';
 import regions from 'app/state/interfaces/RegionsInterface';
 import countries from 'app/state/interfaces/CountriesInterface';
 import sectorCategories from 'app/state/interfaces/SectorCategoryInterface';
+import sectorVocabularies from 'app/state/interfaces/SectorVocabularyInterface';
 import secondaryReporter from 'app/state/interfaces/SecondaryReporterInterface';
 import activityStatus from 'app/state/interfaces/ActivityStatusInterface';
 import activityScope from 'app/state/interfaces/ActivityScopeInterface';
@@ -43,6 +44,7 @@ const applicationStore: ApplicationStoreModel = {
   regions: regions,
   countries: countries,
   sectorCategories: sectorCategories,
+  sectorVocabularies: sectorVocabularies,
   query: queryModel,
   secondaryReporter: secondaryReporter,
   activityStatus: activityStatus,

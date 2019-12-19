@@ -14,7 +14,7 @@ import {
   ActivityStatusModel,
   ParticipatingOrgsModel,
   TransactionProviderOrgModel,
-  SecondaryReporterModel,
+  SecondaryReporterModel, SectorVocabularyModel
 } from 'app/state/models';
 
 import appStore from 'app/state/store';
@@ -54,7 +54,13 @@ export const withEffects: StoreEffect = store => {
               return item.code;
             })
         : null;
-
+    const sectorVocabularies =
+      store.get('sectorVocabularies')
+        ? (store.get('sectorVocabularies') || [])
+          .map((item: SectorVocabularyModel)=>{
+            return item.code;
+          })
+        : null;
     const organisations = store.get('organisations')
       ? store.get('organisations').map((item: OrganisationModel) => {
           return item.reporting_organisation_identifier;
@@ -505,6 +511,12 @@ export const withEffects: StoreEffect = store => {
             (output = `"${temp_string.split(' ').join('" "')}"`),
             `transaction_sector_code:(${output})`)
           : null,
+        get(sectorVocabularies, 'length', 0) && rowFormat === 'activity'
+        ? `sector_vocabulary:(${sectorVocabularies && sectorVocabularies.join(' ')})`
+          :null,
+        get(sectorVocabularies, 'length', 0) && rowFormat === 'transaction'
+          ? `transaction_sector_vocabulary:(${sectorVocabularies && sectorVocabularies.join(' ')})`
+          :null,
         get(secondaryReporter, 'length', 0)
           ? `reporting_org_secondary_reporter:(${secondaryReporter &&
               secondaryReporter.join(' ')})`

@@ -5,6 +5,7 @@ import {
   ORGANISATION_TYPES,
   ORGANISATIONS,
   SECTOR_CATEGORIES,
+  SECTOR_VOCABULARY,
   COUNTRIES,
   REGIONS,
   ACTIVITY_STATUS,
@@ -64,6 +65,13 @@ export const getSectorCategories: Endpoint = (params: RequestInit = {}) =>
     method: 'GET',
     ...params,
   }).then(res => res.json());
+
+export const getSectorVocabularies: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + SECTOR_VOCABULARY, {
+    method: 'GET',
+    ...params,
+  }).then(res => res.json());
+
 
 export const getPolicyMarker: Endpoint = (params: RequestInit = {}) =>
   fetch(`/${POLICY_MARKER}`, {

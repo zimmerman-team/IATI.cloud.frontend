@@ -31,6 +31,8 @@ export const CoreFiltersFragment = () => {
   const fetchedsectorCategories = useStoreState(
     state => state.sectorCategories.data
   );
+  const fetchsectorVocabularies = useStoreState(
+    state => state.sectorVocabularies.data);
   const fetchedCountries = useStoreState(state =>
     get(state.countries.data, 'results', [])
   );
@@ -93,6 +95,19 @@ export const CoreFiltersFragment = () => {
           placeholder={`All categories`}
         />
       </Grid>
+
+      {/** sector vocabulary */}
+      <Grid item xs={12} md={12} lg={6}>
+        <ConnectedSelect
+          {...fragmentConfig.sectorVocabulary}
+          value={store.get('sectorVocabularies')}
+          options={fetchsectorVocabularies}
+          onChange={e => store.set('sectorVocabularies')(e)}
+          // placeholder={`All (${get(fetchedsectorCategories, 'length', 0)})`}
+          placeholder={`All vocabularies`}
+        />
+      </Grid>
+
       {/** sector */}
       <Grid item xs={12} md={12} lg={6}>
         <ConnectedSelect

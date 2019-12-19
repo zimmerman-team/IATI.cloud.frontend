@@ -4,6 +4,7 @@ import { OrganisationModel } from 'app/state/models/OrganisationModel';
 import { OrganisationTypeModel } from 'app/state/models/OrganisationTypeModel';
 import { RegionModel } from 'app/state/models/RegionModel';
 import { SectorCategoryModel } from 'app/state/models/SectorCategoryModel';
+import { SectorVocabularyModel } from 'app/state/models/SectorVocabularyModel';
 import { SectorModel } from 'app/state/models/SectorModel';
 import { ParticipatingOrgsModel } from 'app/state/models/ParticipatingOrgsModel';
 import { ActivityStatusModel } from 'app/state/models/ActivityStatusModel';
@@ -16,6 +17,7 @@ export {
   OrganisationTypeModel,
   RegionModel,
   SectorCategoryModel,
+  SectorVocabularyModel,
   ActivityStatusModel,
   SectorModel,
   ParticipatingOrgsModel,

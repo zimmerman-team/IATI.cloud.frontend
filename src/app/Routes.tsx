@@ -22,6 +22,7 @@ export function MainRoutes() {
     fetchSectorCategories = useStoreActions(
       actions => actions.sectorCategories.fetch
     ),
+    fetchSectorVocabularies = useStoreActions(actions => actions.sectorVocabularies.fetch),
     fetchRegions = useStoreActions(actions => actions.regions.fetch),
     fetchSectors = useStoreActions(actions => actions.sectors.fetch),
     fetchCountries = useStoreActions(actions => actions.countries.fetch),
@@ -53,6 +54,7 @@ export function MainRoutes() {
     fetchOrganisationTypes();
     fetchOrganisations();
     fetchSectorCategories();
+    fetchSectorVocabularies();
     fetchRegions();
     fetchSectors();
     fetchCountries();

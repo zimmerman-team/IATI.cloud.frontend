@@ -13,7 +13,7 @@ const NODE_ENV = 'production';
 
 export const HOSTNAME =
   // @ts-ignore
-  NODE_ENV === 'development' ? '/' : 'https://iatidatastore.iatistandard.org/';
+  NODE_ENV === 'development' ? '/' : 'https://iati.cloud/';//'https://test-datastore.iatistandard.org/';  // (ဒီဟာေတြမရဘူး မနက္ျဖန္မနက္ စစ္ရန္)'https://iati.cloud/'; //'https://iatidatastore.iatistandard.org/';
 
 // datastore.iati.cloud
 
@@ -35,6 +35,12 @@ export const SECTOR_CATEGORIES =
   NODE_ENV === 'development'
     ? 'data/sector_category.json'
     : 'api/codelists/SectorCategory/?format=json&ordering=code';
+
+export const SECTOR_VOCABULARY =
+  // @ts-ignore
+  NODE_ENV === 'development'
+    ? 'data/sector_vocabulary.json'
+    : 'api/codelists/SectorVocabulary/?format=json&ordering=code';
 
 export const POLICY_MARKER = 'data/policy_marker.json';
 
