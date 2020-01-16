@@ -110,7 +110,7 @@ export const DownloadFragment = () => {
       <Grid item md={12} lg={12}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={10} lg={9}>
-            <URLField text={queryURL.replace('json', 'xml')} />
+            <URLField text={rowFormat==='activity'? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`): queryURL.replace('json','xml')} />
           </Grid>
           <Grid item xs={4} md={2} lg={3}>
             <IconButton
@@ -118,7 +118,7 @@ export const DownloadFragment = () => {
               label={md ? 'XML' : 'Download XML'}
               onClick={() =>
                 downloadFile(
-                  queryURL.replace('json', 'xml'),
+                  rowFormat==='activity'? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`): queryURL.replace('json', 'xml'),
                   `iati-cloud-${filename()}.xml`
                 )
               }
