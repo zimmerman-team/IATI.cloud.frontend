@@ -25,6 +25,7 @@ export const DownloadFragment = () => {
   const store = ModuleStore.useStore();
 
   const queryURL = useStoreState(state => state.query.url);
+
   const rowFormat = store.get('rowFormat');
   let stringToBeReplaced = 'csv';
 
@@ -36,7 +37,7 @@ export const DownloadFragment = () => {
   //this operation is needed only when there is no field specification in the query.
   if (rowFormat === 'activity' && !queryURL.includes('fl')) {
     stringToBeReplaced =
-      'csv&fl=*,reporting_org:[value v=""],title:[value v=""],description:[value v=""],description_narrative:[value v=""],participating_org:[value v=""],other_identifier:[value v=""],' +
+      'csv&tr=activity-xml.xsl&fl=*,reporting_org:[value v=""],title:[value v=""],description:[value v=""],description_narrative:[value v=""],participating_org:[value v=""],other_identifier:[value v=""],' +
       'activity_date:[value v=""],contact_info:[value v=""],recipient_country:[value v=""],recipient_region:[value v=""],location:[value v=""],sector:[value v=""],' +
       'tag:[value v=""],country_budget_items:[value v=""],humanitarian_scope:[value v=""],policy_marker:[value v=""],default_aid_type:[value v=""],budget:[value v=""],' +
       'planned_disbursement:[value v=""],transaction:[value v=""],document_link:[value v=""],related_activity:[value v=""],legacy_data:[value v=""],conditions:[value v=""],' +
@@ -73,7 +74,7 @@ export const DownloadFragment = () => {
       <Grid item md={12} lg={12}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={10} lg={9}>
-            <URLField text={queryURL.replace('json', stringToBeReplaced)} />
+            <URLField text={rowFormat==='activity'? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`): queryURL.replace('json','csv')} />
           </Grid>
           <Grid item xs={4} md={2} lg={3} justify="flex-end">
             <IconButton
@@ -81,7 +82,7 @@ export const DownloadFragment = () => {
               label={md ? 'CSV' : 'Download CSV'}
               onClick={() =>
                 downloadFile(
-                  queryURL.replace('json', stringToBeReplaced),
+                  rowFormat==='activity'? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`): queryURL.replace('json', 'csv'),
                   `iati-cloud-${filename()}.csv`
                 )
               }
