@@ -27,5 +27,5 @@ export const constructSolrQuery = (baseURI, params, fields) => {
 
   return `${baseURI}${filterString !== 'q=' ? filterString : 'q=*:*'}${
     fields ? `&${fields}` : ''
-  }&wt=json&rows=5000000`;
+  }&wt=json&rows=5000`;
 };
