@@ -17,7 +17,7 @@ jobs:
       - run: eval ssh-agent -s
       - run: sudo apt install rsync
       - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
-      - run: rsync -O -ave ssh "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
+      - run: rsync -O -ave ssh "$SSH_USER"@"$SSH_HOST_DEV":home/oipa-query-builder
 
   deploy-staging:
     docker:
@@ -29,7 +29,7 @@ jobs:
       - run: eval ssh-agent -s
       - run: sudo apt install rsync
       - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
-      - run: rsync -O -ave ssh "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
+      - run: rsync -O -ave ssh "$SSH_USER"@"$SSH_HOST_DEV":home/oipa-query-builder
 
   deploy-production:
     docker:
@@ -41,7 +41,7 @@ jobs:
       - run: eval ssh-agent -s
       - run: sudo apt install rsync
       - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
-      - run: rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/oipa-query-builder
+      - run: rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":home/oipa-query-builder
 
 workflows:
   build-and-test:
