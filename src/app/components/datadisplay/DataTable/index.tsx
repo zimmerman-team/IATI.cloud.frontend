@@ -43,7 +43,7 @@ export const DataTable = props => {
     data: [], // default for `data` will be an array instead of undefined
   };
   const { loading, error, data } = useFetch(
-    props.url.replace(/rows=5000000/, 'rows=10'),
+    props.url.replace(/rows=5000/, 'rows=10'),
     options
   );
   const loadedData: ResponseModel = data && data;

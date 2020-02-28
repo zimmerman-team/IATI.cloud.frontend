@@ -74,7 +74,7 @@ export const DownloadFragment = () => {
       <Grid item md={12} lg={12}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={10} lg={9}>
-            <URLField text={rowFormat==='activity'? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`): queryURL.replace('json','csv')} />
+            <URLField text={(rowFormat==='transaction'|| rowFormat==='activity')? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`): queryURL.replace('json','csv')} />
           </Grid>
           <Grid item xs={4} md={2} lg={3} justify="flex-end">
             <IconButton
@@ -82,7 +82,7 @@ export const DownloadFragment = () => {
               label={md ? 'CSV' : 'Download CSV'}
               onClick={() =>
                 downloadFile(
-                  rowFormat==='activity'? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`): queryURL.replace('json', 'csv'),
+                  (rowFormat==='transaction'||rowFormat==='activity')? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`): queryURL.replace('json', 'csv'),
                   `iati-cloud-${filename()}.csv`
                 )
               }
