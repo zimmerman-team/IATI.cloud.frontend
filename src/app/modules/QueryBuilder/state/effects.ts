@@ -539,12 +539,12 @@ export const withEffects: StoreEffect = store => {
         startDateAfter !== null &&
         startDateAfter.startDateAfter !== '*' &&
         rowFormat === 'activity'
-          ? `(activity_date_start_actual:[${get(
+          ? `(activity_date_start_actual_f:[${get(
               startDateAfter,
               'startDateAfter',
               '*'
-            )} TO *] OR (-activity_date_start_actual:[* TO *]
-              AND activity_date_start_planned:[${get(
+            )} TO *] OR (-activity_date_start_actual_f:[* TO *]
+              AND activity_date_start_planned_f:[${get(
                 startDateAfter,
                 'startDateAfter',
                 '*'
@@ -554,7 +554,7 @@ export const withEffects: StoreEffect = store => {
         startDateAfter !== null &&
         startDateAfter.startDateAfter !== '*' &&
         rowFormat === 'budget'
-          ? `budget_period_start_iso_date:[${get(
+          ? `budget_period_start_iso_date_f:[${get(
               startDateAfter,
               'startDateAfter',
               '*'
@@ -564,12 +564,12 @@ export const withEffects: StoreEffect = store => {
         startDateBefore !== null &&
         startDateBefore.startDateBefore !== '*' &&
         rowFormat === 'activity'
-          ? `(activity_date_start_actual:[* TO ${get(
+          ? `(activity_date_start_actual_f:[* TO ${get(
               startDateBefore,
               'startDateBefore',
               '*'
-            )}] OR (-activity_date_start_actual:[* TO *]
-              AND activity_date_start_planned:[* TO ${get(
+            )}] OR (-activity_date_start_actual_f:[* TO *]
+              AND activity_date_start_planned_f:[* TO ${get(
                 startDateBefore,
                 'startDateBefore',
                 '*'
@@ -579,7 +579,7 @@ export const withEffects: StoreEffect = store => {
         startDateBefore !== null &&
         startDateBefore.startDateBefore !== '*' &&
         rowFormat === 'budget'
-          ? `budget_period_start_iso_date:[* TO ${get(
+          ? `budget_period_start_iso_date_f:[* TO ${get(
               startDateBefore,
               'startDateBefore',
               '*'
@@ -589,12 +589,12 @@ export const withEffects: StoreEffect = store => {
         endDateAfter !== null &&
         endDateAfter.endDateAfter !== '*' &&
         rowFormat === 'activity'
-          ? `(activity_date_end_actual:[${get(
+          ? `(activity_date_end_actual_f:[${get(
               endDateAfter,
               'endDateAfter',
               '*'
-            )} TO *] OR (-activity_date_end_actual:[* TO *]
-               AND activity_date_end_planned:[${get(
+            )} TO *] OR (-activity_date_end_actual_f:[* TO *]
+               AND activity_date_end_planned_f:[${get(
                  endDateAfter,
                  'endDateAfter',
                  '*'
@@ -604,7 +604,7 @@ export const withEffects: StoreEffect = store => {
         endDateAfter !== null &&
         endDateAfter.endDateAfter !== '*' &&
         rowFormat === 'budget'
-          ? `budget_period_end_iso_date:[${get(
+          ? `budget_period_end_iso_date_f:[${get(
               endDateAfter,
               'endDateAfter',
               '*'
@@ -614,12 +614,12 @@ export const withEffects: StoreEffect = store => {
         endDateBefore !== null &&
         endDateBefore.endDateBefore !== '*' &&
         rowFormat === 'activity'
-          ? `(activity_date_end_actual:[* TO ${get(
+          ? `(activity_date_end_actual_f:[* TO ${get(
               endDateBefore,
               'endDateBefore',
               '*'
-            )}] OR (-activity_date_end_actual: [* TO *]
-                AND activity_date_end_planned:[* TO ${get(
+            )}] OR (-activity_date_end_actual_f: [* TO *]
+                AND activity_date_end_planned_f:[* TO ${get(
                   endDateBefore,
                   'endDateBefore',
                   '*'
@@ -629,7 +629,7 @@ export const withEffects: StoreEffect = store => {
         endDateBefore !== null &&
         endDateBefore.endDateBefore !== '*' &&
         rowFormat === 'budget'
-          ? `budget_period_end_iso_date:[* TO ${get(
+          ? `budget_period_end_iso_date_f:[* TO ${get(
               endDateBefore,
               'endDateBefore',
               '*'

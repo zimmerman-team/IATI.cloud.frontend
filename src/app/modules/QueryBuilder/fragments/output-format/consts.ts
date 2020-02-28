@@ -1,6 +1,6 @@
 export const activityFields = [
   // { code: 'url', name: 'URL' },
-  { code: 'id', name: 'ID' },
+  //{ code: 'id', name: 'ID' },
   { code: 'iati_identifier', name: 'IATI Identifier' },
   { code: 'reporting_org', name: 'Reporting Organization' },
   { code: 'title', name: 'Title' },
@@ -52,15 +52,15 @@ export const activityFields = [
 ];
 
 export const transactionFields = [
-  { code: 'iati_identifier', name: 'IATI Identifier' },
+  //{ code: 'iati_identifier', name: 'IATI Identifier' },
   { code: 'transaction_sector_code', name: 'Sectors' },
   { code: 'transaction_recipient_country_code', name: 'Recipient Countries' },
   { code: 'transaction_recipient_region_code', name: 'Recipient Regions' },
-  { code: 'id', name: 'ID' },
+  //{ code: 'id', name: 'ID' },
   { code: 'transaction_type', name: 'Type' },
   { code: 'transaction_value', name: 'Value' },
   { code: 'transaction_value_currency', name: 'Currency' },
-  { code: 'reporting_org_narrative', name: 'Reporting Organization' },
+  //{ code: 'reporting_org_narrative', name: 'Reporting Organization' },
 ];
 
 export const budgetFields = [
