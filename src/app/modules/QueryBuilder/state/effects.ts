@@ -637,7 +637,7 @@ export const withEffects: StoreEffect = store => {
           : null,
 
         textSearch && rowFormat === 'activity'
-          ? `(title_narrative:"${textSearch}" OR description_narrative:"${textSearch}")`
+          ? `(title_narrative:"${textSearch}" OR description_narrative:"${textSearch}" OR iati_identifier:"${textSearch}")`
           : null,
 
         textSearch && rowFormat === 'transaction'
