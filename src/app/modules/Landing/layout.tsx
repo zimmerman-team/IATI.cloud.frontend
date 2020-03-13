@@ -18,7 +18,7 @@ const TypographyOpacity = styled(props => <Typography {...props} />)`
 export const LandingLayout = () => {
   return (
     <>
-      <BannerNotice />
+ 
       <PageContainer footer>
         {/*HEADER*/}
 
