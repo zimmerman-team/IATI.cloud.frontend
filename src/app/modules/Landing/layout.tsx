@@ -9,6 +9,7 @@ import { IconButtonOutlined } from 'app/components/inputs/buttons/IconButtonOutl
 import { Header } from 'app/components/surfaces/Header';
 import { PageContainer } from 'app/modules/common/PageContainer';
 import { LandingMidSection } from 'app/modules/Landing/common/LandingMidSection';
+import { BannerNotice } from 'app/components/feedback/Banners/BannerNotice';
 
 const TypographyOpacity = styled(props => <Typography {...props} />)`
   opacity: 0.8;
@@ -17,6 +18,7 @@ const TypographyOpacity = styled(props => <Typography {...props} />)`
 export const LandingLayout = () => {
   return (
     <>
+      <BannerNotice />
       <PageContainer footer>
         {/*HEADER*/}
 
