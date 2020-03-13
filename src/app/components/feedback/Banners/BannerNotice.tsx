@@ -62,14 +62,14 @@ export const BannerNotice = () => (
   <BannerElement1>
     <BannerElement2>!</BannerElement2>
     <BannerElement3>
-      The Query Builder is in a testing phase until 4th Nov 2019. If you find
-      any issues, please raise them{' '}
+      The IATI Datastore is in a pre-launch phase; the date of an official
+      launch will be announced soon. If you find any issues please raise them on{' '}
       <BannerElement4
         href="https://github.com/zimmerman-zimmerman/iati.cloud/issues/new/choose"
         target="_blank"
         rel="noopener noreferrer"
       >
-        here
+        Github
       </BannerElement4>
     </BannerElement3>
   </BannerElement1>
