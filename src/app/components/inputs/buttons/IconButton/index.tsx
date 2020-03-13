@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
+import { css } from 'styled-components/macro';
 
 type Props = {
   size?: string;
@@ -17,6 +18,14 @@ type Props = {
 /*type BaseProps = {
   children?: ReactNode;
 };*/
+
+const RegularStyle = css`
+  background-color: red;
+`;
+
+const InProgressStyle = css`
+  background-color: red;
+`;
 
 const ZimmerButton = styled(props => (
   <Button {...props}>{props.children}</Button>

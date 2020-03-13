@@ -1,3 +1,4 @@
+// @ts-nocheck
 //cc:query builder module fragments#; query builder fragments - additional filters;fragment layout and logic
 /* core */
 import React from 'react';
@@ -67,19 +68,6 @@ export const FilterFragment = () => {
           value={store.get('textSearch')}
           helperText="Have minimum 1-2 other filters selected to avoid searching the entire database"
         />
-
-        {/* todo: keep it for now, but delete later */}
-        {/*<TextField
-          fullWidth
-          autoFocus
-          margin="normal"
-          variant="outlined"
-          placeholder="Text search"
-          onChange={setTextSearchValue}
-          value={store.get('textSearch')}
-          label="Search in title, activity or description"
-          helperText="Have minium 1-2 other filters selected to avoid searching the entire database"
-        />*/}
       </Grid>
 
       <Grid item lg={12}>

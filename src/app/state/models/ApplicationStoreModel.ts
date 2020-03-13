@@ -1,22 +1,18 @@
-//cc:application state#2;application store model
+// cc:application state#2;application store model
 import { OrganisationTypesInterface } from 'app/state/interfaces/OrganisationTypesInterface';
 import { OrganisationsInterface } from 'app/state/interfaces/OrganisationsInterface';
 import { SectorsInterface } from 'app/state/interfaces/SectorsInterface';
 import { RegionInterface } from 'app/state/interfaces/RegionsInterface';
 import { CountryInterface } from 'app/state/interfaces/CountriesInterface';
 import { SectorCategoryInterface } from 'app/state/interfaces/SectorCategoryInterface';
-import { SectorVocabularyInterface} from 'app/state/interfaces/SectorVocabularyInterface';
+import { SectorVocabularyInterface } from 'app/state/interfaces/SectorVocabularyInterface';
 import { ActivityScopeInterface } from 'app/state/interfaces/ActivityScopeInterface';
 import { ActivityStatusInterface } from 'app/state/interfaces/ActivityStatusInterface';
 import { AidTypeInterface } from 'app/state/interfaces/AidTypeInterface';
 import { AidTypeVocabularyInterface } from 'app/state/interfaces/AidTypeVocabularyInterface';
 import { AidTypeCategoryInterface } from 'app/state/interfaces/AidTypeCategoryInterface';
-import { CollaborationTypeInterface } from '../interfaces/CollaborationTypeInterface';
 import { DefaultCurrencyInterface } from 'app/state/interfaces/DefaultCurrencyInterface';
-import { DefaultFlowTypeInterface } from '../interfaces/DefaultFlowTypeInterface';
-import { HierarchyInterface } from '../interfaces/HierarchyInterface';
 import { FinanceTypeInterface } from 'app/state/interfaces/FinanceTypeInterface';
-import { TiedStatusInterface } from '../interfaces/TiedStatusInterface';
 import { TransactionTypeInterface } from 'app/state/interfaces/TransactionTypeInterface';
 import { TransactionFlowTypeInterface } from 'app/state/interfaces/TransactionFlowTypeInterface';
 import { TransactionTiedStatusInterface } from 'app/state/interfaces/TransactionTiedStatusInterface';
@@ -30,10 +26,14 @@ import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionPro
 import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/TransactionReceiverOrgsInterface';
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { SecondaryReporterInterface } from 'app/state/interfaces/SecondaryReporterInterface';
-import { PolicyMarkerInterface} from 'app/state/interfaces/PolicyMarkerInterface';
-import { TagInterface} from '../interfaces/TagInterface';
+import { PolicyMarkerInterface } from 'app/state/interfaces/PolicyMarkerInterface';
 
 import { QueryModel } from 'app/state/models/QueryModel';
+import { HierarchyInterface } from '../interfaces/HierarchyInterface';
+import { TiedStatusInterface } from '../interfaces/TiedStatusInterface';
+import { DefaultFlowTypeInterface } from '../interfaces/DefaultFlowTypeInterface';
+import { TagInterface } from '../interfaces/TagInterface';
+import { CollaborationTypeInterface } from '../interfaces/CollaborationTypeInterface';
 
 export interface ApplicationStoreModel {
   organisationTypes: OrganisationTypesInterface;

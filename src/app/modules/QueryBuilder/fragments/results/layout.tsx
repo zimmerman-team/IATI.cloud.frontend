@@ -31,10 +31,9 @@ export const DownloadFragment = () => {
 
   const theme = useTheme();
   const md = useMediaQuery(theme.breakpoints.down('md'));
-  // const md = useMediaQuery('(min-width:768px)');
 
-  //this is how we do to remove (not remove but leave them blank) JSON strings in CSV output.
-  //this operation is needed only when there is no field specification in the query.
+  // this is how we do to remove (not remove but leave them blank) JSON strings in CSV output.
+  // this operation is needed only when there is no field specification in the query.
   if (rowFormat === 'activity' && !queryURL.includes('fl')) {
     stringToBeReplaced =
       'csv&tr=activity-xml.xsl&fl=*,reporting_org:[value v=""],title:[value v=""],description:[value v=""],description_narrative:[value v=""],participating_org:[value v=""],other_identifier:[value v=""],' +
@@ -66,7 +65,7 @@ export const DownloadFragment = () => {
           defaultCols={store.get('fields').length === 0}
         />
       </Grid>
-      <Grid item lg={12}></Grid>
+      <Grid item lg={12} />
       <Grid item xs={12} sm={12} lg={12}>
         <Typography variant="subtitle1">{fragmentConfig.name}</Typography>
       </Grid>
@@ -74,15 +73,23 @@ export const DownloadFragment = () => {
       <Grid item md={12} lg={12}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={10} lg={9}>
-            <URLField text={(rowFormat==='transaction'|| rowFormat==='activity')? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`): queryURL.replace('json','csv')} />
+            <URLField
+              text={
+                rowFormat === 'transaction' || rowFormat === 'activity'
+                  ? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
+                  : queryURL.replace('json', 'csv')
+              }
+            />
           </Grid>
-          <Grid item xs={4} md={2} lg={3} justify="flex-end">
+          <Grid container item xs={4} md={2} lg={3} justify="flex-end">
             <IconButton
               icon={<Download />}
               label={md ? 'CSV' : 'Download CSV'}
               onClick={() =>
                 downloadFile(
-                  (rowFormat==='transaction'||rowFormat==='activity')? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`): queryURL.replace('json', 'csv'),
+                  rowFormat === 'transaction' || rowFormat === 'activity'
+                    ? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
+                    : queryURL.replace('json', 'csv'),
                   `iati-cloud-${filename()}.csv`
                 )
               }
@@ -111,7 +118,13 @@ export const DownloadFragment = () => {
       <Grid item md={12} lg={12}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={10} lg={9}>
-            <URLField text={rowFormat==='activity'? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`): queryURL.replace('json','xml')} />
+            <URLField
+              text={
+                rowFormat === 'activity'
+                  ? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
+                  : queryURL.replace('json', 'xml')
+              }
+            />
           </Grid>
           <Grid item xs={4} md={2} lg={3}>
             <IconButton
@@ -119,7 +132,9 @@ export const DownloadFragment = () => {
               label={md ? 'XML' : 'Download XML'}
               onClick={() =>
                 downloadFile(
-                  rowFormat==='activity'? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`): queryURL.replace('json', 'xml'),
+                  rowFormat === 'activity'
+                    ? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
+                    : queryURL.replace('json', 'xml'),
                   `iati-cloud-${filename()}.xml`
                 )
               }
