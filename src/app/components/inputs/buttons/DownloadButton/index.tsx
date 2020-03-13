@@ -54,7 +54,7 @@ const ZimmerButton = styled(props => (
   }
 `;
 
-export const IconButton = (props: Props) => {
+export const DownloadButton = (props: Props) => {
   return (
     <ZimmerButton
       size={props.size}

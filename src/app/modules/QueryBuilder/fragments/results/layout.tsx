@@ -18,6 +18,7 @@ import { useTheme } from '@material-ui/core/styles';
 import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNavigatorButton';
 import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
 import { DataTable } from 'app/components/datadisplay/DataTable';
+import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 
 const filename = () => new Date().toISOString().slice(0, 19);
 export const DownloadFragment = () => {
@@ -104,9 +105,17 @@ export const DownloadFragment = () => {
             <URLField text={queryURL} />
           </Grid>
           <Grid item xs={4} md={2} lg={3}>
-            <IconButton
+            {/* <IconButton
               icon={<Download />}
               label={md ? 'JSON' : 'Download JSON'}
+              onClick={() =>
+                downloadFile(queryURL, `iati-cloud-${filename()}.json`)
+              }
+            /> */}
+
+            <IconButton
+              icon={<CloudDownloadIcon />}
+              label={md ? 'Preparing..' : 'Preparing download...'}
               onClick={() =>
                 downloadFile(queryURL, `iati-cloud-${filename()}.json`)
               }
