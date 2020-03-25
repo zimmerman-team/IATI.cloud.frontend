@@ -1,12 +1,13 @@
 {
   "name": "oipa-query-builder",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "description": "OIPA query builder, developed by Zimmerman & Zimmerman",
   "repository": {
     "type": "git",
     "url": "git://github.com/zimmerman-zimmerman/query-builder-iati.cloud.git"
   },
+  "license": "AGPL-3.0-only",
   "dependencies": {
     "@devexpress/dx-react-core": "^2.2.1",
     "@devexpress/dx-react-grid": "^2.2.1",
@@ -59,6 +60,7 @@
     "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^8.3.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",

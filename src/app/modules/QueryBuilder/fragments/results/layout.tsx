@@ -19,6 +19,7 @@ import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNav
 import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
 import { DataTable } from 'app/components/datadisplay/DataTable';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+import { DownloadButton } from './common/DownloadButton';
 
 const filename = () => new Date().toISOString().slice(0, 19);
 export const DownloadFragment = () => {
@@ -70,85 +71,66 @@ export const DownloadFragment = () => {
       <Grid item xs={12} sm={12} lg={12}>
         <Typography variant="subtitle1">{fragmentConfig.name}</Typography>
       </Grid>
-      {/* todo: make re-usable component */}
-      <Grid item md={12} lg={12}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={10} lg={9}>
-            <URLField
-              text={
-                rowFormat === 'transaction' || rowFormat === 'activity'
-                  ? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
-                  : queryURL.replace('json', 'csv')
-              }
-            />
-          </Grid>
-          <Grid container item xs={4} md={2} lg={3} justify="flex-end">
-            <IconButton
-              icon={<Download />}
-              label={md ? 'CSV' : 'Download CSV'}
-              onClick={() =>
-                downloadFile(
-                  rowFormat === 'transaction' || rowFormat === 'activity'
-                    ? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
-                    : queryURL.replace('json', 'csv'),
-                  `iati-cloud-${filename()}.csv`
-                )
-              }
-            />
-          </Grid>
+
+      {/* ////////////////////////////////////////////////////////////// */}
+      <Grid container spacing={2} item md={12} lg={12}>
+        <Grid item xs={12} md={10} lg={9}>
+          <URLField
+            text={
+              rowFormat === 'transaction' || rowFormat === 'activity'
+                ? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
+                : queryURL.replace('json', 'csv')
+            }
+          />
+        </Grid>
+        <Grid item xs={4} md={2} lg={3}>
+          <DownloadButton
+            type="CSV"
+            queryURL={
+              rowFormat === 'transaction' || rowFormat === 'activity'
+                ? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
+                : queryURL.replace('json', 'csv')
+            }
+            fileName={`iati-cloud-${filename()}.csv`}
+          />
         </Grid>
       </Grid>
 
-      <Grid item md={12} lg={12}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={10} lg={9}>
-            <URLField text={queryURL} />
-          </Grid>
-          <Grid item xs={4} md={2} lg={3}>
-            {/* <IconButton
-              icon={<Download />}
-              label={md ? 'JSON' : 'Download JSON'}
-              onClick={() =>
-                downloadFile(queryURL, `iati-cloud-${filename()}.json`)
-              }
-            /> */}
-
-            <IconButton
-              icon={<CloudDownloadIcon />}
-              label={md ? 'Preparing..' : 'Preparing download...'}
-              onClick={() =>
-                downloadFile(queryURL, `iati-cloud-${filename()}.json`)
-              }
-            />
-          </Grid>
+      {/* ////////////////////////////////////////////////////////////// */}
+      <Grid container spacing={2} item md={12} lg={12}>
+        <Grid item xs={12} md={10} lg={9}>
+          <URLField text={queryURL} />
+        </Grid>
+        <Grid item xs={4} md={2} lg={3}>
+          <DownloadButton
+            type="JSON"
+            queryURL={queryURL}
+            fileName={`iati-cloud-${filename()}.json`}
+          />
         </Grid>
       </Grid>
 
-      <Grid item md={12} lg={12}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={10} lg={9}>
-            <URLField
-              text={
-                rowFormat === 'activity'
-                  ? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
-                  : queryURL.replace('json', 'xml')
-              }
-            />
-          </Grid>
-          <Grid item xs={4} md={2} lg={3}>
-            <IconButton
-              icon={<Download />}
-              label={md ? 'XML' : 'Download XML'}
-              onClick={() =>
-                downloadFile(
-                  rowFormat === 'activity'
-                    ? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
-                    : queryURL.replace('json', 'xml'),
-                  `iati-cloud-${filename()}.xml`
-                )
-              }
-            />
-          </Grid>
+      {/* ////////////////////////////////////////////////////////////// */}
+      <Grid container spacing={2} item md={12} lg={12}>
+        <Grid item xs={12} md={10} lg={9}>
+          <URLField
+            text={
+              rowFormat === 'activity'
+                ? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
+                : queryURL.replace('json', 'xml')
+            }
+          />
+        </Grid>
+        <Grid item xs={4} md={2} lg={3}>
+          <DownloadButton
+            type="XML"
+            queryURL={
+              rowFormat === 'activity'
+                ? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
+                : queryURL.replace('json', 'xml')
+            }
+            fileName={`iati-cloud-${filename()}.xml`}
+          />
         </Grid>
       </Grid>
 
