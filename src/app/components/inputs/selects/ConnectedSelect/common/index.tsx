@@ -49,7 +49,6 @@ const MultiValueRemoveWrapper = styled.div`
     }
     &:hover {
       background-color: transparent;
-      opacity: 0;
     }
   }
 `;
