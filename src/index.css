@@ -80,7 +80,3 @@ a {
   text-decoration: initial;
   color: #3074f1;
 }
-
-::placeholder {
-  font-weight: normal !important;
-}
