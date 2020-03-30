@@ -17979,11 +17979,6 @@ stream-to-observable@^0.1.0:
   resolved "https://registry.yarnpkg.com/stream-to-observable/-/stream-to-observable-0.1.0.tgz#45bf1d9f2d7dc09bed81f1c307c430e68b84cffe"
   integrity sha1-Rb8dny19wJvtgfHDB8Qw5ouEz/4=
 
-streamsaver@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/streamsaver/-/streamsaver-2.0.3.tgz#9a3a46deb9dc59ed876a82d3116f5fd89182c537"
-  integrity sha512-IpXeZ67YxcsrfZHe3yg/IyZ5KPfRSn1teDy5mRX2e8M6K410NcJNcR+SFQ2Z92DO36VBUArQP4Vy3Qu33MwIOQ==
-
 strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"

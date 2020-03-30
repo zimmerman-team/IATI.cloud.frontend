@@ -9,7 +9,10 @@ import Download from '@material-ui/icons/GetApp';
 import { URLField } from 'app/components/inputs/textdisplay/URLField';
 import { IconButton } from 'app/components/inputs/buttons/IconButton';
 /* config & mock */
-import { downloadFile } from 'app/modules/QueryBuilder/fragments/results/util';
+import {
+  downloadFile,
+  cleanIframes,
+} from 'app/modules/QueryBuilder/fragments/results/util';
 import { fragmentConfig } from 'app/modules/QueryBuilder/fragments/results/model';
 import { useStoreState } from 'app/state/store';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
@@ -74,7 +77,13 @@ export const DownloadFragment = () => {
       <Grid item md={12} lg={12}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={10} lg={9}>
-            <URLField text={(rowFormat==='transaction'|| rowFormat==='activity')? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`): queryURL.replace('json','csv')} />
+            <URLField
+              text={
+                rowFormat === 'transaction' || rowFormat === 'activity'
+                  ? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
+                  : queryURL.replace('json', 'csv')
+              }
+            />
           </Grid>
           <Grid item xs={4} md={2} lg={3} justify="flex-end">
             <IconButton
@@ -82,9 +91,11 @@ export const DownloadFragment = () => {
               label={md ? 'CSV' : 'Download CSV'}
               onClick={() =>
                 downloadFile(
-                  (rowFormat==='transaction'||rowFormat==='activity')? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`): queryURL.replace('json', 'csv'),
+                  rowFormat === 'transaction' || rowFormat === 'activity'
+                    ? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
+                    : queryURL.replace('json', 'csv'),
                   `iati-cloud-${filename()}.csv`
-                )
+                ).then(() => cleanIframes())
               }
             />
           </Grid>
@@ -101,7 +112,9 @@ export const DownloadFragment = () => {
               icon={<Download />}
               label={md ? 'JSON' : 'Download JSON'}
               onClick={() =>
-                downloadFile(queryURL, `iati-cloud-${filename()}.json`)
+                downloadFile(queryURL, `iati-cloud-${filename()}.json`).then(
+                  () => cleanIframes()
+                )
               }
             />
           </Grid>
@@ -111,7 +124,13 @@ export const DownloadFragment = () => {
       <Grid item md={12} lg={12}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={10} lg={9}>
-            <URLField text={rowFormat==='activity'? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`): queryURL.replace('json','xml')} />
+            <URLField
+              text={
+                rowFormat === 'activity'
+                  ? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
+                  : queryURL.replace('json', 'xml')
+              }
+            />
           </Grid>
           <Grid item xs={4} md={2} lg={3}>
             <IconButton
@@ -119,9 +138,11 @@ export const DownloadFragment = () => {
               label={md ? 'XML' : 'Download XML'}
               onClick={() =>
                 downloadFile(
-                  rowFormat==='activity'? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`): queryURL.replace('json', 'xml'),
+                  rowFormat === 'activity'
+                    ? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
+                    : queryURL.replace('json', 'xml'),
                   `iati-cloud-${filename()}.xml`
-                )
+                ).then(() => cleanIframes())
               }
             />
           </Grid>
