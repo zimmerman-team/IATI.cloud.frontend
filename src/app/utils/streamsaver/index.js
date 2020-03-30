@@ -86,7 +86,7 @@ export function createWriteStream(filename, options, size) {
   const mitm =
     window.location.hostname === 'localhost'
       ? 'https://datastore.iati.cloud/mitm.html'
-      : `${window.location.hostname}/mitm.html`;
+      : `https://${window.location.hostname}/mitm.html`;
 
   let supportsTransferable = false;
   let mitmTransporter = null;
