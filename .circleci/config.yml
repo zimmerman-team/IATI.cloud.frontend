@@ -92,7 +92,7 @@ workflows:
               only: master
       - release:
           requires:
-            - build
+            - cypress/install
           filters:
             branches:
               only: master
