@@ -12614,12 +12614,12 @@ marked@^0.7.0:
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.7.0.tgz#b64201f051d271b1edc10a04d1ae9b74bb8e5c0e"
   integrity sha512-c+yYdCZJQrsRjTPhUx7VKkApw9bwDkNbHUKo1ovgcfDjb2kc8rLuRbIFyXL5WOEUwzSSKo3IXpph2K6DqB/KZg==
 
-material-ui-chip-input@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/material-ui-chip-input/-/material-ui-chip-input-1.0.0.tgz#96df9d655d2c16c63afd73828aa3f98c778016b1"
-  integrity sha512-GJ9xkGB+n1SODvflOca4YanHaV8hWkKKBIMrM0YVjo5Jnm+gIom2915CwT86FiDWyoIS6BQOMIof48/l85hZxQ==
+material-ui-chip-input@^2.0.0-beta.2:
+  version "2.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/material-ui-chip-input/-/material-ui-chip-input-2.0.0-beta.2.tgz#d306ccd99d7c336a279add8163551fbc9dc2378c"
+  integrity sha512-E+Jxv9FdAvYUsZIPohoqxqdW7LwFYOCunInJGh2WSDJ2IlCUdpCOEVazqgLQH6thaFarKDu44uGYpD1v3RdqDg==
   dependencies:
-    classnames "^2.2.5"
+    clsx "^1.0.4"
     prop-types "^15.6.1"
 
 md5.js@^1.3.4:

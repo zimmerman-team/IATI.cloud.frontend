@@ -1,81 +1,82 @@
-@import-normalize ;
-
+@import-normalize;
 
 @font-face {
   font-family: 'Inter';
   src: url('app/assets/fonts/subset-Inter-LightBETA.eot');
-  src: url('app/assets/fonts/subset-Inter-LightBETA.eot?#iefix') format('embedded-opentype'),
-  url('app/assets/fonts/subset-Inter-LightBETA.woff2') format('woff2'),
-  url('app/assets/fonts/subset-Inter-LightBETA.woff') format('woff'),
-  url('app/assets/fonts/subset-Inter-LightBETA.ttf') format('truetype'),
-  url('app/assets/fonts/subset-Inter-LightBETA.svg#Inter-LightBETA') format('svg');
+  src: url('app/assets/fonts/subset-Inter-LightBETA.eot?#iefix')
+      format('embedded-opentype'),
+    url('app/assets/fonts/subset-Inter-LightBETA.woff2') format('woff2'),
+    url('app/assets/fonts/subset-Inter-LightBETA.woff') format('woff'),
+    url('app/assets/fonts/subset-Inter-LightBETA.ttf') format('truetype'),
+    url('app/assets/fonts/subset-Inter-LightBETA.svg#Inter-LightBETA')
+      format('svg');
   font-weight: 200;
   font-style: normal;
-  }
+}
 
 @font-face {
   font-family: 'Inter';
   src: url('app/assets/fonts/subset-Inter-Regular.eot');
-  src:
-  url('app/assets/fonts/subset-Inter-Regular.eot?#iefix') format('embedded-opentype'),
-  url('app/assets/fonts/subset-Inter-Regular.woff2') format('woff2'),
-  url('app/assets/fonts/subset-Inter-Regular.woff') format('woff'),
-  url('app/assets/fonts/subset-Inter-Regular.ttf') format('truetype'),
-  url('app/assets/fonts/subset-Inter-Regular.svg#Inter-Regular') format('svg');
+  src: url('app/assets/fonts/subset-Inter-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('app/assets/fonts/subset-Inter-Regular.woff2') format('woff2'),
+    url('app/assets/fonts/subset-Inter-Regular.woff') format('woff'),
+    url('app/assets/fonts/subset-Inter-Regular.ttf') format('truetype'),
+    url('app/assets/fonts/subset-Inter-Regular.svg#Inter-Regular') format('svg');
   font-weight: 300;
   font-style: normal;
-  }
+}
 
 @font-face {
   font-family: 'Inter';
   src: url('app/assets/fonts/subset-Inter-Medium.eot');
-  src:
-    url('app/assets/fonts/subset-Inter-Medium.eot?#iefix') format('embedded-opentype'),
+  src: url('app/assets/fonts/subset-Inter-Medium.eot?#iefix')
+      format('embedded-opentype'),
     url('app/assets/fonts/subset-Inter-Medium.woff2') format('woff2'),
     url('app/assets/fonts/subset-Inter-Medium.woff') format('woff'),
     url('app/assets/fonts/subset-Inter-Medium.ttf') format('truetype'),
     url('app/assets/fonts/subset-Inter-Medium.svg#Inter-Medium') format('svg');
   font-weight: 500;
   font-style: normal;
-  }
-
+}
 
 @font-face {
   font-family: 'Inter';
   src: url('app/assets/fonts/subset-Inter-SemiBold.eot');
-  src:
-  url('app/assets/fonts/subset-Inter-SemiBold.eot?#iefix') format('embedded-opentype'),
-  url('app/assets/fonts/subset-Inter-SemiBold.woff2') format('woff2'),
-  url('app/assets/fonts/subset-Inter-SemiBold.woff') format('woff'),
-  url('app/assets/fonts/subset-Inter-SemiBold.ttf') format('truetype'),
-  url('app/assets/fonts/subset-Inter-SemiBold.svg#Inter-SemiBold') format('svg');
+  src: url('app/assets/fonts/subset-Inter-SemiBold.eot?#iefix')
+      format('embedded-opentype'),
+    url('app/assets/fonts/subset-Inter-SemiBold.woff2') format('woff2'),
+    url('app/assets/fonts/subset-Inter-SemiBold.woff') format('woff'),
+    url('app/assets/fonts/subset-Inter-SemiBold.ttf') format('truetype'),
+    url('app/assets/fonts/subset-Inter-SemiBold.svg#Inter-SemiBold')
+      format('svg');
   font-weight: 600;
   font-style: normal;
-  }
+}
 
 html {
   height: 100%;
 }
 
-body{
-  margin                  : 0;
-  font-family             : -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-  sans-serif;
-  -webkit-font-smoothing  : antialiased;
-  -moz-osx-font-smoothing : grayscale;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   /*For a always sticky footer, code inspired by: https://codepen.io/cbracco/pen/zekgx*/
   position: relative;
   min-height: 100%;
-  }
+}
 
-code{
-  font-family : source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
 
 /* todo: should be solved in a cleaner way */
-a{
+a {
   text-decoration: initial;
-  color:#3074f1;
-  }
+  color: #3074f1;
+}
