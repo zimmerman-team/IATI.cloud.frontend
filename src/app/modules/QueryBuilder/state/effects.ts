@@ -647,11 +647,11 @@ export const withEffects: StoreEffect = store => {
           : null,
 
         textSearch && rowFormat === 'activity'
-          ? `(title_narrative:(${textSearch}) OR description_narrative:(${textSearch}) OR iati_identifier:(${textSearch}))`
+          ? `(title_narrative:"${textSearch}" OR description_narrative:"${textSearch}" OR iati_identifier:"${textSearch}")`
           : null,
 
         textSearch && rowFormat === 'transaction'
-          ? `(description_narrative:(${textSearch}))`
+          ? `(description_narrative:"${textSearch}")`
           : null,
 
         get(transactionProviderOrgs, 'length', 0)
