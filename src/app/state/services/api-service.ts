@@ -210,6 +210,11 @@ export const getHumanitarian: Endpoint = (params: RequestInit = {}) =>
     method: 'GET',
   }).then(res => res.json());
 
+export const getHumanitarianScope: Endpoint = (params: RequestInit = {}) =>
+  fetch('/data/humanitarianScope.json', {
+    method: 'GET',
+  }).then(res => res.json());
+
 export const getTransactionHumanitarian: Endpoint = (
   params: RequestInit = {}
 ) =>
