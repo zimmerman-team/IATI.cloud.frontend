@@ -14,7 +14,8 @@ import {
   ActivityStatusModel,
   ParticipatingOrgsModel,
   TransactionProviderOrgModel,
-  SecondaryReporterModel, SectorVocabularyModel
+  SecondaryReporterModel,
+  SectorVocabularyModel,
 } from 'app/state/models';
 
 import appStore from 'app/state/store';
@@ -54,13 +55,13 @@ export const withEffects: StoreEffect = store => {
               return item.code;
             })
         : null;
-    const sectorVocabularies =
-      store.get('sectorVocabularies')
-        ? (store.get('sectorVocabularies') || [])
-          .map((item: SectorVocabularyModel)=>{
+    const sectorVocabularies = store.get('sectorVocabularies')
+      ? (store.get('sectorVocabularies') || []).map(
+          (item: SectorVocabularyModel) => {
             return item.code;
-          })
-        : null;
+          }
+        )
+      : null;
     const organisations = store.get('organisations')
       ? store.get('organisations').map((item: OrganisationModel) => {
           return item.reporting_organisation_identifier;
@@ -136,7 +137,8 @@ export const withEffects: StoreEffect = store => {
         : null;
 
     const textSearch =
-      store.get('textSearch') && (rowFormat === 'activity' || rowFormat === 'transaction')
+      store.get('textSearch') &&
+      (rowFormat === 'activity' || rowFormat === 'transaction')
         ? store.get('textSearch')
         : null;
 
@@ -226,15 +228,15 @@ export const withEffects: StoreEffect = store => {
     const policyMarker =
       store.get('policyMarker') && rowFormat === 'activity'
         ? store.get('policyMarker').map((item: ActivityStatusModel) => {
-          return item.code;
-        })
+            return item.code;
+          })
         : null;
 
     const tag =
       store.get('tag') && rowFormat === 'activity'
         ? store.get('tag').map((item: ActivityStatusModel) => {
-          return item.code;
-        })
+            return item.code;
+          })
         : null;
 
     const defaultFlowType =
@@ -319,6 +321,12 @@ export const withEffects: StoreEffect = store => {
         ? store.get('humanitarian').map((item: ActivityStatusModel) => {
             return item.code;
           })
+        : null;
+    const humanitarianScope =
+      store.get('humanitarianScope') && rowFormat === 'activity'
+        ? store.get('humanitarianScope').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
         : null;
     const transactionHumanitarian =
       store.get('transactionHumanitarian') &&
@@ -512,11 +520,13 @@ export const withEffects: StoreEffect = store => {
             `transaction_sector_code:(${output})`)
           : null,
         get(sectorVocabularies, 'length', 0) && rowFormat === 'activity'
-        ? `sector_vocabulary:(${sectorVocabularies && sectorVocabularies.join(' ')})`
-          :null,
+          ? `sector_vocabulary:(${sectorVocabularies &&
+              sectorVocabularies.join(' ')})`
+          : null,
         get(sectorVocabularies, 'length', 0) && rowFormat === 'transaction'
-          ? `transaction_sector_vocabulary:(${sectorVocabularies && sectorVocabularies.join(' ')})`
-          :null,
+          ? `transaction_sector_vocabulary:(${sectorVocabularies &&
+              sectorVocabularies.join(' ')})`
+          : null,
         get(secondaryReporter, 'length', 0)
           ? `reporting_org_secondary_reporter:(${secondaryReporter &&
               secondaryReporter.join(' ')})`
@@ -724,6 +734,9 @@ export const withEffects: StoreEffect = store => {
         get(humanitarian, 'length', 0)
           ? `humanitarian:(${humanitarian && humanitarian.join(' ')})`
           : null,
+        get(humanitarianScope, 'length', 0)
+          ? `humanitarian_scope_type:(${humanitarianScope && humanitarianScope.join(' ')})`
+          : null,
         get(transactionHumanitarian, 'length', 0)
           ? `transaction_humanitarian:(${transactionHumanitarian &&
               transactionHumanitarian.join(' ')})`
@@ -733,13 +746,9 @@ export const withEffects: StoreEffect = store => {
               otherIdentifierType.join(' ')})`
           : null,
         get(policyMarker, 'length', 0)
-          ? `policy_marker_code:(${policyMarker &&
-          policyMarker.join(' ')})`
+          ? `policy_marker_code:(${policyMarker && policyMarker.join(' ')})`
           : null,
-        get(tag, 'length', 0)
-          ? `tag_code:(${tag &&
-          tag.join(' ')})`
-          : null,
+        get(tag, 'length', 0) ? `tag_code:(${tag && tag.join(' ')})` : null,
       ],
       get(modifiedFields(), 'length', 0) ? `fl=${fields}` : null
     );

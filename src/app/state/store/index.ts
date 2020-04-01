@@ -30,6 +30,7 @@ import documentLinkCategory from 'app/state/interfaces/DocumentLinkCategoryInter
 import iatiVersion from 'app/state/interfaces/IATIVersionInterface';
 import language from 'app/state/interfaces/LanguageInterface';
 import humanitarian from 'app/state/interfaces/HumanitarianInterface';
+import humanitarianScope from 'app/state/interfaces/HumanitarianScopeInterface';
 import transactionHumanitarian from 'app/state/interfaces/TransactionHumanitarianInterface';
 import otherIdentifierType from 'app/state/interfaces/OtherIdentifierTypeInterface';
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
@@ -68,6 +69,7 @@ const applicationStore: ApplicationStoreModel = {
   iatiVersion: iatiVersion,
   language: language,
   humanitarian: humanitarian,
+  humanitarianScope: humanitarianScope,
   transactionHumanitarian: transactionHumanitarian,
   otherIdentifierType: otherIdentifierType,
   policyMarker: policyMarker,

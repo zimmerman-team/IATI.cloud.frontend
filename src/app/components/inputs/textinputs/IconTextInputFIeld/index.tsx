@@ -1,34 +1,30 @@
 import React from 'react';
-import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
 import { FieldBackdrop } from 'app/components/common/FieldBackdrop';
 import Box from '@material-ui/core/Box';
 import { Spacing } from 'app/theme';
-import { InputProps as StandardInputProps } from '@material-ui/core/Input';
+import { SearchInputField } from '../SearchInputField';
+
 type Props = {
-  placeholder?: string;
-  prefill?: string;
-  ariaLabel?: string;
-  label?: string;
+  placeholder: string;
+  label: string;
   helperText: string;
-  onChange?: StandardInputProps['onChange'];
-  value?: unknown;
+  onChange: Function;
+  value: string;
 };
 
 const IconTextInput = (props: Props) => {
   return (
-    <React.Fragment>
-      {props.label && <FieldInputLabel label={props.label} />}
+    <>
+      <FieldInputLabel label={props.label} />
       <FieldBackdrop>
         <Box marginLeft={Spacing.inputSideSpacing} width="100%">
-          <InputBase
-            placeholder={props.placeholder ? props.placeholder : 'Empty'}
-            inputProps={{ 'aria-label': 'Placeholder text' }}
-            value={props.value}
+          <SearchInputField
             onChange={props.onChange}
-            style={{ width: '100%' }}
+            placeholder={props.placeholder}
+            valueStr={props.value as string}
           />
         </Box>
 
@@ -42,7 +38,7 @@ const IconTextInput = (props: Props) => {
           {props.helperText}
         </FormHelperText>
       )}
-    </React.Fragment>
+    </>
   );
 };
 
