@@ -95,6 +95,6 @@ workflows:
       - release:
           requires:
             - cypress/install
-          # filters:
-          #   branches:
-          #     only: master
+          filters:
+            branches:
+              only: master
