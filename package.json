@@ -88,15 +88,6 @@
   "release": {
     "branches": [
       "master"
-    ],
-    "plugins": [
-      [
-        "semantic-release-slack-bot",
-        {
-          "notifyOnSuccess": true,
-          "notifyOnFail": true
-        }
-      ]
     ]
   },
   "devDependencies": {
@@ -209,7 +200,6 @@
     "resolve": "^1.12.0",
     "sass-loader": "^7.3.1",
     "semantic-release": "^15.13.24",
-    "semantic-release-slack-bot": "^1.6.1",
     "semver": "^6.3.0",
     "start-server-and-test": "^1.10.6",
     "style-loader": "^1.0.0",
