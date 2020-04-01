@@ -87,8 +87,7 @@
   },
   "release": {
     "branches": [
-      "master",
-      "feature/2170"
+      "master"
     ],
     "plugins": [
       [
