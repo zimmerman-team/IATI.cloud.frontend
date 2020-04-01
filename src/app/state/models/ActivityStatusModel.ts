@@ -1,4 +1,4 @@
-export type ActivityStatusModel = {
+export interface ActivityStatusModel {
   code: string;
   name: string;
-};
+}

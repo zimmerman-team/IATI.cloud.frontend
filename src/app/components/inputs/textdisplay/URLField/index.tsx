@@ -11,6 +11,7 @@ type Props = {
 
 export const URLField: React.FC<Props> = props => {
   const [state, copyToClipboard] = useCopyToClipboard();
+  
   function renderButton() {
     if (props.text === '') {
       return <BaseButton label="Copy" isdisabled="true" />;

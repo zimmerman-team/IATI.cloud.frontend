@@ -1,4 +1,4 @@
-export type SecondaryReporterModel = {
+export interface SecondaryReporterModel {
   code: string;
   name: string;
-};
+}

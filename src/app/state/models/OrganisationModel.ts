@@ -1,22 +1,15 @@
-type root = {
-  count: number;
-  next: string;
-  previous: null;
-  results: OrganisationModel[];
-};
-
-export type OrganisationModel = {
+export interface OrganisationModel {
   reporting_organisation_identifier: string;
   reporting_organisation: string;
-};
-type OrganisationName = {
+}
+interface OrganisationName {
   narratives: OrganisationNarrativesItem[];
-};
-type OrganisationNarrativesItem = {
+}
+interface OrganisationNarrativesItem {
   text: string;
   language: OrganisationLanguage;
-};
-type OrganisationLanguage = {
+}
+interface OrganisationLanguage {
   code: string;
   name: string;
-};
+}

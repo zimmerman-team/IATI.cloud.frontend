@@ -1,3 +1,4 @@
+// @ts-nocheck
 //cc:api documentation module#; navigation - side bar
 import React from 'react';
 import Box from '@material-ui/core/Box';
@@ -18,7 +19,6 @@ import { ApiDocSearchBoxContainer } from 'app/modules/Documentation/common/DocSi
 import { ApiDocSearchInput } from 'app/modules/Documentation/common/DocSideBar/common/ui/ApiDocSearchInput';
 
 export function DocsideBar() {
-  // @ts-ignore
   const data: Root = useStoreState(state => state.data && state.data);
   const categories = data && data.collection;
   const [searchVal, setSearchVal] = React.useState('');

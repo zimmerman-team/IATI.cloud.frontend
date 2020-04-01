@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
@@ -42,7 +43,6 @@ export const AppBarButton = (props: Props) => {
     <BaseComponent size={props.size} color="inherit" {...props}>
       {props.disabled ? (
         <div
-          // @ts-ignore
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -69,7 +69,6 @@ export const AppBarButton = (props: Props) => {
           }}
           exact
           activeStyle={{ borderBottom: '4px solid #03dbe4', height: '96px' }}
-          // @ts-ignore
           to={props.url}
         >
           {props.label}
