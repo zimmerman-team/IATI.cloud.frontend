@@ -86,6 +86,10 @@
     }
   },
   "release": {
+    "branches": [
+      "master",
+      "feature/2170"
+    ],
     "plugins": [
       [
         "semantic-release-slack-bot",
