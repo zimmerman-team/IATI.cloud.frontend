@@ -1,0 +1,34 @@
+[
+    {
+        "code": "A",
+        "name": "Budget support"
+    },
+    {
+        "code": "B",
+        "name": "Core contributions and pooled programmes and funds"
+    },
+    {
+        "code": "C",
+        "name": "Project-type interventions"
+    },
+    {
+        "code": "D",
+        "name": "Experts and other technical assistance"
+    },
+    {
+        "code": "E",
+        "name": "Scholarships and student costs in donor countries"
+    },
+    {
+        "code": "F",
+        "name": "Debt relief"
+    },
+    {
+        "code": "G",
+        "name": "Administrative costs not included elsewhere"
+    },
+    {
+        "code": "H",
+        "name": "Other in-donor expenditures"
+    }
+]

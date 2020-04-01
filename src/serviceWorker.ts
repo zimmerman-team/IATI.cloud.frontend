@@ -10,6 +10,7 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
+//BOILERPLATE CODE
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
@@ -24,6 +25,8 @@ type Config = {
   onSuccess?: (registration: ServiceWorkerRegistration) => void;
   onUpdate?: (registration: ServiceWorkerRegistration) => void;
 };
+
+export let isUpdateAvailable = false;
 
 export function register(config?: Config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
@@ -77,10 +80,12 @@ function registerValidSW(swUrl: string, config?: Config) {
               // At this point, the updated precached content has been fetched,
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
+
               console.log(
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
+              isUpdateAvailable = true;
 
               // Execute callback
               if (config && config.onUpdate) {
@@ -91,7 +96,7 @@ function registerValidSW(swUrl: string, config?: Config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
-
+              isUpdateAvailable = false;
               // Execute callback
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
@@ -141,3 +146,21 @@ export function unregister() {
     });
   }
 }
+
+//CUSTOM CODE
+//Here we specify which files we want to cache
+const CACHE_NAME = 'my-site-cache-v1';
+const urlsToCache = ['/static/', '/assets/'];
+
+//Her we perform the install steps
+self.addEventListener('install', function(event) {
+  (event as any).waitUntil(
+    caches.open(CACHE_NAME).then(function(cache) {
+      return cache.addAll(urlsToCache);
+    })
+  );
+});
+
+self.addEventListener('activate', function(event) {
+  console.log('Finally active. Ready to start serving content!');
+});

@@ -1,3 +1,4 @@
+//cc:application base#;webpack config
 'use strict';
 
 const fs = require('fs');
@@ -25,9 +26,11 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-
+const BrotliGzipPlugin = require('brotli-gzip-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const postcssNormalize = require('postcss-normalize');
-
+const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
+const { WebpackPluginRamdisk } = require('webpack-plugin-ramdisk');
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
@@ -42,6 +45,7 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -155,14 +159,14 @@ module.exports = function(webpackEnv) {
       // There will be one main bundle, and one file per asynchronous chunk.
       // In development, it does not produce real files.
       filename: isEnvProduction
-        ? 'static/js/[name].[contenthash:8].js'
+        ? 'static-js/js/[name].[contenthash:8].js'
         : isEnvDevelopment && 'static/js/bundle.js',
       // TODO: remove this when upgrading to webpack 5
       futureEmitAssets: true,
       // There are also additional JS chunk files if you use code splitting.
       chunkFilename: isEnvProduction
-        ? 'static/js/[name].[contenthash:8].chunk.js'
-        : isEnvDevelopment && 'static/js/[name].chunk.js',
+        ? 'static-js/js/[name].[contenthash:8].chunk.js'
+        : isEnvDevelopment && 'static-js/js/[name].chunk.js',
       // We inferred the "public path" (such as / or /my-project) from homepage.
       // We use "/" in development.
       publicPath: publicPath,
@@ -328,7 +332,7 @@ module.exports = function(webpackEnv) {
               loader: require.resolve('url-loader'),
               options: {
                 limit: 10000,
-                name: 'static/media/[name].[hash:8].[ext]',
+                name: 'static-js/media/[name].[hash:8].[ext]',
               },
             },
             // Process application JS with Babel.
@@ -369,8 +373,8 @@ module.exports = function(webpackEnv) {
               exclude: /@babel(?:\/|\\{1,2})runtime/,
               loader: require.resolve('babel-loader'),
               options: {
-                babelrc: false,
-                configFile: false,
+                babelrc: true,
+                configFile: true,
                 compact: false,
                 presets: [
                   [
@@ -465,7 +469,7 @@ module.exports = function(webpackEnv) {
               // by webpacks internal loaders.
               exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
               options: {
-                name: 'static/media/[name].[hash:8].[ext]',
+                name: 'static-js/media/[name].[hash:8].[ext]',
               },
             },
             // ** STOP ** Are you adding a new loader?
@@ -501,6 +505,8 @@ module.exports = function(webpackEnv) {
             : undefined
         )
       ),
+      isEnvDevelopment &&
+        new WebpackPluginRamdisk(),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       isEnvProduction &&
@@ -538,8 +544,8 @@ module.exports = function(webpackEnv) {
         new MiniCssExtractPlugin({
           // Options similar to the same options in webpackOptions.output
           // both options are optional
-          filename: 'static/css/[name].[contenthash:8].css',
-          chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+          filename: 'static-js/css/[name].[contenthash:8].css',
+          chunkFilename: 'static-js/css/[name].[contenthash:8].chunk.css',
         }),
       // Generate a manifest file which contains a mapping of all asset filenames
       // to their corresponding output file so that tools can pick it up without
@@ -608,6 +614,19 @@ module.exports = function(webpackEnv) {
           // The formatter is invoked directly in WebpackDevServerUtils during development
           formatter: isEnvProduction ? typescriptFormatter : undefined,
         }),
+      isEnvProduction &&
+        new BrotliGzipPlugin({
+          asset: '[path].br[query]',
+          algorithm: 'brotli',
+          test: /\.(js|json|css|html|svg)$/,
+          threshold: 10240,
+          minRatio: 0.8,
+          quality: 11,
+        }),
+      // isEnvProduction &&
+      //   new DuplicatePackageCheckerPlugin(),
+      /*isEnvProduction &&
+        new BundleAnalyzerPlugin({analyzerMode:'static', reportFilename:paths.appStats+'/'+Date.now()+'.html', generateStatsFile:true})*/
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.
     // Tell Webpack to provide empty mocks for them so importing them works.

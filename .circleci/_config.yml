@@ -1,0 +1,251 @@
+version: 2.1
+jobs:
+  #  CHECKOUT REPOSITORY
+  checkout_repo:
+    docker:
+      - image: circleci/node:10.13.0
+    working_directory: ~/oipa-query-builder
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/oipa-query-builder
+      - restore_cache:
+          keys:
+            - yarn-cached-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run: yarn install --fronzen-lockfile
+      - save_cache:
+          key: yarn-cached-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ./.cache
+            - node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+            - ./.cache/Cypress
+
+  #  BUILD SOURCE AND DEPLOY TO SERVER
+  build_deploy:
+    docker:
+      - image: circleci/node:10.13.0-browsers
+    working_directory: ~/oipa-query-builder
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/oipa-query-builder
+      - run: sudo apt-get install python-dev
+      - run:
+          name: Set REACT_APP_PROJECT_URL env var
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV' >> $BASH_ENV
+            else
+              echo 'export REACT_APP_PROJECT_URL="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            fi
+            source $BASH_ENV
+      - run: yarn build
+#      - run: yarn build-storybook
+      - run:
+          name: Add target host to known_hosts files
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            else
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            fi
+
+      - add_ssh_keys:
+          name: Add SSH KEY
+          fingerprints:
+            - $Fingerprint
+      - run: eval ssh-agent -s
+      - run: sudo apt install rsync
+      - run:
+          name: Upload build folder to target host
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder
+            else
+              rsync -O -ave ssh ~/oipa-query-builder/build "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder
+            fi
+#      - run:
+#          name: Upload storybook build folder to target host
+#          command: |
+#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+#              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
+#            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+#              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
+#            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+#              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
+#            else
+#              rsync -O -ave ssh ~/oipa-query-builder/build_storybook "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/build_storybook
+#            fi
+
+  test_e2e:
+    docker:
+      - image: circleci/node:10.13.0-browsers
+    parallelism: 2
+    working_directory: ~/oipa-query-builder
+    steps:
+      - attach_workspace:
+          at: ~/oipa-query-builder
+      # setting this env var to only test on dev server when deployed.
+      - run:
+          name: Install Cypress -> OPTIMISE, UNESCESSARY STEP!!!
+          command: yarn add cypress --ignore-engines
+      - run:
+          name: Set CYPRESS_BASEURL
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+               echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+               echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+               echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            else
+               echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
+            fi
+            source $BASH_ENV
+      - run:
+          name: Run E2E test
+          # Here we check if the bash variable is unset, or set to a empty string
+          command: |
+            yarn cy:run:record:percy:parallel:reporter
+      - store_test_results:
+          path: test_results
+#            if [ -z "${CIRCLE_PULL_REQUEST}" ] && [ "${CIRCLE_BRANCH}" != "develop" ]; then
+#              yarn cypress run
+#            else
+#              yarn cypress run
+#            fi
+
+  performance_test:
+    parallelism: 2
+    docker:
+      - image: femtopixel/google-lighthouse
+
+    steps:
+      - checkout
+      - run:
+          name: Run lighthouse against deployment
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+               lighthouse "$REACT_APP_PROJECT_URL_DEV" \
+                --port=9222 \
+                      --chrome-flags=\"--headless\" \
+                      --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')"-$(date +'%Y-%m-%d') \
+                      --output=json \
+                      --output=html
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+                lighthouse "$REACT_APP_PROJECT_URL_TEST" \
+                 --port=9222 \
+                      --chrome-flags=\"--headless\" \
+                      --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')"-$(date +'%Y-%m-%d') \
+                      --output=json \
+                      --output=html
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+                 lighthouse "$REACT_APP_PROJECT_URL_DEV" \
+                  --port=9222 \
+                      --chrome-flags=\"--headless\" \
+                      --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')"-$(date +'%Y-%m-%d') \
+                      --output=json \
+                      --output=html
+            else
+                  lighthouse "$REACT_APP_PROJECT_URL_DEV" \
+                   --port=9222 \
+                      --chrome-flags=\"--headless\" \
+                      --output-path=/home/chrome/reports/anonymous-"$(echo -n $CIRCLE_SHELL_ENV | md5sum | awk '{print $1}')"-$(date +'%Y-%m-%d') \
+                      --output=json \
+                      --output=html
+            fi
+      - persist_to_workspace:
+          root: /home/chrome
+          paths:
+            - reports
+
+  process_performance_test_results:
+    docker:
+      - image: circleci/node:10.13.0
+    steps:
+#      Unnecessary since we now only do this workflow on merging with dev/master
+#      or when there is a PR => see CircleCi in-app settings
+#      - run:
+#          name: Check if PR or develop/master branch
+#          command: |
+#            if [ "${CIRCLE_BRANCH} != "develop" ] && [ "${CIRCLE_BRANCH} != "master" ]; then
+#              circleci step halt
+#            fi
+      - checkout
+      - restore_cache:
+          keys:
+            - yarn-cached-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - attach_workspace:
+          at: "."
+      - store_artifacts:
+          path: reports
+          destination: reports
+      - run:
+          name: Add target host to known_hosts files
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              ssh-keyscan "$SSH_HOST_TEST" >> ~/.ssh/known_hosts
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            else
+              ssh-keyscan "$SSH_HOST_DEV" >> ~/.ssh/known_hosts
+            fi
+      - add_ssh_keys:
+          name: Add SSH KEY
+          fingerprints:
+          - $Fingerprint
+      - run: eval ssh-agent -s
+      - run: sudo apt install rsync
+      - run:
+          name: Send report files to droplet
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_TEST":/home/oipa-query-builder/
+            elif [ "${CIRCLE_BRANCH}" == "feature" ]; then
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/
+            else
+                rsync -O -ave ssh ./reports "$SSH_USER"@"$SSH_HOST_DEV":/home/oipa-query-builder/
+            fi
+      - run:
+          name: Analyze and report desired vs actual lighthouse scores
+          command: ./scripts/analyze_scores.js package.json reports
+
+
+# WORKFLOWS
+workflows:
+  version: 2
+  test_build_deploy:
+    jobs:
+      - checkout_repo
+      - build_deploy:
+          requires:
+            - checkout_repo
+#      - test_e2e:
+#          requires:
+#            - build_deploy
+#      - performance_test:
+#          requires:
+#            - build_deploy
+#      - process_performance_test_results:
+#          requires:
+#            - performance_test

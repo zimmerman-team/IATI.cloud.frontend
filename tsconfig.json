@@ -1,29 +1,49 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": false,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
+    "allowUnreachableCode": true,
     "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
+    "isolatedModules": false,
+    "skipLibCheck": true,
+    "checkJs": false,
+    "esModuleInterop": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": false,
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    "resolveJsonModule": true,
+    "strict": false,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
     "baseUrl": "src",
-    "experimentalDecorators": true
+    "types": ["cypress"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "sourceMap": false
   },
-  "include": [
-    "src"
-  ],
-  "exclude": ["build","scripts","config",".storybook","node_modules"]
+  "include": ["src", "**/*.ts", "**/*.tsx"],
+  "exclude": [
+    "build",
+    "scripts",
+    "config",
+    ".storybook",
+    "node_modules",
+    "**/story.tsx",
+    "**/*.spec.ts",
+    "@nivo/bar",
+    ".vscode",
+    "cypress",
+    ".history",
+    "e2e",
+    "etc",
+    "public",
+    ".git"
+  ]
 }

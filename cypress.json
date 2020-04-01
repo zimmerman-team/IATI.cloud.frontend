@@ -1,0 +1,6 @@
+{
+  "projectId": "gxcw1z",
+  "baseUrl": "http://localhost:3000",
+  "chromeWebSecurity": false,
+  "pageLoadTimeout": 10000
+}

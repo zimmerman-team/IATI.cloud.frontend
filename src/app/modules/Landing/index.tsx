@@ -1,52 +1,17 @@
-/* base */
+//cc:application modules#;landing module
+/* core */
 import React from 'react';
-import styled from 'styled-components';
+/* third-party */
+import useTitle from 'react-use/lib/useTitle';
+/* layout */
+import { LandingLayout } from './layout';
 
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import CookieNotice from 'app/components/CookieNotice';
-const ComponentBase = styled.div``;
+function LandingModule() {
+  /* set the window title */
+  useTitle('IATI Datastore');
 
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1)
-  },
-  input: {
-    display: 'none'
-  }
-}));
+  /* instantiate the layout*/
+  return LandingLayout();
+}
 
-const Landing: React.FunctionComponent = () => {
-  const classes = useStyles();
-  return (
-    <ComponentBase>
-      <Button variant="contained" className={classes.button}>
-        Default
-      </Button>
-      <Button variant="contained" color="primary" className={classes.button}>
-        Primary
-      </Button>
-      <Button variant="contained" color="secondary" className={classes.button}>
-        Secondary
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        disabled
-        className={classes.button}
-      >
-        Disabled
-      </Button>
-      <Button
-        variant="contained"
-        href="#contained-buttons"
-        className={classes.button}
-      >
-        Link
-      </Button>
-      <CookieNotice />
-    </ComponentBase>
-  );
-};
-
-export default Landing;
+export default LandingModule;
