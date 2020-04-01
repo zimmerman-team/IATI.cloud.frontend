@@ -43,6 +43,15 @@ jobs:
       - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
       - run: rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
 
+  release:
+    docker:
+      - image: circleci/node:12.14.1-stretch-browsers
+    working_directory: ~/project
+    steps:
+      - checkout
+      - run: yarn add semantic-release-slack-bot
+      - run: npx semantic-release
+
 workflows:
   build-and-test:
     jobs:
@@ -78,6 +87,12 @@ workflows:
             branches:
               only: develop
       - deploy-production:
+          requires:
+            - cypress/install
+          filters:
+            branches:
+              only: master
+      - release:
           requires:
             - cypress/install
           filters:

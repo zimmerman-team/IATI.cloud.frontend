@@ -1,11 +1,11 @@
 {
-  "name": "oipa-query-builder",
-  "version": "0.1.0",
+  "name": "iati.cloud.frontend",
+  "version": "1.0.0",
   "private": true,
   "description": "OIPA query builder, developed by Zimmerman & Zimmerman",
   "repository": {
     "type": "git",
-    "url": "git://github.com/zimmerman-zimmerman/query-builder-iati.cloud.git"
+    "url": "https://github.com/zimmerman-zimmerman/iati.cloud.frontend.git"
   },
   "dependencies": {
     "@devexpress/dx-react-core": "^2.2.1",
@@ -86,7 +86,18 @@
     }
   },
   "release": {
-    "branch": "next"
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      [
+        "semantic-release-slack-bot",
+        {
+          "notifyOnSuccess": true,
+          "notifyOnFail": true
+        }
+      ]
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -198,6 +209,7 @@
     "resolve": "^1.12.0",
     "sass-loader": "^7.3.1",
     "semantic-release": "^15.13.24",
+    "semantic-release-slack-bot": "^1.6.1",
     "semver": "^6.3.0",
     "start-server-and-test": "^1.10.6",
     "style-loader": "^1.0.0",
