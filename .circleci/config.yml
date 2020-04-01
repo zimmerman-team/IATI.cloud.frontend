@@ -49,6 +49,7 @@ jobs:
     working_directory: ~/project
     steps:
       - checkout
+      - run: yarn add semantic-release-slack-bot
       - run: npx semantic-release
 
 workflows:
