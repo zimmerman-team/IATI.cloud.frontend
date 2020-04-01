@@ -5,7 +5,7 @@
   "description": "OIPA query builder, developed by Zimmerman & Zimmerman",
   "repository": {
     "type": "git",
-    "url": "git://github.com/zimmerman-zimmerman/iati.cloud.frontend.git"
+    "url": "https://github.com/zimmerman-zimmerman/iati.cloud.frontend.git"
   },
   "dependencies": {
     "@devexpress/dx-react-core": "^2.2.1",
