@@ -86,7 +86,6 @@
     }
   },
   "release": {
-    "branch": "next",
     "plugins": [
       [
         "semantic-release-slack-bot",
