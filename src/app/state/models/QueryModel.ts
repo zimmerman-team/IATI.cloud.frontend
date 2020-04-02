@@ -7,7 +7,7 @@ export interface QueryModel {
 }
 
 export const queryModel: QueryModel = {
-  url: `${baseURL}q=*:*&wt=json&rows=50`,
+  url: `${baseURL}q=*:*&wt=json&rows=5000000`,
   updateQuery: action((state, payload) => {
     // eslint-disable-next-line
     state.url = payload;
