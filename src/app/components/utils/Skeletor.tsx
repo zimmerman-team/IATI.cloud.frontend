@@ -1,10 +1,14 @@
+// @ts-nocheck
+/* eslint-disable no-lone-blocks */
 import React from 'react';
 import { Skeleton } from '@material-ui/lab';
 import { useSize } from 'react-use';
 import styled from 'styled-components';
+
 {
   /** todo: make a custom component based on the skeleton component and add extra features */
 }
+
 const SizeContainer = styled.div`
   &&& {
     display: flex;

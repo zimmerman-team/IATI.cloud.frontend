@@ -1,9 +1,9 @@
+// @ts-nocheck
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
 import { Action, action, Thunk, thunk, computed, Computed } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
-export const baseURL =
-  'https://iati.cloud/search/activity?';
+export const baseURL = 'https://iati.cloud/search/activity?';
 
 /* uncomment this in order to get data from API */
 const NODE_ENV = 'production';
@@ -13,7 +13,7 @@ const NODE_ENV = 'production';
 
 export const HOSTNAME =
   // @ts-ignore
-  NODE_ENV === 'development' ? '/' : 'https://iati.cloud/';//'https://test-datastore.iatistandard.org/';  // (ဒီဟာေတြမရဘူး မနက္ျဖန္မနက္ စစ္ရန္)'https://iati.cloud/'; //'https://iatidatastore.iatistandard.org/';
+  NODE_ENV === 'development' ? '/' : 'https://iati.cloud/'; //'https://test-datastore.iatistandard.org/';  // (ဒီဟာေတြမရဘူး မနက္ျဖန္မနက္ စစ္ရန္)'https://iati.cloud/'; //'https://iatidatastore.iatistandard.org/';
 
 // datastore.iati.cloud
 

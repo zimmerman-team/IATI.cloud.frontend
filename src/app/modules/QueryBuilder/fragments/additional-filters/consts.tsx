@@ -69,6 +69,18 @@ export const additionalFiltersPopData = [
         ),
       },
       {
+        label: 'Humanitarian Scope',
+        component: props => (
+          <AddFilterModule
+            label="Humanitarian Scope"
+            dataKey="humanitarianScope"
+            placeholder="All options"
+            value={props.store.get('humanitarianScope')}
+            onChange={e => props.store.set('humanitarianScope')(e)}
+          />
+        ),
+      },
+      {
         label: 'Other identifier type',
         component: props => (
           <AddFilterModule

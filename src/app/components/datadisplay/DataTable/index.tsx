@@ -15,7 +15,12 @@ import {
   Response,
   ResponseModel,
 } from 'app/components/datadisplay/DataTable/model';
-import { docs } from 'jest-cli/build/cli/args';
+
+import {
+  defaultActivityTableCols,
+  defaultTransactionTableCols,
+  defaultBudgetTableCols,
+} from 'app/modules/QueryBuilder/fragments/results/model';
 
 interface IRow {
   name: string;
@@ -23,11 +28,6 @@ interface IRow {
   city: string;
   car: string;
 }
-import {
-  defaultActivityTableCols,
-  defaultTransactionTableCols,
-  defaultBudgetTableCols,
-} from 'app/modules/QueryBuilder/fragments/results/model';
 
 export const DataTable = props => {
   const [cols, setCols] = useState(
@@ -43,7 +43,7 @@ export const DataTable = props => {
     data: [], // default for `data` will be an array instead of undefined
   };
   const { loading, error, data } = useFetch(
-    props.url.replace(/rows=5000/, 'rows=10'),
+    props.url.replace(/rows=50/, 'rows=10'),
     options
   );
   const loadedData: ResponseModel = data && data;
