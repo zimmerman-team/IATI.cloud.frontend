@@ -1,8 +1,8 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-new */
 /* eslint-disable no-empty */
 /* eslint-disable no-undef */
 /* eslint-disable no-param-reassign */
-/* eslint-disable jest/no-disabled-tests */
 
 function makeIframe(src) {
   if (!src) throw new Error('meh');
