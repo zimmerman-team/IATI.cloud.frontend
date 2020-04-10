@@ -1,6 +1,7 @@
 //cc:query builder module#; query builder state; utils
 import filter from 'lodash/filter';
 import mapValues from 'lodash/mapValues';
+import { ROWS } from 'app/state/models/QueryModel';
 
 function keyFromLocalStorage<T>(or: T, key: string): T {
   const value = localStorage.getItem(key);
@@ -27,5 +28,5 @@ export const constructSolrQuery = (baseURI, params, fields) => {
 
   return `${baseURI}${filterString !== 'q=' ? filterString : 'q=*:*'}${
     fields ? `&${fields}` : ''
-  }&wt=json&rows=5000`;
+  }&wt=json&rows=${ROWS}`;
 };
