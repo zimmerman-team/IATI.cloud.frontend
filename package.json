@@ -36,7 +36,7 @@
     "streamsaver": "^2.0.3",
     "styled-components": "^5.0.1",
     "swr": "^0.1.8",
-    "undux": "^5.0.0-beta.22",
+    "undux": "^5.2.0",
     "url-lib": "^3.0.3",
     "use-clipboard-copy": "^0.1.1",
     "use-http": "^0.1.80"
@@ -173,7 +173,6 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "echo pre && echo commit && echo police && pretty-quick --staged",
       "pre-push": "echo pre push police"
     }
   },
