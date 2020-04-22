@@ -77,7 +77,9 @@ export const DownloadFragment = () => {
         <Grid item xs={12} md={10} lg={9}>
           <URLField
             text={
-              rowFormat === 'transaction' || rowFormat === 'activity'
+              rowFormat === 'transaction' ||
+              rowFormat === 'activity' ||
+              rowFormat === 'budget'
                 ? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
                 : queryURL.replace('json', 'csv')
             }
@@ -87,7 +89,9 @@ export const DownloadFragment = () => {
           <DownloadButton
             type="CSV"
             queryURL={
-              rowFormat === 'transaction' || rowFormat === 'activity'
+              rowFormat === 'transaction' ||
+              rowFormat === 'activity' ||
+              rowFormat === 'budget'
                 ? queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
                 : queryURL.replace('json', 'csv')
             }
