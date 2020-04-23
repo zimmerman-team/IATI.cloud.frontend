@@ -3,12 +3,20 @@ import { Grid, Typography, Container, Box, Link } from '@material-ui/core';
 import { Mail, Twitter } from '@material-ui/icons';
 import { IATILogoWhite } from 'app/components/svgs/IATILogo';
 import { ZZLogo } from 'app/components/svgs/ZZLogo';
+import LogoZZ from 'app/assets/images/logo_zz.png';
+import 'styled-components/macro';
 
 export const Footer = () => {
   return (
-    <Box bgcolor="#155366" width="100%" position="absolute" bottom="0" data-testid="Footer">
+    <Box
+      bgcolor="#155366"
+      width="100%"
+      position="absolute"
+      bottom="0"
+      data-testid="Footer"
+    >
       <Container maxWidth="lg">
-        {/*LEFT ITEM*/}
+        {/* LEFT ITEM */}
         <Grid
           container
           direction="row"
@@ -34,7 +42,7 @@ export const Footer = () => {
           >
             <IATILogoWhite />
           </Grid>
-          {/*MIDDLE ITEM*/}
+          {/* MIDDLE ITEM */}
           <Grid
             item
             md={12}
@@ -78,7 +86,7 @@ export const Footer = () => {
               </Grid>
             </Grid>
           </Grid>
-          {/*RIGHT ITEM*/}
+          {/* RIGHT ITEM */}
           <Grid item md={12} lg={4}>
             <Grid
               container
@@ -95,16 +103,22 @@ export const Footer = () => {
                   >
                     powered by
                   </Typography>
-                  <ZZLogo
-                    onClick={() =>
-                      window.open('https://www.zimmermanzimmerman.nl', '_blank')
-                    }
-                    style={{ cursor: 'pointer' }}
-                  />
+                  <a
+                    href="https://www.zimmermanzimmerman.nl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      width="150px"
+                      height="auto"
+                      src={LogoZZ}
+                      alt="zz logo"
+                    />
+                  </a>
                 </Grid>
               </Grid>
 
-              {/*This one is confusing, couldn't get the type to align center.*/}
+              {/* This one is confusing, couldn't get the type to align center. */}
               <Grid
                 container
                 // item
