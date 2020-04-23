@@ -35,7 +35,7 @@
     "react-use": "^11.3.2",
     "styled-components": "^5.0.1",
     "swr": "^0.1.8",
-    "undux": "^5.0.0-beta.22",
+    "undux": "^5.2.0",
     "url-lib": "^3.0.3",
     "use-clipboard-copy": "^0.1.1",
     "use-http": "^0.1.80"
@@ -85,6 +85,7 @@
     "husky": "^4.2.3",
     "paths.macro": "^2.0.2",
     "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
     "source-map-explorer": "^2.3.1",
     "typescript": "~3.8.3"
   },
@@ -172,7 +173,6 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "echo pre && echo commit && echo police && pretty-quick --staged",
       "pre-push": "echo pre push police"
     }
   },

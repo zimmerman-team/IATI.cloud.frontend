@@ -21,6 +21,7 @@ import {
   defaultTransactionTableCols,
   defaultBudgetTableCols,
 } from 'app/modules/QueryBuilder/fragments/results/model';
+import { ROWS } from 'app/state/models/QueryModel';
 
 interface IRow {
   name: string;
@@ -43,7 +44,7 @@ export const DataTable = props => {
     data: [], // default for `data` will be an array instead of undefined
   };
   const { loading, error, data } = useFetch(
-    props.url.replace(/rows=50/, 'rows=10'),
+    props.url.replace(`rows=${ROWS}`, 'rows=10'),
     options
   );
   const loadedData: ResponseModel = data && data;
