@@ -18,6 +18,7 @@ jobs:
       - run: sudo apt install rsync
       - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
       - run: rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
+      - run: ssh "$SSH_USER"@"$SSH_HOST_DEV" "cd ~/stg-iati-cloud-front/; ./ci_update_front.sh"
 
   deploy-staging:
     docker:
@@ -30,6 +31,7 @@ jobs:
       - run: sudo apt install rsync
       - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
       - run: rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
+      - run: ssh "$SSH_USER"@"$SSH_HOST_DEV" "cd ~/stg-iati-cloud-front/; ./ci_update_front.sh"
 
   deploy-production:
     docker:
@@ -42,6 +44,7 @@ jobs:
       - run: sudo apt install rsync
       - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
       - run: rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
+      - run: ssh "$SSH_USER"@"$SSH_HOST_DEV" "cd ~/stg-iati-cloud-front/; ./ci_update_front.sh"
 
   release:
     docker:
