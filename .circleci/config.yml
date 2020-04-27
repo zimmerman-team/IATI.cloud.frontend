@@ -57,7 +57,7 @@ workflows:
       - cypress/install:
           executor: cypress/base-12-6-0
           yarn: true
-          build: yarn build
+          build: CI=false yarn build
       # - cypress/run:
       # executor: cypress/browsers-chrome76
       # browser: chrome
