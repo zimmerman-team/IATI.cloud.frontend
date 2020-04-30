@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const HeaderH6 = styled.div`
   font-family: Inter;
   font-size: 20px;

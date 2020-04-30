@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { css } from 'styled-components/macro';
-import { Palette } from 'app/theme';
 
 type Props = {
   size?: string;
@@ -14,7 +13,6 @@ type Props = {
   children?: ReactNode;
   link?: string;
   target?: string;
-  bgcolor?: string;
 };
 
 /*type BaseProps = {
@@ -49,9 +47,6 @@ const ZimmerButton = styled(props => (
       }
     }};
 
-    background: ${props =>
-      props.bgcolor === 'green' ? '#46b275' : Palette.primary.main}}
-
     & [class*='MuiButton-label'] {
       font-size: 14px;
       text-transform: capitalize;
@@ -59,7 +54,7 @@ const ZimmerButton = styled(props => (
   }
 `;
 
-export const IconButton = (props: Props) => {
+export const DownloadButton = (props: Props) => {
   return (
     <ZimmerButton
       size={props.size}
@@ -70,7 +65,6 @@ export const IconButton = (props: Props) => {
       anchorref={props.anchorref}
       href={props.link}
       target={props.target}
-      bgcolor={props.bgcolor ? props.bgcolor : 'primary'}
     >
       {props.label && props.label}
       {props.icon && props.icon}
