@@ -42,9 +42,12 @@ jobs:
           at: ~/
       - run: eval ssh-agent -s
       - run: sudo apt install rsync
-      - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
-      - run: rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
-      - run: ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
+      - run: ssh -o StrictHostKeyChecking=no "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" exit
+      - run: rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_1":/home/oipa/oipa-query-builder
+      - run: ssh "$SSH_USER"@"$SSH_HOST_PROD_1" "/home/oipa/pull_and_update_front.sh;"
+      - run: ssh -o StrictHostKeyChecking=no "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" exit
+      - run: rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
+      - run: ssh "$SSH_USER"@"$SSH_HOST_PROD_2" "/home/oipa/pull_and_update_front.sh;"
 
   release:
     docker:
