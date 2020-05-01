@@ -52,27 +52,10 @@ jobs:
       - run: sudo apt install rsync
       - run: ssh -o StrictHostKeyChecking=no "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" exit
       - run: rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_1":/home/oipa/oipa-query-builder
-      - run: ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" "/home/oipa/pull_and_update_front.sh;"
+      - run: ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
       - run: ssh -o StrictHostKeyChecking=no "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" exit
       - run: rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
-      - run: ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" "/home/oipa/pull_and_update_front.sh;"
-
-  test-prod-ssh:
-    docker:
-      - image: circleci/node:12.14.1-stretch-browsers
-    working_directory: ~/project
-    steps:
-      - attach_workspace:
-          at: ~/
-      - add_ssh_keys:
-          name: Add SSH KEY
-          fingerprints:
-            - "b1:1a:88:d9:cc:07:01:3b:7c:c9:f9:6b:0c:48:a3:3d"
-      - run: eval ssh-agent -s
-      - run: ssh -o StrictHostKeyChecking=no "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" exit
-      - run: ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" "cd /home/oipa; ls"
-      - run: ssh -o StrictHostKeyChecking=no "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" exit
-      - run: ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" "cd /home/oipa; ls"
+      - run: ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" "/home/oipa/ci_update_front.sh;"
 
   release:
     docker:
@@ -85,47 +68,46 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - test-prod-ssh
-      # - cypress/install:
-      #     executor: cypress/base-12-6-0
-      #     yarn: true
-      #     build: CI=false yarn build
-      # # - cypress/run:
-      # # executor: cypress/browsers-chrome76
-      # # browser: chrome
-      # # requires:
-      # # - cypress/install
-      # # start: yarn start
-      # # wait-on: 'http://localhost:3000'
-      # # yarn: true
-      # # record: false
-      # # parallel: true
-      # # parallelism: 4
-      # # group: '4 machines'
-      # # post-steps:
-      # # - store_test_results:
-      # # path: cypress/results
-      # - deploy-test:
-      #     requires:
-      #       - cypress/install
-      #     filters:
-      #       branches:
-      #         only: feature/
-      # - deploy-staging:
-      #     requires:
-      #       - cypress/install
-      #     filters:
-      #       branches:
-      #         only: develop
-      # - deploy-production:
-      #     requires:
-      #       - cypress/install
-      #     filters:
-      #       branches:
-      #         only: master
-      # - release:
-      #     requires:
-      #       - cypress/install
-      #     filters:
-      #       branches:
-      #         only: master
+      - cypress/install:
+          executor: cypress/base-12-6-0
+          yarn: true
+          build: CI=false yarn build
+      # - cypress/run:
+      # executor: cypress/browsers-chrome76
+      # browser: chrome
+      # requires:
+      # - cypress/install
+      # start: yarn start
+      # wait-on: 'http://localhost:3000'
+      # yarn: true
+      # record: false
+      # parallel: true
+      # parallelism: 4
+      # group: '4 machines'
+      # post-steps:
+      # - store_test_results:
+      # path: cypress/results
+      - deploy-test:
+          requires:
+            - cypress/install
+          filters:
+            branches:
+              only: feature/
+      - deploy-staging:
+          requires:
+            - cypress/install
+          filters:
+            branches:
+              only: develop
+      - deploy-production:
+          requires:
+            - cypress/install
+          filters:
+            branches:
+              only: master
+      - release:
+          requires:
+            - cypress/install
+          filters:
+            branches:
+              only: master
