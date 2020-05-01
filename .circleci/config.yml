@@ -14,6 +14,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
+      - add_ssh_keys:
+          name: Add SSH KEY
+          fingerprints:
+            - "21:ee:e6:3e:a8:11:53:67:a1:b2:fa:b3:ce:0a:21:11"
       - run: eval ssh-agent -s
       - run: sudo apt install rsync
       - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
@@ -27,6 +31,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
+      - add_ssh_keys:
+          name: Add SSH KEY
+          fingerprints:
+            - "21:ee:e6:3e:a8:11:53:67:a1:b2:fa:b3:ce:0a:21:11"
       - run: eval ssh-agent -s
       - run: sudo apt install rsync
       - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
@@ -56,6 +64,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
+      - add_ssh_keys:
+          name: Add SSH KEY
+          fingerprints:
+            - "b1:1a:88:d9:cc:07:01:3b:7c:c9:f9:6b:0c:48:a3:3d"
       - run: eval ssh-agent -s
       - run: ssh -o StrictHostKeyChecking=no "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" exit
       - run: ssh "$SSH_USER"@"$SSH_HOST_PROD_1" "cd /home/oipa; ls"
