@@ -11,7 +11,6 @@ import { AsyncSelect } from 'app/components/inputs/selects/AsyncSelect';
 import find from 'lodash/find';
 import { additionalFiltersPopData } from 'app/modules/QueryBuilder/fragments/additional-filters/consts';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
-import IconTextInput from 'app/components/inputs/textinputs/IconTextInputFIeld';
 
 import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNavigatorButton';
 import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
@@ -20,9 +19,6 @@ export const FilterFragment = () => {
   const store = ModuleStore.useStore();
   const setAdditionFilters = e => {
     store.set('additionalFilters')(e);
-  };
-  const setTextSearchValue = e => {
-    store.set('textSearch')(e);
   };
 
   const addedFilterOptions = store.get('additionalFilters');
@@ -38,15 +34,6 @@ export const FilterFragment = () => {
       `}
       direction="column"
     >
-      <Grid item xs={12} sm={12} md={12} lg={12}>
-        <IconTextInput
-          label="Search in title, activity or description"
-          placeholder="Text search"
-          onChange={setTextSearchValue}
-          value={store.get('textSearch')}
-          helperText="Have minimum 1-2 other filters selected to avoid searching the entire database"
-        />
-      </Grid>
 
       <Grid item lg={12}>
         <Grid container spacing={4}>
