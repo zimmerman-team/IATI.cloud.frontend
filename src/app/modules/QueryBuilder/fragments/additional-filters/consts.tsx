@@ -81,6 +81,18 @@ export const additionalFiltersPopData = [
         ),
       },
       {
+        label: 'Humanitarian Scope Vocabulary',
+        component: props => (
+          <AddFilterModule
+            label="Humanitarian Scope Vocabulary"
+            dataKey="humanitarianScopeVocab"
+            placeholder="All options"
+            value={props.store.get('humanitarianScopeVocab')}
+            onChange={e => props.store.set('humanitarianScopeVocab')(e)}
+          />
+        ),
+      },
+      {
         label: 'Other identifier type',
         component: props => (
           <AddFilterModule
