@@ -328,6 +328,12 @@ export const withEffects: StoreEffect = store => {
           return item.code;
         })
         : null;
+    const humanitarianScopeVocab =
+      store.get('humanitarianScopeVocab') && rowFormat === 'activity'
+        ? store.get('humanitarianScopeVocab').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+        : null;
     const transactionHumanitarian =
       store.get('transactionHumanitarian') &&
       (rowFormat === 'activity' || rowFormat === 'transaction')
@@ -736,6 +742,9 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(humanitarianScope, 'length', 0)
           ? `humanitarian_scope_type:(${humanitarianScope && humanitarianScope.join(' ')})`
+          : null,
+        get(humanitarianScopeVocab, 'length', 0)
+          ? `humanitarian_scope_vocabulary:(${humanitarianScopeVocab && humanitarianScopeVocab.join(' ')})`
           : null,
         get(transactionHumanitarian, 'length', 0)
           ? `transaction_humanitarian:(${transactionHumanitarian &&
