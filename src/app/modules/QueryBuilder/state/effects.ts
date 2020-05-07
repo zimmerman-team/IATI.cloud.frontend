@@ -74,13 +74,11 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
 
-    const countries =
-      store.get('countries') &&
-      (rowFormat === 'activity' || rowFormat === 'transaction')
-        ? store.get('countries').map((item: CountryModel) => {
-            return item.recipient_country.code;
-          })
-        : null;
+    const countries = store.get('countries')
+      ? store.get('countries').map((item: CountryModel) => {
+          return item.recipient_country.code;
+        })
+      : null;
 
     const regions =
       store.get('regions') &&
@@ -537,13 +535,10 @@ export const withEffects: StoreEffect = store => {
           ? `reporting_org_secondary_reporter:(${secondaryReporter &&
               secondaryReporter.join(' ')})`
           : null,
-        get(countries, 'length', 0) && rowFormat === 'activity'
+        get(countries, 'length', 0)
           ? `recipient_country_code:(${countries && countries.join(' ')})`
           : null,
-        get(countries, 'length', 0) && rowFormat === 'transaction'
-          ? `transaction_recipient_country_code:(${countries &&
-              countries.join(' ')})`
-          : null,
+
         get(regions, 'length', 0) && rowFormat === 'activity'
           ? `recipient_region_code:(${regions && regions.join(' ')})`
           : null,
