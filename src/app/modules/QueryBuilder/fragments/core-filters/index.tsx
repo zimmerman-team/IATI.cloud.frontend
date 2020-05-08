@@ -16,6 +16,7 @@ import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 
 import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
 import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNavigatorButton';
+import IconTextInput from 'app/components/inputs/textinputs/IconTextInputFIeld';
 
 export const CoreFiltersFragment = () => {
   const store = ModuleStore.useStore();
@@ -43,6 +44,10 @@ export const CoreFiltersFragment = () => {
     state => state.secondaryReporter.data
   );
 
+  const setTextSearchValue = e => {
+    store.set('textSearch')(e);
+  };
+
   return (
     <Grid
       container
@@ -52,6 +57,18 @@ export const CoreFiltersFragment = () => {
       `}
       // direction="column"
     >
+      {/** Data title, activity, or descriptions*/}
+      {/* TODO: Search functionality currently not working*/}
+      <Grid item xs={12} sm={12} md={12} lg={12}>
+        <IconTextInput
+          label="Data title, activity, or descriptions"
+          placeholder="Text search"
+          onChange={setTextSearchValue}
+          value={store.get('textSearch')}
+          helperText="Have minimum 1-2 other filters selected to avoid searching the entire database"
+        />
+      </Grid>
+
       {/** reporting organisation*/}
       <Grid item xs={12} md={12} lg={12}>
         <ConnectedSelect
