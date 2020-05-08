@@ -74,13 +74,11 @@ export const withEffects: StoreEffect = store => {
         })
       : null;
 
-    const countries =
-      store.get('countries') &&
-      (rowFormat === 'activity' || rowFormat === 'transaction')
-        ? store.get('countries').map((item: CountryModel) => {
-            return item.recipient_country.code;
-          })
-        : null;
+    const countries = store.get('countries')
+      ? store.get('countries').map((item: CountryModel) => {
+          return item.recipient_country.code;
+        })
+      : null;
 
     const regions =
       store.get('regions') &&
@@ -328,6 +326,12 @@ export const withEffects: StoreEffect = store => {
           return item.code;
         })
         : null;
+    const humanitarianScopeVocab =
+      store.get('humanitarianScopeVocab') && rowFormat === 'activity'
+        ? store.get('humanitarianScopeVocab').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+        : null;
     const transactionHumanitarian =
       store.get('transactionHumanitarian') &&
       (rowFormat === 'activity' || rowFormat === 'transaction')
@@ -531,13 +535,10 @@ export const withEffects: StoreEffect = store => {
           ? `reporting_org_secondary_reporter:(${secondaryReporter &&
               secondaryReporter.join(' ')})`
           : null,
-        get(countries, 'length', 0) && rowFormat === 'activity'
+        get(countries, 'length', 0)
           ? `recipient_country_code:(${countries && countries.join(' ')})`
           : null,
-        get(countries, 'length', 0) && rowFormat === 'transaction'
-          ? `transaction_recipient_country_code:(${countries &&
-              countries.join(' ')})`
-          : null,
+
         get(regions, 'length', 0) && rowFormat === 'activity'
           ? `recipient_region_code:(${regions && regions.join(' ')})`
           : null,
@@ -736,6 +737,9 @@ export const withEffects: StoreEffect = store => {
           : null,
         get(humanitarianScope, 'length', 0)
           ? `humanitarian_scope_type:(${humanitarianScope && humanitarianScope.join(' ')})`
+          : null,
+        get(humanitarianScopeVocab, 'length', 0)
+          ? `humanitarian_scope_vocabulary:(${humanitarianScopeVocab && humanitarianScopeVocab.join(' ')})`
           : null,
         get(transactionHumanitarian, 'length', 0)
           ? `transaction_humanitarian:(${transactionHumanitarian &&

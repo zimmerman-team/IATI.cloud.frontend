@@ -10,7 +10,7 @@ type Props = {
 const Base = styled.div`
   position: relative;
   background-image: url(${BackgroundImage}),
-    linear-gradient(to bottom, #5db9cc, #135062);
+    linear-gradient(to bottom, #3e8c9f, #2b5d69 35%, #135062);
   background-repeat: no-repeat;
   background-position: center right;
   padding-bottom: 47px;

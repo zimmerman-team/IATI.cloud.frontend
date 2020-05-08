@@ -20,7 +20,8 @@ import { DocumentLinkCategoryInterface } from 'app/state/interfaces/DocumentLink
 import { IATIVersionInterface } from 'app/state/interfaces/IATIVersionInterface';
 import { LanguageInterface } from 'app/state/interfaces/LanguageInterface';
 import { HumanitarianInterface } from 'app/state/interfaces/HumanitarianInterface';
-import { HumanitarianScopeInterface} from 'app/state/interfaces/HumanitarianScopeInterface';
+import { HumanitarianScopeInterface } from 'app/state/interfaces/HumanitarianScopeInterface';
+import { HumanitarianScopeVocabInterface } from 'app/state/interfaces/HumanitarianScopeVocabInterface';
 import { TransactionHumanitarianInterface } from 'app/state/interfaces/TransactionHumanitarianInterface';
 import { OtherIdentifierTypeInterface } from 'app/state/interfaces/OtherIdentifierTypeInterface';
 import { TransactionProviderOrgScope } from 'app/state/interfaces/TransactionProviderOrgsInterface';
@@ -68,6 +69,7 @@ export interface ApplicationStoreModel {
   transactionTiedStatus: TransactionTiedStatusInterface;
   humanitarian: HumanitarianInterface;
   humanitarianScope: HumanitarianScopeInterface;
+  humanitarianScopeVocab: HumanitarianScopeVocabInterface;
   otherIdentifierType: OtherIdentifierTypeInterface;
   secondaryReporter: SecondaryReporterInterface;
   policyMarker: PolicyMarkerInterface;

@@ -31,6 +31,7 @@ import iatiVersion from 'app/state/interfaces/IATIVersionInterface';
 import language from 'app/state/interfaces/LanguageInterface';
 import humanitarian from 'app/state/interfaces/HumanitarianInterface';
 import humanitarianScope from 'app/state/interfaces/HumanitarianScopeInterface';
+import humanitarianScopeVocab from 'app/state/interfaces/HumanitarianScopeVocabInterface';
 import transactionHumanitarian from 'app/state/interfaces/TransactionHumanitarianInterface';
 import otherIdentifierType from 'app/state/interfaces/OtherIdentifierTypeInterface';
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
@@ -70,6 +71,7 @@ const applicationStore: ApplicationStoreModel = {
   language: language,
   humanitarian: humanitarian,
   humanitarianScope: humanitarianScope,
+  humanitarianScopeVocab: humanitarianScopeVocab,
   transactionHumanitarian: transactionHumanitarian,
   otherIdentifierType: otherIdentifierType,
   policyMarker: policyMarker,
