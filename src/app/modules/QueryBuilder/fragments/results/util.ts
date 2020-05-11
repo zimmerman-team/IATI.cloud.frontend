@@ -1,17 +1,19 @@
-// @ts-nocheck
-import { createWriteStream } from 'app/utils/streamsaver';
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
+import { createWriteStream } from 'streamsaver';
 
 export const downloadFile = (url, fileName) => {
   return fetch(url)
     .then(res => {
       const fileStream = createWriteStream(fileName);
       const writer = fileStream.getWriter();
+      // @ts-ignore
       if (res.body.pipeTo) {
         writer.releaseLock();
         // @ts-ignore
         return res.body.pipeTo(fileStream);
       }
 
+      // @ts-ignore
       const reader = res.body.getReader();
       const pump = () =>
         reader
@@ -23,11 +25,4 @@ export const downloadFile = (url, fileName) => {
       return pump();
     })
     .catch(error => console.error(error));
-};
-
-export const cleanIframes = () => {
-  const iframes = document.querySelectorAll('iframe');
-  for (let i = 1; i < iframes.length; i++) {
-    iframes[i].parentNode.removeChild(iframes[i]);
-  }
 };

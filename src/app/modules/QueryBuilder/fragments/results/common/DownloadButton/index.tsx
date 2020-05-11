@@ -1,16 +1,16 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
+import { BaseButton } from 'app/components/inputs/buttons/BaseButton';
+import Box from '@material-ui/core/Box';
+import { useCopyToClipboard } from 'react-use';
+import { FieldBackdrop } from 'app/components/common/FieldBackdrop';
+import { BaseTextField } from 'app/components/inputs/common/BaseTextField';
 import 'styled-components/macro';
 import { IconButton } from 'app/components/inputs/buttons/IconButton';
 
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import Download from '@material-ui/icons/GetApp';
 import { useToggle } from 'react-use';
-import {
-  downloadFile,
-  cleanIframes,
-} from 'app/modules/QueryBuilder/fragments/results/util';
+import { downloadFile } from 'app/modules/QueryBuilder/fragments/results/util';
 
 type Props = {
   text?: string;
@@ -25,7 +25,7 @@ export const DownloadButton = props => {
   return (
     <div
       onClick={() => {
-        downloadFile(props.queryURL, props.fileName).then(() => cleanIframes());
+        downloadFile(props.queryURL, props.fileName);
         toggle();
       }}
     >
