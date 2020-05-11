@@ -24,7 +24,7 @@ jobs:
           command: |
             echo 'export REACT_APP_DOC_FILENAME="$REACT_APP_POSTMAN_FILENAME_STG"' >> $BASH_ENV
             source $BASH_ENV
-      - run: yarn build
+      - run: CI=false yarn build
       - run: eval ssh-agent -s
       - run: sudo apt install rsync
       - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
@@ -48,7 +48,7 @@ jobs:
           command: |
             echo 'export REACT_APP_DOC_FILENAME="$REACT_APP_POSTMAN_FILENAME_STG"' >> $BASH_ENV
             source $BASH_ENV
-      - run: yarn build
+      - run: CI=false yarn build
       - run: eval ssh-agent -s
       - run: sudo apt install rsync
       - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
@@ -68,7 +68,7 @@ jobs:
           command: |
             echo 'export REACT_APP_DOC_FILENAME="$REACT_APP_POSTMAN_FILENAME_PROD"' >> $BASH_ENV
             source $BASH_ENV
-      - run: yarn build
+      - run: CI=false yarn build
       - run: eval ssh-agent -s
       - run: sudo apt install rsync
       - run: ssh -o StrictHostKeyChecking=no "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" exit
