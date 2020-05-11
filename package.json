@@ -33,6 +33,7 @@
     "react-select-async-paginate": "^0.3.7",
     "react-syntax-highlighter": "^11.0.2",
     "react-use": "^11.3.2",
+    "streamsaver": "^2.0.3",
     "styled-components": "^5.0.1",
     "swr": "^0.1.8",
     "undux": "^5.2.0",

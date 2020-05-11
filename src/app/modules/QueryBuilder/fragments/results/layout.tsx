@@ -9,10 +9,7 @@ import Download from '@material-ui/icons/GetApp';
 import { URLField } from 'app/components/inputs/textdisplay/URLField';
 import { IconButton } from 'app/components/inputs/buttons/IconButton';
 /* config & mock */
-import {
-  downloadFile,
-  cleanIframes,
-} from 'app/modules/QueryBuilder/fragments/results/util';
+import { downloadFile } from 'app/modules/QueryBuilder/fragments/results/util';
 import { fragmentConfig } from 'app/modules/QueryBuilder/fragments/results/model';
 import { useStoreState } from 'app/state/store';
 import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
