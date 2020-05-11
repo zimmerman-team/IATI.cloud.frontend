@@ -113,7 +113,7 @@ workflows:
             - cypress/install
           filters:
             branches:
-              only: feature/
+              only: /feature\/.*/
       - deploy-staging:
           requires:
             - cypress/install
