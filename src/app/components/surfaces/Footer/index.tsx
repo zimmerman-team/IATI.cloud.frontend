@@ -104,7 +104,7 @@ export const Footer = () => {
                     powered by
                   </Typography>
                   <a
-                    href="https://www.zimmermanzimmerman.nl"
+                    href="https://www.zimmerman.team"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -132,7 +132,7 @@ export const Footer = () => {
                 >
                   Code licensed under the{' '}
                   <Link
-                    href="https://github.com/zimmerman-zimmerman/OIPA/blob/master/LICENSE.MD"
+                    href="https://github.com/zimmerman-zimmerman/iati.cloud.frontend/blob/develop/LICENSE.MD"
                     target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >
@@ -144,7 +144,7 @@ export const Footer = () => {
                     target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >
-                    CC BY 3.0
+                    CC BY 4.0
                   </Link>
                   .
                 </Typography>

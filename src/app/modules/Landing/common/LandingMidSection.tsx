@@ -11,7 +11,7 @@ export const LandingMidSection = () => {
             <ArticleCard
               loaded
               title="About Datastore"
-              description="The Datastore uses OIPA, an open-source tool created by Zimmerman & Zimmerman. OIPA extracts and stores raw IATI XML files from the IATI Registry and makes it available as API endpoints to build data driven information solutions."
+              description="The Datastore makes use of iati.cloud, an open-source native IATI data service developed by Zimmerman. IATI.cloud extracts and stores raw IATI XML files from the IATI Registry and makes it available as API endpoints to build data driven information solutions."
               buttonLabel="More"
               path="/about"
               target="_self"
@@ -31,7 +31,7 @@ export const LandingMidSection = () => {
             <ArticleCard
               loaded
               title="API Documentation"
-              description="For guidance on how to form API queries and the available endpoints and filters please see the OIPA’s technical documentation."
+              description="For guidance on how to form API queries and the available API endpoints and filters please see the IATI.cloud technical documentation."
               buttonLabel="More"
               path="/documentation/introduction"
               target="_blank"
