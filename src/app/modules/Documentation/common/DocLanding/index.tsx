@@ -67,6 +67,14 @@ export const DocLanding = () => {
         </Grid>
 
         <Grid item md={12}>
+          <HeaderH6>XLS Export</HeaderH6>
+          <Typography variant="body2">
+            If you require XLS format from the API, simply use the format
+            &format=XLS in your call.
+          </Typography>
+        </Grid>
+
+        <Grid item md={12}>
           <Typography variant="body2">
             Not all the API calls have multi format support.
           </Typography>
