@@ -9,6 +9,6 @@ export const ApiDocSearchInput = styled(InputBase)`
   font-style: normal;
   line-height: 1.5;
   letter-spacing: 0.5px;
-  color: #a1aebd;
+  color: #ffffff;
   flex: 1;
 `;
