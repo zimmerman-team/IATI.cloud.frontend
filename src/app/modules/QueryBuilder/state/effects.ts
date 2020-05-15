@@ -535,9 +535,13 @@ export const withEffects: StoreEffect = store => {
           ? `reporting_org_secondary_reporter:(${secondaryReporter &&
               secondaryReporter.join(' ')})`
           : null,
-        get(countries, 'length', 0)
+        get(countries, 'length', 0) && rowFormat === 'activity'
           ? `recipient_country_code:(${countries && countries.join(' ')})`
           : null,
+        get(countries, 'length', 0) && rowFormat === 'transaction'
+          ? `transaction_recipient_country_code:(${countries && countries.join(' ')})`
+          : null,
+
 
         get(regions, 'length', 0) && rowFormat === 'activity'
           ? `recipient_region_code:(${regions && regions.join(' ')})`
