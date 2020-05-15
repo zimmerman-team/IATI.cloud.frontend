@@ -5,6 +5,7 @@ export type ApiListItemModel = {
   name?: string;
   children?: ReactNode;
   id?: string;
+  path?: any;
 };
 
 export type ApiListModel = {
