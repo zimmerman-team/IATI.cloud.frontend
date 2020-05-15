@@ -14,7 +14,9 @@ import { DocsideBarContainer } from 'app/modules/Documentation/common/DocSideBar
 import { DocsideBarNavList } from 'app/modules/Documentation/common/DocSideBar/common/ui/DocsideBarNavList';
 import { CategoryContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/CategoryContainer';
 import { ItemContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/ItemContainer';
-import { SubItemContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/SubItemContainer';
+import {
+  SubItemContainer,
+} from 'app/modules/Documentation/common/DocSideBar/common/ui/SubItemContainer';
 import { ApiDocSearchBoxContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/ApiDocSearchBoxContainer';
 import { ApiDocSearchInput } from 'app/modules/Documentation/common/DocSideBar/common/ui/ApiDocSearchInput';
 
@@ -25,7 +27,7 @@ export function DocsideBar() {
 
   return (
     <DocsideBarContainer>
-      <Box height="25px" />
+      <Box height="52px" />
       <ApiDocSearchBoxContainer>
         <ApiDocSearchInput
           placeholder="Search"
@@ -34,18 +36,34 @@ export function DocsideBar() {
         />
         <SearchIcon
           css={`
-            color: #a1aebd;
+            color: #A1AEBD;
           `}
         />
       </ApiDocSearchBoxContainer>
-      <Box height="20px" />
-      <div style={{ overflowY: 'auto', height: 'calc(100vh - 280px)' }}>
-        <CustomLink key="Introduction" to="/documentation/introduction">
-          Introduction
-        </CustomLink>
-
-        <Box width="100%" height="20px" />
+      <Box height="62px" />
+      {/* 379px is every pixel above this component*/}
+      <div style={{ overflowY: 'auto', height: 'calc(100vh - 379px)' }}>
         <DocsideBarNavList>
+          <CustomLink key="Introduction" to="/documentation/introduction">
+            Introduction
+          </CustomLink>
+
+          <CustomLink key="Introduction" to="/documentation/introduction">
+            Available endpoints
+          </CustomLink>
+
+          <CustomLink key="Introduction" to="/documentation/introduction">
+            XML export
+          </CustomLink>
+
+          <CustomLink key="Introduction" to="/documentation/introduction">
+            CSV export
+          </CustomLink>
+
+          <CustomLink key="Introduction" to="/documentation/introduction">
+            XLS export
+          </CustomLink>
+
           {/* ------------------------------- */}
           {/* main */}
           {categories &&
@@ -54,6 +72,7 @@ export function DocsideBar() {
                 <CustomLink to={`${item._postman_id}#${item.name}`}>
                   {item.name}
                 </CustomLink>
+                <Box height="42px" width="100%" />
                 {/* ------------------------------- */}
                 {/* sub 1 */}
                 {item.item &&
@@ -61,17 +80,15 @@ export function DocsideBar() {
                     <ItemContainer key={subItem1._postman_id}>
                       {subItem1._postman_isSubFolder ? (
                         <SubLink1
-                          css={`
-                            font-weight: bold;
-                          `}
                           to={`${item._postman_id}#${subItem1.name}`}
-                        >
-                          {subItem1.name}
-                        </SubLink1>
+                          text={subItem1.name}
+                          open
+                        />
                       ) : (
-                        <SubLink1 to={`${item._postman_id}#${subItem1.name}`}>
-                          {subItem1.name}
-                        </SubLink1>
+                        <SubLink1
+                          to={`${item._postman_id}#${subItem1.name}`}
+                          text={subItem1.name}
+                        />
                       )}
 
                       {/* ------------------------------- */}
@@ -81,19 +98,15 @@ export function DocsideBar() {
                           <SubItemContainer key={subItem2._postman_id}>
                             {subItem2._postman_isSubFolder ? (
                               <SubLink2
-                                css={`
-                                  font-weight: bold;
-                                `}
                                 to={`${item._postman_id}#${subItem2.name}`}
-                              >
-                                {subItem2.name}
-                              </SubLink2>
+                                text={subItem2.name}
+                                open
+                              />
                             ) : (
                               <SubLink2
                                 to={`${item._postman_id}#${subItem2.name}`}
-                              >
-                                {subItem2.name}
-                              </SubLink2>
+                                text={subItem2.name}
+                              />
                             )}
                             {/* ------------------------------- */}
                             {/* sub 3 */}
@@ -102,11 +115,13 @@ export function DocsideBar() {
                                 <SubItemContainer key={subItem3._postman_id}>
                                   <SubLink3
                                     to={`${item._postman_id}#${subItem3.name}`}
-                                  >
-                                    {subItem3.name}
-                                  </SubLink3>
+                                    text={subItem3.name}
+                                    requestMethod={subItem3.request.method}
+                                    active
+                                  />
                                 </SubItemContainer>
                               ))}
+                              <Box height={'42px'} width={'1px'}></Box>
                           </SubItemContainer>
                         ))}
                     </ItemContainer>
