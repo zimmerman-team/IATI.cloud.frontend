@@ -22,6 +22,7 @@ import {
   defaultBudgetTableCols,
 } from 'app/modules/QueryBuilder/fragments/results/model';
 import { ROWS } from 'app/state/models/QueryModel';
+import { NoDataCellComponent } from './common/nodatacellcomp';
 
 interface IRow {
   name: string;
@@ -63,15 +64,20 @@ export const DataTable = props => {
 
   return (
     <>
-      {error && 'Error!'}
-      {loading && 'Loading...'}
       <Paper>
         <Grid rows={docsData} columns={cols}>
           <Table
-          // columnExtensions={cols.map(col => ({
-          //   columnName: col.name,
-          //   width: 'auto',
-          // }))}
+            noDataCellComponent={() => (
+              <NoDataCellComponent
+                loading={loading}
+                error={error}
+                noData={docsData.length === 0}
+              />
+            )}
+            // columnExtensions={cols.map(col => ({
+            //   columnName: col.name,
+            //   width: 'auto',
+            // }))}
           />
           <TableHeaderRow />
         </Grid>
