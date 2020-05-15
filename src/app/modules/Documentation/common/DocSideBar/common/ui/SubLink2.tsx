@@ -24,15 +24,14 @@ export const SubLink2 = (props: Props) => {
   return (
     <div css={`display: flex; flex-direction: row`}>
       { props.open ? <FolderOpen css={openStyle}/> : <Folder css={closedStyle}/> }
-      <Link to={props.to}>{props.text}</Link>
+      <Link to={props.to} {...props}>{props.text}</Link>
     </div>
   );
 };
 
 const Link = styled(props => <CustomLink2 {...props} />)`
   font-size: 14px;
-  color: rgb(85, 85, 85);
-  font-weight: ${props => props.open ? "bold" : "normal"}
+  color: ${props => props.open ? "#000000" : "rgba(1, 1, 10, 0.6)" };
 `;
 
 

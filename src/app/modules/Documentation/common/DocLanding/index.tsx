@@ -5,6 +5,7 @@ import { ApiList } from 'app/modules/Documentation/common/DocDetail/common/ApiBa
 import { useStoreState } from 'app/modules/Documentation/state/store';
 import { Root } from 'app/modules/Documentation/state/RootModel';
 import { HeaderH6 } from 'app/modules/Documentation/common/DocLanding/common/ui/HeaderH6';
+import { css } from 'styled-components/macro';
 
 export const DocLanding = () => {
   // @ts-ignore
@@ -13,10 +14,10 @@ export const DocLanding = () => {
 
   return (
     <>
-      <Box width="100%" height="20px" />
+      <Box width="100%" height="54px" />
       <Grid container>
         <Grid item md={12}>
-          <Typography variant="h5">API Documentation</Typography>
+          <Typography variant="h6" css={`&&{line-height: 30px; font-weight: normal;}`}>API Documentation</Typography>
         </Grid>
 
         <Box width="100%" height="30px" />
@@ -32,12 +33,12 @@ export const DocLanding = () => {
         </Grid>
       </Grid>
       {/* ------------------------------------------------------------------ */}
-      <Box width="100%" height="50px" />
+      <Box width="100%" height="74px" />
       {/* -------------------- */}
       {/* available endpoints */}
-      <Grid container spacing={4}>
+      <Grid container>
         <Grid item md={12}>
-          <Typography variant="h6">Available endpoints</Typography>
+          <HeaderH6 css={`&&{margin-bottom: 8px;}`}>Available endpoints</HeaderH6>
         </Grid>
         <Grid item md={12}>
           {collection && (
@@ -49,9 +50,9 @@ export const DocLanding = () => {
       <Box width="100%" height="50px" />
       {/* -------------------- */}
       {/* Exports */}
-      <Grid container spacing={4}>
+      <Grid container spacing={8}>
         <Grid item md={12}>
-          <HeaderH6>XML Export</HeaderH6>
+          <HeaderH6 css={`&&{margin-bottom: 24px;}`}>XML Export</HeaderH6>
           <Typography variant="body2">
             If you require XML format from the API, simply use the format
             &format=xml in your call.
@@ -59,7 +60,7 @@ export const DocLanding = () => {
         </Grid>
 
         <Grid item md={12}>
-          <HeaderH6>CSV Export</HeaderH6>
+          <HeaderH6 css={`&&{margin-bottom: 24px;}`}>CSV Export</HeaderH6>
           <Typography variant="body2">
             If you require CSV format from the API, simply use the format
             &format=CSV in your call.
@@ -67,14 +68,12 @@ export const DocLanding = () => {
         </Grid>
 
         <Grid item md={12}>
-          <HeaderH6>XLS Export</HeaderH6>
+          <HeaderH6 css={`&&{margin-bottom: 24px;}`}>XLS Export</HeaderH6>
           <Typography variant="body2">
             If you require XLS format from the API, simply use the format
             &format=XLS in your call.
           </Typography>
-        </Grid>
-
-        <Grid item md={12}>
+          <Box height="32px" width="100%" />
           <Typography variant="body2">
             Not all the API calls have multi format support.
           </Typography>
