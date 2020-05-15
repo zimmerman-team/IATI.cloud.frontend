@@ -57,7 +57,7 @@ export const ApiCallFragment = data => {
       ref={targetRef}
       style={{ opacity: percent / 100 }}
     >
-      <Box width="100%" height="50px" />
+      <Box width="100%" height="39px" />
       <Grid container spacing={2}>
         <Grid item md={12}>
           {/* call header */}
@@ -79,13 +79,12 @@ export const ApiCallFragment = data => {
             <Grid item md={12}></Grid>
           </>
         )}
-
-        {/* parameter description */}
+        
         {parsed.description && (
           <Grid item md={12}>
-            <Typography variant="body2">
-              {parsed.description && parsed.description}
-            </Typography>
+             {parsed.description && parsed.description.split('\n').map((line) => {
+               return (<Typography variant={"body2"}>{line.replace(/`/g, '')}</Typography>)
+             })}
           </Grid>
         )}
 
@@ -99,7 +98,7 @@ export const ApiCallFragment = data => {
         <Grid item md={12}>
           <ApiItemDivider />
         </Grid>
-        <Box width="100%" height="50px" />
+        <Box width="100%" height="39px" />
       </Grid>
     </Grid>
   );

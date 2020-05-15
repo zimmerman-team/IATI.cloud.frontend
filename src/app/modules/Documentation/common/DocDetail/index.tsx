@@ -39,7 +39,6 @@ export const DocDetail = () => {
           <SubCategoryFragment item={item} key={item._postman_id} />
         ))}
       {/* ---------- */}
-      <Box height="50vh" />
     </React.Fragment>
   );
 };
