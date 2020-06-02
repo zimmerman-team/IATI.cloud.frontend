@@ -1,7 +1,7 @@
 import { baseURL } from 'app/state/api';
 import { action, Action } from 'easy-peasy';
 
-export const ROWS = 5000000;
+export const ROWS = 2500;
 
 export interface QueryModel {
   url: string;
