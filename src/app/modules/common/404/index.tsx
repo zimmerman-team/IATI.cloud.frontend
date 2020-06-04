@@ -1,11 +1,17 @@
 /* base */
 import React from 'react';
-import styled from 'styled-components';
+import 'styled-components/macro';
 
-const ComponentBase = styled.div``;
-
-const NotFoundModule = () => {
-  return <ComponentBase>joe, not found</ComponentBase>;
+export const NotFoundModule = () => {
+  return (
+    <div
+      css={`
+        background-color: yellow;
+        width: 400px;
+        height: 400px;
+      `}
+    >
+      joe, not found
+    </div>
+  );
 };
-
-export default NotFoundModule;
