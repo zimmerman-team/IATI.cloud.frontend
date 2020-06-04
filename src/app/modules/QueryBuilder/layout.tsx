@@ -10,6 +10,7 @@ import { ModuleHeader } from 'app/modules/common/ModuleHeader';
 import { NavigationButton } from 'app/modules/QueryBuilder/common/NavigationButton';
 import { StepNavigatorContainer } from 'app/modules/QueryBuilder/common/StepNavigatorContainer';
 import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
+import { Redirect } from 'react-router-dom';
 
 /* config & mock */
 export type NavButtonModel = {
@@ -51,6 +52,8 @@ export const QueryBuilderLayout = () => {
       />
 
       {/* step navigator */}
+
+      <Redirect to="/querybuilder/core-filters" />
 
       <StepNavigatorContainer>
         <Container maxWidth="lg">
