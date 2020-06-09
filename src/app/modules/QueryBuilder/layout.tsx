@@ -1,15 +1,16 @@
 //cc:query builder module#; query builder main layout
 /* third-party */
-import React from "react";
-import { Box, Grid, useTheme } from "@material-ui/core";
-import Container from "@material-ui/core/Container";
+import React from 'react';
+import { Box, Grid, useTheme } from '@material-ui/core';
+import Container from '@material-ui/core/Container';
 /* fragments */
-import { PageContainer } from "app/modules/common/PageContainer";
-import { QueryBuilderRoutes } from "app/modules/QueryBuilder/routes";
-import { ModuleHeader } from "app/modules/common/ModuleHeader";
-import { NavigationButton } from "app/modules/QueryBuilder/common/NavigationButton";
-import { StepNavigatorContainer } from "app/modules/QueryBuilder/common/StepNavigatorContainer";
-import useMediaQuery from "@material-ui/core/useMediaQuery/useMediaQuery";
+import { PageContainer } from 'app/modules/common/PageContainer';
+import { QueryBuilderRoutes } from 'app/modules/QueryBuilder/routes';
+import { ModuleHeader } from 'app/modules/common/ModuleHeader';
+import { NavigationButton } from 'app/modules/QueryBuilder/common/NavigationButton';
+import { StepNavigatorContainer } from 'app/modules/QueryBuilder/common/StepNavigatorContainer';
+import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
+import { Redirect } from 'react-router-dom';
 
 /* config & mock */
 export type NavButtonModel = {
@@ -57,6 +58,8 @@ export const QueryBuilderLayout = () => {
 
       {/* step navigator */}
 
+      <Redirect to="/querybuilder/core-filters" />
+
       <StepNavigatorContainer>
         <Container maxWidth="lg">
           <Grid container>
@@ -65,7 +68,7 @@ export const QueryBuilderLayout = () => {
             <Grid
               item
               md={12}
-              style={{ position: "relative" }}
+              style={{ position: 'relative' }}
               css={`
                 overflow-x: auto;
               `}
