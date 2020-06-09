@@ -5,7 +5,6 @@ import { Route, Switch } from 'react-router-dom';
 import { PageLoader } from 'app/modules/common/PageLoader';
 import { useStoreActions } from 'app/state/store';
 import { useEffectOnce } from 'react-use';
-import { NotFoundModule } from 'app/modules/common/404';
 import { PageNotFound } from 'app/modules/PageNotFound';
 
 const AboutModule = lazy(() => import('app/modules/About'));
