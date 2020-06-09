@@ -1,11 +1,14 @@
 orbs:
-  cypress: cypress-io/cypress@1.13.0
+  cypress: cypress-io/cypress@1
 version: 2.1
-# todo: move all ip's to env vars
-# todo: make zz orb
-#   - circleci_path
-#   - ssh_target
-#   - ssh_path
+
+# have a look at https://circleci.com/orbs/registry/orb/germade/rsync
+executors:
+  cypress-executor:
+    docker:
+      - image: 'cypress/included:4.6.0'
+    resource_class: large
+
 jobs:
   deploy-test:
     docker:
@@ -90,7 +93,7 @@ workflows:
   build-and-test:
     jobs:
       - cypress/install:
-          executor: cypress/base-12-6-0
+          executor: cypress-executor
           yarn: true
           build: CI=false yarn build
       # - cypress/run:
@@ -132,3 +135,5 @@ workflows:
           filters:
             branches:
               only: master
+
+
