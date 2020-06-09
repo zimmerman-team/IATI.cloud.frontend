@@ -209,7 +209,6 @@ export const AboutLayout = () => {
       <Hidden lgUp>
         <Box height={'300px'} />
       </Hidden>
-
     </PageContainer>
   );
 };

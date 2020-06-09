@@ -19,5 +19,27 @@
     "menubar.selectionForeground": "#2979FF"
   },
   "typescript.tsdk": "node_modules/typescript/lib",
-  "peacock.affectAccentBorders": true
+  "peacock.affectAccentBorders": true,
+  "cSpell.words": [
+    "AGPL",
+    "Appbar",
+    "Datastore",
+    "Datastore’s",
+    "IATI",
+    "IATI’s",
+    "Libreoffice",
+    "Ramdisk",
+    "browserslist",
+    "codecrumbs",
+    "commitlint",
+    "craco",
+    "freetext",
+    "oipa",
+    "organisations",
+    "querybuilder",
+    "s",
+    "standardised",
+    "testid",
+    "typeahead"
+  ]
 }
