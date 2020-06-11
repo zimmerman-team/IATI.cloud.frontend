@@ -7,18 +7,14 @@ import { useStoreState } from 'app/modules/Documentation/state/store';
 import { Root } from 'app/modules/Documentation/state/RootModel';
 import { getResults } from 'app/modules/Documentation/common/DocSideBar/utils';
 import { CustomLink } from 'app/modules/Documentation/common/DocSideBar/common/ui/CustomLink';
-import { SubLink1 } from 'app/modules/Documentation/common/DocSideBar/common/ui/SubLink1';
-import { SubLink2 } from 'app/modules/Documentation/common/DocSideBar/common/ui/SubLink2';
-import { SubLink3 } from 'app/modules/Documentation/common/DocSideBar/common/ui/SubLink3';
 import { DocsideBarContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/DocsideBarContainer';
 import { DocsideBarNavList } from 'app/modules/Documentation/common/DocSideBar/common/ui/DocsideBarNavList';
-import { CategoryContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/CategoryContainer';
-import { ItemContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/ItemContainer';
-import {
-  SubItemContainer,
-} from 'app/modules/Documentation/common/DocSideBar/common/ui/SubItemContainer';
 import { ApiDocSearchBoxContainer } from 'app/modules/Documentation/common/DocSideBar/common/ui/ApiDocSearchBoxContainer';
 import { ApiDocSearchInput } from 'app/modules/Documentation/common/DocSideBar/common/ui/ApiDocSearchInput';
+import { TreeItem, TreeView } from '@material-ui/lab';
+import { Folder, FolderOpen } from '@material-ui/icons';
+
+import { TreeItemLink } from './common/TreeItem';
 
 export function DocsideBar() {
   const data: Root = useStoreState(state => state.data && state.data);
@@ -64,70 +60,26 @@ export function DocsideBar() {
             XLS export
           </CustomLink>
 
-          {/* ------------------------------- */}
-          {/* main */}
-          {categories &&
-            getResults(categories.item, searchVal).map(item => (
-              <CategoryContainer key={item._postman_id}>
-                <CustomLink to={`${item._postman_id}#${item.name}`}>
-                  {item.name}
-                </CustomLink>
-                <Box height="42px" width="100%" />
-                {/* ------------------------------- */}
-                {/* sub 1 */}
-                {item.item &&
-                  item.item.map(subItem1 => (
-                    <ItemContainer key={subItem1._postman_id}>
-                      {subItem1._postman_isSubFolder ? (
-                        <SubLink1
-                          to={`${item._postman_id}#${subItem1.name}`}
-                          text={subItem1.name}
-                          open
-                        />
-                      ) : (
-                        <SubLink1
-                          to={`${item._postman_id}#${subItem1.name}`}
-                          text={subItem1.name}
-                        />
-                      )}
-
-                      {/* ------------------------------- */}
-                      {/* sub 2 */}
-                      {subItem1.item &&
-                        subItem1.item.map(subItem2 => (
-                          <SubItemContainer key={subItem2._postman_id}>
-                            {subItem2._postman_isSubFolder ? (
-                              <SubLink2
-                                to={`${item._postman_id}#${subItem2.name}`}
-                                text={subItem2.name}
-                                open
-                              />
-                            ) : (
-                              <SubLink2
-                                to={`${item._postman_id}#${subItem2.name}`}
-                                text={subItem2.name}
-                              />
-                            )}
-                            {/* ------------------------------- */}
-                            {/* sub 3 */}
-                            {subItem2.item &&
-                              subItem2.item.map(subItem3 => (
-                                <SubItemContainer key={subItem3._postman_id}>
-                                  <SubLink3
-                                    to={`${item._postman_id}#${subItem3.name}`}
-                                    text={subItem3.name}
-                                    requestMethod={subItem3.request.method}
-                                    active
-                                  />
-                                </SubItemContainer>
-                              ))}
-                              <Box height={'42px'} width={'1px'}></Box>
-                          </SubItemContainer>
-                        ))}
-                    </ItemContainer>
+          <TreeView
+            defaultCollapseIcon={<FolderOpen />}
+            defaultExpandIcon={<Folder />}
+          >
+            {categories && getResults(categories.item, searchVal).map(item => (
+                <TreeItemLink id={item.name} label={item.name} isSubFolder={item.item && true} postmanId={item._postman_id} requestMethod={!item.item && item.request.method}>
+                  {item.item && item.item.map(subItem1 => (
+                    <TreeItemLink id={subItem1.name} label={subItem1.name} isSubFolder={subItem1.item && true} postmanId={item._postman_id} requestMethod={!subItem1.item && subItem1.request.method}>
+                      {subItem1.item && subItem1.item.map(subItem2 => (
+                        <TreeItemLink id={subItem2._postman_id} label={subItem2.name} isSubFolder={subItem2.item && true} postmanId={item._postman_id} requestMethod={!subItem2.item && subItem2.request.method}>
+                          {subItem2.item && subItem2.item.map(subItem3 => (
+                            <TreeItemLink id={subItem3._postman_id} label={subItem3.name} isSubFolder={subItem3.item && true} postmanId={item._postman_id} requestMethod={!subItem3.item && subItem3.request.method}/>
+                          ))}
+                        </TreeItemLink>
+                      ))}
+                    </TreeItemLink>
                   ))}
-              </CategoryContainer>
-            ))}
+                </TreeItemLink>
+              ))}
+          </TreeView>
         </DocsideBarNavList>
       </div>
     </DocsideBarContainer>
