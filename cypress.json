@@ -1,6 +1,6 @@
 {
-  "projectId": "gxcw1z",
-  "baseUrl": "http://localhost:3000",
+  "projectId": "joyvah",
+  "baseUrl": "http://localhost:5000",
   "chromeWebSecurity": false,
   "pageLoadTimeout": 10000
 }

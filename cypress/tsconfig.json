@@ -15,9 +15,10 @@
     "importHelpers": true,
     "target": "es2015",
     "types": [
-      "cypress-commands",
+      // "cypress-commands",
       "cypress",
       "@types/testing-library__cypress",
+
       "cypress-plugin-snapshots"
     ],
     "typeRoots": ["node_modules/@types"],

@@ -1,5 +1,4 @@
 import React from "react";
-import { Box } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
@@ -30,15 +29,15 @@ export const NavigationButton = (props: NavButtonModel) => {
                  background-color:#145062;
                  color:white;
           } 
-  }
+        }
 
-TabNine::configCouldn't start web browser at http://127.0.0.1:5555/swlmgttkulurpuyjewnr. See https://tabnine.com/faq#browser_failed
-&:hover{
-  .pingpong{
-                 background-color:#145062;
-                 color:white;
-          } 
-}
+
+    &:hover{
+      .pingpong{
+                    background-color:#145062;
+                    color:white;
+              } 
+    }
         
       `}
     >

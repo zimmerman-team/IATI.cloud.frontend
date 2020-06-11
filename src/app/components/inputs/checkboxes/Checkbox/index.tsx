@@ -1,12 +1,13 @@
+// @ts-nocheck
 /* external */
-import React, { ChangeEvent } from 'react';
-import styled from 'styled-components';
-import BaseCheckbox from '@material-ui/core/Checkbox';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import React, { ChangeEvent } from "react";
+import styled from "styled-components";
+import BaseCheckbox from "@material-ui/core/Checkbox";
+import SvgIcon from "@material-ui/core/SvgIcon";
 
 /* project */
-import IconCheckboxUnchecked from 'app/assets/icons/IconCheckboxUnchecked';
-import theme from 'app/theme';
+import IconCheckboxUnchecked from "app/assets/icons/IconCheckboxUnchecked";
+import theme from "app/theme";
 
 type Props = {
   size?: string;
@@ -22,6 +23,7 @@ type Props = {
 
 const Unnchecked = (
   <SvgIcon>
+    {/* todo: greyBase doesn't seem to exist */}
     <IconCheckboxUnchecked color={theme.palette.grey.greyBase} />
   </SvgIcon>
 );
@@ -38,7 +40,7 @@ const BaseComponent = styled(props => (
   />
 ))`
   && {
-    & [class*='MuiSvgIcon-root'] {
+    & [class*="MuiSvgIcon-root"] {
       display: flex;
       justify-content: center;
       align-items: center;

@@ -15,7 +15,12 @@
     "noEmit": true,
     "jsx": "react",
     "baseUrl": "src",
-    "typeRoots": ["./typings", "node_modules/@types"]
+    "typeRoots": [
+      "./typings",
+      "node_modules/@types",
+      "@types/testing-library__cypress",
+      "cypress"
+    ]
   },
   "include": ["src"],
   "exclude": [
