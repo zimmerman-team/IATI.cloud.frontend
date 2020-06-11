@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import { PageLoader } from 'app/modules/common/PageLoader';
 import { useStoreActions } from 'app/state/store';
 import { useEffectOnce } from 'react-use';
+import { PageNotFound } from 'app/modules/PageNotFound';
 
 const AboutModule = lazy(() => import('app/modules/About'));
 const LandingModule = lazy(() => import('app/modules/Landing'));
@@ -22,7 +23,9 @@ export function MainRoutes() {
     fetchSectorCategories = useStoreActions(
       actions => actions.sectorCategories.fetch
     ),
-    fetchSectorVocabularies = useStoreActions(actions => actions.sectorVocabularies.fetch),
+    fetchSectorVocabularies = useStoreActions(
+      actions => actions.sectorVocabularies.fetch
+    ),
     fetchRegions = useStoreActions(actions => actions.regions.fetch),
     fetchSectors = useStoreActions(actions => actions.sectors.fetch),
     fetchCountries = useStoreActions(actions => actions.countries.fetch),
@@ -78,6 +81,9 @@ export function MainRoutes() {
         </Route>
         <Route exact path="/about">
           <AboutModule />
+        </Route>
+        <Route path="*">
+          <PageNotFound />
         </Route>
       </Switch>
     </Suspense>
