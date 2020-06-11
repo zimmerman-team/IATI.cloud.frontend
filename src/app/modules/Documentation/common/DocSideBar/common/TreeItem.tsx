@@ -7,14 +7,11 @@ import styled from 'styled-components';
 import { SubLink3 } from './ui/SubLink3';
 
 type Props = {
-  id: string
-  postmanId: string,
-  label: string,
-  isSubFolder: boolean,
-  requestMethod: string;
+  item: any;
+  postmanId: string;
 };
 
-const To = styled(props => (<HashLink {...props} />))`
+const Link = styled(props => (<HashLink {...props} />))`
   && {
       text-decoration: none;
       color: rgba(1,1,10,0.6);
@@ -36,8 +33,21 @@ const Item = styled(props => (<TreeItem {...props} />))`
     [class*='MuiTreeItem-content']{
       margin-bottom: 42px;
     }
+    [class*='MuiTreeItem-root']{
+      margin-bottom: 42px;
+    }
     [class*='MuiCollapse-wrapperInner']{
       margin-bottom: 42px;
+    }
+    [class*='MuiSvgIcon-root']{
+      fill: rgba(1, 1, 10, 0.6);
+    }
+    [class*='MuiTreeItem-label']:hover{
+      color: #25a898;
+      background-color: #f0f3f7 !important;
+    }
+    [class*='MuiTreeItem-label']{
+      background-color: unset !important;
     }
   }
 `;
@@ -45,14 +55,13 @@ const Item = styled(props => (<TreeItem {...props} />))`
 export function TreeItemLink(props: Props) {
   return (
     <>
-      {props.isSubFolder ?
-        <To to={`/documentation/${props.postmanId}#${props.label}`}>
-          <Item nodeId={props.id} label={props.label}>
+      {props.item.item ?
+          <Item nodeId={props.item.name} label={props.item.name}>
+            <Link to={`${props.postmanId}#${props.item.name}`}/>
             {props.children}
           </Item>
-        </To>
         :
-        <SubLink3 requestMethod={props.requestMethod} text={props.label} to={`/documentation/${props.postmanId}#${props.label}`}/>
+        <SubLink3 requestMethod={props.item.request.method} text={props.item.name} to={`${props.postmanId}#${props.item.name}`}/>
       }
     </>
   );
