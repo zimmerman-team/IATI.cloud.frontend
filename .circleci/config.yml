@@ -145,19 +145,15 @@ workflows:
       - cypress/run:
           name: "run e2e tests"
           executor: cypress-executor
-
-#          command: npx cypress run
-#          start: yarn start
 #          wait-on: "http://localhost:3000"
-          wait-on: "http://localhost:3000"
           yarn: true
-          start: yarn start:ci
+#          start: yarn start:ci
           browser: chrome
           requires:
             - deploy
           record: true
           parallel: true
-          parallelism: 6
+          parallelism: 5
           group: "all tests"
 
 
