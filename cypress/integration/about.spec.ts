@@ -27,6 +27,7 @@ const aboutParagraphs = [
 
 describe("About", function () {
   it("should load the page", function () {
+    cy.viewport(1440, 821);
     cy.visit("/about");
   });
 

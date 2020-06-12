@@ -145,10 +145,13 @@ workflows:
       - cypress/run:
           name: "run e2e tests"
           executor: cypress-executor
-          yarn: true
+
 #          command: npx cypress run
 #          start: yarn start
 #          wait-on: "http://localhost:3000"
+          wait-on: "http://localhost:3000"
+          yarn: true
+          start: yarn start:ci
           browser: chrome
           requires:
             - deploy
