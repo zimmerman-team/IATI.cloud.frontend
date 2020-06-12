@@ -1,6 +1,6 @@
-// const reactHotReloadPlugin = require("craco-plugin-react-hot-reload");
+const reactHotReloadPlugin = require("craco-plugin-react-hot-reload");
 const BabelRcPlugin = require("@jackwilsdon/craco-use-babelrc");
-// const { WebpackPluginRamdisk } = require("webpack-plugin-ramdisk");
+const { WebpackPluginRamdisk } = require("webpack-plugin-ramdisk");
 
 const { ESLINT_MODES } = require("@craco/craco");
 
@@ -12,7 +12,7 @@ module.exports = {
 
   webpack: {
     alias: {
-      // "react-dom": "@hot-loader/react-dom",
+      "react-dom": "@hot-loader/react-dom",
     },
     plugins: [
       // new StyleLintPlugin({
@@ -20,13 +20,13 @@ module.exports = {
       //   context: path.resolve(__dirname, 'src'),
       //   files: ['**/*.tsx', '**/*.ts'],
       // }),
-      // new WebpackPluginRamdisk()
+      new WebpackPluginRamdisk(),
     ],
   },
 
   plugins: [
     {
-      // plugin: reactHotReloadPlugin,
+      plugin: reactHotReloadPlugin,
       plugin: BabelRcPlugin,
     },
   ],

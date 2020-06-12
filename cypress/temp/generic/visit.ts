@@ -1,6 +1,7 @@
+// @ts-nocheck
 export class Generic {
   static visit() {
-    cy.visit('/', { timeout: 2000 });
+    cy.visit("/", { timeout: 2000 });
     // cy.get('.header-login-button' ).click();
     // cy.getDataCy( 'login-email-input' ).type( user );
     // cy.getDataCy( 'login-pass-input' ).type( pass );

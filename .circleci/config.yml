@@ -6,7 +6,7 @@ version: 2.1
 executors:
   cypress-executor:
     docker:
-      - image: 'cypress/included:4.6.0'
+      - image: "cypress/included:4.6.0"
     resource_class: large
 
 jobs:
@@ -111,6 +111,19 @@ workflows:
       # post-steps:
       # - store_test_results:
       # path: cypress/results
+      - cypress/run:
+          executor: cypress-executor
+          yarn: true
+          # command: npx happo-cypress -- npx cypress run
+          start: yarn start
+          wait-on: "http://localhost:3000"
+          browser: chrome
+          requires:
+            - cypress/install
+          record: true
+          parallel: true
+          parallelism: 6
+          group: "all tests"
       - deploy-test:
           requires:
             - cypress/install
@@ -135,5 +148,3 @@ workflows:
           filters:
             branches:
               only: master
-
-

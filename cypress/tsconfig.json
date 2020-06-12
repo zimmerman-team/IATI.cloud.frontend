@@ -33,5 +33,6 @@
     "support/*.ts",
     "../node_modules/cypress",
     "integration/common/*.ts"
-  ]
+  ],
+  "exclude": ["videos", "temp", "screenshots", "fixtures"]
 }

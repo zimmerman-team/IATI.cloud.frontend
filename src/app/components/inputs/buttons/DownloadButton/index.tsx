@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import Button from '@material-ui/core/Button';
-import styled from 'styled-components';
-import { css } from 'styled-components/macro';
+import React, { ReactNode } from "react";
+import Button from "@material-ui/core/Button";
+import styled from "styled-components";
+import { css } from "styled-components/macro";
 
 type Props = {
   size?: string;
@@ -15,10 +15,6 @@ type Props = {
   target?: string;
 };
 
-/*type BaseProps = {
-  children?: ReactNode;
-};*/
-
 export const RegularStyle = css`
   background-color: #155366;
 `;
@@ -29,25 +25,25 @@ export const InProgressStyle = css`
 
 const BaseStyle = css``;
 
-const ZimmerButton = styled(props => (
+const ZimmerButton = styled((props) => (
   <Button {...props}>{props.children}</Button>
 ))`
   && {
     justify-content: space-between;
     box-shadow: initial !important;
     width: 100%;
-    height: ${props => {
+    height: ${(props) => {
       switch (props.size) {
-        case 'small':
-          return '30px';
-        case 'large':
-          return '56px';
+        case "small":
+          return "30px";
+        case "large":
+          return "56px";
         default:
-          return '48px';
+          return "48px";
       }
     }};
 
-    & [class*='MuiButton-label'] {
+    & [class*="MuiButton-label"] {
       font-size: 14px;
       text-transform: capitalize;
     }

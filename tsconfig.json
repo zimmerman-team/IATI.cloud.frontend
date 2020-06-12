@@ -18,8 +18,8 @@
     "typeRoots": [
       "./typings",
       "node_modules/@types",
-      "@types/testing-library__cypress",
-      "cypress"
+      "@types/testing-library__cypress"
+      // "cypress"
     ]
   },
   "include": ["src"],
