@@ -119,9 +119,9 @@ export const QueryBuilderLayout = () => {
                         }
                       }
                     `}
+                    key={item.label}
                   >
                     <NavigationButton
-                      key={item.label}
                       path={item.path}
                       label={item.label}
                       index={item.index}
