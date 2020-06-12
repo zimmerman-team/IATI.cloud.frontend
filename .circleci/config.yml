@@ -133,26 +133,12 @@ workflows:
                   source $BASH_ENV
           yarn: true
           build: yarn build
-#          build: CI=false yarn build
-      # - cypress/run:
-      # executor: cypress/browsers-chrome76
-      # browser: chrome
-      # requires:
-      # - cypress/install
-      # start: yarn start
-      # wait-on: 'http://localhost:3000'
-      # yarn: true
-      # record: false
-      # parallel: true
-      # parallelism: 4
-      # group: '4 machines'
-      # post-steps:
-      # - store_test_results:
-      # path: cypress/results
+
       - cypress/run:
+          name: "test local"
           executor: cypress-executor
           yarn: true
-          # command: npx happo-cypress -- npx cypress run
+          command: npx cypress run
           start: yarn start
           wait-on: "http://localhost:3000"
           browser: chrome
@@ -165,6 +151,20 @@ workflows:
       - deploy:
           requires:
             - cypress/run
+#      - cypress/run:
+#          name: "test deployed"
+#          executor: cypress-executor
+#          yarn: true
+#          # command: npx happo-cypress -- npx cypress run
+##          start: yarn start
+##          wait-on: "http://localhost:3000"
+#          browser: chrome
+#          requires:
+#            - deploy
+#          record: true
+#          parallel: true
+#          parallelism: 6
+#          group: "all tests"
 #            -
 #      - deploy-test:
 #          requires:
