@@ -140,7 +140,7 @@ workflows:
 
       - deploy:
           requires:
-            - cypress/install
+            - checkout
 
       - cypress/run:
           name: "run e2e tests"
