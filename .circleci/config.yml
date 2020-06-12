@@ -19,7 +19,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: eval ssh-agent -s
-      - run: ssh -o StrictHostKeyChecking=no zz@206.189.241.202 exit
+      - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
       - run:
           name: Transfer build to digital ocean instance
           command: |
@@ -118,6 +118,7 @@ workflows:
   build-and-test:
     jobs:
       - cypress/install:
+          name: "checkout"
           executor: cypress-executor
           pre-steps:
             - run:
@@ -125,10 +126,13 @@ workflows:
                 command: |
                   if [ "${CIRCLE_BRANCH}" == "master" ]; then
                     echo 'export REACT_APP_DOC_FILENAME="$REACT_APP_POSTMAN_FILENAME_PROD"' >> $BASH_ENV
+                    echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
                   elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
                     echo 'export REACT_APP_DOC_FILENAME="$REACT_APP_POSTMAN_FILENAME_STG"' >> $BASH_ENV
+                    echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
                   else
                     echo 'export REACT_APP_DOC_FILENAME="$REACT_APP_POSTMAN_FILENAME_STG"' >> $BASH_ENV
+                    echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
                   fi
                   source $BASH_ENV
           yarn: true
@@ -139,11 +143,11 @@ workflows:
             - cypress/install
 
       - cypress/run:
-          name: "test local"
+          name: "run e2e tests"
           executor: cypress-executor
           yarn: true
 #          command: npx cypress run
-          start: yarn start
+#          start: yarn start
 #          wait-on: "http://localhost:3000"
           browser: chrome
           requires:
