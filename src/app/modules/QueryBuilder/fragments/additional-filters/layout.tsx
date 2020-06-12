@@ -14,6 +14,7 @@ import { ModuleStore } from "app/modules/QueryBuilder/state/store";
 
 import { QbStepNavigatorButton } from "app/modules/QueryBuilder/common/QbStepNavigatorButton";
 import { QbStepNavigator } from "app/modules/QueryBuilder/common/QbStepNavigator";
+import { FormResetButton } from "app/modules/QueryBuilder/common/FormResetButton";
 
 export const FilterFragment = () => {
   const store = ModuleStore.useStore();
@@ -94,10 +95,21 @@ export const FilterFragment = () => {
           path="/querybuilder/core-filters"
         />
 
-        <QbStepNavigatorButton
-          label="Next"
-          path="/querybuilder/output-format"
-        />
+        <Grid
+          item
+          container
+          sm={12}
+          md={12}
+          css={`
+            justify-content: flex-end;
+          `}
+        >
+          <FormResetButton />
+          <QbStepNavigatorButton
+            label="Next"
+            path="/querybuilder/output-format"
+          />
+        </Grid>
       </QbStepNavigator>
     </Grid>
   );

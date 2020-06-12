@@ -18,6 +18,8 @@ import { QbStepNavigator } from "app/modules/QueryBuilder/common/QbStepNavigator
 import { QbStepNavigatorButton } from "app/modules/QueryBuilder/common/QbStepNavigatorButton";
 import IconTextInput from "app/components/inputs/textinputs/IconTextInputFIeld";
 
+import { FormResetButton } from "app/modules/QueryBuilder/common/FormResetButton";
+
 export const CoreFiltersFragment = () => {
   const store = ModuleStore.useStore();
 
@@ -216,10 +218,21 @@ export const CoreFiltersFragment = () => {
       </Grid>
 
       <QbStepNavigator>
-        <QbStepNavigatorButton
-          label="Next"
-          path="/querybuilder/additional-filters"
-        />
+        <Grid
+          item
+          container
+          sm={12}
+          md={12}
+          css={`
+            justify-content: flex-end;
+          `}
+        >
+          <FormResetButton />
+          <QbStepNavigatorButton
+            label="Next"
+            path="/querybuilder/additional-filters"
+          />
+        </Grid>
       </QbStepNavigator>
     </Grid>
   );
