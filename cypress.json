@@ -1,6 +1,6 @@
 {
   "projectId": "joyvah",
-  "baseUrl": "http://localhost:3000",
+  "baseUrl": "https://store.staging.iati.cloud/",
   "chromeWebSecurity": false,
   "pageLoadTimeout": 10000
 }

@@ -134,38 +134,26 @@ workflows:
           yarn: true
           build: yarn build
 
+      - deploy:
+          requires:
+            - cypress/install
+
       - cypress/run:
           name: "test local"
           executor: cypress-executor
           yarn: true
-          command: npx cypress run
+#          command: npx cypress run
           start: yarn start
-          wait-on: "http://localhost:3000"
+#          wait-on: "http://localhost:3000"
           browser: chrome
           requires:
-            - cypress/install
+            - deploy
           record: true
           parallel: true
           parallelism: 6
           group: "all tests"
-      - deploy:
-          requires:
-            - cypress/run
-#      - cypress/run:
-#          name: "test deployed"
-#          executor: cypress-executor
-#          yarn: true
-#          # command: npx happo-cypress -- npx cypress run
-##          start: yarn start
-##          wait-on: "http://localhost:3000"
-#          browser: chrome
-#          requires:
-#            - deploy
-#          record: true
-#          parallel: true
-#          parallelism: 6
-#          group: "all tests"
-#            -
+
+
 #      - deploy-test:
 #          requires:
 #            - cypress/install
