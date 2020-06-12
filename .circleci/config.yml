@@ -25,8 +25,9 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_1":/home/oipa/oipa-query-builder
+              ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
               rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
-
+              ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" "/home/oipa/ci_update_front.sh;"
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
               ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
@@ -34,77 +35,6 @@ jobs:
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
               ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
             fi
-
-  deploy-test:
-    docker:
-      - image: circleci/node:12.14.1-stretch-browsers
-    working_directory: ~/project
-    steps:
-      - attach_workspace:
-          at: ~/
-      - add_ssh_keys:
-          name: Add SSH KEY
-          fingerprints:
-            - "21:ee:e6:3e:a8:11:53:67:a1:b2:fa:b3:ce:0a:21:11"
-      - run: yarn install
-#      - run:
-#          name: Load environment variables
-#          command: |
-#            echo 'export REACT_APP_DOC_FILENAME="$REACT_APP_POSTMAN_FILENAME_STG"' >> $BASH_ENV
-#            source $BASH_ENV
-#      - run: CI=false yarn build
-      - run: eval ssh-agent -s
-      - run: sudo apt install rsync
-      - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
-      - run: rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
-      - run: ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
-
-  deploy-staging:
-    docker:
-      - image: circleci/node:12.14.1-stretch-browsers
-    working_directory: ~/project
-    steps:
-      - attach_workspace:
-          at: ~/
-      - add_ssh_keys:
-          name: Add SSH KEY
-          fingerprints:
-            - "21:ee:e6:3e:a8:11:53:67:a1:b2:fa:b3:ce:0a:21:11"
-#      - run: yarn install
-#      - run:
-#          name: Load environment variables
-#          command: |
-#            echo 'export REACT_APP_DOC_FILENAME="$REACT_APP_POSTMAN_FILENAME_STG"' >> $BASH_ENV
-#            source $BASH_ENV
-#      - run: CI=false yarn build
-      - run: eval ssh-agent -s
-#      - run: sudo apt install rsync
-      - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
-      - run: rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
-      - run: ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
-
-  deploy-production:
-    docker:
-      - image: circleci/node:12.14.1-stretch-browsers
-    working_directory: ~/project
-    steps:
-      - attach_workspace:
-          at: ~/
-#      - run: yarn install
-#      - run:
-#          name: Load environment variables
-#          command: |
-#            echo 'export REACT_APP_DOC_FILENAME="$REACT_APP_POSTMAN_FILENAME_PROD"' >> $BASH_ENV
-#            source $BASH_ENV
-#      - run: CI=false yarn build
-      - run: eval ssh-agent -s
-#      - run: sudo apt install rsync
-      - run: ssh -o StrictHostKeyChecking=no "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" exit
-      - run: rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_1":/home/oipa/oipa-query-builder
-      - run: ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
-      - run: ssh -o StrictHostKeyChecking=no "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" exit
-      - run: rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
-      - run: ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" "/home/oipa/ci_update_front.sh;"
 
   release:
     docker:
@@ -157,27 +87,9 @@ workflows:
           group: "all tests"
 
 
-#      - deploy-test:
-#          requires:
-#            - cypress/install
-#          filters:
-#            branches:
-#              only: /feature\/.*/
-#      - deploy-staging:
-#          requires:
-#            - cypress/install
-#          filters:
-#            branches:
-#              only: develop
-#      - deploy-production:
-#          requires:
-#            - cypress/install
-#          filters:
-#            branches:
-#              only: master
-#      - release:
-#          requires:
-#            - cypress/install
-#          filters:
-#            branches:
-#              only: master
+      - release:
+          requires:
+            - deploy
+          filters:
+            branches:
+              only: master
