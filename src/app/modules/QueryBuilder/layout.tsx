@@ -12,7 +12,6 @@ import { StepNavigatorContainer } from "app/modules/QueryBuilder/common/StepNavi
 import useMediaQuery from "@material-ui/core/useMediaQuery/useMediaQuery";
 import { Redirect } from "react-router-dom";
 import "styled-components/macro";
-import { ResetDialog } from "app/modules/QueryBuilder/common/ResetDialog";
 
 /* config & mock */
 export type NavButtonModel = {
@@ -51,21 +50,6 @@ export const QueryBuilderLayout = () => {
 
   return (
     <PageContainer>
-      {/* <div
-        css={`
-          z-index: 100;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        `}
-      >
-        <ResetDialog />
-      </div> */}
       {/* module header */}
       <ModuleHeader
         title="Query Builder"
