@@ -45,7 +45,7 @@ export const CoreFiltersFragment = () => {
   );
 
   const setTextSearchValue = e => {
-    store.set('textSearch')(e);
+    store.set('textSearch')(encodeURIComponent(e));
   };
 
   return (
