@@ -63,6 +63,7 @@
     "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@craco/craco": "^5.6.4",
     "@cypress/webpack-preprocessor": "^5.4.1",
@@ -85,7 +86,6 @@
     "babel-plugin-macros": "^2.8.0",
     "babel-plugin-styled-components": "^1.10.7",
     "codecrumbs": "^1.7.3",
-    "cypress": "^4.8.0",
     "cypress-autorecord": "^1.1.0",
     "cypress-commands": "^1.1.0",
     "cypress-plugin-snapshots": "^1.4.3",
@@ -94,7 +94,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "husky": "^4.2.3",
+    "husky": "^4.2.5",
     "paths.macro": "^2.0.2",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
