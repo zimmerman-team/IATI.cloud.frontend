@@ -50,8 +50,8 @@ export const Container = (props: ChippieProps) => {
       />
       <BaseHelperText
         helperText="See "
-        linkText="OIPA documentation"
-        url="https://www.zimmermanzimmerman.nl"
+        linkText="IATI.cloud documentation"
+        url="https://www.zimmerman.team"
         helperTextAfter=" for full list of possible elements"
       />
     </React.Fragment>
