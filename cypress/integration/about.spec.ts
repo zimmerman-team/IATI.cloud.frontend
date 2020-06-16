@@ -1,12 +1,13 @@
+// @ts-nocheck
 /// <reference types="cypress" />
 
 const aboutHeadersText = [
-  'About the new Datastore',
-  'What data can be accessed?',
-  'What can I do with the IATI Datastore?',
-  'Using the Datastore API',
-  'Using the Query Builder',
-  'In what formats can I output IATI data?',
+  "About the new Datastore",
+  "What data can be accessed?",
+  "What can I do with the IATI Datastore?",
+  "Using the Datastore API",
+  "Using the Query Builder",
+  "In what formats can I output IATI data?",
 ];
 
 const aboutParagraphs = [
@@ -22,22 +23,26 @@ const aboutParagraphs = [
   "CSV - The Datastore will convert the published XML data into CSV format. Only a subset of published data is present. This format can be used to analyse information using spreadsheet software such as Microsoft Excel or Libreoffice Calc.",
   "You can select the rows in a CSV file to represent individual activities, budgets or transactions depending on the output format you select. Each of these may be expanded by sector or country so that percentage splits can be analysed. Less technically adept users can use the Datastore CSV Query Builder tool to access data in this format.",
   "JSON - The Datastore will convert the published XML to JSON format. All the original published information is present in this alternative format. The same metadata that is given in the XML output is available in the JSON output.",
-]
+];
 
-describe('About', function() {
-  it('should load the page', function() {
-    cy.visit('/about');
+describe("About", function () {
+  it("should load the page", function () {
+    cy.viewport(1440, 821);
+    cy.visit("/about");
   });
 
-  it('should show the correct text', function() {
-    aboutHeadersText.map(text => cy.queryAllByText(text).should('exist'));
+  it("should show the correct text", function () {
+    aboutHeadersText.map((text) => cy.findAllByText(text).should("exist"));
     for (let index = 0; index < aboutParagraphs.length; index++) {
-      cy.get(`[data-testid="p${index}"]`).should('contain.text', aboutParagraphs[index])
+      cy.get(`[data-testid="p${index}"]`).should(
+        "contain.text",
+        aboutParagraphs[index]
+      );
     }
   });
 
-  it('should show footer and navigation', function() {
-    cy.findByTestId('AppBar').should('exist');
-    cy.findByTestId('Footer').should('exist');
+  it("should show footer and navigation", function () {
+    cy.findByTestId("AppBar").should("exist");
+    cy.findByTestId("Footer").should("exist");
   });
 });
