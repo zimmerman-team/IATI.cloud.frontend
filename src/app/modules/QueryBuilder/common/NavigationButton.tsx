@@ -13,8 +13,6 @@ export const NavigationButton = (props: NavButtonModel) => {
   return (
     <NavLink
       to={props.path}
-      // activeStyle={{ borderBottom: "4px solid #03dbe4" }}
-
       id="navlink"
       css={`
           display: flex;
@@ -23,7 +21,7 @@ export const NavigationButton = (props: NavButtonModel) => {
           height: 32px;
           padding-right: 20px;
           padding-left: 20px;
-          /* width: ${md ? "135px" : "235px"}; */          
+          // width: ${md ? "135px" : "235px"};
 
           &.active {
             .pingpong{
@@ -32,7 +30,6 @@ export const NavigationButton = (props: NavButtonModel) => {
           } 
   }
 
-TabNine::configCouldn't start web browser at http://127.0.0.1:5555/swlmgttkulurpuyjewnr. See https://tabnine.com/faq#browser_failed
 &:hover{
   .pingpong{
                  background-color:#145062;
