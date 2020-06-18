@@ -13,7 +13,7 @@ IATI is a global aid transparency standard and it makes information about aid sp
 
 ## About the project
 * Website:         <a href="https://www.iati.cloud" target="_blank">www.iati.cloud</a>
-* Authors:          <a href="https://www.zimmermanzimmerman.nl/" target="_blank">Zimmerman & Zimmerman</a>
+* Authors:          <a href="https://www.zimmerman.team/" target="_blank">Zimmerman</a>
 * License:          AGPLv3 (see included <a href="https://github.com/zimmerman-zimmerman/query-builder-iati.cloud/blob/develop/LICENSE.MD" target="_blank">LICENSE</a> file for full license)
 * Github Repo:      <a href="https://github.com/zimmerman-zimmerman/query-builder-iati.cloud/" target="_blank">github.com/zimmerman-zimmerman/query-builder-iati.cloud</a>
 * Bug Tracker:      <a href="https://github.com/zimmerman-zimmerman/query-builder-iati.cloud/issues" target="_blank">github.com/zimmerman-zimmerman/query-builder-iati.cloud/issues</a>

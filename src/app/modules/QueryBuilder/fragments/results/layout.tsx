@@ -23,6 +23,7 @@ import { QbStepNavigator } from "app/modules/QueryBuilder/common/QbStepNavigator
 import { DataTable } from "app/components/datadisplay/DataTable";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 import { DownloadButton } from "./common/DownloadButton";
+import { FormResetButton } from "app/modules/QueryBuilder/common/FormResetButton";
 
 const filename = () => new Date().toISOString().slice(0, 19);
 export const DownloadFragment = () => {
@@ -101,7 +102,7 @@ export const DownloadFragment = () => {
                 ? queryURL.replace("json", "csv")
                 : queryURL.replace("json", `xslt&tr=${rowFormat}-csv.xsl`)
             }
-            fileName={`iatidatastore-${filename()}.csv`}
+            fileName={`iatidatastore-iatistandard-${filename()}.csv`}
           />
         </Grid>
       </Grid>
@@ -115,7 +116,7 @@ export const DownloadFragment = () => {
           <DownloadButton
             type="JSON"
             queryURL={queryURL}
-            fileName={`iatidatastore-${filename()}.json`}
+            fileName={`iatidatastore-iatistandard-${filename()}.json`}
           />
         </Grid>
       </Grid>
@@ -139,7 +140,7 @@ export const DownloadFragment = () => {
                 ? queryURL.replace("json", `xslt&tr=${rowFormat}-xml.xsl`)
                 : queryURL.replace("json", "xml")
             }
-            fileName={`iatidatastore-${filename()}.xml`}
+            fileName={`iatidatastore-iatistandard-${filename()}.xml`}
           />
         </Grid>
       </Grid>
@@ -150,10 +151,21 @@ export const DownloadFragment = () => {
       {/* ---------------------------------------------------------------------------------------------------------- */}
 
       <QbStepNavigator>
-        <QbStepNavigatorButton
-          label="Previous"
-          path="/querybuilder/output-format"
-        />
+        <Grid
+          item
+          container
+          sm={12}
+          md={12}
+          css={`
+            justify-content: flex-end;
+          `}
+        >
+          <FormResetButton />
+          <QbStepNavigatorButton
+            label="Previous"
+            path="/querybuilder/output-format"
+          />
+        </Grid>
       </QbStepNavigator>
     </Grid>
   );

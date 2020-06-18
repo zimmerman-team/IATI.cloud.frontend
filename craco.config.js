@@ -6,13 +6,13 @@ const { ESLINT_MODES } = require("@craco/craco");
 
 module.exports = {
   eslint: {
-    enable: false
+    enable: false,
     // mode: ESLINT_MODES.file,
   },
 
   webpack: {
     alias: {
-      // "react-dom": "@hot-loader/react-dom"
+      // "react-dom": "@hot-loader/react-dom",
     },
     plugins: [
       // new StyleLintPlugin({
@@ -20,14 +20,14 @@ module.exports = {
       //   context: path.resolve(__dirname, 'src'),
       //   files: ['**/*.tsx', '**/*.ts'],
       // }),
-      // new WebpackPluginRamdisk()
-    ]
+      // new WebpackPluginRamdisk(),
+    ],
   },
 
   plugins: [
     {
       // plugin: reactHotReloadPlugin,
-      plugin: BabelRcPlugin
-    }
-  ]
+      plugin: BabelRcPlugin,
+    },
+  ],
 };

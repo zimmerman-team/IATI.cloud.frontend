@@ -1,5 +1,4 @@
 import React from "react";
-import { Box } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
@@ -18,7 +17,7 @@ export const NavigationButton = (props: NavButtonModel) => {
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 32px;
+          height: 50px;
           padding-right: 20px;
           padding-left: 20px;
           // width: ${md ? "135px" : "235px"};
@@ -28,14 +27,15 @@ export const NavigationButton = (props: NavButtonModel) => {
                  background-color:#145062;
                  color:white;
           } 
-  }
+        }
 
-&:hover{
-  .pingpong{
-                 background-color:#145062;
-                 color:white;
-          } 
-}
+
+    &:hover{
+      .pingpong{
+                    background-color:#145062;
+                    color:white;
+              } 
+    }
         
       `}
     >
