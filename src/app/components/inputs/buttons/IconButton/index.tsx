@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
-import Button from '@material-ui/core/Button';
-import styled from 'styled-components';
-import { css } from 'styled-components/macro';
-import { Palette } from 'app/theme';
+import React, { ReactNode } from "react";
+import Button from "@material-ui/core/Button";
+import styled from "styled-components";
+import { css } from "styled-components/macro";
+import { Palette } from "app/theme";
 
 type Props = {
   size?: string;
@@ -31,26 +31,26 @@ export const InProgressStyle = css`
 
 const BaseStyle = css``;
 
-const ZimmerButton = styled(props => (
+const ZimmerButton = styled((props) => (
   <Button {...props}>{props.children}</Button>
 ))`
   && {
     justify-content: space-between;
     box-shadow: initial !important;
     width: 100%;
-    height: ${props => {
+    height: ${(props) => {
       switch (props.size) {
-        case 'small':
-          return '30px';
-        case 'large':
-          return '56px';
+        case "small":
+          return "30px";
+        case "large":
+          return "56px";
         default:
-          return '48px';
+          return "48px";
       }
     }};
 
-    background: ${props =>
-      props.bgcolor === 'green' ? '#46b275' : Palette.primary.main}}
+    background: ${(props) =>
+      props.bgcolor === "green" ? "#46b275" : Palette.primary.main}}
 
     & [class*='MuiButton-label'] {
       font-size: 14px;
@@ -70,7 +70,7 @@ export const IconButton = (props: Props) => {
       anchorref={props.anchorref}
       href={props.link}
       target={props.target}
-      bgcolor={props.bgcolor ? props.bgcolor : 'primary'}
+      bgcolor={props.bgcolor ? props.bgcolor : "primary"}
     >
       {props.label && props.label}
       {props.icon && props.icon}

@@ -56,28 +56,56 @@ workflows:
                 command: |
                   if [ "${CIRCLE_BRANCH}" == "master" ]; then
                     echo 'export REACT_APP_DOC_FILENAME="$REACT_APP_POSTMAN_FILENAME_PROD"' >> $BASH_ENV
-                    echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
                   elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
                     echo 'export REACT_APP_DOC_FILENAME="$REACT_APP_POSTMAN_FILENAME_STG"' >> $BASH_ENV
-                    echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
                   else
                     echo 'export REACT_APP_DOC_FILENAME="$REACT_APP_POSTMAN_FILENAME_STG"' >> $BASH_ENV
-                    echo 'export CYPRESS_baseUrl="$REACT_APP_PROJECT_URL_DEV"' >> $BASH_ENV
                   fi
                   source $BASH_ENV
           yarn: true
           build: yarn build
 
+      # - cypress/run:
+      #     name: "local e2e tests"
+      #     executor: cypress-executor
+      #     pre-steps:
+      #       - run:
+      #           name: Set env variables
+      #           command: |
+      #               echo 'export CYPRESS_BASE_URL="http://localhost:3000"' >> $BASH_ENV
+      #             source $BASH_ENV
+      #     wait-on: "http://localhost:3000"
+      #     yarn: true
+      #     start: yarn start:ci
+      #     browser: chrome
+      #     requires:
+      #       - deploy
+      #     record: true
+      #     parallel: true
+      #     parallelism: 5
+      #     group: "all tests"
+      #
       - deploy:
           requires:
-            - checkout
+            - "checkout"
+            # - "local e2e tests"
 
       - cypress/run:
-          name: "run e2e tests"
+          name: "deployed e2e tests"
           executor: cypress-executor
-#          wait-on: "http://localhost:3000"
+          pre-steps:
+            - run:
+                name: Set env variables
+                command: |
+                  if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                    echo 'export CYPRESS_BASE_URL="https://iatidatastore.iatistandard.org"' >> $BASH_ENV
+                  elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+                    echo 'export CYPRESS_BASE_URL="https://store.staging.iati.cloud"' >> $BASH_ENV
+                  else
+                    echo 'export CYPRESS_BASE_URL="https://store.staging.iati.cloud"' >> $BASH_ENV
+                  fi
+                  source $BASH_ENV
           yarn: true
-#          start: yarn start:ci
           browser: chrome
           requires:
             - deploy
@@ -85,7 +113,6 @@ workflows:
           parallel: true
           parallelism: 5
           group: "all tests"
-
 
       - release:
           requires:

@@ -26,17 +26,14 @@ describe("Home", function () {
   // autoRecord();
 
   it("should load the page", function () {
-    cy.viewport(1440, 821);
     cy.visit("/");
   });
 
   it("should show correct text", function () {
-    cy.viewport(1440, 821);
     homeText.map((text) => cy.findAllByText(text).should("exist"));
   });
 
   it("should show navigation and footer", function () {
-    cy.viewport(1440, 821);
     cy.findByTestId("AppBar").should("exist");
     cy.findByTestId("Footer").should("exist");
   });
