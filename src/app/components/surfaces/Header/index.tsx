@@ -12,17 +12,15 @@ export const Header = (props: HeaderModel) => {
   return (
     <div
       css={`
-        position: relative;
+        //position: relative;
         background-image: url(${BackgroundImage}),
           linear-gradient(to bottom, #3e8c9f, #2b5d69 35%, #135062);
         background-repeat: no-repeat;
         background-position: center right;
         padding-bottom: 47px;
         padding-top: 40px;
-
         position: sticky;
-        top: 0;
-
+        top: -50px;
         z-index: 20;
       `}
     >
