@@ -8,19 +8,21 @@ import Grid from "@material-ui/core/Grid";
 import { Hidden } from "@material-ui/core";
 import BackgroundImage from "app/assets/images/DottedMap.svg";
 
-export const Header = (props: HeaderModel) => {
+export const HomeHeader = (props: HeaderModel) => {
   return (
     <div
       css={`
-        //position: relative;
+        position: relative;
         background-image: url(${BackgroundImage}),
           linear-gradient(to bottom, #3e8c9f, #2b5d69 35%, #135062);
         background-repeat: no-repeat;
         background-position: center right;
         padding-bottom: 47px;
         padding-top: 40px;
-        position: sticky;
-        top: -50px;
+
+        //position: sticky;
+        //top: 0;
+
         z-index: 20;
       `}
     >

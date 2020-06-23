@@ -36,7 +36,6 @@ const aboutParagraphs = [
 
 describe("About", function () {
   it("should load the page", function () {
-    cy.viewport(1440, 821);
     cy.visit("/about");
   });
 
@@ -52,7 +51,6 @@ describe("About", function () {
   });
 
   it("should show footer and navigation", function () {
-    cy.viewport(1440, 821);
     cy.findByTestId("AppBar").should("exist");
     cy.findByTestId("Footer").should("exist");
   });

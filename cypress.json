@@ -1,6 +1,8 @@
 {
   "projectId": "joyvah",
-  "baseUrl": "https://store.staging.iati.cloud/",
+  "baseUrl": "https://store.staging.iati.cloud",
   "chromeWebSecurity": false,
-  "pageLoadTimeout": 10000
+  "pageLoadTimeout": 10000,
+  "viewportWidth": 1440,
+  "viewportHeight": 821
 }
