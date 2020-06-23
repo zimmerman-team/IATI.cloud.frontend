@@ -1,18 +1,14 @@
 // cc:query builder module fragments#; query builder fragments - results;fragment layout and logic
 /* core */
 import React from "react";
+import { css } from "styled-components/macro";
 /* third-party */
 import Grid from "@material-ui/core/Grid";
+import Tooltip from "@material-ui/core/Tooltip";
 import Typography from "@material-ui/core/Typography";
-import Download from "@material-ui/icons/GetApp";
 /* project component */
 import { URLField } from "app/components/inputs/textdisplay/URLField";
-import { IconButton } from "app/components/inputs/buttons/IconButton";
 /* config & mock */
-import {
-  downloadFile,
-  cleanIframes
-} from "app/modules/QueryBuilder/fragments/results/util";
 import { fragmentConfig } from "app/modules/QueryBuilder/fragments/results/model";
 import { useStoreState } from "app/state/store";
 import { ModuleStore } from "app/modules/QueryBuilder/state/store";
@@ -21,16 +17,26 @@ import { useTheme } from "@material-ui/core/styles";
 import { QbStepNavigatorButton } from "app/modules/QueryBuilder/common/QbStepNavigatorButton";
 import { QbStepNavigator } from "app/modules/QueryBuilder/common/QbStepNavigator";
 import { DataTable } from "app/components/datadisplay/DataTable";
-import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 import { DownloadButton } from "./common/DownloadButton";
 import { FormResetButton } from "app/modules/QueryBuilder/common/FormResetButton";
 
 const filename = () => new Date().toISOString().slice(0, 19);
+
+const disabledSection = css`
+  && {
+    opacity: 0.5;
+    cursor: not-allowed;
+    > div {
+      pointer-events: none;
+    }
+  }
+`;
+
 export const DownloadFragment = () => {
   /* get query url from app store */
   const store = ModuleStore.useStore();
 
-  const queryURL = useStoreState(state => state.query.url);
+  const queryURL = useStoreState((state) => state.query.url);
 
   const rowFormat = store.get("rowFormat");
   const repeatRows = store.get("repeatRows");
@@ -108,42 +114,74 @@ export const DownloadFragment = () => {
       </Grid>
 
       {/* ////////////////////////////////////////////////////////////// */}
-      <Grid container spacing={2} item md={12} lg={12}>
-        <Grid item xs={12} md={10} lg={9}>
-          <URLField text={queryURL} />
+      <Tooltip
+        placement="right"
+        title={
+          repeatRows !== "0"
+            ? "Not available in multi-sector/country expansion"
+            : ""
+        }
+      >
+        <Grid
+          container
+          spacing={2}
+          item
+          md={12}
+          lg={12}
+          css={repeatRows !== "0" && disabledSection}
+        >
+          <Grid item xs={12} md={10} lg={9}>
+            <URLField text={queryURL} />
+          </Grid>
+          <Grid item xs={4} md={2} lg={3}>
+            <DownloadButton
+              type="JSON"
+              queryURL={queryURL}
+              fileName={`iatidatastore-iatistandard-${filename()}.json`}
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={4} md={2} lg={3}>
-          <DownloadButton
-            type="JSON"
-            queryURL={queryURL}
-            fileName={`iatidatastore-iatistandard-${filename()}.json`}
-          />
-        </Grid>
-      </Grid>
+      </Tooltip>
 
       {/* ////////////////////////////////////////////////////////////// */}
-      <Grid container spacing={2} item md={12} lg={12}>
-        <Grid item xs={12} md={10} lg={9}>
-          <URLField
-            text={
-              rowFormat === "activity"
-                ? queryURL.replace("json", `xslt&tr=${rowFormat}-xml.xsl`)
-                : queryURL.replace("json", "xml")
-            }
-          />
+      <Tooltip
+        placement="right"
+        title={
+          repeatRows !== "0"
+            ? "Not available in multi-sector/country expansion"
+            : ""
+        }
+      >
+        <Grid
+          container
+          spacing={2}
+          item
+          md={12}
+          lg={12}
+          css={repeatRows !== "0" && disabledSection}
+        >
+          <Grid item xs={12} md={10} lg={9}>
+            <URLField
+              text={
+                rowFormat === "activity"
+                  ? queryURL.replace("json", `xslt&tr=${rowFormat}-xml.xsl`)
+                  : queryURL.replace("json", "xml")
+              }
+            />
+          </Grid>
+          <Grid item xs={4} md={2} lg={3}>
+            <DownloadButton
+              type="XML"
+              queryURL={
+                rowFormat === "activity"
+                  ? queryURL.replace("json", `xslt&tr=${rowFormat}-xml.xsl`)
+                  : queryURL.replace("json", "xml")
+              }
+              fileName={`iatidatastore-iatistandard-${filename()}.xml`}
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={4} md={2} lg={3}>
-          <DownloadButton
-            type="XML"
-            queryURL={
-              rowFormat === "activity"
-                ? queryURL.replace("json", `xslt&tr=${rowFormat}-xml.xsl`)
-                : queryURL.replace("json", "xml")
-            }
-            fileName={`iatidatastore-iatistandard-${filename()}.xml`}
-          />
-        </Grid>
-      </Grid>
+      </Tooltip>
 
       {/* ---------------------------------------------------------------------------------------------------------- */}
       {/* DEBUG */}
