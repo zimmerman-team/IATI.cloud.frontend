@@ -9,13 +9,16 @@ import Hidden from "@material-ui/core/Hidden";
 export const AboutLayout = () => {
   return (
     <PageContainer footer>
-      <ModuleHeader title="About the new Datastore" />
+      <ModuleHeader title="Using the IATI Datastore" />
       <Box width="100%" height="40px" />
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           {/* Appbar component needs a refactor, therefore not in this PR.*/}
           {/* INTRODUCTION*/}
           <Grid item lg={12}>
+            <Typography variant="h6" style={{ paddingBottom: "16px" }}>
+              About the new Datastore
+            </Typography>
             <ParagraphContainer data-testid="p0">
               <Typography variant="body1" data-testid="body">
                 The new IATI Datastore offers a robust online data service,
