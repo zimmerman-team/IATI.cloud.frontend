@@ -155,7 +155,7 @@ export const DownloadFragment = () => {
         >
           <FormResetButton />
           <QbStepNavigatorButton
-            label="Previous"
+            label="Back"
             path="/querybuilder/output-format"
           />
         </Grid>

@@ -14,6 +14,7 @@ import { ApiDocSearchInput } from "app/modules/Documentation/common/DocSideBar/c
 import { TreeView } from "@material-ui/lab";
 import { Folder, FolderOpen } from "@material-ui/icons";
 import { TreeItemLink } from "./common/TreeItem";
+import { LicenseFooter } from "./common/ui/LicenseFooter";
 
 export function DocsideBar() {
   const data: Root = useStoreState((state) => state.data && state.data);
