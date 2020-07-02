@@ -8,9 +8,12 @@ describe("API Documentation - search", function () {
     cy.visit("/documentation");
   });
 
-  it('should be able to type in "as" and only get results with "as" in it', function () {
+  it('should be able to type in "Activity List" and only get results with "Activity List" in it', function () {
     cy.get("[class*= ApiDocSearchBoxContainer]").should("exist");
-    cy.get(".MuiInputBase-input").type("as");
-    cy.get("[class*= SubItemContainer]").should("contain.text", "as");
+    cy.get(".MuiInputBase-input").type("Activity List");
+    cy.get("[class*= MuiTreeView-root]").should(
+      "contain.text",
+      "Activity List"
+    );
   });
 });
