@@ -40,11 +40,11 @@ export function DocsideBar() {
       {/* 379px is every pixel above this component*/}
       <div style={{ overflowY: "auto", height: "calc(100vh - 379px)" }}>
         <DocsideBarNavList>
-          <CustomLink key="Introduction" to="/documentation/introduction">
+          <CustomLink key="Introduction" to="/documentation/">
             Introduction
           </CustomLink>
 
-          <CustomLink key="Endpoints" to="/documentation/introduction">
+          {/* <CustomLink key="Endpoints" to="/documentation/introduction">
             Available endpoints
           </CustomLink>
 
@@ -58,7 +58,7 @@ export function DocsideBar() {
 
           <CustomLink key="XLS" to="/documentation/introduction">
             XLS export
-          </CustomLink>
+          </CustomLink> */}
 
           <TreeView
             defaultCollapseIcon={<FolderOpen />}
