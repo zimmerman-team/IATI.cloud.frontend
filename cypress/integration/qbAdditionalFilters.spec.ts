@@ -2,7 +2,6 @@
 /// <reference types="cypress" />
 
 const additionalFiltersLabels = [
-  "Search in title, activity or description",
   "Transaction Provider Org",
   "Transaction Receiver Org",
   "Participating Organisation",
@@ -14,8 +13,9 @@ describe("Query Builder - Additional filters", function () {
   });
 
   it("should show the correct text", function () {
+    cy.findByText("Additional Filters").click();
     additionalFiltersLabels.forEach((text) => {
-      cy.get(`[label= "${text}"]`).should("exist");
+      cy.findByText(text).should("exist");
     });
     comparePlaceholderText();
   });
