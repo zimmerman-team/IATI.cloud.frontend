@@ -12,17 +12,15 @@ export const NavigationButton = (props: NavButtonModel) => {
   return (
     <NavLink
       to={props.path}
-      // activeStyle={{ borderBottom: "4px solid #03dbe4" }}
-
       id="navlink"
       css={`
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 32px;
+          height: 50px;
           padding-right: 20px;
           padding-left: 20px;
-          /* width: ${md ? "135px" : "235px"}; */          
+          // width: ${md ? "135px" : "235px"};
 
           &.active {
             .pingpong{
