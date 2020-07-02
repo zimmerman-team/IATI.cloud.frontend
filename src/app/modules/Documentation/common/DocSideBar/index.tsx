@@ -17,7 +17,7 @@ import { TreeItemLink } from "./common/TreeItem";
 import { LicenseFooter } from "./common/ui/LicenseFooter";
 
 export function DocsideBar() {
-  const data: Root = useStoreState(state => state.data && state.data);
+  const data: Root = useStoreState((state) => state.data && state.data);
   const categories = data && data.collection;
   const [searchVal, setSearchVal] = React.useState("");
 
@@ -28,7 +28,7 @@ export function DocsideBar() {
         <ApiDocSearchInput
           placeholder="Search"
           inputProps={{ "aria-label": "search" }}
-          onChange={e => setSearchVal(e.target.value)}
+          onChange={(e) => setSearchVal(e.target.value)}
         />
         <SearchIcon
           css={`
@@ -40,11 +40,11 @@ export function DocsideBar() {
       {/* 379px is every pixel above this component*/}
       <div style={{ overflowY: "auto", height: "calc(100vh - 379px)" }}>
         <DocsideBarNavList>
-          <CustomLink key="Introduction" to="/documentation/introduction">
+          <CustomLink key="Introduction" to="/documentation/">
             Introduction
           </CustomLink>
 
-          <CustomLink key="Endpoints" to="/documentation/introduction">
+          {/* <CustomLink key="Endpoints" to="/documentation/introduction">
             Available endpoints
           </CustomLink>
 
@@ -58,33 +58,33 @@ export function DocsideBar() {
 
           <CustomLink key="XLS" to="/documentation/introduction">
             XLS export
-          </CustomLink>
+          </CustomLink> */}
 
           <TreeView
             defaultCollapseIcon={<FolderOpen />}
             defaultExpandIcon={<Folder />}
           >
             {categories &&
-              getResults(categories.item, searchVal).map(item => (
+              getResults(categories.item, searchVal).map((item) => (
                 <TreeItemLink
                   item={item}
                   postmanId={item._postman_id}
                   key={item._postman_id}
                 >
                   {item.item &&
-                    item.item.map(subItem1 => (
+                    item.item.map((subItem1) => (
                       <TreeItemLink
                         item={subItem1}
                         postmanId={item._postman_id}
                       >
                         {subItem1.item &&
-                          subItem1.item.map(subItem2 => (
+                          subItem1.item.map((subItem2) => (
                             <TreeItemLink
                               item={subItem2}
                               postmanId={item._postman_id}
                             >
                               {subItem2.item &&
-                                subItem2.item.map(subItem3 => (
+                                subItem2.item.map((subItem3) => (
                                   <TreeItemLink
                                     item={subItem3}
                                     postmanId={item._postman_id}
