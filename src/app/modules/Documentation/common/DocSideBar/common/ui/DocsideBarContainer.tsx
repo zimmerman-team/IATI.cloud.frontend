@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const DocsideBarContainer = styled.div`
   &&& {
@@ -11,4 +11,3 @@ export const DocsideBarContainer = styled.div`
     // overflow-y: scroll;
   }
 `;
- 
