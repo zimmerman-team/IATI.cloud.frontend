@@ -1,8 +1,6 @@
 // @ts-nocheck
 /// <reference types="cypress" />
 
-import autoRecord from "cypress-autorecord";
-
 const homeText: string[] = [
   "IATI Datastore",
   /* ------------------- */
