@@ -79,7 +79,7 @@ export const OutputFragment = () => {
 
       <QbStepNavigator>
         <QbStepNavigatorButton
-          label="Previous"
+          label="Back"
           path="/querybuilder/additional-filters"
         />
         <Grid

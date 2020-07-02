@@ -90,10 +90,7 @@ export const FilterFragment = () => {
       })}
 
       <QbStepNavigator>
-        <QbStepNavigatorButton
-          label="Previous"
-          path="/querybuilder/core-filters"
-        />
+        <QbStepNavigatorButton label="Back" path="/querybuilder/core-filters" />
 
         <Grid
           item

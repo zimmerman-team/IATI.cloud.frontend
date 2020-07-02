@@ -67,7 +67,7 @@ export const CoreFiltersFragment = () => {
           placeholder="Text search"
           onChange={setTextSearchValue}
           value={store.get("textSearch")}
-          helperText="Have minimum 1-2 other filters selected to avoid searching the entire database"
+          helperText="Have a minimum of 1-2 other filters selected to avoid searching the entire database"
         />
       </Grid>
 

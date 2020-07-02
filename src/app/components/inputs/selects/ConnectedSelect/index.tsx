@@ -1,8 +1,8 @@
 /** core */
-import React from 'react';
+import React from "react";
 /** third-party */
-import Select from 'react-select';
-import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
+import Select from "react-select";
+import { FieldInputLabel } from "app/components/common/FieldInputLabel";
 
 import {
   ClearIndicator,
@@ -17,7 +17,7 @@ import {
   HelperBlock,
   Option,
   ValueContainer,
-} from './common';
+} from "./common";
 
 const customStyles = {
   option: (provided: any, state: any) => Option(provided, state),
@@ -35,8 +35,8 @@ export const ConnectedSelect = (props: any) => {
     <div
       css={`
         opacity: ${props.disabled ? 0.5 : 1};
-        user-select: ${props.disabled ? 'none' : 'initial'};
-        pointer-events: ${props.disabled ? 'none' : 'auto'};
+        user-select: ${props.disabled ? "none" : "initial"};
+        pointer-events: ${props.disabled ? "none" : "auto"};
       `}
     >
       <FieldInputLabel label={props.label} />
