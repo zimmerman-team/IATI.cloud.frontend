@@ -29,18 +29,18 @@ describe("Query Builder - Additional filters", function () {
   });
 
   it("should be able to select all fields", function () {
-    testSelect("All transaction provider organisations", 2, 2);
-    testSelect("All transaction receiver organisations", 3, 1);
-    testSelect("All participating organisations", 4, 2);
+    testSelect("All transaction provider organisations", 13, 2);
+    testSelect("All transaction receiver organisations", 14, 1);
+    testSelect("All participating organisations", 15, 2);
   });
 
-  // todo: find a way to click outside of the popup
   it("should be able to add a filter", function () {
-    // cy.get('.MuiGrid-grid-md-4 > .MuiButtonBase-root').click();
-    // cy.get('.MuiList-root > :nth-child(2)').click();
-    // cy.get('div').click({multiple: true, force: true});
-    // cy.get('[class *= StepNavigatorContainer]').click({force: true})
-    // testSelect("All activity statuses", 5, 0);
+    cy.get(".MuiGrid-grid-md-4 > .MuiButtonBase-root").click();
+    cy.get(
+      ":nth-child(3) > .MuiListItemText-root > .MuiTypography-root"
+    ).click();
+    cy.get("body").click();
+    cy.contains("Default language").should("exist");
   });
 
   it("should be able to navigate to the next page", function () {
