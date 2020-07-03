@@ -3,9 +3,10 @@
 
 const coreFiltersLabels = [
   "Reporting Organisation",
-  "Type of Organisation",
+  "Type of Reporting Organisation",
   "Secondary Reporter?",
   "Sector Category",
+  "Sector Vocabulary",
   "Sector",
   "Recipient Country",
   "Recipient Region",
@@ -38,14 +39,16 @@ describe("Query Builder - core filters", function () {
     cy.get('[href="/querybuilder/results"]').should("exist");
   });
 
+  // todo: implement test for date picker (when MUI datapicker has been implememented)
   it("should be able to select all fields", function () {
     testSelect(".organisationNameSelect", 2, 0);
     testSelect(".organisationTypeSelect", 3, 0);
     testSelect(".secondaryReporterSelect", 4, 0);
     testSelect(".sectorCategorySelect", 5, 0);
-    testSelect(".organisationSectorSelect", 6, 0);
-    testSelect(".recipientCountrySelect", 7, 0);
-    testSelect(".recipientRegionSelect", 8, 0);
+    testSelect(".sectorVocabularySelect", 6, 0);
+    testSelect(".organisationSectorSelect", 7, 0);
+    testSelect(".recipientCountrySelect", 8, 0);
+    testSelect(".recipientRegionSelect", 9, 0);
   });
 
   it("should be able to navigate to the next page", function () {
