@@ -1,8 +1,11 @@
 export function getResults(data, searchVal) {
   const results: any = [];
-  if (searchVal !== '') {
-    data.forEach(category => {
-      let categoryPass = category.name.indexOf(searchVal) > -1;
+  const searchValue = searchVal.toLowerCase();
+  console.log(searchVal.toLowerCase());
+  if (searchVal !== "") {
+    data.forEach((category) => {
+      let item = category.name.toLowerCase();
+      let categoryPass = item.indexOf(searchValue) > -1;
       let item1Pass = false;
       let item2Pass = false;
       let item3Pass = false;
@@ -13,8 +16,8 @@ export function getResults(data, searchVal) {
         results.push({ ...category, item: [] });
         catIndex = results.length - 1;
       }
-      category.item.forEach(item1 => {
-        item1Pass = item1.name.indexOf(searchVal) > -1;
+      category.item.forEach((item1) => {
+        item1Pass = item1.name.indexOf(searchValue) > -1;
         if (!categoryPass && item1Pass) {
           results.push({ ...category, item: [] });
           catIndex = results.length - 1;
@@ -25,8 +28,8 @@ export function getResults(data, searchVal) {
           item1Index = results[catIndex].item.length - 1;
         }
         if (item1.item) {
-          item1.item.forEach(item2 => {
-            item2Pass = item2.name.indexOf(searchVal) > -1;
+          item1.item.forEach((item2) => {
+            item2Pass = item2.name.indexOf(searchValue) > -1;
             if ((!categoryPass || !item1Pass) && item2Pass) {
               if (!categoryPass) {
                 results.push({ ...category, item: [] });
@@ -48,8 +51,8 @@ export function getResults(data, searchVal) {
                 results[results.length - 1].item[item1Index].item.length - 1;
             }
             if (item2.item) {
-              item2.item.forEach(item3 => {
-                item3Pass = item3.name.indexOf(searchVal) > -1;
+              item2.item.forEach((item3) => {
+                item3Pass = item3.name.indexOf(searchValue) > -1;
                 if ((!categoryPass || !item1Pass || !item2Pass) && item3Pass) {
                   if (!categoryPass) {
                     results.push({ ...category, item: [] });
