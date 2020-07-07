@@ -14,7 +14,7 @@ export const AboutLayout = () => {
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           {/* Appbar component needs a refactor, therefore not in this PR.*/}
-          {/* INTRODUCTION*/}
+          {/* INTRODUCTION */}
           <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: "16px" }}>
               About the new Datastore
@@ -37,7 +37,6 @@ export const AboutLayout = () => {
               </Typography>
             </ParagraphContainer>
           </Grid>
-
           {/* what can be accessed? */}
           <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: "16px" }}>
@@ -82,7 +81,6 @@ export const AboutLayout = () => {
               </Typography>
             </ParagraphContainer>
           </Grid>
-
           {/* What can I do with the IATI Datastore? */}
           <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: "16px" }}>
@@ -97,9 +95,7 @@ export const AboutLayout = () => {
               </Typography>
             </ParagraphContainer>
           </Grid>
-
           {/* Using the Datastore API */}
-
           <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: "16px" }}>
               Using the Datastore API
@@ -126,7 +122,6 @@ export const AboutLayout = () => {
               </Typography>
             </ParagraphContainer>
           </Grid>
-
           {/* Using the Query Builder */}
           <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: "16px" }}>
@@ -146,7 +141,6 @@ export const AboutLayout = () => {
               </Typography>
             </ParagraphContainer>
           </Grid>
-
           {/* In what formats can I output the IATI data? */}
           <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: "16px" }}>

@@ -24,23 +24,23 @@ export const navButtons: NavButtonModel[] = [
   {
     label: "Core Filters",
     path: "/querybuilder/core-filters",
-    index: 1,
+    index: 1
   },
   {
     label: "Additional Filters",
     path: "/querybuilder/additional-filters",
-    index: 2,
+    index: 2
   },
   {
     label: "Output Format",
     path: "/querybuilder/output-format",
-    index: 3,
+    index: 3
   },
   {
     label: "Results",
     path: "/querybuilder/results",
-    index: 4,
-  },
+    index: 4
+  }
 ];
 
 export const QueryBuilderLayout = () => {
@@ -75,11 +75,15 @@ export const QueryBuilderLayout = () => {
             >
               {/* todo: convoluted; refactor */}
               <Box
+                css={`
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                `}
                 display="flex"
                 flexDirection="row"
                 justifyContent="space-between"
               >
-                {navButtons.map((item) => (
+                {navButtons.map(item => (
                   // todo: convoluted code, needs refactoring
                   <div
                     css={`

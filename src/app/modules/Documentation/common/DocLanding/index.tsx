@@ -17,7 +17,7 @@ export const DocLanding = () => {
       <Box width="100%" height="54px" />
       <Grid container>
         <Grid item md={11}>
-          // todo: in due time the css attribute should be cleaned
+          {/* todo: in due time the css attribute should be cleaned */}
           <Typography
             variant="h6"
             css={`

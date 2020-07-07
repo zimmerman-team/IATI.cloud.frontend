@@ -97,11 +97,11 @@ export function DocsideBar() {
                 </TreeItemLink>
               ))}
           </TreeView>
+          <LicenseFooter>
+            Code licensed under the GNU AGPL. Documentation licensed under CC BY
+            3.0.
+          </LicenseFooter>
         </DocsideBarNavList>
-        <LicenseFooter>
-          Code licensed under the GNU AGPL. Documentation licensed under CC BY
-          3.0.
-        </LicenseFooter>
       </div>
     </DocsideBarContainer>
   );

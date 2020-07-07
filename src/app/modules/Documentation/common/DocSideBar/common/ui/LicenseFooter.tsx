@@ -2,9 +2,13 @@ import styled from "styled-components/macro";
 
 export const LicenseFooter = styled.div`
   height: 32px;
-  left: 10.9%;
+  left: 5%;
   right: 10.63%;
-  top: calc(50% - 32px / 2 + 1094.5px);
+  bottom: 10px;
+  padding-top: 10px;
+  overflow: hidden;
+  position: absolute;
+  background-color: #f0f3f7;
 
   font-family: Inter;
   font-style: normal;
