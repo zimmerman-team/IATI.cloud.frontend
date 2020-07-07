@@ -9,6 +9,7 @@ const outputFormatLabels = [
 describe("Query Builder - output format", function () {
   it("should load the page", function () {
     cy.visit("/querybuilder/output-format");
+    cy.get(":nth-child(3) > #navlink").click();
   });
 
   it("should show the correct text", function () {
@@ -28,8 +29,8 @@ describe("Query Builder - output format", function () {
   });
 
   it("should be able to select 1 field at a time", function () {
-    cy.get(":nth-child(2) > .MuiButtonBase-root").click();
-    testSelect(".fieldsSelect2", 3, 0);
+    cy.get(".fieldsSelect").click();
+    cy.get("#react-select-12-option-0-0").click();
   });
 
   it("should be able to navigate to the next page", function () {
