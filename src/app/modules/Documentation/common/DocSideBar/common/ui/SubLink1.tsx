@@ -1,39 +1,48 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components/macro';
-import { Folder, FolderOpen} from '@material-ui/icons';
-import { CustomLink2 } from 'app/modules/Documentation/common/DocSideBar/common/ui/CustomLink2';
+import React, { useState } from "react";
+import styled, { css } from "styled-components/macro";
+import { Folder, FolderOpen } from "@material-ui/icons";
+import { CustomLink2 } from "app/modules/Documentation/common/DocSideBar/common/ui/CustomLink2";
 
 const openStyle: any = css`
-&&{
-  margin-right: 8px;
-}`;
+  && {
+    margin-right: 8px;
+  }
+`;
 
 const closedStyle: any = css`
-&&{
-  fill: #828894;
-  margin-right: 8px;
-}`;
+  && {
+    fill: #828894;
+    margin-right: 8px;
+  }
+`;
 
 type Props = {
   open: boolean;
   text: string;
   to: string;
-}
+};
 
 export const SubLink1 = (props: Props) => {
   return (
-    <div css={`display: flex; flex-direction: row`}>
-      { props.open ? <FolderOpen css={openStyle}/> : <Folder css={closedStyle}/> }
-      <Link to={props.to} {...props}>{props.text}</Link>
+    <div
+      css={`
+        display: flex;
+        flex-direction: row;
+      `}
+    >
+      {props.open ? (
+        <FolderOpen css={openStyle} />
+      ) : (
+        <Folder css={closedStyle} />
+      )}
+      <Link to={props.to} {...props}>
+        blablabla{props.text}
+      </Link>
     </div>
   );
 };
 
-const Link = styled(props => <CustomLink2 {...props} />)`
+const Link = styled((props) => <CustomLink2 {...props} />)`
   font-size: 14px;
-  color: ${props => props.open ? "#000000" : "rgba(1, 1, 10, 0.6)" };
+  color: ${(props) => (props.open ? "#000000" : "rgba(1, 1, 10, 0.6)")};
 `;
-
-
-
-

@@ -16,8 +16,8 @@ export const DocLanding = () => {
     <>
       <Box width="100%" height="54px" />
       <Grid container>
-        <Grid item md={12}>
-          // todo: in due time the css attribute should be cleaned
+        <Grid item md={11}>
+          {/* todo: in due time the css attribute should be cleaned */}
           <Typography
             variant="h6"
             css={`
@@ -27,7 +27,7 @@ export const DocLanding = () => {
               }
             `}
           >
-            API Documentation
+            <b>API Documentation</b>
           </Typography>
         </Grid>
 

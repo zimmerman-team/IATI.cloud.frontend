@@ -14,6 +14,7 @@ import { ApiDocSearchInput } from "app/modules/Documentation/common/DocSideBar/c
 import { TreeView } from "@material-ui/lab";
 import { Folder, FolderOpen } from "@material-ui/icons";
 import { TreeItemLink } from "./common/TreeItem";
+import { LicenseFooter } from "./common/ui/LicenseFooter";
 
 export function DocsideBar() {
   const data: Root = useStoreState((state) => state.data && state.data);
@@ -39,11 +40,11 @@ export function DocsideBar() {
       {/* 379px is every pixel above this component*/}
       <div style={{ overflowY: "auto", height: "calc(100vh - 379px)" }}>
         <DocsideBarNavList>
-          <CustomLink key="Introduction" to="/documentation/introduction">
+          <CustomLink key="Introduction" to="/documentation/">
             Introduction
           </CustomLink>
 
-          <CustomLink key="Endpoints" to="/documentation/introduction">
+          {/* <CustomLink key="Endpoints" to="/documentation/introduction">
             Available endpoints
           </CustomLink>
 
@@ -57,7 +58,7 @@ export function DocsideBar() {
 
           <CustomLink key="XLS" to="/documentation/introduction">
             XLS export
-          </CustomLink>
+          </CustomLink> */}
 
           <TreeView
             defaultCollapseIcon={<FolderOpen />}
@@ -96,6 +97,10 @@ export function DocsideBar() {
                 </TreeItemLink>
               ))}
           </TreeView>
+          <LicenseFooter>
+            Code licensed under the GNU AGPL. Documentation licensed under CC BY
+            3.0.
+          </LicenseFooter>
         </DocsideBarNavList>
       </div>
     </DocsideBarContainer>

@@ -103,27 +103,28 @@ export const fragmentConfig: FragmentModel = {
         },
       ],
     },
-    // {
-    //   onChange: e => store.set('repeatRows')(e.target.value),
-    //   value: store.get('repeatRows'),
-    //   groupID: 'repeatRows',
-    //   title: 'Collapse repeating elements',
-    //   tip: 'Collapse repeating elements',
-    //   items: [
-    //     {
-    //       value: '0',
-    //       label: 'No',
-    //     },
-    //     {
-    //       value: '1',
-    //       label: 'If repeating sectors',
-    //     },
-    //     {
-    //       value: '2',
-    //       label: 'If repeating countries',
-    //     },
-    //   ],
-    // },
+    {
+      onChange: e => store.set('repeatRows')(e.target.value),
+      value: store.get('repeatRows'),
+      groupID: 'repeatRows',
+      title: 'Repeat rows',
+      tip: 'Repeat each activity/transaction per Country or Sector',
+      items: [
+        {
+          value: '0',
+          label: 'No',
+        },
+        {
+          value: 'sector',
+          label: 'Multi-sector expansion',
+        },
+        {
+          disabled: true,
+          value: 'country',
+          label: 'Multi-country expansion',
+        },
+      ],
+    },
   ],
   fieldsSelect: {
     name: 'dataFields',
