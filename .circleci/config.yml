@@ -6,7 +6,7 @@ version: 2.1
 executors:
   cypress-executor:
     docker:
-      - image: 'cypress/included:4.6.0'
+      - image: 'cypress/included:4.10.0'
     resource_class: large
 
 jobs:
