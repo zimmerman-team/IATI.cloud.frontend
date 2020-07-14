@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components/macro';
 import { Folder, FolderOpen } from '@material-ui/icons';
 import { CustomLink2 } from 'app/modules/Documentation/common/DocSideBar/common/ui/CustomLink2';

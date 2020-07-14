@@ -8,7 +8,6 @@ import { Header } from 'app/components/surfaces/Header';
 import docStore from 'app/modules/Documentation/state/store';
 import { DocumentationRoutes } from 'app/modules/Documentation/routes';
 import useTitle from 'react-use/lib/useTitle';
-import { Redirect } from 'react-router-dom';
 
 function DocumentationModule() {
   useTitle('IATI Datastore - Documentation');

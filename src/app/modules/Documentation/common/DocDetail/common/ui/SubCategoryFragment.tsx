@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { SubCategoryHeader } from 'app/modules/Documentation/common/DocDetail/common/ui/SubCategoryHeader';
 import { SubCaregoryDescription } from 'app/modules/Documentation/common/DocDetail/common/ui/SubCaregoryDescription';
 import { CallFragment } from 'app/modules/Documentation/common/DocDetail/common/ui/CallFragment';

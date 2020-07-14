@@ -5,7 +5,6 @@ import { ApiList } from 'app/modules/Documentation/common/DocDetail/common/ApiBa
 import { useStoreState } from 'app/modules/Documentation/state/store';
 import { Root } from 'app/modules/Documentation/state/RootModel';
 import { HeaderH6 } from 'app/modules/Documentation/common/DocLanding/common/ui/HeaderH6';
-import { css } from 'styled-components/macro';
 
 export const DocLanding = () => {
   // @ts-ignore

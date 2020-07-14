@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components/macro';
 import SearchIcon from '@material-ui/icons/Search';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { FieldInputLabel } from 'app/components/common/FieldInputLabel';

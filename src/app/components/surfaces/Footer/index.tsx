@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Typography, Container, Box, Link } from '@material-ui/core';
 import { Mail, Twitter } from '@material-ui/icons';
 import { IATILogoWhite } from 'app/components/svgs/IATILogo';
-import { ZZLogo } from 'app/components/svgs/ZZLogo';
 import LogoZZ from 'app/assets/images/logo_zz.png';
 
 export const Footer = () => {
