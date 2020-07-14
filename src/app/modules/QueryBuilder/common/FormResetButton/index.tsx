@@ -1,11 +1,11 @@
-import ReplayIcon from "@material-ui/icons/Replay";
-import { Grid } from "@material-ui/core";
-import React from "react";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogActions from "@material-ui/core/DialogActions";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
+import ReplayIcon from '@material-ui/icons/Replay';
+import { Grid } from '@material-ui/core';
+import React from 'react';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogActions from '@material-ui/core/DialogActions';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
 
 interface FormResetButtonProps {
   handleClick?: any;

@@ -3,7 +3,7 @@ import { createWriteStream } from 'app/utils/streamsaver';
 
 export const downloadFile = (url, fileName) => {
   return fetch(url)
-    .then(res => {
+    .then((res) => {
       const fileStream = createWriteStream(fileName);
       const writer = fileStream.getWriter();
       if (res.body.pipeTo) {
@@ -22,7 +22,7 @@ export const downloadFile = (url, fileName) => {
 
       return pump();
     })
-    .catch(error => console.error(error));
+    .catch((error) => console.error(error));
 };
 
 export const cleanIframes = () => {

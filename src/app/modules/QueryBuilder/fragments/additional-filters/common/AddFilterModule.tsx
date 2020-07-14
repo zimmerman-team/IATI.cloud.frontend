@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 /* project component */
 import { ConnectedSelect } from 'app/components/inputs/selects/ConnectedSelect';
 /* actions & store */
-import { useStoreState, useStoreActions } from 'app/state/store';
+import { useStoreActions, useStoreState } from 'app/state/store';
 import get from 'lodash/get';
 
 type Props = {
@@ -18,10 +18,10 @@ type Props = {
 };
 
 export function AddFilterModule(props: Props) {
-  const values = useStoreState(state =>
+  const values = useStoreState((state) =>
     get(state, `${props.dataKey}.data`, [])
   );
-  const action = useStoreActions(actions => actions[props.dataKey].fetch);
+  const action = useStoreActions((actions) => actions[props.dataKey].fetch);
   const label = props.label;
   if (label === 'IATI version') {
     return (
@@ -37,8 +37,8 @@ export function AddFilterModule(props: Props) {
             }
           }}
           placeholder={props.placeholder}
-          getOptionValue={option => option.code}
-          getOptionLabel={option => `${option.code}`}
+          getOptionValue={(option) => option.code}
+          getOptionLabel={(option) => `${option.code}`}
         />
       </Grid>
     );
@@ -57,8 +57,8 @@ export function AddFilterModule(props: Props) {
           }
         }}
         placeholder={props.placeholder}
-        getOptionValue={option => option.code}
-        getOptionLabel={option => `${option.code}: ${option.name}`}
+        getOptionValue={(option) => option.code}
+        getOptionLabel={(option) => `${option.code}: ${option.name}`}
       />
     </Grid>
   );

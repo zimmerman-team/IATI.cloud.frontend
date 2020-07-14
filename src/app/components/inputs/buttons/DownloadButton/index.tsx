@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react";
-import Button from "@material-ui/core/Button";
-import styled from "styled-components";
-import { css } from "styled-components/macro";
+import React, { ReactNode } from 'react';
+import Button from '@material-ui/core/Button';
+import styled from 'styled-components';
+import { css } from 'styled-components/macro';
 
 type Props = {
   size?: string;
@@ -34,16 +34,16 @@ const ZimmerButton = styled((props) => (
     width: 100%;
     height: ${(props) => {
       switch (props.size) {
-        case "small":
-          return "30px";
-        case "large":
-          return "56px";
+        case 'small':
+          return '30px';
+        case 'large':
+          return '56px';
         default:
-          return "48px";
+          return '48px';
       }
     }};
 
-    & [class*="MuiButton-label"] {
+    & [class*='MuiButton-label'] {
       font-size: 14px;
       text-transform: capitalize;
     }

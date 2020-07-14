@@ -1,15 +1,14 @@
 /* base */
-import React from "react";
-import styled from "styled-components";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
-import { IconButtonOutlined } from "app/components/inputs/buttons/IconButtonOutlined";
-import { Header } from "app/components/surfaces/Header";
-import { PageContainer } from "app/modules/common/PageContainer";
-import { LandingMidSection } from "app/modules/Landing/common/LandingMidSection";
-import { HomeHeader } from "app/components/HomeHeader";
+import React from 'react';
+import styled from 'styled-components';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+import { IconButtonOutlined } from 'app/components/inputs/buttons/IconButtonOutlined';
+import { PageContainer } from 'app/modules/common/PageContainer';
+import { LandingMidSection } from 'app/modules/Landing/common/LandingMidSection';
+import { HomeHeader } from 'app/components/HomeHeader';
 
 const TypographyOpacity = styled((props) => <Typography {...props} />)`
   opacity: 0.8;

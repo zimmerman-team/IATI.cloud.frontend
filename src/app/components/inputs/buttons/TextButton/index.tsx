@@ -1,7 +1,7 @@
 // @ts-nocheck
-import React, { ReactNode } from "react";
-import Button from "@material-ui/core/Button";
-import { css } from "styled-components/macro";
+import React, { ReactNode } from 'react';
+import Button from '@material-ui/core/Button';
+import { css } from 'styled-components/macro';
 
 interface TextButtonParams {
   label?: string;
@@ -21,7 +21,7 @@ const TextButtonStyle = css`
     width: 100%;
     height: 48px;
 
-    & [class*="MuiButton-label"] {
+    & [class*='MuiButton-label'] {
       font-size: 14px;
       text-transform: capitalize;
     }

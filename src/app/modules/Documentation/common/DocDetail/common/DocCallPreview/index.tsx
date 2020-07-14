@@ -1,7 +1,7 @@
-import React from "react";
-import { Box } from "@material-ui/core";
-import { RequestExample } from "app/modules/Documentation/common/DocDetail/common/DocCallPreview/common/RequestExample";
-import { RequestResponse } from "app/modules/Documentation/common/DocDetail/common/DocCallPreview/common/RequestResponse";
+import React from 'react';
+import { Box } from '@material-ui/core';
+import { RequestExample } from 'app/modules/Documentation/common/DocDetail/common/DocCallPreview/common/RequestExample';
+import { RequestResponse } from 'app/modules/Documentation/common/DocDetail/common/DocCallPreview/common/RequestResponse';
 
 export const DocCallPreview = () => {
   return (

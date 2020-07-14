@@ -1,28 +1,28 @@
 // @ts-nocheck
 //cc:query builder module fragments#; query builder fragments - additional filters;fragment layout and logic
 /* core */
-import React from "react";
+import React from 'react';
 /* third-party */
-import Grid from "@material-ui/core/Grid";
+import Grid from '@material-ui/core/Grid';
 /* project component */
-import { AddFilterModule } from "app/components/utils/Popover";
-import { AsyncSelect } from "app/components/inputs/selects/AsyncSelect";
+import { AddFilterModule } from 'app/components/utils/Popover';
+import { AsyncSelect } from 'app/components/inputs/selects/AsyncSelect';
 /* utils */
-import find from "lodash/find";
-import { additionalFiltersPopData } from "app/modules/QueryBuilder/fragments/additional-filters/consts";
-import { ModuleStore } from "app/modules/QueryBuilder/state/store";
+import find from 'lodash/find';
+import { additionalFiltersPopData } from 'app/modules/QueryBuilder/fragments/additional-filters/consts';
+import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 
-import { QbStepNavigatorButton } from "app/modules/QueryBuilder/common/QbStepNavigatorButton";
-import { QbStepNavigator } from "app/modules/QueryBuilder/common/QbStepNavigator";
-import { FormResetButton } from "app/modules/QueryBuilder/common/FormResetButton";
+import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNavigatorButton';
+import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
+import { FormResetButton } from 'app/modules/QueryBuilder/common/FormResetButton';
 
 export const FilterFragment = () => {
   const store = ModuleStore.useStore();
   const setAdditionFilters = (e) => {
-    store.set("additionalFilters")(e);
+    store.set('additionalFilters')(e);
   };
 
-  const addedFilterOptions = store.get("additionalFilters");
+  const addedFilterOptions = store.get('additionalFilters');
 
   const allAddFilters = [...additionalFiltersPopData[0][1]];
 
@@ -40,8 +40,8 @@ export const FilterFragment = () => {
           <Grid item xs={12} sm={12} md={12} lg={6}>
             <AsyncSelect
               label="Transaction Provider Org"
-              value={store.get("transactionProviderOrgs")}
-              onChange={(e) => store.set("transactionProviderOrgs")(e)}
+              value={store.get('transactionProviderOrgs')}
+              onChange={(e) => store.set('transactionProviderOrgs')(e)}
               getOptionValue={(option) => option.value}
               getOptionLabel={(option) => option.value}
               placeholder="All transaction provider organisations"
@@ -52,8 +52,8 @@ export const FilterFragment = () => {
           <Grid item xs={12} sm={12} md={12} lg={6}>
             <AsyncSelect
               label="Transaction Receiver Org"
-              value={store.get("transactionReceiverOrgs")}
-              onChange={(e) => store.set("transactionReceiverOrgs")(e)}
+              value={store.get('transactionReceiverOrgs')}
+              onChange={(e) => store.set('transactionReceiverOrgs')(e)}
               getOptionValue={(option) => option.value}
               getOptionLabel={(option) => option.value}
               placeholder="All transaction receiver organisations"
@@ -66,8 +66,8 @@ export const FilterFragment = () => {
       <Grid item xs={12} sm={12} md={12} lg={12}>
         <AsyncSelect
           label="Participating Organisation"
-          value={store.get("participatingOrgs")}
-          onChange={(e) => store.set("participatingOrgs")(e)}
+          value={store.get('participatingOrgs')}
+          onChange={(e) => store.set('participatingOrgs')(e)}
           placeholder="All participating organisations"
           getOptionValue={(option) => option.value}
           getOptionLabel={(option) => option.value}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconChecked = props => (
+const IconChecked = (props) => (
   <svg viewBox="0 0 100 100" {...props}>
     <circle
       fill="#fff"

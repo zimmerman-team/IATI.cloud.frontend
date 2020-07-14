@@ -113,6 +113,10 @@
     "typescript": "~3.9.5",
     "webpack-plugin-ramdisk": "^0.1.4"
   },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
   "browserslist": {
     "production": [
       ">0.2%",

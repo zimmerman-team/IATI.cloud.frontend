@@ -1,9 +1,10 @@
 // @ts-nocheck
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
-import { Action, action, Thunk, thunk, computed, Computed } from 'easy-peasy';
+import { Action, action, computed, Computed, Thunk, thunk } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
-export const baseURL = 'https://test-datastore.iatistandard.org/search/activity?';//'https://iatidatastore.iatistandard.org/search/activity?';
+export const baseURL =
+  'https://test-datastore.iatistandard.org/search/activity?'; //'https://iatidatastore.iatistandard.org/search/activity?';
 
 /* uncomment this in order to get data from API */
 const NODE_ENV = 'production';
@@ -208,15 +209,15 @@ const api = <T>(endpoint: Endpoint): ApiModel<T> => ({
   loading: false,
   response: undefined,
   error: undefined,
-  data: computed(state => state.response && state.response.data),
-  call: action(state => {
+  data: computed((state) => state.response && state.response.data),
+  call: action((state) => {
     state.loading = true;
   }),
   success: action((state, payload) => {
     state.loading = false;
     state.response = payload;
   }),
-  fetch: thunk(async actions => {
+  fetch: thunk(async (actions) => {
     actions.call();
     const response = await endpoint<T>();
     actions.success({ data: response });

@@ -6,4 +6,4 @@ export const getPostmanData: Endpoint = (params: RequestInit = {}) =>
     {
       method: 'GET',
     }
-  ).then(res => res.json());
+  ).then((res) => res.json());

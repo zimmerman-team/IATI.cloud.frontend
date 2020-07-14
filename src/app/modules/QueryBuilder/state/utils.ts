@@ -1,7 +1,7 @@
 //cc:query builder module#; query builder state; utils
-import filter from "lodash/filter";
-import mapValues from "lodash/mapValues";
-import { ROWS } from "app/state/models/QueryModel";
+import filter from 'lodash/filter';
+import mapValues from 'lodash/mapValues';
+import { ROWS } from 'app/state/models/QueryModel';
 
 function keyFromLocalStorage<T>(or: T, key: string): T {
   const value = localStorage.getItem(key);
@@ -24,9 +24,9 @@ export function replace<T>(array: T[], item: T, replacement: T): T[] {
 }
 
 export const constructSolrQuery = (baseURI, params, fields, extraFilterStr) => {
-  const filterString = `q=${filter(params, (p) => p !== null).join(" AND ")}`;
+  const filterString = `q=${filter(params, (p) => p !== null).join(' AND ')}`;
 
   return `${baseURI}${
-    filterString !== "q=" ? filterString : "q=*:*"
-  }${extraFilterStr}${fields ? `&${fields}` : ""}&wt=json&rows=${ROWS}`;
+    filterString !== 'q=' ? filterString : 'q=*:*'
+  }${extraFilterStr}${fields ? `&${fields}` : ''}&wt=json&rows=${ROWS}`;
 };

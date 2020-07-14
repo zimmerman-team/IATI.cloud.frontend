@@ -55,16 +55,16 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'All (0)',
     className: 'organisationTypeSelect',
     name: 'organisationTypes',
-    getOptionLabel: option => `${option.code}: ${option.name}`,
-    getOptionValue: option => option.code,
+    getOptionLabel: (option) => `${option.code}: ${option.name}`,
+    getOptionValue: (option) => option.code,
   },
   secondaryReporter: {
     label: 'Secondary Reporter?',
     placeholder: 'Choose',
     className: 'secondaryReporterSelect',
     name: 'secondaryReporter',
-    getOptionLabel: option => `${option.code}: ${option.name}`,
-    getOptionValue: option => option.code,
+    getOptionLabel: (option) => `${option.code}: ${option.name}`,
+    getOptionValue: (option) => option.code,
   },
   organisationSector: {
     label: 'Sector',
@@ -73,8 +73,8 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'All (0)',
     className: 'organisationSectorSelect',
     name: 'organisationSector',
-    getOptionLabel: option => `${option.code}: ${option.name}`,
-    getOptionValue: option => option.code,
+    getOptionLabel: (option) => `${option.code}: ${option.name}`,
+    getOptionValue: (option) => option.code,
   },
   sectorCategory: {
     label: 'Sector Category',
@@ -84,8 +84,8 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'All (0)',
     className: 'sectorCategorySelect',
     name: 'sectorCategory',
-    getOptionLabel: option => `${option.code}: ${option.name}`,
-    getOptionValue: option => option.code,
+    getOptionLabel: (option) => `${option.code}: ${option.name}`,
+    getOptionValue: (option) => option.code,
   },
   sectorVocabulary: {
     label: 'Sector Vocabulary',
@@ -94,26 +94,26 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'All (0)',
     className: 'sectorVocabularySelect',
     name: 'sectorVocabulary',
-    getOptionLabel: option => `${option.code}: ${option.name}`,
-    getOptionValue: option => option.code,
+    getOptionLabel: (option) => `${option.code}: ${option.name}`,
+    getOptionValue: (option) => option.code,
   },
   recipientCountry: {
     label: 'Recipient Country',
     placeholder: 'All (0)',
     className: 'recipientCountrySelect',
     name: 'recipientCountry',
-    getOptionLabel: option =>
+    getOptionLabel: (option) =>
       `${option.recipient_country.code}: ${option.recipient_country.name}`,
-    getOptionValue: option => option.recipient_country.code,
+    getOptionValue: (option) => option.recipient_country.code,
   },
   recipientRegion: {
     label: 'Recipient Region',
     placeholder: 'All (0)',
     className: 'recipientRegionSelect',
     name: 'recipientRegion',
-    getOptionLabel: option =>
+    getOptionLabel: (option) =>
       `${option.recipient_region.code}: ${option.recipient_region.name}`,
-    getOptionValue: option => option.recipient_region.code,
+    getOptionValue: (option) => option.recipient_region.code,
   },
   activityPeriode: {
     label: 'Must have activity period',
@@ -121,7 +121,7 @@ export const fragmentConfig: FragmentModel = {
     className: 'activityPeriode',
     name: 'activityPeriode',
     options: ['Yes', 'No'],
-    getOptionLabel: option => option,
-    getOptionValue: option => option,
+    getOptionLabel: (option) => option,
+    getOptionValue: (option) => option,
   },
 };

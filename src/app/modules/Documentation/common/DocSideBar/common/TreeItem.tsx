@@ -1,10 +1,10 @@
 // @ts-nocheck
 //cc:api documentation module#; navigation - side bar
-import React from "react";
-import { TreeItem } from "@material-ui/lab";
-import { HashLink } from "react-router-hash-link";
-import styled from "styled-components";
-import { SubLink3 } from "./ui/SubLink3";
+import React from 'react';
+import { TreeItem } from '@material-ui/lab';
+import { HashLink } from 'react-router-hash-link';
+import styled from 'styled-components';
+import { SubLink3 } from './ui/SubLink3';
 
 type Props = {
   item: any;
@@ -21,7 +21,7 @@ const Link = styled((props) => <HashLink {...props} />)`
 const Item = styled((props) => <TreeItem {...props} />)`
   && {
     // todo: we should step away from modifying elements via class names
-    [class*="MuiTypography-body1"] {
+    [class*='MuiTypography-body1'] {
       font-family: Inter, sans-serif;
       font-size: 16px;
       font-weight: 500 !important;
@@ -32,28 +32,28 @@ const Item = styled((props) => <TreeItem {...props} />)`
       color: rgba(1, 1, 10, 0.6);
     }
     // todo: we should step away from modifying elements via class names
-    [class*="MuiTreeItem-content"] {
+    [class*='MuiTreeItem-content'] {
       margin-bottom: 42px;
     }
     // todo: we should step away from modifying elements via class names
-    [class*="MuiTreeItem-root"] {
+    [class*='MuiTreeItem-root'] {
       margin-bottom: 42px;
     }
     // todo: we should step away from modifying elements via class names
-    [class*="MuiCollapse-wrapperInner"] {
+    [class*='MuiCollapse-wrapperInner'] {
       margin-bottom: 42px;
     }
     // todo: we should step away from modifying elements via class names
-    [class*="MuiSvgIcon-root"] {
+    [class*='MuiSvgIcon-root'] {
       fill: rgba(1, 1, 10, 0.6);
     }
     // todo: we should step away from modifying elements via class names
-    [class*="MuiTreeItem-label"]:hover {
+    [class*='MuiTreeItem-label']:hover {
       color: #25a898;
       background-color: #f0f3f7 !important;
     }
     // todo: we should step away from modifying elements via class names
-    [class*="MuiTreeItem-label"] {
+    [class*='MuiTreeItem-label'] {
       background-color: unset !important;
     }
   }

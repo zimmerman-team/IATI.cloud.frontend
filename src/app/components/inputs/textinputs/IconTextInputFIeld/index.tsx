@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components/macro";
-import SearchIcon from "@material-ui/icons/Search";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import { FieldInputLabel } from "app/components/common/FieldInputLabel";
-import { FieldBackdrop } from "app/components/common/FieldBackdrop";
-import Box from "@material-ui/core/Box";
-import { Spacing } from "app/theme";
-import { SearchInputField } from "../SearchInputField";
+import React from 'react';
+import styled from 'styled-components/macro';
+import SearchIcon from '@material-ui/icons/Search';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
+import { FieldBackdrop } from 'app/components/common/FieldBackdrop';
+import Box from '@material-ui/core/Box';
+import { Spacing } from 'app/theme';
+import { SearchInputField } from '../SearchInputField';
 
 type Props = {
   placeholder: string;

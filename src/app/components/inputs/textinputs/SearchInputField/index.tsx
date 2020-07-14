@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
-import 'styled-components/macro';
 import filter from 'lodash/filter';
 import Clear from '@material-ui/icons/Clear';
 import ChipInput from 'material-ui-chip-input';

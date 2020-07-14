@@ -12,9 +12,9 @@ interface FragmentModel extends FragmentBaseModel {
   fieldsSelectTransactions?: any;
 }
 
-export const getGroupOptions = store => {
+export const getGroupOptions = (store) => {
   const rowFormatSel = store.get('rowFormat');
-  const gOpts = groupedOptions.map(group => {
+  const gOpts = groupedOptions.map((group) => {
     const value =
       (rowFormatSel === 'activity' && group.label === 'Activities') ||
       (rowFormatSel === 'transaction' && group.label === 'Transactions') ||
@@ -23,7 +23,7 @@ export const getGroupOptions = store => {
         : 1;
     return {
       label: `${group.label}${value === 0 ? '' : group.tip}`,
-      options: group.options.map(option => ({
+      options: group.options.map((option) => ({
         ...option,
         isDisabled: value,
       })),
@@ -32,14 +32,14 @@ export const getGroupOptions = store => {
   return gOpts;
 };
 
-export const getActivityOptions = store => {
+export const getActivityOptions = (store) => {
   const rowFormatSel = store.get('rowFormat');
-  const gOpts = activityOptions.map(group => {
+  const gOpts = activityOptions.map((group) => {
     const value =
       rowFormatSel === 'activity' && group.label === 'Activities' ? 0 : 1;
     return {
       label: `${group.label}${value === 0 ? '' : group.tip}`,
-      options: group.options.map(option => ({
+      options: group.options.map((option) => ({
         ...option,
         isDisabled: value,
       })),
@@ -48,14 +48,14 @@ export const getActivityOptions = store => {
   return gOpts;
 };
 
-export const getTransactionOptions = store => {
+export const getTransactionOptions = (store) => {
   const rowFormatSel = store.get('rowFormat');
-  const gOpts = transactionOptions.map(group => {
+  const gOpts = transactionOptions.map((group) => {
     const value =
       rowFormatSel === 'transaction' && group.label === 'Transactions' ? 0 : 1;
     return {
       label: `${group.label}${value === 0 ? '' : group.tip}`,
-      options: group.options.map(option => ({
+      options: group.options.map((option) => ({
         ...option,
         isDisabled: value,
       })),
@@ -68,9 +68,9 @@ export const fragmentConfig: FragmentModel = {
   name: 'Output format',
   description:
     'You can use default, but these options allow you to configure the way in which your data is disaggregated.',
-  getGroups: store => [
+  getGroups: (store) => [
     {
-      onChange: e => {
+      onChange: (e) => {
         // store.set('fields')([
         //   { code: 'iati_identifier', name: 'IATI Identifier' },
         //   { code: 'sectors', name: 'Sectors' },
@@ -104,7 +104,7 @@ export const fragmentConfig: FragmentModel = {
       ],
     },
     {
-      onChange: e => store.set('repeatRows')(e.target.value),
+      onChange: (e) => store.set('repeatRows')(e.target.value),
       value: store.get('repeatRows'),
       groupID: 'repeatRows',
       title: 'Repeat rows',

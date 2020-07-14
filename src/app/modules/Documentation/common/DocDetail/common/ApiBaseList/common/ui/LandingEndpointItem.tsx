@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 export const LandingEndpointItem = styled.li`
   font-family: 'Roboto Mono', monospace;
   font-size: 14px;

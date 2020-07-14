@@ -1,17 +1,16 @@
 //cc:query builder module#; query builder main layout
 /* third-party */
-import React from "react";
-import { Box, Grid, useTheme } from "@material-ui/core";
-import Container from "@material-ui/core/Container";
+import React from 'react';
+import { Box, Grid, useTheme } from '@material-ui/core';
+import Container from '@material-ui/core/Container';
 /* fragments */
-import { PageContainer } from "app/modules/common/PageContainer";
-import { QueryBuilderRoutes } from "app/modules/QueryBuilder/routes";
-import { ModuleHeader } from "app/modules/common/ModuleHeader";
-import { NavigationButton } from "app/modules/QueryBuilder/common/NavigationButton";
-import { StepNavigatorContainer } from "app/modules/QueryBuilder/common/StepNavigatorContainer";
-import useMediaQuery from "@material-ui/core/useMediaQuery/useMediaQuery";
-import { Redirect } from "react-router-dom";
-import "styled-components/macro";
+import { PageContainer } from 'app/modules/common/PageContainer';
+import { QueryBuilderRoutes } from 'app/modules/QueryBuilder/routes';
+import { ModuleHeader } from 'app/modules/common/ModuleHeader';
+import { NavigationButton } from 'app/modules/QueryBuilder/common/NavigationButton';
+import { StepNavigatorContainer } from 'app/modules/QueryBuilder/common/StepNavigatorContainer';
+import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
+import { Redirect } from 'react-router-dom';
 
 /* config & mock */
 export type NavButtonModel = {
@@ -22,31 +21,31 @@ export type NavButtonModel = {
 
 export const navButtons: NavButtonModel[] = [
   {
-    label: "Core Filters",
-    path: "/querybuilder/core-filters",
-    index: 1
+    label: 'Core Filters',
+    path: '/querybuilder/core-filters',
+    index: 1,
   },
   {
-    label: "Additional Filters",
-    path: "/querybuilder/additional-filters",
-    index: 2
+    label: 'Additional Filters',
+    path: '/querybuilder/additional-filters',
+    index: 2,
   },
   {
-    label: "Output Format",
-    path: "/querybuilder/output-format",
-    index: 3
+    label: 'Output Format',
+    path: '/querybuilder/output-format',
+    index: 3,
   },
   {
-    label: "Results",
-    path: "/querybuilder/results",
-    index: 4
-  }
+    label: 'Results',
+    path: '/querybuilder/results',
+    index: 4,
+  },
 ];
 
 export const QueryBuilderLayout = () => {
   /* reference to the module store which is passed onto the fragments */
   const theme = useTheme();
-  const md = useMediaQuery(theme.breakpoints.down("md"));
+  const md = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <PageContainer>
@@ -68,7 +67,7 @@ export const QueryBuilderLayout = () => {
             <Grid
               item
               md={12}
-              style={{ position: "relative" }}
+              style={{ position: 'relative' }}
               css={`
                 overflow-x: auto;
               `}
@@ -83,7 +82,7 @@ export const QueryBuilderLayout = () => {
                 flexDirection="row"
                 justifyContent="space-between"
               >
-                {navButtons.map(item => (
+                {navButtons.map((item) => (
                   // todo: convoluted code, needs refactoring
                   <div
                     css={`

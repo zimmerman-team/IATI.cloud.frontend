@@ -1,16 +1,16 @@
 //cc:application base#;application routes
 
-import React, { Suspense, lazy } from "react";
-import { Route, Switch } from "react-router-dom";
-import { PageLoader } from "app/modules/common/PageLoader";
-import { useStoreActions } from "app/state/store";
-import { useEffectOnce } from "react-use";
-import { PageNotFound } from "app/modules/PageNotFound";
+import React, { Suspense, lazy } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { PageLoader } from 'app/modules/common/PageLoader';
+import { useStoreActions } from 'app/state/store';
+import { useEffectOnce } from 'react-use';
+import { PageNotFound } from 'app/modules/PageNotFound';
 
-const AboutModule = lazy(() => import("app/modules/About"));
-const LandingModule = lazy(() => import("app/modules/Landing"));
-const QueryBuilderModule = lazy(() => import("app/modules/QueryBuilder"));
-const DocumentationModule = lazy(() => import("app/modules/Documentation"));
+const AboutModule = lazy(() => import('app/modules/About'));
+const LandingModule = lazy(() => import('app/modules/Landing'));
+const QueryBuilderModule = lazy(() => import('app/modules/QueryBuilder'));
+const DocumentationModule = lazy(() => import('app/modules/Documentation'));
 
 export function MainRoutes() {
   /* todo: refactor, doesn't quite feel right to do initiate the fetches like this */
@@ -53,7 +53,7 @@ export function MainRoutes() {
     );
 
   useEffectOnce(() => {
-    console.log("Running effect once on mount");
+    console.log('Running effect once on mount');
     fetchOrganisationTypes();
     fetchOrganisations();
     fetchSectorCategories();
@@ -63,7 +63,7 @@ export function MainRoutes() {
     fetchCountries();
     fetchSecondaryReporter();
     return () => {
-      console.log("Running clean-up of effect on unmount");
+      console.log('Running clean-up of effect on unmount');
     };
   });
 

@@ -1,12 +1,12 @@
-import React from "react";
-import Container from "@material-ui/core/Container";
-import { HeaderModel } from "app/components/surfaces/Header/model";
-import { Background } from "app/components/surfaces/Background";
-import { AppBar } from "app/components/surfaces/AppBar";
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
-import { Hidden } from "@material-ui/core";
-import BackgroundImage from "app/assets/images/DottedMap.svg";
+import React from 'react';
+import Container from '@material-ui/core/Container';
+import { HeaderModel } from 'app/components/surfaces/Header/model';
+import { Background } from 'app/components/surfaces/Background';
+import { AppBar } from 'app/components/surfaces/AppBar';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import { Hidden } from '@material-ui/core';
+import BackgroundImage from 'app/assets/images/DottedMap.svg';
 
 export const Header = (props: HeaderModel) => {
   return (
@@ -24,7 +24,7 @@ export const Header = (props: HeaderModel) => {
         z-index: 20;
       `}
     >
-      <Container maxWidth={"lg"}>
+      <Container maxWidth={'lg'}>
         <Grid container justify="center">
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <AppBar />

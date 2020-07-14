@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import styled, { css } from "styled-components/macro";
-import { Folder, FolderOpen } from "@material-ui/icons";
-import { CustomLink2 } from "app/modules/Documentation/common/DocSideBar/common/ui/CustomLink2";
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components/macro';
+import { Folder, FolderOpen } from '@material-ui/icons';
+import { CustomLink2 } from 'app/modules/Documentation/common/DocSideBar/common/ui/CustomLink2';
 
 const openStyle: any = css`
   && {
@@ -44,5 +44,5 @@ export const SubLink1 = (props: Props) => {
 
 const Link = styled((props) => <CustomLink2 {...props} />)`
   font-size: 14px;
-  color: ${(props) => (props.open ? "#000000" : "rgba(1, 1, 10, 0.6)")};
+  color: ${(props) => (props.open ? '#000000' : 'rgba(1, 1, 10, 0.6)')};
 `;

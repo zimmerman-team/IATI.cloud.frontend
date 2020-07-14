@@ -10,7 +10,7 @@ export const fetchPostmanDatas: Endpoint = (params: RequestInit = {}) =>
       method: 'GET',
       ...params,
     }
-  ).then(res => res.json());
+  ).then((res) => res.json());
 
 export interface RequestModel {
   method: string;

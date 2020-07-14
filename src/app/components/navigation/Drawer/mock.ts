@@ -1,22 +1,22 @@
-import { DrawerMenuModel } from "app/components/navigation/Drawer/model";
+import { DrawerMenuModel } from 'app/components/navigation/Drawer/model';
 
 export const mockData: DrawerMenuModel = {
   links: [
     {
-      label: "HOME",
-      url: "/",
+      label: 'HOME',
+      url: '/',
     },
     {
-      label: "ABOUT",
-      url: "/about",
+      label: 'ABOUT',
+      url: '/about',
     },
     {
-      label: "QUERY BUILDER",
-      url: "/querybuilder/core-filters",
+      label: 'QUERY BUILDER',
+      url: '/querybuilder/core-filters',
     },
     {
-      label: "API DOCUMENTATION",
-      url: "/documentation",
+      label: 'API DOCUMENTATION',
+      url: '/documentation',
     },
   ],
 };

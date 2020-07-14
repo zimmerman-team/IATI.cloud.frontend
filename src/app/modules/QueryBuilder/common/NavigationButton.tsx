@@ -1,13 +1,12 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { useTheme } from "@material-ui/core/styles";
-import { NavButtonModel } from "app/modules/QueryBuilder/layout";
-import { css } from "styled-components/macro";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
+import { NavButtonModel } from 'app/modules/QueryBuilder/layout';
 
 export const NavigationButton = (props: NavButtonModel) => {
   const theme = useTheme();
-  const md = useMediaQuery(theme.breakpoints.up("md"));
+  const md = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <NavLink
@@ -20,13 +19,13 @@ export const NavigationButton = (props: NavButtonModel) => {
           height: 50px;
           padding-right: 20px;
           padding-left: 20px;
-          // width: ${md ? "135px" : "235px"};
+          // width: ${md ? '135px' : '235px'};
 
           &.active {
             .pingpong{
                  background-color:#145062;
                  color:white;
-          } 
+          }
         }
 
 
@@ -34,9 +33,9 @@ export const NavigationButton = (props: NavButtonModel) => {
       .pingpong{
                     background-color:#145062;
                     color:white;
-              } 
+              }
     }
-        
+
       `}
     >
       <div

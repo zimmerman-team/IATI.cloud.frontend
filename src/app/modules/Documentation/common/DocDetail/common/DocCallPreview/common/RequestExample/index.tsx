@@ -1,10 +1,9 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { useStoreState } from "app/modules/Documentation/state/store";
-import { RequestModel, UrlModel } from "app/modules/Documentation/state/model";
+import React from 'react';
+import { Grid } from '@material-ui/core';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { useStoreState } from 'app/modules/Documentation/state/store';
+import { RequestModel, UrlModel } from 'app/modules/Documentation/state/model';
 import styled from 'styled-components';
-
 
 const ElementOne = styled.div`
   color: white;
@@ -27,7 +26,7 @@ const ELementThree = styled.div`
 
 export const RequestExample = () => {
   const request: RequestModel = useStoreState(
-    state => state.request.activeRequest
+    (state) => state.request.activeRequest
   );
 
   const url: UrlModel = request.url;

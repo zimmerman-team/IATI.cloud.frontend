@@ -1,11 +1,11 @@
 // @ts-nocheck
-import React from "react";
-import styled from "styled-components";
-import Radio from "@material-ui/core/Radio";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import IconChecked from "app/assets/icons/IconChecked";
-import IconUnchecked from "app/assets/icons/IconUnchecked";
-import theme from "app/theme";
+import React from 'react';
+import styled from 'styled-components';
+import Radio from '@material-ui/core/Radio';
+import SvgIcon from '@material-ui/core/SvgIcon';
+import IconChecked from 'app/assets/icons/IconChecked';
+import IconUnchecked from 'app/assets/icons/IconUnchecked';
+import theme from 'app/theme';
 type Props = {
   size?: string;
   label?: string;
@@ -24,7 +24,7 @@ const Checked = (
   </SvgIcon>
 );
 
-const BaseComponent = styled(props => (
+const BaseComponent = styled((props) => (
   <Radio
     {...props}
     disableRipple
@@ -34,12 +34,12 @@ const BaseComponent = styled(props => (
   />
 ))`
   && {
-    & [class*="MuiIconButton-label"] {
+    & [class*='MuiIconButton-label'] {
       height: 20px;
       width: 20px;
     }
 
-    & [class*="MuiSvgIcon-root"] {
+    & [class*='MuiSvgIcon-root'] {
       display: flex;
       justify-content: center;
       align-items: center;

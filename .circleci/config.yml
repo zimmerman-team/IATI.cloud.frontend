@@ -6,7 +6,7 @@ version: 2.1
 executors:
   cypress-executor:
     docker:
-      - image: "cypress/included:4.6.0"
+      - image: 'cypress/included:4.6.0'
     resource_class: large
 
 jobs:
@@ -48,7 +48,7 @@ workflows:
   build-and-test:
     jobs:
       - cypress/install:
-          name: "checkout"
+          name: 'checkout'
           executor: cypress-executor
           pre-steps:
             - run:
@@ -87,11 +87,11 @@ workflows:
       #
       - deploy:
           requires:
-            - "checkout"
+            - 'checkout'
             # - "local e2e tests"
 
       - cypress/run:
-          name: "deployed e2e tests"
+          name: 'deployed e2e tests'
           executor: cypress-executor
           pre-steps:
             - run:
@@ -112,7 +112,7 @@ workflows:
           record: true
           parallel: true
           parallelism: 5
-          group: "all tests"
+          group: 'all tests'
 
       - release:
           requires:

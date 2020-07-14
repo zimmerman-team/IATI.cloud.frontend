@@ -1,7 +1,7 @@
 /* base */
-import React, { ReactNode } from "react";
-import styled from "styled-components";
-import BackgroundImage from "app/assets/images/DottedMap.svg";
+import React, { ReactNode } from 'react';
+import styled from 'styled-components';
+import BackgroundImage from 'app/assets/images/DottedMap.svg';
 
 type Props = {
   children?: ReactNode;

@@ -1,15 +1,15 @@
 //cc:query builder module#; query builder state; store
-import { Effects, createConnectedStore } from 'undux';
+import { createConnectedStore, Effects } from 'undux';
 import {
-  OrganisationTypeModel,
-  OrganisationModel,
-  SectorModel,
-  SectorCategoryModel,
-  SectorVocabularyModel,
-  CountryModel,
-  RegionModel,
   ActivityStatusModel,
+  CountryModel,
+  OrganisationModel,
+  OrganisationTypeModel,
   ParticipatingOrgsModel,
+  RegionModel,
+  SectorCategoryModel,
+  SectorModel,
+  SectorVocabularyModel,
   TransactionProviderOrgModel,
 } from 'app/state/models';
 import { fromLocalStorage } from './utils';
@@ -97,7 +97,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   language: [],
   humanitarian: [],
   humanitarianScope: [],
-  humanitarianScopeVocab:[],
+  humanitarianScopeVocab: [],
   transactionHumanitarian: [],
   otherIdentifierType: [],
   mustHaveDates: '0',

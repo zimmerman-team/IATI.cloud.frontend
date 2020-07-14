@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import InputLabel from "@material-ui/core/InputLabel";
+import React from 'react';
+import styled from 'styled-components';
+import InputLabel from '@material-ui/core/InputLabel';
 
 type Props = {
   label?: string;
