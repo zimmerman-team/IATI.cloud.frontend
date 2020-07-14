@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import Paper from '@material-ui/core/Paper';
-import { Column } from '@devexpress/dx-react-grid';
 import sortBy from 'lodash/sortBy';
 import {
   Grid,
@@ -31,7 +30,7 @@ interface IRow {
   car: string;
 }
 
-export const DataTable = props => {
+export const DataTable = (props) => {
   const [cols, setCols] = useState(
     props.rowFormat === 'activity'
       ? defaultActivityTableCols
@@ -55,7 +54,7 @@ export const DataTable = props => {
   useEffect(() => {
     if (!props.defaultCols && docsData.length > 0) {
       const newCols: any = [];
-      Object.keys(docsData[0]).forEach(key => {
+      Object.keys(docsData[0]).forEach((key) => {
         newCols.push({ name: key, title: key });
       });
       setCols(sortBy(newCols, 'name'));

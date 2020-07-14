@@ -16,12 +16,13 @@ import { ModuleStore } from 'app/modules/QueryBuilder/state/store';
 import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
 import { QbStepNavigatorButton } from 'app/modules/QueryBuilder/common/QbStepNavigatorButton';
 import { QbStepNavigator } from 'app/modules/QueryBuilder/common/QbStepNavigator';
+import { FormResetButton } from 'app/modules/QueryBuilder/common/FormResetButton';
 
 export const OutputFragment = () => {
   const store = ModuleStore.useStore();
   const { getGroups, fieldsSelect, fieldsSelectTransactions } = fragmentConfig;
 
-  const setFields = e => {
+  const setFields = (e) => {
     store.set('fields')(e || []);
   };
 
@@ -38,7 +39,7 @@ export const OutputFragment = () => {
       `}
       direction="column"
     >
-      {getGroups(store).map(group => (
+      {getGroups(store).map((group) => (
         <Grid item xs={12} sm={12} md={12} key={group.title}>
           {group.title && (
             <RadioGroupTitle
@@ -78,10 +79,21 @@ export const OutputFragment = () => {
 
       <QbStepNavigator>
         <QbStepNavigatorButton
-          label="Previous"
+          label="Back"
           path="/querybuilder/additional-filters"
         />
-        <QbStepNavigatorButton label="Next" path="/querybuilder/results" />
+        <Grid
+          item
+          container
+          sm={12}
+          md={12}
+          css={`
+            justify-content: flex-end;
+          `}
+        >
+          <FormResetButton />
+          <QbStepNavigatorButton label="Next" path="/querybuilder/results" />
+        </Grid>
       </QbStepNavigator>
     </Grid>
   );

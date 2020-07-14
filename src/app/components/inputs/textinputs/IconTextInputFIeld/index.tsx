@@ -34,7 +34,11 @@ const IconTextInput = (props: Props) => {
       </FieldBackdrop>
       {props.helperText && (
         /* todo: the way text color is set is a bit hacky, should be refactoredd*/
-        <FormHelperText style={{ color: 'black' }}>
+        <FormHelperText
+          css={`
+            color: rgba(1, 1, 10, 0.38) !important;
+          `}
+        >
           {props.helperText}
         </FormHelperText>
       )}

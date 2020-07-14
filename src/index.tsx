@@ -1,13 +1,11 @@
 //cc:application base#;root index
+/// <reference types="styled-components/cssprop" />
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'index.css';
 import App from 'app';
 import * as serviceWorker from 'serviceWorker';
-
-// this import looks unused; it isn't so please do not remove
-import * as _ from 'styled-components/cssprop';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

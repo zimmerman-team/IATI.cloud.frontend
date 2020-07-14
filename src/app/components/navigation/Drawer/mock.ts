@@ -16,7 +16,7 @@ export const mockData: DrawerMenuModel = {
     },
     {
       label: 'API DOCUMENTATION',
-      url: '/documentation/introduction',
+      url: '/documentation',
     },
   ],
 };

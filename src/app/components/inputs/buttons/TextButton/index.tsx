@@ -1,9 +1,9 @@
+// @ts-nocheck
 import React, { ReactNode } from 'react';
 import Button from '@material-ui/core/Button';
-import styled from 'styled-components';
+import { css } from 'styled-components/macro';
 
-type Props = {
-  size?: string;
+interface TextButtonParams {
   label?: string;
   icon?: ReactNode;
   disabled?: boolean;
@@ -12,30 +12,14 @@ type Props = {
   children?: ReactNode;
   link?: string;
   target?: string;
-};
+}
 
-/*type BaseProps = {
-  children?: ReactNode;
-};*/
-
-const ZimmerButton = styled(props => (
-  <Button {...props}>{props.children}</Button>
-))`
+const TextButtonStyle = css`
   && {
     justify-content: center;
     box-shadow: initial !important;
     width: 100%;
-
-    height: ${props => {
-      switch (props.size) {
-        case 'small':
-          return '30px';
-        case 'large':
-          return '56px';
-        default:
-          return '48px';
-      }
-    }};
+    height: 48px;
 
     & [class*='MuiButton-label'] {
       font-size: 14px;
@@ -44,10 +28,9 @@ const ZimmerButton = styled(props => (
   }
 `;
 
-export const TextButton = (props: Props) => {
+export const TextButton = (props: TextButtonParams) => {
   return (
-    <ZimmerButton
-      size={props.size}
+    <Button
       variant="contained"
       color="primary"
       disabled={props.disabled}
@@ -55,8 +38,9 @@ export const TextButton = (props: Props) => {
       anchorref={props.anchorref}
       href={props.link}
       target={props.target}
+      css={TextButtonStyle}
     >
       {props.label && props.label}
-    </ZimmerButton>
+    </Button>
   );
 };

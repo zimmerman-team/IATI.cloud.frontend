@@ -2,7 +2,7 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components';
-import { FieldInputLabel } from "app/components/common/FieldInputLabel";
+import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
 import { TooltipButton } from 'app/components/inputs/buttons/TooltipButton';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const BaseComponent = styled(props => <TextField {...props} />)`
+const BaseComponent = styled((props) => <TextField {...props} />)`
   display: flex !important;
   //align-items: center;
 
@@ -59,7 +59,7 @@ const Header = styled.div`
   }
 `;
 
-export const DateField = props => {
+export const DateField = (props) => {
   return (
     <>
       <Header>
@@ -71,7 +71,7 @@ export const DateField = props => {
         label={props.label}
         type="date"
         value={props.value}
-        onChange={e => props.onChange(e.target.value)}
+        onChange={(e) => props.onChange(e.target.value)}
         defaultValue={props.defaultValue}
         disabled={props.disabled}
         InputLabelProps={{

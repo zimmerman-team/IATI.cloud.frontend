@@ -16,6 +16,9 @@ const Base = styled.div`
   padding-bottom: 47px;
   padding-top: 40px;
 
+  position: sticky;
+  top: 0;
+
   z-index: 20;
 `;
 

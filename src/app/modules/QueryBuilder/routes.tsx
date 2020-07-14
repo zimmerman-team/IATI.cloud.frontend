@@ -1,4 +1,3 @@
-//cc:query builder module#; query builder subroutes
 import React from 'react';
 import { Route } from 'react-router';
 import { CoreFiltersFragment } from 'app/modules/QueryBuilder/fragments/core-filters';
@@ -9,8 +8,7 @@ import { ResultsSubModule } from 'app/modules/QueryBuilder/fragments/results';
 export const QueryBuilderRoutes = () => {
   return (
     <>
-      {/*<Switch>*/}
-      <Route exact path="/querybuilder/core-filters">
+      <Route path="/querybuilder/core-filters">
         <CoreFiltersFragment />
       </Route>
       <Route exact path="/querybuilder/additional-filters">
@@ -22,7 +20,6 @@ export const QueryBuilderRoutes = () => {
       <Route exact path="/querybuilder/results">
         <ResultsSubModule />
       </Route>
-      {/*// </Switch>*/}
     </>
   );
 };

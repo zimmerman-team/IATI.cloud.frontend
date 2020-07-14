@@ -14,6 +14,7 @@ function DocumentationModule() {
 
   return (
     <StoreProvider store={docStore}>
+      {/*<Redirect to="/documentation/introduction" />*/}
       <Header />
       <Container maxWidth="lg">
         <Grid container direction="row">

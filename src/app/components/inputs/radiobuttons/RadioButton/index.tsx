@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import styled from 'styled-components';
 import Radio from '@material-ui/core/Radio';
@@ -12,6 +13,7 @@ type Props = {
 
 const Unnchecked = (
   <SvgIcon>
+    {/* todo: greyBase doesn't seem to exist' */}
     <IconUnchecked color={theme.palette.grey.greyBase} />
   </SvgIcon>
 );
@@ -22,7 +24,7 @@ const Checked = (
   </SvgIcon>
 );
 
-const BaseComponent = styled(props => (
+const BaseComponent = styled((props) => (
   <Radio
     {...props}
     disableRipple

@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
     <meta name="theme-color" content="#000000" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -24,30 +23,30 @@
     <script type="text/javascript">
       var _paq = window._paq || [];
       /* tracker methods like "setCustomDimension" should be called before "trackPageView" */ _paq.push(
-        ['setDocumentTitle', document.domain + '/' + document.title]
+        ["setDocumentTitle", document.domain + "/" + document.title]
       );
-      _paq.push(['setCookieDomain', '*.iatidatastore.iatistandard.org']);
+      _paq.push(["setCookieDomain", "*.iatidatastore.iatistandard.org"]);
       _paq.push([
-        'setDomains',
+        "setDomains",
         [
-          '*.iatidatastore.iatistandard.org',
-          '*.iati.cloud',
-          '*.www.iati.cloud',
+          "*.iatidatastore.iatistandard.org",
+          "*.iati.cloud",
+          "*.www.iati.cloud",
         ],
       ]);
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u = 'https://zimmermanzimmerman.matomo.cloud/';
-        _paq.push(['setTrackerUrl', u + 'matomo.php']);
-        _paq.push(['setSiteId', '5']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+      (function () {
+        var u = "https://zimmermanzimmerman.matomo.cloud/";
+        _paq.push(["setTrackerUrl", u + "matomo.php"]);
+        _paq.push(["setSiteId", "5"]);
         var d = document,
-          g = d.createElement('script'),
-          s = d.getElementsByTagName('script')[0];
-        g.type = 'text/javascript';
+          g = d.createElement("script"),
+          s = d.getElementsByTagName("script")[0];
+        g.type = "text/javascript";
         g.async = true;
         g.defer = true;
-        g.src = '//cdn.matomo.cloud/zimmermanzimmerman.matomo.cloud/matomo.js';
+        g.src = "//cdn.matomo.cloud/zimmermanzimmerman.matomo.cloud/matomo.js";
         s.parentNode.insertBefore(g, s);
       })();
     </script>
@@ -55,9 +54,9 @@
     <script src="https://unpkg.com/web-streams-polyfill@2.0.4/dist/ponyfill.es6.js"></script>
 
     <script type="text/javascript">
-      (function(e, t, r, n, a) {
+      (function (e, t, r, n, a) {
         var c = [];
-        e[a] = function() {
+        e[a] = function () {
           c.push(arguments);
         };
         e[a].queue = c;
@@ -66,12 +65,12 @@
         s.src = n;
         var u = t.getElementsByTagName(r)[0];
         u.parentNode.insertBefore(s, u);
-      })(window, document, 'script', '//cdn.sematext.com/rum.js', 'strum');
+      })(window, document, "script", "//cdn.sematext.com/rum.js", "strum");
     </script>
     <script type="text/javascript">
-      strum('config', {
-        token: '155abb23-9f7e-4bf0-bebd-86ee4043ed74',
-        receiverUrl: 'https://rum-receiver.eu.sematext.com',
+      strum("config", {
+        token: "155abb23-9f7e-4bf0-bebd-86ee4043ed74",
+        receiverUrl: "https://rum-receiver.eu.sematext.com",
       });
     </script>
     <title>IATI Datastore</title>

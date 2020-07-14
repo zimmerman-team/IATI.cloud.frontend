@@ -31,14 +31,14 @@ export const InProgressStyle = css`
 
 const BaseStyle = css``;
 
-const ZimmerButton = styled(props => (
+const ZimmerButton = styled((props) => (
   <Button {...props}>{props.children}</Button>
 ))`
   && {
     justify-content: space-between;
     box-shadow: initial !important;
     width: 100%;
-    height: ${props => {
+    height: ${(props) => {
       switch (props.size) {
         case 'small':
           return '30px';
@@ -49,7 +49,7 @@ const ZimmerButton = styled(props => (
       }
     }};
 
-    background: ${props =>
+    background: ${(props) =>
       props.bgcolor === 'green' ? '#46b275' : Palette.primary.main}}
 
     & [class*='MuiButton-label'] {

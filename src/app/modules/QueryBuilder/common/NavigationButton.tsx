@@ -1,45 +1,41 @@
-import React from "react";
-import { Box } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { useTheme } from "@material-ui/core/styles";
-import { NavButtonModel } from "app/modules/QueryBuilder/layout";
-import { css } from "styled-components/macro";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
+import { NavButtonModel } from 'app/modules/QueryBuilder/layout';
 
 export const NavigationButton = (props: NavButtonModel) => {
   const theme = useTheme();
-  const md = useMediaQuery(theme.breakpoints.up("md"));
+  const md = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <NavLink
       to={props.path}
-      // activeStyle={{ borderBottom: "4px solid #03dbe4" }}
-
       id="navlink"
       css={`
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 32px;
+          height: 50px;
           padding-right: 20px;
           padding-left: 20px;
-          /* width: ${md ? "135px" : "235px"}; */          
+          // width: ${md ? '135px' : '235px'};
 
           &.active {
             .pingpong{
                  background-color:#145062;
                  color:white;
-          } 
-  }
+          }
+        }
 
-TabNine::configCouldn't start web browser at http://127.0.0.1:5555/swlmgttkulurpuyjewnr. See https://tabnine.com/faq#browser_failed
-&:hover{
-  .pingpong{
-                 background-color:#145062;
-                 color:white;
-          } 
-}
-        
+
+    &:hover{
+      .pingpong{
+                    background-color:#145062;
+                    color:white;
+              }
+    }
+
       `}
     >
       <div

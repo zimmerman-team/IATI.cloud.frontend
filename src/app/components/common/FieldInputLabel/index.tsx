@@ -6,10 +6,10 @@ type Props = {
   label?: string;
 };
 
-const BaseInputLabel = styled(props => <InputLabel {...props} />)`
+const BaseInputLabel = styled((props) => <InputLabel {...props} />)`
   && {
     font-size: 12px;
-    color: black;
+    color: rgba(1, 1, 10, 0.38) !important;
     margin-bottom: 8px;
     font-weight: normal;
   }
@@ -18,5 +18,3 @@ const BaseInputLabel = styled(props => <InputLabel {...props} />)`
 export const FieldInputLabel = (props: Props) => {
   return <BaseInputLabel {...props}>{props.label}</BaseInputLabel>;
 };
-
-

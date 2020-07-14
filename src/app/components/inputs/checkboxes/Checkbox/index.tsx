@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* external */
 import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
@@ -22,11 +23,12 @@ type Props = {
 
 const Unnchecked = (
   <SvgIcon>
+    {/* todo: greyBase doesn't seem to exist */}
     <IconCheckboxUnchecked color={theme.palette.grey.greyBase} />
   </SvgIcon>
 );
 
-const BaseComponent = styled(props => (
+const BaseComponent = styled((props) => (
   <BaseCheckbox
     {...props}
     disableRipple

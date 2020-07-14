@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const DebugBox = styled.div`
   &&& {
     * {

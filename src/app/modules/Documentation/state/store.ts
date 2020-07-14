@@ -2,8 +2,8 @@
 import { createStore, createTypedHooks } from 'easy-peasy';
 import {
   DocStoreModel,
-  requestsModel,
   fetchPostmanDatas,
+  requestsModel,
 } from 'app/modules/Documentation/state/model';
 import { docData } from 'app/modules/Documentation/state/data';
 import api from 'app/state/api';

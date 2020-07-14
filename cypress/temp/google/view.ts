@@ -1,16 +1,17 @@
+// @ts-nocheck
 /// <reference types="cypress" />
 
-import { Generic } from '../generic/visit';
+import { Generic } from "../generic/visit";
 
-describe('Flight Test Suite', () => {
+describe("Flight Test Suite", () => {
   beforeEach(() => {
     cy.viewport(1600, 800);
   });
 
-  it('Buttons Panel', () => {
+  it("Buttons Panel", () => {
     Generic.visit();
     // Login button
-    cy.get('#gb_70').should('have.length', 1);
+    cy.get("#gb_70").should("have.length", 1);
 
     // Clean
     // cy.get('input').first().clear();
@@ -34,9 +35,9 @@ describe('Flight Test Suite', () => {
     //   .should('contain', 'flight 1' );
   });
 
-  it('Page Layout', () => {
+  it("Page Layout", () => {
     // Google Logo
-    cy.get('#hplogo').should('be.visible');
+    cy.get("#hplogo").should("be.visible");
     // .should('have.css', 'font-family')
     // .and('match', /serif/)
   });

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
-export const Paragraph = styled.p`
+
+export const ParagraphContainer = styled.div`
   padding-bottom: 8px;
 `;

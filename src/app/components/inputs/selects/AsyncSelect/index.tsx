@@ -31,7 +31,7 @@ const customStyles = {
 };
 
 async function loadOptions(search, loadedOptions, { page }, pivot) {
-  const url = `https://iati.cloud/search/activity?q=${pivot}:*&facet=on&facet.pivot=${pivot}&rows=0&facet.limit=15&facet.offset=${page *
+  const url = `https://iatidatastore.iatistandard.org/search/activity?q=${pivot}:*&facet=on&facet.pivot=${pivot}&rows=0&facet.limit=15&facet.offset=${page *
     10}&facet.contains=${search.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}&facet.contains.ignoreCase=true`;
   const response = await fetch(url);
   const responseJSON = await response.json();

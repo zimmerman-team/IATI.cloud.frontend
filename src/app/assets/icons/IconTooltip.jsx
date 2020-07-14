@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SvgComponent = props => (
+const SvgComponent = (props) => (
   <svg width={14} height={14} {...props}>
     <g fill="none" fillRule="evenodd">
       <path fill="#FFF" d="M-548-2140H732v3491H-548z" />

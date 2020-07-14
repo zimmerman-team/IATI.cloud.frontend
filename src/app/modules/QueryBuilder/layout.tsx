@@ -21,36 +21,35 @@ export type NavButtonModel = {
 
 export const navButtons: NavButtonModel[] = [
   {
-    label: "Core Filters",
-    path: "/querybuilder/core-filters",
-    index: 1
+    label: 'Core Filters',
+    path: '/querybuilder/core-filters',
+    index: 1,
   },
   {
-    label: "Additional Filters",
-    path: "/querybuilder/additional-filters",
-    index: 2
+    label: 'Additional Filters',
+    path: '/querybuilder/additional-filters',
+    index: 2,
   },
   {
-    label: "Output Format",
-    path: "/querybuilder/output-format",
-    index: 3
+    label: 'Output Format',
+    path: '/querybuilder/output-format',
+    index: 3,
   },
   {
-    label: "Results",
-    path: "/querybuilder/results",
-    index: 4
-  }
+    label: 'Results',
+    path: '/querybuilder/results',
+    index: 4,
+  },
 ];
 
 export const QueryBuilderLayout = () => {
   /* reference to the module store which is passed onto the fragments */
   const theme = useTheme();
-  const md = useMediaQuery(theme.breakpoints.down("md"));
+  const md = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <PageContainer>
       {/* module header */}
-
       <ModuleHeader
         title="Query Builder"
         description="The Query Builder allows you to build common queries to obtain data from the IATI Datastore in CSV, XML and JSON format."
@@ -73,12 +72,18 @@ export const QueryBuilderLayout = () => {
                 overflow-x: auto;
               `}
             >
+              {/* todo: convoluted; refactor */}
               <Box
+                css={`
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                `}
                 display="flex"
                 flexDirection="row"
                 justifyContent="space-between"
               >
-                {navButtons.map(item => (
+                {navButtons.map((item) => (
+                  // todo: convoluted code, needs refactoring
                   <div
                     css={`
                       display: flex;
@@ -101,9 +106,9 @@ export const QueryBuilderLayout = () => {
                         }
                       }
                     `}
+                    key={item.label}
                   >
                     <NavigationButton
-                      key={item.label}
                       path={item.path}
                       label={item.label}
                       index={item.index}

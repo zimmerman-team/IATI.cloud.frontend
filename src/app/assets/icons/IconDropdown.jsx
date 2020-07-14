@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SvgComponent = props => (
+const SvgComponent = (props) => (
   <svg width={10} height={6} {...props}>
     <defs>
       <path id="prefix__a" d="M7 9.5l5 5 5-5z" />

@@ -126,7 +126,7 @@ export const Typography = {
   },
   h6: {
     fontSize: `${1.5}rem`,
-    fontWeight: Weight.bold,
+    fontWeight: Weight.regular,
     lineHeight: '1.5',
   },
   h5: {

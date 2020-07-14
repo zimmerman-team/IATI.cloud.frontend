@@ -1,12 +1,8 @@
 import React from 'react';
-import { Box, Container, Typography } from '@material-ui/core';
-import { Footer } from 'app/components/surfaces/Footer';
+import { Box, Container } from '@material-ui/core';
 import { PageContainer } from 'app/modules/common/PageContainer';
 import { ModuleHeader } from 'app/modules/common/ModuleHeader';
-import { Paragraph } from './Paragraph';
 import Grid from '@material-ui/core/Grid';
-import Hidden from '@material-ui/core/Hidden';
-import 'styled-components/macro';
 import ErrorImage from 'app/assets/images/404_image.png';
 
 export const PageNotFoundLayout = () => {

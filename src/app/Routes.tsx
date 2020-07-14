@@ -15,41 +15,41 @@ const DocumentationModule = lazy(() => import('app/modules/Documentation'));
 export function MainRoutes() {
   /* todo: refactor, doesn't quite feel right to do initiate the fetches like this */
   const fetchOrganisationTypes = useStoreActions(
-      actions => actions.organisationTypes.fetch
+      (actions) => actions.organisationTypes.fetch
     ),
     fetchOrganisations = useStoreActions(
-      actions => actions.organisations.fetch
+      (actions) => actions.organisations.fetch
     ),
     fetchSectorCategories = useStoreActions(
-      actions => actions.sectorCategories.fetch
+      (actions) => actions.sectorCategories.fetch
     ),
     fetchSectorVocabularies = useStoreActions(
-      actions => actions.sectorVocabularies.fetch
+      (actions) => actions.sectorVocabularies.fetch
     ),
-    fetchRegions = useStoreActions(actions => actions.regions.fetch),
-    fetchSectors = useStoreActions(actions => actions.sectors.fetch),
-    fetchCountries = useStoreActions(actions => actions.countries.fetch),
+    fetchRegions = useStoreActions((actions) => actions.regions.fetch),
+    fetchSectors = useStoreActions((actions) => actions.sectors.fetch),
+    fetchCountries = useStoreActions((actions) => actions.countries.fetch),
     fetchActivityStatus = useStoreActions(
-      actions => actions.activityStatus.fetch
+      (actions) => actions.activityStatus.fetch
     ),
     fetchActivityScope = useStoreActions(
-      actions => actions.activityScope.fetch
+      (actions) => actions.activityScope.fetch
     ),
-    fetchAidType = useStoreActions(actions => actions.aidType.fetch),
+    fetchAidType = useStoreActions((actions) => actions.aidType.fetch),
     fetchAidTypeCategory = useStoreActions(
-      actions => actions.aidTypeCategory.fetch
+      (actions) => actions.aidTypeCategory.fetch
     ),
     fetchAidTypeVocabulary = useStoreActions(
-      actions => actions.aidTypeVocabulary.fetch
+      (actions) => actions.aidTypeVocabulary.fetch
     ),
     fetchDefaultCurrency = useStoreActions(
-      actions => actions.defaultCurrency.fetch
+      (actions) => actions.defaultCurrency.fetch
     ),
     fetchCollaborationType = useStoreActions(
-      actions => actions.collaborationType.fetch
+      (actions) => actions.collaborationType.fetch
     ),
     fetchSecondaryReporter = useStoreActions(
-      actions => actions.secondaryReporter.fetch
+      (actions) => actions.secondaryReporter.fetch
     );
 
   useEffectOnce(() => {

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 export const CustomLink = styled(props => <NavLink {...props} />)`
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 42px;
   height: 24px;
   font-family: Inter;
   font-size: 16px;
