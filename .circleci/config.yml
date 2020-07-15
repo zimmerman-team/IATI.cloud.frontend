@@ -6,7 +6,7 @@ version: 2.1
 executors:
   cypress-executor:
     docker:
-      - image: 'cypress/included:4.10.0'
+      - image: "cypress/included:4.10.0"
     resource_class: large
 
 jobs:
@@ -19,19 +19,22 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: eval ssh-agent -s
-      - run: ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
       - run:
           name: Transfer build to digital ocean instance
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_PROD_1" exit
               rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_1":/home/oipa/oipa-query-builder
               ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
+              ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_PROD_2" exit
               rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
               ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" "/home/oipa/ci_update_front.sh;"
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
               ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
             else
+              ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
               ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
             fi
@@ -48,7 +51,7 @@ workflows:
   build-and-test:
     jobs:
       - cypress/install:
-          name: 'checkout'
+          name: "checkout"
           executor: cypress-executor
           pre-steps:
             - run:
@@ -87,11 +90,11 @@ workflows:
       #
       - deploy:
           requires:
-            - 'checkout'
+            - "checkout"
             # - "local e2e tests"
 
       - cypress/run:
-          name: 'deployed e2e tests'
+          name: "deployed e2e tests"
           executor: cypress-executor
           pre-steps:
             - run:
@@ -112,7 +115,7 @@ workflows:
           record: true
           parallel: true
           parallelism: 5
-          group: 'all tests'
+          group: "all tests"
 
       - release:
           requires:
