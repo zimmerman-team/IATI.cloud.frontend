@@ -11,6 +11,7 @@ import { NavigationButton } from 'app/modules/querybuilder-module/common/Navigat
 import { StepNavigatorContainer } from 'app/modules/querybuilder-module/common/StepNavigatorContainer';
 import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
 import { Redirect } from 'react-router-dom';
+import Sticky from 'react-stickynode';
 
 /* config & mock */
 export type NavButtonModel = {
@@ -64,23 +65,27 @@ export const QueryBuilderLayout = () => {
           <Grid container>
             <Box height="40px" width="100%" />
 
-            <Grid
-              item
-              md={12}
-              style={{ position: 'relative' }}
+            <Sticky
+              top={80}
+              innerZ={10}
               css={`
-                overflow-x: auto;
+                width: 100%;
               `}
             >
-              {/* todo: convoluted; refactor */}
-              <Box
+              <Grid
+                item
+                md={12}
                 css={`
+                  overflow-x: auto;
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
                   padding-top: 10px;
                   padding-bottom: 10px;
+                  height: 70px;
+                  background-color: white;
+                  width: 100%;
                 `}
-                display="flex"
-                flexDirection="row"
-                justifyContent="space-between"
               >
                 {navButtons.map((item) => (
                   // todo: convoluted code, needs refactoring
@@ -124,8 +129,8 @@ export const QueryBuilderLayout = () => {
                     />
                   </div>
                 ))}
-              </Box>
-            </Grid>
+              </Grid>
+            </Sticky>
 
             <Box height="40px" width="100%" />
 
