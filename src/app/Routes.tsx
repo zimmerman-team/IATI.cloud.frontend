@@ -5,12 +5,16 @@ import { Route, Switch } from 'react-router-dom';
 import { PageLoader } from 'app/modules/common/PageLoader';
 import { useStoreActions } from 'app/state/store';
 import { useEffectOnce } from 'react-use';
-import { PageNotFound } from 'app/modules/PageNotFound';
+import { PageNotFound } from 'app/modules/notfound-module';
 
-const AboutModule = lazy(() => import('app/modules/About'));
-const LandingModule = lazy(() => import('app/modules/Landing'));
-const QueryBuilderModule = lazy(() => import('app/modules/QueryBuilder'));
-const DocumentationModule = lazy(() => import('app/modules/Documentation'));
+const AboutModule = lazy(() => import('app/modules/about-module'));
+const LandingModule = lazy(() => import('app/modules/landing-module'));
+const QueryBuilderModule = lazy(() =>
+  import('app/modules/querybuilder-module')
+);
+const DocumentationModule = lazy(() =>
+  import('app/modules/documentation-module')
+);
 
 export function MainRoutes() {
   /* todo: refactor, doesn't quite feel right to do initiate the fetches like this */
