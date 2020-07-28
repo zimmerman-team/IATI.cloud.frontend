@@ -19,8 +19,7 @@ function App() {
             display: flex;
             justify-content: center;
             align-items: center;
-
-            z-index: 200;
+            z-index: 20;
             position: fixed;
             width: 1040px;
             top: 40px;

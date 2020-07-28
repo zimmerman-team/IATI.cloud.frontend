@@ -63,7 +63,7 @@ const BaseComponent = styled((props) => <BaseAppBar {...props} />)`
 export const AppBar = (props: AppBarProps) => {
   // const [shouldHideHeader, setShouldHideHeader] = useState(false);
   const [shouldShrink, setShouldShowShadow] = useState(false);
-  const MINIMUM_SCROLL = 150;
+  const MINIMUM_SCROLL = 180;
   const TIMEOUT_DELAY = 400;
 
   useDocumentScrollThrottled((callbackData) => {
