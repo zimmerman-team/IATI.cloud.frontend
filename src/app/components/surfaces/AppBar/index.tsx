@@ -96,7 +96,7 @@ export const AppBar = (props: AppBarProps) => {
           opacity: ${shouldShrink ? `1` : `0`};
           z-index: -1;
           width: 100vw;
-          height: 100px;
+          height: 90px;
           top: ${shouldShrink ? `-50px` : `-150px`};
           //top: -50px;
           background-color: #1a5161;

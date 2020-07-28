@@ -34,7 +34,7 @@ export const LandingMidSection = () => {
               title="API Documentation"
               description="For guidance on how to form API queries and the available API endpoints and filters please see the IATI.cloud technical documentation."
               buttonLabel="More"
-              path="/documentation/introduction"
+              path="/documentation"
               target="_blank"
             />
           </Grid>
