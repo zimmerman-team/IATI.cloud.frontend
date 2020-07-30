@@ -14,7 +14,7 @@ export const ApiCallParamItem = ({ data }) => {
 
 export const ApiCallParamList = ({ data }) => {
   return (
-    <>
+    <React.Fragment>
       {/* -------------------- */}
       {/* param header */}
       <ParameterHeader>PARAMS</ParameterHeader>
@@ -23,9 +23,12 @@ export const ApiCallParamList = ({ data }) => {
       {/* -------------------- */}
       {/* param list */}
       <ParameterList>
-        {data && data.map((item) => <ApiCallParamItem data={item} />)}
+        {data &&
+          data.map((item, index) => (
+            <ApiCallParamItem key={index} data={item} />
+          ))}
       </ParameterList>
       {/* --------- */}
-    </>
+    </React.Fragment>
   );
 };

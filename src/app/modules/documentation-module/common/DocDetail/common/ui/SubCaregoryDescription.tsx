@@ -5,8 +5,8 @@ export const SubCaregoryDescription = ({ item }) => {
     <Grid item md={12}>
       <Typography variant="body2">
         {item.description && item.description}
-        <Box height={'20px'} width={'20px'} />
       </Typography>
+      <Box height={'20px'} width={'20px'} />
     </Grid>
   );
 };

@@ -35,9 +35,7 @@ export const SubLink1 = (props: Props) => {
       ) : (
         <Folder css={closedStyle} />
       )}
-      <Link to={props.to} {...props}>
-        blablabla{props.text}
-      </Link>
+      <Link {...props}>{props.text}</Link>
     </div>
   );
 };

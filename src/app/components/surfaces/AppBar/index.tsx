@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 import { Hidden } from '@material-ui/core';
 import { DrawerMenu } from 'app/components/navigation/Drawer';
 import { mockData as drawerMockData } from 'app/components/navigation/Drawer/mock';
-
-import { useDebounce, useWindowScroll } from 'react-use';
 import useDocumentScrollThrottled from 'app/components/surfaces/AppBar/utils';
 
 type AppBarProps = {
@@ -61,7 +59,6 @@ const BaseComponent = styled((props) => <BaseAppBar {...props} />)`
 `;
 
 export const AppBar = (props: AppBarProps) => {
-  // const [shouldHideHeader, setShouldHideHeader] = useState(false);
   const [shouldShrink, setShouldShowShadow] = useState(false);
   const MINIMUM_SCROLL = 180;
   const TIMEOUT_DELAY = 400;
@@ -71,22 +68,10 @@ export const AppBar = (props: AppBarProps) => {
     const isScrolledDown = previousScrollTop < currentScrollTop;
     const isMinimumScrolled = currentScrollTop > MINIMUM_SCROLL;
 
-    /*setTimeout(() => {
-      setShouldShowShadow(isScrolledDown && isMinimumScrolled);
-    }, TIMEOUT_DELAY);
-*/
-
     setShouldShowShadow(isMinimumScrolled);
-
-    /*setTimeout(() => {
-      setShouldHideHeader(isScrolledDown && isMinimumScrolled);
-    }, TIMEOUT_DELAY);*/
   });
 
   const shadowStyle = shouldShrink ? shrunkStyle : baseStyle;
-  // const shrinkMode = shouldShowShadow ? true : false;
-
-  console.log(shadowStyle);
 
   return (
     <React.Fragment>

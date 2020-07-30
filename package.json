@@ -19,8 +19,8 @@
     "@testing-library/cypress": "^6.0.0",
     "craco-plugin-react-hot-reload": "^0.1.0",
     "easy-peasy": "^3.2.1",
-    "history": "^4.10.1",
-    "html-react-parser": "^0.9.1",
+    "history": "^5.0.0",
+    "html-react-parser": "^0.13.0",
     "js-base64": "^2.6.2",
     "lodash": "^4.17.15",
     "material-ui-chip-input": "^2.0.0-beta.2",
@@ -32,7 +32,7 @@
     "react-hot-loader": "^4.12.21",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
-    "react-router-hash-link": "^1.2.2",
+    "react-router-hash-link": "^2.0.0",
     "react-scripts": "^3.4.0",
     "react-select": "^3.0.4",
     "react-select-async-paginate": "^0.3.7",
@@ -111,7 +111,7 @@
     "source-map-explorer": "^2.3.1",
     "start-server-and-test": "^1.11.0",
     "ts-loader": "^7.0.5",
-    "typescript": "~3.9.5",
+    "typescript": "4.0.0-beta",
     "webpack-plugin-ramdisk": "^0.1.4"
   },
   "prettier": {

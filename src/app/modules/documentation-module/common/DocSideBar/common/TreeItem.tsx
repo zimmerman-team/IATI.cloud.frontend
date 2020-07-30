@@ -4,7 +4,7 @@ import React from 'react';
 import { TreeItem } from '@material-ui/lab';
 import { HashLink } from 'react-router-hash-link';
 import styled from 'styled-components';
-import { SubLink3 } from './ui/SubLink3';
+import { SubLink3 } from 'app/modules/documentation-module/common/DocSideBar/common/ui/SubLink3';
 
 type Props = {
   item: any;
@@ -60,8 +60,10 @@ const Item = styled((props) => <TreeItem {...props} />)`
 `;
 
 export function TreeItemLink(props: Props) {
+  // console.log('TreeItemLink', props.postmanId, props.item.name);
+
   return (
-    <>
+    <React.Fragment>
       {props.item.item ? (
         <Item nodeId={props.item.name} label={props.item.name}>
           <Link to={`${props.postmanId}#${props.item.name}`} />
@@ -71,9 +73,9 @@ export function TreeItemLink(props: Props) {
         <SubLink3
           requestMethod={props.item.request.method}
           text={props.item.name}
-          to={`${props.postmanId}#${props.item.name}`}
+          to={`/documentation/${props.postmanId}#${props.item.name}`}
         />
       )}
-    </>
+    </React.Fragment>
   );
 }

@@ -44,22 +44,6 @@ export function DocsideBar() {
             Introduction
           </CustomLink>
 
-          {/* <CustomLink key="Endpoints" to="/documentation/introduction">
-            Available endpoints
-          </CustomLink>
-
-          <CustomLink key="XML" to="/documentation/introduction">
-            XML export
-          </CustomLink>
-
-          <CustomLink key="CSV" to="/documentation/introduction">
-            CSV export
-          </CustomLink>
-
-          <CustomLink key="XLS" to="/documentation/introduction">
-            XLS export
-          </CustomLink> */}
-
           <TreeView
             defaultCollapseIcon={<FolderOpen />}
             defaultExpandIcon={<Folder />}
@@ -76,18 +60,21 @@ export function DocsideBar() {
                       <TreeItemLink
                         item={subItem1}
                         postmanId={item._postman_id}
+                        key={subItem1._postman_id}
                       >
                         {subItem1.item &&
                           subItem1.item.map((subItem2) => (
                             <TreeItemLink
                               item={subItem2}
                               postmanId={item._postman_id}
+                              key={subItem2._postman_id}
                             >
                               {subItem2.item &&
                                 subItem2.item.map((subItem3) => (
                                   <TreeItemLink
                                     item={subItem3}
                                     postmanId={item._postman_id}
+                                    key={subItem3._postman_id}
                                   />
                                 ))}
                             </TreeItemLink>

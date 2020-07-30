@@ -21,7 +21,7 @@ export const DocumentationRoutes = () => {
   const fetchPostman = useStoreActions((actions) => actions.fetch);
 
   useEffectOnce(() => {
-    console.log('Running effect once on mount');
+    console.log('fetch postman data once');
 
     fetchPostman();
 

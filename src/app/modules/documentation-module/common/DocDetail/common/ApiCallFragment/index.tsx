@@ -29,20 +29,14 @@ export const ApiCallFragment = (data) => {
 
   const showRequest = useStoreActions((actions) => actions.request.showRequest);
 
+  // console.log('rendr ApiCallFragment');
+
   const [targetRef, percent] = useVisible<HTMLDivElement>(
     (vi: number) => Math.floor(vi * 100),
     {
       rootMargin: '300px 0px -200px 0px',
     }
   );
-
-  // if (percent > 99) {
-  //   if (targetRef.current) {
-  //     if (request) {
-  //       showRequest(request);
-  //     }
-  //   }
-  // }
 
   const handleClick = React.useCallback(() => {
     const url = request.url.raw.replace('{{url}}', targetURL);
@@ -83,9 +77,9 @@ export const ApiCallFragment = (data) => {
         {parsed.description && (
           <Grid item md={12}>
             {parsed.description &&
-              parsed.description.split('\n').map((line) => {
+              parsed.description.split('\n').map((line, index) => {
                 return (
-                  <Typography variant={'body2'}>
+                  <Typography variant={'body2'} key={index}>
                     {line.replace(/`/g, '')}
                   </Typography>
                 );
