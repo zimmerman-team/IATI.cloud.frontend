@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Grid, Typography, useTheme } from '@material-ui/core';
 import { Header } from 'app/components/surfaces/Header';
 import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
-import { useWindowScroll } from 'react-use';
 
 type ModuleModel = {
   title?: string;
@@ -12,9 +11,6 @@ type ModuleModel = {
 export const ModuleHeader = (props: ModuleModel) => {
   const theme = useTheme();
   const md = useMediaQuery(theme.breakpoints.down('md'));
-  const { x, y } = useWindowScroll();
-
-  console.log(x, y);
 
   return (
     <Header>

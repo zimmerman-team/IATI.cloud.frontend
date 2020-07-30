@@ -21,12 +21,12 @@ export const DocumentationRoutes = () => {
   const fetchPostman = useStoreActions((actions) => actions.fetch);
 
   useEffectOnce(() => {
-    console.log('fetch postman data once');
+    //console.log('fetch postman data once');
 
     fetchPostman();
 
     return () => {
-      console.log('Running clean-up of effect on unmount');
+      //console.log('Running clean-up of effect on unmount');
     };
   });
 

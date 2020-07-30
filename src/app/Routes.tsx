@@ -57,7 +57,7 @@ export function MainRoutes() {
     );
 
   useEffectOnce(() => {
-    console.log('Running effect once on mount');
+    //console.log('Running effect once on mount');
     fetchOrganisationTypes();
     fetchOrganisations();
     fetchSectorCategories();
@@ -67,7 +67,7 @@ export function MainRoutes() {
     fetchCountries();
     fetchSecondaryReporter();
     return () => {
-      console.log('Running clean-up of effect on unmount');
+      //console.log('Running clean-up of effect on unmount');
     };
   });
 

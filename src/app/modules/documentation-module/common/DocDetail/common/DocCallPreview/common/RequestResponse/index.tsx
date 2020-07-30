@@ -43,7 +43,7 @@ export const RequestResponse = () => {
   const [request, response] = useFetch(moddedURL);
   const handleClick = () => request.get();
 
-  console.log('leggo');
+  //console.log('leggo');
 
   return (
     <Grid container>

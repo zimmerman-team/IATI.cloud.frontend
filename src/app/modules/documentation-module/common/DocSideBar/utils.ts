@@ -1,8 +1,8 @@
 export function getResults(data, searchVal) {
   const results: any = [];
   const searchValue = searchVal.toLowerCase();
-  console.log(searchVal.toLowerCase());
-  if (searchVal !== "") {
+  //console.log(searchVal.toLowerCase());
+  if (searchVal !== '') {
     data.forEach((category) => {
       let item = category.name.toLowerCase();
       let categoryPass = item.indexOf(searchValue) > -1;
