@@ -24,7 +24,7 @@ export const DownloadButton = (props) => {
   return (
     <div
       onClick={() => {
-        downloadFile(props.queryURL, props.fileName).then(() => cleanIframes());
+        downloadFile(props.queryURL, props.fileName);
         toggle();
       }}
     >
