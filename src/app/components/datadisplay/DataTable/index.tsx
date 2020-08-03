@@ -63,6 +63,10 @@ export const DataTable = (props) => {
 
   return (
     <>
+      <h3>
+        Datastore retrieved {docsData.length}{' '}
+        {docsData.length === 1 ? 'activity' : 'activities'} for you
+      </h3>
       <Paper>
         <Grid rows={docsData} columns={cols}>
           <Table
