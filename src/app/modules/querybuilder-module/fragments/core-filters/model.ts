@@ -38,7 +38,7 @@ export const fragmentConfig: FragmentModel = {
     label: 'Reporting Organisation',
     className: 'organisationNameSelect',
     name: 'organisations',
-    helperText: 'E.g. AT-12 = Ministry of Interior.',
+    helperText: 'e.g. AT-12 = Ministry of Interior.',
     // helperTextLink: 'See list',
     // helperTextUrl: 'http://reference.iatistandard.org/203/codelists/Sector/',
     placeholder: 'All (0)',
