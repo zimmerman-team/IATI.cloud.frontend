@@ -104,7 +104,6 @@ export const additionalFiltersPopData = [
           />
         ),
       },
-
       {
         label: 'Activity status',
         component: (props) => (
@@ -238,6 +237,23 @@ export const additionalFiltersPopData = [
         ),
       },
       {
+        label: 'Document link category',
+        component: (props) => (
+          <AddFilterModule
+            label="Document link category"
+            dataKey="documentLinkCategory"
+            placeholder="All document link categories"
+            value={props.store.get('documentLinkCategory')}
+            onChange={(e) => props.store.set('documentLinkCategory')(e)}
+          />
+        ),
+      },
+    ],
+  ],
+  [
+    'Transaction',
+    [
+      {
         label: 'Transaction type',
         component: (props) => (
           <AddFilterModule
@@ -297,22 +313,10 @@ export const additionalFiltersPopData = [
           />
         ),
       },
-      {
-        label: 'Document link category',
-        component: (props) => (
-          <AddFilterModule
-            label="Document link category"
-            dataKey="documentLinkCategory"
-            placeholder="All document link categories"
-            value={props.store.get('documentLinkCategory')}
-            onChange={(e) => props.store.set('documentLinkCategory')(e)}
-          />
-        ),
-      },
     ],
   ],
   // [
-  //   'Transaction',
+  //   'Budget',
   //   [
   //     {
   //       label: 'Budget identifier',

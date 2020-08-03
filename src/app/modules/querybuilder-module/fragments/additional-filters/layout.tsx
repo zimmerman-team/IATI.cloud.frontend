@@ -24,7 +24,10 @@ export const FilterFragment = () => {
 
   const addedFilterOptions = store.get('additionalFilters');
 
-  const allAddFilters = [...additionalFiltersPopData[0][1]];
+  const allAddFilters = [
+    ...additionalFiltersPopData[0][1],
+    ...additionalFiltersPopData[1][1],
+  ];
 
   return (
     <Grid
