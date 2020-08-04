@@ -19,7 +19,7 @@ import {
   defaultActivityTableCols,
   defaultTransactionTableCols,
   defaultBudgetTableCols,
-} from 'app/modules/QueryBuilder/fragments/results/model';
+} from 'app/modules/querybuilder-module/fragments/results/model';
 import { ROWS } from 'app/state/models/QueryModel';
 import { NoDataCellComponent } from './common/nodatacellcomp';
 

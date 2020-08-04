@@ -14,22 +14,20 @@ export const ModuleHeader = (props: ModuleModel) => {
 
   return (
     <Header>
-      <Grid container>
-        <Grid item xs={12} lg={6}>
-          {props.title && (
-            <Typography variant={md ? 'h6' : 'h4'} color="textSecondary">
-              {props.title}
+      <Grid container item xs={12} lg={6}>
+        {props.title && (
+          <Typography variant={md ? 'h6' : 'h4'} color="textSecondary">
+            {props.title}
+          </Typography>
+        )}
+        {props.description && (
+          <>
+            <Box height="27px" width="100%" />
+            <Typography variant="body2" color="textSecondary">
+              {props.description}
             </Typography>
-          )}
-          {props.description && (
-            <>
-              <Box height="27px" width="100%" />
-              <Typography variant="body2" color="textSecondary">
-                {props.description}
-              </Typography>
-            </>
-          )}
-        </Grid>
+          </>
+        )}
       </Grid>
     </Header>
   );

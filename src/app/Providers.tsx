@@ -16,7 +16,7 @@ type ProviderProps = {
 
 function Providers(props: ProviderProps) {
   return (
-    /* material ui theme proovider*/
+    /* material ui theme provider*/
     <ThemeProvider theme={theme}>
       {/* redux store provider*/}
       <StoreProvider store={appStore}>

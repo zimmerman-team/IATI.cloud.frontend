@@ -38,7 +38,13 @@ export const Footer = () => {
               }
             `}
           >
-            <IATILogoWhite />
+            <a
+              href="https://iatistandard.org/en/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IATILogoWhite />
+            </a>
           </Grid>
           {/* MIDDLE ITEM */}
           <Grid

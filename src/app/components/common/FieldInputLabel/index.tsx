@@ -9,7 +9,7 @@ type Props = {
 const BaseInputLabel = styled((props) => <InputLabel {...props} />)`
   && {
     font-size: 12px;
-    color: rgba(1, 1, 10, 0.38) !important;
+    color: rgba(1, 1, 10, 0.8);
     margin-bottom: 8px;
     font-weight: normal;
   }
