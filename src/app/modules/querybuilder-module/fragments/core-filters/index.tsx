@@ -80,6 +80,7 @@ export const CoreFiltersFragment = () => {
           onChange={(e) => store.set('organisations')(e)}
           // placeholder={`All (${fetchedsectorOrganisations.length})`}
           placeholder={`All organisations`}
+          // helperText="e.g. AT-12 = Ministry of Interior."
         />
       </Grid>
       {/** type of organisation */}

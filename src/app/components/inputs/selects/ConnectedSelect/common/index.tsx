@@ -81,7 +81,7 @@ export const ClearIndicator = ({ innerProps }) => {
   );
 };
 
-export const MultiValueRemove = props => {
+export const MultiValueRemove = (props) => {
   return (
     <MultiValueRemoveWrapper>
       <components.MultiValueRemove {...props}>
@@ -119,7 +119,7 @@ export const Control = () => ({
   margin: 0,
 });
 
-export const ValueContainer = provided => ({
+export const ValueContainer = (provided) => ({
   ...provided,
   padding: '5px',
 });
@@ -132,7 +132,7 @@ export const MenuList = (provided, state) => ({
   overflow: 'scroll',
 });
 
-export const MultiValue = provided => ({
+export const MultiValue = (provided) => ({
   ...provided,
   whiteSpace: 'nowrap',
   overflow: 'hidden',
@@ -159,7 +159,7 @@ export const MultiValueLabel = () => ({
   marginRight: '10px',
 });
 
-export const Menu = provided => ({
+export const Menu = (provided) => ({
   ...provided,
   borderRadius: '2px',
   margin: 0,
@@ -172,6 +172,9 @@ export const HelperBlock = styled.div`
   display: flex;
   margin-top: 8px;
   flex-direction: row;
+  label {
+    color: #000008;
+  }
 
   a {
     font-size: 12px;
