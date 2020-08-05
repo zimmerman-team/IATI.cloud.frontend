@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-export const CustomLink = styled(props => <NavLink {...props} />)`
+
+export const CustomLink = styled((props) => <NavLink {...props} />)`
   width: 100%;
   margin-bottom: 42px;
-  height: 24px;
+  min-height: 24px;
   font-family: Inter;
   font-size: 16px;
   font-weight: 500;

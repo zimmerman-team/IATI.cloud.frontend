@@ -9,6 +9,7 @@ import { SubLink3 } from 'app/modules/documentation-module/common/DocSideBar/com
 type Props = {
   item: any;
   postmanId: string;
+  activeHash: string;
 };
 
 const Link = styled((props) => <HashLink {...props} />)`
@@ -64,7 +65,8 @@ export function TreeItemLink(props: Props) {
 
   return (
     <React.Fragment>
-      {props.item.item ? (
+      {(props.item.item && props.item.item.length > 0) ||
+      props.item._postman_isSubFolder ? (
         <Item nodeId={props.item.name} label={props.item.name}>
           <Link to={`${props.postmanId}#${props.item.name}`} />
           {props.children}
@@ -74,6 +76,10 @@ export function TreeItemLink(props: Props) {
           requestMethod={props.item.request.method}
           text={props.item.name}
           to={`/documentation/${props.postmanId}#${props.item.name}`}
+          active={
+            props.item.name ===
+            decodeURIComponent(props.activeHash.replace('#', ''))
+          }
         />
       )}
     </React.Fragment>

@@ -14,13 +14,14 @@ export const SubLink3 = (props: Props) => {
     <div
       css={`
         display: flex;
+        min-height: 42px;
         flex-direction: row;
-        height: 42px;
         align-items: center;
       `}
     >
-      <Trail />
-      <Link to={props.to}>{props.requestMethod + ' ' + props.text}</Link>
+      <Link to={props.to} active={props.active}>
+        {props.requestMethod + ' ' + props.text}
+      </Link>
     </div>
   );
 };
@@ -28,14 +29,19 @@ export const SubLink3 = (props: Props) => {
 const Link = styled((props) => <CustomLink2 {...props} />)`
   display: flex;
   font-size: 14px;
+  min-height: 42px;
+  flex-direction: row;
+  align-items: center;
   color: rgb(85, 85, 85);
-  font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
+  padding: 5px 0 5px 18px;
   margin-bottom: 0 !important;
+  font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
+  border-left: 4px solid ${(props) => (props.active ? '#5B6673' : '#E2E6EB')};
 `;
 
 const Trail = styled((props) => <div {...props} />)`
   width: 4px;
-  height: 42px;
+  min-height: 42px;
   margin-right: 18px;
   background-color: ${(props) => (props.active ? '#5B6673' : '#E2E6EB')};
 `;
