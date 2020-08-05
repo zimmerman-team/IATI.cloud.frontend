@@ -73,7 +73,6 @@ export const DownloadFragment = () => {
       `tr=${rowFormat}-${repeatRows}-csv.xsl`
     );
   }
-  // console.log('test', store.get('fields'));
 
   return (
     <Grid
@@ -85,7 +84,6 @@ export const DownloadFragment = () => {
       direction="column"
     >
       <Grid item lg={12}>
-        {/* <h3>Datastore retrieved 1 activities for you </h3> */}
         <DataTable
           url={queryURL}
           rowFormat={store.get('rowFormat')}

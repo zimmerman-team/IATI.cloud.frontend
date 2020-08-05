@@ -50,6 +50,7 @@ export const DataTable = (props) => {
   const loadedData: ResponseModel = data && data;
   const responseData: Response = loadedData && loadedData.response;
   const docsData: Doc[] = responseData ? responseData.docs : [];
+  const allDataCount = responseData ? responseData.numFound : 0;
 
   useEffect(() => {
     if (!props.defaultCols && docsData.length > 0) {
@@ -64,8 +65,8 @@ export const DataTable = (props) => {
   return (
     <>
       <h3>
-        Datastore retrieved {docsData.length}{' '}
-        {docsData.length === 1 ? 'activity' : 'activities'} for you
+        Datastore retrieved {allDataCount}{' '}
+        {allDataCount === 1 ? 'activity' : 'activities'} for you
       </h3>
       <Paper>
         <Grid rows={docsData} columns={cols}>
