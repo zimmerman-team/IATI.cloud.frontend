@@ -31,6 +31,10 @@ export const Header = (props: HeaderModel) => {
               css={`
                 width: 1040px;
                 height: 100px;
+
+                @media all and (max-width: 1040px) {
+                  width: calc(100% - 50px);
+                }
               `}
             />
             {props.children && (

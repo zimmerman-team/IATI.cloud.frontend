@@ -86,6 +86,9 @@ export const AppBar = (props: AppBarProps) => {
           //top: -50px;
           background-color: #1a5161;
           transition: all 200ms ease-out;
+          @media all and (max-width: 1040px) {
+            height: 100px;
+          }
         `}
       />
       <BaseComponent

@@ -3,8 +3,7 @@
 import React from 'react';
 import Providers from 'app/Providers';
 import { MainRoutes } from 'app/Routes';
-import { BannerNotice } from 'app/components/feedback/Banners/BannerNotice';
-import Grid from '@material-ui/core/Grid';
+// import { BannerNotice } from 'app/components/feedback/Banners/BannerNotice';
 import { AppBar } from 'app/components/surfaces/AppBar';
 import { PageContainer } from 'app/modules/common/PageContainer';
 import { Container } from '@material-ui/core';
@@ -23,6 +22,9 @@ function App() {
             position: fixed;
             width: 1040px;
             top: 40px;
+            @media all and (max-width: 1040px) {
+              width: calc(100% - 50px);
+            }
           `}
         >
           <AppBar />
