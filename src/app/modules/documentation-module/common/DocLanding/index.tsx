@@ -10,7 +10,6 @@ export const DocLanding = () => {
   // @ts-ignore
   const data: Root = useStoreState((state) => state.data && state.data);
   const collection = data && data.collection;
-
   return (
     <>
       <Box width="100%" height="54px" />
@@ -68,7 +67,7 @@ export const DocLanding = () => {
       <Box width="100%" height="50px" />
       {/* -------------------- */}
       {/* Exports */}
-      <Grid container spacing={8}>
+      {/* <Grid container spacing={8}>
         <Grid item md={12}>
           <HeaderH6
             css={`
@@ -120,7 +119,7 @@ export const DocLanding = () => {
             Not all the API calls have multi format support.
           </Typography>
         </Grid>
-      </Grid>
+      </Grid> */}
     </>
   );
 };
