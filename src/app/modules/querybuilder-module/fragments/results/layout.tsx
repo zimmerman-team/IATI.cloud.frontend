@@ -189,6 +189,10 @@ export const DownloadFragment = () => {
       {/* ---------------------------------------------------------------------------------------------------------- */}
 
       <QbStepNavigator>
+        <QbStepNavigatorButton
+          label="Back"
+          path="/querybuilder/output-format"
+        />
         <Grid
           item
           container
@@ -200,8 +204,8 @@ export const DownloadFragment = () => {
         >
           <FormResetButton />
           <QbStepNavigatorButton
-            label="Back"
-            path="/querybuilder/output-format"
+            label="Done"
+            path="/querybuilder/core-filters"
           />
         </Grid>
       </QbStepNavigator>
