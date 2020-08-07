@@ -2,20 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import Paper from '@material-ui/core/Paper';
 import sortBy from 'lodash/sortBy';
-import { PagingState, IntegratedPaging } from '@devexpress/dx-react-grid';
+import get from 'lodash/get';
+import axios from 'axios';
+import { PagingState, CustomPaging } from '@devexpress/dx-react-grid';
 import {
   Grid,
   PagingPanel,
   Table,
   TableHeaderRow,
 } from '@devexpress/dx-react-grid-material-ui';
-import useFetch from 'use-http/dist';
-
-import {
-  Doc,
-  Response,
-  ResponseModel,
-} from 'app/components/datadisplay/DataTable/model';
 
 import {
   defaultActivityTableCols,
@@ -25,13 +20,6 @@ import {
 import { ROWS } from 'app/state/models/QueryModel';
 import { NoDataCellComponent } from './common/nodatacellcomp';
 
-interface IRow {
-  name: string;
-  gender: string;
-  city: string;
-  car: string;
-}
-
 export const DataTable = (props) => {
   const [cols, setCols] = useState(
     props.rowFormat === 'activity'
@@ -40,27 +28,13 @@ export const DataTable = (props) => {
       ? defaultTransactionTableCols
       : defaultBudgetTableCols
   );
-
+  const [error, setError] = useState(null);
+  const [pageSizes] = useState([10, 25, 50]);
+  const [docsData, setDocsData] = useState([]);
+  const [pageSize, setPageSize] = useState(10);
   const [tablePage, setTablePage] = useState(0);
-  const [queryStart, setQueryStart] = useState(0);
-
-  const options = {
-    onMount: true, // will fire on componentDidMount (GET by default)
-    data: [], // default for `data` will be an array instead of undefined
-  };
-  const { loading, error, data } = useFetch(
-    props.url.replace(`rows=${ROWS}`, `rows=${50}&start=${queryStart}`),
-    options,
-    // trying to re-fetch on change of page
-    // not working
-    [tablePage]
-  );
-
-  const loadedData: ResponseModel = data && data;
-  const responseData: Response = loadedData && loadedData.response;
-  const docsData: Doc[] = responseData ? responseData.docs : [];
-
-  const allDataCount = responseData ? responseData.numFound : 0;
+  const [loading, setLoading] = useState(false);
+  const [allDataCount, setAllDataCount] = useState([]);
 
   useEffect(() => {
     if (!props.defaultCols && docsData.length > 0) {
@@ -72,17 +46,44 @@ export const DataTable = (props) => {
     }
   }, [docsData, props.defaultCols]);
 
-  function handlePageChange(page) {
-    console.log('page', page);
-    setTablePage(page + 1);
-    setQueryStart(tablePage * 10);
+  function getData() {
+    setLoading(true);
+    axios
+      .get(
+        props.url.replace(
+          `rows=${ROWS}`,
+          `rows=${pageSize}&start=${tablePage * 10}`
+        )
+      )
+      .then((response) => {
+        setDocsData(get(response, 'data.response.docs', []));
+        setAllDataCount(get(response, 'data.response.numFound', 0));
+        setLoading(false);
+      })
+      .catch((error) => {
+        if (error.response) {
+          setError(error.response.data);
+        } else {
+          setError(error.message);
+        }
+      });
   }
-  console.log('querystart:', queryStart);
-  console.log('tablepage:', tablePage);
-  console.log('docsdata:', docsData);
+
+  useEffect(() => {
+    getData();
+  }, [tablePage, pageSize]);
 
   return (
-    <>
+    <div
+      css={`
+        & [class*='MuiButton-root'] {
+          font-weight: 300;
+        }
+        & [class*='Pagination-activeButton'] {
+          font-weight: 600;
+        }
+      `}
+    >
       <h3>
         Datastore retrieved {allDataCount}{' '}
         {allDataCount === 1 ? 'activity' : 'activities'} for you
@@ -90,9 +91,12 @@ export const DataTable = (props) => {
       <Paper>
         <Grid rows={docsData} columns={cols}>
           <PagingState
-            onCurrentPageChange={(page: number) => handlePageChange(page)}
+            pageSize={pageSize}
+            currentPage={tablePage}
+            onPageSizeChange={setPageSize}
+            onCurrentPageChange={setTablePage}
           />
-          <IntegratedPaging />
+          <CustomPaging totalCount={allDataCount} />
           <Table
             noDataCellComponent={() => (
               <NoDataCellComponent
@@ -107,9 +111,9 @@ export const DataTable = (props) => {
             // }))}
           />
           <TableHeaderRow />
-          <PagingPanel pageSize="10" />
+          <PagingPanel pageSizes={pageSizes} />
         </Grid>
       </Paper>
-    </>
+    </div>
   );
 };
