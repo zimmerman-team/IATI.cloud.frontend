@@ -17,18 +17,12 @@ export const HomeHeader = (props: HeaderModel) => {
         background-repeat: no-repeat;
         background-position: center right;
         padding-bottom: 47px;
-        padding-top: 40px;
-
-        //position: sticky;
-        //top: 0;
-
-        z-index: 20;
+        padding-top: 140px;
       `}
     >
       <Container maxWidth={'lg'}>
         <Grid container justify="center">
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <AppBar />
             {props.children && (
               <>
                 <Hidden mdDown>

@@ -1,4 +1,4 @@
-@import-normalize;
+/*@import-normalize;*/
 
 @font-face {
   font-family: 'Inter';
@@ -79,4 +79,9 @@ code {
 a {
   text-decoration: initial;
   color: #3074f1;
+}
+
+
+*{
+  /*outline:1px solid #e2e2e2;*/
 }

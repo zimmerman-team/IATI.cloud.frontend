@@ -52,7 +52,12 @@ export const ConnectedSelect = (props: any) => {
         {...props}
       />
       <HelperBlock>
-        {props.helperText && <FieldInputLabel label={props.helperText} />}
+        {props.helperText && (
+          <FieldInputLabel
+            label={props.helperText}
+            css="color: rgba(1,1,10,0.38) !important;"
+          />
+        )}
         {props.helperTextLink && props.helperTextUrl && (
           <a
             target="_blank"

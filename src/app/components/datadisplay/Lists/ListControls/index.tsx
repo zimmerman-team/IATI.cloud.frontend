@@ -1,4 +1,5 @@
 import React from 'react';
+import sortBy from 'lodash/sortBy';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -15,7 +16,7 @@ type Props = {
   addedFilterOptions?: string[];
 };
 
-const BaseComponent = styled(props => <List {...props} />)`
+const BaseComponent = styled((props) => <List {...props} />)`
   &&& {
     padding: 0;
 
@@ -35,7 +36,7 @@ const BaseComponent = styled(props => <List {...props} />)`
   }
 `;
 
-const ListItemModded = styled(props => <ListItem {...props} />)`
+const ListItemModded = styled((props) => <ListItem {...props} />)`
   &&& {
     //background-color: black;
     padding: 0;
@@ -43,13 +44,13 @@ const ListItemModded = styled(props => <ListItem {...props} />)`
   }
 `;
 
-const ListItemIconModded = styled(props => <ListItemIcon {...props} />)`
+const ListItemIconModded = styled((props) => <ListItemIcon {...props} />)`
   &&& {
     min-width: 48px;
   }
 `;
 
-const ListCategory = styled(props => <Typography {...props} />)`
+const ListCategory = styled((props) => <Typography {...props} />)`
   &&& {
     color: black;
     //padding: 16px 0 8px 30px;
@@ -67,7 +68,7 @@ const ListCategory = styled(props => <Typography {...props} />)`
 export const ListControls = (props: Props) => {
   const [checked, setChecked] = React.useState(props.addedFilterOptions || []);
 
-  const handleToggle = value => () => {
+  const handleToggle = (value) => () => {
     const currentIndex = checked.indexOf(value as never);
     const newChecked = [...checked];
 
@@ -85,11 +86,11 @@ export const ListControls = (props: Props) => {
 
   return (
     <BaseComponent>
-      {props.data.map(category => {
+      {props.data.map((category) => {
         return (
           <React.Fragment key={category}>
             <ListCategory variant="h6">{category[0]}</ListCategory>
-            {category[1].map(item => {
+            {sortBy(category[1], 'label').map((item) => {
               return (
                 <React.Fragment key={item.label}>
                   {item.disabled ? (

@@ -19,7 +19,7 @@ import {
   defaultActivityTableCols,
   defaultTransactionTableCols,
   defaultBudgetTableCols,
-} from 'app/modules/QueryBuilder/fragments/results/model';
+} from 'app/modules/querybuilder-module/fragments/results/model';
 import { ROWS } from 'app/state/models/QueryModel';
 import { NoDataCellComponent } from './common/nodatacellcomp';
 
@@ -50,6 +50,7 @@ export const DataTable = (props) => {
   const loadedData: ResponseModel = data && data;
   const responseData: Response = loadedData && loadedData.response;
   const docsData: Doc[] = responseData ? responseData.docs : [];
+  const allDataCount = responseData ? responseData.numFound : 0;
 
   useEffect(() => {
     if (!props.defaultCols && docsData.length > 0) {
@@ -63,6 +64,10 @@ export const DataTable = (props) => {
 
   return (
     <>
+      <h3>
+        Datastore retrieved {allDataCount}{' '}
+        {allDataCount === 1 ? 'activity' : 'activities'} for you
+      </h3>
       <Paper>
         <Grid rows={docsData} columns={cols}>
           <Table

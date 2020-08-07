@@ -1,92 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <!--
+    manifest.json provides metadata used when your web app is installed on a
+    user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+  -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
+    Notice the use of %PUBLIC_URL% in the tags above.
+    It will be replaced with the URL of the `public` folder during the build.
+    Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+    Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+    work correctly both with client-side routing and a non-root public URL.
+    Learn how to configure a non-root public URL by running `npm run build`.
+  -->
 
-    <script type="text/javascript">
-      var _paq = window._paq || [];
-      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */ _paq.push(
-        ["setDocumentTitle", document.domain + "/" + document.title]
-      );
-      _paq.push(["setCookieDomain", "*.iatidatastore.iatistandard.org"]);
-      _paq.push([
-        "setDomains",
-        [
-          "*.iatidatastore.iatistandard.org",
-          "*.iati.cloud",
-          "*.www.iati.cloud",
-        ],
-      ]);
-      _paq.push(["trackPageView"]);
-      _paq.push(["enableLinkTracking"]);
-      (function () {
-        var u = "https://zimmermanzimmerman.matomo.cloud/";
-        _paq.push(["setTrackerUrl", u + "matomo.php"]);
-        _paq.push(["setSiteId", "5"]);
-        var d = document,
-          g = d.createElement("script"),
-          s = d.getElementsByTagName("script")[0];
-        g.type = "text/javascript";
-        g.async = true;
-        g.defer = true;
-        g.src = "//cdn.matomo.cloud/zimmermanzimmerman.matomo.cloud/matomo.js";
-        s.parentNode.insertBefore(g, s);
-      })();
-    </script>
+  <script type="text/javascript">
+    var _paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */ _paq.push(
+            ['setDocumentTitle', document.domain + '/' + document.title]
+    );
+    _paq.push(['setCookieDomain', '*.iatidatastore.iatistandard.org']);
+    _paq.push([
+      'setDomains',
+      [
+        '*.iatidatastore.iatistandard.org',
+        '*.iati.cloud',
+        '*.www.iati.cloud',
+      ],
+    ]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u = 'https://zimmermanzimmerman.matomo.cloud/';
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
+      _paq.push(['setSiteId', '5']);
+      var d = document,
+              g = d.createElement('script'),
+              s = d.getElementsByTagName('script')[0];
+      g.type = 'text/javascript';
+      g.async = true;
+      g.defer = true;
+      g.src = '//cdn.matomo.cloud/zimmermanzimmerman.matomo.cloud/matomo.js';
+      s.parentNode.insertBefore(g, s);
+    })();
+  </script>
 
-    <script src="https://unpkg.com/web-streams-polyfill@2.0.4/dist/ponyfill.es6.js"></script>
+  <script src="https://unpkg.com/web-streams-polyfill@2.0.4/dist/ponyfill.es6.js"></script>
 
-    <script type="text/javascript">
-      (function (e, t, r, n, a) {
-        var c = [];
-        e[a] = function () {
-          c.push(arguments);
-        };
-        e[a].queue = c;
-        var s = t.createElement(r);
-        s.async = 1;
-        s.src = n;
-        var u = t.getElementsByTagName(r)[0];
-        u.parentNode.insertBefore(s, u);
-      })(window, document, "script", "//cdn.sematext.com/rum.js", "strum");
-    </script>
-    <script type="text/javascript">
-      strum("config", {
-        token: "155abb23-9f7e-4bf0-bebd-86ee4043ed74",
-        receiverUrl: "https://rum-receiver.eu.sematext.com",
-      });
-    </script>
-    <title>IATI Datastore</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  <script type="text/javascript">
+    (function(e, t, r, n, a) {
+      var c = [];
+      e[a] = function() {
+        c.push(arguments);
+      };
+      e[a].queue = c;
+      var s = t.createElement(r);
+      s.async = 1;
+      s.src = n;
+      var u = t.getElementsByTagName(r)[0];
+      u.parentNode.insertBefore(s, u);
+    })(window, document, 'script', '//cdn.sematext.com/rum.js', 'strum');
+  </script>
+  <script type="text/javascript">
+    strum('config', {
+      token: '155abb23-9f7e-4bf0-bebd-86ee4043ed74',
+      receiverUrl: 'https://rum-receiver.eu.sematext.com',
+    });
+  </script>
+  <title>IATI Datastore</title>
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root"></div>
+<!--
+  This HTML file is a template.
+  If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  You can add webfonts, meta tags, or analytics to this file.
+  The build step will place the bundled scripts into the <body> tag.
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+  To begin the development, run `npm start` or `yarn start`.
+  To create a production bundle, use `npm run build` or `yarn build`.
+-->
+</body>
 </html>
