@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import Paper from '@material-ui/core/Paper';
 import sortBy from 'lodash/sortBy';
+import { PagingState, IntegratedPaging } from '@devexpress/dx-react-grid';
 import {
   Grid,
+  PagingPanel,
   Table,
   TableHeaderRow,
 } from '@devexpress/dx-react-grid-material-ui';
@@ -44,13 +46,15 @@ export const DataTable = (props) => {
     data: [], // default for `data` will be an array instead of undefined
   };
   const { loading, error, data } = useFetch(
-    props.url.replace(`rows=${ROWS}`, 'rows=10'),
+    props.url.replace(`rows=${ROWS}`, 'rows=100'),
     options
   );
   const loadedData: ResponseModel = data && data;
   const responseData: Response = loadedData && loadedData.response;
   const docsData: Doc[] = responseData ? responseData.docs : [];
   const allDataCount = responseData ? responseData.numFound : 0;
+
+  const [pageSizes] = React.useState<number[]>([5, 10, 20, 50, 100]);
 
   useEffect(() => {
     if (!props.defaultCols && docsData.length > 0) {
@@ -70,6 +74,8 @@ export const DataTable = (props) => {
       </h3>
       <Paper>
         <Grid rows={docsData} columns={cols}>
+          <PagingState />
+          <IntegratedPaging />
           <Table
             noDataCellComponent={() => (
               <NoDataCellComponent
@@ -84,6 +90,7 @@ export const DataTable = (props) => {
             // }))}
           />
           <TableHeaderRow />
+          <PagingPanel pageSizes={pageSizes} />
         </Grid>
       </Paper>
     </>
