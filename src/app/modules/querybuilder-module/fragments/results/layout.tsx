@@ -1,6 +1,6 @@
 // cc:query builder module fragments#; query builder fragments - results;fragment layout and logic
 /* core */
-import React from 'react';
+import React, { useState } from 'react';
 import { css } from 'styled-components/macro';
 /* third-party */
 import Grid from '@material-ui/core/Grid';
@@ -12,6 +12,11 @@ import { URLField } from 'app/components/inputs/textdisplay/URLField';
 import { fragmentConfig } from 'app/modules/querybuilder-module/fragments/results/model';
 import { useStoreState } from 'app/state/store';
 import { ModuleStore } from 'app/modules/querybuilder-module/state/store';
+
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { QbStepNavigatorButton } from 'app/modules/querybuilder-module/common/QbStepNavigatorButton';
@@ -19,6 +24,8 @@ import { QbStepNavigator } from 'app/modules/querybuilder-module/common/QbStepNa
 import { DataTable } from 'app/components/datadisplay/DataTable';
 import { DownloadButton } from './common/DownloadButton';
 import { FormResetButton } from 'app/modules/querybuilder-module/common/FormResetButton';
+import { RadioButtonsGroup } from 'app/components/inputs/radiobuttons/RadioButtonGroup';
+import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
 
 const filename = () => new Date().toISOString().slice(0, 19);
 
@@ -97,6 +104,24 @@ export const DownloadFragment = () => {
 
       {/* ////////////////////////////////////////////////////////////// */}
       <Grid container spacing={2} item md={12} lg={12}>
+        <Grid item xs={12} sm={12} md={12}>
+          <RadioGroupTitle title="Choose sample size" />
+
+          <RadioGroup row>
+            <FormControlLabel
+              // onChange=
+              value="50 activities"
+              control={<Radio />}
+              label="50 activities"
+            />
+            <FormControlLabel
+              color="default"
+              value="All activities"
+              control={<Radio />}
+              label="All activities"
+            />
+          </RadioGroup>
+        </Grid>
         <Grid item xs={12} md={10} lg={9}>
           <URLField text={csvUrl} />
         </Grid>
