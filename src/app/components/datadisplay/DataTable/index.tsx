@@ -41,20 +41,26 @@ export const DataTable = (props) => {
       : defaultBudgetTableCols
   );
 
+  const [tablePage, setTablePage] = useState(0);
+  const [queryStart, setQueryStart] = useState(0);
+
   const options = {
     onMount: true, // will fire on componentDidMount (GET by default)
     data: [], // default for `data` will be an array instead of undefined
   };
   const { loading, error, data } = useFetch(
-    props.url.replace(`rows=${ROWS}`, 'rows=100'),
-    options
+    props.url.replace(`rows=${ROWS}`, `rows=${50}&start=${queryStart}`),
+    options,
+    // trying to re-fetch on change of page
+    // not working
+    [tablePage]
   );
+
   const loadedData: ResponseModel = data && data;
   const responseData: Response = loadedData && loadedData.response;
   const docsData: Doc[] = responseData ? responseData.docs : [];
-  const allDataCount = responseData ? responseData.numFound : 0;
 
-  const [pageSizes] = React.useState<number[]>([5, 10, 20, 50, 100]);
+  const allDataCount = responseData ? responseData.numFound : 0;
 
   useEffect(() => {
     if (!props.defaultCols && docsData.length > 0) {
@@ -66,6 +72,15 @@ export const DataTable = (props) => {
     }
   }, [docsData, props.defaultCols]);
 
+  function handlePageChange(page) {
+    console.log('page', page);
+    setTablePage(page + 1);
+    setQueryStart(tablePage * 10);
+  }
+  console.log('querystart:', queryStart);
+  console.log('tablepage:', tablePage);
+  console.log('docsdata:', docsData);
+
   return (
     <>
       <h3>
@@ -74,7 +89,9 @@ export const DataTable = (props) => {
       </h3>
       <Paper>
         <Grid rows={docsData} columns={cols}>
-          <PagingState />
+          <PagingState
+            onCurrentPageChange={(page: number) => handlePageChange(page)}
+          />
           <IntegratedPaging />
           <Table
             noDataCellComponent={() => (
@@ -90,7 +107,7 @@ export const DataTable = (props) => {
             // }))}
           />
           <TableHeaderRow />
-          <PagingPanel pageSizes={pageSizes} />
+          <PagingPanel pageSize="10" />
         </Grid>
       </Paper>
     </>
