@@ -26,7 +26,7 @@ import { DataTable } from 'app/components/datadisplay/DataTable';
 import { DownloadButton } from './common/DownloadButton';
 import { FormResetButton } from 'app/modules/querybuilder-module/common/FormResetButton';
 import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
-import { setRows } from 'app/state/models/QueryModel';
+// import { setRows } from 'app/state/models/QueryModel';
 
 const filename = () => new Date().toISOString().slice(0, 19);
 
@@ -111,7 +111,16 @@ export const DownloadFragment = () => {
           <RadioGroup
             defaultValue="50"
             onChange={(e) => {
-              setRows(e);
+              switch (e.target.value) {
+                case '50':
+                  document.cookie = 'rows=rows=50';
+                  console.log(queryURL.concat('', 'rows=50'));
+                  break;
+                case 'All':
+                  document.cookie = 'rows=';
+                  console.log(queryURL.replace('rows=50', ''));
+                  break;
+              }
             }}
             row
           >
@@ -119,6 +128,7 @@ export const DownloadFragment = () => {
               // type="primary"
               // onChange=
               value="50"
+              // checked
               control={<Radio />}
               label="50 activities"
             />

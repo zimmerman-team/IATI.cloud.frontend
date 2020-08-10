@@ -74,4 +74,5 @@ export interface ApplicationStoreModel {
   secondaryReporter: SecondaryReporterInterface;
   policyMarker: PolicyMarkerInterface;
   tag: TagInterface;
+  rows: number;
 }
