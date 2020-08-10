@@ -76,10 +76,6 @@ export const applicationStore: ApplicationStoreModel = {
   otherIdentifierType: otherIdentifierType,
   policyMarker: policyMarker,
   tag: tag,
-  rows: document.cookie
-    .split('; ')
-    .find((row) => row.startsWith('rows'))
-    .split('=')[1],
 };
 
 const appStore = createStore(applicationStore);

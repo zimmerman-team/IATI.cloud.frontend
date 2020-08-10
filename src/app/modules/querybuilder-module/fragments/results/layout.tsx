@@ -45,7 +45,8 @@ export const DownloadFragment = () => {
   const store = ModuleStore.useStore();
 
   const queryURL = useStoreState((state) => state.query.url);
-
+  const [queryState, setQueryState] = useState(queryURL);
+  // console.log(queryState);
   const rowFormat = store.get('rowFormat');
   const repeatRows = store.get('repeatRows');
   let stringToBeReplaced = 'csv';
@@ -70,9 +71,9 @@ export const DownloadFragment = () => {
       'csv&fl=*,reporting_org_narrative:[value v=""],sector:[value v=""]';
   }
 
-  let csvUrl = queryURL.includes('fl=')
-    ? queryURL.replace('json', 'csv')
-    : queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`);
+  let csvUrl = queryState.includes('fl=')
+    ? queryState.replace('json', 'csv')
+    : queryState.replace('json', `xslt&tr=${rowFormat}-csv.xsl`);
 
   if (repeatRows !== '0') {
     csvUrl = csvUrl.replace(`/${rowFormat}`, `/${rowFormat}-${repeatRows}`);
@@ -114,21 +115,22 @@ export const DownloadFragment = () => {
               switch (e.target.value) {
                 case '50':
                   document.cookie = 'rows=rows=50';
-                  console.log(queryURL.concat('', 'rows=50'));
+                  setQueryState(queryState.concat('', 'rows=50'));
+                  console.log('50 rows:', queryState);
                   break;
                 case 'All':
                   document.cookie = 'rows=';
-                  console.log(queryURL.replace('rows=50', ''));
+                  setQueryState(queryState.replace('rows=50', ''));
+                  console.log('all:', queryState);
+                  console.log('all2:', queryState.replace('rows=50', ''));
                   break;
               }
             }}
             row
           >
             <FormControlLabel
-              // type="primary"
-              // onChange=
+              color="red"
               value="50"
-              // checked
               control={<Radio />}
               label="50 activities"
             />
@@ -147,9 +149,9 @@ export const DownloadFragment = () => {
           <DownloadButton
             type="CSV"
             queryURL={
-              queryURL.includes('fl=')
-                ? queryURL.replace('json', 'csv')
-                : queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
+              queryState.includes('fl=')
+                ? queryState.replace('json', 'csv')
+                : queryState.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
             }
             fileName={`iatidatastore-iatistandard-${filename()}.csv`}
           />
@@ -174,12 +176,12 @@ export const DownloadFragment = () => {
           css={repeatRows !== '0' && disabledSection}
         >
           <Grid item xs={12} md={10} lg={9}>
-            <URLField text={queryURL} />
+            <URLField text={queryState} />
           </Grid>
           <Grid item xs={4} md={2} lg={3}>
             <DownloadButton
               type="JSON"
-              queryURL={queryURL}
+              queryURL={queryState}
               fileName={`iatidatastore-iatistandard-${filename()}.json`}
             />
           </Grid>
@@ -207,8 +209,8 @@ export const DownloadFragment = () => {
             <URLField
               text={
                 rowFormat === 'activity'
-                  ? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
-                  : queryURL.replace('json', 'xml')
+                  ? queryState.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
+                  : queryState.replace('json', 'xml')
               }
             />
           </Grid>
@@ -217,8 +219,8 @@ export const DownloadFragment = () => {
               type="XML"
               queryURL={
                 rowFormat === 'activity'
-                  ? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
-                  : queryURL.replace('json', 'xml')
+                  ? queryState.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
+                  : queryState.replace('json', 'xml')
               }
               fileName={`iatidatastore-iatistandard-${filename()}.xml`}
             />

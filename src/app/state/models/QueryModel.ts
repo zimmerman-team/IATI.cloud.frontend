@@ -2,7 +2,14 @@ import { baseURL, tableRows } from 'app/state/api';
 
 import { action, Action, createStore, State, useStoreState } from 'easy-peasy';
 
-document.cookie = 'rows=rows=50';
+document.cookie = 'rows:rows=50';
+
+console.log(
+  document.cookie
+    .split('; ')
+    .find((row) => row.startsWith('rows'))
+    .split(':')[1]
+);
 
 export const ROWS = document.cookie
   .split('; ')
