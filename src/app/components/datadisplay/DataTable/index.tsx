@@ -2,18 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import Paper from '@material-ui/core/Paper';
 import sortBy from 'lodash/sortBy';
+import get from 'lodash/get';
+import axios from 'axios';
+import { PagingState, CustomPaging } from '@devexpress/dx-react-grid';
 import {
   Grid,
+  PagingPanel,
   Table,
   TableHeaderRow,
 } from '@devexpress/dx-react-grid-material-ui';
-import useFetch from 'use-http/dist';
-
-import {
-  Doc,
-  Response,
-  ResponseModel,
-} from 'app/components/datadisplay/DataTable/model';
 
 import {
   defaultActivityTableCols,
@@ -23,13 +20,6 @@ import {
 import { ROWS } from 'app/state/models/QueryModel';
 import { NoDataCellComponent } from './common/nodatacellcomp';
 
-interface IRow {
-  name: string;
-  gender: string;
-  city: string;
-  car: string;
-}
-
 export const DataTable = (props) => {
   const [cols, setCols] = useState(
     props.rowFormat === 'activity'
@@ -38,19 +28,13 @@ export const DataTable = (props) => {
       ? defaultTransactionTableCols
       : defaultBudgetTableCols
   );
-
-  const options = {
-    onMount: true, // will fire on componentDidMount (GET by default)
-    data: [], // default for `data` will be an array instead of undefined
-  };
-  const { loading, error, data } = useFetch(
-    props.url.replace(`rows=${ROWS}`, 'rows=10'),
-    options
-  );
-  const loadedData: ResponseModel = data && data;
-  const responseData: Response = loadedData && loadedData.response;
-  const docsData: Doc[] = responseData ? responseData.docs : [];
-  const allDataCount = responseData ? responseData.numFound : 0;
+  const [error, setError] = useState(null);
+  const [pageSizes] = useState([10, 25, 50]);
+  const [docsData, setDocsData] = useState([]);
+  const [pageSize, setPageSize] = useState(10);
+  const [tablePage, setTablePage] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [allDataCount, setAllDataCount] = useState([]);
 
   useEffect(() => {
     if (!props.defaultCols && docsData.length > 0) {
@@ -62,14 +46,57 @@ export const DataTable = (props) => {
     }
   }, [docsData, props.defaultCols]);
 
+  function getData() {
+    setLoading(true);
+    axios
+      .get(
+        props.url.replace(
+          `rows=${ROWS}`,
+          `rows=${pageSize}&start=${tablePage * 10}`
+        )
+      )
+      .then((response) => {
+        setDocsData(get(response, 'data.response.docs', []));
+        setAllDataCount(get(response, 'data.response.numFound', 0));
+        setLoading(false);
+      })
+      .catch((error) => {
+        if (error.response) {
+          setError(error.response.data);
+        } else {
+          setError(error.message);
+        }
+      });
+  }
+
+  useEffect(() => {
+    getData();
+  }, [tablePage, pageSize]);
+
   return (
-    <>
+    <div
+      css={`
+        & [class*='MuiButton-root'] {
+          font-weight: 300;
+        }
+        & [class*='Pagination-activeButton'] {
+          font-weight: 600;
+        }
+      `}
+    >
       <h3>
         Datastore retrieved {allDataCount}{' '}
         {allDataCount === 1 ? 'activity' : 'activities'} for you
       </h3>
       <Paper>
         <Grid rows={docsData} columns={cols}>
+          <PagingState
+            pageSize={pageSize}
+            currentPage={tablePage}
+            onPageSizeChange={setPageSize}
+            onCurrentPageChange={setTablePage}
+          />
+          <CustomPaging totalCount={allDataCount} />
           <Table
             noDataCellComponent={() => (
               <NoDataCellComponent
@@ -84,8 +111,9 @@ export const DataTable = (props) => {
             // }))}
           />
           <TableHeaderRow />
+          <PagingPanel pageSizes={pageSizes} />
         </Grid>
       </Paper>
-    </>
+    </div>
   );
 };
