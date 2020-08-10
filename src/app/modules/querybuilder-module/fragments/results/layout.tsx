@@ -19,13 +19,14 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+// import { changeSampleSize } from 'app/state/models/QueryModel.ts';
 import { QbStepNavigatorButton } from 'app/modules/querybuilder-module/common/QbStepNavigatorButton';
 import { QbStepNavigator } from 'app/modules/querybuilder-module/common/QbStepNavigator';
 import { DataTable } from 'app/components/datadisplay/DataTable';
 import { DownloadButton } from './common/DownloadButton';
 import { FormResetButton } from 'app/modules/querybuilder-module/common/FormResetButton';
-import { RadioButtonsGroup } from 'app/components/inputs/radiobuttons/RadioButtonGroup';
 import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
+import { setRows } from 'app/state/models/QueryModel';
 
 const filename = () => new Date().toISOString().slice(0, 19);
 
@@ -107,16 +108,23 @@ export const DownloadFragment = () => {
         <Grid item xs={12} sm={12} md={12}>
           <RadioGroupTitle title="Choose sample size" />
 
-          <RadioGroup row>
+          <RadioGroup
+            defaultValue="50"
+            onChange={(e) => {
+              setRows(e);
+            }}
+            row
+          >
             <FormControlLabel
+              // type="primary"
               // onChange=
-              value="50 activities"
+              value="50"
               control={<Radio />}
               label="50 activities"
             />
             <FormControlLabel
               color="default"
-              value="All activities"
+              value="All"
               control={<Radio />}
               label="All activities"
             />
