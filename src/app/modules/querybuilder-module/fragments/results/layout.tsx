@@ -1,6 +1,6 @@
 // cc:query builder module fragments#; query builder fragments - results;fragment layout and logic
 /* core */
-import React from 'react';
+import React, { useState } from 'react';
 import { css } from 'styled-components/macro';
 /* third-party */
 import Grid from '@material-ui/core/Grid';
@@ -12,13 +12,21 @@ import { URLField } from 'app/components/inputs/textdisplay/URLField';
 import { fragmentConfig } from 'app/modules/querybuilder-module/fragments/results/model';
 import { useStoreState } from 'app/state/store';
 import { ModuleStore } from 'app/modules/querybuilder-module/state/store';
+
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import RadioGroup from '@material-ui/core/RadioGroup';
+
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+// import { changeSampleSize } from 'app/state/models/QueryModel.ts';
 import { QbStepNavigatorButton } from 'app/modules/querybuilder-module/common/QbStepNavigatorButton';
 import { QbStepNavigator } from 'app/modules/querybuilder-module/common/QbStepNavigator';
 import { DataTable } from 'app/components/datadisplay/DataTable';
-import { DownloadButton } from './common/DownloadButton';
+import { DownloadButton } from 'app/modules/querybuilder-module/fragments/results/common/DownloadButton';
 import { FormResetButton } from 'app/modules/querybuilder-module/common/FormResetButton';
+import { RadioButton } from 'app/components/inputs/radiobuttons/RadioButton';
+import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
+// import { setRows } from 'app/state/models/QueryModel';
 
 const filename = () => new Date().toISOString().slice(0, 19);
 
@@ -37,7 +45,7 @@ export const DownloadFragment = () => {
   const store = ModuleStore.useStore();
 
   const queryURL = useStoreState((state) => state.query.url);
-
+  const [queryState, setQueryState] = useState(queryURL);
   const rowFormat = store.get('rowFormat');
   const repeatRows = store.get('repeatRows');
   let stringToBeReplaced = 'csv';
@@ -62,9 +70,9 @@ export const DownloadFragment = () => {
       'csv&fl=*,reporting_org_narrative:[value v=""],sector:[value v=""]';
   }
 
-  let csvUrl = queryURL.includes('fl=')
-    ? queryURL.replace('json', 'csv')
-    : queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`);
+  let csvUrl = queryState.includes('fl=')
+    ? queryState.replace('json', 'csv')
+    : queryState.replace('json', `xslt&tr=${rowFormat}-csv.xsl`);
 
   if (repeatRows !== '0') {
     csvUrl = csvUrl.replace(`/${rowFormat}`, `/${rowFormat}-${repeatRows}`);
@@ -97,6 +105,38 @@ export const DownloadFragment = () => {
 
       {/* ////////////////////////////////////////////////////////////// */}
       <Grid container spacing={2} item md={12} lg={12}>
+        <Grid item xs={12} sm={12} md={12}>
+          <RadioGroupTitle title="Choose sample size" />
+          <RadioGroup
+            defaultValue="50"
+            onChange={(e) => {
+              switch (e.target.value) {
+                case '50':
+                  document.cookie = 'rows=rows=50';
+                  setQueryState(queryState.concat('', 'rows=50'));
+                  break;
+                case 'All':
+                  document.cookie = 'rows=';
+                  setQueryState(queryState.replace('rows=50', ''));
+                  break;
+                default:
+                  break;
+              }
+            }}
+            row
+          >
+            <FormControlLabel
+              value="50"
+              control={<RadioButton />}
+              label="50 activities"
+            />
+            <FormControlLabel
+              value="All"
+              control={<RadioButton />}
+              label="All activities"
+            />
+          </RadioGroup>
+        </Grid>
         <Grid item xs={12} md={10} lg={9}>
           <URLField text={csvUrl} />
         </Grid>
@@ -104,9 +144,9 @@ export const DownloadFragment = () => {
           <DownloadButton
             type="CSV"
             queryURL={
-              queryURL.includes('fl=')
-                ? queryURL.replace('json', 'csv')
-                : queryURL.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
+              queryState.includes('fl=')
+                ? queryState.replace('json', 'csv')
+                : queryState.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
             }
             fileName={`iatidatastore-iatistandard-${filename()}.csv`}
           />
@@ -131,12 +171,12 @@ export const DownloadFragment = () => {
           css={repeatRows !== '0' && disabledSection}
         >
           <Grid item xs={12} md={10} lg={9}>
-            <URLField text={queryURL} />
+            <URLField text={queryState} />
           </Grid>
           <Grid item xs={4} md={2} lg={3}>
             <DownloadButton
               type="JSON"
-              queryURL={queryURL}
+              queryURL={queryState}
               fileName={`iatidatastore-iatistandard-${filename()}.json`}
             />
           </Grid>
@@ -164,8 +204,8 @@ export const DownloadFragment = () => {
             <URLField
               text={
                 rowFormat === 'activity'
-                  ? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
-                  : queryURL.replace('json', 'xml')
+                  ? queryState.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
+                  : queryState.replace('json', 'xml')
               }
             />
           </Grid>
@@ -174,8 +214,8 @@ export const DownloadFragment = () => {
               type="XML"
               queryURL={
                 rowFormat === 'activity'
-                  ? queryURL.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
-                  : queryURL.replace('json', 'xml')
+                  ? queryState.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
+                  : queryState.replace('json', 'xml')
               }
               fileName={`iatidatastore-iatistandard-${filename()}.xml`}
             />

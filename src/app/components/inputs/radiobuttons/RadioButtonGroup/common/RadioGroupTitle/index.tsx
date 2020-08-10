@@ -12,11 +12,12 @@ type Props = {
   tip?: string | React.ReactNode;
 };
 
-const GroupTitle = styled(props => <FormLabel {...props} />)`
+const GroupTitle = styled((props) => <FormLabel {...props} />)`
   && {
     color: black;
     font-size: 12px;
     font-weight: normal;
+    letterspacing: '0.4202px';
   }
 `;
 

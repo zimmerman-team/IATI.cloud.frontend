@@ -39,7 +39,7 @@ import policyMarker from '../interfaces/PolicyMarkerInterface';
 import tag from 'app/state/interfaces/TagInterface';
 import { queryModel } from 'app/state/models/QueryModel';
 
-const applicationStore: ApplicationStoreModel = {
+export const applicationStore: ApplicationStoreModel = {
   organisationTypes: organisationTypes,
   organisations: organisations,
   sectors: sectors,
