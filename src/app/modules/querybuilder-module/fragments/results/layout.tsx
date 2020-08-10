@@ -14,7 +14,6 @@ import { useStoreState } from 'app/state/store';
 import { ModuleStore } from 'app/modules/querybuilder-module/state/store';
 
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -23,8 +22,9 @@ import { useTheme } from '@material-ui/core/styles';
 import { QbStepNavigatorButton } from 'app/modules/querybuilder-module/common/QbStepNavigatorButton';
 import { QbStepNavigator } from 'app/modules/querybuilder-module/common/QbStepNavigator';
 import { DataTable } from 'app/components/datadisplay/DataTable';
-import { DownloadButton } from './common/DownloadButton';
+import { DownloadButton } from 'app/modules/querybuilder-module/fragments/results/common/DownloadButton';
 import { FormResetButton } from 'app/modules/querybuilder-module/common/FormResetButton';
+import { RadioButton } from 'app/components/inputs/radiobuttons/RadioButton';
 import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
 // import { setRows } from 'app/state/models/QueryModel';
 
@@ -46,7 +46,6 @@ export const DownloadFragment = () => {
 
   const queryURL = useStoreState((state) => state.query.url);
   const [queryState, setQueryState] = useState(queryURL);
-  // console.log(queryState);
   const rowFormat = store.get('rowFormat');
   const repeatRows = store.get('repeatRows');
   let stringToBeReplaced = 'csv';
@@ -108,7 +107,6 @@ export const DownloadFragment = () => {
       <Grid container spacing={2} item md={12} lg={12}>
         <Grid item xs={12} sm={12} md={12}>
           <RadioGroupTitle title="Choose sample size" />
-
           <RadioGroup
             defaultValue="50"
             onChange={(e) => {
@@ -116,28 +114,25 @@ export const DownloadFragment = () => {
                 case '50':
                   document.cookie = 'rows=rows=50';
                   setQueryState(queryState.concat('', 'rows=50'));
-                  console.log('50 rows:', queryState);
                   break;
                 case 'All':
                   document.cookie = 'rows=';
                   setQueryState(queryState.replace('rows=50', ''));
-                  console.log('all:', queryState);
-                  console.log('all2:', queryState.replace('rows=50', ''));
+                  break;
+                default:
                   break;
               }
             }}
             row
           >
             <FormControlLabel
-              color="red"
               value="50"
-              control={<Radio />}
+              control={<RadioButton />}
               label="50 activities"
             />
             <FormControlLabel
-              color="default"
               value="All"
-              control={<Radio />}
+              control={<RadioButton />}
               label="All activities"
             />
           </RadioGroup>
