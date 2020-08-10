@@ -4,7 +4,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Palette } from 'app/theme';
 import Typography from '@material-ui/core/Typography';
 import { Checkbox } from 'app/components/inputs/checkboxes/Checkbox';
@@ -72,15 +72,13 @@ export const ListControls = (props: Props) => {
     const currentIndex = checked.indexOf(value as never);
     const newChecked = [...checked];
 
-    if (currentIndex === -1) {
-      newChecked.push(value as never);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
+    // eslint-disable-next-line no-unused-expressions
+    currentIndex === -1
+      ? newChecked.push(value as never)
+      : newChecked.splice(currentIndex, 1);
 
-    if (props.onCheckChange) {
-      props.onCheckChange(newChecked);
-    }
+    // eslint-disable-next-line no-unused-expressions
+    props.onCheckChange && props.onCheckChange(newChecked);
     setChecked(newChecked);
   };
 
