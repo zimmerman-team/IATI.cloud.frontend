@@ -7802,7 +7802,7 @@ handle-thing@^2.0.0:
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-2.0.1.tgz#857f79ce359580c340d43081cc648970d0bb234e"
   integrity sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==
 
-happo-cypress@^1.0.0:
+happo-cypress@^1.7.3:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/happo-cypress/-/happo-cypress-1.7.3.tgz#bc73035ac44ede5435bea38b6b32cfa9f83106b2"
   integrity sha512-h2wdG+iir7uocITHOpI1xN7m/qnzbIY3t62ZVEGJzxGXa0PqCArOeR8DeHOaxeOzTIfsdOdyJd7kq1BPujBuCA==
@@ -7812,7 +7812,7 @@ happo-cypress@^1.0.0:
     node-fetch "^2.6.0"
     parse-srcset "^1.0.2"
 
-happo.io@^5.4.0:
+happo.io@^5.6.1:
   version "5.6.1"
   resolved "https://registry.yarnpkg.com/happo.io/-/happo.io-5.6.1.tgz#ab73cb984e385e8f12dd9a5562f958f4fa7a2d0a"
   integrity sha512-zvzgU2SPEiHovEnMUBDDhXH5A6fRQNMzpHAa7efLBrzmi8HYkqBtXbyR2i+00MvHEXrcsDkGSliiOKiI7vsTsA==
