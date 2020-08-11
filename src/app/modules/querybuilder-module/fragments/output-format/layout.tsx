@@ -30,6 +30,18 @@ export const OutputFragment = () => {
   const transactionActive = store.get('rowFormat') === 'transaction';
   const budgetActive = store.get('rowFormat') === 'budget';
 
+  function getRadioBtnGroupItems(group) {
+    if (
+      group.groupID === 'repeatRows' &&
+      store.get('rowFormat') !== 'activity'
+    ) {
+      const items = group.items.slice();
+      items[1].disabled = true;
+      return items;
+    }
+    return group.items;
+  }
+
   return (
     <Grid
       container
@@ -49,9 +61,9 @@ export const OutputFragment = () => {
           )}
           {group && (
             <RadioButtonsGroup
-              items={group.items}
               value={group.value}
               onChange={group.onChange}
+              items={getRadioBtnGroupItems(group)}
             />
           )}
         </Grid>

@@ -81,6 +81,10 @@ export const fragmentConfig: FragmentModel = {
         store.set('fields')([]);
         store.set('rowFormat')(e.target.value);
 
+        if (e.target.value !== 'activity') {
+          store.set('repeatRows')('0');
+        }
+
         // console.log(`onChange: ${e.target.value}`);
       },
       value: store.get('rowFormat'),
