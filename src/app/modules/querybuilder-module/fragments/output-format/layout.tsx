@@ -37,6 +37,7 @@ export const OutputFragment = () => {
     ) {
       const items = group.items.slice();
       items[1].disabled = true;
+      items[2].disabled = true;
       return items;
     }
     return group.items;

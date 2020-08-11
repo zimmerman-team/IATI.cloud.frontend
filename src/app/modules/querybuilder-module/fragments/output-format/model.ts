@@ -123,7 +123,6 @@ export const fragmentConfig: FragmentModel = {
           label: 'Multi-sector expansion',
         },
         {
-          disabled: true,
           value: 'country',
           label: 'Multi-country expansion',
         },
