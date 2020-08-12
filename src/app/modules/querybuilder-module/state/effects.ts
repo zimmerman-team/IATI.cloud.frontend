@@ -502,17 +502,6 @@ export const withEffects: StoreEffect = (store) => {
     let temp_string;
     let output;
 
-    let extraFilterStr = '';
-    if (repeatRows && get(sectors, 'length', 0) > 0) {
-      extraFilterStr = `&fq={!join+from=iati_identifier+to=iati_identifier}${
-        ((temp_string = sectors && sectors.join(' ')),
-        (output = `"${temp_string.split(' ').join('" "')}"`),
-        `${
-          rowFormat === 'transaction' ? 'transaction' : ''
-        }sector_code:(${output})`)
-      }`;
-    }
-
     const paramArr = [
       get(organisations, 'length', 0)
         ? `reporting_org_ref:(${organisations && organisations.join(' ')})`
@@ -528,9 +517,7 @@ export const withEffects: StoreEffect = (store) => {
             organisationTypes && organisationTypes.join(' ')
           })`
         : null,
-      get(sectors, 'length', 0) &&
-      rowFormat === 'activity' &&
-      extraFilterStr === ''
+      get(sectors, 'length', 0) && rowFormat === 'activity'
         ? ((temp_string = sectors && sectors.join(' ')),
           (output = `"${temp_string.split(' ').join('" "')}"`),
           `sector_code:(${output})`)
@@ -797,8 +784,7 @@ export const withEffects: StoreEffect = (store) => {
     const surl = constructSolrQuery(
       formattedBaseURL,
       paramArr,
-      get(modifiedFields(), 'length', 0) ? `fl=${fields}` : null,
-      extraFilterStr
+      get(modifiedFields(), 'length', 0) ? `fl=${fields}` : null
     );
 
     // updates the app store
