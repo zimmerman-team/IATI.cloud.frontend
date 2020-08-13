@@ -109,6 +109,7 @@ workflows:
                   fi
                   source $BASH_ENV
           yarn: true
+          command: yarn happo-cypress -- -- yarn cypress run --record --parallel
           browser: chrome
           requires:
             - deploy
