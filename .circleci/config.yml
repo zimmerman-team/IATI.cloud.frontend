@@ -20,9 +20,6 @@ jobs:
           at: ~/
       - run: eval ssh-agent -s
       - run:
-          name: Who am i?
-          command: whoami
-      - run:
           name: Transfer build to digital ocean instance
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
@@ -34,12 +31,10 @@ jobs:
               ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" "/home/oipa/ci_update_front.sh;"
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
-              chown -R $USER:$USER ~/stg-iati-cloud-front/
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
               ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
             else
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
-              chown -R $USER:$USER ~/stg-iati-cloud-front/
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
               ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
             fi
@@ -100,7 +95,7 @@ workflows:
 
       - cypress/run:
           name: "deployed e2e tests"
-          executor: cypress-executor
+#          executor: cypress-executor
           pre-steps:
             - run:
                 name: Set env variables
