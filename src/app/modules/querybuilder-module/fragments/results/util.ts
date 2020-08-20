@@ -6,9 +6,8 @@ export const downloadFile = (url, fileName) => {
     .then((res) => {
       const fileStream = createWriteStream(fileName);
       const writer = fileStream.getWriter();
-      if (res.body.pipeTo) {
+      if (res.body.pipeTo && globalThis.WritableStream) {
         writer.releaseLock();
-        // @ts-ignore
         return res.body.pipeTo(fileStream);
       }
 

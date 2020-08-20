@@ -6,10 +6,7 @@ import { IconButton } from 'app/components/inputs/buttons/IconButton';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import Download from '@material-ui/icons/GetApp';
 import { useToggle } from 'react-use';
-import {
-  cleanIframes,
-  downloadFile,
-} from 'app/modules/querybuilder-module/fragments/results/util';
+import { downloadFile } from 'app/modules/querybuilder-module/fragments/results/util';
 
 type Props = {
   text?: string;
