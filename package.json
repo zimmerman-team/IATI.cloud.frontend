@@ -8,7 +8,6 @@
     "url": "https://github.com/zimmerman-zimmerman/iati.cloud.frontend.git"
   },
   "license": "AGPL-3.0-only",
-  "homepage": ".",
   "dependencies": {
     "@devexpress/dx-react-core": "^2.2.1",
     "@devexpress/dx-react-grid": "^2.2.1",
