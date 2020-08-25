@@ -7,13 +7,12 @@ import { useStoreActions } from 'app/state/store';
 import { useEffectOnce } from 'react-use';
 import { PageNotFound } from 'app/modules/notfound-module';
 
-const AboutModule = lazy(() => import('app/modules/about-module'));
-const LandingModule = lazy(() => import('app/modules/landing-module'));
-const QueryBuilderModule = lazy(() =>
-  import('app/modules/querybuilder-module')
-);
-const DocumentationModule = lazy(() =>
-  import('app/modules/documentation-module')
+import AboutModule from 'app/modules/about-module';
+import LandingModule from 'app/modules/landing-module';
+import QueryBuilderModule from 'app/modules/querybuilder-module';
+
+const DocumentationModule = lazy(
+  () => import('app/modules/documentation-module')
 );
 
 export function MainRoutes() {
