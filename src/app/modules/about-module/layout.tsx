@@ -19,8 +19,8 @@ export const AboutLayout = () => {
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
               About the new Datastore
             </Typography>
-            <ParagraphContainer data-testid="p0">
-              <Typography variant="body1" data-testid="body">
+            <ParagraphContainer data-cy="p0">
+              <Typography variant="body1" data-cy="body">
                 The new IATI Datastore offers a robust online data service,
                 providing timely and standardised access to data published
                 according to the IATI Standard. Data users can gain data on
@@ -42,7 +42,7 @@ export const AboutLayout = () => {
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
               What data can be accessed?
             </Typography>
-            <ParagraphContainer data-testid="p1">
+            <ParagraphContainer data-cy="p1">
               <Typography variant="body1">
                 The new{' '}
                 <a
@@ -64,7 +64,7 @@ export const AboutLayout = () => {
               </Typography>
             </ParagraphContainer>
 
-            <ParagraphContainer data-testid="p2">
+            <ParagraphContainer data-cy="p2">
               <Typography variant="body1">
                 To help users access good quality data, the Datastore will not
                 hold any data that does not adhere to the IATI Schema. The IATI
@@ -86,7 +86,7 @@ export const AboutLayout = () => {
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
               What can I do with the IATI Datastore?
             </Typography>
-            <ParagraphContainer data-testid="p3">
+            <ParagraphContainer data-cy="p3">
               <Typography variant="body1">
                 Depending on what information you are looking for and what
                 questions you want to answer with IATI data, you can form
@@ -100,7 +100,7 @@ export const AboutLayout = () => {
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
               Using the Datastore API
             </Typography>
-            <ParagraphContainer data-testid="p4">
+            <ParagraphContainer data-cy="p4">
               <Typography variant="body1">
                 For detailed documentation on how to use the API, please refer
                 to the{' '}
@@ -127,7 +127,7 @@ export const AboutLayout = () => {
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
               Using the Query Builder
             </Typography>
-            <ParagraphContainer data-testid="p5">
+            <ParagraphContainer data-cy="p5">
               <Typography variant="body1">
                 The{' '}
                 <a
@@ -146,7 +146,7 @@ export const AboutLayout = () => {
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
               In what formats can I output IATI data?
             </Typography>
-            <ParagraphContainer data-testid="p6">
+            <ParagraphContainer data-cy="p6">
               <Typography variant="body1">
                 The benefit of the IATI Datastore is that you can convert the
                 original IATI data, provided in XML format, into two more
@@ -157,11 +157,11 @@ export const AboutLayout = () => {
               </Typography>
             </ParagraphContainer>
 
-            <ParagraphContainer data-testid="p7">
+            <ParagraphContainer data-cy="p7">
               <Typography variant="body1">So, you can output:</Typography>
             </ParagraphContainer>
 
-            <ParagraphContainer data-testid="p8">
+            <ParagraphContainer data-cy="p8">
               <Typography variant="body1">
                 XML - The Datastore returns the original activity XML as
                 published. This is enhanced with metadata, specifying the
@@ -170,7 +170,7 @@ export const AboutLayout = () => {
               </Typography>
             </ParagraphContainer>
 
-            <ParagraphContainer data-testid="p9">
+            <ParagraphContainer data-cy="p9">
               <Typography variant="body1">
                 CSV - The Datastore will convert the published XML data into CSV
                 format. Only a subset of published data is present. This format
@@ -180,7 +180,7 @@ export const AboutLayout = () => {
             </ParagraphContainer>
 
             <ParagraphContainer>
-              <Typography data-testid="p10" variant="body1">
+              <Typography data-cy="p10" variant="body1">
                 You can select the rows in a CSV file to represent individual
                 activities, budgets or transactions depending on the output
                 format you select. Each of these may be expanded by sector or
@@ -191,7 +191,7 @@ export const AboutLayout = () => {
             </ParagraphContainer>
 
             <ParagraphContainer>
-              <Typography data-testid="p11" variant="body1">
+              <Typography data-cy="p11" variant="body1">
                 JSON - The Datastore will convert the published XML to JSON
                 format. All the original published information is present in
                 this alternative format. The same metadata that is given in the

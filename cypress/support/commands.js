@@ -28,4 +28,4 @@ import '@testing-library/cypress/add-commands';
 import { configure } from '@testing-library/cypress';
 import 'happo-cypress';
 
-configure({ testIdAttribute: 'data-testid' });
+configure({ testIdAttribute: 'data-cy' });

@@ -11,7 +11,7 @@ export const Footer = () => {
       width="100%"
       position="absolute"
       bottom="0"
-      data-testid="Footer"
+      data-cy="Footer"
     >
       <Container maxWidth="lg">
         {/* LEFT ITEM */}

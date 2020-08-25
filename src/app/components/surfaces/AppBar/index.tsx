@@ -96,7 +96,7 @@ export const AppBar = (props: AppBarProps) => {
         elevation={1}
         css={shadowStyle}
         {...props}
-        data-testid="AppBar"
+        data-cy="AppBar"
       >
         <Grid container justify="space-between" alignItems="center">
           <Grid item xs={8} md={5} lg={5}>

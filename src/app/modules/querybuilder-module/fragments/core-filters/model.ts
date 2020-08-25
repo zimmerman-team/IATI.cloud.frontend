@@ -16,6 +16,7 @@ type SelectModel = {
   onChange?: any;
   getOptionLabel?: getOptionLabel;
   getOptionValue?: getOptionValue;
+  data_cy?: string;
 };
 
 interface FragmentModel extends FragmentBaseModel {
@@ -38,6 +39,7 @@ export const fragmentConfig: FragmentModel = {
     label: 'Reporting Organisation',
     className: 'organisationNameSelect',
     name: 'organisations',
+    data_cy: 'organisations',
     helperText: 'e.g. AT-12 = Ministry of Interior.',
     // helperTextLink: 'See list',
     // helperTextUrl: 'http://reference.iatistandard.org/203/codelists/Sector/',
@@ -55,6 +57,7 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'All (0)',
     className: 'organisationTypeSelect',
     name: 'organisationTypes',
+    data_cy: 'organisation-type-select',
     getOptionLabel: (option) => `${option.code}: ${option.name}`,
     getOptionValue: (option) => option.code,
   },
@@ -63,6 +66,7 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'Choose',
     className: 'secondaryReporterSelect',
     name: 'secondaryReporter',
+    data_cy: 'secondary-reporter',
     getOptionLabel: (option) => `${option.code}: ${option.name}`,
     getOptionValue: (option) => option.code,
   },
@@ -73,6 +77,7 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'All (0)',
     className: 'organisationSectorSelect',
     name: 'organisationSector',
+    data_cy: 'organisation-sector',
     getOptionLabel: (option) => `${option.code}: ${option.name}`,
     getOptionValue: (option) => option.code,
   },
@@ -84,6 +89,7 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'All (0)',
     className: 'sectorCategorySelect',
     name: 'sectorCategory',
+    data_cy: 'sector-category',
     getOptionLabel: (option) => `${option.code}: ${option.name}`,
     getOptionValue: (option) => option.code,
   },
@@ -94,6 +100,7 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'All (0)',
     className: 'sectorVocabularySelect',
     name: 'sectorVocabulary',
+    data_cy: 'sector-vocabulary',
     getOptionLabel: (option) => `${option.code}: ${option.name}`,
     getOptionValue: (option) => option.code,
   },
@@ -102,6 +109,7 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'All (0)',
     className: 'recipientCountrySelect',
     name: 'recipientCountry',
+    data_cy: 'recipient-country',
     getOptionLabel: (option) =>
       `${option.recipient_country.code}: ${option.recipient_country.name}`,
     getOptionValue: (option) => option.recipient_country.code,
@@ -111,6 +119,7 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'All (0)',
     className: 'recipientRegionSelect',
     name: 'recipientRegion',
+    data_cy: 'recipient-region',
     getOptionLabel: (option) =>
       `${option.recipient_region.code}: ${option.recipient_region.name}`,
     getOptionValue: (option) => option.recipient_region.code,
@@ -120,6 +129,7 @@ export const fragmentConfig: FragmentModel = {
     placeholder: 'No',
     className: 'activityPeriode',
     name: 'activityPeriode',
+    data_cy: 'activity-period',
     options: ['Yes', 'No'],
     getOptionLabel: (option) => option,
     getOptionValue: (option) => option,

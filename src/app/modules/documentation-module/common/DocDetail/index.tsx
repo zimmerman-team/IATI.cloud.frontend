@@ -1,3 +1,4 @@
+// @ts-nocheck
 //cc:api documentation module#; content - api category/call detail
 import React from 'react';
 import { useStoreState } from 'app/modules/documentation-module/state/store';
