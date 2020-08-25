@@ -67,7 +67,10 @@ export const IndicatorSeparator = ({ innerProps }) => {
 
 export const DropdownIndicator = ({ innerProps }) => {
   return (
-    <DropdownIndicatorWrapper {...innerProps}>
+    <DropdownIndicatorWrapper
+      {...innerProps}
+      data-cy={'select-dropdown-indicator-wrapper'}
+    >
       <ArrowDropDown htmlColor="#828894" fontSize="small" />
     </DropdownIndicatorWrapper>
   );
@@ -75,7 +78,10 @@ export const DropdownIndicator = ({ innerProps }) => {
 
 export const ClearIndicator = ({ innerProps }) => {
   return (
-    <IndicatorClearWrapper {...innerProps}>
+    <IndicatorClearWrapper
+      {...innerProps}
+      data-cy={'select-indicator-clear-wrapper'}
+    >
       <Clear htmlColor="#828894" fontSize="inherit" />
     </IndicatorClearWrapper>
   );
@@ -83,7 +89,7 @@ export const ClearIndicator = ({ innerProps }) => {
 
 export const MultiValueRemove = (props) => {
   return (
-    <MultiValueRemoveWrapper>
+    <MultiValueRemoveWrapper data-cy={'select-multi-value-remove-wrapper'}>
       <components.MultiValueRemove {...props}>
         <Clear htmlColor="white" fontSize="small" />
       </components.MultiValueRemove>

@@ -18,8 +18,6 @@ const coreFiltersLabels = [
 ];
 
 describe('Query Builder - core filters', function () {
-  // autoRecord();
-
   it('should load the page', function () {
     cy.visit('/querybuilder/core-filters');
   });
@@ -52,7 +50,7 @@ describe('Query Builder - core filters', function () {
   });
 
   it('should be able to navigate to the next page', function () {
-    cy.get('a > .MuiButtonBase-root').click();
+    cy.get('a > .MuiButtonBase-root').click({ force: true });
   });
 
   it('make screenshot', () => {
@@ -79,11 +77,15 @@ describe('Query Builder - core filters', function () {
     selectNumber: number,
     optionNumber: number
   ) {
-    cy.get(selector).click();
+    cy.get(`${selector} > [class*=Control] > [class*=ValueContainer]`).click({
+      force: true,
+    });
     cy.get(`#react-select-${selectNumber}-option-${optionNumber}`).then(
       ($span) => {
         const selectText: string = $span.text();
-        cy.get(`#react-select-${selectNumber}-option-${optionNumber}`).click();
+        cy.get(`#react-select-${selectNumber}-option-${optionNumber}`).click({
+          force: true,
+        });
         cy.get(`[class*=multiValue]`).last().should('have.text', selectText);
       }
     );
