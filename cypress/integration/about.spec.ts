@@ -43,7 +43,7 @@ describe('About', function () {
     cy.viewport(1440, 821);
     aboutHeadersText.map((text) => cy.findAllByText(text).should('exist'));
     for (let index = 0; index < aboutParagraphs.length; index++) {
-      cy.get(`[data-testid="p${index}"]`).should(
+      cy.get(`[data-cy="p${index}"]`).should(
         'contain.text',
         aboutParagraphs[index]
       );
