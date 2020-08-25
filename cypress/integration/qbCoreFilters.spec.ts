@@ -37,6 +37,10 @@ describe('Query Builder - core filters', function () {
     cy.get('[href="/querybuilder/results"]').should('exist');
   });
 
+  // it('should get component', function () {
+  //   cy.get('a > .MuiButtonBase-root').click({ force: true });
+  // });
+
   // todo: implement test for date picker (when MUI datapicker has been implememented)
   it('should be able to select all fields', function () {
     testSelect('.organisationNameSelect', 2, 0);
@@ -49,9 +53,9 @@ describe('Query Builder - core filters', function () {
     testSelect('.recipientRegionSelect', 9, 0);
   });
 
-  it('should be able to navigate to the next page', function () {
-    cy.get('a > .MuiButtonBase-root').click({ force: true });
-  });
+  // it('should be able to navigate to the next page', function () {
+  //   cy.get('a > .MuiButtonBase-root').click({ force: true });
+  // });
 
   it('make screenshot', () => {
     cy.get('body').happoScreenshot({
@@ -77,7 +81,9 @@ describe('Query Builder - core filters', function () {
     selectNumber: number,
     optionNumber: number
   ) {
-    cy.get(`${selector} > [class*=Control] > [class*=ValueContainer]`).click({
+    //  cy.get(`${selector} > [class*=Control] > [class*=ValueContainer]`).click({
+    // `[class^=${selector}] > [class*=-Control] > [class*=-ValueContainer]`
+    cy.get(`${selector} > :nth-child(1) > :nth-child(1)`).click({
       force: true,
     });
     cy.get(`#react-select-${selectNumber}-option-${optionNumber}`).then(
