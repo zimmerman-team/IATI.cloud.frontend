@@ -13,7 +13,7 @@ describe('Query Builder - Additional filters', function () {
   });
 
   it('should show the correct text', function () {
-    cy.findByText('Additional Filters').click();
+    cy.findByText('Additional Filters').click({ force: true });
     additionalFiltersLabels.forEach((text) => {
       cy.findByText(text).should('exist');
     });
@@ -35,16 +35,16 @@ describe('Query Builder - Additional filters', function () {
   });
 
   it('should be able to add a filter', function () {
-    cy.get('.MuiGrid-grid-md-4 > .MuiButtonBase-root').click();
+    cy.get('.MuiGrid-grid-md-4 > .MuiButtonBase-root').click({ force: true });
     cy.get(
       ':nth-child(3) > .MuiListItemText-root > .MuiTypography-root'
-    ).click();
-    cy.get('body').click();
+    ).click({ force: true });
+    cy.get('body').click({ force: true });
     cy.contains('Default language').should('exist');
   });
 
   it('should be able to navigate to the next page', function () {
-    cy.get(':nth-child(2) > a > .MuiButtonBase-root').click();
+    cy.get(':nth-child(2) > a > .MuiButtonBase-root').click({ force: true });
   });
 
   it('make screenshot', () => {
@@ -63,11 +63,13 @@ function testSelect(
   selectNumber: number,
   optionNumber: number
 ) {
-  cy.findByText(selector).click();
+  cy.findByText(selector).click({ force: true });
   cy.get(`#react-select-${selectNumber}-option-${optionNumber}`).then(
     ($span) => {
       const selectText: string = $span.text();
-      cy.get(`#react-select-${selectNumber}-option-${optionNumber}`).click();
+      cy.get(`#react-select-${selectNumber}-option-${optionNumber}`).click({
+        force: true,
+      });
       cy.get(`[class*=multiValue]`).last().should('have.text', selectText);
     }
   );
