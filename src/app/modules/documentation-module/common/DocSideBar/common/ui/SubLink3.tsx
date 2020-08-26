@@ -20,7 +20,7 @@ export const SubLink3 = (props: Props) => {
       `}
     >
       <Link to={props.to} active={props.active}>
-        {props.requestMethod + ' ' + props.text}
+        {`${props.requestMethod} ${props.text}`}
       </Link>
     </div>
   );

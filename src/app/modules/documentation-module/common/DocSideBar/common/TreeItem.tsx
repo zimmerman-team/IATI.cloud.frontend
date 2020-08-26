@@ -73,7 +73,7 @@ export function TreeItemLink(props: Props) {
         </Item>
       ) : (
         <SubLink3
-          requestMethod={props.item.request.method}
+          requestMethod={props.item.request ? props.item.request.method : ''}
           text={props.item.name}
           to={`/documentation/${props.postmanId}#${props.item.name}`}
           active={
