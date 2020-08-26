@@ -118,8 +118,8 @@ workflows:
           group: "all tests"
 
       - release:
-          requires:
-            - deploy
+          # requires:
+          #   - deploy
           filters:
             branches:
               only: master
