@@ -90,7 +90,7 @@ workflows:
       #
       # - deploy:
       #     requires:
-      #       - 'checkout'
+      #       - "checkout"
       #       # - "local e2e tests"
 
       - cypress/run:
@@ -111,7 +111,7 @@ workflows:
           yarn: true
           browser: chrome
           requires:
-            - deploy
+            - "checkout"
           record: true
           parallel: true
           parallelism: 5
