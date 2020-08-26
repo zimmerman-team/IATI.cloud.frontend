@@ -1,10 +1,9 @@
 export function getResults(data, searchVal) {
   const results: any = [];
   const searchValue = searchVal.toLowerCase();
-  //console.log(searchVal.toLowerCase());
   if (searchVal !== '') {
     data.forEach((category) => {
-      let item = category.name.toLowerCase();
+      const item = category.name.toLowerCase();
       let categoryPass = item.indexOf(searchValue) > -1;
       let item1Pass = false;
       let item2Pass = false;
@@ -12,20 +11,24 @@ export function getResults(data, searchVal) {
       let catIndex = 0;
       let item1Index = 0;
       let item2Index = 0;
+      let emptyCategory = false;
       if (categoryPass) {
         results.push({ ...category, item: [] });
         catIndex = results.length - 1;
+        emptyCategory = true;
       }
       category.item.forEach((item1) => {
         item1Pass = item1.name.indexOf(searchValue) > -1;
         if (!categoryPass && item1Pass) {
           results.push({ ...category, item: [] });
           catIndex = results.length - 1;
+          emptyCategory = false;
           categoryPass = true;
         }
         if (item1Pass) {
           results[catIndex].item.push({ ...item1, item: [] });
           item1Index = results[catIndex].item.length - 1;
+          emptyCategory = false;
         }
         if (item1.item) {
           item1.item.forEach((item2) => {
@@ -34,11 +37,13 @@ export function getResults(data, searchVal) {
               if (!categoryPass) {
                 results.push({ ...category, item: [] });
                 catIndex = results.length - 1;
+                emptyCategory = false;
                 categoryPass = true;
               }
               if (!item1Pass) {
                 results[catIndex].item.push({ ...item1, item: [] });
                 item1Index = results[catIndex].item.length - 1;
+                emptyCategory = false;
                 item1Pass = true;
               }
             }
@@ -57,11 +62,13 @@ export function getResults(data, searchVal) {
                   if (!categoryPass) {
                     results.push({ ...category, item: [] });
                     catIndex = results.length - 1;
-                    categoryPass = true;
+          emptyCategory = false;
+          categoryPass = true;
                   }
                   if (!item1Pass) {
                     results[catIndex].item.push({ ...item1, item: [] });
                     item1Index = results[catIndex].item.length - 1;
+                    emptyCategory = false;
                     item1Pass = true;
                   }
                   if (!item2Pass) {
@@ -88,6 +95,9 @@ export function getResults(data, searchVal) {
           });
         }
       });
+      if (emptyCategory) {
+        results[results.length - 1] = category;
+      }
     });
     return results;
   }
