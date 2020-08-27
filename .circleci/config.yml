@@ -94,6 +94,10 @@ workflows:
 #           requires:
 #             - "checkout"
 #             # - "local e2e tests"
+      - deploy:
+          requires:
+            - "checkout"
+            # - "local e2e tests"
 
       - cypress/run:
           name: "deployed e2e tests"
