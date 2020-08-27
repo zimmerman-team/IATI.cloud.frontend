@@ -36,9 +36,7 @@ jobs:
             else
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
-              ssh "$SSH_USER"@"$SSH_HOST_DEV" "ls -al stg-iati-cloud-front/build/"
               ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
-              ssh "$SSH_USER"@"$SSH_HOST_DEV" "ls -al stg-iati-cloud-front/build/"
             fi
 
   release:
