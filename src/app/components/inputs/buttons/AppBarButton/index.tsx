@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { LocationDescriptor } from 'history';
+import { useLocation } from 'react-router-dom'
+
 
 type Props = {
   size?: string;
@@ -79,7 +81,7 @@ export const AppBarButton = (props: Props) => {
               border-bottom: 4px solid transparent;
             }
           `}
-          exact
+          strict
           activeStyle={{ borderBottom: '4px solid #03dbe4', height: '96px' }}
           to={props.url}
         >

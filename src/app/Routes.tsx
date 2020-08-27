@@ -1,7 +1,7 @@
 //cc:application base#;application routes
 
 import React, { Suspense, lazy } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { PageLoader } from 'app/modules/common/PageLoader';
 import { useStoreActions } from 'app/state/store';
 import { useEffectOnce } from 'react-use';
@@ -77,6 +77,9 @@ export function MainRoutes() {
           <QueryBuilderModule />
         </Route>
         <Route exact path="/">
+          <Redirect to="/home" />
+        </Route>
+        <Route exact path="/home">
           <LandingModule />
         </Route>
         <Route path="/documentation">
