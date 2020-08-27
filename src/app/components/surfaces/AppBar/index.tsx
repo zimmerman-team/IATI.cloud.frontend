@@ -129,7 +129,7 @@ export const AppBar = (props: AppBarProps) => {
                 height: 100%;
               `}
             >
-              <AppBarButton shrink={shouldShrink} label="HOME" url="/" />
+              <AppBarButton shrink={shouldShrink} label="HOME" url="/home" />
               <AppBarButton shrink={shouldShrink} label="ABOUT" url="/about" />
               <AppBarButton
                 shrink={shouldShrink}
