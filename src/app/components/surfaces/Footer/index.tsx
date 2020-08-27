@@ -5,6 +5,7 @@ import { FooterSM } from './FooterSM';
 import { FooterMD } from './FooterMD';
 import { FooterLG } from './FooterLG';
 
+//Decided to split up the components per breakpoint for faster detection of faulty code.
 export const Footer = () => {
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
