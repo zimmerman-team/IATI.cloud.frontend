@@ -68,30 +68,34 @@ workflows:
           yarn: true
           build: yarn build
 
-      # - cypress/run:
-      #     name: "local e2e tests"
-      #     executor: cypress-executor
-      #     pre-steps:
-      #       - run:
-      #           name: Set env variables
-      #           command: |
-      #               echo 'export CYPRESS_BASE_URL="http://localhost:3000"' >> $BASH_ENV
-      #             source $BASH_ENV
-      #     wait-on: "http://localhost:3000"
-      #     yarn: true
-      #     start: yarn start:ci
-      #     browser: chrome
-      #     requires:
-      #       - deploy
-      #     record: true
-      #     parallel: true
-      #     parallelism: 5
-      #     group: "all tests"
-      #
-      # - deploy:
-      #     requires:
-      #       - "checkout"
-      #       # - "local e2e tests"
+#       - cypress/run:
+#           name: "local e2e tests"
+#           executor: cypress-executor
+#           pre-steps:
+#             - run:
+#                 name: Set env variables
+#                 command: |
+#                     echo 'export CYPRESS_BASE_URL="http://localhost:3000"' >> $BASH_ENV
+#                   source $BASH_ENV
+#           wait-on: "http://localhost:3000"
+#           yarn: true
+#           start: yarn start:ci
+#           browser: chrome
+#           requires:
+#             - deploy
+#           record: true
+#           parallel: true
+#           parallelism: 5
+#           group: "all tests"
+#
+#       - deploy:
+#           requires:
+#             - "checkout"
+#             # - "local e2e tests"
+      - deploy:
+          requires:
+            - "checkout"
+            # - "local e2e tests"
 
       - cypress/run:
           name: "deployed e2e tests"
@@ -118,8 +122,8 @@ workflows:
           group: "all tests"
 
       - release:
-          # requires:
-          #   - deploy
+          requires:
+            - deploy
           filters:
             branches:
               only: master
