@@ -199,7 +199,7 @@ export const DownloadFragment = () => {
           <Grid item xs={12} md={10} lg={9}>
             <URLField
               text={
-                rowFormat === 'activity'
+                rowFormat === 'activity' && !queryState.includes('fl=')
                   ? queryState.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
                   : queryState.replace('json', 'xml')
               }
@@ -209,7 +209,7 @@ export const DownloadFragment = () => {
             <DownloadButton
               type="XML"
               queryURL={
-                rowFormat === 'activity'
+                rowFormat === 'activity' && !queryState.includes('fl=')
                   ? queryState.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
                   : queryState.replace('json', 'xml')
               }
