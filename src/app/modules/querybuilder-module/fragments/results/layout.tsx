@@ -143,11 +143,7 @@ export const DownloadFragment = () => {
         <Grid item xs={4} md={2} lg={3}>
           <DownloadButton
             type="CSV"
-            queryURL={
-              queryState.includes('fl=')
-                ? queryState.replace('json', 'csv')
-                : queryState.replace('json', `xslt&tr=${rowFormat}-csv.xsl`)
-            }
+            queryURL={csvUrl}
             fileName={`iatidatastore-iatistandard-${filename()}.csv`}
           />
         </Grid>
