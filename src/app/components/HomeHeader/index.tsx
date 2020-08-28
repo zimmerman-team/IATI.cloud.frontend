@@ -8,6 +8,8 @@ import { Hidden } from '@material-ui/core';
 import BackgroundImage from 'app/assets/images/DottedMap.svg';
 
 export const HomeHeader = (props: HeaderModel) => {
+  console.log('zimmerman team test');
+
   return (
     <div
       css={`
