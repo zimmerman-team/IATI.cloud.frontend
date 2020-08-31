@@ -75,3 +75,5 @@ cypress/videos/
 build_storybook/
 
 
+.vscode/chrome/
+
