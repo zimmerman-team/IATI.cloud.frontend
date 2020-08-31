@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import BaseAppBar from '@material-ui/core/AppBar';
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components/macro';
 import { AppBarButton } from 'app/components/inputs/buttons/AppBarButton';
 import Grid from '@material-ui/core/Grid';
 import { IATILogoColor } from 'app/components/svgs/IATILogo';
@@ -59,31 +59,32 @@ const BaseComponent = styled((props) => <BaseAppBar {...props} />)`
 `;
 
 export const AppBar = (props: AppBarProps) => {
-  const [shouldShrink, setShouldShowShadow] = useState(false);
-  const MINIMUM_SCROLL = 180;
-  const TIMEOUT_DELAY = 400;
+  // const [shouldShrink, setShouldShowShadow] = useState(false);
+  // const MINIMUM_SCROLL = 180;
+  // const TIMEOUT_DELAY = 400;
 
-  useDocumentScrollThrottled((callbackData) => {
-    const { previousScrollTop, currentScrollTop } = callbackData;
-    const isScrolledDown = previousScrollTop < currentScrollTop;
-    const isMinimumScrolled = currentScrollTop > MINIMUM_SCROLL;
+  // useDocumentScrollThrottled((callbackData) => {
+  //   const { previousScrollTop, currentScrollTop } = callbackData;
+  //   const isScrolledDown = previousScrollTop < currentScrollTop;
+  //   const isMinimumScrolled = currentScrollTop > MINIMUM_SCROLL;
 
-    setShouldShowShadow(isMinimumScrolled);
-  });
+  //   setShouldShowShadow(isMinimumScrolled);
+  // });
 
-  const shadowStyle = shouldShrink ? shrunkStyle : baseStyle;
+  const shadowStyle = props.shrink ? shrunkStyle : baseStyle;
 
   return (
     <React.Fragment>
       <div
         css={`
           position: absolute;
-          opacity: ${shouldShrink ? `1` : `0`};
+          opacity: ${props.shrink ? `1` : `0`};
           z-index: -1;
           width: 100vw;
           height: 90px;
-          top: ${shouldShrink ? `-50px` : `-150px`};
-          //top: -50px;
+          top: ${props.shrink ? `-50px` : `-150px`};
+          /* top: -150px; */
+          /* top: -50px; */
           background-color: #1a5161;
           transition: all 200ms ease-out;
           @media all and (max-width: 1040px) {
@@ -104,7 +105,7 @@ export const AppBar = (props: AppBarProps) => {
               <IATILogoColor
                 css={`
                   transition: transform 100ms ease-out;
-                  transform: ${shouldShrink
+                  transform: ${props.shrink
                     ? `scale(0.5) translateX(-125px)`
                     : `scale(1) translateX(0)`};
                   @media (max-width: 768px) {
@@ -129,15 +130,15 @@ export const AppBar = (props: AppBarProps) => {
                 height: 100%;
               `}
             >
-              <AppBarButton shrink={shouldShrink} label="HOME" url="/home" />
-              <AppBarButton shrink={shouldShrink} label="ABOUT" url="/about" />
+              <AppBarButton shrink={props.shrink} label="HOME" url="/home" />
+              <AppBarButton shrink={props.shrink} label="ABOUT" url="/about" />
               <AppBarButton
-                shrink={shouldShrink}
+                shrink={props.shrink}
                 label="QUERY BUILDER"
                 url="/querybuilder/core-filters"
               />
               <AppBarButton
-                shrink={shouldShrink}
+                shrink={props.shrink}
                 label="API DOCUMENTATION"
                 url="/documentation"
               />

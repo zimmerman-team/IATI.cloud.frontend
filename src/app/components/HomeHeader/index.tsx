@@ -8,8 +8,6 @@ import { Hidden } from '@material-ui/core';
 import BackgroundImage from 'app/assets/images/DottedMap.svg';
 
 export const HomeHeader = (props: HeaderModel) => {
-  console.log('zimmerman team test');
-
   return (
     <div
       css={`
@@ -22,7 +20,7 @@ export const HomeHeader = (props: HeaderModel) => {
         padding-top: 140px;
       `}
     >
-      <Container maxWidth={'lg'}>
+      <Container maxWidth="lg">
         <Grid container justify="center">
           <Grid item xs={12} sm={12} md={12} lg={12}>
             {props.children && (
