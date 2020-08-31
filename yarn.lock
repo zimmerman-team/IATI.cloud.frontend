@@ -1448,6 +1448,11 @@
   dependencies:
     "@devexpress/dx-grid-core" "2.7.1"
 
+"@devhammed/use-cookie@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@devhammed/use-cookie/-/use-cookie-1.1.0.tgz#d9d75adfcc5b1cac51d0c63a67e8ebf2efb87341"
+  integrity sha512-Sfii5ZsUYfVNtlLClL2nISleaXdOjSJkZXuhkH4ueAzEUt/zGcCE7j+Wd9A6uu0dJvsDH8DXftrk9KaDSWuAMA==
+
 "@emotion/cache@^10.0.27", "@emotion/cache@^10.0.9":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"
