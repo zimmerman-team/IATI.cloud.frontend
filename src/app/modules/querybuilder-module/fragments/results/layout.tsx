@@ -113,11 +113,15 @@ export const DownloadFragment = () => {
               switch (e.target.value) {
                 case '50':
                   document.cookie = 'rows=rows=50';
-                  setQueryState(queryState.concat('', 'rows=50'));
+                  setQueryState(
+                    queryState.replace('rows=1000000', '').concat('', 'rows=50')
+                  );
                   break;
                 case 'All':
-                  document.cookie = 'rows=';
-                  setQueryState(queryState.replace('rows=50', ''));
+                  document.cookie = 'rows=rows=1000000';
+                  setQueryState(
+                    queryState.replace('rows=50', '').concat('', 'rows=1000000')
+                  );
                   break;
                 default:
                   break;
