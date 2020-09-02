@@ -5,7 +5,7 @@
   "description": "OIPA query builder, developed by Zimmerman & Zimmerman",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zimmerman-zimmerman/iati.cloud.frontend.git"
+    "url": "https://github.com/zimmerman-team/iati.cloud.frontend.git"
   },
   "license": "AGPL-3.0-only",
   "dependencies": {
@@ -141,7 +141,11 @@
   },
   "release": {
     "branches": [
-      "master"
+      "master",
+      {
+        "name": "develop",
+        "prerelease": true
+      }
     ],
     "plugins": [
       "@semantic-release/commit-analyzer",
