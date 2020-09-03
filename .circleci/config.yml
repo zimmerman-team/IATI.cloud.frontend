@@ -30,10 +30,6 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_PROD_1" exit
               echo "ssh complete (prod 1)"
-              rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_PROD_1":/home/oipa/oipa-query-builder
-              echo "ssh rsync complete (prod 1)"
-              ssh "$SSH_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
-              echo "ssh script complete (prod 1)"
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
@@ -44,6 +40,10 @@ jobs:
               ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
             fi
 
+#              rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_PROD_1":/home/oipa/oipa-query-builder
+#              echo "ssh rsync complete (prod 1)"
+#              ssh "$SSH_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
+#              echo "ssh script complete (prod 1)"
 #              ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_PROD_2" exit
 #              echo "ssh complete (prod 2)"
 #              rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
