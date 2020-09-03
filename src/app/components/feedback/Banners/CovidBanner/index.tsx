@@ -10,9 +10,9 @@ const FontSize = '16px';
 
 const WrapperStyle = css`
   color: #2e2e2e;
-  line-height: 25px;
+  //line-height: 25px;
   font-size: ${FontSize};
-  line-height: 1.1;
+  line-height: 2;
   transform: translateY(-25px);
   position: relative;
   display: flex;
@@ -80,6 +80,7 @@ const LinkTextStyle = css`
   margin: 0;
   padding: 0;
   border: 0;
+  font-weight: bold;
   text-decoration: underline;
   color: #6e640e;
 `;
@@ -122,9 +123,9 @@ export const CovidBanner = (props: CookieNoticeParams) => {
       <div
         css={`
           color: #2e2e2e;
-          line-height: 25px;
+          //line-height: 25px;
           font-size: ${props.shrink ? `14px` : `14px`};
-          line-height: ${props.shrink ? `1.2` : `initial`};
+          line-height: ${props.shrink ? `1.5` : `1.5`};
           transform: ${props.shrink ? `translateY(-25px)` : `translateY(0)`};
           position: relative;
           display: flex;
@@ -137,47 +138,28 @@ export const CovidBanner = (props: CookieNoticeParams) => {
           align-content: flex-start;
         `}
       >
-        {/* <div
-          css={`
-            position: absolute;
-            top: 0;
-            left: -50vw;
-            background-color: red;
-            width: 150vw;
-            height: 141px;
-            background-color: #f3eba1;
-            border-bottom: 1px solid #e8d746;
-          `}
-        /> */}
         <div css={NoticeContentStyle}>
           <div css={RichTextStyle}>
             <p css={ParagraphStyle}>
-              <b css={BoldTextStyle}>Important notice:</b>
-              <br />
-              Organisations involved in addressing the COVID-19 pandemic are
-              encouraged to publish data on their spending and activities using
-              the IATI Standard.{' '}
+              Please note that the{' '}
               <a
                 css={LinkTextStyle}
-                href="https://iatistandard.org/en/news/publishing-data-covid-19-using-iati-standard/"
+                href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <b css={BoldTextStyle}>See COVID-19 IATI publishing guidance</b>
-              </a>
-              <b>.</b>
-            </p>
-            <p css={ParagraphStyle}>
-              Discover how to access data by reading{' '}
+                IATI Datastore
+              </a>{' '}
+              does not contain data that is published in version 1 of the
+              Standard, or is published within a dataset which does not conform
+              with the{' '}
               <a
                 css={LinkTextStyle}
-                href="https://iatistandard.org/en/news/covid-19-data-access-and-use-guidance-launched/"
+                href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <b css={BoldTextStyle}>
-                  Guidance: Accessing and Using IATI COVID-19 Data
-                </b>
+                IATI Standard Schema
               </a>
             </p>
           </div>
