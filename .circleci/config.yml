@@ -44,6 +44,7 @@ jobs:
               ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
             fi
 
+
   release:
     docker:
       - image: circleci/node:12.14.1-stretch-browsers
