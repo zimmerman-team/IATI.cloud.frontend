@@ -16,11 +16,11 @@ jobs:
     resource_class: large
     working_directory: ~/project
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "21:ee:e6:3e:a8:11:53:67:a1:b2:fa:b3:ce:0a:21:11"
-            - "b1:1a:88:d9:cc:07:01:3b:7c:c9:f9:6b:0c:48:a3:3d"
-            - "90:4a:65:46:9d:1e:b1:60:c1:cb:7f:a3:51:5b:73:38"
+#      - add_ssh_keys:
+#          fingerprints:
+#            - "21:ee:e6:3e:a8:11:53:67:a1:b2:fa:b3:ce:0a:21:11"
+#            - "b1:1a:88:d9:cc:07:01:3b:7c:c9:f9:6b:0c:48:a3:3d"
+#            - "90:4a:65:46:9d:1e:b1:60:c1:cb:7f:a3:51:5b:73:38"
       - attach_workspace:
           at: ~/
       - run: eval ssh-agent -s
@@ -34,11 +34,6 @@ jobs:
               echo "ssh rsync complete (prod 1)"
               ssh "$SSH_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
               echo "ssh script complete (prod 1)"
-              ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_PROD_2" exit
-              echo "ssh complete (prod 2)"
-              rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
-              echo "ssh rsync complete (prod 2)"
-              ssh "$SSH_USER"@"$SSH_HOST_PROD_2" "/home/oipa/ci_update_front.sh;"
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
@@ -49,6 +44,11 @@ jobs:
               ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
             fi
 
+#              ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_PROD_2" exit
+#              echo "ssh complete (prod 2)"
+#              rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
+#              echo "ssh rsync complete (prod 2)"
+#              ssh "$SSH_USER"@"$SSH_HOST_PROD_2" "/home/oipa/ci_update_front.sh;"`
   release:
     docker:
       - image: circleci/node:12.14.1-stretch-browsers
