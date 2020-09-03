@@ -24,11 +24,17 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_PROD_1" exit
+              echo "ssh complete (prod 1)"
               rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_1":/home/oipa/oipa-query-builder
+              echo "ssh rsync complete (prod 1)"
               ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
+              echo "ssh script complete (prod 1)"
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_PROD_2" exit
+              echo "ssh complete (prod 2)"
               rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
+              echo "ssh rsync complete (prod 2)"
               ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" "/home/oipa/ci_update_front.sh;"
+              echo "ssh script complete (prod 2)"
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
@@ -101,7 +107,7 @@ workflows:
                 name: Set env variables
                 command: |
                   if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                    echo 'export CYPRESS_BASE_URL="https://iatidatastore.iatistandard.org"' >> $BASH_ENV
+                    echo 'export CYPRESS_BASE_URL="https://https://iati.cloud"' >> $BASH_ENV
                   elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
                     echo 'export CYPRESS_BASE_URL="https://store.staging.iati.cloud"' >> $BASH_ENV
                   else
