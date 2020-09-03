@@ -16,11 +16,6 @@ jobs:
     resource_class: large
     working_directory: ~/project
     steps:
-#      - add_ssh_keys:
-#          fingerprints:
-#            - "90:4a:65:46:9d:1e:b1:60:c1:cb:7f:a3:51:5b:73:38"
-#            - "ce:c2:64:ed:15:2a:6a:97:70:97:6c:8e:39:36:2b:86"
-#            - "21:ee:e6:3e:a8:11:53:67:a1:b2:fa:b3:ce:0a:21:11"
       - attach_workspace:
           at: ~/
       - run: eval ssh-agent -s
@@ -43,7 +38,6 @@ jobs:
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_DEV":~/stg-iati-cloud-front
               ssh "$SSH_USER"@"$SSH_HOST_DEV" "./ci_update_front.sh;"
             fi
-
 
   release:
     docker:
