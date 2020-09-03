@@ -25,15 +25,15 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_PROD_1" exit
               echo "ssh complete (prod 1)"
-              rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_1":/home/oipa/oipa-query-builder
+              rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_PROD_1":/home/oipa/oipa-query-builder
               echo "ssh rsync complete (prod 1)"
-              ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
+              ssh "$SSH_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
               echo "ssh script complete (prod 1)"
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_PROD_2" exit
               echo "ssh complete (prod 2)"
-              rsync -O -ave ssh ~/project/build "$SSH_PROD_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
+              rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
               echo "ssh rsync complete (prod 2)"
-              ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_2" "/home/oipa/ci_update_front.sh;"
+              ssh "$SSH_USER"@"$SSH_HOST_PROD_2" "/home/oipa/ci_update_front.sh;"
               echo "ssh script complete (prod 2)"
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_DEV" exit
@@ -123,9 +123,9 @@ workflows:
           parallelism: 5
           group: "all tests"
 
-      - release:
-          requires:
-            - deploy
-          filters:
-            branches:
-              only: master
+#      - release:
+#          requires:
+#            - deploy
+#          filters:
+#            branches:
+#              only: master
