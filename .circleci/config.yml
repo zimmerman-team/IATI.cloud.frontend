@@ -28,10 +28,10 @@ jobs:
           name: Transfer build to digital ocean instance
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              ssh -o StrictHostKeyChecking=no -vvv "$SSH_USER"@"$SSH_HOST_PROD_1" exit
+              ssh -o StrictHostKeyChecking=no -v "$SSH_USER"@"$SSH_HOST_PROD_1" exit
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_PROD_1":/home/oipa/oipa-query-builder
               ssh "$SSH_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
-              ssh -o StrictHostKeyChecking=no -vvv "$SSH_USER"@"$SSH_HOST_PROD_2" exit
+              ssh -o StrictHostKeyChecking=no -v "$SSH_USER"@"$SSH_HOST_PROD_2" exit
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
               ssh "$SSH_USER"@"$SSH_HOST_PROD_2" "/home/oipa/ci_update_front.sh;"
             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
