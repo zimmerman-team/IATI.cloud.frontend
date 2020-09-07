@@ -9,6 +9,24 @@ import { Hidden } from '@material-ui/core';
 import { DrawerMenu } from 'app/components/navigation/Drawer';
 import { mockData as drawerMockData } from 'app/components/navigation/Drawer/mock';
 import useDocumentScrollThrottled from 'app/components/surfaces/AppBar/utils';
+import useCookie from '@devhammed/use-cookie';
+// import { useCookie } from 'react-use';
+
+function getCookie(cname) {
+  var name = cname + '=';
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return '';
+}
 
 type AppBarProps = {
   label?: string;
@@ -71,7 +89,33 @@ export const AppBar = (props: AppBarProps) => {
   //   setShouldShowShadow(isMinimumScrolled);
   // });
 
-  const shadowStyle = props.shrink ? shrunkStyle : baseStyle;
+  /* this hook is for setting the cookie */
+  const [cookie, setCookie] = useCookie('covidNotice', true);
+  // const [value, updateCookie, deleteCookie] = useCookie("my-cookie");
+
+  /* this hook is for visually hiding the component */
+  const [visible, setVisibility] = useState(cookie);
+
+  const shadowStyle = props.shrink
+    ? css`
+        height: 50px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 20px;
+        //margin-top: -25px;
+        margin-top: ${visible ? `0` : `-25px`};
+      `
+    : css`
+        height: 100px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 20px;
+        margin-top: 0;
+      `;
 
   return (
     <React.Fragment>

@@ -10,7 +10,7 @@ const FontSize = '16px';
 
 const WrapperStyle = css`
   color: #2e2e2e;
-  //line-height: 25px;
+  line-height: 25px;
   font-size: ${FontSize};
   line-height: 2;
   transform: translateY(-25px);
@@ -31,7 +31,7 @@ const NoticeContentStyle = css`
   border: 0;
   position: relative;
   padding: 20px 0;
-  width: 96%;
+  width: 100%;
 `;
 
 const RichTextStyle = css`
@@ -100,10 +100,6 @@ export const CovidBanner = (props: CookieNoticeParams) => {
 
   const ref = useRef(null);
 
-  //   useClickAway(ref, () => {
-  //     handleClose();
-  //   });
-
   function handleClose(event?: SyntheticEvent, reason?: string) {
     setCookie('false', {
       expires: 31536000 * 20,
@@ -115,6 +111,7 @@ export const CovidBanner = (props: CookieNoticeParams) => {
       sameSite: '',
     });
     setVisibility(!visible);
+    window.location.reload();
   }
 
   return (
@@ -123,10 +120,10 @@ export const CovidBanner = (props: CookieNoticeParams) => {
       <div
         css={`
           color: #2e2e2e;
-          //line-height: 25px;
-          font-size: ${props.shrink ? `14px` : `14px`};
-          line-height: ${props.shrink ? `1.5` : `1.5`};
-          transform: ${props.shrink ? `translateY(-25px)` : `translateY(0)`};
+          line-height: 25px;
+          font-size: 16px;
+          line-height: 25px;
+          //transform: ${props.shrink ? `translateY(-25px)` : `translateY(0)`};
           position: relative;
           display: flex;
           width: 100%;
@@ -138,9 +135,22 @@ export const CovidBanner = (props: CookieNoticeParams) => {
           align-content: flex-start;
         `}
       >
+        <div
+          css={`
+            position: absolute;
+            top: 0;
+            left: -50vw;
+            width: 150vw;
+            height: 100%;
+            background-color: #f3eba1;
+            border-bottom: 1px solid #e8d746;
+          `}
+        />
         <div css={NoticeContentStyle}>
           <div css={RichTextStyle}>
             <p css={ParagraphStyle}>
+              <b>Important notice:</b>
+              <br />
               Please note that the{' '}
               <a
                 css={LinkTextStyle}
