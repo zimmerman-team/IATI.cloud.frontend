@@ -1,7 +1,7 @@
 /** core */
 import React from 'react';
 /** third-party */
-import AsyncPaginate from 'react-select-async-paginate';
+import { AsyncPaginate } from 'react-select-async-paginate';
 import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
 
 import {

@@ -4,7 +4,11 @@ import { Action, action, computed, Computed, Thunk, thunk } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
 export const baseURL =
-  'https://iatidatastore.iatistandard.org/search/activity?'; //'https://test-datastore.iatistandard.org/search/activity?';
+  'https://iatidatastore.iatistandard.org/search/activity?';
+// export const baseURL =
+//   'https://test-datastore.iatistandard.org/search/activity?';
+
+export const tableRows = 2500;
 
 /* uncomment this in order to get data from API */
 const NODE_ENV = 'production';
@@ -14,7 +18,7 @@ const NODE_ENV = 'production';
 
 export const HOSTNAME =
   // @ts-ignore
-  NODE_ENV === 'development' ? '/' : 'https://iatidatastore.iatistandard.org/'; //'https://test-datastore.iatistandard.org/';  // (ဒီဟာေတြမရဘူး မနက္ျဖန္မနက္ စစ္ရန္)'https://iatidatastore.iatistandard.org/'; //'https://iatidatastore.iatistandard.org/';
+  NODE_ENV === 'development' ? '/' : 'https://iatidatastore.iatistandard.org/'; // 'https://test-datastore.iatistandard.org/';
 
 // datastore.iati.cloud
 
@@ -209,15 +213,15 @@ const api = <T>(endpoint: Endpoint): ApiModel<T> => ({
   loading: false,
   response: undefined,
   error: undefined,
-  data: computed(state => state.response && state.response.data),
-  call: action(state => {
+  data: computed((state) => state.response && state.response.data),
+  call: action((state) => {
     state.loading = true;
   }),
   success: action((state, payload) => {
     state.loading = false;
     state.response = payload;
   }),
-  fetch: thunk(async actions => {
+  fetch: thunk(async (actions) => {
     actions.call();
     const response = await endpoint<T>();
     actions.success({ data: response });

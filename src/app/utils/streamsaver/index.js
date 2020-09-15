@@ -49,7 +49,7 @@ function makePopup(src) {
     },
   };
 
-  const onReady = evt => {
+  const onReady = (evt) => {
     if (evt.source === popup.frame) {
       popup.loaded = true;
       window.removeEventListener('message', onReady);
@@ -77,7 +77,7 @@ export function createWriteStream(filename, options, size) {
     readableStrategy: undefined,
   };
 
-  const test = fn => {
+  const test = (fn) => {
     try {
       fn();
     } catch (e) {}
@@ -91,9 +91,12 @@ export function createWriteStream(filename, options, size) {
   let supportsTransferable = false;
   let mitmTransporter = null;
   const ponyfill = window.WebStreamsPolyfill || {};
+  console.log(ponyfill);
   const isSecureContext = window.isSecureContext;
   let useBlobFallback =
-    /constructor/i.test(window.HTMLElement) || !!window.safari;
+    /constructor/i.test(window.HTMLElement) ||
+    !!window.safari ||
+    !!window.WebKitPoint;
   const downloadStrategy =
     isSecureContext || 'MozAppearance' in document.documentElement.style
       ? 'iframe'
@@ -160,12 +163,7 @@ export function createWriteStream(filename, options, size) {
     const response = {
       transferringReadable: supportsTransferable,
       pathname:
-        opts.pathname ||
-        Math.random()
-          .toString()
-          .slice(-6) +
-          '/' +
-          filename,
+        opts.pathname || Math.random().toString().slice(-6) + '/' + filename,
       headers: {
         'Content-Type': 'application/octet-stream; charset=utf-8',
         'Content-Disposition': "attachment; filename*=UTF-8''" + filename,
@@ -209,7 +207,7 @@ export function createWriteStream(filename, options, size) {
       channel.port1.postMessage({ readableStream }, [readableStream]);
     }
 
-    channel.port1.onmessage = evt => {
+    channel.port1.onmessage = (evt) => {
       // Service worker sent us a link that we should open.
       if (evt.data.download) {
         // Special treatment for popup...

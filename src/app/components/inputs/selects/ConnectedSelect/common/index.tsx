@@ -67,7 +67,10 @@ export const IndicatorSeparator = ({ innerProps }) => {
 
 export const DropdownIndicator = ({ innerProps }) => {
   return (
-    <DropdownIndicatorWrapper {...innerProps}>
+    <DropdownIndicatorWrapper
+      {...innerProps}
+      data-cy={'select-dropdown-indicator-wrapper'}
+    >
       <ArrowDropDown htmlColor="#828894" fontSize="small" />
     </DropdownIndicatorWrapper>
   );
@@ -75,15 +78,18 @@ export const DropdownIndicator = ({ innerProps }) => {
 
 export const ClearIndicator = ({ innerProps }) => {
   return (
-    <IndicatorClearWrapper {...innerProps}>
+    <IndicatorClearWrapper
+      {...innerProps}
+      data-cy={'select-indicator-clear-wrapper'}
+    >
       <Clear htmlColor="#828894" fontSize="inherit" />
     </IndicatorClearWrapper>
   );
 };
 
-export const MultiValueRemove = props => {
+export const MultiValueRemove = (props) => {
   return (
-    <MultiValueRemoveWrapper>
+    <MultiValueRemoveWrapper data-cy={'select-multi-value-remove-wrapper'}>
       <components.MultiValueRemove {...props}>
         <Clear htmlColor="white" fontSize="small" />
       </components.MultiValueRemove>
@@ -119,7 +125,7 @@ export const Control = () => ({
   margin: 0,
 });
 
-export const ValueContainer = provided => ({
+export const ValueContainer = (provided) => ({
   ...provided,
   padding: '5px',
 });
@@ -132,7 +138,7 @@ export const MenuList = (provided, state) => ({
   overflow: 'scroll',
 });
 
-export const MultiValue = provided => ({
+export const MultiValue = (provided) => ({
   ...provided,
   whiteSpace: 'nowrap',
   overflow: 'hidden',
@@ -159,7 +165,7 @@ export const MultiValueLabel = () => ({
   marginRight: '10px',
 });
 
-export const Menu = provided => ({
+export const Menu = (provided) => ({
   ...provided,
   borderRadius: '2px',
   margin: 0,
@@ -172,6 +178,9 @@ export const HelperBlock = styled.div`
   display: flex;
   margin-top: 8px;
   flex-direction: row;
+  label {
+    color: #000008;
+  }
 
   a {
     font-size: 12px;

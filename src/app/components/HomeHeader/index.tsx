@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 import { HeaderModel } from 'app/components/surfaces/Header/model';
 import { AppBar } from 'app/components/surfaces/AppBar';
@@ -6,8 +6,15 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import { Hidden } from '@material-ui/core';
 import BackgroundImage from 'app/assets/images/DottedMap.svg';
+import useCookie from '@devhammed/use-cookie';
 
 export const HomeHeader = (props: HeaderModel) => {
+  /* this hook is for setting the cookie */
+  const [cookie, setCookie] = useCookie('covidNotice', 'true');
+
+  /* this hook is for visually hiding the component */
+  const [visible, setVisibility] = useState(cookie);
+
   return (
     <div
       css={`
@@ -17,18 +24,12 @@ export const HomeHeader = (props: HeaderModel) => {
         background-repeat: no-repeat;
         background-position: center right;
         padding-bottom: 47px;
-        padding-top: 40px;
-
-        //position: sticky;
-        //top: 0;
-
-        z-index: 20;
+        padding-top: ${visible ? `200px` : `140px`};
       `}
     >
-      <Container maxWidth={'lg'}>
+      <Container maxWidth="lg">
         <Grid container justify="center">
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <AppBar />
             {props.children && (
               <>
                 <Hidden mdDown>

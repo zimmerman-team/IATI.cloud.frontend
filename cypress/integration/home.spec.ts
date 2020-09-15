@@ -35,4 +35,8 @@ describe('Home', function () {
     cy.findByTestId('AppBar').should('exist');
     cy.findByTestId('Footer').should('exist');
   });
+
+  it('make screenshot', () => {
+    cy.get('body').happoScreenshot({ component: 'Home page' });
+  });
 });

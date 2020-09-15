@@ -11,7 +11,7 @@ type Props = {
   deleteIcon?: ReactNode;
 };
 
-const BaseComponent = styled(props => <Component {...props} />)`
+const BaseComponent = styled((props) => <Component {...props} />)`
   && {
     border-radius: 2px;
     margin: 4px;
@@ -30,11 +30,11 @@ const BaseComponent = styled(props => <Component {...props} />)`
 
 export const Chip = (props: Props) => {
   function handleDelete() {
-    console.log('You clicked the delete icon.');
+    //console.log('You clicked the delete icon.');
   }
 
   function handleClick() {
-    console.log('You clicked the Chip.');
+    //console.log('You clicked the Chip.');
   }
 
   return (

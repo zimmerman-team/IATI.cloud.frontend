@@ -1,44 +1,45 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       node: {
-        paths: ["src"],
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        paths: ['src'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
   },
   parserOptions: {
-    project: "./tsconfig.json",
-    tsconfigRootDir: "./",
+    project: './tsconfig.json',
+    tsconfigRootDir: './',
   },
   extends: [
     // 'eslint-config-react-app',
-    "react-app",
-    "airbnb-typescript-prettier",
+    'react-app',
+    'airbnb-typescript-prettier',
   ],
   rules: {
-    "react/no-array-index-key": 0,
-    "react/jsx-fragments": ["off", "element"],
-    "react/jsx-props-no-spreading": 0,
-    "react/destructuring-assignment": 0,
-    "no-invalid-double-slash-comments": 0,
-    "import/prefer-default-export": 0,
-    "import/no-unresolved": 0,
-    "@typescript-eslint/triple-slash-reference": 0,
-    "@typescript-eslint/no-explicit-any": 0,
-    "@typescript-eslint/ban-ts-ignore ": 0,
-    "@typescript-eslint/no-unused-vars": 0,
-    "no-restricted-imports": [
-      "error",
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'react/no-array-index-key': 0,
+    'react/jsx-fragments': ['off', 'element'],
+    'react/jsx-props-no-spreading': 0,
+    'react/destructuring-assignment': 0,
+    'no-invalid-double-slash-comments': 0,
+    'import/prefer-default-export': 0,
+    'import/no-unresolved': 0,
+    '@typescript-eslint/triple-slash-reference': 0,
+    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/ban-ts-ignore ': 0,
+    '@typescript-eslint/no-unused-vars': 0,
+    'no-restricted-imports': [
+      'error',
       {
         paths: [
           {
-            name: "styled-components",
-            message: "Please import from styled-components/macro.",
+            name: 'styled-components',
+            message: 'Please import from styled-components/macro.',
           },
         ],
-        patterns: ["!styled-components/macro"],
+        patterns: ['!styled-components/macro'],
       },
     ],
   },

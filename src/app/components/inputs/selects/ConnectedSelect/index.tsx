@@ -38,9 +38,11 @@ export const ConnectedSelect = (props: any) => {
         user-select: ${props.disabled ? 'none' : 'initial'};
         pointer-events: ${props.disabled ? 'none' : 'auto'};
       `}
+      data-cy={props.data_cy}
     >
-      <FieldInputLabel label={props.label} />
+      <FieldInputLabel label={props.label} data-cy={'select-field-label'} />
       <Select
+        data-cy={'select'}
         components={{
           MultiValueRemove,
           IndicatorSeparator,
@@ -51,8 +53,13 @@ export const ConnectedSelect = (props: any) => {
         isMulti
         {...props}
       />
-      <HelperBlock>
-        {props.helperText && <FieldInputLabel label={props.helperText} />}
+      <HelperBlock data-cy={'select-field-help'}>
+        {props.helperText && (
+          <FieldInputLabel
+            label={props.helperText}
+            css="color: rgba(1,1,10,0.38) !important;"
+          />
+        )}
         {props.helperTextLink && props.helperTextUrl && (
           <a
             target="_blank"

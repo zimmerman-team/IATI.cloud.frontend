@@ -4,7 +4,7 @@ self.addEventListener('install', () => {
   self.skipWaiting();
 });
 
-self.addEventListener('activate', event => {
+self.addEventListener('activate', (event) => {
   event.waitUntil(self.clients.claim());
 });
 
@@ -12,7 +12,7 @@ const map = new Map();
 
 // This should be called once per download
 // Each event has a dataChannel that the data will be piped through
-self.onmessage = event => {
+self.onmessage = (event) => {
   // We send a heartbeat every x secound to keep the
   // service worker alive if a transferable stream is not sent
   if (event.data === 'ping') {
@@ -38,7 +38,7 @@ self.onmessage = event => {
   if (event.data.readableStream) {
     metadata[0] = event.data.readableStream;
   } else if (event.data.transferringReadable) {
-    port.onmessage = evt => {
+    port.onmessage = (evt) => {
       port.onmessage = null;
       metadata[0] = evt.data.readableStream;
     };
@@ -74,7 +74,7 @@ function createStream(port) {
   });
 }
 
-self.onfetch = event => {
+self.onfetch = (event) => {
   const url = event.request.url;
 
   // this only works for Firefox
