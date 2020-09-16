@@ -25,7 +25,7 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_PROD_1" exit
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_PROD_1":/home/oipa/oipa-query-builder
-              ssh "$SSH_PROD_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
+              ssh "$SSH_USER"@"$SSH_HOST_PROD_1" "/home/oipa/ci_update_front.sh;"
               ssh -o StrictHostKeyChecking=no "$SSH_USER"@"$SSH_HOST_PROD_2" exit
               rsync -O -ave ssh ~/project/build "$SSH_USER"@"$SSH_HOST_PROD_2":/home/oipa/oipa-query-builder
               ssh "$SSH_USER"@"$SSH_HOST_PROD_2" "/home/oipa/ci_update_front.sh;"
