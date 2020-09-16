@@ -138,6 +138,15 @@ export const AboutLayout = () => {
                 </a>{' '}
                 allows users to build common queries through a series of drop
                 down and freetext filters.
+                <br />
+                <br />
+                For guidance on how to use the query builder, see the{' '}
+                <a
+                  href="https://iatistandard.org/documents/10453/IATI_Datastore_Query_Builder_User_Guide.pdf"
+                  target="_blank"
+                >
+                  Query Builder User Guide.
+                </a>
               </Typography>
             </ParagraphContainer>
           </Grid>
