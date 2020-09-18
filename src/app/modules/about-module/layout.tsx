@@ -5,6 +5,14 @@ import { ModuleHeader } from 'app/modules/common/ModuleHeader';
 import { ParagraphContainer } from 'app/modules/about-module/common/ParagraphContainer';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
+import styled from 'styled-components';
+
+export const Link = styled.a`
+  color: #185364;
+  :hover{
+    color: #03DBE4;
+  }
+`;
 
 export const AboutLayout = () => {
   return (
@@ -26,12 +34,12 @@ export const AboutLayout = () => {
                 according to the IATI Standard. Data users can gain data on
                 development and humanitarian resources and results through using
                 the{' '}
-                <a
+                <Link
                   href="https://test-datastore.iatistandard.org/api/"
                   target="_blank"
                 >
                   Datastore’s API
-                </a>
+                </Link>
                 . Users will also be able to download data from a new
                 user-friendly Datastore Query Builder.
               </Typography>
@@ -45,21 +53,21 @@ export const AboutLayout = () => {
             <ParagraphContainer data-cy="p1">
               <Typography variant="body1">
                 The new{' '}
-                <a
+                <Link
                   href="https://test-datastore.iatistandard.org/api/"
                   target="_blank"
                 >
                   IATI Datastore API
-                </a>{' '}
+                </Link>{' '}
                 provides data published by organisations who have used version 2
                 of the IATI Standard. This is following the decision to
                 deprecate{' '}
-                <a
+                <Link
                   href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"
                   target="_blank"
                 >
                   version 1 by IATI members
-                </a>
+                </Link>
                 , which was implemented July 2019.
               </Typography>
             </ParagraphContainer>
@@ -71,12 +79,12 @@ export const AboutLayout = () => {
                 Schema provides the exact order and format that publishers
                 should provide their XML files in. More information about the
                 Schema can be found on{' '}
-                <a
+                <Link
                   href="http://reference.iatistandard.org/203/schema/"
                   target="_blank"
                 >
                   IATI’s Reference site
-                </a>
+                </Link>
                 .
               </Typography>
             </ParagraphContainer>
@@ -104,20 +112,20 @@ export const AboutLayout = () => {
               <Typography variant="body1">
                 For detailed documentation on how to use the API, please refer
                 to the{' '}
-                <a
+                <Link
                   href="https://test-datastore.iatistandard.org/documentation/introduction"
                   target="_blank"
                 >
                   Datastore API documentation
-                </a>
+                </Link>
                 . For information on how to map queries from the ‘old’ Datastore
                 to the new one, please see the{' '}
-                <a
+                <Link
                   href="https://docs.google.com/document/d/1nTu1Jdg17toiQoemJT3R9YPwvAwCN1gpFnnL1R-lfHY/edit"
                   target="_blank"
                 >
                   mapping document
-                </a>
+                </Link>
                 .
               </Typography>
             </ParagraphContainer>
@@ -130,23 +138,23 @@ export const AboutLayout = () => {
             <ParagraphContainer data-cy="p5">
               <Typography variant="body1">
                 The{' '}
-                <a
+                <Link
                   href="https://test-datastore.iatistandard.org/querybuilder/core-filters"
                   target="_blank"
                 >
                   Query builder
-                </a>{' '}
+                </Link>{' '}
                 allows users to build common queries through a series of drop
                 down and freetext filters.
                 <br />
                 <br />
                 For guidance on how to use the query builder, see the{' '}
-                <a
+                <Link
                   href="https://iatistandard.org/documents/10453/IATI_Datastore_Query_Builder_User_Guide.pdf"
                   target="_blank"
                 >
                   Query Builder User Guide.
-                </a>
+                </Link>
               </Typography>
             </ParagraphContainer>
           </Grid>

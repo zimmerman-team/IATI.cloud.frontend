@@ -128,7 +128,14 @@ export const Control = () => ({
 export const ValueContainer = (provided) => ({
   ...provided,
   padding: '5px',
+  marginLeft: '10px',
+  fontFamily: 'Inter',
+  color: 'rgb(18, 18, 18)',
+  fontStyle: 'normal',
+  fontWeight: 200,
 });
+
+
 
 export const MenuList = (provided, state) => ({
   ...provided,

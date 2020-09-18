@@ -62,6 +62,11 @@ export const SearchInputField = (props: Props) => {
         > div {
           min-height: auto;
         }
+
+        > div > div > input::-webkit-input-placeholder {
+          color: #01010A;
+          opacity: 1;
+        }
       `}
     />
   );

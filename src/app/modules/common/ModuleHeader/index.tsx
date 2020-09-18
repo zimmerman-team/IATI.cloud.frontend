@@ -2,12 +2,17 @@ import React from 'react';
 import { Box, Grid, Typography, useTheme } from '@material-ui/core';
 import { Header } from 'app/components/surfaces/Header';
 import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
+import styled from 'styled-components';
 
 type ModuleModel = {
   title?: string;
   description?: string;
   extraText?: boolean;
 };
+
+const Link = styled.a`
+  color: #03DBE4;
+`;
 
 export const ModuleHeader = (props: ModuleModel) => {
   const theme = useTheme();
@@ -30,12 +35,12 @@ export const ModuleHeader = (props: ModuleModel) => {
                 <>
                   For guidance on how
                   <br /> to use the query builder, see the{' '}
-                  <a
+                  <Link
                     href="https://iatistandard.org/documents/10453/IATI_Datastore_Query_Builder_User_Guide.pdf"
                     target="_blank"
                   >
                     Query Builder User Guide.
-                  </a>
+                  </Link>
                 </>
               )}
             </Typography>

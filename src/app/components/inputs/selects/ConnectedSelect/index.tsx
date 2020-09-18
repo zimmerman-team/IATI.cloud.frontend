@@ -28,6 +28,7 @@ const customStyles = {
   multiValueLabel: MultiValueLabel,
   multiValueRemove: (provided: any) => ({ ...provided }),
   menu: Menu,
+  placeholder: styles => ({...styles, color: 'black', opacity: '1'}),
 };
 
 export const ConnectedSelect = (props: any) => {
