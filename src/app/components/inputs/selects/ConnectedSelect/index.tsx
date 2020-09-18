@@ -58,7 +58,7 @@ export const ConnectedSelect = (props: any) => {
         {props.helperText && (
           <FieldInputLabel
             label={props.helperText}
-            css="color: rgba(1,1,10,0.38) !important;"
+            css="color: #717172 !important; font-weight: 300 !important;"
           />
         )}
         {props.helperTextLink && props.helperTextUrl && (
