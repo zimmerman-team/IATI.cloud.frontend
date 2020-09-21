@@ -11,7 +11,10 @@ describe('API Documentation - search', function () {
   it('should be able to type in "Activity List" and only get results with "Activity List" in it', function () {
     cy.get('[class*= ApiDocSearchBoxContainer]').should('exist');
     cy.get('.MuiInputBase-input').type('Activity List');
-    cy.get('[class*= MuiTreeView-root]').should(
+    cy.get('[class*= MuiTreeView-root]')
+      .should('contain.text', 'API Version 1 (Django REST API)')
+      .click();
+    cy.get('[class*= MuiTreeItem-label]').should(
       'contain.text',
       'Activity List'
     );
