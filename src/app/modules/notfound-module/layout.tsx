@@ -4,6 +4,7 @@ import { PageContainer } from 'app/modules/common/PageContainer';
 import { ModuleHeader } from 'app/modules/common/ModuleHeader';
 import Grid from '@material-ui/core/Grid';
 import ErrorImage from 'app/assets/images/404_image.png';
+import { Link } from 'app/modules/about-module/layout';
 
 export const PageNotFoundLayout = () => {
   return (
@@ -78,23 +79,17 @@ export const PageNotFoundLayout = () => {
             >
               An error ocurred and your request couldn’t be completed.
               <br /> Either check the URL,{' '}
-              <a
+              <Link
                 href="/"
-                css={`
-                  color: #3e8c9f;
-                `}
               >
                 home page
-              </a>
+              </Link>
               , or feel free to{' '}
-              <a
+              <Link
                 href="/"
-                css={`
-                  color: #3e8c9f;
-                `}
               >
                 report this issue.
-              </a>
+              </Link>
             </div>
           </Grid>
         </Grid>

@@ -12,10 +12,6 @@ import { HomeHeader } from 'app/components/HomeHeader';
 import { AppBar } from 'app/components/surfaces/AppBar';
 import Providers from 'app/Providers';
 
-const TypographyOpacity = styled((props) => <Typography {...props} />)`
-  opacity: 0.8;
-`;
-
 export const LandingLayout = () => {
   return (
     <PageContainer footer>
@@ -28,23 +24,23 @@ export const LandingLayout = () => {
               IATI Datastore
             </Typography>
             <Box width="100%" height="24px" />
-            <TypographyOpacity variant="h5" color="textSecondary">
+            <Typography variant="h5" color="textSecondary">
               The IATI Datastore provides data on development and humanitarian
               spending and projects that address poverty and crises across the
               world.
-            </TypographyOpacity>
+            </Typography>
             <Box width="100%" height="24px" />
-            <TypographyOpacity variant="body2" color="textSecondary">
+            <Typography variant="body2" color="textSecondary">
               Find data published by organisations from governments, development
               finance institutions and UN agencies to NGOs, foundations and the
               private sector. They have published data according to the IATI
               Standard, our set of rules and guidance for sharing useful, open
               data.
-            </TypographyOpacity>
+            </Typography>
             <Box width="100%" height="24px" />
-            <TypographyOpacity variant="body2" color="textSecondary">
+            <Typography variant="body2" color="textSecondary">
               Access data through using the Datastore’s API or Query Builder.
-            </TypographyOpacity>
+            </Typography>
           </Grid>
 
           <Box width="100%" height="36px" />
@@ -61,10 +57,6 @@ export const LandingLayout = () => {
         <LandingMidSection />
       </Container>
 
-      {/*FOOTER*/}
-      {/*TODO: replace box with footer component*/}
-      {/*<Box width="100%" height="200px" bgcolor="#155366" />*/}
-      {/*<Footer />*/}
     </PageContainer>
   );
 };
