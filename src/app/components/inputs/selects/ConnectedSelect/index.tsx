@@ -28,6 +28,7 @@ const customStyles = {
   multiValueLabel: MultiValueLabel,
   multiValueRemove: (provided: any) => ({ ...provided }),
   menu: Menu,
+  placeholder: styles => ({...styles, color: 'black', opacity: '1'}),
 };
 
 export const ConnectedSelect = (props: any) => {
@@ -57,7 +58,7 @@ export const ConnectedSelect = (props: any) => {
         {props.helperText && (
           <FieldInputLabel
             label={props.helperText}
-            css="color: rgba(1,1,10,0.38) !important;"
+            css="color: #717172 !important; font-weight: 300 !important;"
           />
         )}
         {props.helperTextLink && props.helperTextUrl && (
