@@ -12,10 +12,6 @@ import { HomeHeader } from 'app/components/HomeHeader';
 import { AppBar } from 'app/components/surfaces/AppBar';
 import Providers from 'app/Providers';
 
-// const TypographyOpacity = styled((props) => <Typography {...props} />)`
-//   opacity: 0.8;
-// `;
-
 export const LandingLayout = () => {
   return (
     <PageContainer footer>
