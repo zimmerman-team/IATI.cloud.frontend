@@ -25,7 +25,7 @@ export const ApiCallFragment = (data) => {
   const clipboard = useClipboard({ copiedTimeout: 600 });
   const parsed = data.data;
   const request = parsed.request;
-  const targetURL = 'https://test-datastore.iatistandard.org';
+  const targetURL = 'https://iatidatastore.iatistandard.org';
 
   const showRequest = useStoreActions((actions) => actions.request.showRequest);
 

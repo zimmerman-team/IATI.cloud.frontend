@@ -61,7 +61,7 @@ export const RequestExample = () => {
                 url.raw.replace(
                   '{{url}}',
                   ''
-                  // 'https://test-datastore.iatistandard.org'
+                  // 'https://iatidatastore.iatistandard.org'
                 )}
             </SyntaxHighlighter>
           </ELementThree>
