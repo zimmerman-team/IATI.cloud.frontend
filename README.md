@@ -5,6 +5,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=zimmerman-zimmerman_iati.cloud.frontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=zimmerman-zimmerman_iati.cloud.frontend)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=zimmerman-zimmerman_iati.cloud.frontend&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=zimmerman-zimmerman_iati.cloud.frontend)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=zimmerman-zimmerman_iati.cloud.frontend&metric=security_rating)](https://sonarcloud.io/dashboard?id=zimmerman-zimmerman_iati.cloud.frontend)
+![GitHub](https://img.shields.io/github/license/zimmerman-team/iati.cloud.frontend)
 
 ## What is the IATI Query Builder?
 
