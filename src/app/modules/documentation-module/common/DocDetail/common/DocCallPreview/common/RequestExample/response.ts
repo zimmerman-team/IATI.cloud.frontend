@@ -2,7 +2,7 @@ export const response = {
   response:
     '{\n' +
     '  "count": 734079,\n' +
-    '  "next": "http://test-datastore.iatistandard.org/api/activities/?fields=title%2Cactivity_scope&format=json&has_activity_scope=True&page=2",\n' +
+    '  "next": "http://iatidatastore.iatistandard.org/api/activities/?fields=title%2Cactivity_scope&format=json&has_activity_scope=True&page=2",\n' +
     '  "previous": null,\n' +
     '  "results": [\n' +
     '    {\n' +
@@ -28,7 +28,7 @@ export const response = {
     '        {\n' +
     '          "id": 7085,\n' +
     '          "region": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/regions/89/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/regions/89/?format=json",\n' +
     '            "code": "89",\n' +
     '            "name": "Europe, regional"\n' +
     '          },\n' +
@@ -42,7 +42,7 @@ export const response = {
     '        {\n' +
     '          "id": 7086,\n' +
     '          "region": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/regions/298/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/regions/298/?format=json",\n' +
     '            "code": "298",\n' +
     '            "name": "Africa, regional"\n' +
     '          },\n' +
@@ -56,7 +56,7 @@ export const response = {
     '        {\n' +
     '          "id": 7087,\n' +
     '          "region": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/regions/498/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/regions/498/?format=json",\n' +
     '            "code": "498",\n' +
     '            "name": "America, regional"\n' +
     '          },\n' +
@@ -70,7 +70,7 @@ export const response = {
     '        {\n' +
     '          "id": 7088,\n' +
     '          "region": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/regions/798/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/regions/798/?format=json",\n' +
     '            "code": "798",\n' +
     '            "name": "Asia, regional"\n' +
     '          },\n' +
@@ -86,7 +86,7 @@ export const response = {
     '        {\n' +
     '          "id": 33710,\n' +
     '          "sector": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
     '            "code": "15150",\n' +
     '            "name": "Democratic participation and civil society"\n' +
     '          },\n' +
@@ -123,7 +123,7 @@ export const response = {
     '        {\n' +
     '          "id": 7091,\n' +
     '          "region": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/regions/298/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/regions/298/?format=json",\n' +
     '            "code": "298",\n' +
     '            "name": "Africa, regional"\n' +
     '          },\n' +
@@ -139,7 +139,7 @@ export const response = {
     '        {\n' +
     '          "id": 33751,\n' +
     '          "sector": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
     '            "code": "15150",\n' +
     '            "name": "Democratic participation and civil society"\n' +
     '          },\n' +
@@ -176,7 +176,7 @@ export const response = {
     '        {\n' +
     '          "id": 7096,\n' +
     '          "region": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/regions/89/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/regions/89/?format=json",\n' +
     '            "code": "89",\n' +
     '            "name": "Europe, regional"\n' +
     '          },\n' +
@@ -190,7 +190,7 @@ export const response = {
     '        {\n' +
     '          "id": 7097,\n' +
     '          "region": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/regions/798/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/regions/798/?format=json",\n' +
     '            "code": "798",\n' +
     '            "name": "Asia, regional"\n' +
     '          },\n' +
@@ -204,7 +204,7 @@ export const response = {
     '        {\n' +
     '          "id": 7098,\n' +
     '          "region": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/regions/498/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/regions/498/?format=json",\n' +
     '            "code": "498",\n' +
     '            "name": "America, regional"\n' +
     '          },\n' +
@@ -218,7 +218,7 @@ export const response = {
     '        {\n' +
     '          "id": 7099,\n' +
     '          "region": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/regions/298/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/regions/298/?format=json",\n' +
     '            "code": "298",\n' +
     '            "name": "Africa, regional"\n' +
     '          },\n' +
@@ -232,7 +232,7 @@ export const response = {
     '        {\n' +
     '          "id": 7100,\n' +
     '          "region": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/regions/889/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/regions/889/?format=json",\n' +
     '            "code": "889",\n' +
     '            "name": "Oceania, regional"\n' +
     '          },\n' +
@@ -248,7 +248,7 @@ export const response = {
     '        {\n' +
     '          "id": 33777,\n' +
     '          "sector": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/sectors/15113/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/sectors/15113/?format=json",\n' +
     '            "code": "15113",\n' +
     '            "name": "Anti-corruption organisations and institutions"\n' +
     '          },\n' +
@@ -284,7 +284,7 @@ export const response = {
     '        {\n' +
     '          "id": 13747,\n' +
     '          "country": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/countries/CD/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/countries/CD/?format=json",\n' +
     '            "code": "CD",\n' +
     '            "name": "Congo (The Democratic Republic Of The)"\n' +
     '          },\n' +
@@ -296,7 +296,7 @@ export const response = {
     '        {\n' +
     '          "id": 42537,\n' +
     '          "sector": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
     '            "code": "15150",\n' +
     '            "name": "Democratic participation and civil society"\n' +
     '          },\n' +
@@ -332,7 +332,7 @@ export const response = {
     '        {\n' +
     '          "id": 13790,\n' +
     '          "country": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/countries/RW/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/countries/RW/?format=json",\n' +
     '            "code": "RW",\n' +
     '            "name": "Rwanda"\n' +
     '          },\n' +
@@ -344,7 +344,7 @@ export const response = {
     '        {\n' +
     '          "id": 42590,\n' +
     '          "sector": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
     '            "code": "15150",\n' +
     '            "name": "Democratic participation and civil society"\n' +
     '          },\n' +
@@ -380,7 +380,7 @@ export const response = {
     '        {\n' +
     '          "id": 13787,\n' +
     '          "country": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/countries/SS/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/countries/SS/?format=json",\n' +
     '            "code": "SS",\n' +
     '            "name": "South Sudan"\n' +
     '          },\n' +
@@ -392,7 +392,7 @@ export const response = {
     '        {\n' +
     '          "id": 42587,\n' +
     '          "sector": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/sectors/15220/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/sectors/15220/?format=json",\n' +
     '            "code": "15220",\n' +
     '            "name": "Civilian peace-building, conflict prevention and resolution"\n' +
     '          },\n' +
@@ -428,7 +428,7 @@ export const response = {
     '        {\n' +
     '          "id": 13809,\n' +
     '          "country": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/countries/SS/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/countries/SS/?format=json",\n' +
     '            "code": "SS",\n' +
     '            "name": "South Sudan"\n' +
     '          },\n' +
@@ -440,7 +440,7 @@ export const response = {
     '        {\n' +
     '          "id": 42608,\n' +
     '          "sector": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/sectors/11220/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/sectors/11220/?format=json",\n' +
     '            "code": "11220",\n' +
     '            "name": "Primary education"\n' +
     '          },\n' +
@@ -484,7 +484,7 @@ export const response = {
     '        {\n' +
     '          "id": 13839,\n' +
     '          "country": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/countries/BI/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/countries/BI/?format=json",\n' +
     '            "code": "BI",\n' +
     '            "name": "Burundi"\n' +
     '          },\n' +
@@ -496,7 +496,7 @@ export const response = {
     '        {\n' +
     '          "id": 42625,\n' +
     '          "sector": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
     '            "code": "15150",\n' +
     '            "name": "Democratic participation and civil society"\n' +
     '          },\n' +
@@ -532,7 +532,7 @@ export const response = {
     '        {\n' +
     '          "id": 13865,\n' +
     '          "country": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/countries/PE/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/countries/PE/?format=json",\n' +
     '            "code": "PE",\n' +
     '            "name": "Peru"\n' +
     '          },\n' +
@@ -544,7 +544,7 @@ export const response = {
     '        {\n' +
     '          "id": 42640,\n' +
     '          "sector": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
     '            "code": "15150",\n' +
     '            "name": "Democratic participation and civil society"\n' +
     '          },\n' +
@@ -580,7 +580,7 @@ export const response = {
     '        {\n' +
     '          "id": 13898,\n' +
     '          "country": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/countries/EC/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/countries/EC/?format=json",\n' +
     '            "code": "EC",\n' +
     '            "name": "Ecuador"\n' +
     '          },\n' +
@@ -592,7 +592,7 @@ export const response = {
     '        {\n' +
     '          "id": 42672,\n' +
     '          "sector": {\n' +
-    '            "url": "http://test-datastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
+    '            "url": "http://iatidatastore.iatistandard.org/api/sectors/15150/?format=json",\n' +
     '            "code": "15150",\n' +
     '            "name": "Democratic participation and civil society"\n' +
     '          },\n' +

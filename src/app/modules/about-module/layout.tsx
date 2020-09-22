@@ -9,8 +9,8 @@ import styled from 'styled-components';
 
 export const Link = styled.a`
   color: #185364;
-  :hover{
-    color: #03DBE4;
+  :hover {
+    color: #03dbe4;
   }
 `;
 
@@ -35,7 +35,7 @@ export const AboutLayout = () => {
                 development and humanitarian resources and results through using
                 the{' '}
                 <Link
-                  href="https://test-datastore.iatistandard.org/api/"
+                  href="https://iatidatastore.iatistandard.org/documentation"
                   target="_blank"
                 >
                   Datastore’s API
@@ -54,7 +54,7 @@ export const AboutLayout = () => {
               <Typography variant="body1">
                 The new{' '}
                 <Link
-                  href="https://test-datastore.iatistandard.org/api/"
+                  href="https://iatidatastore.iatistandard.org/documentation"
                   target="_blank"
                 >
                   IATI Datastore API
@@ -113,7 +113,7 @@ export const AboutLayout = () => {
                 For detailed documentation on how to use the API, please refer
                 to the{' '}
                 <Link
-                  href="https://test-datastore.iatistandard.org/documentation/introduction"
+                  href="https://iatidatastore.iatistandard.org/documentation"
                   target="_blank"
                 >
                   Datastore API documentation
@@ -139,7 +139,7 @@ export const AboutLayout = () => {
               <Typography variant="body1">
                 The{' '}
                 <Link
-                  href="https://test-datastore.iatistandard.org/querybuilder/core-filters"
+                  href="https://iatidatastore.iatistandard.org/querybuilder/core-filters"
                   target="_blank"
                 >
                   Query builder

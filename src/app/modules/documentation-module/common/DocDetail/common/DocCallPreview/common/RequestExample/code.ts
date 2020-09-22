@@ -2,7 +2,7 @@ export const codes = {
   code: `var https = require('https');
 var options = {
   'method': 'GET',
-  'hostname': 'test-datastore.iatistandard.org',
+  'hostname': 'iatidatastore.iatistandard.org',
   'path': '/api/activities/?has_other_identifier=True&fields=title%2Cother_identifier&format=json',
   'headers': {
   }

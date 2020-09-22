@@ -37,7 +37,7 @@ export const RequestResponse = () => {
 
   const moddedURL = url.raw.replace(
     '{{url}}',
-    'https://test-datastore.iatistandard.org'
+    'https://iatidatastore.iatistandard.org'
   );
 
   const [request, response] = useFetch(moddedURL);
