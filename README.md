@@ -2,7 +2,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/846a56c0951d6328d08c/maintainability)](https://codeclimate.com/repos/5ced30f7e6231b6fad00257c/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/846a56c0951d6328d08c/test_coverage)](https://codeclimate.com/repos/5ced30f7e6231b6fad00257c/test_coverage)
 [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://cypress.io)
-
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=zimmerman-zimmerman_iati.cloud.frontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=zimmerman-zimmerman_iati.cloud.frontend)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=zimmerman-zimmerman_iati.cloud.frontend&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=zimmerman-zimmerman_iati.cloud.frontend)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=zimmerman-zimmerman_iati.cloud.frontend&metric=security_rating)](https://sonarcloud.io/dashboard?id=zimmerman-zimmerman_iati.cloud.frontend)
 
 ## What is the IATI Query Builder?
 
