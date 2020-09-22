@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/zimmerman-zimmerman/iati.cloud.frontend.svg?style=svg&circle-token=ca8607f192132f118771215bbcc8f569b85da47e)](https://circleci.com/gh/zimmerman-zimmerman/iati.cloud.frontend)
+[![CircleCI](https://circleci.com/gh/zimmerman-team/iati.cloud.frontend.svg?style=svg&circle-token=ca8607f192132f118771215bbcc8f569b85da47e)](https://circleci.com/gh/zimmerman-zimmerman/iati.cloud.frontend)
 [![Maintainability](https://api.codeclimate.com/v1/badges/846a56c0951d6328d08c/maintainability)](https://codeclimate.com/repos/5ced30f7e6231b6fad00257c/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/846a56c0951d6328d08c/test_coverage)](https://codeclimate.com/repos/5ced30f7e6231b6fad00257c/test_coverage)
 [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://cypress.io)
