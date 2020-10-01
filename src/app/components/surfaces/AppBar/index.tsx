@@ -145,7 +145,7 @@ export const AppBar = (props: AppBarProps) => {
       >
         <Grid container justify="space-between" alignItems="center">
           <Grid item xs={8} md={5} lg={5}>
-            <Link to="/">
+            <Link to="/" aria-label="Link to Home page">
               <IATILogoColor
                 css={`
                   transition: transform 100ms ease-out;
