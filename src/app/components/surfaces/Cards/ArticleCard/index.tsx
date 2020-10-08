@@ -11,7 +11,7 @@ export const ArticleCard = (props: ArticleCardModel) => {
       {/** card title */}
       <Grid item md={12}>
         {props.loaded ? (
-          <Typography variant="h5">{props.title}</Typography>
+          <Typography variant="h5" component={h3}>{props.title}</Typography>
         ) : (
           <Skeletor height="30px" width="100%" />
         )}
@@ -21,7 +21,7 @@ export const ArticleCard = (props: ArticleCardModel) => {
       <Grid item md={12}>
         <Box height="150px">
           {props.loaded ? (
-            <Typography variant="body1">{props.description}</Typography>
+            <Typography variant="body1" >{props.description}</Typography>
           ) : (
             <Skeletor type="text" height="100%" width="100%" />
           )}
