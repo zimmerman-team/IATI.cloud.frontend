@@ -45,7 +45,7 @@ export const fragmentConfig: FragmentModel = {
     // helperTextUrl: 'http://reference.iatistandard.org/203/codelists/Sector/',
     placeholder: 'All (0)',
     getOptionLabel: (option: OrganisationModel) =>
-      `${option.reporting_organisation_identifier}: ${option.reporting_organisation}`,
+      `${option.reporting_organisation} (${option.reporting_organisation_identifier})`,
     getOptionValue: (option: OrganisationModel) =>
       option.reporting_organisation_identifier,
   },
