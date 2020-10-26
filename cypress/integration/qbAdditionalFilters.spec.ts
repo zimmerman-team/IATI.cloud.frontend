@@ -64,12 +64,14 @@ function testSelect(
   optionNumber: number
 ) {
   cy.findByText(selector).click({ force: true });
+
   cy.get(`#react-select-${selectNumber}-option-${optionNumber}`).then(
     ($span) => {
       const selectText: string = $span.text();
       cy.get(`#react-select-${selectNumber}-option-${optionNumber}`).click({
         force: true,
       });
+      cy.wait(5000);
       cy.get(`[class*=multiValue]`).last().should('have.text', selectText);
     }
   );

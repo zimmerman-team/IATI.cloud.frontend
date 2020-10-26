@@ -20,21 +20,19 @@ const categories: string[] = [
   // 'Transaction List',
   // 'Transaction Aggregations',
   // 'DataStore Search Engine',
-  // 'Budget List',
-  // 'Budget Aggregations',
-  // 'Codelist Meta List',
-  // 'Country List',
-  // 'Dataset List',
-  // 'Location List',
-  // 'Organisation List',
-  // 'Publisher List',
-  // 'Region List',
-  // 'Result List',
-  // 'Result Aggregations',
-  // 'Sector List',
-  // 'Transaction List',
-  'API Version 1 (Django REST API)',
-  'API Version 2 (Solr API)',
+  'Budget List',
+  'Budget Aggregations',
+  'Codelist Meta List',
+  'Country List',
+  'Dataset List',
+  'Location List',
+  'Organisation List',
+  'Publisher List',
+  'Region List',
+  'Result List',
+  'Result Aggregations',
+  'Sector List',
+  'Transaction List',
 ];
 
 describe('API Documentation - navigation', function () {
@@ -51,7 +49,6 @@ describe('API Documentation - navigation', function () {
 
   it('should navigate to correct item when clicked', function () {
     // Weird behavior in headless browser, therefore checking on url instead of content.
-    cy.contains('API Version 1 (Django REST API)').click();
     cy.contains('Activity List').click();
     cy.contains('Request parameters').click();
     cy.contains('GET iati_identifier (optional)').click();

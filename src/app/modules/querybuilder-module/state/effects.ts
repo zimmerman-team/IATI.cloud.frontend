@@ -520,7 +520,7 @@ export const withEffects: StoreEffect = (store) => {
       get(sectors, 'length', 0) && rowFormat === 'activity'
         ? ((temp_string = sectors && sectors.join(' ')),
           (output = `"${temp_string.split(' ').join('" "')}"`),
-          `sector_code:(${output})`)
+          `(sector_code:(${output}) OR transaction_sector_code:(${output}))`)
         : null,
       get(sectors, 'length', 0) && rowFormat === 'transaction'
         ? ((temp_string = sectors && sectors.join(' ')),
@@ -544,7 +544,11 @@ export const withEffects: StoreEffect = (store) => {
         : null,
       get(countries, 'length', 0) &&
       (rowFormat === 'activity' || rowFormat === 'budget')
-        ? `recipient_country_code:(${countries && countries.join(' ')})`
+        ? `(recipient_country_code:(${
+            countries && countries.join(' ')
+          }) OR transaction_recipient_country_code:(${
+            countries && countries.join(' ')
+          }))`
         : null,
       get(countries, 'length', 0) && rowFormat === 'transaction'
         ? `transaction_recipient_country_code:(${
@@ -553,7 +557,11 @@ export const withEffects: StoreEffect = (store) => {
         : null,
 
       get(regions, 'length', 0) && rowFormat === 'activity'
-        ? `recipient_region_code:(${regions && regions.join(' ')})`
+        ? `(recipient_region_code:(${
+            regions && regions.join(' ')
+          } OR transaction_recipient_region_code:(${
+            regions && regions.join(' ')
+          })))`
         : null,
       get(regions, 'length', 0) && rowFormat === 'transaction'
         ? `transaction_recipient_region_code:(${regions && regions.join(' ')})`
