@@ -44,6 +44,8 @@ export const DownloadFragment = () => {
   /* get query url from app store */
   const store = ModuleStore.useStore();
 
+  const [rows, setRows] = useState(50);
+  const [allDataCount, setAllDataCount] = useState(0);
   const queryURL = useStoreState((state) => state.query.url);
   const [queryState, setQueryState] = useState(queryURL);
   const rowFormat = store.get('rowFormat');
@@ -70,17 +72,26 @@ export const DownloadFragment = () => {
       'csv&fl=*,reporting_org_narrative:[value v=""],sector:[value v=""]';
   }
 
-  let csvUrl = queryState.includes('fl=')
-    ? queryState.replace('json', 'csv')
-    : queryState.replace('json', `xslt&tr=${rowFormat}-csv.xsl`);
+  let csvUrl = queryState.replace('json', 'csv');
 
   if (repeatRows !== '0') {
+    csvUrl = csvUrl.replace('csv', `xslt&tr=${rowFormat}-csv.xsl`);
     csvUrl = csvUrl.replace(`/${rowFormat}`, `/${rowFormat}-${repeatRows}`);
     csvUrl = csvUrl.replace(
       `tr=${rowFormat}-csv.xsl`,
       `tr=${rowFormat}-${repeatRows}-csv.xsl`
     );
   }
+
+  React.useEffect(() => {
+    if (allDataCount > 50 || allDataCount === 0) {
+      setRows(50);
+      setQueryState(queryState.replace(`rows=${allDataCount}`, 'rows=50'));
+    } else {
+      setRows(allDataCount);
+      setQueryState(queryState.replace('rows=50', `rows=${allDataCount}`));
+    }
+  }, [allDataCount]);
 
   return (
     <Grid
@@ -94,6 +105,8 @@ export const DownloadFragment = () => {
       <Grid item lg={12}>
         <DataTable
           url={queryURL}
+          allDataCount={allDataCount}
+          setAllDataCount={setAllDataCount}
           rowFormat={store.get('rowFormat')}
           defaultCols={store.get('fields').length === 0}
         />
@@ -108,19 +121,19 @@ export const DownloadFragment = () => {
         <Grid item xs={12} sm={12} md={12}>
           <RadioGroupTitle title="Choose sample size" />
           <RadioGroup
-            defaultValue="50"
+            value={rows.toString()}
             onChange={(e) => {
               switch (e.target.value) {
                 case '50':
-                  document.cookie = 'rows=rows=50';
+                  setRows(50);
                   setQueryState(
-                    queryState.replace('rows=1000000', '').concat('', 'rows=50')
+                    queryState.replace(`rows=${allDataCount}`, 'rows=50')
                   );
                   break;
-                case 'All':
-                  document.cookie = 'rows=rows=1000000';
+                case allDataCount.toString():
+                  setRows(allDataCount);
                   setQueryState(
-                    queryState.replace('rows=50', '').concat('', 'rows=1000000')
+                    queryState.replace('rows=50', `rows=${allDataCount}`)
                   );
                   break;
                 default:
@@ -129,15 +142,17 @@ export const DownloadFragment = () => {
             }}
             row
           >
+            {allDataCount > 50 && (
+              <FormControlLabel
+                value="50"
+                control={<RadioButton />}
+                label="50 activities"
+              />
+            )}
             <FormControlLabel
-              value="50"
+              value={allDataCount.toString()}
               control={<RadioButton />}
-              label="50 activities"
-            />
-            <FormControlLabel
-              value="All"
-              control={<RadioButton />}
-              label="All activities"
+              label={`${allDataCount} activities`}
             />
           </RadioGroup>
         </Grid>

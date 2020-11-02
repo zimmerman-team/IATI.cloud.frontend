@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import Paper from '@material-ui/core/Paper';
@@ -34,7 +35,6 @@ export const DataTable = (props) => {
   const [pageSize, setPageSize] = useState(10);
   const [tablePage, setTablePage] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [allDataCount, setAllDataCount] = useState([]);
 
   useEffect(() => {
     if (!props.defaultCols && docsData.length > 0) {
@@ -57,7 +57,8 @@ export const DataTable = (props) => {
       )
       .then((response) => {
         setDocsData(get(response, 'data.response.docs', []));
-        setAllDataCount(get(response, 'data.response.numFound', 0));
+        props.setAllDataCount(get(response, 'data.response.numFound', 0));
+        a;
         setLoading(false);
       })
       .catch((error) => {
@@ -85,8 +86,8 @@ export const DataTable = (props) => {
       `}
     >
       <h3>
-        Datastore retrieved {allDataCount}{' '}
-        {allDataCount === 1 ? 'activity' : 'activities'} for you
+        Datastore retrieved {props.allDataCount}{' '}
+        {props.allDataCount === 1 ? 'activity' : 'activities'} for you
       </h3>
       <Paper>
         <Grid rows={docsData} columns={cols}>
@@ -96,7 +97,7 @@ export const DataTable = (props) => {
             onPageSizeChange={setPageSize}
             onCurrentPageChange={setTablePage}
           />
-          <CustomPaging totalCount={allDataCount} />
+          <CustomPaging totalCount={props.allDataCount} />
           <Table
             noDataCellComponent={() => (
               <NoDataCellComponent
