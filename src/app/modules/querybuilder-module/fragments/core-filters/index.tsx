@@ -76,7 +76,7 @@ export const CoreFiltersFragment = () => {
         <ConnectedSelect
           {...fragmentConfig.organisations}
           value={store.get('organisations')}
-          options={fetchedsectorOrganisations}
+          options={fetchedsectorOrganisations.sort((a, b) => a.reporting_organisation.localeCompare(b.reporting_organisation))}
           onChange={(e) => store.set('organisations')(e)}
           // placeholder={`All (${fetchedsectorOrganisations.length})`}
           placeholder={`All organisations`}
