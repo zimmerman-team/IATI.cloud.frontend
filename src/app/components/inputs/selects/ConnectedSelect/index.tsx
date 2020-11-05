@@ -41,8 +41,9 @@ export const ConnectedSelect = (props: any) => {
       `}
       data-cy={props.data_cy}
     >
-      <FieldInputLabel label={props.label} data-cy={'select-field-label'} />
+      <FieldInputLabel for={props.label} label={props.label} data-cy={'select-field-label'} />
       <Select
+        id={props.label}
         data-cy={'select'}
         components={{
           MultiValueRemove,
@@ -57,6 +58,7 @@ export const ConnectedSelect = (props: any) => {
       <HelperBlock data-cy={'select-field-help'}>
         {props.helperText && (
           <FieldInputLabel
+            for=""
             label={props.helperText}
             css="color: #717172 !important; font-weight: 300 !important;"
           />

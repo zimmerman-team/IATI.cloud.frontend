@@ -11,7 +11,7 @@ export const NavigationButton = (props: NavButtonModel) => {
   return (
     <NavLink
       to={props.path}
-      id="navlink"
+      id={props.label}
       css={`
           display: flex;
           align-items: center;

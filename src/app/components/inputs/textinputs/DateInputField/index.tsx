@@ -63,11 +63,11 @@ export const DateField = (props) => {
   return (
     <>
       <Header>
-        <FieldInputLabel label={props.label} />
+        <FieldInputLabel for={props.label} label={props.label} />
         {props.tip && <TooltipButton tip={props.tip} />}
       </Header>
       <BaseComponent
-        id="date"
+        id={props.label}
         label={props.label}
         type="date"
         value={props.value}

@@ -7,6 +7,7 @@ import ChipInput from 'material-ui-chip-input';
 import { styles } from 'app/components/inputs/textinputs/SearchInputField/styles';
 
 type Props = {
+  id: string;
   valueStr: string;
   onChange: Function;
   placeholder: string;
@@ -51,6 +52,7 @@ export const SearchInputField = (props: Props) => {
 
   return (
     <ChipInput
+      id={props.id}
       fullWidth
       value={chips}
       disableUnderline

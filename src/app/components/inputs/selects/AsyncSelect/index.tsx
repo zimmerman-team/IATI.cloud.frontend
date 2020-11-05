@@ -49,8 +49,9 @@ async function loadOptions(search, loadedOptions, { page }, pivot) {
 export const AsyncSelect = (props: any) => {
   return (
     <>
-      <FieldInputLabel label={props.label} />
+      <FieldInputLabel for={props.label} label={props.label} />
       <AsyncPaginate
+        id={props.label}
         defaultOptions
         {...props}
         components={{
@@ -67,7 +68,7 @@ export const AsyncSelect = (props: any) => {
         }}
       />
       <HelperBlock>
-        {props.helperText && <FieldInputLabel label={props.helperText} />}
+        {props.helperText && <FieldInputLabel for="" label={props.helperText} />}
         {props.helperTextLink && props.helperTextUrl && (
           <a
             target="_blank"

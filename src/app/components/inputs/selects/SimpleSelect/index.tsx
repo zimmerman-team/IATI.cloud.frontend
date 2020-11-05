@@ -11,6 +11,7 @@ import './style.css';
 import { BaseHelperText } from '../common/BaseHelperText';
 
 type SimpleSelectProps = {
+  id?: string;
   label?: string;
   helperText?: string;
   helperTextLink?: string;
@@ -64,7 +65,7 @@ export const SimpleSelect = (props: SimpleSelectProps) => {
       {props.label && (
         <Grid container spacing={2}>
           <Grid item>
-            <FieldInputLabel label={props.label} />
+            <FieldInputLabel for={props.label} label={props.label} />
           </Grid>
           {props.tip && (
             <Grid item>
@@ -74,6 +75,7 @@ export const SimpleSelect = (props: SimpleSelectProps) => {
         </Grid>
       )}
       <BaseSelect
+        id={props.label}
         value={values}
         onChange={handleChange}
         MenuProps={{

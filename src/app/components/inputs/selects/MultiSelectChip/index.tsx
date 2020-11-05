@@ -18,6 +18,7 @@ import { TooltipButton } from 'app/components/inputs/buttons/TooltipButton';
 import { BaseHelperText } from 'app/components/inputs/selects/common/BaseHelperText';
 
 type MultiSelectChipProps = {
+  id?: string;
   label?: string;
   helperText?: string;
   helperTextLink?: string;
@@ -134,7 +135,7 @@ export const MultiSelectChip = (props: MultiSelectChipProps) => {
       {props.label && (
         <Grid container spacing={2}>
           <Grid item>
-            <FieldInputLabel label={props.label} />
+            <FieldInputLabel for={props.label} label={props.label} />
           </Grid>
           {props.tooltip && (
             <Grid item>
@@ -144,7 +145,7 @@ export const MultiSelectChip = (props: MultiSelectChipProps) => {
         </Grid>
       )}
 
-      <Component classes={classes} components={components} isMulti {...props} />
+      <Component id={props.label} classes={classes} components={components} isMulti {...props} />
       <BaseHelperText
         helperText={props.helperText}
         linkText={props.helperTextLink}

@@ -60,7 +60,7 @@ export const MultiSelect = (props: MultiSelectProps) => {
         <>
           <Grid container spacing={2}>
             <Grid item>
-              <FieldInputLabel label={props.label} />
+              <FieldInputLabel for={props.label} label={props.label} />
             </Grid>
             {props.tip && (
               <Grid item>
@@ -72,6 +72,7 @@ export const MultiSelect = (props: MultiSelectProps) => {
       )}
 
       <BaseSelect
+        id={props.label}
         multiple
         value={data}
         onChange={handleChange}

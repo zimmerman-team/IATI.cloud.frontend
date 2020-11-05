@@ -18,10 +18,11 @@ type Props = {
 const IconTextInput = (props: Props) => {
   return (
     <>
-      <FieldInputLabel label={props.label} />
+      <FieldInputLabel for={props.label} label={props.label} />
       <FieldBackdrop>
         <Box marginLeft={Spacing.inputSideSpacing} width="100%">
           <SearchInputField
+            id={props.label}
             onChange={props.onChange}
             placeholder={props.placeholder}
             valueStr={props.value as string}

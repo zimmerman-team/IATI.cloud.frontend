@@ -36,7 +36,6 @@ function App() {
       <Container maxWidth="lg">
         <div
           css={`
-            border: 1px solid red;
             display: flex;
             flex-direction: column;
             justify-content: center;

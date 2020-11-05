@@ -5,6 +5,7 @@ import { Spacing } from 'app/theme';
 import { BaseInput } from 'app/components/inputs/selects/common/BaseInput';
 
 type SelectProps = {
+  id: string;
   children?: ReactNode;
   value?: string | number | string[];
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
