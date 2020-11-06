@@ -9,6 +9,7 @@ import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
 import { TooltipButton } from 'app/components/inputs/buttons/TooltipButton';
 import { BaseMenuItem } from 'app/components/inputs/selects/common/BaseMenuItem';
 import { BaseSelect } from 'app/components/inputs/selects/common/BaseSelect';
+import { createID } from '../../../../utils/removeSpaces';
 
 type MultiSelectProps = {
   label?: string;
@@ -60,7 +61,7 @@ export const MultiSelect = (props: MultiSelectProps) => {
         <>
           <Grid container spacing={2}>
             <Grid item>
-              <FieldInputLabel for={props.label} label={props.label} />
+              <FieldInputLabel for={createID(props.label)} label={props.label} />
             </Grid>
             {props.tip && (
               <Grid item>
@@ -72,7 +73,8 @@ export const MultiSelect = (props: MultiSelectProps) => {
       )}
 
       <BaseSelect
-        id={props.label}
+        // id={createID(props.label)}
+        inputProps={{ id: createID(props.label) }}
         multiple
         value={data}
         onChange={handleChange}

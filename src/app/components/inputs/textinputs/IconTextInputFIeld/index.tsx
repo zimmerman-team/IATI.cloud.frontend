@@ -6,6 +6,7 @@ import { FieldBackdrop } from 'app/components/common/FieldBackdrop';
 import Box from '@material-ui/core/Box';
 import { Spacing } from 'app/theme';
 import { SearchInputField } from '../SearchInputField';
+import { createID } from '../../../../utils/removeSpaces';
 
 type Props = {
   placeholder: string;
@@ -18,11 +19,11 @@ type Props = {
 const IconTextInput = (props: Props) => {
   return (
     <>
-      <FieldInputLabel for={props.label} label={props.label} />
+      <FieldInputLabel for={createID(props.label)} label={props.label} />
       <FieldBackdrop>
         <Box marginLeft={Spacing.inputSideSpacing} width="100%">
           <SearchInputField
-            id={props.label}
+            id={createID(props.label)}
             onChange={props.onChange}
             placeholder={props.placeholder}
             valueStr={props.value as string}

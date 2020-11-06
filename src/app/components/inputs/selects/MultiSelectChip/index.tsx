@@ -16,6 +16,7 @@ import Grid from '@material-ui/core/Grid';
 import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
 import { TooltipButton } from 'app/components/inputs/buttons/TooltipButton';
 import { BaseHelperText } from 'app/components/inputs/selects/common/BaseHelperText';
+import { createID } from '../../../../utils/removeSpaces';
 
 type MultiSelectChipProps = {
   id?: string;
@@ -135,7 +136,7 @@ export const MultiSelectChip = (props: MultiSelectChipProps) => {
       {props.label && (
         <Grid container spacing={2}>
           <Grid item>
-            <FieldInputLabel for={props.label} label={props.label} />
+            <FieldInputLabel for={createID(props.label)} label={props.label} />
           </Grid>
           {props.tooltip && (
             <Grid item>
@@ -145,7 +146,13 @@ export const MultiSelectChip = (props: MultiSelectChipProps) => {
         </Grid>
       )}
 
-      <Component id={props.label} classes={classes} components={components} isMulti {...props} />
+      <Component
+        inputId={createID(props.label)}
+        classes={classes}
+        components={components}
+        isMulti
+        {...props}
+      />
       <BaseHelperText
         helperText={props.helperText}
         linkText={props.helperTextLink}

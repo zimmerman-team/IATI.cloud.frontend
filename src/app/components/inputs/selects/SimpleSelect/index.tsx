@@ -9,6 +9,7 @@ import { BaseMenuItem } from 'app/components/inputs/selects/common/BaseMenuItem'
 import { BaseSelect } from 'app/components/inputs/selects/common/BaseSelect';
 import './style.css';
 import { BaseHelperText } from '../common/BaseHelperText';
+import { createID } from '../../../../utils/removeSpaces';
 
 type SimpleSelectProps = {
   id?: string;
@@ -65,7 +66,7 @@ export const SimpleSelect = (props: SimpleSelectProps) => {
       {props.label && (
         <Grid container spacing={2}>
           <Grid item>
-            <FieldInputLabel for={props.label} label={props.label} />
+            <FieldInputLabel for={createID(props.label)} label={props.label} />
           </Grid>
           {props.tip && (
             <Grid item>
@@ -75,7 +76,8 @@ export const SimpleSelect = (props: SimpleSelectProps) => {
         </Grid>
       )}
       <BaseSelect
-        id={props.label}
+        // id={createID(props.label)}
+        inputProps={{ id: createID(props.label) }}
         value={values}
         onChange={handleChange}
         MenuProps={{

@@ -53,6 +53,7 @@ export const SearchInputField = (props: Props) => {
   return (
     <ChipInput
       id={props.id}
+      // inputProps={{id: props.id}}
       fullWidth
       value={chips}
       disableUnderline
