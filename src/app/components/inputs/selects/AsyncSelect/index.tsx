@@ -53,7 +53,7 @@ export const AsyncSelect = (props: any) => {
       <FieldInputLabel for={createID(props.label)} label={props.label} />
       <AsyncPaginate
         // id={createID(props.label)}
-        inputProps={{ id: createID(props.label) }}
+        inputId={createID(props.label)}
         defaultOptions
         {...props}
         components={{

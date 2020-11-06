@@ -36,8 +36,10 @@ function CheckboxesGroup() {
         <FormLabel component="legend">Assign responsibility</FormLabel>
         <FormGroup>
           <FormItemLabel
+            for="option1"
             control={
               <Checkbox
+                id="option1"
                 checked={state.option1}
                 onChange={handleChange('option1')}
                 value="option1"
@@ -47,8 +49,10 @@ function CheckboxesGroup() {
             label="Option 1"
           />
           <FormItemLabel
+            for="option2"
             control={
               <Checkbox
+                id="option2"
                 checked={state.option2}
                 onChange={handleChange('option2')}
                 value="option2"
@@ -57,8 +61,10 @@ function CheckboxesGroup() {
             label="Option 2"
           />
           <FormItemLabel
+            for="option3"
             control={
               <Checkbox
+                id="option3"
                 checked={state.option3}
                 onChange={handleChange('option3')}
                 value="option3"
