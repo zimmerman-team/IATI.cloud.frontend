@@ -18,6 +18,7 @@ import {
   Option,
   ValueContainer,
 } from './common';
+import { createID } from '../../../../utils/removeSpaces';
 
 const customStyles = {
   option: (provided: any, state: any) => Option(provided, state),
@@ -41,8 +42,9 @@ export const ConnectedSelect = (props: any) => {
       `}
       data-cy={props.data_cy}
     >
-      <FieldInputLabel label={props.label} data-cy={'select-field-label'} />
+      <FieldInputLabel for={createID(props.label)} label={props.label} data-cy={'select-field-label'} />
       <Select
+        inputId={createID(props.label)}
         data-cy={'select'}
         components={{
           MultiValueRemove,
@@ -57,6 +59,7 @@ export const ConnectedSelect = (props: any) => {
       <HelperBlock data-cy={'select-field-help'}>
         {props.helperText && (
           <FieldInputLabel
+            for=""
             label={props.helperText}
             css="color: #717172 !important; font-weight: 300 !important;"
           />

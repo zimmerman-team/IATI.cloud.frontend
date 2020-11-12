@@ -3,8 +3,11 @@ import styled from 'styled-components';
 import Select from '@material-ui/core/Select';
 import { Spacing } from 'app/theme';
 import { BaseInput } from 'app/components/inputs/selects/common/BaseInput';
+import { InputProps } from '@material-ui/core';
 
 type SelectProps = {
+  id?: string;
+  inputProps: InputProps;
   children?: ReactNode;
   value?: string | number | string[];
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;

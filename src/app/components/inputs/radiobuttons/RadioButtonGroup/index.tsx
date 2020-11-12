@@ -6,6 +6,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControl from '@material-ui/core/FormControl';
 /* project component */
 import { RadioGroupItem } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupItem';
+import { createID } from '../../../../utils/removeSpaces';
 
 type ItemModel = {
   value: string;
@@ -43,6 +44,7 @@ export const RadioButtonsGroup = (props: RadioButtonsGroupModel) => {
         <RadioGroup value={props.value}>
           {props.items.map(item => (
             <RadioGroupItem
+              for={createID(item.label)}
               disabled={item.disabled}
               key={item.value}
               value={item.value}

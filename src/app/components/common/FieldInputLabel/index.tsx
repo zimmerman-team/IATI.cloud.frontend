@@ -4,6 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 type Props = {
   label?: string;
+  for: string;
 };
 
 const BaseInputLabel = styled((props) => <InputLabel {...props} />)`

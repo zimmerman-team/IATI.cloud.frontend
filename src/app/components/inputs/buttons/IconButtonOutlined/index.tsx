@@ -47,7 +47,7 @@ export const IconButtonOutlined = (props: Props) => {
     <Link to="/querybuilder/core-filters">
       <ZimmerButton size={props.size} variant="outlined">
         <CustomLink>
-          <Typography variant="subtitle1"> {props.label} </Typography>
+          <Typography variant="subtitle1" component="p"> {props.label} </Typography>
           <ArrowForward fontSize="small" />
         </CustomLink>
       </ZimmerButton>

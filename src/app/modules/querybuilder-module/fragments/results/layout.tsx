@@ -145,13 +145,13 @@ export const DownloadFragment = () => {
             {allDataCount > 50 && (
               <FormControlLabel
                 value="50"
-                control={<RadioButton />}
+                control={<RadioButton id={"activities_radio"} />}
                 label="50 activities"
               />
             )}
             <FormControlLabel
               value={allDataCount.toString()}
-              control={<RadioButton />}
+              control={<RadioButton id={"activities_radio_2"} />}
               label={`${allDataCount} activities`}
             />
           </RadioGroup>

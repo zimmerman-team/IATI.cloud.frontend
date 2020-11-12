@@ -36,6 +36,7 @@ export const FooterLG = () => {
               href="https://iatistandard.org/en/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Link to the iati standard page"
             >
               <IATILogoWhite />
             </a>
@@ -102,6 +103,7 @@ export const FooterLG = () => {
                     href="https://www.zimmerman.team"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Link to the Zimmerman page"
                   >
                     <img
                       width="150px"

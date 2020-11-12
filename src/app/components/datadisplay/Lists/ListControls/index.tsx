@@ -9,6 +9,7 @@ import { Palette } from 'app/theme';
 import Typography from '@material-ui/core/Typography';
 import { Checkbox } from 'app/components/inputs/checkboxes/Checkbox';
 import { Tooltip } from '@material-ui/core';
+import { createID } from '../../../../utils/removeSpaces';
 
 type Props = {
   data: any;
@@ -105,6 +106,7 @@ export const ListControls = (props: Props) => {
                       >
                         <ListItemIcon>
                           <Checkbox
+                            id={createID(item.label)}
                             checked={
                               checked.indexOf(item.label as never) !== -1
                             }
@@ -121,6 +123,7 @@ export const ListControls = (props: Props) => {
                     >
                       <ListItemIconModded>
                         <Checkbox
+                          id={createID(item.label)}
                           checked={checked.indexOf(item.label as never) !== -1}
                         />
                       </ListItemIconModded>

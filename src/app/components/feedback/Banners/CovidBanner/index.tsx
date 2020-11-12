@@ -178,6 +178,7 @@ export const CovidBanner = (props: CookieNoticeParams) => {
             onClick={handleClose}
             css={NoticeButtonStyle}
             data-cy="covid-banner-close-btn"
+            aria-label="Button to close the COVID-19 banner"
           />
         </div>
       </div>
