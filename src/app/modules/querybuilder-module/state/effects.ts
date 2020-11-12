@@ -697,7 +697,9 @@ export const withEffects: StoreEffect = (store) => {
         ? `activity_scope_code:(${activityScope && activityScope.join(' ')})`
         : null,
       get(aidType, 'length', 0)
-        ? `default_aid_type_code:(${aidType && aidType.join(' ')})`
+        ? `(default_aid_type_code:(${
+            aidType && aidType.join(' ')
+          }) OR transaction_aid_type_code:(${aidType && aidType.join(' ')}))`
         : null,
       get(aidTypeCategory, 'length', 0)
         ? `default_aid_type_category_code:(${
@@ -715,21 +717,35 @@ export const withEffects: StoreEffect = (store) => {
           })`
         : null,
       get(defaultCurrency, 'length', 0)
-        ? `default_currency:(${defaultCurrency && defaultCurrency.join(' ')})`
+        ? `(default_currency:(${
+            defaultCurrency && defaultCurrency.join(' ')
+          }) OR transaction_value_currency:(${
+            defaultCurrency && defaultCurrency.join(' ')
+          }))`
         : null,
       get(defaultFlowType, 'length', 0)
-        ? `default_flow_type_code:(${
+        ? `(default_flow_type_code:(${
             defaultFlowType && defaultFlowType.join(' ')
-          })`
+          }) OR transaction_flow_type_code:(${
+            defaultFlowType && defaultFlowType.join(' ')
+          }))`
         : null,
       get(hierarchy, 'length', 0)
         ? `hierarchy:(${hierarchy && hierarchy.join(' ')})`
         : null,
       get(financeType, 'length', 0)
-        ? `default_finance_type_code:(${financeType && financeType.join(' ')})`
+        ? `(default_finance_type_code:(${
+            financeType && financeType.join(' ')
+          }) OR transaction_finance_type_code:(${
+            financeType && financeType.join(' ')
+          }))`
         : null,
       get(tiedStatus, 'length', 0)
-        ? `default_tied_status_code:(${tiedStatus && tiedStatus.join(' ')})`
+        ? `(default_tied_status_code:(${
+            tiedStatus && tiedStatus.join(' ')
+          }) OR transaction_tied_status_code:(${
+            tiedStatus && tiedStatus.join(' ')
+          }))`
         : null,
       get(transactionType, 'length', 0)
         ? `transaction_type:(${transactionType && transactionType.join(' ')})`
@@ -761,7 +777,11 @@ export const withEffects: StoreEffect = (store) => {
           })`
         : null,
       get(humanitarian, 'length', 0)
-        ? `humanitarian:(${humanitarian && humanitarian.join(' ')})`
+        ? `(humanitarian:(${
+            humanitarian && humanitarian.join(' ')
+          }) OR transaction_humanitarian:(${
+            humanitarian && humanitarian.join(' ')
+          }))`
         : null,
       get(humanitarianScope, 'length', 0)
         ? `humanitarian_scope_type:(${
