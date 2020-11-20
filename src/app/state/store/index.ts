@@ -35,8 +35,9 @@ import humanitarianScopeVocab from 'app/state/interfaces/HumanitarianScopeVocabI
 import transactionHumanitarian from 'app/state/interfaces/TransactionHumanitarianInterface';
 import otherIdentifierType from 'app/state/interfaces/OtherIdentifierTypeInterface';
 import participatingOrgs from 'app/state/interfaces/ParticipatingOrgsInterface';
-import policyMarker from '../interfaces/PolicyMarkerInterface';
+import policyMarker from 'app/state/interfaces/PolicyMarkerInterface';
 import tag from 'app/state/interfaces/TagInterface';
+import tagVocabulary from 'app/state/interfaces/TagVocabularyInterface';
 import { queryModel } from 'app/state/models/QueryModel';
 
 export const applicationStore: ApplicationStoreModel = {
@@ -76,6 +77,7 @@ export const applicationStore: ApplicationStoreModel = {
   otherIdentifierType: otherIdentifierType,
   policyMarker: policyMarker,
   tag: tag,
+  tagVocabulary: tagVocabulary,
 };
 
 const appStore = createStore(applicationStore);

@@ -239,6 +239,13 @@ export const withEffects: StoreEffect = (store) => {
           })
         : null;
 
+    const tagVocabulary =
+      store.get('tagVocabulary') && rowFormat === 'activity'
+        ? store.get('tagVocabulary').map((item: ActivityStatusModel) => {
+            return item.code;
+          })
+        : null;
+
     const defaultFlowType =
       store.get('defaultFlowType') && rowFormat === 'activity'
         ? store.get('defaultFlowType').map((item: ActivityStatusModel) => {
@@ -807,6 +814,9 @@ export const withEffects: StoreEffect = (store) => {
         ? `policy_marker_code:(${policyMarker && policyMarker.join(' ')})`
         : null,
       get(tag, 'length', 0) ? `tag_code:(${tag && tag.join(' ')})` : null,
+      get(tagVocabulary, 'length', 0)
+        ? `tag_vocabulary:(${tagVocabulary && tagVocabulary.join(' ')})`
+        : null,
     ];
 
     const surl = constructSolrQuery(

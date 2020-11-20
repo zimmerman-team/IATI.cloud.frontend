@@ -30,3 +30,22 @@ export const cleanIframes = () => {
     iframes[i].parentNode.removeChild(iframes[i]);
   }
 };
+
+export const getRetrievedItemsLabel = (rowFormat: string, count?: number) => {
+  if (rowFormat === 'activity') {
+    if (count && count === 1) {
+      return 'activity';
+    }
+    return 'activities';
+  }
+  if (rowFormat === 'transaction') {
+    if (count && count === 1) {
+      return 'transaction';
+    }
+    return 'transactions';
+  }
+  if (count && count === 1) {
+    return 'budget';
+  }
+  return 'budgets';
+};

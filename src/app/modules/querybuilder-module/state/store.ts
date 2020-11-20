@@ -50,6 +50,7 @@ export type ModuleStoreModel = {
   otherIdentifierType: ActivityStatusModel[];
   policyMarker: ActivityStatusModel[];
   tag: ActivityStatusModel[];
+  tagVocabulary: ActivityStatusModel[];
   mustHaveDates: string;
   startDateAfter: any;
   startDateBefore: any;
@@ -70,6 +71,7 @@ const initialState = fromLocalStorage<ModuleStoreModel>({
   sectors: [],
   policyMarker: [],
   tag: [],
+  tagVocabulary: [],
   sectorCategories: [],
   sectorVocabularies: [],
   countries: [],
