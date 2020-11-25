@@ -91,7 +91,6 @@ export function createWriteStream(filename, options, size) {
   let supportsTransferable = false;
   let mitmTransporter = null;
   const ponyfill = window.WebStreamsPolyfill || {};
-  console.log(ponyfill);
   const isSecureContext = window.isSecureContext;
   let useBlobFallback =
     /constructor/i.test(window.HTMLElement) ||
@@ -197,7 +196,7 @@ export function createWriteStream(filename, options, size) {
                 }
               },
             };
-      ts = new streamSaver.TransformStream(
+      ts = new TransformStream(
         transformer,
         opts.writableStrategy,
         opts.readableStrategy
