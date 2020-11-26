@@ -6,7 +6,7 @@ import { Endpoint } from 'app/state/interfaces/Endpoint';
 export const baseURL =
   'https://iatidatastore.iatistandard.org/search/activity?';
 // export const baseURL =
-//   'https://iatidatastore.iatistandard.org/search/activity?';
+//   'https://test-datastore.iatistandard.org/search/activity?';
 
 export const tableRows = 2500;
 
@@ -50,6 +50,8 @@ export const SECTOR_VOCABULARY =
 export const POLICY_MARKER = 'data/policy_marker.json';
 
 export const TAG = 'data/tag.json';
+
+export const TAG_VOCABULARY = 'api/codelists/TagVocabulary/?format=json';
 
 export const ORGANISATIONS =
   // @ts-ignore

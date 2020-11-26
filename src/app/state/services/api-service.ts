@@ -31,6 +31,7 @@ import {
   TRANSACTION_RECEIVER_ORGS,
   TRANSACTION_TIED_STATUS,
   TRANSACTION_TYPE,
+  TAG_VOCABULARY,
 } from 'app/state/api';
 
 import { Endpoint } from 'app/state/interfaces/Endpoint';
@@ -79,6 +80,11 @@ export const getPolicyMarker: Endpoint = (params: RequestInit = {}) =>
 
 export const getTag: Endpoint = (params: RequestInit = {}) =>
   fetch(`/${TAG}`, {
+    method: 'GET',
+  }).then((res) => res.json());
+
+export const getTagVocabularies: Endpoint = (params: RequestInit = {}) =>
+  fetch(HOSTNAME + TAG_VOCABULARY, {
     method: 'GET',
   }).then((res) => res.json());
 

@@ -26,6 +26,7 @@ import { DownloadButton } from 'app/modules/querybuilder-module/fragments/result
 import { FormResetButton } from 'app/modules/querybuilder-module/common/FormResetButton';
 import { RadioButton } from 'app/components/inputs/radiobuttons/RadioButton';
 import { RadioGroupTitle } from 'app/components/inputs/radiobuttons/RadioButtonGroup/common/RadioGroupTitle';
+import { getRetrievedItemsLabel } from './util';
 // import { setRows } from 'app/state/models/QueryModel';
 
 const filename = () => new Date().toISOString().slice(0, 19);
@@ -93,6 +94,8 @@ export const DownloadFragment = () => {
     }
   }, [allDataCount]);
 
+  const itemsLabel = getRetrievedItemsLabel(rowFormat);
+
   return (
     <Grid
       container
@@ -145,14 +148,14 @@ export const DownloadFragment = () => {
             {allDataCount > 50 && (
               <FormControlLabel
                 value="50"
-                control={<RadioButton id={"activities_radio"} />}
-                label="50 activities"
+                control={<RadioButton id="activities_radio" />}
+                label={`50 ${itemsLabel}`}
               />
             )}
             <FormControlLabel
               value={allDataCount.toString()}
-              control={<RadioButton id={"activities_radio_2"} />}
-              label={`${allDataCount} activities`}
+              control={<RadioButton id="activities_radio_2" />}
+              label={`${allDataCount} ${itemsLabel}`}
             />
           </RadioGroup>
         </Grid>

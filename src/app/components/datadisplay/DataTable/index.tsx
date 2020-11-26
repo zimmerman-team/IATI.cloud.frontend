@@ -6,6 +6,7 @@ import sortBy from 'lodash/sortBy';
 import get from 'lodash/get';
 import axios from 'axios';
 import { PagingState, CustomPaging } from '@devexpress/dx-react-grid';
+import { ModuleStore } from 'app/modules/querybuilder-module/state/store';
 import {
   Grid,
   PagingPanel,
@@ -20,6 +21,7 @@ import {
 } from 'app/modules/querybuilder-module/fragments/results/model';
 import { ROWS } from 'app/state/models/QueryModel';
 import { NoDataCellComponent } from './common/nodatacellcomp';
+import { getRetrievedItemsLabel } from 'app/modules/querybuilder-module/fragments/results/util';
 
 export const DataTable = (props) => {
   const [cols, setCols] = useState(
@@ -35,6 +37,8 @@ export const DataTable = (props) => {
   const [pageSize, setPageSize] = useState(10);
   const [tablePage, setTablePage] = useState(0);
   const [loading, setLoading] = useState(false);
+  const store = ModuleStore.useStore();
+  const rowFormat = store.get('rowFormat');
 
   useEffect(() => {
     if (!props.defaultCols && docsData.length > 0) {
@@ -87,7 +91,7 @@ export const DataTable = (props) => {
     >
       <h3>
         Datastore retrieved {props.allDataCount}{' '}
-        {props.allDataCount === 1 ? 'activity' : 'activities'} for you
+        {getRetrievedItemsLabel(rowFormat, props.allDataCount)} for you
       </h3>
       <Paper>
         <Grid rows={docsData} columns={cols}>

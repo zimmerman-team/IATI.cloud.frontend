@@ -134,9 +134,21 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Tag"
             dataKey="tag"
-            placeholder="All other identifier types"
+            placeholder="All options"
             value={props.store.get('tag')}
             onChange={(e) => props.store.set('tag')(e)}
+          />
+        ),
+      },
+      {
+        label: 'Tag vocabulary',
+        component: (props) => (
+          <AddFilterModule
+            label="Tag vocabulary"
+            dataKey="tagVocabulary"
+            placeholder="All options"
+            value={props.store.get('tagVocabulary')}
+            onChange={(e) => props.store.set('tagVocabulary')(e)}
           />
         ),
       },

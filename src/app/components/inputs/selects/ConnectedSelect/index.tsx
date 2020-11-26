@@ -29,7 +29,7 @@ const customStyles = {
   multiValueLabel: MultiValueLabel,
   multiValueRemove: (provided: any) => ({ ...provided }),
   menu: Menu,
-  placeholder: styles => ({...styles, color: 'black', opacity: '1'}),
+  placeholder: (styles) => ({ ...styles, color: 'black', opacity: '1' }),
 };
 
 export const ConnectedSelect = (props: any) => {
@@ -42,7 +42,11 @@ export const ConnectedSelect = (props: any) => {
       `}
       data-cy={props.data_cy}
     >
-      <FieldInputLabel for={createID(props.label)} label={props.label} data-cy={'select-field-label'} />
+      <FieldInputLabel
+        for={createID(props.label)}
+        label={props.label}
+        data-cy={'select-field-label'}
+      />
       <Select
         inputId={createID(props.label)}
         data-cy={'select'}
