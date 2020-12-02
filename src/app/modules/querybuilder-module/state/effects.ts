@@ -19,6 +19,19 @@ import {
 } from 'app/state/models';
 
 import appStore from 'app/state/store';
+import { getSectors } from './utils/getSectors';
+import { getReportingOrgTypes } from './utils/getReportingOrgTypes';
+import { getSectorVocabs } from './utils/getSectorVocabs';
+import { getCountries } from './utils/getCountries';
+import { getRegions } from './utils/getRegions';
+import { getGeneralSearch } from './utils/getGeneralSearch';
+import { getParticipatingOrgs } from './utils/getParticipatingOrgs';
+import { getHumanitarian } from './utils/getHumanitarian';
+import { getAidTypeCodes } from './utils/getAidTypeCodes';
+import { getDefaultCurrency } from './utils/getDefaultCurrency';
+import { getDefaultFlowType } from './utils/getDefaultFlowType';
+import { getDefaultFinanceType } from './utils/getDefaultFinanceType';
+import { getDefaultTiedStatus } from './utils/getDefaultTiedStatus';
 
 /*
 const withLocalStorage: StoreEffect = store => {
@@ -82,13 +95,11 @@ export const withEffects: StoreEffect = (store) => {
         })
       : null;
 
-    const regions =
-      store.get('regions') &&
-      (rowFormat === 'activity' || rowFormat === 'transaction')
-        ? store.get('regions').map((item: RegionModel) => {
-            return item.recipient_region.code;
-          })
-        : null;
+    const regions = store.get('regions')
+      ? store.get('regions').map((item: RegionModel) => {
+          return item.recipient_region.code;
+        })
+      : null;
 
     const startDateAfter =
       store.get('mustHaveDates') === 'Yes' &&
@@ -162,117 +173,94 @@ export const withEffects: StoreEffect = (store) => {
             })
         : null;
 
-    const participatingOrgs =
-      store.get('participatingOrgs') && rowFormat === 'activity'
-        ? store.get('participatingOrgs').map((item: ParticipatingOrgsModel) => {
-            return item.value.trim();
-          })
-        : null;
-    if (participatingOrgs != null) {
-      /* todo: why are we using a for loop */
-      for (let i = 0; i < participatingOrgs.length; i++) {
-        if (participatingOrgs[i].includes('#')) {
-          participatingOrgs[i] = participatingOrgs[i].replace(/#/g, '%23');
-        }
-      }
-    }
+    const participatingOrgs = store.get('participatingOrgs')
+      ? store.get('participatingOrgs').map((item: ParticipatingOrgsModel) => {
+          return item.value.trim().replace(/#/g, '%23');
+        })
+      : null;
 
-    const activityStatus =
-      store.get('activityStatus') && rowFormat === 'activity'
-        ? store.get('activityStatus').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const activityStatus = store.get('activityStatus')
+      ? store.get('activityStatus').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
-    const activityScope =
-      store.get('activityScope') && rowFormat === 'activity'
-        ? store.get('activityScope').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const activityScope = store.get('activityScope')
+      ? store.get('activityScope').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
-    const aidType =
-      store.get('aidType') && rowFormat === 'activity'
-        ? store.get('aidType').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const aidType = store.get('aidType')
+      ? store.get('aidType').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
-    const aidTypeCategory =
-      store.get('aidTypeCategory') && rowFormat === 'activity'
-        ? store.get('aidTypeCategory').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const aidTypeCategory = store.get('aidTypeCategory')
+      ? store.get('aidTypeCategory').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
-    const aidTypeVocabulary =
-      store.get('aidTypeVocabulary') && rowFormat === 'activity'
-        ? store.get('aidTypeVocabulary').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
-    const collaborationType =
-      store.get('collaborationType') && rowFormat === 'activity'
-        ? store.get('collaborationType').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const aidTypeVocabulary = store.get('aidTypeVocabulary')
+      ? store.get('aidTypeVocabulary').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
+    const collaborationType = store.get('collaborationType')
+      ? store.get('collaborationType').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
-    const defaultCurrency =
-      store.get('defaultCurrency') && rowFormat === 'activity'
-        ? store.get('defaultCurrency').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const defaultCurrency = store.get('defaultCurrency')
+      ? store.get('defaultCurrency').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
-    const policyMarker =
-      store.get('policyMarker') && rowFormat === 'activity'
-        ? store.get('policyMarker').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const policyMarker = store.get('policyMarker')
+      ? store.get('policyMarker').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
-    const tag =
-      store.get('tag') && rowFormat === 'activity'
-        ? store.get('tag').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const tag = store.get('tag')
+      ? store.get('tag').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
-    const tagVocabulary =
-      store.get('tagVocabulary') && rowFormat === 'activity'
-        ? store.get('tagVocabulary').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const tagVocabulary = store.get('tagVocabulary')
+      ? store.get('tagVocabulary').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
-    const defaultFlowType =
-      store.get('defaultFlowType') && rowFormat === 'activity'
-        ? store.get('defaultFlowType').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const defaultFlowType = store.get('defaultFlowType')
+      ? store.get('defaultFlowType').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
-    const hierarchy =
-      store.get('hierarchy') && rowFormat === 'activity'
-        ? store.get('hierarchy').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const hierarchy = store.get('hierarchy')
+      ? store.get('hierarchy').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
-    const financeType =
-      store.get('financeType') && rowFormat === 'activity'
-        ? store.get('financeType').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const financeType = store.get('financeType')
+      ? store.get('financeType').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
-    const tiedStatus =
-      store.get('tiedStatus') && rowFormat === 'activity'
-        ? store.get('tiedStatus').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const tiedStatus = store.get('tiedStatus')
+      ? store.get('tiedStatus').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
     const transactionType =
       store.get('transactionType') &&
       (rowFormat === 'activity' || rowFormat === 'transaction')
@@ -280,24 +268,21 @@ export const withEffects: StoreEffect = (store) => {
             return item.code;
           })
         : null;
-    const documentLinkCategory =
-      store.get('documentLinkCategory') && rowFormat === 'activity'
-        ? store.get('documentLinkCategory').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
-    const iatiVersion =
-      store.get('iatiVersion') && rowFormat === 'activity'
-        ? store.get('iatiVersion').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
-    const language =
-      store.get('language') && rowFormat === 'activity'
-        ? store.get('language').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const documentLinkCategory = store.get('documentLinkCategory')
+      ? store.get('documentLinkCategory').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
+    const iatiVersion = store.get('iatiVersion')
+      ? store.get('iatiVersion').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
+    const language = store.get('language')
+      ? store.get('language').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
     const transactionFlowType =
       store.get('transactionFlowType') &&
       (rowFormat === 'activity' || rowFormat === 'transaction')
@@ -323,26 +308,21 @@ export const withEffects: StoreEffect = (store) => {
               return item.code;
             })
         : null;
-    const humanitarian =
-      store.get('humanitarian') && rowFormat === 'activity'
-        ? store.get('humanitarian').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
-    const humanitarianScope =
-      store.get('humanitarianScope') && rowFormat === 'activity'
-        ? store.get('humanitarianScope').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
-    const humanitarianScopeVocab =
-      store.get('humanitarianScopeVocab') && rowFormat === 'activity'
-        ? store
-            .get('humanitarianScopeVocab')
-            .map((item: ActivityStatusModel) => {
-              return item.code;
-            })
-        : null;
+    const humanitarian = store.get('humanitarian')
+      ? store.get('humanitarian').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
+    const humanitarianScope = store.get('humanitarianScope')
+      ? store.get('humanitarianScope').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
+    const humanitarianScopeVocab = store.get('humanitarianScopeVocab')
+      ? store.get('humanitarianScopeVocab').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
     const transactionHumanitarian =
       store.get('transactionHumanitarian') &&
       (rowFormat === 'activity' || rowFormat === 'transaction')
@@ -353,13 +333,11 @@ export const withEffects: StoreEffect = (store) => {
             })
         : null;
 
-    const otherIdentifierType =
-      store.get('otherIdentifierType') &&
-      (rowFormat === 'activity' || rowFormat === 'transaction')
-        ? store.get('otherIdentifierType').map((item: ActivityStatusModel) => {
-            return item.code;
-          })
-        : null;
+    const otherIdentifierType = store.get('otherIdentifierType')
+      ? store.get('otherIdentifierType').map((item: ActivityStatusModel) => {
+          return item.code;
+        })
+      : null;
 
     const fields = store.get('fields')
       ? store.get('fields').map((item: ActivityStatusModel) => {
@@ -506,74 +484,21 @@ export const withEffects: StoreEffect = (store) => {
       }
       return fields;
     };
-    let temp_string;
-    let output;
 
     const paramArr = [
       get(organisations, 'length', 0)
         ? `reporting_org_ref:(${organisations && organisations.join(' ')})`
         : null,
-      get(organisationTypes, 'length', 0) && rowFormat === 'activity'
-        ? `reporting_org_type_code:(${
-            organisationTypes && organisationTypes.join(' ')
-          })`
-        : null,
-      get(organisationTypes, 'length', 0) &&
-      (rowFormat === 'transaction' || rowFormat === 'budget')
-        ? `reporting_org_type:(${
-            organisationTypes && organisationTypes.join(' ')
-          })`
-        : null,
-      get(sectors, 'length', 0) && rowFormat === 'activity'
-        ? ((temp_string = sectors && sectors.join(' ')),
-          (output = `"${temp_string.split(' ').join('" "')}"`),
-          `(sector_code:(${output}) OR transaction_sector_code:(${output}))`)
-        : null,
-      get(sectors, 'length', 0) && rowFormat === 'transaction'
-        ? ((temp_string = sectors && sectors.join(' ')),
-          (output = `"${temp_string.split(' ').join('" "')}"`),
-          `transaction_sector_code:(${output})`)
-        : null,
-      get(sectorVocabularies, 'length', 0) && rowFormat === 'activity'
-        ? `sector_vocabulary:(${
-            sectorVocabularies && sectorVocabularies.join(' ')
-          })`
-        : null,
-      get(sectorVocabularies, 'length', 0) && rowFormat === 'transaction'
-        ? `transaction_sector_vocabulary:(${
-            sectorVocabularies && sectorVocabularies.join(' ')
-          })`
-        : null,
+      getReportingOrgTypes(organisationTypes, rowFormat),
+      getSectors(sectors, rowFormat),
+      getSectorVocabs(sectorVocabularies, rowFormat),
       get(secondaryReporter, 'length', 0)
         ? `reporting_org_secondary_reporter:(${
             secondaryReporter && secondaryReporter.join(' ')
           })`
         : null,
-      get(countries, 'length', 0) &&
-      (rowFormat === 'activity' || rowFormat === 'budget')
-        ? `(recipient_country_code:(${
-            countries && countries.join(' ')
-          }) OR transaction_recipient_country_code:(${
-            countries && countries.join(' ')
-          }))`
-        : null,
-      get(countries, 'length', 0) && rowFormat === 'transaction'
-        ? `transaction_recipient_country_code:(${
-            countries && countries.join(' ')
-          })`
-        : null,
-
-      get(regions, 'length', 0) && rowFormat === 'activity'
-        ? `(recipient_region_code:(${
-            regions && regions.join(' ')
-          } OR transaction_recipient_region_code:(${
-            regions && regions.join(' ')
-          })))`
-        : null,
-      get(regions, 'length', 0) && rowFormat === 'transaction'
-        ? `transaction_recipient_region_code:(${regions && regions.join(' ')})`
-        : null,
-
+      getCountries(countries, rowFormat),
+      getRegions(regions, rowFormat),
       startDateAfter !== null &&
       startDateAfter.startDateAfter !== '*' &&
       rowFormat === 'activity'
@@ -674,13 +599,7 @@ export const withEffects: StoreEffect = (store) => {
           )}]`
         : null,
 
-      textSearch && rowFormat === 'activity'
-        ? `(title_narrative:"${textSearch}" OR description_narrative:"${textSearch}" OR iati_identifier:"${textSearch}" OR transaction_description_narrative:"${textSearch}")`
-        : null,
-
-      textSearch && rowFormat === 'transaction'
-        ? `(transaction_description_narrative:"${textSearch}")`
-        : null,
+      getGeneralSearch(textSearch, rowFormat),
 
       get(transactionProviderOrgs, 'length', 0)
         ? `transaction_provider_org_ref:(${
@@ -692,22 +611,15 @@ export const withEffects: StoreEffect = (store) => {
             transactionReceiverOrgs && transactionReceiverOrgs.join(' ')
           })`
         : null,
-      get(participatingOrgs, 'length', 0)
-        ? ((temp_string = participatingOrgs && participatingOrgs.join(' ')),
-          (output = `"${temp_string.split(' ').join('" "')}"`),
-          `participating_org_ref:(${output})`)
-        : null,
+
+      getParticipatingOrgs(participatingOrgs, rowFormat),
       get(activityStatus, 'length', 0)
         ? `activity_status_code:(${activityStatus && activityStatus.join(' ')})`
         : null,
       get(activityScope, 'length', 0)
         ? `activity_scope_code:(${activityScope && activityScope.join(' ')})`
         : null,
-      get(aidType, 'length', 0)
-        ? `(default_aid_type_code:(${
-            aidType && aidType.join(' ')
-          }) OR transaction_aid_type_code:(${aidType && aidType.join(' ')}))`
-        : null,
+      getAidTypeCodes(aidType, rowFormat),
       get(aidTypeCategory, 'length', 0)
         ? `default_aid_type_category_code:(${
             aidTypeCategory && aidTypeCategory.join(' ')
@@ -723,37 +635,13 @@ export const withEffects: StoreEffect = (store) => {
             collaborationType && collaborationType.join(' ')
           })`
         : null,
-      get(defaultCurrency, 'length', 0)
-        ? `(default_currency:(${
-            defaultCurrency && defaultCurrency.join(' ')
-          }) OR transaction_value_currency:(${
-            defaultCurrency && defaultCurrency.join(' ')
-          }))`
-        : null,
-      get(defaultFlowType, 'length', 0)
-        ? `(default_flow_type_code:(${
-            defaultFlowType && defaultFlowType.join(' ')
-          }) OR transaction_flow_type_code:(${
-            defaultFlowType && defaultFlowType.join(' ')
-          }))`
-        : null,
+      getDefaultCurrency(defaultCurrency, rowFormat),
+      getDefaultFlowType(defaultFlowType, rowFormat),
       get(hierarchy, 'length', 0)
         ? `hierarchy:(${hierarchy && hierarchy.join(' ')})`
         : null,
-      get(financeType, 'length', 0)
-        ? `(default_finance_type_code:(${
-            financeType && financeType.join(' ')
-          }) OR transaction_finance_type_code:(${
-            financeType && financeType.join(' ')
-          }))`
-        : null,
-      get(tiedStatus, 'length', 0)
-        ? `(default_tied_status_code:(${
-            tiedStatus && tiedStatus.join(' ')
-          }) OR transaction_tied_status_code:(${
-            tiedStatus && tiedStatus.join(' ')
-          }))`
-        : null,
+      getDefaultFinanceType(financeType, rowFormat),
+      getDefaultTiedStatus(tiedStatus, rowFormat),
       get(transactionType, 'length', 0)
         ? `transaction_type:(${transactionType && transactionType.join(' ')})`
         : null,
@@ -783,13 +671,7 @@ export const withEffects: StoreEffect = (store) => {
             transactionValueCurrency && transactionValueCurrency.join(' ')
           })`
         : null,
-      get(humanitarian, 'length', 0)
-        ? `(humanitarian:(${
-            humanitarian && humanitarian.join(' ')
-          }) OR transaction_humanitarian:(${
-            humanitarian && humanitarian.join(' ')
-          }))`
-        : null,
+      getHumanitarian(humanitarian, rowFormat),
       get(humanitarianScope, 'length', 0)
         ? `humanitarian_scope_type:(${
             humanitarianScope && humanitarianScope.join(' ')

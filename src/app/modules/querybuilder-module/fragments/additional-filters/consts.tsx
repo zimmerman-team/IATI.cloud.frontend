@@ -13,6 +13,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="IATI version"
+            key="iatiVersion"
             dataKey="iatiVersion"
             placeholder="All IATI versions"
             value={props.store.get('iatiVersion')}
@@ -25,6 +26,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Default language"
+            key="language"
             dataKey="language"
             placeholder="All languages"
             value={props.store.get('language')}
@@ -37,6 +39,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Currency"
+            key="defaultCurrency"
             dataKey="defaultCurrency"
             placeholder="All currencies"
             value={props.store.get('defaultCurrency')}
@@ -49,6 +52,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Hierarchy"
+            key="hierarchy"
             dataKey="hierarchy"
             placeholder="All hierarchies"
             value={props.store.get('hierarchy')}
@@ -61,6 +65,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Humanitarian"
+            key="humanitarian"
             dataKey="humanitarian"
             placeholder="All options"
             value={props.store.get('humanitarian')}
@@ -73,6 +78,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Humanitarian Scope"
+            key="humanitarianScope"
             dataKey="humanitarianScope"
             placeholder="All options"
             value={props.store.get('humanitarianScope')}
@@ -85,6 +91,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Humanitarian Scope Vocabulary"
+            key="humanitarianScopeVocab"
             dataKey="humanitarianScopeVocab"
             placeholder="All options"
             value={props.store.get('humanitarianScopeVocab')}
@@ -97,6 +104,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Other identifier type"
+            key="otherIdentifierType"
             dataKey="otherIdentifierType"
             placeholder="All other identifier types"
             value={props.store.get('otherIdentifierType')}
@@ -109,6 +117,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Activity status"
+            key="activityStatus"
             dataKey="activityStatus"
             placeholder="All activity statuses"
             value={props.store.get('activityStatus')}
@@ -134,6 +143,7 @@ export const additionalFiltersPopData = [
           <AddFilterModule
             label="Tag"
             dataKey="tag"
+            key="tag"
             placeholder="All options"
             value={props.store.get('tag')}
             onChange={(e) => props.store.set('tag')(e)}
@@ -145,6 +155,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Tag vocabulary"
+            key="tagVocabulary"
             dataKey="tagVocabulary"
             placeholder="All options"
             value={props.store.get('tagVocabulary')}
@@ -157,6 +168,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Policy marker"
+            key="policyMarker"
             dataKey="policyMarker"
             placeholder="All other identifier types"
             value={props.store.get('policyMarker')}
@@ -169,6 +181,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Collaboration type"
+            key="collaborationType"
             dataKey="collaborationType"
             placeholder="All collaboration types"
             value={props.store.get('collaborationType')}
@@ -181,6 +194,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Default flow type"
+            key="defaultFlowType"
             dataKey="defaultFlowType"
             placeholder="All default flow types"
             value={props.store.get('defaultFlowType')}
@@ -193,6 +207,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Default finance type"
+            key="financeType"
             dataKey="financeType"
             placeholder="All default finance types"
             value={props.store.get('financeType')}
@@ -205,6 +220,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Default Aid type"
+            key="aidType"
             dataKey="aidType"
             placeholder="All aid types"
             value={props.store.get('aidType')}
@@ -217,6 +233,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Default Aid type (category)"
+            key="aidTypeCategory"
             dataKey="aidTypeCategory"
             placeholder="All aid type categories"
             value={props.store.get('aidTypeCategory')}
@@ -229,6 +246,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Default Aid type vocabulary"
+            key="aidTypeVocabulary"
             dataKey="aidTypeVocabulary"
             placeholder="All aid type vocabularies"
             value={props.store.get('aidTypeVocabulary')}
@@ -241,6 +259,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Default tied status"
+            key="tiedStatus"
             dataKey="tiedStatus"
             placeholder="All default tied statuses"
             value={props.store.get('tiedStatus')}
@@ -253,6 +272,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Document link category"
+            key="documentLinkCategory"
             dataKey="documentLinkCategory"
             placeholder="All document link categories"
             value={props.store.get('documentLinkCategory')}
@@ -270,6 +290,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Transaction type"
+            key="transactionType"
             dataKey="transactionType"
             placeholder="All transaction types"
             value={props.store.get('transactionType')}
@@ -282,6 +303,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Transaction flow type"
+            key="transactionFlowType"
             dataKey="transactionFlowType"
             placeholder="All transaction flow types"
             value={props.store.get('transactionFlowType')}
@@ -294,6 +316,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Transaction tied status"
+            key="transactionTiedStatus"
             dataKey="transactionTiedStatus"
             placeholder="All transaction tied status"
             value={props.store.get('transactionTiedStatus')}
@@ -306,6 +329,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Transaction value currency"
+            key="defaultCurrency"
             dataKey="defaultCurrency"
             placeholder="All transactions value currencies"
             value={props.store.get('transactionValueCurrency')}
@@ -318,6 +342,7 @@ export const additionalFiltersPopData = [
         component: (props) => (
           <AddFilterModule
             label="Transaction humanitarian"
+            key="transactionHumanitarian"
             dataKey="transactionHumanitarian"
             placeholder="All options"
             value={props.store.get('transactionHumanitarian')}
