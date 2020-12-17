@@ -70,16 +70,17 @@ export const DownloadFragment = () => {
       'csv&fl=*,reporting_org_narrative:[value v=""],sector:[value v=""]';
   }
 
-  let csvUrl = queryState.includes('fl=')
-    ? queryState.replace('json', 'csv')
-    : queryState.replace('json', `xslt&tr=${rowFormat}-csv.xsl`);
+  let csvUrl = '';
 
   if (repeatRows !== '0') {
+    csvUrl = queryState.replace('json', `xslt&tr=${rowFormat}-csv.xsl`);
     csvUrl = csvUrl.replace(`/${rowFormat}`, `/${rowFormat}-${repeatRows}`);
     csvUrl = csvUrl.replace(
       `tr=${rowFormat}-csv.xsl`,
       `tr=${rowFormat}-${repeatRows}-csv.xsl`
     );
+  } else {
+    csvUrl = queryState.replace('json', 'csv');
   }
 
   return (
@@ -201,22 +202,12 @@ export const DownloadFragment = () => {
           css={repeatRows !== '0' && disabledSection}
         >
           <Grid item xs={12} md={10} lg={9}>
-            <URLField
-              text={
-                rowFormat === 'activity' && !queryState.includes('fl=')
-                  ? queryState.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
-                  : queryState.replace('json', 'xml')
-              }
-            />
+            <URLField text={queryState.replace('json', 'xml')} />
           </Grid>
           <Grid item xs={4} md={2} lg={3}>
             <DownloadButton
               type="XML"
-              queryURL={
-                rowFormat === 'activity' && !queryState.includes('fl=')
-                  ? queryState.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
-                  : queryState.replace('json', 'xml')
-              }
+              queryURL={queryState.replace('json', 'xml')}
               fileName={`iatidatastore-iatistandard-${filename()}.xml`}
             />
           </Grid>
