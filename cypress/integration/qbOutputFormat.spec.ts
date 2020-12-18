@@ -10,7 +10,7 @@ describe('Query Builder - output format', function () {
   it('should load the page', function () {
     cy.visit('/querybuilder/output-format');
     cy.get('[data-cy=covid-banner-close-btn]').click();
-    cy.get(':nth-child(3) > #navlink').click();
+    cy.get(':nth-child(3) > #Output_Format').click();
   });
 
   it('should show the correct text', function () {

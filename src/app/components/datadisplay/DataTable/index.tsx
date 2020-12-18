@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import Paper from '@material-ui/core/Paper';
@@ -5,6 +6,7 @@ import sortBy from 'lodash/sortBy';
 import get from 'lodash/get';
 import axios from 'axios';
 import { PagingState, CustomPaging } from '@devexpress/dx-react-grid';
+import { ModuleStore } from 'app/modules/querybuilder-module/state/store';
 import {
   Grid,
   PagingPanel,
@@ -19,6 +21,7 @@ import {
 } from 'app/modules/querybuilder-module/fragments/results/model';
 import { ROWS } from 'app/state/models/QueryModel';
 import { NoDataCellComponent } from './common/nodatacellcomp';
+import { getRetrievedItemsLabel } from 'app/modules/querybuilder-module/fragments/results/util';
 
 export const DataTable = (props) => {
   const [cols, setCols] = useState(
@@ -34,7 +37,8 @@ export const DataTable = (props) => {
   const [pageSize, setPageSize] = useState(10);
   const [tablePage, setTablePage] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [allDataCount, setAllDataCount] = useState([]);
+  const store = ModuleStore.useStore();
+  const rowFormat = store.get('rowFormat');
 
   useEffect(() => {
     if (!props.defaultCols && docsData.length > 0) {
@@ -57,7 +61,8 @@ export const DataTable = (props) => {
       )
       .then((response) => {
         setDocsData(get(response, 'data.response.docs', []));
-        setAllDataCount(get(response, 'data.response.numFound', 0));
+        props.setAllDataCount(get(response, 'data.response.numFound', 0));
+        a;
         setLoading(false);
       })
       .catch((error) => {
@@ -85,8 +90,8 @@ export const DataTable = (props) => {
       `}
     >
       <h3>
-        Datastore retrieved {allDataCount}{' '}
-        {allDataCount === 1 ? 'activity' : 'activities'} for you
+        Datastore retrieved {props.allDataCount}{' '}
+        {getRetrievedItemsLabel(rowFormat, props.allDataCount)} for you
       </h3>
       <Paper>
         <Grid rows={docsData} columns={cols}>
@@ -96,7 +101,7 @@ export const DataTable = (props) => {
             onPageSizeChange={setPageSize}
             onCurrentPageChange={setTablePage}
           />
-          <CustomPaging totalCount={allDataCount} />
+          <CustomPaging totalCount={props.allDataCount} />
           <Table
             noDataCellComponent={() => (
               <NoDataCellComponent

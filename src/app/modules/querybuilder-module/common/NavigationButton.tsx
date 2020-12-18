@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { NavButtonModel } from 'app/modules/querybuilder-module/layout';
+import { createID } from '../../../utils/removeSpaces';
 
 export const NavigationButton = (props: NavButtonModel) => {
   const theme = useTheme();
@@ -11,7 +12,7 @@ export const NavigationButton = (props: NavButtonModel) => {
   return (
     <NavLink
       to={props.path}
-      id="navlink"
+      id={createID(props.label)}
       css={`
           display: flex;
           align-items: center;

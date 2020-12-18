@@ -10,6 +10,7 @@ import IconCheckboxUnchecked from 'app/assets/icons/IconCheckboxUnchecked';
 import theme from 'app/theme';
 
 type Props = {
+  id: string;
   size?: string;
   label?: string;
   color?: string;

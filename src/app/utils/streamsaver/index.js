@@ -91,7 +91,6 @@ export function createWriteStream(filename, options, size) {
   let supportsTransferable = false;
   let mitmTransporter = null;
   const ponyfill = window.WebStreamsPolyfill || {};
-
   const isSecureContext = window.isSecureContext;
   let useBlobFallback =
     /constructor/i.test(window.HTMLElement) ||

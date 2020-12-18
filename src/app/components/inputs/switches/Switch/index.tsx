@@ -3,6 +3,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Base from '@material-ui/core/Switch';
 
 type Props = {
+  id: string;
   value?: any;
   checked?: boolean;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;

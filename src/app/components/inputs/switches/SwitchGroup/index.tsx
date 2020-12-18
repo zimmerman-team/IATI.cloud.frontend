@@ -23,8 +23,10 @@ export const SwitchesGroup = () => {
       <FormLabel component="legend">Assign responsibility</FormLabel>
       <FormGroup>
         <FormItemLabel
+          for="Option1"
           control={
             <Switch
+              id="Option1"
               checked={state.gilad}
               onChange={handleChange('gilad')}
               value="gilad"
@@ -33,8 +35,10 @@ export const SwitchesGroup = () => {
           label="Option 1"
         />
         <FormItemLabel
+          for="Option2"
           control={
             <Switch
+              id="Option2"
               checked={state.jason}
               onChange={handleChange('jason')}
               value="jason"
@@ -43,8 +47,10 @@ export const SwitchesGroup = () => {
           label="Option 2"
         />
         <FormItemLabel
+          for="Option3"
           control={
             <Switch
+              id="Option3"
               checked={state.antoine}
               onChange={handleChange('antoine')}
               value="antoine"
