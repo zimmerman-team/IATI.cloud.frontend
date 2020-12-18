@@ -221,12 +221,22 @@ export const DownloadFragment = () => {
           css={repeatRows !== '0' && disabledSection}
         >
           <Grid item xs={12} md={10} lg={9}>
-            <URLField text={queryState.replace('json', 'xml')} />
+            <URLField
+              text={
+                rowFormat === 'activity' && !queryState.includes('fl=')
+                  ? queryState.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
+                  : queryState.replace('json', 'xml')
+              }
+            />
           </Grid>
           <Grid item xs={4} md={2} lg={3}>
             <DownloadButton
               type="XML"
-              queryURL={queryState.replace('json', 'xml')}
+              queryURL={
+                rowFormat === 'activity' && !queryState.includes('fl=')
+                  ? queryState.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
+                  : queryState.replace('json', 'xml')
+              }
               fileName={`iatidatastore-iatistandard-${filename()}.xml`}
             />
           </Grid>
