@@ -239,6 +239,13 @@ export const withEffects: StoreEffect = (store) => {
           })
         : null;
 
+    const tagVocabulary =
+      store.get('tagVocabulary') && rowFormat === 'activity'
+        ? store.get('tagVocabulary').map((item: ActivityStatusModel) => {
+            return item.code;
+          })
+        : null;
+
     const defaultFlowType =
       store.get('defaultFlowType') && rowFormat === 'activity'
         ? store.get('defaultFlowType').map((item: ActivityStatusModel) => {
@@ -699,7 +706,9 @@ export const withEffects: StoreEffect = (store) => {
         ? `activity_scope_code:(${activityScope && activityScope.join(' ')})`
         : null,
       get(aidType, 'length', 0)
-        ? `default_aid_type_code:(${aidType && aidType.join(' ')})`
+        ? `(default_aid_type_code:(${
+            aidType && aidType.join(' ')
+          }) OR transaction_aid_type_code:(${aidType && aidType.join(' ')}))`
         : null,
       get(aidTypeCategory, 'length', 0)
         ? `default_aid_type_category_code:(${
@@ -717,21 +726,35 @@ export const withEffects: StoreEffect = (store) => {
           })`
         : null,
       get(defaultCurrency, 'length', 0)
-        ? `default_currency:(${defaultCurrency && defaultCurrency.join(' ')})`
+        ? `(default_currency:(${
+            defaultCurrency && defaultCurrency.join(' ')
+          }) OR transaction_value_currency:(${
+            defaultCurrency && defaultCurrency.join(' ')
+          }))`
         : null,
       get(defaultFlowType, 'length', 0)
-        ? `default_flow_type_code:(${
+        ? `(default_flow_type_code:(${
             defaultFlowType && defaultFlowType.join(' ')
-          })`
+          }) OR transaction_flow_type_code:(${
+            defaultFlowType && defaultFlowType.join(' ')
+          }))`
         : null,
       get(hierarchy, 'length', 0)
         ? `hierarchy:(${hierarchy && hierarchy.join(' ')})`
         : null,
       get(financeType, 'length', 0)
-        ? `default_finance_type_code:(${financeType && financeType.join(' ')})`
+        ? `(default_finance_type_code:(${
+            financeType && financeType.join(' ')
+          }) OR transaction_finance_type_code:(${
+            financeType && financeType.join(' ')
+          }))`
         : null,
       get(tiedStatus, 'length', 0)
-        ? `default_tied_status_code:(${tiedStatus && tiedStatus.join(' ')})`
+        ? `(default_tied_status_code:(${
+            tiedStatus && tiedStatus.join(' ')
+          }) OR transaction_tied_status_code:(${
+            tiedStatus && tiedStatus.join(' ')
+          }))`
         : null,
       get(transactionType, 'length', 0)
         ? `transaction_type:(${transactionType && transactionType.join(' ')})`
@@ -763,7 +786,11 @@ export const withEffects: StoreEffect = (store) => {
           })`
         : null,
       get(humanitarian, 'length', 0)
-        ? `humanitarian:(${humanitarian && humanitarian.join(' ')})`
+        ? `(humanitarian:(${
+            humanitarian && humanitarian.join(' ')
+          }) OR transaction_humanitarian:(${
+            humanitarian && humanitarian.join(' ')
+          }))`
         : null,
       get(humanitarianScope, 'length', 0)
         ? `humanitarian_scope_type:(${
@@ -789,6 +816,9 @@ export const withEffects: StoreEffect = (store) => {
         ? `policy_marker_code:(${policyMarker && policyMarker.join(' ')})`
         : null,
       get(tag, 'length', 0) ? `tag_code:(${tag && tag.join(' ')})` : null,
+      get(tagVocabulary, 'length', 0)
+        ? `tag_vocabulary:(${tagVocabulary && tagVocabulary.join(' ')})`
+        : null,
     ];
 
     const surl = constructSolrQuery(

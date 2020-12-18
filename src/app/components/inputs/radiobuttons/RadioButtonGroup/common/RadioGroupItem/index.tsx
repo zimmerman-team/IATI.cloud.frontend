@@ -3,6 +3,7 @@ import { RadioButton } from 'app/components/inputs/radiobuttons/RadioButton';
 import { FormItemLabel } from 'app/components/sort/FormItemLabel';
 
 type Props = {
+  for: string;
   value?: string;
   label?: string;
   disabled?: boolean;
@@ -10,5 +11,5 @@ type Props = {
 };
 
 export const RadioGroupItem = (props: Props) => {
-  return <FormItemLabel {...props} control={<RadioButton />} />;
+  return <FormItemLabel {...props} control={<RadioButton id={props.for}/>} />;
 };

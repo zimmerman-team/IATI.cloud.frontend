@@ -7,6 +7,7 @@ import IconChecked from 'app/assets/icons/IconChecked';
 import IconUnchecked from 'app/assets/icons/IconUnchecked';
 import theme from 'app/theme';
 type Props = {
+  id: string;
   size?: string;
   label?: string;
 };

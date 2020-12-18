@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components';
 import { FieldInputLabel } from 'app/components/common/FieldInputLabel';
 import { TooltipButton } from 'app/components/inputs/buttons/TooltipButton';
+import { createID } from '../../../../utils/removeSpaces';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -63,11 +64,12 @@ export const DateField = (props) => {
   return (
     <>
       <Header>
-        <FieldInputLabel label={props.label} />
+        <FieldInputLabel for={createID(props.label)} label={props.label} />
         {props.tip && <TooltipButton tip={props.tip} />}
       </Header>
       <BaseComponent
-        id="date"
+        // id={createID(props.label)}
+        inputProps={{ id: createID(props.label) }}
         label={props.label}
         type="date"
         value={props.value}

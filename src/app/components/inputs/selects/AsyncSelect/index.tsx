@@ -18,6 +18,7 @@ import {
   Option,
   ValueContainer,
 } from 'app/components/inputs/selects/ConnectedSelect/common';
+import { createID } from '../../../../utils/removeSpaces';
 
 const customStyles = {
   option: (provided: any, state: any) => Option(provided, state),
@@ -49,8 +50,10 @@ async function loadOptions(search, loadedOptions, { page }, pivot) {
 export const AsyncSelect = (props: any) => {
   return (
     <>
-      <FieldInputLabel label={props.label} />
+      <FieldInputLabel for={createID(props.label)} label={props.label} />
       <AsyncPaginate
+        // id={createID(props.label)}
+        inputId={createID(props.label)}
         defaultOptions
         {...props}
         components={{
@@ -67,7 +70,7 @@ export const AsyncSelect = (props: any) => {
         }}
       />
       <HelperBlock>
-        {props.helperText && <FieldInputLabel label={props.helperText} />}
+        {props.helperText && <FieldInputLabel for="" label={props.helperText} />}
         {props.helperTextLink && props.helperTextUrl && (
           <a
             target="_blank"

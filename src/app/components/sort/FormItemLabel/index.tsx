@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 type Props = {
+  for: string;
   label?: string;
   value?: string;
   control: JSX.Element;

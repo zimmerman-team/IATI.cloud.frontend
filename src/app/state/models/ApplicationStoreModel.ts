@@ -29,6 +29,7 @@ import { TransactionReceiverOrgsInterface } from 'app/state/interfaces/Transacti
 import { ParticipatingOrgsInterface } from 'app/state/interfaces/ParticipatingOrgsInterface';
 import { SecondaryReporterInterface } from 'app/state/interfaces/SecondaryReporterInterface';
 import { PolicyMarkerInterface } from 'app/state/interfaces/PolicyMarkerInterface';
+import { TagVocabularyInterface } from 'app/state/interfaces/TagVocabularyInterface';
 
 import { QueryModel } from 'app/state/models/QueryModel';
 import { HierarchyInterface } from '../interfaces/HierarchyInterface';
@@ -74,4 +75,5 @@ export interface ApplicationStoreModel {
   secondaryReporter: SecondaryReporterInterface;
   policyMarker: PolicyMarkerInterface;
   tag: TagInterface;
+  tagVocabulary: TagVocabularyInterface;
 }

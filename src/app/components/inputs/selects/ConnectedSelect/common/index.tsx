@@ -135,8 +135,6 @@ export const ValueContainer = (provided) => ({
   fontWeight: 200,
 });
 
-
-
 export const MenuList = (provided, state) => ({
   ...provided,
   height: '300px',
