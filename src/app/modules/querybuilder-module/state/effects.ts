@@ -549,13 +549,15 @@ export const withEffects: StoreEffect = (store) => {
             secondaryReporter && secondaryReporter.join(' ')
           })`
         : null,
-      get(countries, 'length', 0) &&
-      (rowFormat === 'activity' || rowFormat === 'budget')
+      get(countries, 'length', 0) && rowFormat === 'activity'
         ? `(recipient_country_code:(${
             countries && countries.join(' ')
           }) OR transaction_recipient_country_code:(${
             countries && countries.join(' ')
           }))`
+        : null,
+      get(countries, 'length', 0) && rowFormat === 'budget'
+        ? `recipient_country_code:(${countries && countries.join(' ')})`
         : null,
       get(countries, 'length', 0) && rowFormat === 'transaction'
         ? `transaction_recipient_country_code:(${

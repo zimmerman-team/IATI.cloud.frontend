@@ -73,15 +73,17 @@ export const DownloadFragment = () => {
       'csv&fl=*,reporting_org_narrative:[value v=""],sector:[value v=""]';
   }
 
-  let csvUrl = queryState.replace('json', 'csv');
+  let csvUrl = '';
 
   if (repeatRows !== '0') {
-    csvUrl = csvUrl.replace('csv', `xslt&tr=${rowFormat}-csv.xsl`);
+    csvUrl = queryState.replace('json', `xslt&tr=${rowFormat}-csv.xsl`);
     csvUrl = csvUrl.replace(`/${rowFormat}`, `/${rowFormat}-${repeatRows}`);
     csvUrl = csvUrl.replace(
       `tr=${rowFormat}-csv.xsl`,
       `tr=${rowFormat}-${repeatRows}-csv.xsl`
     );
+  } else {
+    csvUrl = queryState.replace('json', 'csv');
   }
 
   React.useEffect(() => {
