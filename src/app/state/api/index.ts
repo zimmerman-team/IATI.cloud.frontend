@@ -3,7 +3,8 @@
 import { Action, action, computed, Computed, Thunk, thunk } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
-export const baseURL = 'https://test-qb.iati.cloud/search/activity?';
+export const baseURL =
+  'https://iatidatastore.iatistandard.org/search/activity?';
 // export const baseURL =
 //   'https://test-datastore.iatistandard.org/search/activity?';
 
