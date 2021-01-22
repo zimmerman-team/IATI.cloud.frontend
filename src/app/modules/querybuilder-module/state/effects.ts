@@ -378,7 +378,7 @@ export const withEffects: StoreEffect = (store) => {
               break;
 
             case 'title':
-              fields[i] = 'title_*';
+              fields[i] = 'title_narrative,title_narrative_lang,title_xml';
               break;
 
             case 'description':
