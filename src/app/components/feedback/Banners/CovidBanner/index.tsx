@@ -93,7 +93,7 @@ interface CookieNoticeParams {
 
 export const CovidBanner = (props: CookieNoticeParams) => {
   /* this hook is for setting the cookie */
-  const [cookie, setCookie] = useCookie('covidNotice', 'true');
+  const [cookie, setCookie] = useCookie('covidAndUpdatingJan23Notice', 'true'); // regular key: covidNotice
 
   /* this hook is for visually hiding the component */
   const [visible, setVisibility] = useState(cookie);
@@ -171,6 +171,13 @@ export const CovidBanner = (props: CookieNoticeParams) => {
               >
                 IATI Standard Schema
               </a>
+              <br />
+              <br />
+              <b>Reparse in progress</b>
+              <br />
+              The Datastore is currently reparsing. This process started on the
+              23rd of January and is expected to complete on the third of
+              february. During this period data will not be refreshed.
             </p>
           </div>
           <div
