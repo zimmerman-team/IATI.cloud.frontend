@@ -8,7 +8,7 @@ export function getGeneralSearch(data: any, rowFormat: string) {
     case 'transaction':
       return `(title_narrative:"${data}" OR activity_description_narrative:"${data}" OR iati_identifier:"${data}" OR transaction_description_narrative:"${data}")`;
     case 'budget':
-      return null;
+      return `(iati_identifier:"${data}")`;
     default:
       return null;
   }

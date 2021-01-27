@@ -147,11 +147,7 @@ export const withEffects: StoreEffect = (store) => {
           }
         : null;
 
-    const textSearch =
-      store.get('textSearch') &&
-      (rowFormat === 'activity' || rowFormat === 'transaction')
-        ? store.get('textSearch')
-        : null;
+    const textSearch = store.get('textSearch') ? store.get('textSearch') : null;
 
     const transactionProviderOrgs =
       store.get('transactionProviderOrgs') &&
