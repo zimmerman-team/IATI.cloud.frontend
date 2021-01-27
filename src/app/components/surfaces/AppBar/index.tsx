@@ -10,6 +10,7 @@ import { DrawerMenu } from 'app/components/navigation/Drawer';
 import { mockData as drawerMockData } from 'app/components/navigation/Drawer/mock';
 import useDocumentScrollThrottled from 'app/components/surfaces/AppBar/utils';
 import useCookie from '@devhammed/use-cookie';
+import { covidBannerCookieKey } from 'app/components/feedback/Banners/CovidBanner';
 // import { useCookie } from 'react-use';
 
 function getCookie(cname) {
@@ -90,7 +91,7 @@ export const AppBar = (props: AppBarProps) => {
   // });
 
   /* this hook is for setting the cookie */
-  const [cookie, setCookie] = useCookie('covidNotice', true);
+  const [cookie, setCookie] = useCookie(covidBannerCookieKey, true);
   // const [value, updateCookie, deleteCookie] = useCookie("my-cookie");
 
   /* this hook is for visually hiding the component */

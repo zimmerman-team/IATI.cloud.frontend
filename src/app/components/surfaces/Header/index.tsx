@@ -7,10 +7,11 @@ import Grid from '@material-ui/core/Grid';
 import { Hidden } from '@material-ui/core';
 import BackgroundImage from 'app/assets/images/DottedMap.svg';
 import useCookie from '@devhammed/use-cookie';
+import { covidBannerCookieKey } from 'app/components/feedback/Banners/CovidBanner';
 
 export const Header = (props: HeaderModel) => {
   /* this hook is for setting the cookie */
-  const [cookie, setCookie] = useCookie('covidNotice', 'true');
+  const [cookie, setCookie] = useCookie(covidBannerCookieKey, 'true');
 
   /* this hook is for visually hiding the component */
   const [visible, setVisibility] = useState(cookie);
