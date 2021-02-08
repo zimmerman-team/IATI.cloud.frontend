@@ -8,11 +8,11 @@ export function getHumanitarian(data: any, rowFormat: string) {
         ' '
       )}) OR transaction_humanitarian:(${data.join(' ')}))`;
     case 'transaction':
-      return `(humanitarian:(${data.join(
+      return `(default_humanitarian:(${data.join(
         ' '
       )}) OR transaction_humanitarian:(${data.join(' ')}))`;
     case 'budget':
-      return `humanitarian:(${data.join(' ')})`;
+      return `default_humanitarian:(${data.join(' ')})`;
     default:
       return null;
   }
