@@ -123,7 +123,7 @@ workflows:
 
       - release:
           requires:
-            - cypress/install
+            - checkout
           filters:
             branches:
               only:
