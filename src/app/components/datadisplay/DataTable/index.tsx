@@ -62,7 +62,6 @@ export const DataTable = (props) => {
       .then((response) => {
         setDocsData(get(response, 'data.response.docs', []));
         props.setAllDataCount(get(response, 'data.response.numFound', 0));
-        a;
         setLoading(false);
       })
       .catch((error) => {

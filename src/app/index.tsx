@@ -7,7 +7,10 @@ import { MainRoutes } from 'app/Routes';
 import { AppBar } from 'app/components/surfaces/AppBar';
 import { PageContainer } from 'app/modules/common/PageContainer';
 import { Container } from '@material-ui/core';
-import { CovidBanner } from 'app/components/feedback/Banners/CovidBanner';
+import {
+  CovidBanner,
+  covidBannerCookieKey,
+} from 'app/components/feedback/Banners/CovidBanner';
 import useDocumentScrollThrottled from 'app/components/surfaces/AppBar/utils';
 import useCookie from '@devhammed/use-cookie';
 
@@ -17,7 +20,7 @@ function App() {
   const TIMEOUT_DELAY = 400;
 
   /* this hook is for setting the cookie */
-  const [cookie, setCookie] = useCookie('covidNotice', 'true');
+  const [cookie, setCookie] = useCookie(covidBannerCookieKey, 'true');
 
   /* this hook is for visually hiding the component */
   const [visible, setVisibility] = useState(cookie);
