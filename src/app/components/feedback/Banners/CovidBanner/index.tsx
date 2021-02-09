@@ -91,9 +91,11 @@ interface CookieNoticeParams {
   shrink?: boolean;
 }
 
+export const covidBannerCookieKey = 'covidNotice'; // default key: covidNotice
+
 export const CovidBanner = (props: CookieNoticeParams) => {
   /* this hook is for setting the cookie */
-  const [cookie, setCookie] = useCookie('covidNotice', 'true');
+  const [cookie, setCookie] = useCookie(covidBannerCookieKey, 'true');
 
   /* this hook is for visually hiding the component */
   const [visible, setVisibility] = useState(cookie);
