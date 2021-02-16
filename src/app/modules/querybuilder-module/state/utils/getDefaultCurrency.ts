@@ -12,7 +12,9 @@ export function getDefaultCurrency(data: any, rowFormat: string) {
         ' '
       )}) OR transaction_value_currency:(${data.join(' ')}))`;
     case 'budget':
-      return `default_currency:(${data.join(' ')})`;
+      return `default_currency:(${data.join(
+        ' '
+      )}) OR budget_value_currency(${data.join(' ')})`;
     default:
       return null;
   }

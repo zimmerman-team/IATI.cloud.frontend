@@ -24,8 +24,7 @@ export const DocDetail = () => {
 
   // @ts-ignore
   const category: SubCategory1Model =
-    categories &&
-    categories.find((category) => category._postman_id === _postman_id);
+    categories && categories.find((category) => category.id === _postman_id);
 
   return (
     <React.Fragment>
@@ -37,7 +36,7 @@ export const DocDetail = () => {
       {category &&
         // @ts-ignore
         category.item.map((item) => (
-          <SubCategoryFragment item={item} key={item._postman_id} />
+          <SubCategoryFragment item={item} key={item.id} />
         ))}
       {/* ---------- */}
     </React.Fragment>

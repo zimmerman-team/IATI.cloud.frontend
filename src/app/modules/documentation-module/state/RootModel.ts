@@ -2,16 +2,16 @@ export interface Root {
   collection: {
     item: {
       description?: string;
-      _postman_id: string;
+      id: string;
       item: {
-        _postman_id: string;
+        id: string;
         _postman_isSubFolder?: boolean;
         item?: {
           protocolProfileBehavior?: {
             disableBodyPruning: boolean;
             [k: string]: any;
           };
-          _postman_id: string;
+          id: string;
           request?: {
             method: string;
             header: any[];
@@ -41,7 +41,7 @@ export interface Root {
               disableBodyPruning: boolean;
               [k: string]: any;
             };
-            _postman_id: string;
+            id: string;
             request: {
               method: string;
               description?: string;
@@ -119,7 +119,7 @@ export interface Root {
       schema: string;
       name: string;
       description: string;
-      _postman_id: string;
+      id: string;
       [k: string]: any;
     };
     [k: string]: any;

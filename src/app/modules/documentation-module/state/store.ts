@@ -9,6 +9,8 @@ import { docData } from 'app/modules/documentation-module/state/data';
 import api from 'app/state/api';
 
 const docStoreModel: DocStoreModel = {
+  /* todo: adjust and remove */
+  // @ts-ignore
   collection: docData.collection,
   request: requestsModel,
   ...api(fetchPostmanDatas),

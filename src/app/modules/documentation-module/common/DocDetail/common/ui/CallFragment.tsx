@@ -3,11 +3,11 @@ import { ApiCallFragment } from 'app/modules/documentation-module/common/DocDeta
 
 export const CallFragment = ({ item }) => (
   <>
-    {item.request && <ApiCallFragment data={item} key={item._postman_id} />}
+    {item.request && <ApiCallFragment data={item} key={item.id} />}
 
     {item.item &&
       item.item.map((item) => (
-        <React.Fragment key={item._postman_id}>
+        <React.Fragment key={item.id}>
           <ApiCallFragment data={item} />
 
           {item.item &&
