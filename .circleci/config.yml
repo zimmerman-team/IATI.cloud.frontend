@@ -68,51 +68,18 @@ workflows:
           yarn: true
           build: yarn build
 
-      #       - cypress/run:
-      #           name: "local e2e tests"
-      #           executor: cypress-executor
-      #           pre-steps:
-      #             - run:
-      #                 name: Set env variables
-      #                 command: |
-      #                     echo 'export CYPRESS_BASE_URL="http://localhost:3000"' >> $BASH_ENV
-      #                   source $BASH_ENV
-      #           wait-on: "http://localhost:3000"
-      #           yarn: true
-      #           start: yarn start:ci
-      #           browser: chrome
-      #           requires:
-      #             - deploy
-      #           record: true
-      #           parallel: true
-      #           parallelism: 5
-      #           group: "all tests"
-      #
-      #       - deploy:
-      #           requires:
-      #             - "checkout"
-      #             # - "local e2e tests"
-      - deploy:
-          requires:
-            - "checkout"
-            # - "local e2e tests"
-
       - cypress/run:
-          name: "deployed e2e tests"
+          name: "local e2e tests"
           executor: cypress-executor
           pre-steps:
             - run:
                 name: Set env variables
                 command: |
-                  if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                    echo 'export CYPRESS_BASE_URL="https://iatidatastore.iatistandard.org"' >> $BASH_ENV
-                  elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-                    echo 'export CYPRESS_BASE_URL="https://store.staging.iati.cloud"' >> $BASH_ENV
-                  else
-                    echo 'export CYPRESS_BASE_URL="https://store.staging.iati.cloud"' >> $BASH_ENV
-                  fi
+                  echo 'export CYPRESS_BASE_URL="http://localhost:3000"' >> $BASH_ENV
                   source $BASH_ENV
+          wait-on: "http://localhost:3000"
           yarn: true
+          start: npm start
           browser: chrome
           requires:
             - "checkout"
@@ -120,6 +87,34 @@ workflows:
           parallel: true
           parallelism: 5
           group: "all tests"
+
+      - deploy:
+          requires:
+            - "local e2e tests"
+
+      # - cypress/run:
+      #     name: "deployed e2e tests"
+      #     executor: cypress-executor
+      #     pre-steps:
+      #       - run:
+      #           name: Set env variables
+      #           command: |
+      #             if [ "${CIRCLE_BRANCH}" == "master" ]; then
+      #               echo 'export CYPRESS_BASE_URL="https://iatidatastore.iatistandard.org"' >> $BASH_ENV
+      #             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+      #               echo 'export CYPRESS_BASE_URL="https://store.staging.iati.cloud"' >> $BASH_ENV
+      #             else
+      #               echo 'export CYPRESS_BASE_URL="https://store.staging.iati.cloud"' >> $BASH_ENV
+      #             fi
+      #             source $BASH_ENV
+      #     yarn: true
+      #     browser: chrome
+      #     requires:
+      #       - "checkout"
+      #     record: true
+      #     parallel: true
+      #     parallelism: 5
+      #     group: "all tests"
 
       - release:
           requires:
