@@ -20,11 +20,13 @@ const categories: string[] = [
   // 'Transaction List',
   // 'Transaction Aggregations',
   // 'DataStore Search Engine',
+  'Apache Solr API',
+  'Activity List',
   'Budget List',
   'Budget Aggregations',
   'Codelist Meta List',
   'Country List',
-  'Dataset List',
+  'Datasets',
   'Location List',
   'Organisation List',
   'Publisher List',
@@ -33,6 +35,7 @@ const categories: string[] = [
   'Result Aggregations',
   'Sector List',
   'Transaction List',
+  'Transaction Aggregations',
 ];
 
 describe('API Documentation - navigation', function () {
