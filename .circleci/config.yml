@@ -79,7 +79,7 @@ workflows:
                   source $BASH_ENV
           wait-on: "http://localhost:3000"
           yarn: true
-          start: yarn start
+          start: npm start
           browser: chrome
           requires:
             - "checkout"
