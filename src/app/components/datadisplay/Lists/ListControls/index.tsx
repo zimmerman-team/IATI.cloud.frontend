@@ -4,6 +4,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import { ModuleStore } from 'app/modules/querybuilder-module/state/store';
 import styled from 'styled-components/macro';
 import { Palette } from 'app/theme';
 import Typography from '@material-ui/core/Typography';
@@ -67,19 +68,36 @@ const ListCategory = styled((props) => <Typography {...props} />)`
 
 //todo: look into virtualized lists https://material-ui.com/components/lists/
 export const ListControls = (props: Props) => {
+  const store = ModuleStore.useStore();
   const [checked, setChecked] = React.useState(props.addedFilterOptions || []);
 
   const handleToggle = (value) => () => {
     const currentIndex = checked.indexOf(value as never);
     const newChecked = [...checked];
 
-    // eslint-disable-next-line no-unused-expressions
-    currentIndex === -1
-      ? newChecked.push(value as never)
-      : newChecked.splice(currentIndex, 1);
+    if (currentIndex === -1) {
+      newChecked.push(value as never);
+    } else {
+      newChecked.splice(currentIndex, 1);
+      const filterKey =
+        value === 'Default language'
+          ? 'language'
+          : value
+              .split(' ')
+              .map(
+                (key: string, index: number) =>
+                  `${
+                    index === 0 ? key[0].toLowerCase() : key[0].toUpperCase()
+                  }${key.substr(1)}`
+              )
+              .join('');
+      store.set(filterKey)([]);
+    }
 
-    // eslint-disable-next-line no-unused-expressions
-    props.onCheckChange && props.onCheckChange(newChecked);
+    if (props.onCheckChange) {
+      props.onCheckChange(newChecked);
+    }
+
     setChecked(newChecked);
   };
 

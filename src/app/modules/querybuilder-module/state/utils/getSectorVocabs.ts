@@ -4,7 +4,9 @@ export function getSectorVocabs(data: any, rowFormat: string) {
   }
   switch (rowFormat) {
     case 'activity':
-      return `sector_vocabulary:(${data.join(' ')})`;
+      return `(transaction_sector_vocabulary:(${data.join(
+        ' '
+      )}) OR sector_vocabulary:(${data.join(' ')}))`;
     case 'transaction':
       return `(transaction_sector_vocabulary:(${data.join(
         ' '
