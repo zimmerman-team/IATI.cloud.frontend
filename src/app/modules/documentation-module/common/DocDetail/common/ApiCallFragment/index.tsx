@@ -34,7 +34,7 @@ export const ApiCallFragment = (data) => {
   const [targetRef, percent] = useVisible<HTMLDivElement>(
     (vi: number) => Math.floor(vi * 100),
     {
-      rootMargin: '300px 0px -200px 0px',
+      rootMargin: '300px 0px -50px 0px',
     }
   );
 
