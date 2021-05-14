@@ -1,5 +1,8 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
+import Markdown from 'react-markdown';
+import gfm from 'remark-gfm';
+import highlight from 'remark-highlight.js';
 
 export const CategoryHeader = ({ category }) => {
   return (
@@ -10,11 +13,15 @@ export const CategoryHeader = ({ category }) => {
         </Grid>
         <Grid item md={12}>
           <Typography variant="body2">
-            {category.description && category.description}
+            <Markdown
+              className="markdown"
+              remarkPlugins={[gfm, highlight]}
+              children={category.description && category.description}
+            />
           </Typography>
         </Grid>
       </Grid>
-      <Box height="40px" />
+      <Box height="40px"/>
     </>
   );
 };
