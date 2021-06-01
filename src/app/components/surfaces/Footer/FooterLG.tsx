@@ -97,7 +97,7 @@ export const FooterLG = () => {
                     color="textSecondary"
                     style={{ marginRight: '16px' }}
                   >
-                    powered by
+                    Copyright
                   </Typography>
                   <a
                     href="https://www.zimmerman.team"

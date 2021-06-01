@@ -61,7 +61,7 @@ export const FooterSM = () => {
             color="textSecondary"
             style={{textAlign: 'center', marginBottom: '23px' }}
           >
-            powered by
+            Copyright
           </Typography>
           <a
             href="https://www.zimmerman.team"
