@@ -11,6 +11,9 @@ import { CallContainer } from 'app/modules/documentation-module/common/DocDetail
 import { MethodType } from 'app/modules/documentation-module/common/DocDetail/common/ApiCallFragment/common/ui/MethodType';
 import { CallHeader } from 'app/modules/documentation-module/common/DocDetail/common/ApiCallFragment/common/ui/CallHeader';
 import styled from 'styled-components';
+import gfm from 'remark-gfm';
+import highlight from 'remark-highlight.js';
+import Markdown from 'react-markdown';
 
 /* -------------------------------------------------------------------------- */
 /* ApiCallFragment */
@@ -24,7 +27,7 @@ const CopySignal = styled.div`
 export const ApiCallFragment = (data) => {
   const clipboard = useClipboard({ copiedTimeout: 600 });
   const parsed = data.data;
-  const request = parsed.request;
+  const { request } = parsed;
   const targetURL = 'https://iatidatastore.iatistandard.org';
 
   const showRequest = useStoreActions((actions) => actions.request.showRequest);
@@ -70,20 +73,19 @@ export const ApiCallFragment = (data) => {
                 <Code>{request.url.raw.replace('{{url}}', targetURL)}</Code>
               </CallContainer>
             </Grid>
-            <Grid item md={12}></Grid>
+            <Grid item md={12} />
           </>
         )}
 
         {parsed.description && (
           <Grid item md={12}>
-            {parsed.description &&
-              parsed.description.split('\n').map((line, index) => {
-                return (
-                  <Typography variant={'body2'} key={index}>
-                    {line.replace(/`/g, '')}
-                  </Typography>
-                );
-              })}
+            <Typography variant="body2" >
+              <Markdown
+                className="markdown"
+                remarkPlugins={[gfm, highlight]}
+                children={parsed.description}
+              />
+            </Typography>
           </Grid>
         )}
 
