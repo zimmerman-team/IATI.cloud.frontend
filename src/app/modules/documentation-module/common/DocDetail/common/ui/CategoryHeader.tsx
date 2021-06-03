@@ -13,15 +13,13 @@ export const CategoryHeader = ({ category }) => {
         </Grid>
         <Grid item md={12}>
           <Typography variant="body2">
-            <Markdown
-              className="markdown"
-              remarkPlugins={[gfm, highlight]}
-              children={category.description && category.description}
-            />
+            <Markdown className="markdown" remarkPlugins={[gfm, highlight]}>
+              {category.description ?? category.description}
+            </Markdown>
           </Typography>
         </Grid>
       </Grid>
-      <Box height="40px"/>
+      <Box height="40px" />
     </>
   );
 };

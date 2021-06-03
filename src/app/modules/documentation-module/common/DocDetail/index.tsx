@@ -24,7 +24,7 @@ export const DocDetail = () => {
 
   // @ts-ignore
   const category: SubCategory1Model =
-    categories && categories.find((category) => category.id === _postman_id);
+    categories && categories.find((cat) => cat.id === _postman_id);
 
   return (
     <React.Fragment>

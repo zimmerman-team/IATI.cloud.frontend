@@ -79,12 +79,10 @@ export const ApiCallFragment = (data) => {
 
         {parsed.description && (
           <Grid item md={12}>
-            <Typography variant="body2" >
-              <Markdown
-                className="markdown"
-                remarkPlugins={[gfm, highlight]}
-                children={parsed.description}
-              />
+            <Typography variant="body2">
+              <Markdown className="markdown" remarkPlugins={[gfm, highlight]}>
+                {parsed.description}
+              </Markdown>
             </Typography>
           </Grid>
         )}

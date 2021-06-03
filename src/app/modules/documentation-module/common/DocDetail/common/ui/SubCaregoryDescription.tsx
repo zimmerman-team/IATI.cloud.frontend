@@ -8,13 +8,11 @@ export const SubCaregoryDescription = ({ item }) => {
   return (
     <Grid item md={12}>
       <Typography variant="body2">
-        <Markdown
-          className="markdown"
-          remarkPlugins={[gfm, highlight]}
-          children={item.description && item.description}
-        />
+        <Markdown className="markdown" remarkPlugins={[gfm, highlight]}>
+          {item.description ?? item.description}
+        </Markdown>
       </Typography>
-      <Box height="20px" width="20px"/>
+      <Box height="20px" width="20px" />
     </Grid>
   );
 };
