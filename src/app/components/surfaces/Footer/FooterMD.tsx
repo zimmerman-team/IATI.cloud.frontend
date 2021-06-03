@@ -36,7 +36,7 @@ export const FooterMD = () => {
                 color="textSecondary"
                 style={{ marginRight: '16px', textAlign: 'center', marginBottom: '8px' }}
               >
-                powered by
+                Copyright
               </Typography>
               <a
                 href="https://www.zimmerman.team"

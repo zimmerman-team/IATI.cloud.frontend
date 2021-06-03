@@ -118,7 +118,7 @@ workflows:
 
       - release:
           requires:
-            - deploy
+            - checkout
           filters:
             branches:
               only:
