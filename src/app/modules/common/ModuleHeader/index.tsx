@@ -36,7 +36,7 @@ export const ModuleHeader = (props: ModuleModel) => {
                   For guidance on how
                   <br /> to use the query builder, see the{' '}
                   <Link
-                    href="https://iatistandard.org/documents/10453/IATI_Datastore_Query_Builder_User_Guide.pdf"
+                    href="https://docs.google.com/document/d/1KTQfZ6hnljCZk0EnjzMgqGhRCdPKrgLJBrev6v1QA6s/edit"
                     target="_blank"
                   >
                     Query Builder User Guide.

@@ -85,7 +85,7 @@ export interface Collection {
 }
 
 export interface Info {
-  _postman_id: string;
+  id: string;
   name: string;
   description: string;
   schema: string;
@@ -94,13 +94,13 @@ export interface Info {
 export interface MainCategoryModel {
   name: string;
   item: SubCategory1Model[];
-  _postman_id?: string;
+  id?: string;
   description?: string;
 }
 
 export interface SubCategory1Model {
   name: string;
-  _postman_id: string;
+  id: string;
   protocolProfileBehavior?: ProtocolProfileBehavior;
   request?: RequestModel;
   item?: SubCategory2Model[];
@@ -110,7 +110,7 @@ export interface SubCategory1Model {
 
 export interface SubCategory2Model {
   name: string;
-  _postman_id: string;
+  id: string;
   protocolProfileBehavior?: ProtocolProfileBehavior;
   request?: RequestModel;
   item?: SubCategory3Model[];
@@ -120,7 +120,7 @@ export interface SubCategory2Model {
 
 export interface SubCategory3Model {
   name: string;
-  _postman_id: string;
+  id: string;
   protocolProfileBehavior: ProtocolProfileBehavior;
   request: RequestModel;
   description?: string;

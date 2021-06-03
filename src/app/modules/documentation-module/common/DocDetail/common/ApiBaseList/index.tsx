@@ -23,8 +23,8 @@ export const ApiList = (props: Collection) => {
           <ApiListItem
             path={getEndpointPath(endpoint)}
             name={endpoint.name}
-            id={endpoint._postman_id}
-            key={endpoint._postman_id}
+            id={endpoint.id}
+            key={endpoint.id}
           />
         ))}
     </ul>

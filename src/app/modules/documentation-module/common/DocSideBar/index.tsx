@@ -69,32 +69,32 @@ export function DocsideBar() {
               getResults(categories.item, searchVal).map((item) => (
                 <TreeItemLink
                   item={item}
-                  postmanId={item._postman_id}
-                  key={item._postman_id}
+                  postmanId={item.id}
+                  key={item.id}
                   activeHash={activeHash}
                 >
                   {item.item &&
                     item.item.map((subItem1) => (
                       <TreeItemLink
                         item={subItem1}
-                        postmanId={item._postman_id}
-                        key={subItem1._postman_id}
+                        postmanId={item.id}
+                        key={subItem1.id}
                         activeHash={activeHash}
                       >
                         {subItem1.item &&
                           subItem1.item.map((subItem2) => (
                             <TreeItemLink
                               item={subItem2}
-                              postmanId={item._postman_id}
-                              key={subItem2._postman_id}
+                              postmanId={item.id}
+                              key={subItem2.id}
                               activeHash={activeHash}
                             >
                               {subItem2.item &&
                                 subItem2.item.map((subItem3) => (
                                   <TreeItemLink
                                     item={subItem3}
-                                    postmanId={item._postman_id}
-                                    key={subItem3._postman_id}
+                                    postmanId={item.id}
+                                    key={subItem3.id}
                                     activeHash={activeHash}
                                   />
                                 ))}
