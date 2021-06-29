@@ -10,7 +10,7 @@ import { DocumentationRoutes } from 'app/modules/documentation-module/routes';
 import useTitle from 'react-use/lib/useTitle';
 
 function DocumentationModule() {
-  useTitle('IATI Datastore - Documentation');
+  useTitle('IATI.cloud - Documentation');
 
   return (
     <StoreProvider store={docStore}>

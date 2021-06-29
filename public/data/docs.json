@@ -1844,7 +1844,7 @@
           }
         ],
         "_postman_id": "a571c294-861f-4286-b054-bcf61e1c5545",
-        "description": " Returns a list of IATI Activities stored in the IATI Datastore based on 10 results as a default. You can retrieve up to a 1.000 activities in a single call using the &page_size=[nr] option."
+        "description": " Returns a list of IATI Activities stored in IATI.cloud based on 10 results as a default. You can retrieve up to a 1.000 activities in a single call using the &page_size=[nr] option."
       },
       {
         "name": "Activity-Transactions",

@@ -62,7 +62,7 @@ export const BannerNotice = () => (
   <BannerElement1>
     <BannerElement2>!</BannerElement2>
     <BannerElement3>
-      The IATI Datastore is in a pre-launch phase; the date of an official
+    IATI.cloud is in a pre-launch phase; the date of an official
       launch will be announced soon. If you find any issues please raise them on{' '}
       <BannerElement4
         href="https://github.com/zimmerman-zimmerman/iati.cloud/issues/new/choose"

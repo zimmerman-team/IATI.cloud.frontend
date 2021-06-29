@@ -160,7 +160,7 @@ export const CovidBanner = (props: CookieNoticeParams) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                IATI Datastore
+                IATI.cloud
               </a>{' '}
               does not contain data that is published in version 1 of the
               Standard, or is published within a dataset which does not conform
