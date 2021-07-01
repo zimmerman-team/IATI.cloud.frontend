@@ -10,7 +10,7 @@ import { ModuleStore } from './state/store';
 
 function QueryBuilderModule() {
   /* set the window title */
-  useTitle('IATI Datastore - Query Builder');
+  useTitle('IATI.cloud - Query Builder');
 
   /* instantiate the layout*/
   return (

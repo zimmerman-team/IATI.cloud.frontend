@@ -11,8 +11,8 @@ export const LandingMidSection = () => {
           <Grid item sm={12} md={6} lg={4}>
             <ArticleCard
               loaded
-              title="About Datastore"
-              description="The Datastore makes use of iati.cloud, an open-source native IATI data service developed by Zimmerman. IATI.cloud extracts and stores raw IATI XML files from the IATI Registry and makes it available as API endpoints to build data driven information solutions."
+              title="About IATI.cloud"
+              description="IATI.cloud is an open-source native IATI data service developed by Zimmerman. IATI.cloud extracts and stores raw IATI XML files from the IATI Registry and makes it available as API endpoints to build data driven information solutions."
               buttonLabel="More"
               path="/about"
               target="_self"

@@ -4,7 +4,7 @@ import { Action, action, computed, Computed, Thunk, thunk } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
 export const baseURL =
-  'https://iatidatastore.iatistandard.org/search/activity?';
+  'https://iati.cloud/search/activity?';
 // export const baseURL =
 //   'https://test-datastore.iatistandard.org/search/activity?';
 
@@ -18,7 +18,7 @@ const NODE_ENV = 'production';
 
 export const HOSTNAME =
   // @ts-ignore
-  NODE_ENV === 'development' ? '/' : 'https://iatidatastore.iatistandard.org/'; // 'https://iatidatastore.iatistandard.org/';
+  NODE_ENV === 'development' ? '/' : 'https://iati.cloud/'; // 'https://iatidatastore.iatistandard.org/';
 
 // datastore.iati.cloud
 

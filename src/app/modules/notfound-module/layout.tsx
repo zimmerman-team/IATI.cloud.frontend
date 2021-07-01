@@ -15,7 +15,7 @@ export const PageNotFoundLayout = () => {
         <Grid container spacing={4}>
           {/* Appbar component needs a refactor, therefore not in this PR.*/}
 
-          {/* What can I do with the IATI Datastore? */}
+          {/* What can I do with IATI.cloud? */}
           <Grid item lg={12}>
             <div
               css={`
@@ -45,7 +45,7 @@ export const PageNotFoundLayout = () => {
             </div>
           </Grid>
 
-          {/* What can I do with the IATI Datastore? */}
+          {/* What can I do with IATI.cloud?? */}
           <Grid
             item
             lg={12}
@@ -58,7 +58,7 @@ export const PageNotFoundLayout = () => {
             <img src={ErrorImage} alt="error image" />
           </Grid>
 
-          {/* What can I do with the IATI Datastore? */}
+          {/* What can I do with IATI.cloud?? */}
           <Grid
             item
             lg={12}

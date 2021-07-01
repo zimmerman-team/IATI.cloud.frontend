@@ -59,11 +59,11 @@ export const FooterMD = () => {
                 <Mail style={{ marginRight: '16px', fill: 'white' }} />
                 <Typography variant="body1" color="textSecondary">
                   <Link
-                    href="mailto:support@iatistandard.org"
+                    href="mailto:github@zimmerman.team"
                     target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >
-                    support@iatistandard.org
+                    github@zimmerman.team
                   </Link>
                 </Typography>
               </Grid>
@@ -71,11 +71,11 @@ export const FooterMD = () => {
                 <Twitter style={{ marginRight: '16px', fill: 'white' }} />
                 <Typography variant="body1" color="textSecondary">
                   <Link
-                    href="https://twitter.com/IATI_aid"
+                    href="https://twitter.com/zimmerman_team"
                     target="_blank"
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >
-                    @iati
+                    @zimmerman
                   </Link>
                 </Typography>
               </Grid>

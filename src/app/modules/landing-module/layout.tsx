@@ -21,11 +21,11 @@ export const LandingLayout = () => {
         <Grid container direction="column">
           <Grid item md={12} lg={7}>
             <Typography variant="h3" color="textSecondary" component="h1">
-              IATI Datastore
+              IATI.cloud
             </Typography>
             <Box width="100%" height="24px" />
             <Typography variant="h5" component="h2" color="textSecondary">
-              The IATI Datastore provides data on development and humanitarian
+              IATI.cloud provides data on development and humanitarian
               spending and projects that address poverty and crises across the
               world.
             </Typography>
@@ -39,7 +39,7 @@ export const LandingLayout = () => {
             </Typography>
             <Box width="100%" height="24px" />
             <Typography variant="body2" color="textSecondary">
-              Access data through using the Datastore’s API or Query Builder.
+              Access data through using IATI.cloud's API or Query Builder.
             </Typography>
           </Grid>
 

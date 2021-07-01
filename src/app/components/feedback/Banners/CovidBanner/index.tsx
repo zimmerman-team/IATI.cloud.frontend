@@ -5,6 +5,7 @@ import React, { SyntheticEvent, useState, useRef } from 'react';
 import { css } from 'styled-components/macro';
 import useCookie from '@devhammed/use-cookie';
 import { useClickAway } from 'react-use';
+import { IconChipDelete } from 'app/assets/icons/IconChipDelete';
 
 const FontSize = '16px';
 
@@ -50,10 +51,12 @@ const NoticeButtonStyle = css`
   top: 24px;
   width: 24px;
   height: 24px;
-  background-size: contain;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-image: url('https://iatistandard.org/assets/svg/source/icon-cross-alert.1c4f6d9acbd3.svg');
+
+  > svg {
+    path:nth-of-type(2) {
+      fill: #2e2e2e;
+    }
+  }
 `;
 
 const ParagraphStyle = css`
@@ -151,28 +154,12 @@ export const CovidBanner = (props: CookieNoticeParams) => {
         <div css={NoticeContentStyle}>
           <div css={RichTextStyle}>
             <p css={ParagraphStyle}>
-              <b>Important notice:</b>
+              <b>Notice:</b>
               <br />
-              Please note that the{' '}
-              <a
-                css={LinkTextStyle}
-                href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                IATI.cloud
-              </a>{' '}
-              does not contain data that is published in version 1 of the
-              Standard, or is published within a dataset which does not conform
-              with the{' '}
-              <a
-                css={LinkTextStyle}
-                href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                IATI Standard Schema
-              </a>
+              Please note that IATI.cloud does not contain data that is
+              published in version 1 of the Standard. IATI.cloud does contain
+              datasets which do not fully conform with the IATI Standard to make
+              as much data available as possible.
             </p>
           </div>
           <div
@@ -181,7 +168,9 @@ export const CovidBanner = (props: CookieNoticeParams) => {
             css={NoticeButtonStyle}
             data-cy="covid-banner-close-btn"
             aria-label="Button to close the COVID-19 banner"
-          />
+          >
+            <IconChipDelete />
+          </div>
         </div>
       </div>
     )
