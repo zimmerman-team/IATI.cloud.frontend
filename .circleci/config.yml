@@ -89,8 +89,8 @@ workflows:
           group: "all tests"
 
       - deploy:
-          requires:
-            - "local e2e tests"
+#          requires:
+#            - "local e2e tests"
 
       # - cypress/run:
       #     name: "deployed e2e tests"
