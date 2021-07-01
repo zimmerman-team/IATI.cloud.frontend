@@ -1,11 +1,11 @@
-//cc:api documentation module#; state - model
+// cc:api documentation module#; state - model
 import { action, Action } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 import { ApiModel } from 'app/state/api';
 
 export const fetchPostmanDatas: Endpoint = (params: RequestInit = {}) =>
   fetch(
-    `https://iatidatastore.iatistandard.org/static/postman/${process.env.REACT_APP_DOC_FILENAME}`,
+    `https://iati.cloud/static/postman/${process.env.REACT_APP_DOC_FILENAME}`,
     {
       method: 'GET',
       ...params,
@@ -125,5 +125,3 @@ export interface SubCategory3Model {
   request: RequestModel;
   description?: string;
 }
-
-//////////////////////////////////
