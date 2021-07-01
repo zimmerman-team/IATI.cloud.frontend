@@ -16,13 +16,13 @@ IATI is a global aid transparency standard and it makes information about aid sp
 ## About the project
 * Website:         <a href="https://www.iati.cloud" target="_blank">www.iati.cloud</a>
 * Authors:          <a href="https://www.zimmerman.team/" target="_blank">Zimmerman</a>
-* License:          AGPLv3 (see included <a href="https://github.com/zimmerman-zimmerman/query-builder-iati.cloud/blob/develop/LICENSE.MD" target="_blank">LICENSE</a> file for full license)
-* Github Repo:      <a href="https://github.com/zimmerman-zimmerman/query-builder-iati.cloud/" target="_blank">github.com/zimmerman-zimmerman/query-builder-iati.cloud</a>
-* Bug Tracker:      <a href="https://github.com/zimmerman-zimmerman/query-builder-iati.cloud/issues" target="_blank">github.com/zimmerman-zimmerman/query-builder-iati.cloud/issues</a>
+* License:          AGPLv3 (see included <a href="https://github.com/zimmerman-team/query-builder-iati.cloud/blob/develop/LICENSE.MD" target="_blank">LICENSE</a> file for full license)
+* Github Repo:      <a href="https://github.com/zimmerman-team/query-builder-iati.cloud/" target="_blank">github.com/zimmerman-zimmerman/query-builder-iati.cloud</a>
+* Bug Tracker:      <a href="https://github.com/zimmerman-team/query-builder-iati.cloud/issues" target="_blank">github.com/zimmerman-zimmerman/query-builder-iati.cloud/issues</a>
 
 ## Installing
 
-<b>1.</b> Set up the <a href="https://github.com/zimmerman-zimmerman/iati.cloud" target="_blank">iati.cloud backend</a> first<br/>
+<b>1.</b> Set up the <a href="https://github.com/zimmerman-team/iati.cloud" target="_blank">iati.cloud backend</a> first<br/>
 <b>2.</b> Checkout this repository to a local folder<br/>
 <b>3.</b> Make sure you've installed node.js 10.16.3 or higher<br/>
 <b>4.</b> Run ```yarn install``` <br/>
