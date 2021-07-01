@@ -48,7 +48,7 @@ export const FooterSM = () => {
                 target="_blank"
                 style={{ color: 'white', textDecoration: 'underline' }}
               >
-                @iati
+                @zimmerman
               </Link>
             </Typography>
           </Grid>
