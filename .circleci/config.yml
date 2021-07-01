@@ -89,6 +89,8 @@ workflows:
           group: "all tests"
 
       - deploy
+           requires:
+             - "checkout"
 #          requires:
 #            - "local e2e tests"
 
