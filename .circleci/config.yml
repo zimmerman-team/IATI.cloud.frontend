@@ -78,7 +78,6 @@ workflows:
                   echo 'export CYPRESS_BASE_URL="http://localhost:3000"' >> $BASH_ENV
                   source $BASH_ENV
           start: npm start
-          wait-on: "http://localhost:3000"
           yarn: true
           browser: chrome
           requires:
