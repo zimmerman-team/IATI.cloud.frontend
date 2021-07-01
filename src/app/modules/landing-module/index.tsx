@@ -8,7 +8,7 @@ import { LandingLayout } from './layout';
 
 function LandingModule() {
   /* set the window title */
-  useTitle('IATI Datastore');
+  useTitle('IATI.cloud');
 
   /* instantiate the layout*/
   return LandingLayout();

@@ -36,7 +36,7 @@ export const ModuleHeader = (props: ModuleModel) => {
                   For guidance on how
                   <br /> to use the query builder, see the{' '}
                   <Link
-                    href="https://docs.google.com/document/d/1KTQfZ6hnljCZk0EnjzMgqGhRCdPKrgLJBrev6v1QA6s/edit"
+                    href="https://docs.google.com/document/d/1gg7OjSvHk2CLuweqk4RjvCsw6IhuLPWT0JwkxyQ6I1g/edit?usp=sharing"
                     target="_blank"
                   >
                     Query Builder User Guide.

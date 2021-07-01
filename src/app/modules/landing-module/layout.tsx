@@ -25,7 +25,7 @@ export const LandingLayout = () => {
             </Typography>
             <Box width="100%" height="24px" />
             <Typography variant="h5" component="h2" color="textSecondary">
-              The IATI Datastore provides data on development and humanitarian
+              IATI.cloud provides data on development and humanitarian
               spending and projects that address poverty and crises across the
               world.
             </Typography>
