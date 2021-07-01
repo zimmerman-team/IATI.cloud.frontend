@@ -88,7 +88,7 @@ workflows:
           parallelism: 5
           group: "all tests"
 
-      - deploy
+      - deploy:
            requires:
              - "checkout"
 #          requires:
