@@ -150,7 +150,7 @@ export const AboutLayout = () => {
                 <br />
                 For guidance on how to use the query builder, see the{' '}
                 <Link
-                  href="https://docs.google.com/document/d/1KTQfZ6hnljCZk0EnjzMgqGhRCdPKrgLJBrev6v1QA6s/edit"
+                  href="https://docs.google.com/document/d/1gg7OjSvHk2CLuweqk4RjvCsw6IhuLPWT0JwkxyQ6I1g/edit?usp=sharing"
                   target="_blank"
                 >
                   Query Builder User Guide.
@@ -166,8 +166,7 @@ export const AboutLayout = () => {
             <ParagraphContainer data-cy="p6">
               <Typography variant="body1">
                 The benefit of IATI.cloud is that you can convert the
-                original IATI data, provided in XML format, into three 
-                formats - CSV, XLM and JSON. All data in IATI.cloud is filtered
+                original IATI raw XML data into three different formats - CSV, XLM and JSON. All data in IATI.cloud is filtered
                 and output based on IATI activities. The exception is converting
                 the data into CSV format, which also allows you to output it
                 based on budgets and transactions.
