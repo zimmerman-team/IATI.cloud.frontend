@@ -16,9 +16,9 @@ IATI is a global aid transparency standard and it makes information about aid sp
 ## About the project
 * Website:         <a href="https://www.iati.cloud" target="_blank">www.iati.cloud</a>
 * Authors:          <a href="https://www.zimmerman.team/" target="_blank">Zimmerman</a>
-* License:          AGPLv3 (see included <a href="https://github.com/zimmerman-team/query-builder-iati.cloud/blob/develop/LICENSE.MD" target="_blank">LICENSE</a> file for full license)
-* Github Repo:      <a href="https://github.com/zimmerman-team/query-builder-iati.cloud/" target="_blank">github.com/zimmerman-zimmerman/query-builder-iati.cloud</a>
-* Bug Tracker:      <a href="https://github.com/zimmerman-team/query-builder-iati.cloud/issues" target="_blank">github.com/zimmerman-zimmerman/query-builder-iati.cloud/issues</a>
+* License:          AGPLv3 (see included <a href="https://github.com/zimmerman-team/iati.cloud.frontend/blob/develop/LICENSE.MD" target="_blank">LICENSE</a> file for full license)
+* Github Repo:      <a href="https://github.com/zimmerman-team/iati.cloud.frontend/" target="_blank">github.com/zimmerman-zimmerman/iati.cloud.frontend</a>
+* Bug Tracker:      <a href="https://github.com/zimmerman-team/iati.cloud.frontend/issues" target="_blank">github.com/zimmerman-zimmerman/iati.cloud.frontend/issues</a>
 
 ## Installing
 
@@ -30,8 +30,7 @@ IATI is a global aid transparency standard and it makes information about aid sp
 - NODE_PATH=src/
 - REACT_APP_CLIENT_NAME=IATI Datastore
 
-
-<b>6.</b> Run yarn start 
+<b>6.</b> Run yarn start
 
 ## Documentation
 For a birds eye view on the different facets of the query builder please take the following steps:

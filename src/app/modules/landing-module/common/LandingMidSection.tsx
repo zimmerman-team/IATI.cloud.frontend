@@ -12,7 +12,7 @@ export const LandingMidSection = () => {
             <ArticleCard
               loaded
               title="About IATI.cloud"
-              description="IATI.cloud, an open-source native IATI data service developed by Zimmerman. IATI.cloud extracts and stores raw IATI XML files from the IATI Registry and makes it available as API endpoints to build data driven information solutions."
+              description="IATI.cloud is an open-source native IATI data service developed by Zimmerman. IATI.cloud extracts and stores raw IATI XML files from the IATI Registry and makes it available as API endpoints to build data driven information solutions."
               buttonLabel="More"
               path="/about"
               target="_self"

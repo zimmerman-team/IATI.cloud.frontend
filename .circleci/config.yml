@@ -102,9 +102,9 @@ workflows:
       #             if [ "${CIRCLE_BRANCH}" == "master" ]; then
       #               echo 'export CYPRESS_BASE_URL="https://iati.cloud"' >> $BASH_ENV
       #             elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-      #               echo 'export CYPRESS_BASE_URL="https://iati.cloud""' >> $BASH_ENV
+      #               echo 'export CYPRESS_BASE_URL="https://iati.cloud"' >> $BASH_ENV
       #             else
-      #               echo 'export CYPRESS_BASE_URL="https://iati.cloud""' >> $BASH_ENV
+      #               echo 'export CYPRESS_BASE_URL="https://iati.cloud"' >> $BASH_ENV
       #             fi
       #             source $BASH_ENV
       #     yarn: true
