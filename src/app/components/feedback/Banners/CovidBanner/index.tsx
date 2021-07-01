@@ -153,7 +153,7 @@ export const CovidBanner = (props: CookieNoticeParams) => {
             <p css={ParagraphStyle}>
               <b>Important notice:</b>
               <br />
-              Please note that the{' '}
+              Please note that {' '}
               <a
                 css={LinkTextStyle}
                 href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"
@@ -163,7 +163,7 @@ export const CovidBanner = (props: CookieNoticeParams) => {
                 IATI.cloud
               </a>{' '}
               does not contain data that is published in version 1 of the
-              Standard, or is published within a dataset which does not conform
+              Standard. IATI.cloud does contain datasets which does not fully conform
               with the{' '}
               <a
                 css={LinkTextStyle}
@@ -171,7 +171,7 @@ export const CovidBanner = (props: CookieNoticeParams) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                IATI Standard Schema
+                IATI Standard Schema for sake of making as much IATI data available as possible.
               </a>
             </p>
           </div>
