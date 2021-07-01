@@ -118,14 +118,6 @@ export const AboutLayout = () => {
                 >
                   IATI.cloud API documentation
                 </Link>
-                . For information on how to map queries from the ‘classic’ Datastore
-                to the new one, please see the{' '}
-                <Link
-                  href="https://docs.google.com/document/d/1nTu1Jdg17toiQoemJT3R9YPwvAwCN1gpFnnL1R-lfHY/edit"
-                  target="_blank"
-                >
-                  mapping document
-                </Link>
                 .
               </Typography>
             </ParagraphContainer>

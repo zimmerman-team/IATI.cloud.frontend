@@ -151,28 +151,11 @@ export const CovidBanner = (props: CookieNoticeParams) => {
         <div css={NoticeContentStyle}>
           <div css={RichTextStyle}>
             <p css={ParagraphStyle}>
-              <b>Important notice:</b>
+              <b>Notice:</b>
               <br />
-              Please note that {' '}
-              <a
-                css={LinkTextStyle}
-                href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                IATI.cloud
-              </a>{' '}
-              does not contain data that is published in version 1 of the
-              Standard. IATI.cloud does contain datasets which does not fully conform
-              with the{' '}
-              <a
-                css={LinkTextStyle}
-                href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                IATI Standard Schema for sake of making as much IATI data available as possible.
-              </a>
+              Please note that IATI.cloud does not contain data that is published in version 1 of the
+              Standard. IATI.cloud does contain datasets which do not fully conform
+              with the IATI Standard to make as much data available as possible.
             </p>
           </div>
           <div
