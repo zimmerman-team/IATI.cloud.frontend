@@ -89,7 +89,7 @@ export const DataTable = (props) => {
       `}
     >
       <h3>
-        Datastore retrieved {props.allDataCount}{' '}
+      IATI.cloud retrieved {props.allDataCount}{' '}
         {getRetrievedItemsLabel(rowFormat, props.allDataCount)} for you
       </h3>
       <Paper>

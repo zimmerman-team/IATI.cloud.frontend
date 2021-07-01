@@ -17,7 +17,7 @@ export const Link = styled.a`
 export const AboutLayout = () => {
   return (
     <PageContainer footer>
-      <ModuleHeader title="Using the IATI Datastore" />
+      <ModuleHeader title="Using IATI.cloud" />
       <Box width="100%" height="40px" />
       <Container maxWidth="lg">
         <Grid container spacing={4}>
@@ -25,11 +25,11 @@ export const AboutLayout = () => {
           {/* INTRODUCTION */}
           <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
-              About the new Datastore
+              About IATI.cloud
             </Typography>
             <ParagraphContainer data-cy="p0">
               <Typography variant="body1" data-cy="body">
-                The new IATI Datastore offers a robust online data service,
+              IATI.cloud offers a robust online data service,
                 providing timely and standardised access to data published
                 according to the IATI Standard. Data users can gain data on
                 development and humanitarian resources and results through using
@@ -38,10 +38,10 @@ export const AboutLayout = () => {
                   href="https://iatidatastore.iatistandard.org/documentation"
                   target="_blank"
                 >
-                  Datastore’s API
+                  IATI.cloud API
                 </Link>
                 . Users will also be able to download data from a new
-                user-friendly Datastore Query Builder.
+                user-friendly IATI.cloud Query Builder.
               </Typography>
             </ParagraphContainer>
           </Grid>
@@ -57,7 +57,7 @@ export const AboutLayout = () => {
                   href="https://iatidatastore.iatistandard.org/documentation"
                   target="_blank"
                 >
-                  IATI Datastore API
+                  IATI.cloud API
                 </Link>{' '}
                 provides data published by organisations who have used version 2
                 of the IATI Standard. This is following the decision to
@@ -74,7 +74,7 @@ export const AboutLayout = () => {
 
             <ParagraphContainer data-cy="p2">
               <Typography variant="body1">
-                To help users access good quality data, the Datastore will not
+                To help users access good quality data, IATI.cloud will not
                 hold any data that does not adhere to the IATI Schema. The IATI
                 Schema provides the exact order and format that publishers
                 should provide their XML files in. More information about the
@@ -89,24 +89,24 @@ export const AboutLayout = () => {
               </Typography>
             </ParagraphContainer>
           </Grid>
-          {/* What can I do with the IATI Datastore? */}
+          {/* What can I do with IATI.cloud? */}
           <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
-              What can I do with the IATI Datastore?
+              What can I do with IATI.cloud?
             </Typography>
             <ParagraphContainer data-cy="p3">
               <Typography variant="body1">
                 Depending on what information you are looking for and what
                 questions you want to answer with IATI data, you can form
                 queries and set up filters to get the details you require. You
-                can do this via using the Datastore API or the Query Builder.
+                can do this via using IATI.cloud or the Query Builder.
               </Typography>
             </ParagraphContainer>
           </Grid>
-          {/* Using the Datastore API */}
+          {/* Using the IATI.cloud API */}
           <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
-              Using the Datastore API
+              Using the IATI.cloud API
             </Typography>
             <ParagraphContainer data-cy="p4">
               <Typography variant="body1">
@@ -116,9 +116,9 @@ export const AboutLayout = () => {
                   href="https://iatidatastore.iatistandard.org/documentation"
                   target="_blank"
                 >
-                  Datastore API documentation
+                  IATI.cloud API documentation
                 </Link>
-                . For information on how to map queries from the ‘old’ Datastore
+                . For information on how to map queries from the ‘classic’ Datastore
                 to the new one, please see the{' '}
                 <Link
                   href="https://docs.google.com/document/d/1nTu1Jdg17toiQoemJT3R9YPwvAwCN1gpFnnL1R-lfHY/edit"
@@ -165,9 +165,9 @@ export const AboutLayout = () => {
             </Typography>
             <ParagraphContainer data-cy="p6">
               <Typography variant="body1">
-                The benefit of the IATI Datastore is that you can convert the
-                original IATI data, provided in XML format, into two more
-                formats - CSV and JSON. All data in the Datastore is filtered
+                The benefit of IATI.cloud is that you can convert the
+                original IATI data, provided in XML format, into three 
+                formats - CSV, XLM and JSON. All data in IATI.cloud is filtered
                 and output based on IATI activities. The exception is converting
                 the data into CSV format, which also allows you to output it
                 based on budgets and transactions.
@@ -180,7 +180,7 @@ export const AboutLayout = () => {
 
             <ParagraphContainer data-cy="p8">
               <Typography variant="body1">
-                XML - The Datastore returns the original activity XML as
+                XML - returns the original activity XML as
                 published. This is enhanced with metadata, specifying the
                 version of the IATI standard that individual activities were
                 published at, as well as details of the query result.
@@ -189,7 +189,7 @@ export const AboutLayout = () => {
 
             <ParagraphContainer data-cy="p9">
               <Typography variant="body1">
-                CSV - The Datastore will convert the published XML data into CSV
+                CSV -  will convert the published XML data into CSV
                 format. Only a subset of published data is present. This format
                 can be used to analyse information using spreadsheet software
                 such as Microsoft Excel or Libreoffice Calc.
@@ -202,14 +202,14 @@ export const AboutLayout = () => {
                 activities, budgets or transactions depending on the output
                 format you select. Each of these may be expanded by sector or
                 country so that percentage splits can be analysed. Less
-                technically adept users can use the Datastore CSV Query Builder
+                technically adept users can use the IATI.cloud CSV Query Builder
                 tool to access data in this format.
               </Typography>
             </ParagraphContainer>
 
             <ParagraphContainer>
               <Typography data-cy="p11" variant="body1">
-                JSON - The Datastore will convert the published XML to JSON
+                JSON - IATI.cloud will convert the published XML to JSON
                 format. All the original published information is present in
                 this alternative format. The same metadata that is given in the
                 XML output is available in the JSON output.

@@ -5,7 +5,7 @@ import { AboutLayout } from './layout';
 import { useTitle } from 'react-use';
 
 function About() {
-  useTitle('IATI Datastore - About');
+  useTitle('IATI.cloud - About');
   return <AboutLayout />;
 }
 
