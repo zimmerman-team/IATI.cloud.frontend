@@ -35,7 +35,7 @@ export const AboutLayout = () => {
                 development and humanitarian resources and results through using
                 the{' '}
                 <Link
-                  href="https://iatidatastore.iatistandard.org/documentation"
+                  href="https://iati.cloud/documentation"
                   target="_blank"
                 >
                   IATI.cloud API
@@ -54,7 +54,7 @@ export const AboutLayout = () => {
               <Typography variant="body1">
                 The new{' '}
                 <Link
-                  href="https://iatidatastore.iatistandard.org/documentation"
+                  href="https://iati.cloud/documentation"
                   target="_blank"
                 >
                   IATI.cloud API
@@ -113,7 +113,7 @@ export const AboutLayout = () => {
                 For detailed documentation on how to use the API, please refer
                 to the{' '}
                 <Link
-                  href="https://iatidatastore.iatistandard.org/documentation"
+                  href="https://iati.cloud/documentation"
                   target="_blank"
                 >
                   IATI.cloud API documentation
@@ -139,7 +139,7 @@ export const AboutLayout = () => {
               <Typography variant="body1">
                 The{' '}
                 <Link
-                  href="https://iatidatastore.iatistandard.org/querybuilder/core-filters"
+                  href="https://iati.cloud/querybuilder/core-filters"
                   target="_blank"
                 >
                   Query builder
@@ -166,7 +166,8 @@ export const AboutLayout = () => {
             <ParagraphContainer data-cy="p6">
               <Typography variant="body1">
                 The benefit of IATI.cloud is that you can convert the
-                original IATI raw XML data into three different formats - CSV, XLM and JSON. All data in IATI.cloud is filtered
+                original IATI data, provided in XML format, into three 
+                formats - CSV, XLM and JSON. All data in IATI.cloud is filtered
                 and output based on IATI activities. The exception is converting
                 the data into CSV format, which also allows you to output it
                 based on budgets and transactions.
