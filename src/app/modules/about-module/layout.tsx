@@ -21,7 +21,7 @@ export const AboutLayout = () => {
       <Box width="100%" height="40px" />
       <Container maxWidth="lg">
         <Grid container spacing={4}>
-          {/* Appbar component needs a refactor, therefore not in this PR.*/}
+          {/* Appbar component needs a refactor, therefore not in this PR. */}
           {/* INTRODUCTION */}
           <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
@@ -29,15 +29,11 @@ export const AboutLayout = () => {
             </Typography>
             <ParagraphContainer data-cy="p0">
               <Typography variant="body1" data-cy="body">
-              IATI.cloud offers a robust online data service,
-                providing timely and standardised access to data published
-                according to the IATI Standard. Data users can gain data on
-                development and humanitarian resources and results through using
-                the{' '}
-                <Link
-                  href="https://iati.cloud/documentation"
-                  target="_blank"
-                >
+                IATI.cloud offers a robust online data service, providing timely
+                and standardised access to data published according to the IATI
+                Standard. Data users can gain data on development and
+                humanitarian resources and results through using the{' '}
+                <Link href="https://iati.cloud/documentation" target="_blank">
                   IATI.cloud API
                 </Link>
                 . Users will also be able to download data from a new
@@ -53,10 +49,7 @@ export const AboutLayout = () => {
             <ParagraphContainer data-cy="p1">
               <Typography variant="body1">
                 The new{' '}
-                <Link
-                  href="https://iati.cloud/documentation"
-                  target="_blank"
-                >
+                <Link href="https://iati.cloud/documentation" target="_blank">
                   IATI.cloud API
                 </Link>{' '}
                 provides data published by organisations who have used version 2
@@ -74,8 +67,8 @@ export const AboutLayout = () => {
 
             <ParagraphContainer data-cy="p2">
               <Typography variant="body1">
-                To help users access good quality data, IATI.cloud will not
-                hold any data that does not adhere to the IATI Schema. The IATI
+                To help users access good quality data, IATI.cloud will not hold
+                any data that does not adhere to the IATI Schema. The IATI
                 Schema provides the exact order and format that publishers
                 should provide their XML files in. More information about the
                 Schema can be found on{' '}
@@ -112,11 +105,16 @@ export const AboutLayout = () => {
               <Typography variant="body1">
                 For detailed documentation on how to use the API, please refer
                 to the{' '}
+                <Link href="https://iati.cloud/documentation" target="_blank">
+                  IATI.cloud API documentation
+                </Link>
+                . For information on how to map queries from the ‘classic’
+                Datastore to the new one, please see the{' '}
                 <Link
-                  href="https://iati.cloud/documentation"
+                  href="https://docs.google.com/document/d/1nTu1Jdg17toiQoemJT3R9YPwvAwCN1gpFnnL1R-lfHY/edit"
                   target="_blank"
                 >
-                  IATI.cloud API documentation
+                  mapping document
                 </Link>
                 .
               </Typography>
@@ -157,12 +155,12 @@ export const AboutLayout = () => {
             </Typography>
             <ParagraphContainer data-cy="p6">
               <Typography variant="body1">
-                The benefit of IATI.cloud is that you can convert the
-                original IATI data, provided in XML format, into three 
-                formats - CSV, XLM and JSON. All data in IATI.cloud is filtered
-                and output based on IATI activities. The exception is converting
-                the data into CSV format, which also allows you to output it
-                based on budgets and transactions.
+                The benefit of IATI.cloud is that you can convert the original
+                IATI data, provided in XML format, into three formats - CSV, XML
+                and JSON. All data in IATI.cloud is filtered and output based on
+                IATI activities. The exception is converting the data into CSV
+                format, which also allows you to output it based on budgets and
+                transactions.
               </Typography>
             </ParagraphContainer>
 
@@ -172,19 +170,19 @@ export const AboutLayout = () => {
 
             <ParagraphContainer data-cy="p8">
               <Typography variant="body1">
-                XML - returns the original activity XML as
-                published. This is enhanced with metadata, specifying the
-                version of the IATI standard that individual activities were
-                published at, as well as details of the query result.
+                XML - returns the original activity XML as published. This is
+                enhanced with metadata, specifying the version of the IATI
+                standard that individual activities were published at, as well
+                as details of the query result.
               </Typography>
             </ParagraphContainer>
 
             <ParagraphContainer data-cy="p9">
               <Typography variant="body1">
-                CSV -  will convert the published XML data into CSV
-                format. Only a subset of published data is present. This format
-                can be used to analyse information using spreadsheet software
-                such as Microsoft Excel or Libreoffice Calc.
+                CSV - will convert the published XML data into CSV format. Only
+                a subset of published data is present. This format can be used
+                to analyse information using spreadsheet software such as
+                Microsoft Excel or Libreoffice Calc.
               </Typography>
             </ParagraphContainer>
 
@@ -201,10 +199,10 @@ export const AboutLayout = () => {
 
             <ParagraphContainer>
               <Typography data-cy="p11" variant="body1">
-                JSON - IATI.cloud will convert the published XML to JSON
-                format. All the original published information is present in
-                this alternative format. The same metadata that is given in the
-                XML output is available in the JSON output.
+                JSON - IATI.cloud will convert the published XML to JSON format.
+                All the original published information is present in this
+                alternative format. The same metadata that is given in the XML
+                output is available in the JSON output.
               </Typography>
             </ParagraphContainer>
           </Grid>
@@ -212,7 +210,7 @@ export const AboutLayout = () => {
       </Container>
 
       <Hidden lgUp>
-        <Box height={'300px'} />
+        <Box height="300px" />
       </Hidden>
     </PageContainer>
   );
