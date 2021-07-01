@@ -28,7 +28,7 @@ IATI is a global aid transparency standard and it makes information about aid sp
 <b>4.</b> Run ```yarn install``` <br/>
 <b>5.</b> Create an .env file and specify the following variables:
 - NODE_PATH=src/
-- REACT_APP_CLIENT_NAME=IATI Datastore
+- REACT_APP_CLIENT_NAME=IATI.cloud
 
 <b>6.</b> Run yarn start
 
