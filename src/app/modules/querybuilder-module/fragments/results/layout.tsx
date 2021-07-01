@@ -168,7 +168,7 @@ export const DownloadFragment = () => {
           <DownloadButton
             type="CSV"
             queryURL={csvUrl}
-            fileName={`iatidatastore-iatistandard-${filename()}.csv`}
+            fileName={`IATIcloud-${filename()}.csv`}
           />
         </Grid>
       </Grid>
@@ -197,7 +197,7 @@ export const DownloadFragment = () => {
             <DownloadButton
               type="JSON"
               queryURL={queryState}
-              fileName={`iatidatastore-iatistandard-${filename()}.json`}
+              fileName={`IATIcloud-${filename()}.json`}
             />
           </Grid>
         </Grid>
@@ -237,7 +237,7 @@ export const DownloadFragment = () => {
                   ? queryState.replace('json', `xslt&tr=${rowFormat}-xml.xsl`)
                   : queryState.replace('json', 'xml')
               }
-              fileName={`iatidatastore-iatistandard-${filename()}.xml`}
+              fileName={`IATIcloud-${filename()}.xml`}
             />
           </Grid>
         </Grid>
