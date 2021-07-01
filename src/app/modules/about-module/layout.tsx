@@ -156,7 +156,7 @@ export const AboutLayout = () => {
             <ParagraphContainer data-cy="p6">
               <Typography variant="body1">
                 The benefit of IATI.cloud is that you can convert the original
-                IATI data, provided in XML format, into three formats - CSV, XLM
+                IATI data, provided in XML format, into three formats - CSV, XML
                 and JSON. All data in IATI.cloud is filtered and output based on
                 IATI activities. The exception is converting the data into CSV
                 format, which also allows you to output it based on budgets and
