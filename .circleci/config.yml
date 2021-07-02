@@ -88,15 +88,15 @@ workflows:
           parallelism: 5
           group: "all tests"
 
-      - deploy:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - "checkout"
-#          requires:
-#            - "local e2e tests"
+      # - deploy:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - master
+      #     requires:
+      #       - "checkout"
+      #          requires:
+      #            - "local e2e tests"
 
       # - cypress/run:
       #     name: "deployed e2e tests"
