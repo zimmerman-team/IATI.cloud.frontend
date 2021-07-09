@@ -1,6 +1,6 @@
 // cc:api documentation module#; content - landing
 import React from 'react';
-import { Box, CircularProgress, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 import { ApiList } from 'app/modules/documentation-module/common/DocDetail/common/ApiBaseList';
 import { useStoreState } from 'app/modules/documentation-module/state/store';
 import { Root } from 'app/modules/documentation-module/state/RootModel';
