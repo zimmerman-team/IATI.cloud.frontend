@@ -1,15 +1,19 @@
-//cc:api documentation module#; content - landing
+// cc:api documentation module#; content - landing
 import React from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, CircularProgress, Grid, Typography } from '@material-ui/core';
 import { ApiList } from 'app/modules/documentation-module/common/DocDetail/common/ApiBaseList';
 import { useStoreState } from 'app/modules/documentation-module/state/store';
 import { Root } from 'app/modules/documentation-module/state/RootModel';
 import { HeaderH6 } from 'app/modules/documentation-module/common/DocLanding/common/ui/HeaderH6';
+import { LoadingIndicator } from './common/ui/LoadingIndicator';
 
 export const DocLanding = () => {
   // @ts-ignore
   const data: Root = useStoreState((state) => state.data && state.data);
+  const loading = useStoreState((state) => state.loading);
+
   const collection = data && data.collection;
+
   return (
     <>
       <Box width="100%" height="54px" />
@@ -57,11 +61,15 @@ export const DocLanding = () => {
             Available endpoints
           </HeaderH6>
         </Grid>
-        <Grid item md={12}>
-          {collection && (
-            <ApiList info={collection.info} item={collection.item} />
-          )}
-        </Grid>
+        {loading ? (
+          <LoadingIndicator />
+        ) : (
+          <Grid item md={12}>
+            {collection && (
+              <ApiList info={collection.info} item={collection.item} />
+            )}
+          </Grid>
+        )}
       </Grid>
       {/* ---------- */}
       <Box width="100%" height="50px" />
