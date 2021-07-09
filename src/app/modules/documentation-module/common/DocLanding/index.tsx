@@ -65,61 +65,6 @@ export const DocLanding = () => {
       </Grid>
       {/* ---------- */}
       <Box width="100%" height="50px" />
-      {/* -------------------- */}
-      {/* Exports */}
-      {/* <Grid container spacing={8}>
-        <Grid item md={12}>
-          <HeaderH6
-            css={`
-              && {
-                margin-bottom: 24px;
-              }
-            `}
-          >
-            XML Export
-          </HeaderH6>
-          <Typography variant="body2">
-            If you require XML format from the API, simply use the format
-            &format=xml in your call.
-          </Typography>
-        </Grid>
-
-        <Grid item md={12}>
-          <HeaderH6
-            css={`
-              && {
-                margin-bottom: 24px;
-              }
-            `}
-          >
-            CSV Export
-          </HeaderH6>
-          <Typography variant="body2">
-            If you require CSV format from the API, simply use the format
-            &format=CSV in your call.
-          </Typography>
-        </Grid>
-
-        <Grid item md={12}>
-          <HeaderH6
-            css={`
-              && {
-                margin-bottom: 24px;
-              }
-            `}
-          >
-            XLS Export
-          </HeaderH6>
-          <Typography variant="body2">
-            If you require XLS format from the API, simply use the format
-            &format=XLS in your call.
-          </Typography>
-          <Box height="32px" width="100%" />
-          <Typography variant="body2">
-            Not all the API calls have multi format support.
-          </Typography>
-        </Grid>
-      </Grid> */}
     </>
   );
 };
