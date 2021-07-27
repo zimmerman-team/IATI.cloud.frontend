@@ -92,7 +92,7 @@ workflows:
       #     filters:
       #       branches:
       #         only:
-      #           - master
+      #           - main
       #     requires:
       #       - "checkout"
       #          requires:
@@ -128,5 +128,5 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
                 - develop
