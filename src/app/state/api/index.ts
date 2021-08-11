@@ -3,10 +3,7 @@
 import { Action, action, computed, Computed, Thunk, thunk } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
-export const baseURL =
-  'https://iati.cloud/search/activity?';
-// export const baseURL =
-//   'https://test-datastore.iatistandard.org/search/activity?';
+export const baseURL = 'https://datastore.iati.cloud/api/v2/activity?';
 
 export const tableRows = 2500;
 
@@ -18,9 +15,7 @@ const NODE_ENV = 'production';
 
 export const HOSTNAME =
   // @ts-ignore
-  NODE_ENV === 'development' ? '/' : 'https://iati.cloud/'; // 'https://iatidatastore.iatistandard.org/';
-
-// datastore.iati.cloud
+  NODE_ENV === 'development' ? '/' : 'https://datastore.iati.cloud/';
 
 /* note */
 export const ORGANISATION_TYPES =
