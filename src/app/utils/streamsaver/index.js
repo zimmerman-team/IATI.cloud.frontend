@@ -85,8 +85,8 @@ export function createWriteStream(filename, options, size) {
 
   const mitm =
     window.location.hostname === 'localhost'
-      ? 'http://direct-indexing.iati.cloud/streamsaver/mitm.html'
-      : `http://${window.location.hostname}/streamsaver/mitm.html`;
+      ? 'https://direct-indexing.iati.cloud/streamsaver/mitm.html'
+      : `https://${window.location.hostname}/streamsaver/mitm.html`;
 
   let supportsTransferable = false;
   let mitmTransporter = null;
