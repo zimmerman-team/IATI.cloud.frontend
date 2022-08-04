@@ -33,7 +33,7 @@ const customStyles = {
 };
 
 async function loadOptions(search, loadedOptions, { page }, pivot) {
-  const url = `https://direct-indexing.iati.cloud/api/v2/activity?q=${pivot}:*&facet=on&facet.pivot=${pivot}&rows=0&facet.limit=15&facet.offset=${page *
+  const url = `https://datastore.iati.cloud/api/v2/activity?q=${pivot}:*&facet=on&facet.pivot=${pivot}&rows=0&facet.limit=15&facet.offset=${page *
     10}&facet.contains=${search.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}&facet.contains.ignoreCase=true`;
   const response = await fetch(url);
   const responseJSON = await response.json();

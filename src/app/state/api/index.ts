@@ -3,7 +3,7 @@
 import { Action, action, computed, Computed, Thunk, thunk } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
-export const baseURL = 'https://direct-indexing.iati.cloud/api/v2/activity?';
+export const baseURL = 'https://datastore.iati.cloud/api/v2/activity?';
 
 export const tableRows = 2500;
 
@@ -15,7 +15,7 @@ const NODE_ENV = 'production';
 
 export const HOSTNAME =
   // @ts-ignore
-  NODE_ENV === 'development' ? '/' : 'https://direct-indexing.iati.cloud/';
+  NODE_ENV === 'development' ? '/' : 'https://datastore.iati.cloud/';
 
 /* note */
 export const ORGANISATION_TYPES =
