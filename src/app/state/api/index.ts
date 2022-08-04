@@ -84,13 +84,13 @@ export const TRANSACTION_PROVIDER_ORGS =
   // @ts-ignore
   NODE_ENV === 'development'
     ? 'data/activity_scope.json'
-    : 'search/activity/select?q=*:*&facet=on&facet.pivot=transaction_provider_org_narrative&rows=0&facet.limit=1000';
+    : 'api/v2/activity?q=*:*&facet=on&facet.pivot=transaction_provider_org_narrative&rows=0&facet.limit=1000';
 
 export const TRANSACTION_RECEIVER_ORGS =
   // @ts-ignore
   NODE_ENV === 'development'
     ? 'data/activity_scope.json'
-    : 'search/activity/select?q=*:*&facet=on&facet.pivot=transaction_receiver_org_narrative&rows=0&facet.limit=1000';
+    : 'api/v2/activity?q=*:*&facet=on&facet.pivot=transaction_receiver_org_narrative&rows=0&facet.limit=1000';
 
 export const ACTIVITY_SCOPE =
   // @ts-ignore
