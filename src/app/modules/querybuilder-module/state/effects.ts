@@ -8,7 +8,7 @@ import { constructSolrQuery } from './utils';
 import {
   ActivityStatusModel,
   CountryModel,
-  OrganisationModel,
+  SolrPivotModel,
   OrganisationTypeModel,
   ParticipatingOrgsModel,
   RegionModel,
@@ -57,8 +57,8 @@ export const withEffects: StoreEffect = (store) => {
 
     /* todo: too much repetition, refactor to be more efficient */
     const organisationTypes = store.get('organisationTypes')
-      ? store.get('organisationTypes').map((item: OrganisationTypeModel) => {
-          return item.code;
+      ? store.get('organisationTypes').map((item: SolrPivotModel) => {
+          return item.value.trim();
         })
       : null;
 
@@ -66,20 +66,18 @@ export const withEffects: StoreEffect = (store) => {
       store.get('sectors') || store.get('sectorCategories')
         ? (store.get('sectors') || [])
             .concat(store.get('sectorCategories') || [])
-            .map((item: SectorModel) => {
-              return item.code;
+            .map((item: SolrPivotModel) => {
+              return item.value.trim();
             })
         : null;
     const sectorVocabularies = store.get('sectorVocabularies')
-      ? (store.get('sectorVocabularies') || []).map(
-          (item: SectorVocabularyModel) => {
-            return item.code;
-          }
-        )
+      ? (store.get('sectorVocabularies') || []).map((item: SolrPivotModel) => {
+          return item.value.trim();
+        })
       : null;
     const organisations = store.get('organisations')
-      ? store.get('organisations').map((item: OrganisationModel) => {
-          return item.reporting_organisation_identifier;
+      ? store.get('organisations').map((item: SolrPivotModel) => {
+          return item.value.trim();
         })
       : null;
 
@@ -90,14 +88,14 @@ export const withEffects: StoreEffect = (store) => {
       : null;
 
     const countries = store.get('countries')
-      ? store.get('countries').map((item: CountryModel) => {
-          return item.recipient_country.code;
+      ? store.get('countries').map((item: SolrPivotModel) => {
+          return item.value.trim();
         })
       : null;
 
     const regions = store.get('regions')
-      ? store.get('regions').map((item: RegionModel) => {
-          return item.recipient_region.code;
+      ? store.get('regions').map((item: SolrPivotModel) => {
+          return item.value.trim();
         })
       : null;
 
