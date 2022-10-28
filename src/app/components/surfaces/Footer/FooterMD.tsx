@@ -1,5 +1,5 @@
 import { Box, Container, Grid, Link, Typography } from '@material-ui/core';
-import { IATILogoWhite } from '../../svgs/IATILogo';
+import { IATICloudLogoWhite } from '../../svgs/IATILogo';
 import LogoZZ from '../../../assets/images/logo_zz.png';
 import { Mail, Twitter } from '@material-ui/icons';
 import React from 'react';
@@ -23,18 +23,22 @@ export const FooterMD = () => {
               rel="noopener noreferrer"
               aria-label="Link to the iati standard page"
             >
-              <IATILogoWhite />
+              <IATICloudLogoWhite />
             </a>
           </Grid>
 
           {/*Middle*/}
           <Grid container item direction="row" justify="space-between">
             {/*Left item*/}
-            <Grid item style={{alignSelf: "center"}} >
+            <Grid item style={{ alignSelf: 'center' }}>
               <Typography
                 variant="body1"
                 color="textSecondary"
-                style={{ marginRight: '16px', textAlign: 'center', marginBottom: '8px' }}
+                style={{
+                  marginRight: '16px',
+                  textAlign: 'center',
+                  marginBottom: '8px',
+                }}
               >
                 Copyright
               </Typography>
@@ -44,18 +48,19 @@ export const FooterMD = () => {
                 rel="noopener noreferrer"
                 aria-label="Link to the Zimmerman page"
               >
-                <img
-                  width="150px"
-                  height="auto"
-                  src={LogoZZ}
-                  alt="zz logo"
-                />
+                <img width="150px" height="auto" src={LogoZZ} alt="zz logo" />
               </a>
             </Grid>
 
             {/*Right Item*/}
-            <Grid container item direction="column" spacing={2} style={{ width: 'unset' }}>
-              <Grid item style={{ display: 'flex' }} >
+            <Grid
+              container
+              item
+              direction="column"
+              spacing={2}
+              style={{ width: 'unset' }}
+            >
+              <Grid item style={{ display: 'flex' }}>
                 <Mail style={{ marginRight: '16px', fill: 'white' }} />
                 <Typography variant="body1" color="textSecondary">
                   <Link
@@ -67,7 +72,7 @@ export const FooterMD = () => {
                   </Link>
                 </Typography>
               </Grid>
-              <Grid item style={{ display: 'flex' }} >
+              <Grid item style={{ display: 'flex' }}>
                 <Twitter style={{ marginRight: '16px', fill: 'white' }} />
                 <Typography variant="body1" color="textSecondary">
                   <Link
@@ -84,11 +89,7 @@ export const FooterMD = () => {
 
           {/*Bottom*/}
           <Grid item>
-            <Typography
-              variant="body1"
-              color="textSecondary"
-              align="center"
-            >
+            <Typography variant="body1" color="textSecondary" align="center">
               Code licensed under the{' '}
               <Link
                 href="https://github.com/zimmerman-zimmerman/iati.cloud.frontend/blob/develop/LICENSE.MD"
@@ -108,7 +109,6 @@ export const FooterMD = () => {
               .
             </Typography>
           </Grid>
-
         </Grid>
       </Container>
     </Box>
