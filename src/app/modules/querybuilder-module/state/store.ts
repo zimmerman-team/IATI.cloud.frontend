@@ -2,27 +2,22 @@
 import { createConnectedStore, Effects } from 'undux';
 import {
   ActivityStatusModel,
-  CountryModel,
-  OrganisationModel,
   OrganisationTypeModel,
   ParticipatingOrgsModel,
-  RegionModel,
-  SectorCategoryModel,
-  SectorModel,
-  SectorVocabularyModel,
+  SolrPivotModel,
   TransactionProviderOrgModel,
 } from 'app/state/models';
 import { fromLocalStorage } from './utils';
 import { withEffects } from './effects';
 
 export type ModuleStoreModel = {
-  organisationTypes: OrganisationTypeModel[];
-  organisations: OrganisationModel[];
-  sectors: SectorModel[];
-  sectorCategories: SectorCategoryModel[];
-  sectorVocabularies: SectorVocabularyModel[];
-  countries: CountryModel[];
-  regions: RegionModel[];
+  organisationTypes: SolrPivotModel[];
+  organisations: SolrPivotModel[];
+  sectors: SolrPivotModel[];
+  sectorCategories: SolrPivotModel[];
+  sectorVocabularies: SolrPivotModel[];
+  countries: SolrPivotModel[];
+  regions: SolrPivotModel[];
   secondaryReporter: OrganisationTypeModel[];
   additionalFilters?: any;
   activityStatus: ActivityStatusModel[];

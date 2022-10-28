@@ -13,6 +13,12 @@ import { ActivityStatusModel } from 'app/state/models/ActivityStatusModel';
 import { SecondaryReporterModel } from 'app/state/models/SecondaryReporterModel';
 import { TransactionProviderOrgModel } from 'app/state/models/TransactionProviderOrgModel';
 
+export interface SolrPivotModel {
+  field: string;
+  value: string;
+  count: string;
+}
+
 export {
   ApplicationStoreModel,
   CountryModel,

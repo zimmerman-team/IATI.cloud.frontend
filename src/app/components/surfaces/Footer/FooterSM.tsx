@@ -1,5 +1,5 @@
 import { Box, Grid, Link, Typography } from '@material-ui/core';
-import { IATILogoWhite } from '../../svgs/IATILogo';
+import { IATICloudLogoWhite } from '../../svgs/IATILogo';
 import { Mail, Twitter } from '@material-ui/icons';
 import LogoZZ from '../../../assets/images/logo_zz.png';
 import React from 'react';
@@ -15,20 +15,25 @@ export const FooterSM = () => {
     >
       <Grid container direction="column" justify="center">
         {/*LOGO*/}
-        <Grid item style={{alignSelf: "center", marginBottom: '32px'}}>
+        <Grid item style={{ alignSelf: 'center', marginBottom: '32px' }}>
           <a
             href="https://iatistandard.org/en/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Link to the iati standard page"
           >
-            <IATILogoWhite />
+            <IATICloudLogoWhite />
           </a>
         </Grid>
 
         {/*CONTACT */}
-        <Grid container item direction="column" style={{ alignContent: 'center', marginBottom: '42px' }}>
-          <Grid item style={{ display: 'flex' }} >
+        <Grid
+          container
+          item
+          direction="column"
+          style={{ alignContent: 'center', marginBottom: '42px' }}
+        >
+          <Grid item style={{ display: 'flex' }}>
             <Mail style={{ marginRight: '16px', fill: 'white' }} />
             <Typography variant="body1" color="textSecondary">
               <Link
@@ -40,7 +45,7 @@ export const FooterSM = () => {
               </Link>
             </Typography>
           </Grid>
-          <Grid item style={{ display: 'flex' }} >
+          <Grid item style={{ display: 'flex' }}>
             <Twitter style={{ marginRight: '16px', fill: 'white' }} />
             <Typography variant="body1" color="textSecondary">
               <Link
@@ -55,11 +60,11 @@ export const FooterSM = () => {
         </Grid>
 
         {/*ZZ LOGO*/}
-        <Grid item style={{alignSelf: "center", marginBottom: '80px'}} >
+        <Grid item style={{ alignSelf: 'center', marginBottom: '80px' }}>
           <Typography
             variant="body1"
             color="textSecondary"
-            style={{textAlign: 'center', marginBottom: '23px' }}
+            style={{ textAlign: 'center', marginBottom: '23px' }}
           >
             Copyright
           </Typography>
@@ -69,22 +74,13 @@ export const FooterSM = () => {
             rel="noopener noreferrer"
             aria-label="Link to the Zimmerman page"
           >
-            <img
-              width="150px"
-              height="auto"
-              src={LogoZZ}
-              alt="zz logo"
-            />
+            <img width="150px" height="auto" src={LogoZZ} alt="zz logo" />
           </a>
         </Grid>
 
         {/*LICENSE  */}
         <Grid item>
-          <Typography
-            variant="body1"
-            color="textSecondary"
-            align="center"
-          >
+          <Typography variant="body1" color="textSecondary" align="center">
             Code licensed under the{' '}
             <Link
               href="https://github.com/zimmerman-zimmerman/iati.cloud.frontend/blob/develop/LICENSE.MD"
@@ -94,11 +90,7 @@ export const FooterSM = () => {
               GNU AGPL.
             </Link>
           </Typography>
-          <Typography
-            variant="body1"
-            color="textSecondary"
-            align="center"
-          >
+          <Typography variant="body1" color="textSecondary" align="center">
             Documentation licensed under{' '}
             <Link
               href="https://creativecommons.org/licenses/by/4.0/"

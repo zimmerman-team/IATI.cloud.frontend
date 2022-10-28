@@ -1,5 +1,5 @@
 import { Box, Container, Grid, Link, Typography } from '@material-ui/core';
-import { IATILogoWhite } from '../../svgs/IATILogo';
+import { IATICloudLogoWhite } from '../../svgs/IATILogo';
 import { Mail, Twitter } from '@material-ui/icons';
 import LogoZZ from '../../../assets/images/logo_zz.png';
 import React from 'react';
@@ -38,7 +38,7 @@ export const FooterLG = () => {
               rel="noopener noreferrer"
               aria-label="Link to the iati standard page"
             >
-              <IATILogoWhite />
+              <IATICloudLogoWhite />
             </a>
           </Grid>
           {/* MIDDLE ITEM */}
