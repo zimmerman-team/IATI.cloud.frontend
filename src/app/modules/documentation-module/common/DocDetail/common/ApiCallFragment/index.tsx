@@ -28,7 +28,8 @@ export const ApiCallFragment = (data) => {
   const clipboard = useClipboard({ copiedTimeout: 600 });
   const parsed = data.data;
   const { request } = parsed;
-  const targetURL = 'https://iati.cloud'
+  const apiEnvVars = "{{IATI.cloud Base URL}}{{Solr API endpoint}}"
+  const apiURL = "https://datastore.iati.cloud/api/v2/"
 
   const showRequest = useStoreActions((actions) => actions.request.showRequest);
 
@@ -42,7 +43,7 @@ export const ApiCallFragment = (data) => {
   );
 
   const handleClick = React.useCallback(() => {
-    const url = request.url.raw.replace('{{url}}', targetURL);
+    const url = request.url.raw.replace(apiEnvVars, apiURL);
     clipboard.copy(url); // programmatically copying a value
   }, [clipboard.copy]);
 
@@ -70,7 +71,9 @@ export const ApiCallFragment = (data) => {
           <>
             <Grid item md={12}>
               <CallContainer onClick={handleClick}>
-                <Code>{request.url.raw.replace('{{url}}', targetURL)}</Code>
+                <Code>
+                  {request.url.raw.replace(apiEnvVars, apiURL)}
+                </Code>
               </CallContainer>
             </Grid>
             <Grid item md={12} />

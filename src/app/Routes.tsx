@@ -16,58 +16,12 @@ const DocumentationModule = lazy(
 );
 
 export function MainRoutes() {
-  /* todo: refactor, doesn't quite feel right to do initiate the fetches like this */
-  const fetchOrganisationTypes = useStoreActions(
-      (actions) => actions.organisationTypes.fetch
-    ),
-    fetchOrganisations = useStoreActions(
-      (actions) => actions.organisations.fetch
-    ),
-    fetchSectorCategories = useStoreActions(
-      (actions) => actions.sectorCategories.fetch
-    ),
-    fetchSectorVocabularies = useStoreActions(
-      (actions) => actions.sectorVocabularies.fetch
-    ),
-    fetchRegions = useStoreActions((actions) => actions.regions.fetch),
-    fetchSectors = useStoreActions((actions) => actions.sectors.fetch),
-    fetchCountries = useStoreActions((actions) => actions.countries.fetch),
-    fetchActivityStatus = useStoreActions(
-      (actions) => actions.activityStatus.fetch
-    ),
-    fetchActivityScope = useStoreActions(
-      (actions) => actions.activityScope.fetch
-    ),
-    fetchAidType = useStoreActions((actions) => actions.aidType.fetch),
-    fetchAidTypeCategory = useStoreActions(
-      (actions) => actions.aidTypeCategory.fetch
-    ),
-    fetchAidTypeVocabulary = useStoreActions(
-      (actions) => actions.aidTypeVocabulary.fetch
-    ),
-    fetchDefaultCurrency = useStoreActions(
-      (actions) => actions.defaultCurrency.fetch
-    ),
-    fetchCollaborationType = useStoreActions(
-      (actions) => actions.collaborationType.fetch
-    ),
-    fetchSecondaryReporter = useStoreActions(
-      (actions) => actions.secondaryReporter.fetch
-    );
+  const fetchSecondaryReporter = useStoreActions(
+    (actions) => actions.secondaryReporter.fetch
+  );
 
   useEffectOnce(() => {
-    //console.log('Running effect once on mount');
-    fetchOrganisationTypes();
-    fetchOrganisations();
-    fetchSectorCategories();
-    fetchSectorVocabularies();
-    fetchRegions();
-    fetchSectors();
-    fetchCountries();
     fetchSecondaryReporter();
-    return () => {
-      //console.log('Running clean-up of effect on unmount');
-    };
   });
 
   return (
