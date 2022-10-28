@@ -7301,7 +7301,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select?q=recipient_country_code:AF',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=recipient_country_code:AF',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select'],
@@ -7325,7 +7325,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select?q=*:*',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=*:*',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select'],
@@ -7362,7 +7362,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select?q=*:*&facet=on&facet.field=recipient_country_code',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=*:*&facet=on&facet.field=recipient_country_code',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select'],
@@ -7398,7 +7398,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select/?q=*:*&group=true&fl=reporting_org_ref,iati_version&group.field=reporting_org_ref',
+                      'https://datastore.iati.cloud/api/v2/activity//?q=*:*&group=true&fl=reporting_org_ref,iati_version&group.field=reporting_org_ref',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select', ''],
@@ -7430,7 +7430,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select/?q=*:*&facet.pivot=reporting_org_ref,iati_version&facet=on',
+                      'https://datastore.iati.cloud/api/v2/activity//?q=*:*&facet.pivot=reporting_org_ref,iati_version&facet=on',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select', ''],
@@ -7473,7 +7473,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select?q=*:*&facet=on&facet.field=recipient_country_code&fl=facet_counts',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=*:*&facet=on&facet.field=recipient_country_code&fl=facet_counts',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select'],
@@ -7498,7 +7498,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select?q=recipient_country_code:KE',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=recipient_country_code:KE',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select'],
@@ -7522,7 +7522,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select?q=reporting_org_ref:XM-DAC-47066',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=reporting_org_ref:XM-DAC-47066',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select'],
@@ -7546,7 +7546,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select?q=iati_version:2.03',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=iati_version:2.03',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select'],
@@ -7570,7 +7570,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select?q=iati_version:2.02',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=iati_version:2.02',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select'],
@@ -7594,7 +7594,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select?q=iati_version:2.01',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=iati_version:2.01',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select'],
@@ -7618,7 +7618,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select?q=transaction_humanitarian:1',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=transaction_humanitarian:1',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select'],
@@ -7642,7 +7642,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select?q=contact_info_email:mosul@almortaqa.org',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=contact_info_email:mosul@almortaqa.org',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select'],
@@ -7666,7 +7666,7 @@ export const docData = {
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search/activity/select?q=budget_value:{1000000 TO *}',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=budget_value:{1000000 TO *}',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', 'activity', 'select'],
@@ -7689,16 +7689,12 @@ export const docData = {
                         value: 'iati_identifier:GB-COH-04105827-AIDDIRECT',
                       },
                       {
-                        key: 'fl',
-                        value: 'id,transaction:[json]',
-                      },
-                      {
                         key: 'wt',
                         value: 'json',
                       },
                     ],
                     raw:
-                      'https://api.datastore.iati.cloud/search//activity/select?q=iati_identifier:GB-COH-04105827-AIDDIRECT&fl=id,transaction:[json]&wt=json',
+                      'https://datastore.iati.cloud/api/v2/activity/?q=iati_identifier:GB-COH-04105827-AIDDIRECT&wt=json',
                     protocol: 'https',
                     host: ['api', 'datastore', 'iati', 'cloud'],
                     path: ['search', '', 'activity', 'select'],
@@ -7749,7 +7745,7 @@ export const docData = {
                           },
                         ],
                         raw:
-                          'https://api.datastore.iati.cloud/search/transaction/query',
+                          'https://datastore.iati.cloud/api/v2/transaction/query',
                         protocol: 'https',
                         host: ['api', 'datastore', 'iati', 'cloud'],
                         path: ['search', 'transaction', 'query'],
@@ -7788,7 +7784,7 @@ export const docData = {
                           },
                         ],
                         raw:
-                          'https://api.datastore.iati.cloud/search/transaction/query',
+                          'https://datastore.iati.cloud/api/v2/transaction/query',
                         protocol: 'https',
                         host: ['api', 'datastore', 'iati', 'cloud'],
                         path: ['search', 'transaction', 'query'],
@@ -7827,7 +7823,7 @@ export const docData = {
                           },
                         ],
                         raw:
-                          'https://api.datastore.iati.cloud/search/transaction/query',
+                          'https://datastore.iati.cloud/api/v2/transaction/query',
                         protocol: 'https',
                         host: ['api', 'datastore', 'iati', 'cloud'],
                         path: ['search', 'transaction', 'query'],
@@ -7864,7 +7860,7 @@ export const docData = {
                           },
                         ],
                         raw:
-                          'https://api.datastore.iati.cloud/search/transaction/query',
+                          'https://datastore.iati.cloud/api/v2/transaction/query',
                         protocol: 'https',
                         host: ['api', 'datastore', 'iati', 'cloud'],
                         path: ['search', 'transaction', 'query'],
@@ -7912,7 +7908,7 @@ export const docData = {
                       header: [],
                       url: {
                         raw:
-                          'https://api.datastore.iati.cloud/search/transaction/query',
+                          'https://datastore.iati.cloud/api/v2/transaction/query',
                         protocol: 'https',
                         host: ['api', 'datastore', 'iati', 'cloud'],
                         path: ['search', 'transaction', 'query'],
@@ -7953,7 +7949,7 @@ export const docData = {
                       header: [],
                       url: {
                         raw:
-                          'https://api.datastore.iati.cloud/search/transaction/query',
+                          'https://datastore.iati.cloud/api/v2/transaction/query',
                         protocol: 'https',
                         host: ['api', 'datastore', 'iati', 'cloud'],
                         path: ['search', 'transaction', 'query'],
@@ -7987,7 +7983,7 @@ export const docData = {
                       header: [],
                       url: {
                         raw:
-                          'https://api.datastore.iati.cloud/search/transaction/query',
+                          'https://datastore.iati.cloud/api/v2/transaction/query',
                         protocol: 'https',
                         host: ['api', 'datastore', 'iati', 'cloud'],
                         path: ['search', 'transaction', 'query'],

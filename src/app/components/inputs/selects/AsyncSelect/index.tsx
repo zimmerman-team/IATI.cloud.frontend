@@ -29,18 +29,30 @@ const customStyles = {
   multiValueLabel: MultiValueLabel,
   multiValueRemove: (provided: any) => ({ ...provided }),
   menu: Menu,
-  placeholder: styles => ({...styles, color: 'black', opacity: '1'}),
+  placeholder: (styles) => ({ ...styles, color: 'black', opacity: '1' }),
 };
 
-async function loadOptions(search, loadedOptions, { page }, pivot) {
-  const url = `https://iati.cloud/search/activity?q=${pivot}:*&facet=on&facet.pivot=${pivot}&rows=0&facet.limit=15&facet.offset=${page *
-    10}&facet.contains=${search.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')}&facet.contains.ignoreCase=true`;
+async function loadOptions(search, loadedOptions, { page }, pivot, subPivot) {
+  const url = `https://datastore.iati.cloud/api/v2/activity?q=${pivot}:*&facet=on&facet.pivot=${pivot}${
+    subPivot ? `,${subPivot}` : ''
+  }&rows=0&facet.limit=15&facet.offset=${
+    page * 10
+  }&facet.contains=${search.replace(
+    /[&\/\\#,+()$~%.'":*?<>{}]/g,
+    ''
+  )}&facet.contains.ignoreCase=true`;
   const response = await fetch(url);
   const responseJSON = await response.json();
 
   return {
-    options: responseJSON.facet_counts.facet_pivot[pivot],
-    hasMore: responseJSON.facet_counts.facet_pivot[pivot].length > 0,
+    options:
+      responseJSON.facet_counts.facet_pivot[
+        `${pivot}${subPivot ? `,${subPivot}` : ''}`
+      ],
+    hasMore:
+      responseJSON.facet_counts.facet_pivot[
+        `${pivot}${subPivot ? `,${subPivot}` : ''}`
+      ].length > 0,
     additional: {
       page: page + 1,
     },
@@ -64,13 +76,23 @@ export const AsyncSelect = (props: any) => {
         }}
         styles={customStyles}
         isMulti
-        loadOptions={(search, loadedOptions, { page }) =>loadOptions(search, loadedOptions, { page  }, props.pivot)}
+        loadOptions={(search, loadedOptions, { page }) =>
+          loadOptions(
+            search,
+            loadedOptions,
+            { page },
+            props.pivot,
+            props.subPivot
+          )
+        }
         additional={{
           page: 0,
         }}
       />
       <HelperBlock>
-        {props.helperText && <FieldInputLabel for="" label={props.helperText} />}
+        {props.helperText && (
+          <FieldInputLabel for="" label={props.helperText} />
+        )}
         {props.helperTextLink && props.helperTextUrl && (
           <a
             target="_blank"
