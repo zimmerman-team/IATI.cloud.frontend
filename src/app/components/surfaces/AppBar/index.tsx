@@ -3,7 +3,7 @@ import BaseAppBar from '@material-ui/core/AppBar';
 import styled, { css } from 'styled-components/macro';
 import { AppBarButton } from 'app/components/inputs/buttons/AppBarButton';
 import Grid from '@material-ui/core/Grid';
-import { IATILogoColor } from 'app/components/svgs/IATILogo';
+import { IATICloudLogoColor } from 'app/components/svgs/IATILogo';
 import { Link } from 'react-router-dom';
 import { Hidden } from '@material-ui/core';
 import { DrawerMenu } from 'app/components/navigation/Drawer';
@@ -147,7 +147,7 @@ export const AppBar = (props: AppBarProps) => {
         <Grid container justify="space-between" alignItems="center">
           <Grid item xs={8} md={5} lg={5}>
             <Link to="/" aria-label="Link to Home page">
-              <IATILogoColor
+              <IATICloudLogoColor
                 css={`
                   transition: transform 100ms ease-out;
                   transform: ${props.shrink
