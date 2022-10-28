@@ -3,10 +3,7 @@
 import { Action, action, computed, Computed, Thunk, thunk } from 'easy-peasy';
 import { Endpoint } from 'app/state/interfaces/Endpoint';
 
-export const baseURL =
-  'https://iati.cloud/search/activity?';
-// export const baseURL =
-//   'https://test-datastore.iatistandard.org/search/activity?';
+export const baseURL = 'https://datastore.iati.cloud/api/v2/activity?';
 
 export const tableRows = 2500;
 
@@ -18,9 +15,7 @@ const NODE_ENV = 'production';
 
 export const HOSTNAME =
   // @ts-ignore
-  NODE_ENV === 'development' ? '/' : 'https://iati.cloud/'; // 'https://iatidatastore.iatistandard.org/';
-
-// datastore.iati.cloud
+  NODE_ENV === 'development' ? '/' : 'https://datastore.iati.cloud/';
 
 /* note */
 export const ORGANISATION_TYPES =
@@ -89,13 +84,13 @@ export const TRANSACTION_PROVIDER_ORGS =
   // @ts-ignore
   NODE_ENV === 'development'
     ? 'data/activity_scope.json'
-    : 'search/activity/select?q=*:*&facet=on&facet.pivot=transaction_provider_org_narrative&rows=0&facet.limit=1000';
+    : 'api/v2/activity?q=*:*&facet=on&facet.pivot=transaction_provider_org_narrative&rows=0&facet.limit=1000';
 
 export const TRANSACTION_RECEIVER_ORGS =
   // @ts-ignore
   NODE_ENV === 'development'
     ? 'data/activity_scope.json'
-    : 'search/activity/select?q=*:*&facet=on&facet.pivot=transaction_receiver_org_narrative&rows=0&facet.limit=1000';
+    : 'api/v2/activity?q=*:*&facet=on&facet.pivot=transaction_receiver_org_narrative&rows=0&facet.limit=1000';
 
 export const ACTIVITY_SCOPE =
   // @ts-ignore
