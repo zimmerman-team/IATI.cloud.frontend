@@ -11,7 +11,7 @@ type ModuleModel = {
 };
 
 const Link = styled.a`
-  color: #03DBE4;
+  color: #03dbe4;
 `;
 
 export const ModuleHeader = (props: ModuleModel) => {

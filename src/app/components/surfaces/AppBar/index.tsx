@@ -179,6 +179,11 @@ export const AppBar = (props: AppBarProps) => {
               <AppBarButton shrink={props.shrink} label="ABOUT" url="/about" />
               <AppBarButton
                 shrink={props.shrink}
+                label="CONTACT"
+                url="/contact"
+              />
+              <AppBarButton
+                shrink={props.shrink}
                 label="QUERY BUILDER"
                 url="/querybuilder/core-filters"
               />

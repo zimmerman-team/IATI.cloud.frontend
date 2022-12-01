@@ -10,6 +10,7 @@ import { PageNotFound } from 'app/modules/notfound-module';
 import AboutModule from 'app/modules/about-module';
 import LandingModule from 'app/modules/landing-module';
 import QueryBuilderModule from 'app/modules/querybuilder-module';
+import ContactModule from 'app/modules/contact-module';
 
 const DocumentationModule = lazy(
   () => import('app/modules/documentation-module')
@@ -41,6 +42,9 @@ export function MainRoutes() {
         </Route>
         <Route exact path="/about">
           <AboutModule />
+        </Route>
+        <Route exact path="/contact">
+          <ContactModule />
         </Route>
         <Route path="*">
           <PageNotFound />
