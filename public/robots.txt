@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Disallow: /src/
+Sitemap: https://datastore.iati.cloud/sitemap.xml
