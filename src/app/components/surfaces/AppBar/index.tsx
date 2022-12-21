@@ -187,11 +187,11 @@ export const AppBar = (props: AppBarProps) => {
                 label="QUERY BUILDER"
                 url="/querybuilder/core-filters"
               />
-              <AppBarButton
+              {/* <AppBarButton
                 shrink={props.shrink}
                 label="API DOCUMENTATION"
                 url="/documentation"
-              />
+              /> */}
             </Grid>
           </Hidden>
         </Grid>

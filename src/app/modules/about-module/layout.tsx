@@ -32,10 +32,11 @@ export const AboutLayout = () => {
                 IATI.cloud offers a robust online data service, providing timely
                 and standardised access to data published according to the IATI
                 Standard. Data users can gain data on development and
-                humanitarian resources and results through using the{' '}
-                <Link href="https://iati.cloud/documentation" target="_blank">
+                humanitarian resources and results through using the IATI.cloud
+                API
+                {/* <Link href="https://iati.cloud/documentation" target="_blank">
                   IATI.cloud API
-                </Link>
+                </Link> */}
                 . Users will also be able to download data from a new
                 user-friendly IATI.cloud Query Builder.
               </Typography>
@@ -48,10 +49,10 @@ export const AboutLayout = () => {
             </Typography>
             <ParagraphContainer data-cy="p1">
               <Typography variant="body1">
-                The new{' '}
-                <Link href="https://iati.cloud/documentation" target="_blank">
+                The new IATI.cloud API
+                {/* <Link href="https://iati.cloud/documentation" target="_blank">
                   IATI.cloud API
-                </Link>{' '}
+                </Link>{' '} */}
                 provides data published by organisations who have used version 2
                 of the IATI Standard. This is following the decision to
                 deprecate{' '}
@@ -97,7 +98,7 @@ export const AboutLayout = () => {
             </ParagraphContainer>
           </Grid>
           {/* Using the IATI.cloud API */}
-          <Grid item lg={12}>
+          {/* <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>
               Using the IATI.cloud API
             </Typography>
@@ -119,7 +120,7 @@ export const AboutLayout = () => {
                 .
               </Typography>
             </ParagraphContainer>
-          </Grid>
+          </Grid> */}
           {/* Using the Query Builder */}
           <Grid item lg={12}>
             <Typography variant="h6" style={{ paddingBottom: '16px' }}>

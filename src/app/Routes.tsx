@@ -1,6 +1,6 @@
 //cc:application base#;application routes
 
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { PageLoader } from 'app/modules/common/PageLoader';
 import { useStoreActions } from 'app/state/store';
@@ -12,9 +12,9 @@ import LandingModule from 'app/modules/landing-module';
 import QueryBuilderModule from 'app/modules/querybuilder-module';
 import ContactModule from 'app/modules/contact-module';
 
-const DocumentationModule = lazy(
-  () => import('app/modules/documentation-module')
-);
+// const DocumentationModule = React.lazy(
+//   () => import('app/modules/documentation-module')
+// );
 
 export function MainRoutes() {
   const fetchSecondaryReporter = useStoreActions(
@@ -37,9 +37,9 @@ export function MainRoutes() {
         <Route exact path="/home">
           <LandingModule />
         </Route>
-        <Route path="/documentation">
+        {/* <Route path="/documentation">
           <DocumentationModule />
-        </Route>
+        </Route> */}
         <Route exact path="/about">
           <AboutModule />
         </Route>

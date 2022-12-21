@@ -31,11 +31,15 @@ export const LandingMidSection = () => {
           <Grid item sm={12} md={6} lg={4}>
             <ArticleCard
               loaded
-              title="API Documentation"
-              description="For guidance on how to form API queries and the available API endpoints and filters please see the IATI.cloud technical documentation."
+              title="Contact"
+              description="Contact our team to learn more about the potential of IATI Datastore for your organisation"
+              path="/contact"
               buttonLabel="More"
-              path="/documentation"
-              target="_blank"
+              // title="API Documentation"
+              // description="For guidance on how to form API queries and the available API endpoints and filters please see the IATI.cloud technical documentation."
+              // path="/documentation"
+              // target="_blank"
+              target="_self"
             />
           </Grid>
         </Grid>
